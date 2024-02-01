@@ -3,6 +3,7 @@
 # BYU **Software Delivery Management** `cs329`
 
 ![cover](softwaredeliverymanagementcover.jpg?raw=true)
+_Image Source: [Fauxels](https://www.pexels.com/photo/people-working-in-front-of-the-computer-3184357)_
 
 ## Welcome
 
@@ -12,7 +13,8 @@ The content for this course is represented by the following parts.
 
 - [Schedule](schedule/schedule.md)
 - [Instruction](instruction/modules.md#readme)
-- Assignments, quizzes, and tests submitted through Canvas
+- Pizza Factory
+- Assignments and tests submitted through [Canvas](byu.instructure.com)
 
 ## Outcomes
 
@@ -50,5 +52,3 @@ The course covers a full spectrum of software delivery management technologies.
   - Alerts, response teams, pager duty, resolution documentation, triages
   - Backup/restore (AWS Aurora)
   - Recovery time objective (RTO), Recovery point objective (RPO), playbooks
-
-_Image Source: [Fauxels](https://www.pexels.com/photo/people-working-in-front-of-the-computer-3184357)_
