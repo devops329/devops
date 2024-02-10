@@ -72,3 +72,9 @@ Pull this into the content after merge.
 - I can also delete the student submitted branch so that we keep things clean.
 - As an admin I can also create a branch and pull request. The student can then review it and merge it in.
 - Love this. It should definitely be an assignment so that they learn how to work as a team. We can have them talk to someone in class has have them act as the reviewer. Or have a TA act as a reviewer. However, that would require that they get invited to their repo. Maybe at the beginning of class we should have a partner. If that partner fails we can replace them with a TA.
+
+## Pull requests template
+
+.github/pull_request_template.md
+
+This shows up in the body of a pull request. Kinda of cool, I guess.
