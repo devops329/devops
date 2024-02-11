@@ -30,6 +30,7 @@ Pull this into the content after merge.
 - Created actions-demo repo
 - Edit repo settings. Removed wiki, project, issues,
 - Added Branches/Branch protection. Set on main, require pull requests with one approver, don't allow bypass
+- I enabled auto delete and suggest merge on pull requests
 - Created a TA team
 - Added actions-demo repo to TA team so they can maintain it
 - cloned the repo locally, added vanilla vite app, and pushed
@@ -73,8 +74,94 @@ Pull this into the content after merge.
 - As an admin I can also create a branch and pull request. The student can then review it and merge it in.
 - Love this. It should definitely be an assignment so that they learn how to work as a team. We can have them talk to someone in class has have them act as the reviewer. Or have a TA act as a reviewer. However, that would require that they get invited to their repo. Maybe at the beginning of class we should have a partner. If that partner fails we can replace them with a TA.
 
+## GitHub Environments
+
+You can define environments and have secrets for them that an actions workflow can use. They can be restricted to a specific branch.
+
+For example I might have different AWS keys for prod and stage, and I also might have different branches for deploying to those environments.
+
+## Jest
+
+I got jest working to run tests on actions-demo
+
+## Adding Lint
+
+with the simple actions-demo repo I added linting to the server.
+
+```sh
+npx eslint --init
+```
+
+I had to edit the .eslintrc.js so that it knows how to handle `jest`, but with this in place I can now update the action workflow to do linting.
+
+```js
+module.exports = {
+  env: {
+    browser: true,
+    commonjs: true,
+    es2021: true,
+    jest: true,
+  },
+  extends: "eslint:recommended",
+  overrides: [
+    {
+      env: {
+        node: true,
+      },
+      files: [".eslintrc.{js,cjs}"],
+      parserOptions: {
+        sourceType: "script",
+      },
+    },
+  ],
+  parserOptions: {
+    ecmaVersion: "latest",
+  },
+  rules: {},
+};
+```
+
+## Creating versions based on tags?
+
+[Managing Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
+
+Releases are based on tags.
+
+### Tagging suggestions
+
+It’s common practice to prefix your version names with the letter v. Some good tag names might be v1.0.0 or v2.3.4. If the tag isn’t meant for production use, add a pre-release version after the version name. Some good pre-release versions might be v0.2.0-alpha or v5.9-beta.3.
+
+## Deploying versions when created
+
+we can do this to github pages
+
+## Deploying to AWS
+
+[Open ID Connect to AWS](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)
+
+This looks perfect. I need to write a workflow that pushes the client to S3.
+
+### Deploying to S3 and CloudFront
+
+### Deploying to Fargate
+
+Maybe this will require Gateway API?
+
+### Connecting to auth service? Cognito?
+
+## Docker
+
+How docker works
+[building your server image](https://github.com/marketplace/actions/build-and-push-docker-images)
+deploying to Fargate
+
 ## Pull requests template
 
 .github/pull_request_template.md
 
 This shows up in the body of a pull request. Kinda of cool, I guess.
+
+## GitHub Projects and Issues
+
+This is awesome. I have to figure out how to use this for the class
+You create projects that are linked to a repo. You then create issues and you can do full project management with them. Including estimation, sizing, and scheduling. They can be assigned to people and include full markdown descriptions.
