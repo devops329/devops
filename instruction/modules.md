@@ -7,7 +7,8 @@
 - GitHub: Repos, forks, pull requests
 - Git: Branching, tags, issues
 - Development environment
-- Static deployment (GitHub Pages)
+- Static deployment
+- [GitHub Pages](gitHubPages/gitHubPages.md)
 
 ## Testing
 
@@ -15,11 +16,13 @@
 - Coverage and analysis
 - Mocking
 - Dependency injection
-- UI testing (Playwright)
+- [UI testing (Playwright)](uiTesting/uiTesting.md)
 - E2E testing
 
 ## Deployment
 
+- [Continuous Delivery & Deployment](continuousDeliveryDeployment/continuousDeliveryDeployment.md)
+- [GitHub Actions](gitHubActions/gitHubActions.md)
 - Cloud deployment (CloudFront, S3)
 - Production environment
 - Serverless (API Gateway, Lambda)
