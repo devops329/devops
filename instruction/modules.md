@@ -4,37 +4,53 @@
 
 - [Introduction](introduction/introduction.md)
 - AWS Account
-- GitHub: Repos, forks, pull requests
-- Git: Branching, tags, issues
+- GitHub Repos
+- [GitHub forks](gitHubForks/gitHubForks.md)
+- [GitHub pull requests](gitHubPullRequests/gitHubPullRequests.md)
+- Git Branching, tags
 - Development environment
 - Static deployment
 - [GitHub Pages](gitHubPages/gitHubPages.md)
 
 ## Testing
 
-- Unit testing (Jest)
-- Coverage and analysis
+- Unit testing
+- [Jest](jest/jest.md)
+- [Coverage](coverage/coverage.md)
+- [Lint](lint/lint.md)
 - Mocking
 - Dependency injection
-- [UI testing (Playwright)](uiTesting/uiTesting.md)
+- [UI testing](uiTesting/uiTesting.md)
+- [Playwright](playwright/playwright.md)
 - E2E testing
 
 ## Deployment
 
 - [Continuous Delivery & Deployment](continuousDeliveryDeployment/continuousDeliveryDeployment.md)
 - [GitHub Actions](gitHubActions/gitHubActions.md)
-- Cloud deployment (CloudFront, S3)
-- Production environment
-- Serverless (API Gateway, Lambda)
-- Elasticity: Containers (Fargate)
-- Elasticity: DB (Aurora)
-- Load test (K6)
+- [GitHub Environments](gitHubEnvironments/gitHubEnvironments.md)
 - Deployment strategies
 - Blue/Green
+- Cloud deployment
+- AWS S3
+- [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
+- Production environment
+- Serverless
+- API Gateway
+- Lambda
+- Elasticity: Containers
+- Fargate
+- Elasticity: DB
+- Aurora
+- Load testing
+- K6
 
 ## Management
 
-- Versioning
+- Project Management
+- [GitHub Projects](gitHubProjects/gitHubProjects.md)
+- [Versioning](versioning/versioning.md)
+- [GitHub Versions](gitHubVersions/gitHubVersions.md)
 - Backup/Restore (Aurora)
 - Logging (ElasticSearch)
 - Metrics (ElasticSearch)
