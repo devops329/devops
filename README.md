@@ -1,4 +1,4 @@
-![BYU logo](byuLogo.png?raw=true)
+![BYU logo](https://github.com/softwaredeliverymanagement329/softwaredeliverymanagement/blob/main/byuLogo.png?raw=true)
 
 # BYU **Software Delivery Management** `cs329`
 
@@ -11,10 +11,10 @@ Software Delivery Management provides you with the experience and skills necessa
 
 The content for this course is represented by the following parts.
 
-- [Schedule](schedule/schedule.md)
-- [Instruction](instruction/modules.md#readme)
+- [Schedule](https://github.com/softwaredeliverymanagement329/softwaredeliverymanagement/blob/main/schedule/schedule.md)
+- [Instruction](https://github.com/softwaredeliverymanagement329/softwaredeliverymanagement/blob/main/instruction/modules.md#readme)
 - Pizza Factory
-- Assignments and tests submitted through [Canvas](byu.instructure.com)
+- Assignments and tests submitted through [Canvas](https://byu.instructure.com)
 
 ## Outcomes
 
