@@ -44,6 +44,7 @@
 - Aurora
 - Load testing
 - K6
+- [Security](security/security.md)
 
 ## Management
 
