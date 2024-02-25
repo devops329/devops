@@ -70,3 +70,5 @@ test('update a store', async () => {
     .expect(/{"date":".*","name":"orem","manager":"joe"}/);
 });
 ```
+
+I install the vs code extension for jest and now I can just push a button. to run the tests and debug. Much easier than setting up a run config!

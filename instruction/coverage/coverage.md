@@ -16,3 +16,21 @@ Or in the package.json
     "lint": "eslint ."
   },
 ```
+
+I got the coverage to fail by modifying the jest config.
+
+```js
+/** @type {import('jest').Config} */
+const config = {
+  coverageThreshold: {
+    global: {
+      branches: 100,
+      functions: 100,
+      lines: 100,
+      statements: 100,
+    },
+  },
+};
+
+module.exports = config;
+```
