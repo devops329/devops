@@ -14,10 +14,11 @@
 
 ## Testing
 
-- Unit testing
+- [Unit testing (Jest/SuperTest)](unitTesting/unitTesting.md)
 - [Jest](jest/jest.md)
 - [Coverage](coverage/coverage.md)
 - [Lint](lint/lint.md)
+- Coverage and analysis
 - Mocking
 - Dependency injection
 - [UI testing](uiTesting/uiTesting.md)
