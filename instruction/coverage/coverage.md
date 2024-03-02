@@ -20,7 +20,7 @@ Or in the package.json
   },
 ```
 
-The `json-summary` produces a single report that can be used for building the coverage badge. Without that it builds an HTML file that demostrates the coverage.
+The `json-summary` produces a single report that can be used for building the coverage badge. Without that it builds an HTML file that demonstrates the coverage.
 
 I got the coverage to fail by modifying the jest config.
 
