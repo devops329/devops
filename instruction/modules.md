@@ -11,6 +11,7 @@
 - Development environment
 - Static deployment
 - [GitHub Pages](gitHubPages/gitHubPages.md)
+- [GitHub Projects](gitHubProjects/gitHubProjects.md)
 
 ## Testing
 
@@ -50,7 +51,6 @@
 ## Management
 
 - Project Management
-- [GitHub Projects](gitHubProjects/gitHubProjects.md)
 - [Versioning](versioning/versioning.md)
 - [GitHub Versions](gitHubVersions/gitHubVersions.md)
 - Backup/Restore (Aurora)
