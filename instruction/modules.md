@@ -37,7 +37,7 @@
 - AWS S3
 - [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
 - Production environment
-- Serverless
+- [Serverless](serverless/serverless.md)
 - API Gateway
 - Lambda
 - Elasticity: Containers
