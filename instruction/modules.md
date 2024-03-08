@@ -33,13 +33,13 @@
 - [GitHub Environments](gitHubEnvironments/gitHubEnvironments.md)
 - Deployment strategies
 - Blue/Green
-- Cloud deployment
+- [Cloud deployment](cloudDeployment/cloudDeployment.md)
 - AWS S3
 - [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
 - Production environment
 - [Serverless](serverless/serverless.md)
 - API Gateway
-- Lambda
+- [Lambda](lambda/lambda.md)
 - Elasticity: Containers
 - Fargate
 - Elasticity: DB
