@@ -2,6 +2,8 @@
 
 ## Deploying to AWS
 
+[Instructions for the AWS GitHub Credential Action](https://github.com/aws-actions/configure-aws-credentials)
+
 [This one covers it all](https://aws.amazon.com/blogs/security/use-iam-roles-to-connect-github-actions-to-actions-in-aws/)
 
 [Configure OpenID connect in AWS](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)

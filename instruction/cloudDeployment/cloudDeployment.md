@@ -21,7 +21,7 @@ https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/getting-started-cloudf
 1. Followed the other instructions to create the distribution.
 1. Created an A record to a cloudfront distribution alias (dwiboy6bfbta4.cloudfront.net).
 
-There is an option for creating a staging distribution for Continuous deployment. That looks interesting.
+There is an option for creating a staging distribution for [Continuous deployment](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/continuous-deployment.html?icmpid=docs_cf_help_panel#continuous-deployment-general). That looks interesting.
 
 Worked beautifully.
 
