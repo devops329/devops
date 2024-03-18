@@ -42,7 +42,7 @@
 - API Gateway
 - [Lambda](lambda/lambda.md)
 - [Elasticity: Containers](containers/containers.md)
-- Fargate
+- [Fargate](fargate/fargate.md)
 - Elasticity: DB
 - Aurora
 - Load testing
