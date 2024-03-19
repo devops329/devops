@@ -1,8 +1,35 @@
 # Fargate
 
+You can use fargate either with ECS or EKS.
+
+Fargate is really expensive. Perhaps I can just use Lambda to deploy my container.
+
+## ECS
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
+https://aws.amazon.com/blogs/compute/building-blocks-of-amazon-ecs/
+
+### Concepts
+
+- **Task definitions**: A description of the containers and parameters used to instantiate a task. Think AMI vs Instance. You need this so you can scale up your tasks.
+- **Task**: A task is a grouping of 1 to N containers. For a blog you might have a web server, application server and memory cache container.
+- **Scheduler**: Controlled by EC2 to handle the launching, scaling, and deleting of tasks.
+- **Service**: Defines the things that need to run and the desired performance characteristics that the scheduler should use to do its job.
+- **Cluster**: A collection of EC2 instances or Fargate tasks. Clusters can span AZs. Has the ability to scale and delete.
+- **Agent**: When using EC2 there is a Go program that controls the communication of the instance and the cluster.
+
+## Installing
+
 1. Navigate to ECS
 1. Create a task definition
-   1. Use fargate, linxu, 1vCPU, 3 GB
+   1. Use fargate, linux, 1vCPU, 3 GB
    1. You can specify a role if you want to use other AWS services
    1. You need a task execution role so that Fargate can do its work
    1. I supplied the URI for my container on dockerhub. Not sure this is right. docker.io/leesjensen/cs329:linux-v2
