@@ -41,7 +41,9 @@
 - [Serverless](serverless/serverless.md)
 - API Gateway
 - [Lambda](lambda/lambda.md)
-- [Elasticity: Containers](containers/containers.md)
+- [Docker](docker/docker.md)
+- [Containers](containers/containers.md)
+- [ECR](ecr/ecr.md)
 - [Fargate](fargate/fargate.md)
 - Elasticity: DB
 - Aurora

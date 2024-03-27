@@ -2,6 +2,8 @@
 
 ![container overview](containerOverview.png)
 
+[Docker CLI docs](https://docs.docker.com/reference/)
+
 **OCI** - Open Container Initiative - What the open source name specification for all things docker.
 
 - Image spec
@@ -12,35 +14,50 @@ https://www.docker.com/resources/what-container/
 
 ![containers and vms](contianersAndVms.png)
 
-## Installation
+## Run the standard linux image
 
-On windows and Mac you have to install a virtual machine so that you can run Linux and thus have docker.
+`-i` means interactive (keep STDIN open)
+`-t` means allocate a pseudo-TTY
+`-d` is detached
+`-rm` remove the container when it stops
 
-The easiest way to do this is to install docker desktop from the docker website.
+```sh
+docker run -it --rm alpine sh
+```
 
-https://docs.docker.com/get-docker/
-![docker installation](dockerInstallation.png)
+Know you can run things like
 
-![docker sign up](dockerSignUp.png)
+```sh
+ls -la
+echo hello
+top
+ping google.com
+whois google.com
+df -h
+rm -rf /bin # No big deal. It is just a container!
+```
 
-After installing Docker Desktop there are some simple tutorials that you can run through.
-
-You create an image and then you create a container to host the image. You can start and stop the container.
+`CTRL-C CTRL-D` to escape the shell.
 
 ## Building an image
 
 I ran `docker init` in a directory. This set up the Dockerfile and a compose.yaml file.
 
-Then I went and build a simple node.js express app. I then build the image and pushed it to dockerhub using my leesjensen account.
+Then I went and built a simple node.js express app. I then built the image and pushed it to dockerhub using my leesjensen account.
 
 ```sh
 docker image build -t leesjensen/cs329:v2 .
 docker push leesjensen/cs329:v2
 ```
 
-## DockerHub
+You can pull the image back down again with
 
-Cloud repository for images. I created my account `leesjensen` and a repo `cs239`
+```sh
+docker pull leesjensen/cs329:v2
+docker image ls --all
+```
+
+## Copying images between repositories
 
 I created a tag in my local repository and then pushed it up to docker hub
 
@@ -55,21 +72,28 @@ You can build, set the OS version, and push to dockerhub all in one command.
 docker buildx build --platform linux/arm64/v8 --push --tag leesjensen/server:v2 .
 ```
 
-I can then delete the local image, pull it down again, are start it running as a container.
+I can then delete the local image. In order to do this I have to make sure there are no containers running with the image.
 
 ```sh
+docker container ls --all
+docker image ls --all
 docker image rm leesjensen/cs329:v2
+```
+
+## Containers
+
+I can start a container. If the container is not in my local repository it will pull it down from my remote.
+
+```sh
 docker container run -d --name server -p 4000:3000 leesjensen/cs329:v2
 ```
 
 `-d` means to run it in the background, `--name` is the name to run the container under. `-p` is the port mapping, and then the registry/repo:tag that I want to pull down and run.
 
-## Containers
-
 I can list the running containers with
 
 ```sh
-docker container ls
+docker container ls --all
 ```
 
 I can stop and start the container with
@@ -115,17 +139,156 @@ Normally you would have to stop a container before you remove it, but you can us
 You can think of virtual machines as virtual devices that run on top of the hardware level.
 You can think of containers as virtual machines that run on top of the operating system level.
 
+## Building a container
+
+I then ran `docker init`
+
+```ps
+docker init
+
+Welcome to the Docker Init CLI!
+
+This utility will walk you through creating the following files with sensible defaults for your project:
+  - .dockerignore
+  - Dockerfile
+  - compose.yaml
+  - README.Docker.md
+
+Let's get started!
+
+? What application platform does your project use? Node
+? What version of Node do you want to use? 20.10.0
+? Which package manager do you want to use? npm
+X Sorry, your reply was invalid: Value is required
+? What command do you want to use to start the app? npm run start
+? What port does your server listen on? 3000
+
+CREATED: .dockerignore
+CREATED: Dockerfile
+CREATED: compose.yaml
+CREATED: README.Docker.md
+
+✔ Your Docker files are ready!
+```
+
+Then I went and build a simple node.js express app.
+
+And ran `docker compose up`. `Compose` is a Docker.inc only utility that allows you to start up a `service` that has multiple containers. I was able to then open the browser and see my website.
+
+## Debugging
+
+[Debugging containers](https://www.docker.com/blog/how-to-fix-and-debug-docker-containers-like-a-superhero/)
+
+I created a simple react app that should run under `npm run dev`.
+
+```sh
+docker container run -d --name webserver -p 4000:5173 webserver:latest
+```
+
+However, it fails to run for some reason. The following tells me that it has stopped
+
+```sh
+docker container ls --all
+CONTAINER ID   IMAGE              COMMAND                  CREATED         STATUS                       PORTS     NAMES
+adc895884a9f   webserver:latest   "docker-entrypoint.s…"   2 seconds ago   Exited (127) 2 seconds ago             webserver
+```
+
+You can see the logs for the container with
+
+```sh
+docker logs --tail 100 adc895884a9f
+
+> demovite@0.0.0 dev
+> vite
+
+sh: vite: not found
+```
+
+This suggests that `npm ci` didn't do its job.
+
+## Building multi-architecture docker image
+
+This is a very complete example for Express deployed to ECS
+
+[AWS building for Graviton](https://aws.amazon.com/blogs/containers/how-to-build-your-containers-for-arm-and-save-with-graviton-and-spot-instances-on-amazon-ecs/)
+
+### The app
+
+**Dockerfile**
+
+```dockerfile
+FROM node:14-alpine
+WORKDIR /usr/src/app
+COPY package*.json app.js ./
+RUN npm install
+EXPOSE 3000
+CMD ["node", "app.js"]
+```
+
+**app.js**
+
+```js
+const express = require('express');
+const app = express();
+
+app.get('*', (req, res) => res.send("Let's run a multi-architecture container!"));
+app.listen(3000, () => console.log('Server ready'));
+```
+
+```json
+{
+  "name": "multiarch-container",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
+```
+
+### Build the container
+
+I tried to do the multi-container support, but my dev environment didn't support it and so I just did arm64 so I can do graviton in ECS.
+
+```sh
+docker build -t "464152414144.dkr.ecr.us-east-2.amazonaws.com/webserver:latest" --platform linux/arm64 .
+```
+
+You can test it with
+
+```sh
+docker run --name webserver -p 3000:3000 464152414144.dkr.ecr.us-east-2.amazonaws.com/webserver:latest
+```
+
+### ECR
+
+Login to ECR
+
+```sh
+aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 464152414144.dkr.ecr.us-east-2.amazonaws.com
+
+Login Succeeded
+```
+
+Push the container to ECR
+
+```sh
+docker push 464152414144.dkr.ecr.us-east-2.amazonaws.com/webserver:latest
+```
+
 ## Docker CLI Reference
 
 ```sh
 docker ps
 docker ps --all
 docker images
+docker run
 docker start <container id>
 docker stop <container id>
 docker exec <container id> ls -la # runs a command on the container
 docker compose up   # build an image and started a container
-docker kill <container id> # kills the container
+docker kill <container id> # stops and removes the container
+docker rm -vf $(docker ps -aq) # To delete all containers including its volumes use,
+docker rmi -f $(docker images -aq) # To delete all the images,
 ```
 
 ```txt
@@ -202,39 +365,3 @@ Management Commands:
   volume      Manage volumes
 
 ```
-
-## Building a container
-
-I then ran `docker init`
-
-```ps
-docker init
-
-Welcome to the Docker Init CLI!
-
-This utility will walk you through creating the following files with sensible defaults for your project:
-  - .dockerignore
-  - Dockerfile
-  - compose.yaml
-  - README.Docker.md
-
-Let's get started!
-
-? What application platform does your project use? Node
-? What version of Node do you want to use? 20.10.0
-? Which package manager do you want to use? npm
-X Sorry, your reply was invalid: Value is required
-? What command do you want to use to start the app? npm run start
-? What port does your server listen on? 3000
-
-CREATED: .dockerignore
-CREATED: Dockerfile
-CREATED: compose.yaml
-CREATED: README.Docker.md
-
-✔ Your Docker files are ready!
-```
-
-Then I went and build a simple node.js express app.
-
-And ran `docker compose up`. I think this ran `docker build .` and then started a container with the resulting image. I was able to then open the browser and see my website.
