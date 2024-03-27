@@ -20,12 +20,14 @@ The content for this course is represented by the following parts.
 
 By the end of the course you will have experienced the following outcomes.
 
-- **Quality**: Implement comprehensive testing strategies, including unit, UI, E2E, performance, and load testing.
-- **Deployment**: Utilize various CI/CD pipelining strategies to reliably deliver software to customers that is resilient, scalable, and secure.
-- **Management**: Ability to monitor, detect anomalies, alter, and automatically correct system behavior.
-- **Curious**: Ability to identify, and address, gaps in understanding related to software delivery management techniques and principles.
-- **Creative**: Ability to constructively consider and generate alternatives software delivery management designs.
-- **Collaborative**: Ability to work as a team to discover and improve software delivery management designs.
+Students will be able to:
+
+- **Quality**: Implement comprehensive automated testing strategies, including unit, UI, E2E, performance, and load testing.
+- **Deployment**: Deploy various automated CI/CD pipeline strategies to reliably deliver software that is resilient, scalable, and secure.
+- **Management**: Monitor, detect anomalies, alter, and automatically correct system behavior.
+- **Curious**: Characterize and address gaps in understanding related to DevOps techniques and principles.
+- **Creative**: Discuss and generate alternatives DevOps designs.
+- **Collaborative**: Work as a team to discover DevOps design weaknesses.
 - **Christlike**: Strive for divine inspiration for, and ability to apply capabilities to, celestial pursuits.
 
 ## Technologies
