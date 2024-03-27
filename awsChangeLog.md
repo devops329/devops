@@ -4,7 +4,7 @@
 1. Created a web certificate for cs240.click for cloudfront to enable HTTPS
 1. Added Route 53 DNS records to authorize the web certificate generation (\_c54655b34f31243aa575eb5008eb16ca.cs240.click)
 1. Created a cloudfront distribution for the bucket
-1. Created an IAM identity provider for GitHub so I can push to the bucket (token.actions.githubusercontent.com/softwaredeliverymanagement329)
+1. Created an IAM identity provider for GitHub so I can push to the bucket (token.actions.githubusercontent.com/devops329)
 1. Added a Route 53 record for cloudfront (test.cs240.click)
 1. Created role for CD connection to github actions (cs329-githubaction-cd). I used the Roles create role wizard to generate a Web Identity trusted entity type.
 1. Created a ECR registry and uploaded an image
@@ -83,7 +83,7 @@ I didn't have to do anything here since I already had one.
                 "token.actions.githubusercontent.com:aud": ["sts.amazonaws.com"]
               },
               "StringLike": {
-                "token.actions.githubusercontent.com:sub": ["repo:softwaredeliverymanagement329/*"]
+                "token.actions.githubusercontent.com:sub": ["repo:devops329/*"]
               }
             }
           }

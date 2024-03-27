@@ -7,7 +7,7 @@
 - [Article similar to what I did](https://gohugo.io/hosting-and-deployment/hosting-on-github/)
 - [Docs Pages from actions](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#creating-a-custom-github-actions-workflow-to-publish-your-site)
 - add build.yml
-- I got a good deployment script to work with just actions owned by github. But it only deploys to the [pizzashop repo](https://softwaredeliverymanagement329.github.io/pizzashop/). I need to figure out how to get it on a URL without a path.
+- I got a good deployment script to work with just actions owned by github. But it only deploys to the [pizzashop repo](https://devops329.github.io/pizzashop/). I need to figure out how to get it on a URL without a path.
 
 You define a workflow that is triggered by events and runs jobs that have steps that do actions. A step is either a shell script or an action to run.
 
@@ -52,9 +52,9 @@ jobs:
       remote: Resolving deltas: 100% (1/1), completed with 1 local object.
       remote: error: GH006: Protected branch update failed for refs/heads/main.
       remote: error: Changes must be made through a pull request.
-      To https://github.com/softwaredeliverymanagement329/actions-demo.git
+      To https://github.com/devops329/actions-demo.git
       ! [remote rejected] main -> main (protected branch hook declined)
-      error: failed to push some refs to 'https://github.com/softwaredeliverymanagement329/actions-demo.git'
+      error: failed to push some refs to 'https://github.com/devops329/actions-demo.git'
   ```
 - Created a `phase1` branch and pushed.
   ```sh

@@ -40,16 +40,14 @@ GitHub is the identity provider.
          "Effect": "Allow",
          "Action": "sts:AssumeRoleWithWebIdentity",
          "Principal": {
-           "Federated": "arn:aws:iam::222021474030:oidc-provider/token.actions.githubusercontent.com/softwaredeliverymanagement329"
+           "Federated": "arn:aws:iam::222021474030:oidc-provider/token.actions.githubusercontent.com/devops329"
          },
          "Condition": {
            "StringEquals": {
-             "token.actions.githubusercontent.com/softwaredeliverymanagement329:aud": ["sts.amazonaws.com"]
+             "token.actions.githubusercontent.com/devops329:aud": ["sts.amazonaws.com"]
            },
            "StringLike": {
-             "token.actions.githubusercontent.com/softwaredeliverymanagement329:sub": [
-               "repo:softwaredeliverymanagement329/*"
-             ]
+             "token.actions.githubusercontent.com/devops329:sub": ["repo:devops329/*"]
            }
          }
        }
