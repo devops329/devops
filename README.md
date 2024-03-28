@@ -1,13 +1,13 @@
 ![BYU logo](https://github.com/devops329/devops/blob/main/byuLogo.png?raw=true)
 
-# BYU **Software Delivery Management** `cs329`
+# BYU **DevOps** `cs329`
 
 ![cover](devopscover.jpg?raw=true)
 _Image Source: [Fauxels](https://www.pexels.com/photo/people-working-in-front-of-the-computer-3184357)_
 
 ## Welcome
 
-Software Delivery Management provides you with the experience and skills necessary to deploy, manage, and ensure the quality of a modern software application. This includes automated testing at all levels, continuous integration and deployment pipelines, application monitoring, failure detection, alerting, and elastic application scaling.
+DevOps provides you with the experience and skills necessary to deploy, manage, and ensure the quality of a modern software application. This includes automated testing at all levels, continuous integration and deployment pipelines, application monitoring, failure detection, alerting, and elastic application scaling.
 
 The content for this course is represented by the following parts.
 
@@ -32,7 +32,7 @@ Students will be able to:
 
 ## Technologies
 
-The course covers a full spectrum of software delivery management technologies.
+The course covers a full spectrum of devOps technologies.
 
 - **Testing**
 
