@@ -8,7 +8,7 @@ _Image Source: [Fauxels](https://www.pexels.com/photo/people-working-in-front-of
 
 ## Welcome
 
-DevOps provides you with the experience and skills necessary to deploy, manage, and ensure the quality of a modern software application. This includes automated testing at all levels, continuous integration and deployment pipelines, application monitoring, failure detection, alerting, and elastic application scaling.
+This course provides you with the experience and skills necessary to deploy, manage, and ensure the quality of a modern software application. This includes automated testing at all levels, continuous integration and deployment pipelines, application monitoring, failure detection, alerting, and elastic application scaling.
 
 The content for this course is represented by the following parts.
 
