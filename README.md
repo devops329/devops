@@ -2,7 +2,7 @@
 
 # BYU **DevOps** `cs329`
 
-![cover](devopscover.jpg?raw=true)
+![cover](https://github.com/devops329/devops/blob/main/devopscover.jpg?raw=true)
 _Image Source: [Fauxels](https://www.pexels.com/photo/people-working-in-front-of-the-computer-3184357)_
 
 ## Welcome
