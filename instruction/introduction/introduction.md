@@ -1,8 +1,8 @@
 # Introduction
 
-Software delivery management covers everything necessary to successfully take an application from the developer's development environment and deliver it into a production environment where a customer can use it.
+This course covers everything necessary to successfully take an application from the developer's development environment and deliver it into a customer accessible production environment.
 
-Surprisingly little has changed about how application engineers build an application, but the process of delivering software has changed drastically over the years. In the early days of computing, the expense and complexity of hardware required the customer to bring their data to the vendor office for processing. In the 1960s and 70s, computing solutions became cheaper and so customers started hosting their own hardware at their offices. The software vendor then hired teams of consultants to visit a customer's physical location and install the software on their computers. The consultants would then return later to provide regular maintenance patches and upgrades. When the internet boomed in the late 1990s the hosting of software moved back to the vendor's data center, and access was given to the customer to use the software from their web browser. All of the vendor's software delivery consultants then got new jobs as data center operational staff. The Operations staff managed the data center hardware and controlled how, and when, an application was delivered to the computers running in the data center.
+Surprisingly little has changed about how software engineers build an application, but the process of delivering software has changed drastically in the last two decades. In the early days of computing, the expense and complexity of hardware required the customer to bring their data to the vendor office for processing. In the 1960s and 70s, computing solutions became cheaper and so customers started hosting their own hardware at their offices. The software vendor then hired teams of consultants to visit a customer's physical location and install the software on their computers. The consultants would then return later to provide regular maintenance patches and upgrades. When the internet boomed in the late 1990s the hosting of software moved back to the vendor's data center, and access was given to the customer to use the software from their web browser. All of the vendor's software delivery consultants then got new jobs as data center operational staff. The Operations staff managed the data center hardware and controlled how, and when, an application was delivered to the computers running in the data center.
 
 In this model, application engineers were charged with adding customer value to the application. Operations were charged with making sure the application was stable and accessible to the customer. This resulted in a natural conflict of interest between application engineering and operations that was harmful to the interests of both the company and the customer. Application engineers want to quickly build new value. Operations wants to keep things stable. Changes broke existing functionality or destroyed existing data. Stability slowed the deployment of enhancements, security updates, and bug fixes from reaching the customer.
 
@@ -37,7 +37,7 @@ In many companies this almost completely removed the role of an operations depar
 
 ## Site reliability engineering
 
-As the idea of devops grew, it tended to become its own role within large organizations. This resulted in devops teams that worked in concert with application engineers to deliver software.
+As the idea of devops grew, it started to become its own role within large organizations. This resulted in dedicated devops teams that worked in concert with application engineers to deliver software.
 
 For example, Google codified devops practices into a Site Reliability Engineer (SRE) role. This is an independent organization within Google that seeks to create stability for the customer while increasing velocity of new feature delivery. They have even written multiple [books](https://sre.google/books/) on the subject.
 
@@ -47,7 +47,7 @@ As devops built more and more infrastructure to automate the delivery of softwar
 
 ## Software delivery goals
 
-Regardless if your role is an application engineer, site reliability engineer, or platform engineer, you all share the same primary goals in order to deliver software to the customer.
+Application, devops, site reliability, or platform engineers all share the same primary goals.
 
 1. Optimize customer satisfaction, velocity, scalability, and cost.
 1. Treat testing, deployment, and management as a programming problem.
