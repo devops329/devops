@@ -1,8 +1,13 @@
 # GitHub
 
+I think we can assume they know GitHub because 260 is a prereq. We are going to go deeper in this class.
+
 - Basic introduction to GitHub
 - We use GitHub to get course materials
-- There is a GitHub repo that is the `Product` application
-- You will fork the `Product` application into a public repo in your account.
-- In your fork you will add all the QA and devOps functionality
-- You will sync with the product repo as the product team adds need features.
+- Assignment to make a github account
+- Discuss how we are going to use gitHub in the class. This can be done with a simple diagram
+  - Course product repo
+  - Your fork of the repo
+  - Deploy to GitHub Pages
+  - GitHub actions to deploy
+  - GitHub issues/projects to track your progress

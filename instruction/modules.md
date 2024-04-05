@@ -2,21 +2,22 @@
 
 ## Getting started
 
-- 🚧 [Introduction](introduction/introduction.md)
+- 🚧 [PizzaShop](pizzaShop/pizzaShop.md)
+- 🚧 [History](history/history.md)
 - 🚧 [Overview](overview/overview.md)
-- 🚧 [AWS Account](awsAccount/awsAccount.md)
+- ☑ 🚧 [AWS Account](awsAccount/awsAccount.md)
 - 🚧 [GitHub](gitHub/gitHub.md)
-- 🚧 [GitHub forks](gitHubForks/gitHubForks.md)
-- 🚧 [GitHub pull requests](gitHubPullRequests/gitHubPullRequests.md)
-- 🚧 Git Branching, tags
-- 🚧 Development environment
-- 🚧 Static deployment
-- 🚧 [GitHub Pages](gitHubPages/gitHubPages.md)
 - 🚧 [GitHub Projects](gitHubProjects/gitHubProjects.md)
+- 🚧 [Git Branches](gitBranches/gitBranches.md)
+- ☑ 🚧 [GitHub forks](gitHubForks/gitHubForks.md)
+- 🚧 [GitHub pull requests](gitHubPullRequests/gitHubPullRequests.md)
+- ☑ 🚧 [Development environment](developmentEnvironment/developmentEnvironment.md)
+- 🚧 [Static deployment](staticDeployment/staticDeployment)
+- ☑ 🚧 [GitHub Pages](gitHubPages/gitHubPages.md)
 
 ## Testing
 
-- 🚧 [Unit testing (Jest/SuperTest)](unitTesting/unitTesting.md)
+- 🚧 [Unit testing](unitTesting/unitTesting.md)
 - 🚧 [Jest](jest/jest.md)
 - 🚧 [Coverage](coverage/coverage.md)
 - 🚧 [Lint](lint/lint.md)
@@ -29,13 +30,13 @@
 
 ## Deployment
 
-- 🚧 Cloud Formation or Terraform
 - 🚧 [Continuous Delivery & Deployment](continuousDeliveryDeployment/continuousDeliveryDeployment.md)
 - 🚧 [GitHub Actions](gitHubActions/gitHubActions.md)
 - 🚧 [GitHub Environments](gitHubEnvironments/gitHubEnvironments.md)
 - 🚧 Deployment strategies
 - 🚧 Blue/Green
 - 🚧 [Cloud deployment](cloudDeployment/cloudDeployment.md)
+- 🚧 Cloud Formation or Terraform
 - 🚧 AWS S3
 - 🚧 [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
 - 🚧 Production environment
