@@ -1,5 +1,8 @@
 # Cloud deployment
 
+- We now take our static page hosting on GitHub Pages to hosting on S3.
+- This will change our GitHub Action script
+
 https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/getting-started-cloudfront-overview.html
 
 - Step 1: Register a domain

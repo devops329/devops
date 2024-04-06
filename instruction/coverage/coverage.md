@@ -1,3 +1,10 @@
+# Coverage
+
+- Why is coverage important
+- How do you do coverage
+- What is the right amount of coverage
+- Displaying your coverage
+
 https://haseebmajid.dev/posts/2023-04-15--how-to-get-code-coverage-from-playwright-tests-in-a-sveltekit-app-/
 
 https://axolo.co/blog/p/code-coverage-js-in-2023

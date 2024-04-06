@@ -1,4 +1,8 @@
-# Adding Lint
+# Lint
+
+- What is Linting
+- Who does it work
+- Customizing or not customizing
 
 with the simple actions-demo repo I added linting to the server.
 

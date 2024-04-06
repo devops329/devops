@@ -1,5 +1,10 @@
 # UI Testing
 
+- Specific problems that UI testing has
+- Flakiness
+- Different devices/application/OS
+- Drivers
+
 https://playwright.dev/
 
 [Best Practices](https://playwright.dev/docs/best-practices)
@@ -69,10 +74,7 @@ test('testAddStoreButton', async ({ page }) => {
 
   await page.route('*/**/api/store/provo', async (route) => {
     expect(route.request().method()).toBe('POST');
-    serverStoreJson = [
-      ...serverStoreJson,
-      { name: 'provo', date: '2021-10-31' },
-    ];
+    serverStoreJson = [...serverStoreJson, { name: 'provo', date: '2021-10-31' }];
     await route.fulfill({ json: { store: serverStoreJson } });
   });
 

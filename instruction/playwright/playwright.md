@@ -1,5 +1,7 @@
 # PlayWright
 
+- Why are we using PlayWright?
+
 [CS260 Playwright docs](https://learn.cs260.click/page/webServices/uiTesting/uiTesting_md)
 
 This will install the package, a browser engine, and create some sample tests.

@@ -21,23 +21,28 @@
 - 🚧 [Jest](jest/jest.md)
 - 🚧 [Coverage](coverage/coverage.md)
 - 🚧 [Lint](lint/lint.md)
-- 🚧 Coverage and analysis
-- 🚧 Mocking
-- 🚧 Dependency injection
+- 🚧 [Mocking](mocking/mocking.md)
+- 🚧 [Dependency injection](dependencyInjection/dependencyInjection.md)
+- 🚧 [Integration testing](integrationTesting/integrationTesting.md)
 - 🚧 [UI testing](uiTesting/uiTesting.md)
 - 🚧 [Playwright](playwright/playwright.md)
-- 🚧 E2E testing
+- 🚧 [E2E testing](e2eTesting/e2eTesting.md)
 
 ## Deployment
 
-- 🚧 [Continuous Delivery & Deployment](continuousDeliveryDeployment/continuousDeliveryDeployment.md)
+- 🚧 [Continuous delivery & deployment](continuousDeliveryDeployment/continuousDeliveryDeployment.md)
 - 🚧 [GitHub Actions](gitHubActions/gitHubActions.md)
-- 🚧 [GitHub Environments](gitHubEnvironments/gitHubEnvironments.md)
+- 🚧 [DeploymentEnvironments](deploymentEnvironments/deploymentEnvironments.md)
+- 🚧 [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
 - 🚧 Deployment strategies
 - 🚧 Blue/Green
 - 🚧 [Cloud deployment](cloudDeployment/cloudDeployment.md)
 - 🚧 Cloud Formation or Terraform
-- 🚧 AWS S3
+- 🚧 [AWS S3](awsS3/awsS3.md)
+- 🚧 [AWS CloudFront](awsCouldfront/awsCloudfront.md)
+
+Start Here:
+
 - 🚧 [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
 - 🚧 Production environment
 - 🚧 [Serverless](serverless/serverless.md)

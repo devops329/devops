@@ -1,5 +1,7 @@
 # GitHub Actions
 
+We are using GitHub actions for your CI pipeline. We will first apply it to our GitHub page deployment. We will then add other pipelines to go to AWS
+
 - [Quick Start](https://docs.github.com/en/actions/quickstart)
 - [GitHub Token](https://dev.to/github/the-githubtoken-in-github-actions-how-it-works-change-permissions-customizations-3cgp)
 - [Actions Tutorial](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions)
