@@ -54,8 +54,8 @@ Start Here:
 - 🚧 [Fargate](fargate/fargate.md)
 - 🚧 Elasticity: DB
 - 🚧 Aurora
-- 🚧 Load testing
-- 🚧 K6
+- 🚧 [Load testing](loadTesting/loadTesting.md)
+- 🚧 [K6](k6/k6.md)
 - 🚧 [Security](security/security.md)
 
 ## Management
