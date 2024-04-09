@@ -1,12 +1,12 @@
 # GitHub Pages
 
+- ☑ Deploy the static `PizzaShop` to github pages by manually updating the branch. This is a static manual deployment.
+
 [GitHub Instructions](https://pages.github.com/)
 
 ## Repo pages
 
 This works by creating a branch of the `PizzaShop` repo that pages pulls from.
-
-- ☑ Deploy the static `PizzaShop` to github pages by manually updating the branch. This is a static manual deployment.
 
 ## Account pages
 

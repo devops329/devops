@@ -1,5 +1,7 @@
 # Load Testing
 
+You don't want to wait until you have success to realize your system can't handle success
+
 Smoke testing - low load
 
 Load testing - normal load

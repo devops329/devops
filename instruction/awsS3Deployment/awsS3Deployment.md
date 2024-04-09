@@ -1,5 +1,7 @@
 # AWS S3 deployment
 
+We deploy our static application using GitHub Actions to S3. This requires us to use OIDC to authenticate with AWS so that we don't ever have to store credentials in your CI pipeline.
+
 ## Deploying to AWS
 
 [Instructions for the AWS GitHub Credential Action](https://github.com/aws-actions/configure-aws-credentials)

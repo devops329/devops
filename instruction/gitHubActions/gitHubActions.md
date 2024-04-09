@@ -1,5 +1,7 @@
 # GitHub Actions
 
+☑ Deploy the front end app to GitHub Pages
+
 We are using GitHub actions for your CI pipeline. We will first apply it to our GitHub page deployment. We will then add other pipelines to go to AWS
 
 - [Quick Start](https://docs.github.com/en/actions/quickstart)

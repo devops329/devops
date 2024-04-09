@@ -1,5 +1,7 @@
 # Lambda
 
+We now deploy some backend code that our front end will call on Lambda.
+
 Lambda added the ability to associate a URL, and optionally authentication, with a function. That sounds great! Maybe I won't have to use API gateway.
 
 ## Function URL
