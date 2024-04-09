@@ -59,6 +59,7 @@
 - 🚧 K6 Logging
 - 🚧 Metrics (Grafana)
 - 🚧 K6 Metrics
+- TOE Thread of execution
 
 ## System Testing
 
@@ -71,8 +72,10 @@
 
 - 🚧 Backup/Restore (Aurora)
 - 🚧 Alerts
+- 🚧 Pager duty
 - 🚧 Playbooks
 - 🚧 Self healing
 - 🚧 SLO, RTO, RPO
-- 🚧 Chaos
+- 🚧 Chaos injection
 - 🚧 Post mortem
+- 🚧 Penetration testing
