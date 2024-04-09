@@ -15,7 +15,7 @@
 - 🚧 [Static deployment](staticDeployment/staticDeployment)
 - ☑ 🚧 [GitHub Pages](gitHubPages/gitHubPages.md)
 
-## Testing
+## Unit Testing
 
 - 🚧 [Unit testing](unitTesting/unitTesting.md)
 - 🚧 [Jest](jest/jest.md)
@@ -23,10 +23,8 @@
 - 🚧 [Lint](lint/lint.md)
 - 🚧 [Mocking](mocking/mocking.md)
 - 🚧 [Dependency injection](dependencyInjection/dependencyInjection.md)
-- 🚧 [Integration testing](integrationTesting/integrationTesting.md)
 - 🚧 [UI testing](uiTesting/uiTesting.md)
 - 🚧 [Playwright](playwright/playwright.md)
-- 🚧 [E2E testing](e2eTesting/e2eTesting.md)
 
 ## Deployment
 
@@ -54,9 +52,14 @@ Start Here:
 - 🚧 [Fargate](fargate/fargate.md)
 - 🚧 Elasticity: DB
 - 🚧 Aurora
+- 🚧 [Security](security/security.md)
+
+## System Testing
+
+- 🚧 [Integration testing](integrationTesting/integrationTesting.md)
+- 🚧 [E2E testing](e2eTesting/e2eTesting.md)
 - 🚧 [Load testing](loadTesting/loadTesting.md)
 - 🚧 [K6](k6/k6.md)
-- 🚧 [Security](security/security.md)
 
 ## Management
 
@@ -64,8 +67,8 @@ Start Here:
 - 🚧 [Versioning](versioning/versioning.md)
 - 🚧 [GitHub Versions](gitHubVersions/gitHubVersions.md)
 - 🚧 Backup/Restore (Aurora)
-- 🚧 Logging (ElasticSearch)
-- 🚧 Metrics (ElasticSearch)
+- 🚧 Logging (Grafana)
+- 🚧 Metrics (Grafana)
 - 🚧 Elasticity
 - 🚧 Alerts
 - 🚧 Playbooks
