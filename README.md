@@ -27,7 +27,7 @@ Students will be able to:
 - **Deployment**: Deploy various automated CI/CD pipeline strategies to reliably deliver software that is resilient, scalable, and secure.
 - **Management**: Monitor, detect anomalies, alter, and automatically correct system behavior.
 - **Curious**: Characterize and address gaps in understanding related to DevOps techniques and principles.
-- **Creative**: Discuss and generate alternatives DevOps designs.
+- **Creative**: Discuss and generate alternate DevOps designs.
 - **Collaborative**: Work as a team to discover DevOps design weaknesses.
 - **Christlike**: Strive for divine inspiration for, and ability to apply capabilities to, celestial pursuits.
 
