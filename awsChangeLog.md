@@ -242,9 +242,52 @@ docker push 464152414144.dkr.ecr.us-east-2.amazonaws.com/webserver:latest
 
 ## ECS/Fargate
 
-- Created a task definition that references my image using fargate.
-- Create a cluster named webserver and specified fargate.
-- Create a service in the cluster
-  - Chose fargate
-  - Chose webserver task definition
-- Pressed deploy create service
+### Create an ECS task
+
+Created a task definition that references my ECR image using fargate.
+
+- Navigate to the ECS service
+- Select `Task definitions`
+- Press `Create new task definition`
+- Define the task basics
+  - Give the task a name: `webserver`
+  - Infrastructure requirements: `AWS Fargate`
+  - Linux/X86/64 (I guess I can also do ARM if my container is set for that $0.040 vs $0.032.
+  - .5 vCPU
+  - Chose the task role (this allows ECS to execute the task on my behalf)
+  - Chose the task execution role (this allows my task to do things like make Aurora calls)
+- Define the container the task will run
+  - Copy the image URI from ECR
+  - Specify the port mapping 80-3000
+  - I enabled log collection to cloudwatch so I can see what happens
+- Press create task
+
+## Create a cluster
+
+The cluster specifies where the service runs (EC2 or Fargate)
+
+- Named it `webserver`
+
+This kicked off a cloudformation script.
+
+### Deploy a service
+
+From the task definition page choose to deploy or from the cluster/services pane create a service.
+
+A service defines the execution parameters for the task on the cluster.
+
+- You can define a capacity provider. This will seek to create instances from the provide. Like Fargate or Fargate spot.
+- Select service type to be service (instead of task) since it will keep running.
+- Specify the family (I believe this pulled from the task definition)
+- Specify replica
+- Desired tasks: 1
+
+This kicked off a cloudformation script.
+
+This failed to launch my service. Tried to launch the task multiple times with the same error:
+
+```txt
+exec /usr/local/bin/docker-entrypoint.sh: exec format error
+```
+
+Spot pricing is very interesting. That drops the price to $0.012.

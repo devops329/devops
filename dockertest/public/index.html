@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PizzaShop</title>
+  </head>
+  <body>
+    <p>Welcome to PizzaShop!</p>
+    <script>
+      function listPizzas() {
+        fetch('/api/menu')
+          .then((response) => response.json())
+          .then((json) => {
+            const ul = document.createElement('ul');
+            json.menu.forEach((pizza) => {
+              const li = document.createElement('li');
+              li.textContent = pizza.name;
+              ul.appendChild(li);
+            });
+            document.body.appendChild(ul);
+          });
+      }
+      listPizzas();
+    </script>
+  </body>
+</html>

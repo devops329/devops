@@ -1,5 +1,9 @@
 # Security
 
+They will will have to implement the Roles for the stack
+
+- Talk about IAM
+
 This needs to be sprinkled throughout the class.
 
 - Logging/Metrics - Immutable logging for forensic and suspicious usage patterns alerting

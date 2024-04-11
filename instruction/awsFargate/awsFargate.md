@@ -48,3 +48,28 @@ https://aws.amazon.com/blogs/compute/building-blocks-of-amazon-ecs/
       1. There are options to use a `task definition`. This defines how the task will run
       1. Options for a load balancer. This would be nice but maybe expensive
       1. You can also auto scale based on cloudwatch alarms
+
+## Pricing
+
+[Pricing comparison](https://www.simform.com/blog/fargate-vs-ec2-pricing/)
+
+### Fargate
+
+.5 vCPU, 1 GB Ram
+($0.044/hr)
+
+Pricing calculations
+1 tasks x 0.50 vCPU x 720 hours x 0.04048 USD per hour = 14.57 USD for vCPU hours
+1 tasks x 1.00 GB x 720 hours x 0.004445 USD per GB per hour = 3.20 USD for GB hours
+20 GB - 20 GB (no additional charge) = 0.00 GB billable ephemeral storage per task
+14.57 USD for vCPU hours + 3.20 USD for GB hours = 17.77 USD total
+Fargate cost (monthly): 17.77 USD
+
+### EC2
+
+.5 vCPU, 1 GB Ram
+t3.nano ($0.0052/hr)
+if you need to burst it cost ($0.05/hr)
+Monthly: 3.80/Month
+
+The problem is that T class instances are so cheap. If I move to C4.xlarge ($0.199/hr) then the costs are about the same.
