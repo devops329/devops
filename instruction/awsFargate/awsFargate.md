@@ -6,14 +6,6 @@ Fargate is really expensive. Perhaps I can just use Lambda to deploy my containe
 
 ## ECS
 
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
-
 https://aws.amazon.com/blogs/compute/building-blocks-of-amazon-ecs/
 
 ### Concepts
