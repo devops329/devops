@@ -67,11 +67,12 @@
 
 ## System monitoring
 
-- 🚧 Thread of execution
+- 🚧 Distributed tracing
+- 🚧 [Grafana Tempo](grafanaTempo/grafanaTempo.md)
 - 🚧 [Logging](logging/logging.md)
-- 🚧 K6 Logging
-- 🚧 Metrics (Grafana)
-- 🚧 K6 Metrics
+- 🚧 [Loki Logging](loki/loki.md)
+- 🚧 Metrics
+- 🚧 Grafana Metrics
 
 ## System testing
 
@@ -83,10 +84,8 @@
 ## Failure management
 
 - 🚧 Backup/Restore (Aurora)
-- 🚧 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
 - 🚧 Alerts
-- 🚧 [AWS SNS](awsSns/awsSns.md)
-- 🚧 Pager duty
+- 🚧 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
 - 🚧 Playbooks
 - 🚧 Self healing (scale groups)
 - 🚧 SLO, RTO, RPO
