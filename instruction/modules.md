@@ -13,6 +13,7 @@
 - 🚧 [GitHub pull requests](gitHubPullRequests/gitHubPullRequests.md)
 - ☑ 🚧 [Development environment](developmentEnvironment/developmentEnvironment.md)
 - 🚧 Curiosity report
+- [JWT](jwt/jwt.md)
 
 ## Quality assurance
 
@@ -67,7 +68,7 @@
 ## System monitoring
 
 - 🚧 Thread of execution
-- 🚧 Logging
+- 🚧 [Logging](logging/logging.md)
 - 🚧 K6 Logging
 - 🚧 Metrics (Grafana)
 - 🚧 K6 Metrics
@@ -82,6 +83,7 @@
 ## Failure management
 
 - 🚧 Backup/Restore (Aurora)
+- 🚧 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
 - 🚧 Alerts
 - 🚧 [AWS SNS](awsSns/awsSns.md)
 - 🚧 Pager duty
