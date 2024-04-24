@@ -79,7 +79,7 @@
 - 🚧 [Integration testing](integrationTesting/integrationTesting.md)
 - 🚧 [E2E testing](e2eTesting/e2eTesting.md)
 - 🚧 [Load testing](loadTesting/loadTesting.md)
-- 🚧 [K6](k6LoadTesting/k6LoadTesting.md)
+- 🚧 [Grafana K6](grafanaK6/grafanaK6.md)
 
 ## Failure management
 
