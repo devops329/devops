@@ -70,7 +70,7 @@
 - 🚧 Distributed tracing
 - 🚧 [Grafana Tempo](grafanaTempo/grafanaTempo.md)
 - 🚧 [Logging](logging/logging.md)
-- 🚧 [Loki Logging](loki/loki.md)
+- 🚧 [Grafana Loki](loki/loki.md)
 - 🚧 Metrics
 - 🚧 Grafana Metrics
 
