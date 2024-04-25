@@ -58,12 +58,15 @@ This should be enough complexity to demonstrate testing, coverage, and security.
 graph TB;
     Home-->History
     Home-->About
-    Home-->StoreDashboard
     Home-->AdminDashboard
-    AdminDashboard-->CreateStore
-    AdminDashboard-->Refund
-    Home-->CustomerDashboard
-    CustomerDashboard-->Payment
+    AdminDashboard-->CreateFranchise
+    AdminDashboard-->RefundFranchise
+    Home-->FranchiseDashboard
+    FranchiseDashboard-->CreateStore
+    FranchiseDashboard-->Register/Login
+    Home-->DinnerDashboard
+    DinnerDashboard-->Register/Login
+    DinnerDashboard-->Payment
     Home-->Order
     Order-->Payment
     Order-->Register/Login

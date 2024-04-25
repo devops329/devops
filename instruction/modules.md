@@ -13,6 +13,7 @@
 - 🚧 [GitHub pull requests](gitHubPullRequests/gitHubPullRequests.md)
 - ☑ 🚧 [Development environment](developmentEnvironment/developmentEnvironment.md)
 - 🚧 Curiosity report
+- [JWT](jwt/jwt.md)
 
 ## Quality assurance
 
@@ -66,25 +67,25 @@
 
 ## System monitoring
 
-- 🚧 Thread of execution
-- 🚧 Logging
-- 🚧 K6 Logging
-- 🚧 Metrics (Grafana)
-- 🚧 K6 Metrics
+- 🚧 Distributed tracing
+- 🚧 [Grafana Tempo](grafanaTempo/grafanaTempo.md)
+- 🚧 [Logging](logging/logging.md)
+- 🚧 [Grafana Loki](loki/loki.md)
+- 🚧 Metrics
+- 🚧 Grafana Metrics
 
 ## System testing
 
 - 🚧 [Integration testing](integrationTesting/integrationTesting.md)
 - 🚧 [E2E testing](e2eTesting/e2eTesting.md)
 - 🚧 [Load testing](loadTesting/loadTesting.md)
-- 🚧 [K6](k6LoadTesting/k6LoadTesting.md)
+- 🚧 [Grafana K6](grafanaK6/grafanaK6.md)
 
 ## Failure management
 
 - 🚧 Backup/Restore (Aurora)
 - 🚧 Alerts
-- 🚧 [AWS SNS](awsSns/awsSns.md)
-- 🚧 Pager duty
+- 🚧 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
 - 🚧 Playbooks
 - 🚧 Self healing (scale groups)
 - 🚧 SLO, RTO, RPO
