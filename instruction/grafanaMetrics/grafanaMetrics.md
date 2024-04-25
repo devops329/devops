@@ -12,8 +12,7 @@
 
 ### Visualize the metrics in your PizzaServer dashboard.
 
--   Create a visualization panel
--   Select grafanacloud-yourusername-prom as the data source.
+-   Edit the Metrics visualization in your dashboard.
 -   Enter a PromQL query to see all metrics from the test data source.
     -   `{source="grafana_cloud_doc"}` or whatever source the test metric has.
 

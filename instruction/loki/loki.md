@@ -16,10 +16,9 @@ https://grafana.com/docs/loki/latest/
 
 ### Visualize the metrics in your PizzaServer dashboard.
 
--   Create a visualization panel
--   Select grafanacloud-yourusername-logs as the data source.
+-   Edit the Metrics visualization in your dashboard.
 -   Enter a Loki query to see all logs from the test data source.
-    -   `{source="Code"}` or whatever source the test metric has.
+    -   `{source="Code"}` or whatever source the test log has.
 
 ### Adapt the code snippet to send custom logs
 
