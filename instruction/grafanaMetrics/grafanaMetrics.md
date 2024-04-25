@@ -27,7 +27,7 @@
 ### Send Pizza Server metrics
 
 -   Create a function that allows the Pizza Server to create a custom metric.
-    -   This could be requests per 10 seconds, total requests, current CPU usage.
+    -   This could be requests per 10 seconds, total requests, current CPU usage, etc.
 -   Export the function and import it in your server.
 -   Change the test metric in the interval timer to be your custom metric.
 -   View the metrics in your dashboard.

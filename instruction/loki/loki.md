@@ -38,7 +38,7 @@ const logs = {
 
 -   Test the sendLogs function with a logEntries array of test logs.
 
-### Send Pizza Server metrics
+### Send Pizza Server logs
 
 -   Create an addLog function that takes a message as a parameter and constructs a log in the following format and pushes it onto a global logEntries array.
 
