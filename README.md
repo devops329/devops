@@ -2,7 +2,7 @@
 
 # BYU **DevOps** `cs329`
 
-![cover](https://github.com/devops329/devops/blob/main/devopscover2.jpeg?raw=true)
+<img src="https://github.com/devops329/devops/blob/main/devopscover2.jpeg" alt="cover" width="600"/>
 
 _Image Generated with AI_
 
