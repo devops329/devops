@@ -14,7 +14,7 @@ https://grafana.com/docs/loki/latest/
     -   Select Node for the code snippet and copy into a `logger.js` file in the same folder as your pizza server
 -   Run the code
 
-### Visualize the metrics in your PizzaServer dashboard.
+### View the logs in your PizzaServer dashboard.
 
 -   Edit the Metrics visualization in your dashboard.
 -   Enter a Loki query to see all logs from the test data source.
