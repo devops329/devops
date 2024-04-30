@@ -1,11 +1,14 @@
 # Grafana Cloud
 
-Grafana is...
+Grafana is a company known for data visualization, allowing you to monitor and analyze metrics and logs through customizable dashboards. It supports various data sources and integrations, including popular monitoring tools like Prometheus, Graphite, and Elasticsearch.
+They have their own open-source tools, which they provide in a cloud instance for which they offer a free version that we will use in this course. We will use their tools to meet the following needs:
 
--   They have open-source services for logging, metrics, alerts, tracing and more.
--   They are best known for creating dashboards in which you can visualize this data.
--   They provide a cloud service with these services built in.
-    -   There is a generous free version, which we will use in this course for observing the Pizza Server.
+-   Visualization: Dashboards
+-   Logging: Loki
+-   Metrics: Grafana Cloud Metrics
+-   Tracing: Tempo
+-   Alerts: Alert Rules and OnCall (Alert Escalation)
+-   Load Testing: K6
 
 ## Create a Grafana Cloud account
 
