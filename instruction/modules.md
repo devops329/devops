@@ -6,6 +6,7 @@
 - 🚧 [History](history/history.md)
 - 🚧 [Overview](overview/overview.md)
 - ☑ 🚧 [AWS Account](awsAccount/awsAccount.md)
+- 🚧 Eternal learning
 - 🚧 [GitHub](gitHub/gitHub.md)
 - 🚧 [Project Management](projectManagement/projectManagement.md)
 - 🚧 [GitHub Projects](gitHubProjects/gitHubProjects.md)
@@ -95,3 +96,4 @@
 - 🚧 Chaos injection
 - 🚧 Post mortem
 - 🚧 Penetration testing
+- 🚧 Eternal learning
