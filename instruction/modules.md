@@ -71,12 +71,13 @@
 
 ## System monitoring
 
-- 🚧 Distributed tracing
-- 🚧 [Grafana Tempo](grafanaTempo/grafanaTempo.md)
+- [Grafana](grafana/grafana.md)
 - 🚧 [Logging](logging/logging.md)
 - 🚧 [Grafana Loki](loki/loki.md)
 - 🚧 Metrics
 - 🚧 [Grafana Metrics](grafanaMetrics/grafanaMetrics.md)
+- 🚧 Distributed tracing
+- 🚧 [Grafana Tempo](grafanaTempo/grafanaTempo.md)
 
 ## System testing
 
