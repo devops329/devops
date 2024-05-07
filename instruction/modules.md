@@ -2,9 +2,9 @@
 
 ## Getting started
 
-- 🚧 [PizzaShop](pizzaShop/pizzaShop.md)
 - 🚧 [History](history/history.md)
 - 🚧 [Overview](overview/overview.md)
+- 🚧 [PizzaShop](pizzaShop/pizzaShop.md)
 - ☑ 🚧 [AWS Account](awsAccount/awsAccount.md)
 - 🚧 Eternal learning
 - 🚧 [GitHub](gitHub/gitHub.md)
@@ -20,7 +20,7 @@
 
 - 🚧 [Unit testing](unitTesting/unitTesting.md)
 - ☑ 🚧 [Jest](jest/jest.md)
-- 🚧 [TDD](tdd/tdd.md)
+- 🔴 [TDD](tdd/tdd.md)
 - 🚧 [Coverage](coverage/coverage.md)
 - ☑ 🚧 [Lint](lint/lint.md)
 - ☑ 🚧 [Mocking](mocking/mocking.md)
