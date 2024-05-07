@@ -1,7 +1,7 @@
 ## Dates
 
--   Stephen gone may 1-18
--   Lee gone apr 29 - may 3, July 11-20
+- Stephen gone may 1-18
+- Lee gone apr 29 - may 3, July 11-20
 
 | Date   | Owner   | Action                                                                                 |
 | ------ | ------- | -------------------------------------------------------------------------------------- |
@@ -31,22 +31,22 @@
 
 ## Stephen's Core Responsibilities
 
--   K6, Grafana for logging and metrics
--   Autograder
--   Student solutions for all assignments
--   Fix all of Professor Jensen's logic, grammar, and spelling errors
+- [ ] K6, Grafana for logging and metrics
+- [ ] Autograder
+- [ ] Student solutions for all assignments
+- [ ] Fix all of Professor Jensen's logic, grammar, and spelling errors
 
 ## Lee's Core Responsibilities
 
--   Pizza Shop code
--   Set up course version of backend server (ClassBE)
--   Set up JWT generation service (ClassJWT)
--   Set up Chaos injection
--   Instruction
--   Videos
--   Canvas
--   Course repos
--   Setup discord server
+- [x] Pizza Shop code
+- [x] Set up course version of backend server (ClassBE)
+- [x] Set up JWT generation service (ClassJWT)
+- [ ] Set up Chaos injection
+- [ ] Instruction
+- [ ] Videos
+- [ ] Canvas
+- [ ] Course repos
+- [ ] Setup discord server
 
 ## PizzaShop
 
@@ -75,15 +75,15 @@ graph TB;
 
 ### System architecture
 
--   **PizzaShopUI**: The client app. Course provides all the code. The student deploys, writes tests, adds metric instrumentation, and logging.
--   **StudentDB**: Student deploys a DB backend.
--   **StudentBE**: Course provides all the code. The student deploys, writes tests, adds metric instrumentation, and logging.
--   **ClassJWT**: Course provided JWT demonstrates what backend is asking for pizza JWT. This also allows for chaos injection.
-    -   Slow down how quickly it responds
-    -   Send a response that the Backend driver code uses to delete the database, or delete the DB data.
-    -   Return a failure saying that they need to request a new V2 Client token.
--   **ClassBE**: Course provided Backend until the student deploys their own.
--   **ClassDB**: Course provided DB until the student deploys their own.
+- **PizzaShopUI**: The client app. Course provides all the code. The student deploys, writes tests, adds metric instrumentation, and logging.
+- **StudentDB**: Student deploys a DB backend.
+- **StudentBE**: Course provides all the code. The student deploys, writes tests, adds metric instrumentation, and logging.
+- **ClassJWT**: Course provided JWT demonstrates what backend is asking for pizza JWT. This also allows for chaos injection.
+  - Slow down how quickly it responds
+  - Send a response that the Backend driver code uses to delete the database, or delete the DB data.
+  - Return a failure saying that they need to request a new V2 Client token.
+- **ClassBE**: Course provided Backend until the student deploys their own.
+- **ClassDB**: Course provided DB until the student deploys their own.
 
 ```mermaid
 graph LR;
@@ -101,13 +101,13 @@ graph LR;
 
 ## Autograder
 
--   Hook into CAS
--   Has DB for storing student info
--   connection to canvas to adjust grades
--   Simple UI to trigger grading
--   Admin triggers for chaos injection
--   TA Github account that the students must let be admin on their repo
--   Late day calculation
+- Hook into CAS
+- Has DB for storing student info
+- connection to canvas to adjust grades
+- Simple UI to trigger grading
+- Admin triggers for chaos injection
+- TA Github account that the students must let be admin on their repo
+- Late day calculation
 
 ```mermaid
 graph LR;
@@ -126,55 +126,63 @@ graph LR;
 
 ### Phase 1 - UI Testing and Simple Deployment
 
--   Pizza shop UI calling ClassBE to order pizzas - calls ClassJWT to obtain JWTs.
--   **Assignment** - Frontend UI Testing
--   Deployment GitHub Pages
--   **Assignment** - Hit the github.io page and check for token
--   GitHub Actions deployment (Simple CI) - Increment a version number - Token
--   **Assignment** - student autograder trigger run. Hit the github.io page and check for version increment
+- [ ] TDD fibonacci
+- [ ] Fork jwt-pizza
+- [ ] Deploy to github pages by committing to the branch
+  - **AG** check for ability to git classJWT pizza
+- [ ] Deploy to github pages using a gitHub action
+  - **AG** look at their actions history.
+- [ ] Create UI Playwright tests
+- [ ] Create coverage
+- [ ] Add linting
+- [ ] Build, test, and deploy using gitHub actions
+  - **AG** look at their actions history to see if tests run and what coverage is
 
-### Phase 2
+### Phase 2 - Cloud Deployment
 
--   Cloud Deployment
--   S3/ CloudFront
--   GitHub Actions deployment (CI with cloud)
--   **Assignment** - student autograder trigger run. Hit the cloudfront page and check for version increment
+- [ ] S3/ CloudFront. Manual deployment
+- [ ] GitHub Actions deployment (CI with cloud)
+  - **AG** - look at actions history. Checks cloud-front endpoint
 
 ### Phase 3
 
--   Backend Unit Testing, Integration Testing, Lint, coverage on server code
--   **Assignment** - student autograder trigger run. Hit the github repo and check coverage info
+- [ ] Fork jwt-pizza-service
+- [ ] Create service Jest tests
+- [ ] Create coverage
+- [ ] Add linting
+- [ ] Build and test using gitHub actions
+  - **AG** look at their actions history to see if tests run and what coverage is
 
 ### Phase 4
 
--   Deploy Pizza shop backend
--   Container
--   **Assignment** - student autograder trigger run. Hit the Compute the JWT should have a different signature than the class backend
--   Lambda
--   **Assignment** - student autograder trigger run. Hit the Compute the JWT should have a different signature than the class backend
+- Deploy Pizza shop backend
+- Container
+- **Assignment** - student autograder trigger run. Hit the Compute the JWT should have a different signature than the class backend
+- Lambda
+- **Assignment** - student autograder trigger run. Hit the Compute the JWT should have a different signature than the class backend
 
 ### Phase 5
 
--   Deployment strategies - versioning (CI with keeping the system running)
--   **Assignment** - student autograder run. Autograder trigger multiple deployments. Check that service is not disrupted. Version increasing. For A/B on param I get different versions. Canary - 5% given version A.
+- Deployment strategies - versioning (CI with keeping the system running)
+- **Assignment** - student autograder run. Autograder trigger multiple deployments. Check that service is not disrupted. Version increasing. For A/B on param I get different versions. Canary - 5% given version A.
 
 ### Phase 6
 
--   Metrics (Grafana)
--   Logging
--   **Assignment** - student autograder trigger run. Make automated requests and make sure logs and metrics show up.
+- Metrics (Grafana)
+- Logging
+- **Assignment** - student autograder trigger run. Make automated requests and make sure logs and metrics show up.
 
 ### Phase 7
 
--   E2E, end user testing, load testing (K6)
--   **Assignment** - student autograder trigger run. Run their K6 tests from the autograder and make sure logs and metrics show up.
+- E2E, end user testing, load testing (K6)
+- **Assignment** - student autograder trigger run. Run their K6 tests from the autograder and make sure logs and metrics show up.
 
 ### Phase 8
 
--   Chaos, alerts
--   **Assignment** - autograder randomly starts triggers slowdown and failure. Monitor when the system comes back up.
+- Chaos, alerts
+- **Assignment** - autograder randomly starts triggers slowdown and failure. Monitor when the system comes back up.
 
 ### Phase 9
 
--   Team penetration testing
--   **Assignment** - Autograder auto assigning partners. attack each other's sites and write a report.
+- Team penetration testing
+- **Assignment** - Autograder auto assigning partners. attack each other's sites and write a report.
