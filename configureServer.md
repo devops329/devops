@@ -24,6 +24,20 @@ Now we can install Caddy, NVM, Node, and PM2
 
 - Shell into server
   - `ssh -i ~/keys/cs329/cs329.pem ubuntu@0.0.0.0` (substitute IP address)
+- Install mysql
+
+  - sudo apt update
+  - sudo apt upgrade
+  - sudo apt install mysql-server
+  - sudo mysql_secure_installation
+  - sudo mysql
+    ```sql
+    CREATE USER 'admin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'superSecretPassword!123';
+    GRANT ALL ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;
+    EXIT
+    ```
+  - mysql -u admin -p
+
 - Install Caddy
 
   ```sh
@@ -57,20 +71,28 @@ Now we can install Caddy, NVM, Node, and PM2
 - Deploy JWT-pizza-factory
   ```sh
   cd jwt-pizza-factory
-  ./deployService.sh -k ~/keys/cs329/cs329.pem -h 3.235.158.123
+  ./deployService.sh -k ~/keys/cs329/cs329.pem -h cs329.click
   ```
 - Test that they work with `node` and `curl`
   - `cd ~/services/jwt-pizza-factory`
   - `node index.js 4000`
   - `curl -v http://localhost:4000`
   - Stop the server
-- Register each service with PM2
+- Deploy JWT-pizza-service
+  ```sh
+  cd jwt-pizza-service
+  ./deployService.sh -k ~/keys/cs329/cs329.pem -h cs329.click
+  ```
+- Register pizza factory service with PM2
   - `cd ~/services/jwt-pizza-factory && pm2 start index.js -n jwt-pizza-factory -- 4000`
+- Register pizza service with PM2
+  - `cd ~/services/jwt-pizza-service && pm2 start index.js -n jwt-pizza-service -- 3000`
+- Save the pm2 changes.
   - `pm2 save`
   - `pm2 startup` will show you the command daemonize PM2. Run that command.
 - Test that they work
   - `curl http://localhost:3000`
 - Configure Caddy to run services
   - edit Caddyfile `sudo vi ~/Caddyfile`
-  - replace the contents of the Caddyfile with `Caddyfile-base` found in devops329 repo.
+  - replace the contents of the Caddyfile with `Caddyfile-base` found in the devops329 repo.
   - save and restart Caddy `sudo service caddy restart`

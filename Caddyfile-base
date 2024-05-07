@@ -10,3 +10,11 @@ jwt-pizza-factory.cs329.click {
   reverse_proxy * localhost:4000
   header Cache-Control none
   header -server
+}
+
+
+jwt-pizza-service.cs329.click {
+  reverse_proxy * localhost:3000
+  header Cache-Control none
+  header -server
+}

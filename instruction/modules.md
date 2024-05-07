@@ -20,7 +20,7 @@
 
 - 🚧 [Unit testing](unitTesting/unitTesting.md)
 - ☑ 🚧 [Jest](jest/jest.md)
-- 🔴 [TDD](tdd/tdd.md)
+- 🔵 [TDD](tdd/tdd.md)
 - 🚧 [Coverage](coverage/coverage.md)
 - ☑ 🚧 [Lint](lint/lint.md)
 - ☑ 🚧 [Mocking](mocking/mocking.md)
