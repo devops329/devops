@@ -4,7 +4,7 @@
 
 - 🚧 [History](history/history.md)
 - 🚧 [Overview](overview/overview.md)
-- 🚧 [PizzaShop](pizzaShop/pizzaShop.md)
+- 🚧 [Pizza Shop](pizzaShop/pizzaShop.md)
 - ☑ 🚧 [AWS Account](awsAccount/awsAccount.md)
 - 🚧 Eternal learning
 - 🚧 [GitHub](gitHub/gitHub.md)
@@ -30,7 +30,8 @@
 
 ## Static deployment
 
-- 🚧 [Static deployment](staticDeployment/staticDeployment)
+- 🚧 [Pizza Shop Client](pizzaShopClient/pizzaShopClient.md)
+- 🚧 [Static deployment](staticDeployment/staticDeployment.md)
 - 🚧 [Git Branches](gitBranches/gitBranches.md)
 - ☑ 🚧 [GitHub Pages](gitHubPages/gitHubPages.md)
 - 🚧 [Continuous delivery & deployment](continuousDeliveryDeployment/continuousDeliveryDeployment.md)
