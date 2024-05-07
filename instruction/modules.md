@@ -18,9 +18,9 @@
 
 ## Quality assurance
 
-- 🚧 TDD - They need an exercise where they actually develop the code using TDD.
 - 🚧 [Unit testing](unitTesting/unitTesting.md)
 - ☑ 🚧 [Jest](jest/jest.md)
+- 🚧 [TDD](tdd/tdd.md)
 - 🚧 [Coverage](coverage/coverage.md)
 - ☑ 🚧 [Lint](lint/lint.md)
 - ☑ 🚧 [Mocking](mocking/mocking.md)

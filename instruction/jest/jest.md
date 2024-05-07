@@ -1,8 +1,15 @@
 # Jest
 
+[Jest](https://jestjs.io/)
 [SuperTest](https://www.testim.io/blog/supertest-how-to-test-apis-like-a-pro/)
 
+This is for testing endpoints. We need a more general section for just using Jest. The TDD instruction is a good working example.
+
 Add Jest and Supertest
+
+```sh
+npm install -D jest supertest
+```
 
 ```json
   "devDependencies": {

@@ -1,0 +1,13 @@
+{
+  "name": "tdd",
+  "version": "1.0.0",
+  "main": "fibonacci.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "license": "MIT",
+  "description": "TDD example",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
