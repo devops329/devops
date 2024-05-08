@@ -8,7 +8,6 @@
 - ☑ 🚧 [AWS Account](awsAccount/awsAccount.md)
 - ☑ 🔵 [Christlike learning](christlikeLearning/christlikeLearning.md)
 - 🔵 [GitHub](gitHub/gitHub.md)
-- ❌ [GitHub pull requests](gitHubPullRequests/gitHubPullRequests.md)
 - 🚧 Curiosity report
 
 ## Static deployment
