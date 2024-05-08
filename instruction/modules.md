@@ -12,7 +12,7 @@
 
 ## Static deployment
 
-- 🚧 [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
+- ☑ 🚧 [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
 - 🚧 [Static deployment](staticDeployment/staticDeployment.md)
 - 🚧 [Git Branches](gitBranches/gitBranches.md)
 - 🚧 [GitHub Pages](gitHubPages/gitHubPages.md)
