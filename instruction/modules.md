@@ -11,7 +11,6 @@
 - 🚧 [GitHub Projects](gitHubProjects/gitHubProjects.md)
 - ☑ 🚧 [GitHub forks](gitHubForks/gitHubForks.md)
 - 🚧 [GitHub pull requests](gitHubPullRequests/gitHubPullRequests.md)
-- ☑ 🚧 [Development environment](developmentEnvironment/developmentEnvironment.md)
 - 🚧 Curiosity report
 - [JWT](jwt/jwt.md)
 
