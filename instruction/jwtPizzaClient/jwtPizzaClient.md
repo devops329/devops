@@ -1,6 +1,6 @@
-# Pizza Shop Client
+# JWT Pizza Client
 
-![pizza shop logo](../../pizzaShopLogo.png)
+![pizza shop logo](../../jwt-pizza-logo-sm.png)
 
 The development team has given you access to their frontend client application. You need to fork the code to your GitHub account, run it locally and study how it works. Once you are comfortable with the code, you then need to put on your QA hat and start writing tests.
 

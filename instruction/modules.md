@@ -2,9 +2,9 @@
 
 ## Getting started
 
-- 🚧 [History](history/history.md)
-- 🚧 [Overview](overview/overview.md)
-- 🚧 [Pizza Shop](pizzaShop/pizzaShop.md)
+- 🔵 [Overview](overview/overview.md)
+- 🔵 [History](history/history.md)
+- 🔵 [JWT Pizza](jwtPizza/jwtPizza.md)
 - ☑ 🚧 [AWS Account](awsAccount/awsAccount.md)
 - 🚧 Eternal learning
 - 🚧 [GitHub](gitHub/gitHub.md)
@@ -30,7 +30,7 @@
 
 ## Static deployment
 
-- 🚧 [Pizza Shop Client](pizzaShopClient/pizzaShopClient.md)
+- 🚧 [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
 - 🚧 [Static deployment](staticDeployment/staticDeployment.md)
 - 🚧 [Git Branches](gitBranches/gitBranches.md)
 - ☑ 🚧 [GitHub Pages](gitHubPages/gitHubPages.md)
@@ -97,5 +97,6 @@
 - 🚧 SLO, RTO, RPO
 - 🚧 Chaos injection
 - 🚧 Post mortem
-- 🚧 Penetration testing
+- 🚧 [Penetration testing](penetrationTesting/penetrationTesting.md)
+- 🚧 [Burp Suite](burpSuite/burpSuite.md)
 - 🚧 Eternal learning
