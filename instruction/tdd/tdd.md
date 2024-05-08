@@ -317,3 +317,10 @@ function fibonacci(pos) {
 Hopefully you have seen how TDD allows you to discover problems you would not have otherwise found, speed up your development, and generate confidence that you code still works when you make changes.
 
 When your tests pass it is also a good place to commit your changes to your version repository since you know you are in a stable state.
+
+## ☑ Assignment
+
+1. Create a node.js project named TDD
+1. Reproduce the steps given above in order to solidify your understand of the concepts.
+
+Once you are done, go over to Canvas and submit that you have completed this.

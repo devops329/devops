@@ -6,7 +6,7 @@
 - 🔵 [History](history/history.md)
 - 🔵 [JWT Pizza](jwtPizza/jwtPizza.md)
 - ☑ 🚧 [AWS Account](awsAccount/awsAccount.md)
-- 🚧 Eternal learning
+- ☑ 🔵 [Christlike learning](christlikeLearning/christlikeLearning.md)
 - 🚧 [GitHub](gitHub/gitHub.md)
 - 🚧 [Project Management](projectManagement/projectManagement.md)
 - 🚧 [GitHub Projects](gitHubProjects/gitHubProjects.md)
@@ -20,7 +20,7 @@
 
 - 🚧 [Unit testing](unitTesting/unitTesting.md)
 - ☑ 🚧 [Jest](jest/jest.md)
-- 🔵 [TDD](tdd/tdd.md)
+- ☑ 🔵 [TDD](tdd/tdd.md)
 - 🚧 [Coverage](coverage/coverage.md)
 - ☑ 🚧 [Lint](lint/lint.md)
 - ☑ 🚧 [Mocking](mocking/mocking.md)
@@ -100,3 +100,8 @@
 - 🚧 [Penetration testing](penetrationTesting/penetrationTesting.md)
 - 🚧 [Burp Suite](burpSuite/burpSuite.md)
 - 🚧 Eternal learning
+
+## Conclusion
+
+- ☑ 🔵 [Christlike learning conclusion](christlikeLearningConclusion/christlikeLearningConclusion.md)
+- Clean up your AWS resource
