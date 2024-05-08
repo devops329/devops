@@ -8,7 +8,6 @@
 - ☑ 🚧 [AWS Account](awsAccount/awsAccount.md)
 - ☑ 🔵 [Christlike learning](christlikeLearning/christlikeLearning.md)
 - 🚧 [GitHub](gitHub/gitHub.md)
-- 🚧 [Project Management](projectManagement/projectManagement.md)
 - 🚧 [GitHub Projects](gitHubProjects/gitHubProjects.md)
 - ☑ 🚧 [GitHub forks](gitHubForks/gitHubForks.md)
 - 🚧 [GitHub pull requests](gitHubPullRequests/gitHubPullRequests.md)
