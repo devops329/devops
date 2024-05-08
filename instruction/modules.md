@@ -7,9 +7,8 @@
 - 🔵 [JWT Pizza](jwtPizza/jwtPizza.md)
 - ☑ 🚧 [AWS Account](awsAccount/awsAccount.md)
 - ☑ 🔵 [Christlike learning](christlikeLearning/christlikeLearning.md)
-- 🚧 [GitHub](gitHub/gitHub.md)
-- ☑ 🚧 [GitHub forks](gitHubForks/gitHubForks.md)
-- 🚧 [GitHub pull requests](gitHubPullRequests/gitHubPullRequests.md)
+- 🔵 [GitHub](gitHub/gitHub.md)
+- ❌ [GitHub pull requests](gitHubPullRequests/gitHubPullRequests.md)
 - 🚧 Curiosity report
 
 ## Static deployment
@@ -21,6 +20,7 @@
 
 - ⓵ Manual deploy - Deploy frontend to GitHub Pages manually
 
+- 🚧 [Automation](automation/automation.md)
 - 🚧 [Continuous delivery & deployment](continuousDeliveryDeployment/continuousDeliveryDeployment.md)
 - 🚧 [GitHub Actions](gitHubActions/gitHubActions.md)
 
@@ -53,10 +53,8 @@
 - 🚧 [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
 - 🚧 [Blue/Green](blueGreeen/blueGreen.md)
 
-## AWS deployment
+## CDN deployment
 
-- 🚧 [Automation](automation/automation.md)
-- 🚧 [Elasticity](elasticity/elasticity.md)
 - 🚧 [Security](security/security.md)
 - 🚧 [Cloud deployment](cloudDeployment/cloudDeployment.md)
 - 🚧 [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
@@ -72,8 +70,9 @@
 
 - We need a discussion on scalability, bottlenecks, and auto adjustment. This should tie into SLO.
 
-## Containers
+## Scalable deployment
 
+- 🚧 [Elasticity](elasticity/elasticity.md)
 - ☑ 🚧 [AWS Aurora](awsAurora/awsAurora.md)
 - 🚧 [Docker](docker/docker.md)
 - 🚧 [Containers](containers/containers.md)
@@ -96,7 +95,7 @@
 - ⓼ Log - Provide logging with Grafana Loki
 - ⓽ Trace - Provide execution tracing with Grafana Tempo
 
-## System testing
+## Load testing
 
 - 🚧 [E2E testing](e2eTesting/e2eTesting.md)
 - 🚧 [Load testing](loadTesting/loadTesting.md)
@@ -104,7 +103,7 @@
 
 - ⓾ Load test - Execute end to end load testing with K6
 
-## Failure management
+## Failure testing
 
 - 🚧 Backup/Restore (Aurora)
 - 🚧 Alerts
@@ -116,6 +115,8 @@
 - 🚧 Post mortem
 
 - ⓫ Failure test - Failure test due to chaos injection
+
+## Penetration testing
 
 - 🚧 [Penetration testing](penetrationTesting/penetrationTesting.md)
 - 🚧 [Burp Suite](burpSuite/burpSuite.md)
