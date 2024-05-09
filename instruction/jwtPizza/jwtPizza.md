@@ -4,7 +4,7 @@
 
 In order for us to master the concepts of Quality Assurance and Developer Operations we will work on a simple web application named JWT Pizza (pronounced Jot Pizza).
 
-JWT Pizza provides the valuable service of exchanging BitCoin for virtual pizzas that are represented by a cryptographically signed token ([JWT](https://jwt.io/introduction)). JWT Pizza also provides that opportunity to create a franchise and cash in on the 🍕 virtual pizza craze.
+JWT Pizza provides the valuable service of exchanging BitCoin for virtual pizzas that are represented by a cryptographically signed token ([JWT](https://jwt.io/introduction)). JWT Pizza also provides the opportunity to create a franchise and cash in on the 🍕 virtual pizza craze.
 
 An external developer team has written the code for the application and you are in charge of the QA and DevOps roles for writing the tests, deploying to, and managing the production environment.
 
