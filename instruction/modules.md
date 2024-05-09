@@ -13,7 +13,7 @@
 ## Static deployment
 
 - ☑ 🔵 [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
-- 🚧 [Static deployment](staticDeployment/staticDeployment.md)
+- 🔵 [Static deployment](staticDeployment/staticDeployment.md)
 - 🚧 [Git Branches](gitBranches/gitBranches.md)
 - 🚧 [GitHub Pages](gitHubPages/gitHubPages.md)
 - ⓵ Manual deploy - Deploy frontend to GitHub Pages manually
