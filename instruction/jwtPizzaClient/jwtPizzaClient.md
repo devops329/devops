@@ -1,8 +1,8 @@
 # JWT Pizza Client
 
-![pizza shop logo](../../jwt-pizza-logo-sm.png)
+![JWT Pizza](jwtPizzaPhone.png)
 
-The JWT Pizza application team has finally finished their work on the website and has given you access to the frontend application so that you can start testing and deploying it.
+The _JWT Pizza application_ team has finally finished their work on the website and has given you access to the frontend application code so that you can start testing and deploying it.
 
 Initially you will only be running the code from your development environment. It will call the JWT Pizza Service and JWT Pizza Factory provided by JWT Headquarters so that it can be fully functional.
 

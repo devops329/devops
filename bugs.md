@@ -21,3 +21,4 @@
 1. Docs page has the demo data user's email and password
 1. Does not secure cookies
    - `res.cookie('token', token, { secure: true, httpOnly: true, sameSite: 'strict' });`
+1. The default jwtSecret is not changed in their `config.js` file.

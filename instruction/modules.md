@@ -8,7 +8,7 @@
 - ☑ 🚧 [AWS Account](awsAccount/awsAccount.md)
 - ☑ 🔵 [Christlike learning](christlikeLearning/christlikeLearning.md)
 - 🔵 [GitHub](gitHub/gitHub.md)
-- 🚧 Curiosity report
+- 🔵 [Curiosity report](curiosityReport/curiosityReport.md)
 
 ## Static deployment
 
@@ -34,6 +34,7 @@
 - ☑ 🚧 [Lint](lint/lint.md)
 - ☑ 🚧 [Mocking](mocking/mocking.md)
 - 🚧 [Dependency injection](dependencyInjection/dependencyInjection.md)
+- ☑ 🔵 [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
 
 - ⓷ Unit test - Unit test backend and analysis using Jest and GitHub Actions
 
