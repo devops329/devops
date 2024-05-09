@@ -13,7 +13,7 @@
 
 ## AWS Organizations
 
-- Created an organization on my account. I don't this this did much. Maybe it enabled my ability to use IAM Identity Center
+- Created an organization on my account. I don't think this did much. Maybe it enabled my ability to use IAM Identity Center
 - Opened IAM Identity Center in the AWS console.
 - Created a user lee-cs to see if I could use organizations to get temporary credentials. Way to complicated and didn't seem to work.
 - Tried Cloudshell, but I really need to run it from my dev environment.
