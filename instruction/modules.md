@@ -15,8 +15,8 @@
 - ☑ 🔵 [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
 - 🔵 [Static deployment](staticDeployment/staticDeployment.md)
 - 🚧 [Git Branches](gitBranches/gitBranches.md)
-- 🚧 [GitHub Pages](gitHubPages/gitHubPages.md)
-- ⓵ Manual deploy - Deploy frontend to GitHub Pages manually
+- 🔵 [GitHub Pages](gitHubPages/gitHubPages.md)
+- ☑ 🔵 [⓵ Manual deploy](deliverable1ManualDeploy/deliverable1ManualDeploy.md)
 - 🚧 [Automation](automation/automation.md)
 - 🚧 [Continuous delivery & deployment](continuousDeliveryDeployment/continuousDeliveryDeployment.md)
 - 🚧 [GitHub Actions](gitHubActions/gitHubActions.md)
