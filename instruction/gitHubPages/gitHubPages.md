@@ -13,11 +13,16 @@ To configure GitHub Pages to host a static deployment we need to first create a 
    > ![branch icon](branchNavigationIcon.png)
 1. Press the `New Branch` button, supply the name `gh-pages`, and press the `Create new branch` button.
    > ![New Branch Modal](newBranchModal.png)
-1. Next we need to associate our new branch with GitHub Pages by selecting the `Setting` option form the main navigation.
+
+## Associate gh-pages branch with Pages
+
+Next we need to associate our new branch with GitHub Pages for the jwt-pizza repository.
+
+1. Select the `Setting` option form the main navigation.
 1. Select the `Pages` option from the left hand navigation.
-1. Select the `Source` option and choose `Deploy from a branch`
+1. Select the `Source` option and verify that `Deploy from a branch` is selected
    > ![GitHub Pages settings](gitHubPagesSettings.png)
-1. This will cause a `Branch` option to become available. Press the branch dropdown, select the `gh-pages` branch, and press `Save`.
+1. In the `Brach` section select `gh-pages` as the branch, and press `Save`.
    > ![gh-pages branch selection](ghPagesBranchSelection.png)
 
 This will make the branch available from a URL that references your repository. The GitHub Pages settings view will display the name of the URL, but it should be something like:
@@ -41,7 +46,7 @@ Now we can copy the branch to your development environment, set up some files, a
 
    This branch should contain all of the files that represent the jwt-pizza frontend. However, since that is the frontend code we need to instead provide the bundled code that Vite creates. Before we do that let's deploy a simple Hello World page to make sure things are working.
 
-1. Delete all of the code in the branch. Remember, that this branch is just to host a static deployment on GitHub Pages. We will never merge it back into `main`.
+1. Delete all of the code in the branch. Remember, that this branch is just to host a static deployment on GitHub Pages. You should never merge it back into `main`.
    ```sh
    rm -r * .env* .vscode
    print "hello GitHub pages" > index.html
@@ -54,122 +59,52 @@ You can now point your browser to the GitHub pages site for your repository and 
 
 ```sh
 curl https://youaccountnamehere.github.io/jwt-pizza/
+
 Hello GitHub Pages
 ```
+
+## Assigning a custom domain
+
+The JWT Pizza doesn't work correctly unless it is hosted on the root path of the domain. As you have seen above, by default GitHub Pages will host the static deployment on a path called `jwt-pizza`. To get around this you must associate a customer domain with your GitHub Pages deployment.
+
+⚠️ If you do not own a DNS hostname you will need to go lease one. We will use this for all of your DevOps deployment tasks. You can lease a domain from AWS using Route53 or use a different provider such as [namecheap.com](namecheap.com).
+
+Using your domain name take the following steps in order to associate it to your GitHub Pages.
+
+1. Add a `CNAME` record to your domain name DNS records that points to the GitHub Pages hostname. For example, if your GitHub account name was `byucsstudent`, you had a domain name of `goat.click`, and you wanted to associate the static deployment of JWT Pizza with the subdomain of `pizza.goat.click` you would create a create the following DNS record.
+   ```txt
+   record name: pizza.goat.click
+   record type: CNAME
+   record value: byucsstudent.github.io
+   ```
+1. Wait for the newly created record to propagate. You can use nslook or dig to verify that it is available.
+1. Open the GitHub Pages view for the fork of your jwt-pizza repository.
+1. Put your subdomain name in the `Custom domain` edit box and press `Save`.
+   > ![Custom domain entry](customDomain.png)
+1. After the check completes you can navigate your browser to your subdomain and verify that the GitHub page is still being displayed.
 
 ## Deploying JWT Pizza
 
 Now we are ready to actually deploy the JWT Pizza frontend. In your development environment command console and run the following commands.
 
-```sh
-git checkout main
-git npm run build
-git checkout gh-pages
-cp -r dist/* .
-git add .
-git commit -m "deploy(v1)"
-git push
-```
+1. From the main branch use Vite to bundle the frontend into a directory named `dist`.
+   ```sh
+   git checkout main
+   npm run build
+   ```
+1. Change to the GitHub pages branch, delete the old deployment, and copy the bundled version into its place.
+   ```sh
+   git checkout gh-pages
+   rm -r assets *.html *.jpg *.png
+   cp -r dist/* .
+   ```
+1. Add the files to git, commit, and push.
+   ```sh
+   git add .
+   git commit -m "deploy(v1)"
+   git push
+   ```
 
-This runs Vite on the main branch in order to bundle the frontend into a directory named `dist`. We then change back into the deployment branch. Because the `dist` directory is not tracked thanks to the .gitignore entry it is visible in the `gh-pages` branch. We then copy the files over, add, commit, and push.
+That should do it. You can verify that it all worked by opening your browser to your pizza domain and start ordering pizzas.
 
-# Research
-
-There is a major bug that I don't know how to fix. Any refresh on a subpath will cause a 404 since GitHub pages doesn't know how to resolve the React Router path.
-
-This is discussed here:
-
-https://stackoverflow.com/questions/46056414/getting-404-for-links-with-create-react-app-deployed-to-github-pages
-
-THe solution is to move to HashHistory instead of browserHistory. I guess that would work.
-
-You can also copy `index.html` to `404.html` and GitHub pages will serve that file up.
-
-## gh-pages NPM package
-
-This is created by the create-react-team, but it mostly works for Vite also. You just need to change the `-d build` param to be `-d dist`
-
-https://create-react-app.dev/docs/deployment/#github-pages
-
-```sh
-npm -D install gh-pages
-```
-
-Modify package.json
-
-```json
-  "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
-  },
-  "homepage": "https://github.com/byucsstudent/jwt-pizza.git",
-```
-
-## Setting the upstream user and password
-
-I had to set the upstream to contain a password since it was the student account. This is really valuable since I can set it on a repo instead of an account.
-
-```sh
-git remote set-url origin https://byucsstudent:xxxx@github.com/byucsstudent/jwt-pizza.git
-```
-
-## Fixing the JTW Pizza code
-
-I had to change all the paths to be relative and add a vite config so that it doesn't put an absolute base path.
-
-I had to also configure Vite to not prefix the base of the generated paths by adding a `vite.config.js` file.
-
-**vite.config.js**
-
-```js
-import { defineConfig } from 'vite';
-
-export default defineConfig({
-  base: '',
-});
-```
-
-## Publishing with a GitHub branch
-
-https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#creating-a-custom-github-actions-workflow-to-publish-your-site
-
-create the branch
-
-```
-git checkout -b gh-pages
-npm install
-npm run build
-git add -f dist
-git commit -am "version(1)"
-git push https://github.com/byucsstudent/jwt-pizza.git
-```
-
-This created a branch in github with the dist dir, but I want only the dist dir to be there.
-
-first time:
-
-```sh
-git pull
-git branch pages
-```
-
-following times:
-
-```sh
-git checkout pages
-npm run build
-
-```
-
-## Repo pages
-
-This works by creating a branch of the `PizzaShop` repo that pages pulls from.
-
-## Account pages
-
-Might be nice to know how to create a pages for your account
-
-Create a repo with the same name as the account and a `.github.io` suffix.
-
-- Add a `index.html` file
-- Go to `https://accountname.github.io`
+![JWT Pizza](../jwtPizzaClient/jwtPizzaPhone.png)

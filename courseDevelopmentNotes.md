@@ -1,3 +1,33 @@
+# GitHub
+
+## Setting the upstream user and password
+
+I had to set the upstream to contain a password since it was the student account. This is really valuable since I can set it on a repo instead of an account.
+
+```sh
+git remote set-url origin https://byucsstudent:xxxx@github.com/byucsstudent/jwt-pizza.git
+```
+
+## gh-pages NPM package
+
+This is created by the create-react-team, but it mostly works for Vite also. You just need to change the `-d build` param to be `-d dist`
+
+https://create-react-app.dev/docs/deployment/#github-pages
+
+```sh
+npm -D install gh-pages
+```
+
+Modify package.json
+
+```json
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "homepage": "https://github.com/byucsstudent/jwt-pizza.git",
+```
+
 # Changes made on FHT AWS account
 
 1. Created a bucket for static client hosting. test.cs240.click
