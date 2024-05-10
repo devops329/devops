@@ -26,10 +26,12 @@ To get started you need to fork the code to your GitHub account, run it locally 
 
 Here are the steps to take:
 
-1. Navigate your browser over to the [jwt-pizza](https://github.com/devops329/jwt-pizza) repository on GitHub.
-   ![forkRepo](forkRepo.png)
+1. Navigate your browser over to the [jwt-pizza](https://github.com/devops329/jwt-pizza) repository on GitHub and select the option to `Fork` the repository.
+   > ![forkRepo](forkRepo.png)
+1. Create the fork by pressing the `Create fork` button. For clarity reasons, it is highly suggested that you leave the name of the repository `jwt-pizza`.
+   > ![createFork](createFork.png)
 1. Copy the URL for your fork of the repository.
-   ![cloneUrl](cloneUrl.png)
+   > ![cloneUrl](cloneUrl.png)
 1. Use the URL to clone the repository from your account to your development environment.
    ```sh
    git clone https://github.com/youraccountnamehere/jwt-pizza.git
