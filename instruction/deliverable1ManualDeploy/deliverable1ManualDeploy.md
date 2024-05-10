@@ -12,7 +12,7 @@ You now have everything you need to complete the first deliverable of the course
 
 ## Create the gh-pages branch
 
-To configure GitHub Pages to host a static deployment we need to first create a branch that has the files we want to host.
+To configure GitHub Pages to host a static deployment you need to first create a branch that has the files you want to host.
 
 1. Open **your fork** of the `jwt-pizza` repository on GitHub.com.
 1. Create a new branch of the code called `gh-pages` by navigating to the branch view by clicking on the branch navigation icon.
@@ -22,7 +22,7 @@ To configure GitHub Pages to host a static deployment we need to first create a 
 
 ## Associate gh-pages branch with Pages
 
-Next we need to associate our new branch with GitHub Pages for the jwt-pizza repository.
+Next you need to associate our new branch with GitHub Pages for the jwt-pizza repository.
 
 1. Select the `Setting` option form the main navigation.
 1. Select the `Pages` option from the left hand navigation.
@@ -39,7 +39,7 @@ https://youraccountnamehere.github.io/jwt-pizza/
 
 ## Creating a static deployment
 
-Now we can copy the branch to your development environment, set up some files, and push it back to GitHub so that it will be statically deployed.
+Now you can copy the branch to your development environment, set up some files, and push it back to GitHub so that it will be statically deployed.
 
 1. Open a command console in your development environment.
 1. Navigate to your cloned copy of `jwt-pizza`.
@@ -50,7 +50,7 @@ Now we can copy the branch to your development environment, set up some files, a
    git checkout -b gh-pages origin/gh-pages
    ```
 
-   This branch should contain all of the files for the jwt-pizza frontend. However, we don't want to deploy the project code, instead we want to deploy the distribution bundled that Vite creates. Before we do that let's deploy a simple Hello World page to make sure things are working.
+   This branch should contain all of the files for the jwt-pizza frontend. However, you don't want to deploy the project code, instead you want to deploy the distribution bundled that Vite creates. Before you do that let's deploy a simple Hello World page to make sure things are working.
 
 1. Delete all of the code in the branch. Remember, that this branch is just to host a static deployment on GitHub Pages. You should never merge it back into `main`.
    ```sh
@@ -93,10 +93,15 @@ Using your domain name take the following steps in order to associate it to your
 
 Now you are ready to actually deploy the JWT Pizza frontend. Open your development environment command console and run the following commands.
 
-1. On the `main` branch use Vite to bundle the frontend into a directory named `dist`.
+1. On the `main` branch, make sure we have the correct dependencies, and use Vite to bundle the frontend into a directory named `dist`.
    ```sh
    git checkout main
+   npm ci
    npm run build
+   ```
+1. You also need to make a fix related to how GitHub Pages handles unknown requests. The problem is that the React Router used by the frontend relies on the HTTP file server to redirect back to `index.html` if an unknown path is requested. GitHub Pages attempts to serve a file named `404.html` when it can't find a requested file. So if you copy `index.html` over to `404.html` it will basically redirect all unknown requests back to `index.html` and the React Router will correctly interpret the path.
+   ```sh
+   cp dist/index.html dist/404.html
    ```
 1. Change to the `gh-pages` branch, delete the old deployment, and copy the bundled version into its place.
    ```sh
