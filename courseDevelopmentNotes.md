@@ -8,6 +8,12 @@ I had to set the upstream to contain a password since it was the student account
 git remote set-url origin https://byucsstudent:xxxx@github.com/byucsstudent/jwt-pizza.git
 ```
 
+You can specify the upstream for the fork to the original repository with:
+
+```sh
+git remote add upstream https://github.com/devops329/jwt-pizza.git
+```
+
 ## gh-pages NPM package
 
 This is created by the create-react-team, but it mostly works for Vite also. You just need to change the `-d build` param to be `-d dist`
