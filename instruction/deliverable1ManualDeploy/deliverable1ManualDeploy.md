@@ -1,4 +1,4 @@
-# Deliverable 1: Manual deployment
+# Deliverable ⓵: Manual deployment
 
 ![course overview](../courseOverview.png)
 

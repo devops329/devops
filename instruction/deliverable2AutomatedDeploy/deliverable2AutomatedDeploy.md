@@ -1,4 +1,4 @@
-# Deliverable 2: Automated deployment
+# Deliverable ⓶: Automated deployment
 
 ![course overview](../courseOverview.png)
 
