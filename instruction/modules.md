@@ -20,7 +20,7 @@
 - 🚧 [Automation](automation/automation.md)
 - 🚧 [Continuous delivery & deployment](continuousDeliveryDeployment/continuousDeliveryDeployment.md)
 - 🚧 [GitHub Actions](gitHubActions/gitHubActions.md)
-- ⓶ Automated deploy - Deploy frontend to GitHub Pages using GitHub Actions
+- ☑ 🔵 [⓶ Automated deploy](deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)
 
 ## Quality assurance
 
