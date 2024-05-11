@@ -38,6 +38,19 @@
 - ☑ 🚧 [Playwright](playwright/playwright.md)
 - ⓸ Integration test - Integration test and analysis frontend using Playwright and GitHub Actions
 
+## CDN deployment
+
+- 🚧 [Security](security/security.md)
+- 🚧 [Cloud deployment](cloudDeployment/cloudDeployment.md)
+- ❌ [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
+- 🚧 [AWS S3](awsS3/awsS3.md)
+- 🚧 [AWS CloudFront](awsCouldfront/awsCloudfront.md)
+- ☑ 🚧 [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
+- ⓹ CDN deploy - Deploy frontend to AWS CloudFront
+- ❌ [Serverless](serverless/serverless.md)
+- ❌ [AWS API Gateway](awsApiGateway/awsApiGateway.md)
+- ❌ [AWS Lambda](awsLambda/awsLambda.md)
+
 ## Deployment strategies
 
 - 🚧 [Versioning](versioning/versioning.md)
@@ -46,19 +59,6 @@
 - 🚧 [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
 - 🚧 [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
 - 🚧 [Blue/Green](blueGreeen/blueGreen.md)
-
-## CDN deployment
-
-- 🚧 [Security](security/security.md)
-- 🚧 [Cloud deployment](cloudDeployment/cloudDeployment.md)
-- 🚧 [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
-- 🚧 [AWS S3](awsS3/awsS3.md)
-- 🚧 [AWS CloudFront](awsCouldfront/awsCloudfront.md)
-- ☑ 🚧 [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
-- ⓹ CDN deploy - Deploy frontend to AWS CloudFront
-- ❌ [Serverless](serverless/serverless.md)
-- ❌ [AWS API Gateway](awsApiGateway/awsApiGateway.md)
-- ❌ [AWS Lambda](awsLambda/awsLambda.md)
 
 - We need a discussion on scalability, bottlenecks, and auto adjustment. This should tie into SLO.
 
