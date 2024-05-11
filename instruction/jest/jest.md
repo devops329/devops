@@ -78,7 +78,7 @@ test('add multiple numbers', () => {
 });
 ```
 
-When we rerun the tests, the first test works great, but the second test fails. This is because the test is incorrectly expected the wrong resulting value. After fixing the value to be the correct result of `15`, everything works great.
+When we rerun the tests, the first test works great, but the second test fails. This is because the test is incorrectly expected the wrong resulting value. After fixing the value to be the correct result of `15`, all the tests pass.
 
 ```sh
 npm test
@@ -138,7 +138,94 @@ Test Suites: 1 passed, 1 total
 Tests:       2 passed, 2 total
 ```
 
-## Jest test primitives
+## Jest expect and matchers
+
+[Jest Expect](https://jestjs.io/docs/expect)
+
+When you create assertions with Jest you use the `expect` method to generate an expectation object. The expectation object has numerous matcher operations that assert the state of the expectation.
+
+### Equality
+
+You have already seen one of the most common matcher operations, `toBe()` which tests equality.
+
+```js
+expect(Number('2')).toBe(2);
+expect({ id: 2 }.id).toBe(2);
+```
+
+If you want to test for deep equality then use the `toEquals` matcher. Note that this match will ignore values that are undefined.
+
+```js
+expect({ id: 2, data: { name: 'cow' }, home: undefined }).toEqual({ id: 2, data: { name: 'cow' } });
+```
+
+### Truthy and falsy
+
+You can also determine if an expectation is truthy or falsy.
+
+```js
+expect(true).toBeTruthy();
+expect(true).not.toBeFalsy();
+expect(false).not.toBeTruthy();
+expect(false).toBeFalsy();
+expect(undefined).not.toBeDefined();
+expect(undefined).toBeUndefined();
+expect(null).toBeNull();
+expect(null).toBeDefined();
+expect(null).not.toBeUndefined();
+expect(null).not.toBeTruthy();
+expect(null).toBeFalsy();
+expect(0).not.toBeNull();
+expect(0).toBeDefined();
+expect(0).not.toBeUndefined();
+expect(0).not.toBeTruthy();
+expect(0).toBeFalsy();
+```
+
+### Numbers
+
+There are numerous matches that help with the comparison of numbers. This includes dealing with situations where floating point precision might be in question.
+
+```js
+expect(4).toBeGreaterThan(3);
+expect(4).toBeGreaterThanOrEqual(3.5);
+expect(4).toBeLessThan(5);
+expect(4).toBeLessThanOrEqual(4.5);
+expect(0.1 + 0.2).toBeCloseTo(0.3);
+```
+
+### Regular expressions
+
+Oftentimes you need to test for things that contain unpredictable variations in results. This is where the regular expression matcher, `toMatch`, comes in handy.
+
+```js
+const body = JSON.stringify({ date: '20240202T00:00:10Z', name: 'orem' });
+expect(body).toMatch(/{"date":".*","name":"orem"}/);
+```
+
+### Arrays and objects
+
+You can also match on specific array contents or object properties.
+
+```js
+expect('abcd').toContain('bc');
+expect([1, 2, 3]).toContain(2);
+expect([1, 2, 3]).toEqual(expect.arrayContaining([2, 3]));
+expect({ id: 2, cost: 3 }).toHaveProperty('cost', 3);
+expect({ id: 2, cost: 3 }).toEqual(expect.objectContaining({ id: 2 }));
+```
+
+### Exceptions
+
+No testing is complete unless it checks for the unhappy paths. You can validate that exceptions are thrown, or not thrown.
+
+```js
+expect(() => {
+  throw new Error('error');
+}).toThrow();
+
+expect(() => {}).not.toThrow();
+```
 
 ## Mocking with Jest
 
