@@ -39,11 +39,9 @@ We also modify the scripts section of the `package.json` file to specify that we
 **package.json**
 
 ```json
-  ...
   "scripts": {
     "test": "jest"
   },
-  ...
 ```
 
 ## Running our first tests

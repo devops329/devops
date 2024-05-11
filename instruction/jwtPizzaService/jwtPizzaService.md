@@ -50,7 +50,7 @@ Here are the steps to take:
    ⚠️ Note that you must replace `jwtSecret`, `connection.password`, and `factory.apiKey` with a values that you generate. `jwtSecret` is used to sign authorization tokens. `connection.password` is the password for your MySQL database. `factory.apiKey` allows you to fulfill orders from the JWT Headquarters factory.
 
    ```sh
-   export default {
+   module.exports =  {
       jwtSecret: 'yourjwtsecrethere',
       db: {
         connection: {

@@ -1,10 +1,49 @@
-# Jest
+# Service testing
 
 [Jest](https://jestjs.io/)
+[SuperTest](https://www.testim.io/blog/supertest-how-to-test-apis-like-a-pro/)
 
-Rewrite this to simply be about Jest
+Rewrite this with the example fo an actual simple service.
 
-Who created Jest?
+Add Jest and Supertest
+
+```sh
+npm install -D jest supertest
+```
+
+```json
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4"
+  }
+```
+
+In order to test service endpoints you need to abstract the express app so that SuperTest can launch it.
+
+Write a test
+
+```js
+const request = require('supertest');
+const app = require('./server');
+
+test('getStore returns the desired store', (done) => {
+  request(app)
+    .get('/store/provo')
+    .expect(200)
+    .expect({ name: 'provo' })
+    .end((err) => (err ? done(err) : done()));
+});
+
+test('putStore update a store without new information', (done) => {
+  request(app)
+    .post('/store/orem')
+    .expect(200)
+    .expect(obj.name)
+    .toBe('orem')
+    .expect({ name: 'orem' })
+    .end((err) => (err ? done(err) : done()));
+});
+```
 
 To [debug](https://jestjs.io/docs/troubleshooting#debugging-in-vs-code) you need to add a launch config.
 
