@@ -45,15 +45,18 @@ Here are the steps to take:
    npm install
    ```
 1. Obtain a JWT Pizza Factory API Key. You can get this key from the [Autograder](https://autograder.cs329.click) application.
-1. Create a `config.js` file in your source directory and insert your database credentials, jwtSecret, and API Key. The factory should point to the ULR provided by JWT Headquarters. The following is an example `config.js` file.
+1. Create a `config.js` file in the `src` directory and insert your database credentials, jwtSecret, and API Key. The factory should point to the ULR provided by JWT Headquarters. The following is an example `config.js` file.
+
+   ⚠️ Note that you must replace `jwtSecret`, `connection.password`, and `factory.apiKey` with a values that you generate. `jwtSecret` is used to sign authorization tokens. `connection.password` is the password for your MySQL database. `factory.apiKey` allows you to fulfill orders from the JWT Headquarters factory.
+
    ```sh
    export default {
-      jwtSecret: '908f908dsvjdfnjoidfabv0j9few09gfdesjibdfsnkml',
+      jwtSecret: 'yourjwtsecrethere',
       db: {
         connection: {
           host: 'localhost',
           user: 'root',
-          password: 'monkeypie',
+          password: 'yourpasswordhere',
           database: 'pizza',
           connectTimeout: 60000,
         },
@@ -61,10 +64,16 @@ Here are the steps to take:
       },
       factory: {
         url: 'https://jwt-pizza-factory.cs329.click',
-        apiKey: '123456',
+        apiKey: 'yourapikeyhere',
       },
    };
    ```
+
+   1. Start the service using `node index.js` or debugging it from within your IDE.
+   1. Test that the service is running properly
+      ```sh
+      curl http://localhost:3000/api/docs
+      ```
 
 ## Keep in sync
 
