@@ -1,8 +1,12 @@
 # Jest
 
-[Jest](https://jestjs.io/)
+![Jest Logo](jestLogo.png)
 
-🚧 Who created Jest?
+[Official Jest website](https://jestjs.io/)
+
+Jest is the most common framework for testing JavaScript. It was created back in 2011 when Facebook’s chat feature was rewritten in JavaScript. After extensive internal use, Facebook release Jest as open source in 2014. In 2022 they transferred ownership of Jest to OpenJS. We owe much thanks to Facebook for investing in and openly sharing such a valuable piece of code.
+
+## Installing Jest
 
 In order to use Jest a your unit testing framework you need to first create an NPM project and install Jest package. Note that then installing we use the `-D` parameter to tell NPM that Jest is only used during development and it shouldn't be included in any production deployment.
 
@@ -54,7 +58,7 @@ Ran all test suites.
 
 ## Calling code from the test
 
-That run isn't very interesting since it only runs code within the test itself. So instead let's create a function called add in an `index.js` file and have the test call that instead.
+The previous test isn't very interesting since it only runs code within the test itself. So instead, let's create a function called `add` in an `add.js` file and have the test call that instead.
 
 ```js
 function add(...numbers) {
@@ -64,10 +68,10 @@ function add(...numbers) {
 module.exports = { add };
 ```
 
-You can then rewrite the test to import and use our new test. Let's add another test that is a little more complex.
+You can then rewrite the test to import and create a couple tests for our new `add` function.
 
 ```js
-const { add } = require('./index');
+const add = require('./add');
 
 test('add two numbers', () => {
   expect(add(1, 1)).toBe(2);
@@ -78,7 +82,7 @@ test('add multiple numbers', () => {
 });
 ```
 
-When we rerun the tests, the first test works great, but the second test fails. This is because the test is incorrectly expected the wrong resulting value. After fixing the value to be the correct result of `15`, all the tests pass.
+When we rerun the tests.
 
 ```sh
 npm test
@@ -101,6 +105,8 @@ npm test
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 passed, 2 total
 ```
+
+The first test works great, but the second test fails. This is because the test is incorrectly expected the wrong resulting value. After fixing the value to be the correct result of `15`, all the tests pass.
 
 ## Jest configuration
 
@@ -138,69 +144,82 @@ Test Suites: 1 passed, 1 total
 Tests:       2 passed, 2 total
 ```
 
+## Jest Visual Studio Code Extension
+
+You can run Jest from the console, but it is much nicer to install an extension that allows you to run the test right inside your IDE. With the [Jest Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest) you can selectively run one, or all of your tests and visually see the results.
+
+![Jest VS Code extension](jestVsCodeExtension.png)
+
+Make sure you checkout the ability for the extension to run the tests whenever they change and also to show the code coverage.
+
+![alt text](codeCoverage.png)
+
 ## Jest expect and matchers
 
 [Jest Expect](https://jestjs.io/docs/expect)
 
-When you create assertions with Jest you use the `expect` method to generate an expectation object. The expectation object has numerous matcher operations that assert the state of the expectation.
+When you create assertions with Jest, you use the `expect` method to generate an expectation object. The expectation object has numerous matcher operations that assert the state of the expectation. You will want to be come familiar with all of the matchers, but we will give you a taste fo the most common ones here.
 
 ### Equality
 
-You have already seen one of the most common matcher operations, `toBe()` which tests equality.
+You have already seen one of the most common matcher operations, `toBe()` which tests equality. If you want to test for deep equality then use the `toEquals` matcher. Note that this match will ignore values that are undefined.
 
 ```js
-expect(Number('2')).toBe(2);
-expect({ id: 2 }.id).toBe(2);
-```
-
-If you want to test for deep equality then use the `toEquals` matcher. Note that this match will ignore values that are undefined.
-
-```js
-expect({ id: 2, data: { name: 'cow' }, home: undefined }).toEqual({ id: 2, data: { name: 'cow' } });
+test('equality', () => {
+  expect(add(1, 1)).toBe(2);
+  expect('2').not.toBe(2);
+  expect({ id: 2, data: { name: 'cow' }, xid: undefined }).toEqual({ id: 2, data: { name: 'cow' } });
+});
 ```
 
 ### Truthy and falsy
 
-You can also determine if an expectation is truthy or falsy.
+Determining if a variable is truthy or falsy is a common operation in JavaScript and so Jest has numerous matchers to help you with this.
 
 ```js
-expect(true).toBeTruthy();
-expect(true).not.toBeFalsy();
-expect(false).not.toBeTruthy();
-expect(false).toBeFalsy();
-expect(undefined).not.toBeDefined();
-expect(undefined).toBeUndefined();
-expect(null).toBeNull();
-expect(null).toBeDefined();
-expect(null).not.toBeUndefined();
-expect(null).not.toBeTruthy();
-expect(null).toBeFalsy();
-expect(0).not.toBeNull();
-expect(0).toBeDefined();
-expect(0).not.toBeUndefined();
-expect(0).not.toBeTruthy();
-expect(0).toBeFalsy();
+test('truthy falsy', () => {
+  expect(true).toBeTruthy();
+  expect(true).not.toBeFalsy();
+  expect(false).not.toBeTruthy();
+  expect(false).toBeFalsy();
+  expect(undefined).not.toBeDefined();
+  expect(undefined).toBeUndefined();
+  expect(null).toBeNull();
+  expect(null).toBeDefined();
+  expect(null).not.toBeUndefined();
+  expect(null).not.toBeTruthy();
+  expect(null).toBeFalsy();
+  expect(0).not.toBeNull();
+  expect(0).toBeDefined();
+  expect(0).not.toBeUndefined();
+  expect(0).not.toBeTruthy();
+  expect(0).toBeFalsy();
+});
 ```
 
 ### Numbers
 
-There are numerous matches that help with the comparison of numbers. This includes dealing with situations where floating point precision might be in question.
+There are numerous matchers that help with the comparison of numbers. This includes dealing with situations where floating point precision might be in question.
 
 ```js
-expect(4).toBeGreaterThan(3);
-expect(4).toBeGreaterThanOrEqual(3.5);
-expect(4).toBeLessThan(5);
-expect(4).toBeLessThanOrEqual(4.5);
-expect(0.1 + 0.2).toBeCloseTo(0.3);
+test('numbers', () => {
+  expect(4).toBeGreaterThan(3);
+  expect(4).toBeGreaterThanOrEqual(3.5);
+  expect(4).toBeLessThan(5);
+  expect(4).toBeLessThanOrEqual(4.5);
+  expect(0.1 + 0.2).toBeCloseTo(0.3);
+});
 ```
 
 ### Regular expressions
 
-Oftentimes you need to test for things that contain unpredictable variations in results. This is where the regular expression matcher, `toMatch`, comes in handy.
+Oftentimes you need to test for things that contain unpredictable variations in results. This is where the regular expression matcher, `toMatch`, comes in handy. In the following example we only check to see if the date field is present without caring for its value.
 
 ```js
-const body = JSON.stringify({ date: '20240202T00:00:10Z', name: 'orem' });
-expect(body).toMatch(/{"date":".*","name":"orem"}/);
+test('regular expressions', () => {
+  const body = JSON.stringify({ date: '20240202T00:00:10Z', name: 'orem' });
+  expect(body).toMatch(/{"date":".*","name":"orem"}/);
+});
 ```
 
 ### Arrays and objects
@@ -208,11 +227,13 @@ expect(body).toMatch(/{"date":".*","name":"orem"}/);
 You can also match on specific array contents or object properties.
 
 ```js
-expect('abcd').toContain('bc');
-expect([1, 2, 3]).toContain(2);
-expect([1, 2, 3]).toEqual(expect.arrayContaining([2, 3]));
-expect({ id: 2, cost: 3 }).toHaveProperty('cost', 3);
-expect({ id: 2, cost: 3 }).toEqual(expect.objectContaining({ id: 2 }));
+test('arrays objects', () => {
+  expect('abcd').toContain('bc');
+  expect([1, 2, 3]).toContain(2);
+  expect([1, 2, 3]).toEqual(expect.arrayContaining([2, 3]));
+  expect({ id: 2, cost: 3 }).toHaveProperty('cost', 3);
+  expect({ id: 2, cost: 3 }).toEqual(expect.objectContaining({ id: 2 }));
+});
 ```
 
 ### Exceptions
@@ -220,52 +241,225 @@ expect({ id: 2, cost: 3 }).toEqual(expect.objectContaining({ id: 2 }));
 No testing is complete unless it checks for the unhappy paths. You can validate that exceptions are thrown, or not thrown.
 
 ```js
-expect(() => {
-  throw new Error('error');
-}).toThrow();
-
-expect(() => {}).not.toThrow();
+test('exceptions', () => {
+  expect(() => {
+    throw new Error('error');
+  }).toThrow();
+  expect(() => {}).not.toThrow();
+});
 ```
 
 ## Mocking with Jest
 
-## Making fetch requests
+[Jest Mocking](https://jestjs.io/docs/mock-function-api)
 
-You can then run Jest and it will gi
+Mocking parameters and return results enables you to create unit tests without having to worry about integrating with the rest of the code base. This is especially important when you need to isolate fetch or database requests.
 
-To [debug](https://jestjs.io/docs/troubleshooting#debugging-in-vs-code) you need to add a launch config.
+Jests support mocking in two major ways. The first way is by creating a mocking function that tracks the calls that are made to function, and mock out the return values. The second way is to mock an entire module so that you can replace or alter what how the module interacts with the code you are trying to test.
 
-```json
-    {
-      "name": "Debug Jest Tests",
-      "type": "node",
-      "request": "launch",
-      "runtimeArgs": [
-        "--inspect-brk",
-        "${workspaceRoot}/server/node_modules/.bin/jest",
-        "--runInBand"
-      ],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen"
-    },
-```
+### Mocking functions
 
-and add a `jest.config.js` empty file to the root of your project.
-
-I rewrote the tests to use async await instead of the `done` Jest callback. This makes it easier to call multiple endpoints.
-
-Also note the use of regex to match the response.
+You create a mocked function by calling the `jest.fn` method. The returned object has a `mock` property that provides access to all the calls and return values of the function. Here is a simple example of creating a mocked function that returns a stringified version of the parameters.
 
 ```js
-test('update a store', async () => {
-  await request(app).post('/store/orem');
-  await request(app)
-    .put('/store/orem')
-    .send({ manager: 'joe' })
-    .expect(200)
-    .expect('Content-Type', 'application/json; charset=utf-8')
-    .expect(/{"date":".*","name":"orem","manager":"joe"}/);
+test('mocking functions', () => {
+  const mockFn = jest.fn((p) => `${p}`);
+
+  mockFn(1);
+  mockFn(2);
+
+  expect(mockFn.mock.calls[0][0]).toBe(1);
+  expect(mockFn.mock.results[0].value).toBe('1');
+  expect(mockFn.mock.calls[1][0]).toBe(2);
+  expect(mockFn.mock.results[1].value).toBe('2');
 });
 ```
 
-I install the vs code extension for jest and now I can just push a button. to run the tests and debug. Much easier than setting up a run config!
+This might seem like we are just creating and calling a normal JavaScript function, but the magic happens in the tracking of all the calls to the mocked function. By referencing the `calls` and `results` properties you can see what happened with each invocation of the function. The `calls` property provides an array with an entry representing an array for all the parameters for every call. In this example, there was two calls and so there are two array values in the call property. Likewise the `results` property contains an array for each call's return value. This tracking enables you to assert that your code is flowing as expected.
+
+#### Expect helper methods
+
+Jest provides several helper methods that make it easier to work with the calls and results. This includes the `toHaveBeenCalledWith` function that checks if a call has ever been made with the given parameters, and the `toHaveBeenLastCalledWith` that assert parameters for the last call.
+
+```js
+test('mocking function matchers', () => {
+  const mockFn = jest.fn((p) => `${p}`);
+
+  expect(mockFn(1)).toBe('1');
+  expect(mockFn(2)).toBe('2');
+  expect(mockFn).toHaveBeenCalledWith(1);
+  expect(mockFn).toHaveBeenLastCalledWith(2);
+});
+```
+
+#### Setting return values
+
+If you don't need to write a function to return values based on the inputs, you can simply set a default return value from your mocked function with `mockReturnValue`. If you need to override the default for the next few calls you can supply the return value with `mockReturnValueOnce`. These can be changed together to supply a series of needed return values. As demonstrated by the following code, once all the specific values have been used up it it will return to the default.
+
+```js
+test('mocking function multiple calls', () => {
+  const mockFn = jest.fn();
+
+  // Set the default return value to 42
+  mockFn.mockReturnValue(42);
+  expect(mockFn()).toBe(42);
+
+  // Override the default for the next two calls to 1 and 2
+  mockFn.mockReturnValueOnce(1).mockReturnValueOnce(2);
+  expect(mockFn()).toBe(1);
+  expect(mockFn()).toBe(2);
+  expect(mockFn()).toBe(42);
+});
+```
+
+#### Mocking function parameters
+
+To this point we really haven't show a valid use for mocking out parameters. Let's correct that by considering a pipeline module that provides a class named `Pipeline` that takes a series of step functions than then calls them when the Pipeline `run` method is called.
+
+```js
+class Pipeline {
+  constructor() {
+    this.steps = [];
+  }
+
+  add(step) {
+    this.steps.push(step);
+    return this;
+  }
+
+  run(data) {
+    this.steps.forEach((step) => step(data));
+  }
+}
+
+module.exports = Pipeline;
+```
+
+Using mocked functions it is easy to write a test that verifies that each step added to the pipeline is called at the appropriate number of times and with the right data.
+
+```js
+test('mocking callback functions', () => {
+  const mockStep = jest.fn();
+
+  new Pipeline().add(mockStep).add(mockStep).run('data');
+
+  expect(mockStep).toHaveBeenCalledTimes(2);
+  expect(mockStep.mock.calls).toEqual([['data'], ['data']]);
+});
+```
+
+### Mocking modules
+
+Mocking functions is fine if all you need to do is supply and verify callbacks, but you often need to completely or partially mock out entire classes, or even modules.
+
+You can mock a class by simply extending it and overriding the desired functionality. We can do that for the Pipeline class that we introduced earlier.
+
+```js
+return class MockPipeline extends Pipeline {
+  constructor() {
+    super();
+    this.mockRun = jest.fn();
+  }
+  run(p) {
+    super.run(p);
+    return this.mockRun(p);
+  }
+};
+```
+
+This works if you are creating the instance of the desired object and passing it into the code you are trying to test, but what if you are calling code that internally creates a class? This is where mocking out entire modules comes in handy.
+
+We can mock out the `pipeline.js` module using the `jest.mock` function. This will instrument the objects returned from the module so that any code that uses the module will get your mocked version. Notice the use of `jest.requireActual` so that you can do partial mocking of the module's objects.
+
+```js
+jest.mock('./pipeline', () => {
+  const originalModule = jest.requireActual('./pipeline');
+  return class MockPipeline extends originalModule {
+    constructor() {
+      super();
+      this.mockRun = jest.fn();
+    }
+    run(p) {
+      super.run(p);
+      return this.mockRun(p);
+    }
+  };
+});
+```
+
+Here is an example of using the mocked version of the pipeline module. Notice that we can reference the mocked classes `mockRun` function to see how the `Pipeline.run` function was called.
+
+```js
+test('mocking modules', () => {
+  const stepMock = jest.fn();
+  const pipeline = new Pipeline();
+  pipeline.add(stepMock);
+  pipeline.add(stepMock);
+  pipeline.run('call1');
+  pipeline.run('call2');
+
+  expect(stepMock).toHaveBeenCalledTimes(4);
+  expect(pipeline.mockRun.mock.calls).toEqual([['call1'], ['call2']]);
+});
+```
+
+## Dealing with asynchronicity
+
+Jest also has the ability to mock promises. This is necessary for testing any code that expects to work with a promise.
+
+```js
+test('mocking promises', async () => {
+  const mockFn = jest.fn().mockResolvedValue(42);
+
+  const result = await mockFn();
+  expect(result).toBe(42);
+});
+```
+
+## Fake Timers
+
+If your code functionality is based on dates, time, or timeouts then Jest provides you with the ability to override the runtime execute of those functions. Here is an example of specifying the current date to be zero and then incrementing it by one second.
+
+```js
+test('fake timers', () => {
+  jest.useFakeTimers({ now: 0 });
+  expect(Date.now()).toBe(0);
+  jest.advanceTimersByTime(1000);
+  expect(Date.now()).toBe(1000);
+  jest.advanceTimersByTime(2000);
+  expect(Date.now()).toBe(3000);
+  jest.useRealTimers();
+});
+```
+
+## Mocking fetch requests
+
+One common testing need is to isolate your execution from external calls such as making network fetch requests. To mock out the runtime's fetch function we can simply assign a mocked function to `global.fetch`. The following demonstrates how you can supply a switch statement to return mocked data based upon the requesting URL.
+
+```js
+test('fetches data', async () => {
+  global.fetch = jest.fn((url) =>
+    Promise.resolve({
+      json: () => {
+        switch (url) {
+          case 'https://one.com':
+            return Promise.resolve({ data: 'one data' });
+          case 'https://two.com':
+            return Promise.resolve({ data: 'two data' });
+          default:
+            return Promise.resolve({ data: 'default data' });
+        }
+      },
+    })
+  );
+
+  const response = await fetch('https://two.com');
+  const data = await response.json();
+  expect(data).toEqual({ data: 'two data' });
+  expect(fetch).toHaveBeenCalledWith('https://two.com');
+});
+```
+
+## Wrap up
+
+That is a lot of functionality, and honestly, we have only covered the basics of what Jest offers. Take some time to play with it and dive deep into understand how to use this valuable tool. We are going to use Jest to unit test the JWT Pizza service. By the time you are done you are going feel like a Jest master.

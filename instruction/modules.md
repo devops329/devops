@@ -25,7 +25,7 @@
 ## Quality assurance
 
 - 🚧 [Unit testing](unitTesting/unitTesting.md)
-- ☑ 🚧 [Jest](jest/jest.md)
+- ☑ 🔵 [Jest](jest/jest.md)
 - ☑ 🔵 [TDD](tdd/tdd.md)
 - ☑ 🚧 [Service testing](serviceTesting/serviceTesting.md)
 - 🚧 [Coverage](coverage/coverage.md)
