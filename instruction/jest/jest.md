@@ -463,3 +463,34 @@ test('fetches data', async () => {
 ## Wrap up
 
 That is a lot of functionality, and honestly, we have only covered the basics of what Jest offers. Take some time to play with it and dive deep into understand how to use this valuable tool. We are going to use Jest to unit test the JWT Pizza service. By the time you are done you are going feel like a Jest master.
+
+## ☑ Assignment
+
+Create an project based on the code provided below. Install Jest and write tests until you get 100% code coverage.
+
+**pipeline.js**
+
+```js
+class Pipeline {
+  constructor() {
+    this.steps = [];
+  }
+
+  add(step) {
+    this.steps.push(step);
+    return this;
+  }
+
+  run(data) {
+    let log = '';
+    this.steps.forEach((step, i) => {
+      log += `${i}. ${step(data)}\n`;
+    });
+    return log;
+  }
+}
+
+module.exports = Pipeline;
+```
+
+Once you are done, go over to Canvas and submit that you have completed this.
