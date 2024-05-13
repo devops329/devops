@@ -38,7 +38,8 @@ test('get fails', async () => {
 });
 
 test('history', async () => {
-  const [factMock, fetchMock] = mockFetch(['fact1', 'fact2', 'fact3']);
+  const expectedFacts = ['fact1', 'fact2', 'fact3'];
+  const [factMock, fetchMock] = mockFetch(expectedFacts);
 
   const catFact = new CatFact();
   await catFact.add();
@@ -48,7 +49,7 @@ test('history', async () => {
   expect(fetchMock).toBeCalledTimes(3);
 
   const history = await catFact.history();
-  expect(history).toEqual(['fact1', 'fact2', 'fact3']);
+  expect(history).toEqual(expectedFacts);
 });
 
 test('callback', async () => {
