@@ -4,14 +4,14 @@
 
 [Official Jest website](https://jestjs.io/)
 
-Jest is the most common framework for testing JavaScript. It was created back in 2011 when Facebook’s chat feature was rewritten in JavaScript. After extensive internal use, Facebook release Jest as open source in 2014. In 2022 they transferred ownership of Jest to OpenJS. We owe much thanks to Facebook for investing in and openly sharing such a valuable piece of code.
+Jest is the most common framework for testing JavaScript. It was created back in 2011 when Facebook’s chat feature was rewritten in JavaScript. After extensive internal use, Facebook release Jest as open source in 2014. In 2022 they transferred ownership of Jest to [OpenJS](https://openjsf.org/). We owe much thanks to Facebook for investing in and openly sharing such a valuable piece of code.
 
 ## Installing Jest
 
 In order to use Jest a your unit testing framework you need to first create an NPM project and install Jest package. Note that then installing we use the `-D` parameter to tell NPM that Jest is only used during development and it shouldn't be included in any production deployment.
 
 ```sh
-mkdir jesttest && cd jesttest
+mkdir jestExample && cd jestExample
 npm init -y
 npm install -D jest
 ```
@@ -20,7 +20,7 @@ Then change the package.json script so that the `test` command runs Jest.
 
 ```json
 {
-  "name": "jesttest",
+  "name": "jestExample",
   "main": "index.js",
   "scripts": {
     "test": "jest"
@@ -150,9 +150,11 @@ You can run Jest from the console, but it is much nicer to install an extension 
 
 ![Jest VS Code extension](jestVsCodeExtension.png)
 
-Make sure you checkout the ability for the extension to run the tests whenever they change and also to show the code coverage.
+Make sure you checkout the ability for the extension to run the tests whenever they change and also to show the code coverage. To access this functionality click on the gear icon in the Test Explore pane. Then chose when you want the test to run and also toggle the coverage option.
 
-![alt text](codeCoverage.png)
+![code Coverage](codeCoverage.png)
+
+Turning on the coverage will display the coverage statistics at the top of each code window and also highlight lines that are not covered in red.
 
 ## Jest expect and matchers
 
@@ -162,12 +164,13 @@ When you create assertions with Jest, you use the `expect` method to generate an
 
 ### Equality
 
-You have already seen one of the most common matcher operations, `toBe()` which tests equality. If you want to test for deep equality then use the `toEquals` matcher. Note that this match will ignore values that are undefined.
+You have already seen one of the most common matcher operations, `toBe()` which tests equality. If you want to test for deep equality then use the `toEqual` matcher. Note that this match will ignore values that are undefined.
 
 ```js
 test('equality', () => {
   expect(add(1, 1)).toBe(2);
   expect('2').not.toBe(2);
+
   expect({ id: 2, data: { name: 'cow' }, xid: undefined }).toEqual({ id: 2, data: { name: 'cow' } });
 });
 ```
@@ -182,13 +185,16 @@ test('truthy falsy', () => {
   expect(true).not.toBeFalsy();
   expect(false).not.toBeTruthy();
   expect(false).toBeFalsy();
+
   expect(undefined).not.toBeDefined();
   expect(undefined).toBeUndefined();
+
   expect(null).toBeNull();
   expect(null).toBeDefined();
   expect(null).not.toBeUndefined();
   expect(null).not.toBeTruthy();
   expect(null).toBeFalsy();
+
   expect(0).not.toBeNull();
   expect(0).toBeDefined();
   expect(0).not.toBeUndefined();
@@ -205,8 +211,10 @@ There are numerous matchers that help with the comparison of numbers. This inclu
 test('numbers', () => {
   expect(4).toBeGreaterThan(3);
   expect(4).toBeGreaterThanOrEqual(3.5);
+
   expect(4).toBeLessThan(5);
   expect(4).toBeLessThanOrEqual(4.5);
+
   expect(0.1 + 0.2).toBeCloseTo(0.3);
 });
 ```
@@ -270,6 +278,7 @@ test('mocking functions', () => {
 
   expect(mockFn.mock.calls[0][0]).toBe(1);
   expect(mockFn.mock.results[0].value).toBe('1');
+
   expect(mockFn.mock.calls[1][0]).toBe(2);
   expect(mockFn.mock.results[1].value).toBe('2');
 });
@@ -277,7 +286,7 @@ test('mocking functions', () => {
 
 This might seem like we are just creating and calling a normal JavaScript function, but the magic happens in the tracking of all the calls to the mocked function. By referencing the `calls` and `results` properties you can see what happened with each invocation of the function. The `calls` property provides an array with an entry representing an array for all the parameters for every call. In this example, there was two calls and so there are two array values in the call property. Likewise the `results` property contains an array for each call's return value. This tracking enables you to assert that your code is flowing as expected.
 
-#### Expect helper methods
+#### Expect mocking helper methods
 
 Jest provides several helper methods that make it easier to work with the calls and results. This includes the `toHaveBeenCalledWith` function that checks if a call has ever been made with the given parameters, and the `toHaveBeenLastCalledWith` that assert parameters for the last call.
 
@@ -287,6 +296,7 @@ test('mocking function matchers', () => {
 
   expect(mockFn(1)).toBe('1');
   expect(mockFn(2)).toBe('2');
+
   expect(mockFn).toHaveBeenCalledWith(1);
   expect(mockFn).toHaveBeenLastCalledWith(2);
 });
@@ -308,6 +318,8 @@ test('mocking function multiple calls', () => {
   mockFn.mockReturnValueOnce(1).mockReturnValueOnce(2);
   expect(mockFn()).toBe(1);
   expect(mockFn()).toBe(2);
+
+  // Next call is back to the default
   expect(mockFn()).toBe(42);
 });
 ```
@@ -369,7 +381,7 @@ return class MockPipeline extends Pipeline {
 
 This works if you are creating the instance of the desired object and passing it into the code you are trying to test, but what if you are calling code that internally creates a class? This is where mocking out entire modules comes in handy.
 
-We can mock out the `pipeline.js` module using the `jest.mock` function. This will instrument the objects returned from the module so that any code that uses the module will get your mocked version. Notice the use of `jest.requireActual` so that you can do partial mocking of the module's objects.
+We can mock out the `pipeline.js` module using the `jest.mock` function. This will instrument the objects returned from the module so that any code that uses the module will get your mocked version. Notice the use of `jest.requireActual` so that you can still use the original implementation and do a partial mocking of the module's objects if desired.
 
 ```js
 jest.mock('./pipeline', () => {
@@ -393,8 +405,10 @@ Here is an example of using the mocked version of the pipeline module. Notice th
 test('mocking modules', () => {
   const stepMock = jest.fn();
   const pipeline = new Pipeline();
+
   pipeline.add(stepMock);
   pipeline.add(stepMock);
+
   pipeline.run('call1');
   pipeline.run('call2');
 
@@ -418,16 +432,33 @@ test('mocking promises', async () => {
 
 ## Fake Timers
 
-If your code functionality is based on dates, time, or timeouts then Jest provides you with the ability to override the runtime execute of those functions. Here is an example of specifying the current date to be zero and then incrementing it by one second.
+If your code functionality is based on dates, time, or timeouts then Jest provides you with the ability to override the runtime execute of those functions. The Jest fake times put you in control of when time moves forward.
+
+To use the the fake times call `jest.useFakeTimers` and set any of the various [options](https://jestjs.io/docs/jest-object#jestusefaketimersfaketimersconfig).
+
+Make sure you reset the timers back to a real implementation when you are done by calling `jest.useRealTimers`.
+
+Here is an example of specifying the current date to be zero and then incrementing it by one second.
 
 ```js
-test('fake timers', () => {
+test('fake timers', async () => {
   jest.useFakeTimers({ now: 0 });
   expect(Date.now()).toBe(0);
+
   jest.advanceTimersByTime(1000);
   expect(Date.now()).toBe(1000);
+
+  // Still 1000 even after waiting
+  const timeoutMock = jest.fn();
+  await setTimeout(() => {
+    timeoutMock();
+  }, 1000);
+  expect(timeoutMock).not.toHaveBeenCalled();
+  expect(Date.now()).toBe(1000);
+
   jest.advanceTimersByTime(2000);
   expect(Date.now()).toBe(3000);
+
   jest.useRealTimers();
 });
 ```
@@ -468,29 +499,47 @@ That is a lot of functionality, and honestly, we have only covered the basics of
 
 Create an project based on the code provided below. Install Jest and write tests until you get 100% code coverage.
 
-**pipeline.js**
+**catFact.js**
 
 ```js
-class Pipeline {
+class CatFact {
   constructor() {
-    this.steps = [];
+    this.facts = [];
   }
 
-  add(step) {
-    this.steps.push(step);
-    return this;
+  // Add a step to the pipeline. Each step is called in the order it was
+  // added.
+  async add() {
+    try {
+      const response = await fetch('https://meowfacts.herokuapp.com/');
+      const payload = await response.json();
+      const fact = payload.data[0];
+      this.facts.push(fact);
+      return fact;
+    } catch (error) {
+      return null;
+    }
   }
 
-  run(data) {
-    let log = '';
-    this.steps.forEach((step, i) => {
-      log += `${i}. ${step(data)}\n`;
-    });
-    return log;
+  // Get the history of cat facts
+  history() {
+    return this.facts;
+  }
+
+  // Call the given callback with a new cat fact every `time` milliseconds
+  call(time, callback) {
+    setInterval(async () => {
+      const fact = await this.add();
+      callback(fact);
+    }, time);
   }
 }
 
-module.exports = Pipeline;
+module.exports = CatFact;
 ```
 
-Once you are done, go over to Canvas and submit that you have completed this.
+Once you are done, go over to Canvas and submit a screenshot of your code with 100% coverage.
+
+The following is an example of what you should submit. Notice the coverage line at the top of the `catFact.js` file that demonstrated the complete coverage.
+
+![Cat Fact Coverage](catFactCoverage.png)

@@ -8,6 +8,11 @@ class Pipeline {
     return this;
   }
 
+  remove(step) {
+    this.steps = this.steps.filter((s) => s !== step);
+    return this;
+  }
+
   run(data) {
     this.steps.forEach((step) => step(data));
   }

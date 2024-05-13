@@ -16,6 +16,7 @@ test('add multiple numbers', () => {
 test('equality', () => {
   expect(add(1, 1)).toBe(2);
   expect({ id: 2 }.id).toBe(2);
+
   expect({ id: 2, data: { name: 'cow' }, xid: undefined }).toEqual({ id: 2, data: { name: 'cow' } });
 });
 
@@ -24,13 +25,16 @@ test('truthy falsy', () => {
   expect(true).not.toBeFalsy();
   expect(false).not.toBeTruthy();
   expect(false).toBeFalsy();
+
   expect(undefined).not.toBeDefined();
   expect(undefined).toBeUndefined();
+
   expect(null).toBeNull();
   expect(null).toBeDefined();
   expect(null).not.toBeUndefined();
   expect(null).not.toBeTruthy();
   expect(null).toBeFalsy();
+
   expect(0).not.toBeNull();
   expect(0).toBeDefined();
   expect(0).not.toBeUndefined();
@@ -76,6 +80,7 @@ test('mocking functions', () => {
 
   expect(mockFn.mock.calls[0][0]).toBe(1);
   expect(mockFn.mock.results[0].value).toBe('1');
+
   expect(mockFn.mock.calls[1][0]).toBe(2);
   expect(mockFn.mock.results[1].value).toBe('2');
 });
@@ -85,6 +90,7 @@ test('mocking function matchers', () => {
 
   expect(mockFn(1)).toBe('1');
   expect(mockFn(2)).toBe('2');
+
   expect(mockFn).toHaveBeenCalledWith(1);
   expect(mockFn).toHaveBeenLastCalledWith(2);
 });
@@ -100,6 +106,8 @@ test('mocking function multiple calls', () => {
   mockFn.mockReturnValueOnce(1).mockReturnValueOnce(2);
   expect(mockFn()).toBe(1);
   expect(mockFn()).toBe(2);
+
+  // Next call is back to the default
   expect(mockFn()).toBe(42);
 });
 
@@ -120,13 +128,24 @@ test('mocking promises', async () => {
 });
 
 // Fake timers
-test('fake timers', () => {
+test('fake timers', async () => {
   jest.useFakeTimers({ now: 0 });
   expect(Date.now()).toBe(0);
+
   jest.advanceTimersByTime(1000);
   expect(Date.now()).toBe(1000);
+
+  // Still 1000 even after waiting
+  const timeoutMock = jest.fn();
+  await setTimeout(() => {
+    timeoutMock();
+  }, 1000);
+  expect(timeoutMock).not.toHaveBeenCalled();
+  expect(Date.now()).toBe(1000);
+
   jest.advanceTimersByTime(2000);
   expect(Date.now()).toBe(3000);
+
   jest.useRealTimers();
 });
 
@@ -172,8 +191,10 @@ jest.mock('./pipeline', () => {
 test('mocking modules', () => {
   const stepMock = jest.fn();
   const pipeline = new Pipeline();
+
   pipeline.add(stepMock);
   pipeline.add(stepMock);
+
   pipeline.run('call1');
   pipeline.run('call2');
 
