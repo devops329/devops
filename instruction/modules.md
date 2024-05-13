@@ -61,7 +61,6 @@
 - 🚧 [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
 - 🚧 [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
 - 🚧 [Blue/Green](blueGreeen/blueGreen.md)
-
 - We need a discussion on scalability, bottlenecks, and auto adjustment. This should tie into SLO.
 
 ## Scalable deployment
@@ -92,7 +91,6 @@
 - 🚧 [E2E testing](e2eTesting/e2eTesting.md)
 - 🚧 [Load testing](loadTesting/loadTesting.md)
 - 🚧 [Grafana K6](grafanaK6/grafanaK6.md)
-
 - ⓾ Load test - Execute end to end load testing with K6
 
 ## Failure testing
