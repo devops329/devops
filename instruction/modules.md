@@ -34,11 +34,11 @@
 - ☑ 🚧 [Mocking](mocking/mocking.md)
 - 🚧 [Dependency injection](dependencyInjection/dependencyInjection.md)
 - ☑ 🔵 [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
-- ⓷ Unit test - Unit test backend and analysis using Jest and GitHub Actions
+- 🚧 [⓷ Unit test service](unitTestService/unitTestService.md)
 - 🚧 [UI testing](uiTesting/uiTesting.md)
-- 🚧 [Integration testing](integrationTesting/integrationTesting.md)
 - ☑ 🚧 [Playwright](playwright/playwright.md)
-- ⓸ Integration test - Integration test and analysis frontend using Playwright and GitHub Actions
+- 🚧 [Integration testing](integrationTesting/integrationTesting.md)
+- ⓸ Integration test client - Integration test and analysis frontend using Playwright and GitHub Actions
 
 ## CDN deployment
 

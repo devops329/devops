@@ -31,10 +31,8 @@ To get started you need to fork the code to your GitHub account, run it locally 
 
 Here are the steps to take:
 
-1. Navigate your browser over to the [jwt-pizza](https://github.com/devops329/jwt-pizza-service) repository on GitHub.
-   ![forkRepo](forkRepo.png)
+1. Navigate your browser over to the [jwt-pizza-service](https://github.com/devops329/jwt-pizza-service) repository on GitHub.
 1. Copy the URL for your fork of the repository.
-   ![cloneUrl](cloneUrl.png)
 1. Use the URL to clone the repository from your account to your development environment.
    ```sh
    git clone https://github.com/youraccountnamehere/jwt-pizza-service.git
@@ -44,7 +42,7 @@ Here are the steps to take:
    cd jwt-pizza-service
    npm install
    ```
-1. Obtain a JWT Pizza Factory API Key. You can get this key from the [Autograder](https://autograder.cs329.click) application.
+1. 🚧 Obtain a JWT Pizza Factory API Key. You can get this key from the [Autograder](https://autograder.cs329.click) application.
 1. Create a `config.js` file in the `src` directory and insert your database credentials, jwtSecret, and API Key. The factory should point to the ULR provided by JWT Headquarters. The following is an example `config.js` file.
 
    ⚠️ Note that you must replace `jwtSecret`, `connection.password`, and `factory.apiKey` with a values that you generate. `jwtSecret` is used to sign authorization tokens. `connection.password` is the password for your MySQL database. `factory.apiKey` allows you to fulfill orders from the JWT Headquarters factory.
