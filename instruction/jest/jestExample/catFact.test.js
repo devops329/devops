@@ -55,7 +55,8 @@ test('history', async () => {
 test('callback', async () => {
   jest.useFakeTimers({ now: 0 });
 
-  const [factMock, fetchMock] = mockFetch(['fact1', 'fact2', 'fact3']);
+  const expectedFacts = ['fact1', 'fact2', 'fact3'];
+  const [factMock, fetchMock] = mockFetch(expectedFacts);
 
   const timerMock = jest.fn();
   const catFact = new CatFact();
@@ -71,7 +72,7 @@ test('callback', async () => {
   expect(factMock.mock.results.length).toBe(3);
 
   const history = await catFact.history();
-  expect(history).toEqual(['fact1', 'fact2', 'fact3']);
+  expect(history).toEqual(expectedFacts);
 
   jest.useRealTimers();
 });
