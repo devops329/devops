@@ -1,58 +1,60 @@
 # Coverage
 
-- Why is coverage important
-- How do you do coverage
-- What is the right amount of coverage
-- Displaying your coverage
+Code coverage is a metric that helps measure the percentage of a program code was executed when testing. A high percentage of code coverage suggests that the code has been more thoroughly tested and has a lower chance of containing undetected software bugs.
 
-https://haseebmajid.dev/posts/2023-04-15--how-to-get-code-coverage-from-playwright-tests-in-a-sveltekit-app-/
+Here is an example of a code coverage report that represents several different coverage metrics for the files in a simple application. The color coding of the percentages help you focus on the areas that are the most problematic.
 
-https://axolo.co/blog/p/code-coverage-js-in-2023
+![code coverage report](codeCoverageReport.png)
 
-This turned out to be a simple switch on Jest
+## Types of Code Coverage
 
-```sh
-npx jest --coverage
-```
+There are several types of code coverage. This includes:
 
-Or in the package.json
+- **Line**: The percentage of lines that have been executed in the program. Usually this only counts lines of code. Comments and whitespace is not counted.
+- **Statement**: The percentage of statements that have been executed in the program. In the following example there are three statements that will not be tested if the line is not executed.
+  ```js
+  let result = a > 0 && x(a) && y(a);
+  ```
+- **Branch**: The percentage of branches (both 'true' and 'false') that have been executed. In the following example there are multiple predicates that control the branching of the code. All of them would need to be exercised in order to give complete branch coverage.
+  ```js
+  if (a || (b && c)) {
+    return true;
+  } else {
+    return false;
+  }
+  ```
+- **Function**: The percentage of functions or methods that have been called.
+- **Condition**: The boolean sub-expressions in decision instructions that have been evaluated both to true and false. This is similar to a branch metric, but the branching is inherent in the conditionals.
+  ```js
+  return a || (b && c);
+  ```
 
-```json
-  "scripts": {
-    "test": "jest",
-    "test-coverage": "jest --coverage  --coverageReporters json-summary",
-    "test-coverage-report": "jest --coverage",
-    "start": "node index.js",
-    "lint": "eslint ."
-  },
-```
+## How much coverage is enough?
 
-The `json-summary` produces a single report that can be used for building the coverage badge. Without that it builds an HTML file that demonstrates the coverage.
+Hopefully you are seeing the immediately see the value of automated testing and will have a hard time writing code without at the same time writing the tests.
 
-I got the coverage to fail by modifying the jest config.
+However, there is a point of diminishing returns. Most of the negative effects of taking a testing mindset result from pushing testing too far. One place this is clearly a problem is in the debate about the correct percentage of code coverage.
 
-```js
-/** @type {import('jest').Config} */
-const config = {
-  coverageThreshold: {
-    global: {
-      branches: 100,
-      functions: 100,
-      lines: 100,
-      statements: 100,
-    },
-  },
-};
+The following is an example of code that has a coverage of 71% of the lines.
 
-module.exports = config;
-```
+> ![code coverage](codeCoverage.png)
 
-We can create badges to display the coverage using this:
+Obviously this is a problem if you want to make sure that the `remove` operation is properly tested. However, what is the cost of having 100% coverage? In this simple case there is little danger of harm.
 
-https://dev.to/thejaredwilcurt/coverage-badge-with-github-actions-finally-59fa
+However, in complex applications there is often significant code for supporting error and edge cases that only exist in very extreme situations. These edge cases are usually the most difficult to test for the following reasons:
 
-It is pretty crazy. It makes a gist then updates it in the action. It then used some third party image generator that gets put into your readme.
+- **Complexity**: They require complex setup and teardown of infrastructure
+- **Dependencies**: They only happen when dependent systems catastrophically fail
+- **Timing**: They required special timing or sequences of events.
 
-https://github.com/marketplace/actions/jest-coverage-comment
+This means you have to make extensive investments in testing code and inject special code into your production system to cover these cases.
 
-This all feels very bittle, but maybe we can use it as an example of CI that is a mess of automation.
+You many find that for those extreme cases, it is better to actually manually test them instead of doing back flips to automate the testing. You can also take the, somewhat questionable strategy, of waiting until an actual bug is reported for these edge cases before you make an extreme investment.
+
+You should also realize what 100% coverage actually means. It does not mean 100% verification. There are infinite possibilities for different parameters, paths, timings, and configurations to a complex software package. Hitting every line of code **does not** mean that you have hit every permutation that you code can execute.
+
+The amount of effort you put into verifying the correctness of your code should be inline with the value and potential for harm of the software you are testing. A pet project that will never be used by anyone should not involve millions of hours and a 300:1 testing/production code ratio. However, for a health device where a bug would be lethal, or a financial management package where a bug would result in poverty, that cost might be justified.
+
+For common web application development it is common to have around a 1:1 test/production code ratio, with somewhere above 80% line coverage.
+
+The key here is to focus your efforts on practical benefits and not meaningless metrics. Write tests that provide the required value.

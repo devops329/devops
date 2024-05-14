@@ -26,10 +26,10 @@
 
 - 🔵 [Testing](testing/testing.md)
 - 🚧 [Testing variations](testingVariations/testingVariations.md)
+- 🔵 [Coverage](coverage/coverage.md)
 - ☑ 🔵 [Jest](jest/jest.md)
 - ☑ 🔵 [TDD](tdd/tdd.md)
 - ☑ 🔵 [Service testing](serviceTesting/serviceTesting.md)
-- 🚧 [Coverage](coverage/coverage.md)
 - ☑ 🚧 [Lint](lint/lint.md)
 - ☑ 🚧 [Mocking](mocking/mocking.md)
 - 🚧 [Dependency injection](dependencyInjection/dependencyInjection.md)
