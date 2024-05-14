@@ -47,7 +47,23 @@ beforeAll(async () => {
 });
 ```
 
+## Open handles
+
 I get a warning that the test isn't shutting down correctly. I think this is MySQL connections begin left open.
+
+```sh
+ jest --detectOpenHandles --forceExit
+
+ Jest has detected the following 1 open handle potentially keeping Jest from exiting:
+
+  ●  TCPWRAP
+
+      199 |
+      200 |   async _getConnection(setUse = true) {
+    > 201 |
+```
+
+Running with the above setting I can see it is the MySQL connections.
 
 ## Coverage
 
