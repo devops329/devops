@@ -28,7 +28,7 @@
 - 🚧 [Testing variations](testingVariations/testingVariations.md)
 - ☑ 🔵 [Jest](jest/jest.md)
 - ☑ 🔵 [TDD](tdd/tdd.md)
-- ☑ 🚧 [Service testing](serviceTesting/serviceTesting.md)
+- ☑ 🔵 [Service testing](serviceTesting/serviceTesting.md)
 - 🚧 [Coverage](coverage/coverage.md)
 - ☑ 🚧 [Lint](lint/lint.md)
 - ☑ 🚧 [Mocking](mocking/mocking.md)
