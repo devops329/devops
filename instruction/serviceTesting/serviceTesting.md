@@ -117,22 +117,23 @@ if (r.ok) {
 }
 ```
 
-A couple auth tests and I am up to 62%.
+A couple auth tests and I am up to 63%.
 
 ```sh
  PASS  test/order/menu.test.js
-  ✓ get menu (4 ms)
-  ✓ register (57 ms)
-  ✓ register bad params (4 ms)
-  ✓ login (64 ms)
-  ✓ auth bad token (2 ms)
+  ✓ get menu (6 ms)
+  ✓ register (58 ms)
+  ✓ register bad params (3 ms)
+  ✓ login (65 ms)
+  ✓ logout (59 ms)
+  ✓ auth bad token (1 ms)
   ✓ get orders (4 ms)
-  ✓ create order (298 ms)
+  ✓ create order (307 ms)
 
 ---------------------|---------|----------|---------|---------|-----------------------------------
 File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
 ---------------------|---------|----------|---------|---------|-----------------------------------
-All files            |   61.95 |    46.15 |   58.18 |   62.88 |
+All files            |   62.62 |    46.15 |      60 |   63.57 |
  src                 |   82.85 |       50 |   42.85 |   82.35 |
   config.js          |     100 |      100 |     100 |     100 |
   endpointHelper.js  |   66.66 |      100 |   66.66 |      60 | 3-4
@@ -142,15 +143,15 @@ All files            |   61.95 |    46.15 |   58.18 |   62.88 |
   testData.js        |      45 |       50 |     100 |      45 | 7-17,26-48,57-96,107-134
  src/model           |     100 |      100 |     100 |     100 |
   model.js           |     100 |      100 |     100 |     100 |
- src/routes          |   68.75 |     38.7 |      45 |   71.73 |
-  authRouter.js      |   89.47 |      100 |   66.66 |   94.44 | 81-82
+ src/routes          |   70.83 |     38.7 |      50 |   73.91 |
+  authRouter.js      |   94.73 |      100 |   77.77 |     100 |
   franchiseRouter.js |   34.21 |        0 |       0 |   36.11 | 38,46-52,60-65,73-78,86-91,99-105
   orderRouter.js     |      95 |       50 |     100 |      95 | 54
 ---------------------|---------|----------|---------|---------|-----------------------------------
 Test Suites: 1 passed, 1 total
-Tests:       7 passed, 7 total
+Tests:       8 passed, 8 total
 Snapshots:   0 total
-Time:        0.806 s, estimated 1 s
+Time:        0.876 s, estimated 1 s
 ```
 
 I just need franchise tests now. That should also cover the last of the database code. However, this is a problem because I don't have an admin user.
