@@ -26,49 +26,6 @@ Write a test
 const request = require('supertest');
 const app = require('./server');
 
-test('getStore returns the desired store', (done) => {
-  request(app)
-    .get('/store/provo')
-    .expect(200)
-    .expect({ name: 'provo' })
-    .end((err) => (err ? done(err) : done()));
-});
-
-test('putStore update a store without new information', (done) => {
-  request(app)
-    .post('/store/orem')
-    .expect(200)
-    .expect(obj.name)
-    .toBe('orem')
-    .expect({ name: 'orem' })
-    .end((err) => (err ? done(err) : done()));
-});
-```
-
-To [debug](https://jestjs.io/docs/troubleshooting#debugging-in-vs-code) you need to add a launch config.
-
-```json
-    {
-      "name": "Debug Jest Tests",
-      "type": "node",
-      "request": "launch",
-      "runtimeArgs": [
-        "--inspect-brk",
-        "${workspaceRoot}/server/node_modules/.bin/jest",
-        "--runInBand"
-      ],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen"
-    },
-```
-
-and add a `jest.config.js` empty file to the root of your project.
-
-I rewrote the tests to use async await instead of the `done` Jest callback. This makes it easier to call multiple endpoints.
-
-Also note the use of regex to match the response.
-
-```js
 test('update a store', async () => {
   await request(app).post('/store/orem');
   await request(app)

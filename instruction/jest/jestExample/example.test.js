@@ -61,6 +61,7 @@ test('arrays objects', () => {
   expect([1, 2, 3]).toEqual(expect.arrayContaining([2, 3]));
   expect({ id: 2, cost: 3 }).toHaveProperty('cost', 3);
   expect({ id: 2, cost: 3 }).toEqual(expect.objectContaining({ id: 2 }));
+  expect({ id: 2, cost: 3 }).toMatchObject({ id: 2 });
 });
 
 test('exceptions', () => {
