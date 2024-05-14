@@ -5,7 +5,7 @@
 
 Rewrite this with the example fo an actual simple service.
 
-Add Jest and Supertest
+## Add Jest and Supertest
 
 ```sh
 npm install -D jest supertest
@@ -18,23 +18,139 @@ npm install -D jest supertest
   }
 ```
 
-In order to test service endpoints you need to abstract the express app so that SuperTest can launch it.
+In order to test service endpoints you need to abstract the express app so that SuperTest can launch it. This is already done in `jwt-pizza-service` and so all you have to do is use it.
 
-Write a test
+## Write a test
 
 ```js
 const request = require('supertest');
-const app = require('./server');
+const app = require('../../src/service');
 
-test('update a store', async () => {
-  await request(app).post('/store/orem');
-  await request(app)
-    .put('/store/orem')
-    .send({ manager: 'joe' })
-    .expect(200)
-    .expect('Content-Type', 'application/json; charset=utf-8')
-    .expect(/{"date":".*","name":"orem","manager":"joe"}/);
+test('get menu', async () => {
+  const getMenuRes = await request(app).get('/api/order/menu');
+  expect(getMenuRes.status).toBe(200);
+  expect(getMenuRes.headers['content-type']).toMatch('application/json; charset=utf-8');
+
+  expect(getMenuRes.body.length).toBe(6);
 });
 ```
 
-I install the vs code extension for jest and now I can just push a button. to run the tests and debug. Much easier than setting up a run config!
+The cookie management should work with the `agent` functionality, but I couldn't get it to work. So I managed the cookies by hand. I also created a global user that is already authenticated for tests to use.
+
+```js
+const testUser = { name: 'pizza diner', email: 'reg@test.com', password: 'a' };
+let testUserCookie;
+
+beforeAll(async () => {
+  const registerRes = await request(app).post('/api/auth').send(testUser);
+  testUserCookie = registerRes.headers['set-cookie'];
+});
+```
+
+I get a warning that the test isn't shutting down correctly. I think this is MySQL connections begin left open.
+
+## Coverage
+
+Added the Jest config `jest.config.json` so coverage would be turned on.
+
+```json
+{
+  "collectCoverage": true,
+  "verbose": true
+}
+```
+
+With coverage added I had to add `coverage` to `.gitignore`.
+
+## NPM test script
+
+Added node script to `package.json` to run Jest for tests.
+
+```json
+  "scripts": {
+    "run": "node index.js",
+    "test": "jest"
+  },
+```
+
+## Coverage report
+
+Four simple tests and I already have 56% coverage
+
+```sh
+
+ PASS  test/order/menu.test.js
+  ✓ get menu (5 ms)
+  ✓ register (57 ms)
+  ✓ login (63 ms)
+  ✓ get orders (4 ms)
+
+---------------------|---------|----------|---------|---------|-----------------------------------
+File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+---------------------|---------|----------|---------|---------|-----------------------------------
+All files            |   55.89 |    38.46 |   52.72 |    56.7 |
+ src                 |   82.85 |       50 |   42.85 |   82.35 |
+  config.js          |     100 |      100 |     100 |     100 |
+  endpointHelper.js  |   66.66 |      100 |   66.66 |      60 | 3-4
+  service.js         |   85.71 |       50 |      25 |   85.71 | 26,33,40-41
+ src/database        |   46.95 |       50 |   64.28 |   47.23 |
+  database.js        |   47.58 |       50 |   56.52 |   47.96 | 39-41,58,75-76,82-180,193-197,297
+  testData.js        |      45 |       50 |     100 |      45 | 7-17,26-48,57-96,107-134
+ src/model           |     100 |      100 |     100 |     100 |
+  model.js           |     100 |      100 |     100 |     100 |
+ src/routes          |   60.41 |     25.8 |      40 |   63.04 |
+  authRouter.js      |   84.21 |    72.72 |   66.66 |   88.88 | 51,61,81-82
+  franchiseRouter.js |   34.21 |        0 |       0 |   36.11 | 38,46-52,60-65,73-78,86-91,99-105
+  orderRouter.js     |      65 |        0 |   66.66 |      65 | 43-54
+---------------------|---------|----------|---------|---------|-----------------------------------
+Test Suites: 1 passed, 1 total
+Tests:       4 passed, 4 total
+```
+
+With one more order test I got 95% coverage. However, we are going to need some mocking in order to get the last 5% since it is the error handling cases.
+
+```js
+if (r.ok) {
+  res.send({ order, jwt: j.jwt });
+} else {
+  throw new StatusCodeError(`Failed to fulfill order at factory. ${JSON.stringify(j)}`, 500);
+}
+```
+
+A couple auth tests and I am up to 62%.
+
+```sh
+ PASS  test/order/menu.test.js
+  ✓ get menu (4 ms)
+  ✓ register (57 ms)
+  ✓ register bad params (4 ms)
+  ✓ login (64 ms)
+  ✓ auth bad token (2 ms)
+  ✓ get orders (4 ms)
+  ✓ create order (298 ms)
+
+---------------------|---------|----------|---------|---------|-----------------------------------
+File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+---------------------|---------|----------|---------|---------|-----------------------------------
+All files            |   61.95 |    46.15 |   58.18 |   62.88 |
+ src                 |   82.85 |       50 |   42.85 |   82.35 |
+  config.js          |     100 |      100 |     100 |     100 |
+  endpointHelper.js  |   66.66 |      100 |   66.66 |      60 | 3-4
+  service.js         |   85.71 |       50 |      25 |   85.71 | 26,33,40-41
+ src/database        |   53.04 |    53.33 |   71.42 |   53.37 |
+  database.js        |   55.64 |    54.54 |   65.21 |   56.09 | 39-41,58,75-76,94-180,197,297
+  testData.js        |      45 |       50 |     100 |      45 | 7-17,26-48,57-96,107-134
+ src/model           |     100 |      100 |     100 |     100 |
+  model.js           |     100 |      100 |     100 |     100 |
+ src/routes          |   68.75 |     38.7 |      45 |   71.73 |
+  authRouter.js      |   89.47 |      100 |   66.66 |   94.44 | 81-82
+  franchiseRouter.js |   34.21 |        0 |       0 |   36.11 | 38,46-52,60-65,73-78,86-91,99-105
+  orderRouter.js     |      95 |       50 |     100 |      95 | 54
+---------------------|---------|----------|---------|---------|-----------------------------------
+Test Suites: 1 passed, 1 total
+Tests:       7 passed, 7 total
+Snapshots:   0 total
+Time:        0.806 s, estimated 1 s
+```
+
+I just need franchise tests now. That should also cover the last of the database code. However, this is a problem because I don't have an admin user.
