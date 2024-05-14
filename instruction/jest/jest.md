@@ -146,7 +146,7 @@ Tests:       2 passed, 2 total
 
 ## Jest Visual Studio Code Extension
 
-You can run Jest from the console, but it is much nicer to install an extension that allows you to run the test right inside your IDE. With the [Jest Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest) you can selectively run one, or all of your tests and visually see the results.
+You can run Jest from the console, but it is much nicer to install an extension that allows you to run the test right inside your IDE. With the [Jest Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest) you can selectively run one, or all of your tests and visually see the results. It is highly suggested that you spend some time reading the documentation for the extension so that you can experience its full value.
 
 ![Jest VS Code extension](jestVsCodeExtension.png)
 

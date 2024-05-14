@@ -2,7 +2,7 @@
 
 ![course overview](../courseOverview.png)
 
-Now that you have the JWT Pizza Service in your hands you can start to assure its quality by writing unit tests. We will then use GitHub Actions to run your tests whenever a commit is made to your fork of the repository.
+Now that you have the JWT Pizza Service in your hands you can start to assure its quality by writing unit tests. Once you have your tests written, you will then use GitHub Actions to run your tests whenever a commit is made to your fork of the repository. If during the automatic execution of the test, the coverage requirements of your tests do not meet the required thresholds, then an error is generated.
 
 If you haven't already done so, make sure you fork the [jwt-pizza-service](../jwtPizzaService/jwtPizzaService.md) repository and clone it to your development environment.
 
@@ -17,23 +17,30 @@ npm install -D jest supertest
   }
 ```
 
-In order to test service endpoints you need to abstract the express app so that SuperTest can launch it. This is already done in `jwt-pizza-service` and so all you have to do is use it.
+In order to test service endpoints you need to decompose the creation of the Express app from the use of it for serving HTTP requests or running tests.
+
+![](../serviceTesting/endpointRequests.png)
+
+This is already done in `jwt-pizza-service` and so you don't need to worry about it, but you should clearly understand the implications of the design.
 
 ## Coverage
 
-Added the Jest config `jest.config.json` so coverage would be turned on.
+Add the Jest config file, `jest.config.json`, so coverage would be turned on.
 
 ```json
 {
-  "collectCoverage": true
+  "collectCoverage": true,
+  "coverageReporters": ["json-summary", "text"]
 }
 ```
 
-With coverage added I had to add `coverage` to `.gitignore` so that the resulting coverage reports don't get added to gitHub.
+We request to different coverage reports to be generated. The `text` report generates a summary that is output to the console window. The `json-summary` report is created in the `coverage` directory and contains a JSON representation of the coverage information.
+
+Note that the `.gitignore` file ignores the `coverage` directory so that the resulting coverage reports don't get added to GitHub.
 
 ## NPM test script
 
-Added node script to `package.json` to run Jest for tests.
+Add the `test` script to `package.json` so that it knows to use Jest for testing. The options for `detectOpenHandles` and `forceExit` help for cases where the test cannot properly terminate when the application code is not properly configured to shutdown cleanly. This can expose serious problems in the code base.
 
 ```json
   "scripts": {
@@ -44,153 +51,115 @@ Added node script to `package.json` to run Jest for tests.
 
 ## Creating the first test
 
-Now you can create your first test by creating the following directory structure in your fork of the jwt-pizza-service project code.
-
-```txt
-dir stuff
-```
-
-## Demonstrate that all systems are go
-
-Now that you have set up jwt-pizza-service to be tested with Jest we can make sure it is all working right by opening up a command console and running test.
+Now that you have set up jwt-pizza-service to be tested with Jest we can make sure it is all working right by writing a simple test. Create a file named `authRouter.test.js` in the `src/routes` directory and place the following `hello world` test in file.
 
 ```sh
-
-```
-
-## Write a test
-
-```js
-const request = require('supertest');
-const app = require('../../src/service');
-
-test('get menu', async () => {
-  const getMenuRes = await request(app).get('/api/order/menu');
-  expect(getMenuRes.status).toBe(200);
-  expect(getMenuRes.headers['content-type']).toMatch('application/json; charset=utf-8');
-
-  expect(getMenuRes.body.length).toBe(6);
+test('hello world', () => {
+  expect('hello' + ' world').toBe('hello world');
 });
 ```
 
-The cookie management should work with the `agent` functionality, but I couldn't get it to work. So I managed the cookies by hand. I also created a global user that is already authenticated for tests to use.
+Now execute the test by either using the VS Code Jest extension or by opening up a command console and running `npm test`. If you run it from the command console you should see the following result.
+
+```sh
+➜  npm test
+
+ PASS  src/routes/authRouter.test.js
+  ✓ hello world (1 ms)
+
+----------|---------|----------|---------|---------|-------------------
+File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+----------|---------|----------|---------|---------|-------------------
+All files |       0 |        0 |       0 |       0 |
+----------|---------|----------|---------|---------|-------------------
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+```
+
+This is not very interesting from a coverage perspective, but it does demonstrate that you are configured correctly.
+
+Make sure you commit and push you code at this important milestone.
+
+## Write a real test
+
+Now you get to start writing all the tests necessary to get at least 80% coverage of the `jwt-pizza-service` code. You should review everything you learned in the following instruction topics before proceeding.
+
+- [Jest](../jest/jest.md)
+- [Service Testing](../serviceTesting/serviceTesting.md)
+
+We will give you your first test for free. Replace the `hello world` test found in `src/authRouter.test.js`
 
 ```js
+const request = require('supertest');
+const app = require('../service');
+
 const testUser = { name: 'pizza diner', email: 'reg@test.com', password: 'a' };
 let testUserCookie;
 
 beforeAll(async () => {
+  testUser.email = Math.random().toString(36).substring(2, 12) + '@test.com';
   const registerRes = await request(app).post('/api/auth').send(testUser);
   testUserCookie = registerRes.headers['set-cookie'];
 });
+
+test('login', async () => {
+  const loginRes = await request(app).put('/api/auth').send(testUser);
+
+  expect(loginRes.status).toBe(200);
+
+  const cookies = loginRes.headers['set-cookie'];
+  expect(cookies[0]).toMatch(/token=.+; Path=\/; HttpOnly; Secure; SameSite=Strict/);
+
+  const { password, ...user } = { ...testUser, roles: [{ role: 'diner' }] };
+  expect(loginRes.body).toMatchObject(user);
+});
 ```
 
-## Open handles
+In this code the `beforeAll` function registers a random user every time the tests run. You can use the user and its associated cookie for tests that require an existing registered user.
 
-I get a warning that the test isn't shutting down correctly. I think this is MySQL connections begin left open.
+The `login` test logs the test user in and verifies that it gets back an authorization token cookie along with the expected user information.
+
+This one test should bump your line coverage up to **50%**. Only 30% more to go. You can verify this by running the test.
 
 ```sh
- jest --detectOpenHandles --forceExit
+➜  npm test
 
- Jest has detected the following 1 open handle potentially keeping Jest from exiting:
-
-  ●  TCPWRAP
-
-      199 |
-      200 |   async _getConnection(setUse = true) {
-    > 201 |
-```
-
-Running with the above setting I can see it is the MySQL connections.
-
-## Coverage report
-
-Four simple tests and I already have 56% coverage
-
-```sh
-
- PASS  test/order/menu.test.js
-  ✓ get menu (5 ms)
-  ✓ register (57 ms)
-  ✓ login (63 ms)
-  ✓ get orders (4 ms)
-
----------------------|---------|----------|---------|---------|-----------------------------------
-File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
----------------------|---------|----------|---------|---------|-----------------------------------
-All files            |   55.89 |    38.46 |   52.72 |    56.7 |
- src                 |   82.85 |       50 |   42.85 |   82.35 |
-  config.js          |     100 |      100 |     100 |     100 |
-  endpointHelper.js  |   66.66 |      100 |   66.66 |      60 | 3-4
-  service.js         |   85.71 |       50 |      25 |   85.71 | 26,33,40-41
- src/database        |   46.95 |       50 |   64.28 |   47.23 |
-  database.js        |   47.58 |       50 |   56.52 |   47.96 | 39-41,58,75-76,82-180,193-197,297
-  testData.js        |      45 |       50 |     100 |      45 | 7-17,26-48,57-96,107-134
- src/model           |     100 |      100 |     100 |     100 |
-  model.js           |     100 |      100 |     100 |     100 |
- src/routes          |   60.41 |     25.8 |      40 |   63.04 |
-  authRouter.js      |   84.21 |    72.72 |   66.66 |   88.88 | 51,61,81-82
-  franchiseRouter.js |   34.21 |        0 |       0 |   36.11 | 38,46-52,60-65,73-78,86-91,99-105
-  orderRouter.js     |      65 |        0 |   66.66 |      65 | 43-54
----------------------|---------|----------|---------|---------|-----------------------------------
-Test Suites: 1 passed, 1 total
-Tests:       4 passed, 4 total
-```
-
-With one more order test I got 95% coverage. However, we are going to need some mocking in order to get the last 5% since it is the error handling cases.
-
-```js
-if (r.ok) {
-  res.send({ order, jwt: j.jwt });
-} else {
-  throw new StatusCodeError(`Failed to fulfill order at factory. ${JSON.stringify(j)}`, 500);
-}
-```
-
-A couple auth tests and I am up to 63%.
-
-```sh
- PASS  test/order/menu.test.js
-  ✓ get menu (6 ms)
-  ✓ register (58 ms)
-  ✓ register bad params (3 ms)
+ PASS  src/routes/authRouter.test.js
   ✓ login (65 ms)
-  ✓ logout (59 ms)
-  ✓ auth bad token (1 ms)
-  ✓ get orders (4 ms)
-  ✓ create order (307 ms)
 
 ---------------------|---------|----------|---------|---------|-----------------------------------
 File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
 ---------------------|---------|----------|---------|---------|-----------------------------------
-All files            |   62.62 |    46.15 |      60 |   63.57 |
+All files            |   49.83 |     32.3 |      40 |   50.51 |
  src                 |   82.85 |       50 |   42.85 |   82.35 |
   config.js          |     100 |      100 |     100 |     100 |
   endpointHelper.js  |   66.66 |      100 |   66.66 |      60 | 3-4
   service.js         |   85.71 |       50 |      25 |   85.71 | 26,33,40-41
- src/database        |   53.04 |    53.33 |   71.42 |   53.37 |
-  database.js        |   55.64 |    54.54 |   65.21 |   56.09 | 39-41,58,75-76,94-180,197,297
+ src/database        |   41.46 |    46.66 |   53.57 |   41.71 |
+  database.js        |   40.32 |    45.45 |   43.47 |   40.65 | 23-26,39-41,58,70-184,193-197,297
   testData.js        |      45 |       50 |     100 |      45 | 7-17,26-48,57-96,107-134
  src/model           |     100 |      100 |     100 |     100 |
   model.js           |     100 |      100 |     100 |     100 |
- src/routes          |   70.83 |     38.7 |      50 |   73.91 |
-  authRouter.js      |   94.73 |      100 |   77.77 |     100 |
+ src/routes          |   51.04 |    16.12 |      20 |   53.26 |
+  authRouter.js      |   65.78 |    45.45 |   44.44 |   69.44 | 39-44,50-53,61,81-82
   franchiseRouter.js |   34.21 |        0 |       0 |   36.11 | 38,46-52,60-65,73-78,86-91,99-105
-  orderRouter.js     |      95 |       50 |     100 |      95 | 54
+  orderRouter.js     |      55 |        0 |       0 |      55 | 25,34,43-54
 ---------------------|---------|----------|---------|---------|-----------------------------------
 Test Suites: 1 passed, 1 total
-Tests:       8 passed, 8 total
-Snapshots:   0 total
-Time:        0.876 s, estimated 1 s
+Tests:       1 passed, 1 total
 ```
 
-I just need franchise tests now. That should also cover the last of the database code. However, this is a problem because I don't have an admin user.
+Now it is your turn. Keep writing tests until you have more than 80% coverage.
 
-## CI: Testing
+## Linting
 
-## CI: Linting
+Install eslint as a development dependency.
 
-## CI: Coverage
+```sh
+npm install -D eslint
+```
+
+## CI: Testing, linting, and coverage
 
 # Reporting Code Coverage
 

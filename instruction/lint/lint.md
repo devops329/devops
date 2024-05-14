@@ -1,5 +1,9 @@
 # Lint
 
+[eslint docs](https://eslint.org/docs/latest/
+
+Linting your code is the process of analyzing your code for little bits of fluff that should be removed. This includes things like unused variables, variables that should be marked as constant, and missing semicolons. Often times these problems are benign, but sometimes they expose real problems and it is well worth the trouble to install and listen to a linter.
+
 - What is Linting
 - Who does it work
 - Customizing or not customizing
