@@ -75,9 +75,13 @@ Here are the steps to take:
 
 ## Keep in sync
 
-As the application team makes changes to the frontend code you will need to sync your fork of the repository. As long as you are only adding tests and not changing the core code, you shouldn't have to merge any code.
+As the application team makes changes to the frontend code you will need to sync your fork of the repository. As long as you are only adding tests and **not changing the core code**, you shouldn't have to merge any code.
 
 To sync your fork, navigate to your account's fork of the `jwt-pizza-service` repository. It will display if your fork is out of date. Press the `Sync fork` button and confirm the action.
+
+⚠️ Do not press the `Discard commits` button if it is available or you will lose any code that you have added to your fork such as tests you have written.
+
+![Sync fork](syncFork.png)
 
 You will then need to pull the changes down to your development environment.
 

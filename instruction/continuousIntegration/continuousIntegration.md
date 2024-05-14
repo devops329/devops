@@ -1,4 +1,4 @@
-# Continuous Delivery & Deployment
+# Continuous integration
 
 - Automation is the mantra of DevOps
 - Automating the process of validating the state of the next application and preparing it for deployment is continuous delivery.
