@@ -155,8 +155,40 @@ Now it is your turn. Keep writing tests until you have at least 80% coverage.
 
 In addition to assuring the quality of the code with automated tests we also want to make sure that there isn't any lint in there. So let's install `eslint` and see what it reports.
 
-We start by install eslint as a development dependency.
+We start by installing eslint as a development dependency. Review, or following, the [lint instructions](../lint/lint.md) if you are unclear how to do this. Once this is done you can run eslint from your command console.
 
 ```sh
-npm install -D eslint
+npm run lint
+
+/Users/lee/Desktop/demo/student-jwt-pizza-service/src/routes/authRouter.test.js
+   6:1  error  'beforeAll' is not defined  no-undef
+  11:1  error  'test' is not defined       no-undef
+  13:3  error  'expect' is not defined     no-undef
+...
 ```
+
+This will spew out a bunch of errors. Most of them should be because we are using Jest, and we haven't told `eslint` about the types that Jest defines. You can correct this by modifying the `eslint.confg.mjs` file to include the Jest definitions.
+
+```js
+  { languageOptions: { globals: globals.jest } },
+```
+
+The config file should look something like this when you are done.
+
+```js
+import globals from 'globals';
+import pluginJs from '@eslint/js';
+
+export default [
+  { files: ['**/*.js'], languageOptions: { sourceType: 'commonjs' } },
+  { languageOptions: { globals: globals.node } },
+  { languageOptions: { globals: globals.jest } },
+  pluginJs.configs.recommended,
+];
+```
+
+Now when you run `npm run lint` you should only see errors that are due to problems in your code or the `jwt-pizza-service` code. Go fix the problems you created until there are no linting errors.
+
+## Reporting problems with JWT Pizza Service
+
+If during the testing or linting process you discover problems with `jwt-pizza-service` then you can open an issue or pull request on the repository to report them. This will help future students and also give you experience with this vital development process.

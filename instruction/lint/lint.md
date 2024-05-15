@@ -41,7 +41,7 @@ Alter `package.json` to contain a script to run eslint.
   }
 ```
 
-## Add a file to lint
+## Create some JavaScript that we can lint
 
 Create a file named `index.js` and put the following code in it.
 
