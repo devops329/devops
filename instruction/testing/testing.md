@@ -111,3 +111,4 @@ Conversely, if unit testing is done incorrectly it commonly results in the follo
   - Not clear what they are testing
   - Test multiple things
   - Poorly named
+- **Coverage fixation** - If you become focused on testing coverage you can sometimes create tests that hit every line, but don't actually verify anything that is happening on those lines.
