@@ -121,7 +121,6 @@ You can view them using the undocumented [service docs](https://pizza.cs329.clic
 The chief architect for the Headquarters JWT Pizza Factory service defined the factory service endpoints. This is the service that the JWT Pizza Service calls to fulfill pizza orders. You will not deploy a pizza factory, but you will need to know how to use it when you test and deploy the JWT Pizza Service.
 
 You can view them using the undocumented [factory service docs](https://pizza.cs329.click/docs/factory) endpoint.
-|
 
 ## ☑ Assignment
 
