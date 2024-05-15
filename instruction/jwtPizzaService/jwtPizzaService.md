@@ -112,31 +112,16 @@ Make sure you spend reasonable time both playing with the interface and also exp
 
 ### JWT Pizza Service endpoints
 
-The chief architect for the JWT Pizza Service defined the following endpoints for the service. You can also obtain the endpoints using the undocumented [docs](https://pizza.cs329.click/docs) endpoint.
+The chief architect for the JWT Pizza Service defined the service endpoints.
 
-| Method | path                                       | 🔐  | description                               | example                                                                                                                                                                                                         |
-| ------ | ------------------------------------------ | :-: | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| POST   | /api/auth                                  | no  | Register a new user                       | curl -X POST -c cookies.txt localhost:3000/api/auth -d '{\"name\":\"pizza diner\", \"email\":\"d@jwt.com\", \"password\":\"a\"}' -H 'Content-Type: application/json'"                                           |
-| PUT    | /api/auth                                  | no  | Login existing user                       | curl -X PUT -c cookies.txt localhost:3000/api/auth -d '{\"email\":\"a@jwt.com\", \"password\":\"a\"}' -H 'Content-Type: application/json'"                                                                      |
-| DELETE | /api/auth                                  | no  | Logout a user                             | curl -X DELETE -c cookies.txt localhost:3000/api/auth"                                                                                                                                                          |
-| GET    | /api/order/menu                            | no  | Get the pizza menu                        | curl localhost:3000/order/menu"                                                                                                                                                                                 |
-| GET    | /api/order                                 | yes | Get the orders for the authenticated user | curl -b cookies.txt -X GET localhost:3000/api/order"                                                                                                                                                            |
-| POST   | /api/order                                 | yes | Create a order for the authenticated user | curl -b cookies.txt -X POST localhost:3000/api/order -H 'Content-Type: application/json' -d '{\"franchiseId\": 1, \"storeId\":1, \"items\":[{ \"menuId\": 1, \"description\": \"Veggie\", \"price\": 0.05 }]}'" |
-| GET    | /api/franchise                             | no  | List all the franchises                   | curl -b cookies.txt localhost:3000/api/franchise"                                                                                                                                                               |
-| GET    | /api/franchise/:userId                     | yes | List a user's franchises                  | curl -b cookies.txt localhost:3000/api/franchise/1"                                                                                                                                                             |
-| POST   | /api/franchise                             | yes | Create a new franchise                    | curl -b cookies.txt -X POST localhost:3000/api/franchise -H 'Content-Type: application/json' -d '{\"name\": \"pizzaPocket\"}'"                                                                                  |
-| DELETE | /api/franchise/:franchiseId                | yes | Delete a franchises                       | curl -X DELETE -b cookies.txt localhost:3000/api/franchise/1"                                                                                                                                                   |
-| POST   | /api/franchise/:franchiseId/store          | yes | Create a new franchise store              | curl -b cookies.txt -X POST localhost:3000/api/franchise/1/store -H 'Content-Type: application/json' -d '{\"franchiseId\": 1, \"name\":\"SLC\"}'"                                                               |
-| DELETE | /api/franchise/:franchiseId/store/:storeId | yes | Delete a store                            | curl -X DELETE -b cookies.txt localhost:3000/api/franchise/1/store/1"                                                                                                                                           |
+You can view them using the undocumented [service docs](https://pizza.cs329.click/docs) endpoint.
 
 ### JWT Pizza Factory endpoints
 
-The chief architect for the Headquarters JWT Pizza Factory service defined the follow endpoints for the service. This is the service that the JWT Pizza Service calls to fulfill pizza orders. You will not deploy a pizza factory, but you will need to know how to use it when you test and deploy the JWT Pizza Service.
+The chief architect for the Headquarters JWT Pizza Factory service defined the factory service endpoints. This is the service that the JWT Pizza Service calls to fulfill pizza orders. You will not deploy a pizza factory, but you will need to know how to use it when you test and deploy the JWT Pizza Service.
 
-| Method | path              | 🔐  | description            | example                                                                                                                                                                                                                    |
-| ------ | ----------------- | :-: | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| POST   | /api/order        | yes | Create a JWT pizza     | curl -X POST localhost:3000/api/order -H 'authorization: Bearer a42nkl3fdsfagfdagnvcaklfdsafdsa9' -d '{\"diner\": {\"name\":\"joe\"}, \"order\": {\"pizzas\":[\"pep\", \"cheese\"]}}' -H 'Content-Type: application/json'" |
-| POST   | /api/order/verify | yes | Verifies a pizza order | curl -X POST localhost:3000/api/order/verify -d '{\"jwt\":\"JWT here\"}' -H 'Content-Type: application/json'"                                                                                                              |
+You can view them using the undocumented [factory service docs](https://pizza.cs329.click/docs/factory) endpoint.
+|
 
 ## ☑ Assignment
 
