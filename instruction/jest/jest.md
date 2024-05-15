@@ -156,6 +156,18 @@ Make sure you checkout the ability for the extension to run the tests whenever t
 
 Turning on the coverage will display the coverage statistics at the top of each code window and also highlight lines that are not covered in red.
 
+### Debugging
+
+Using the VS Code extension makes it easier to debug your tests. You can set whatever breakpoint you would like, right click on the test icon and select the option to debug.
+
+By default Jest will timeout a test if it takes longer than 5 seconds without any activity. You can override this while you are debugging by adding the following to your test code. Note that this only works if you are using VS Code to debug your tests.
+
+```js
+if (process.env.VSCODE_INSPECTOR_OPTIONS) {
+  jest.setTimeout(60 * 1000 * 5); // 5 minutes
+}
+```
+
 ## Jest expect and matchers
 
 [Jest Expect](https://jestjs.io/docs/expect)
