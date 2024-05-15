@@ -306,6 +306,12 @@ test('add cities no auth', async () => {
 
 Now we have **100%** coverage with 46 lines of testing code used to assure the quality of 30 lines of service code. That is a _1:.65_ ratio. Not a horrible amount of work, and we will sleep better tonight knowing that we can extend or refactor this code with confidence that we didn't break anything.
 
+## ☑ Assignment
+
+Create a node.js project named serviceTestingExample. Reproduce the steps given above in order to solidify your understand of the concepts.
+
+Once you are done, go over to Canvas and submit a screenshot showing that you have 100% coverage. It should look similar to the image shown below.
+
 ![total coverage](totalCoverage.png)
 
 Time to go and celebrate. 🍦

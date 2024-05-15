@@ -318,7 +318,6 @@ When your tests pass it is also a good place to commit your changes to your vers
 
 ## ☑ Assignment
 
-1. Create a node.js project named TDD
-1. Reproduce the steps given above in order to solidify your understand of the concepts.
+Create a node.js project named tddExample. Reproduce the steps given above in order to solidify your understand of the concepts.
 
 Once you are done, go over to Canvas and submit that you have completed this.

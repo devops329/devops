@@ -30,7 +30,7 @@
 - ☑ 🔵 [Jest](jest/jest.md)
 - ☑ 🔵 [TDD](tdd/tdd.md)
 - ☑ 🔵 [Service testing](serviceTesting/serviceTesting.md)
-- ☑ 🚧 [Lint](lint/lint.md)
+- ☑ 🔵 [Lint](lint/lint.md)
 - ☑ 🚧 [Mocking](mocking/mocking.md)
 - 🚧 [Dependency injection](dependencyInjection/dependencyInjection.md)
 - ☑ 🔵 [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
