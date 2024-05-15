@@ -14,6 +14,29 @@ You can specify the upstream for the fork to the original repository with:
 git remote add upstream https://github.com/devops329/jwt-pizza.git
 ```
 
+You can see what the remotes are with
+
+```sh
+git remote show origin
+git config --get remote.origin.url
+git config --get remote.upstream.url
+```
+
+To remove the upstream
+
+```sh
+git remote remove upstream
+```
+
+## Handling a merge conflict with the remote
+
+```sh
+git remote add upstream https://github.com/devops329/jwt-pizza-service.git
+git fetch upstream
+git checkout main
+git merge upstream/main
+```
+
 ## gh-pages NPM package
 
 This is created by the create-react-team, but it mostly works for Vite also. You just need to change the `-d build` param to be `-d dist`
