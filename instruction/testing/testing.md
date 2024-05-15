@@ -125,6 +125,8 @@ test('create store', async () => {
 });
 ```
 
+A more impactful example would be if you rewrote a subsystem, say like MySQL, so that you could test that your data access layer was working correctly.
+
 ### Mocking lies
 
 It is common to fake, or mock, inputs and outputs for a testing subject. When the mocked data is not actually consistent with reality, you are no longer validating the production code, you are instead validating the testing code.

@@ -144,6 +144,82 @@ Test Suites: 1 passed, 1 total
 Tests:       2 passed, 2 total
 ```
 
+### Reporters
+
+Jest has multiple types of reports that it can generate. Modify `jest.config.json` in order to specify how you want to report the coverage results.
+
+```json
+{
+  "collectCoverage": true,
+  "coverageReporters": ["json-summary", "text"]
+}
+```
+
+There are many different reporters that you can use. Here are the most common ones.
+
+| Reporter         | Description                                                                                                                                                      |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **text**         | Provides a basic text-based summary of coverage information directly in the Jest console output.                                                                 |
+| **text-summary** | Offers a more comprehensive text summary within the console, including details like total lines, statements, functions, branches, and uncovered lines.           |
+| **html**         | Generates an HTML report that visually presents code coverage data. This is ideal for detailed inspection and sharing within your team.                          |
+| **json**         | Outputs a JSON file containing the complete coverage data. This format is useful for integration with other tools or for further analysis.                       |
+| **json-summary** | Similar to "json", but creates a more concise JSON file summarizing the overall coverage percentages.                                                            |
+| **cobertura**    | Generates a Cobertura XML report, a format compatible with various continuous integration (CI) tools for automated reporting.                                    |
+| **lcov**         | Creates an LCOV report, another popular format supported by CI tools for integration with coverage analysis platforms.                                           |
+| **clover**       | Generates a Clover coverage report. This format is specifically designed for the Clover code coverage tool, offering detailed metrics and analysis capabilities. |
+
+Some reporters output to the `coverage` directory while other output to the console. For example, the `text-summary` reporter will output the following to the console.
+
+```sh
+=============================== Coverage summary ===============================
+Statements   : 90.2% ( 258/286 )
+Branches     : 65.57% ( 40/61 )
+Functions    : 88.67% ( 47/53 )
+Lines        : 90.71% ( 254/280 )
+================================================================================
+```
+
+The `json-summary` reporter will create a file named `coverage-summary.json` in the `coverage` directory with the following contents.
+
+```json
+{
+  "total": {
+    "lines": { "total": 280, "covered": 254, "skipped": 0, "pct": 90.71 },
+    "statements": { "total": 286, "covered": 258, "skipped": 0, "pct": 90.2 },
+    "functions": { "total": 53, "covered": 47, "skipped": 0, "pct": 88.67 },
+    "branches": { "total": 61, "covered": 40, "skipped": 0, "pct": 65.57 },
+    "branchesTrue": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  }
+}
+```
+
+The default reporters are `["clover", "json", "lcov", "text"]`.
+
+### Coverage thresholds
+
+Jest has the option to require certain levels of coverage. If the requirements are not met then the process will return an error.
+
+```sh
+Jest: Uncovered count for statements (28) exceeds global threshold (10)
+Jest: "global" coverage threshold for lines (80%) not met: 79.71%
+```
+
+To enable coverage requirements, set the `coverageThreshold` option in `jest.config.json`. For example, with the following configuration Jest will fail if there is less than 30% branch, 80% line, 70% function coverage, or if there are more than 10 uncovered statements:
+
+```json
+{
+  "collectCoverage": true,
+  "coverageThreshold": {
+    "global": {
+      "branches": 30,
+      "functions": 70,
+      "lines": 80,
+      "statements": -10
+    }
+  }
+}
+```
+
 ## Jest Visual Studio Code Extension
 
 You can run Jest from the console, but it is much nicer to install an extension that allows you to run the test right inside your IDE. With the [Jest Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest) you can selectively run one, or all of your tests and visually see the results. It is highly suggested that you spend some time reading the documentation for the extension so that you can experience its full value.
