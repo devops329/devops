@@ -52,7 +52,7 @@ Here are the steps to take:
       jwtSecret: 'yourjwtsecrethere',
       db: {
         connection: {
-          host: 'localhost',
+          host: '127.0.0.1',
           user: 'root',
           password: 'yourpasswordhere',
           database: 'pizza',
