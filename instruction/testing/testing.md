@@ -70,6 +70,7 @@ test('history', async () => {
 - Don't repeat tests that are already covered elsewhere
 - Design your production code so that test is naturally supported
 - Make the tests readable
+- Test can run in any order
 
 ## Gamification of testing
 
