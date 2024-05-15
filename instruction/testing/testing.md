@@ -101,6 +101,30 @@ When testing is done correctly it gives major payback. Conversely, if unit testi
 
 There is a temptation to duplicate portions of the production code in the testing code, possibly multiple times. This is often done so that you can test isolated portions of the code, or because the code is too tightly coupled that it is impossible to create a test. Duplicating production code requires you to change things in multiple places whenever you need to make a change.
 
+Consider the case where you have a suite of tests that validate the endpoints for working with pizza franchises. You write a test to create a franchise and then you duplicate that same franchise creation and testing code when you create a franchise store, purchase a pizza from the franchise, add an admin to the franchise, delete a store, and so forth.
+
+```js
+test('create franchise', async () => {
+  const franchiseReq = { name: TestHelper.randomName(), admins: [{ email: user.email }] };
+  const getFranchiseRes = await request(app).post(`/api/franchise`).set('Cookie', userCookie).send(franchiseReq);
+  expect(getFranchiseRes.status).toBe(200);
+  expect(getFranchiseRes.headers['content-type']).toMatch('application/json; charset=utf-8');
+  expect(getFranchiseRes.admins[0].id).toBe(adminUser.id);
+  testFranchise = getFranchiseRes.body;
+});
+
+test('create store', async () => {
+  const franchiseReq = { name: TestHelper.randomName(), admins: [{ email: user.email }] };
+  const getFranchiseRes = await request(app).post(`/api/franchise`).set('Cookie', userCookie).send(franchiseReq);
+  expect(getFranchiseRes.status).toBe(200);
+  expect(getFranchiseRes.headers['content-type']).toMatch('application/json; charset=utf-8');
+  expect(getFranchiseRes.admins[0].id).toBe(adminUser.id);
+  testFranchise = getFranchiseRes.body;
+
+  // code to create a store using the franchise
+});
+```
+
 ### Mocking lies
 
 It is common to fake, or mock, inputs and outputs for a testing subject. When the mocked data is not actually consistent with reality, you are no longer validating the production code, you are instead validating the testing code.
