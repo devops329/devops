@@ -80,7 +80,7 @@ _Source_: Robert C. Martin - Clean Code
 
 Modern testing automation naturally creates a game like environment. It can take the drudgery out of programming and give you an immediate dopamine hit.
 
-**Ohhh, look, tests! I wanna play?**
+### Ohhh, look, tests! I wanna play!
 
 > ![test results](testResults.png)
 
@@ -88,27 +88,61 @@ Modern testing automation naturally creates a game like environment. It can take
 - Can I keep them green as I start adding new stuff?
 - Can I decrease the amount of time it takes for the tests to run?
 - Am I missing some tests? Can I improve my score by adding more?
-- What is your high score? Are I a winner?
-
-I'm not going to be able to sleep tonight until that last test is green!
+- What is your high score? Am I on top fo the scoreboard?
+- I'm not going to be able to sleep tonight until that last test is green!
 
 This is part of an actual phenomenon called [Green Bar Addiction](https://wiki.c2.com/?GreenBarAddiction).
 
 ## When testing goes wrong 😱
 
-Conversely, if unit testing is done incorrectly it commonly results in the following problems.
+When testing is done correctly it gives major payback. Conversely, if unit testing is done incorrectly it can destroy your product. The following are common mistakes that developers make when they first start using automated testing.
 
-- **Duplication** - There is a temptation to duplicate portions of the production code in the testing code, possibly multiple times. This is often done so that you can test isolated portions of the code, or because the code is too tightly coupled that it is impossible to create a test. Duplicating production code requires you to change things in multiple places whenever you need to make a change.
-- **Mocking lies** - It is common to fake, or mock, inputs and outputs for a testing subject. When the mocked data is not actually consistent with reality, you are no longer validating the production code, you are instead validating the testing code.
-- **Testing creep** - Sometimes we alter the production code so that you can better support testing. This is fine if it actually improves the production code so that it actually creates a better consumer interface, increases abstraction, and decreases coupling. However, when it actually leaks abstraction (I'm talking about you _C++ friends_), or adds a bunch of "test only" branches to the production code, you have probably gone too far.
-- **Infallible green** - Tests should increase confidence, but just like any other code, you should never assume they are correct until they have reached a certain level of battle worn hardening. It is very common to write a test, see that it is green on the first run, and immediately move on. Only to find out later that the test was actually not testing what you assumed and when corrected is no longer green.
-- **Increased maintenance** - You are writing a program to test your program. Make no mistakes this is more code that you will need to maintain as you move forward. If you write too many tests, tests that are duplicates of each other, or that only test trivial paths, then the value of the tests will not justify the investment in the tests.
-- **Incomprehensible** - It is common to take time to properly design production software without giving the same thought to the design of tests. Watch out for these red flags:
-  - Run on for hundreds of lines
-  - Use overly terse constructs
-  - Have duplicated/complex setup code
-  - Are hard to find
-  - Not clear what they are testing
-  - Test multiple things
-  - Poorly named
-- **Coverage fixation** - If you become focused on testing coverage you can sometimes create tests that hit every line, but don't actually verify anything that is happening on those lines.
+### Duplication
+
+There is a temptation to duplicate portions of the production code in the testing code, possibly multiple times. This is often done so that you can test isolated portions of the code, or because the code is too tightly coupled that it is impossible to create a test. Duplicating production code requires you to change things in multiple places whenever you need to make a change.
+
+### Mocking lies
+
+It is common to fake, or mock, inputs and outputs for a testing subject. When the mocked data is not actually consistent with reality, you are no longer validating the production code, you are instead validating the testing code.
+
+### Testing creep
+
+Sometimes we alter the production code so that you can better support testing. This is fine if it actually improves the production code so that it actually creates a better consumer interface, increases abstraction, and decreases coupling. However, when it actually leaks abstraction (I'm talking about you _C++ friends_), or adds a bunch of "test only" branches to the production code, you have probably gone too far.
+
+### Infallible green
+
+Tests should increase confidence, but just like any other code, you should never assume they are correct until they have reached a certain level of battle worn hardening. It is very common to write a test, see that it is green on the first run, and immediately move on. Only to find out later that the test was actually not testing what you assumed and when corrected is no longer green. Consider the following test. It only checks to see that it returns a response. Never mind that the status code is 500.
+
+```js
+test('get menu', async () => {
+  const getMenuRes = await request(app).get('/api/order/menu');
+  expect(getMenuRes).toDefined();
+});
+```
+
+### Increased maintenance
+
+You are writing a program to test your program. Make no mistakes, this is more code that you will need to maintain as you move forward. If you write useless tests, tests that are duplicates of each other, tests that exercise paths a consumer will never use, or that only test trivial paths, then the value of the tests will not justify the investment in the tests.
+
+### Incomprehensible
+
+It is common to take time to properly design production software without giving the same thought to the design of tests. Watch out for these red flags:
+
+- Run on for hundreds of lines
+- Use overly terse constructs
+- Have duplicated/complex setup code
+- Are hard to find
+- Not clear what they are testing
+- Test multiple things
+- Poorly named
+
+### Coverage fixation
+
+If you become focused on testing coverage you can sometimes create tests that hit every line, but don't actually verify anything that is happening on those lines. For example, the following test code makes an endpoint request, but never looks at anything but the response code. The body may be completely incorrect, but the test coverage will 💯!
+
+```js
+test('get orders', async () => {
+  const getOrdersRes = await request(app).get('/api/order/').set('Cookie', testUserCookie);
+  expect(getOrdersRes.status).toBe(200);
+});
+```
