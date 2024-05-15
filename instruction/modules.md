@@ -31,7 +31,7 @@
 - ☑ 🔵 [TDD](tdd/tdd.md)
 - ☑ 🔵 [Service testing](serviceTesting/serviceTesting.md)
 - ☑ 🔵 [Lint](lint/lint.md)
-- ☑ 🚧 [Mocking](mocking/mocking.md)
+- ☑ ❌ [Mocking](mocking/mocking.md)
 - 🚧 [Dependency injection](dependencyInjection/dependencyInjection.md)
 - ☑ 🔵 [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
 - 🚧 [⓷ Unit testing](unitTestService/unitTestService.md)
