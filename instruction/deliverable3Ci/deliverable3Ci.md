@@ -99,9 +99,9 @@ Next, we create the configuration file that tells the service how to connect wit
     };" > src/config.js
 ```
 
-Notice that we use the same temporary password that we supplied above. We can also provide some random `jwtSecret` since it will only be useful while testing. The tricky one is the factory `apiKey`. This needs to be the actual API Key given to you from JWT Headquarters so that your service uses to create pizza JWTs. However, you can't check it into GitHub because it will be visible to the world from your public directory. So we need to create a repository secret and then reference the secret in our workflow.
+Notice that we use the same temporary password that we supplied above. We can also provide some random `jwtSecret` since it will only be useful while testing. The tricky one is the factory `apiKey`. This needs to be the actual API Key given to you from JWT Headquarters so that your service can create pizza JWTs. However, you can't check it into GitHub because it will be visible to the world. So you need to create a [repository secret](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) and then reference the secret in your workflow.
 
-Using the GitHub Repository dashboard for your fork of `jwt-pizza-service` select the repository's settings and then `Secrets and variables | Actions`. Chose to create a `New repository secret`.
+Using the GitHub Repository dashboard for your fork of `jwt-pizza-service`, select the repository's settings and then `Secrets and variables | Actions`. Chose to create a `New repository secret`.
 
 ![Create repo secret](createRepoSecret.png)
 
@@ -117,6 +117,8 @@ With MySQL running and our configuration all set up, you just need to add the st
 - name: Tests
   run: npm test
 ```
+
+That's it! Your tests are ready to run every time you commit to the repository.
 
 ## Reporting coverage and adding a version number
 
