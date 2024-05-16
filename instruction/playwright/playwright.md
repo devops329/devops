@@ -1,6 +1,118 @@
-# PlayWright
+# Playwright
 
-- Why are we using PlayWright?
+![Playwright icon](playwrightIcon.png)
+
+For the purposes of this course, we could pick any of the top UI testing frameworks. However, we are going to pick a newcomer, Playwright. Playwright has some major advantages. It is backed by Microsoft, it integrates really well with VS Code, and it runs as a Node.js process. It is also considered one of the least flaky of the testing frameworks.
+
+Playwright gets its speed and stability by running directly against each of the major browsers DevTool API. This is a major advantage over other tools that either directly or indirectly use the Selenium WebDriver or only support a single browser.
+
+## Tutorial project
+
+In order to have something that we can use to demonstrate how to use Playwright, we need to first create an example project. Take the following steps:
+
+1. Create a test directory
+   ```sh
+   mkdir playwrightExample && cd playwrightExample
+   ```
+1. Create the basic Vite React app.
+   ```sh
+   npm init -y
+   npm install vite@latest -D
+   npm install react react-dom
+   ```
+1. Modify `package.json`
+   ```json
+     "scripts": {
+       "dev": "vite"
+     },
+   ```
+1. Create a very simple `index.html` home page
+   ```html
+   <!DOCTYPE html>
+   <html lang="en">
+     <head>
+       <title>Playwright example</title>
+     </head>
+     <body>
+       <div id="root"></div>
+       <script type="module" src="/index.jsx"></script>
+     </body>
+   </html>
+   ```
+1. Create a simple `index.jsx` React application
+
+   ```jsx
+   import React from 'react';
+   import ReactDOM from 'react-dom/client';
+
+   ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
+   function App() {
+     const [count, setCount] = React.useState(1);
+     const [menu, setMenu] = React.useState([]);
+
+     async function getMenu() {
+       const response = await fetch('https://jwt-pizza-service.cs329.click/api/order/menu');
+       const data = await response.json();
+       setMenu(
+         data.map((item, i) => (
+           <li key={i}>
+             {item.title}-{item.description}
+           </li>
+         ))
+       );
+     }
+
+     return (
+       <div>
+         <h1>Playwright</h1>
+         <p>{'❤️'.repeat(count)}</p>
+         <button onClick={() => setCount(count + 1)}>+1</button>
+         <button disabled={!!menu.length} onClick={getMenu}>
+           Get menu
+         </button>
+         <ul>{menu}</ul>
+       </div>
+     );
+   }
+   ```
+
+   Now you can run `npm run dev` and experiment with the demonstration application. Notice that you can order pizzas by pressing the `+1` button and get the JWT pizza menu by pressing `Menu`. Once the menu is displayed it will disable the menu option. Get familiar with the code so that you are ready to start writing your UI tests.
+
+![playwright demo](playWrightDemo.png)
+
+## Installing Playwright
+
+With our demonstration app created we are ready to install Playwright. While installing tell it to use JavaScript, use the `tests` directory, ignore the GitHub Actions workflow for now, and not install any Playwright browsers.
+
+```sh
+npm init playwright@latest
+```
+
+This will update `package.json` with the `playwright` package, create a `playwright.config.js` file, and create some sample tests in the `test` and `tests-examples` directories.
+
+If you review the `playwright.config.js` file you will notice the configuration of the browser it will run.
+
+```js
+  /* Configure projects for major browsers */
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
+
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
+
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    },
+```
+
+For simplicity sake, we will only tests with `chromium` and so delete the other entries.
 
 # Old stuff
 

@@ -7,6 +7,8 @@
 - Browsers, drivers, and frameworks create the testing stack
 - Flakiness is a major problem
 
+No one understands the difficulty of testing applications in a browser better than the companies that build web browsers. They have to test every possible use of HTML, CSS, and JavaScript that a user could think of. There is no way that manual testing is going to work and so early on they started putting hooks into their browsers that allowed them to be driven from automated external processes. [Selenium](https://www.selenium.dev/) was introduced in 2004 as the first popular tool to automate the browser. However, Selenium is generally considered to be flaky and slow. Flakiness means that a test fails in unpredictable, unreproducible ways. When you need thousands of tests to pass before you can deploy a new feature, even a little flakiness becomes a big problem. If those tests take hours to run then you have an even bigger problem.
+
 Testing UI code that executes in a web browser is significantly harder than testing backend code that runs from a command console. With backend code you are running under a predictable operating system with little variation on how it executes. With code that renders in a browser, you must actually execute the code in the browser and then simulate a user interacting with the application through mouse, finger, and keyboard actions.
 
 #### Device, browser, and OS explosion
@@ -36,7 +38,7 @@ Browser drivers act as the bridge between your test scripts and the actual web b
 
 Currently, the most common browser drivers are based upon the W3C [WebDriver](https://www.w3.org/TR/webdriver2/) specification. The standard was derived based upon an early pioneer of browser testing named [Selenium](). Many of the common testing framework that exist today use the Selenium WebDriver as their foundation. There are other drivers that follow the WebDriver specification for specific browsers. For example, this includes SafariDriver, OperaDriver, and FirefoxDriver.
 
-Alternatively, the testing framework PlayWright chose to go directly against the browser APIs for all of the major browsers. This includes WebKit (Safari), Chromium, and Firefox. They took this approach in order to execute tests faster, with less flakiness.
+Alternatively, the testing framework Playwright chose to go directly against the browser APIs for all of the major browsers. This includes WebKit (Safari), Chromium, and Firefox. They took this approach in order to execute tests faster, with less flakiness.
 
 ### Running headless
 
@@ -56,7 +58,7 @@ There are lots of UI testing frameworks available for you to use. Here are some 
 
 The various test frameworks provide different methods for writing tests. This can be customer scripting language, visual interactions, or using common programming languages such as JavaScript or C#. The chose of the language has a significant impact on the performance, capability, and ease of the framework.
 
-Here is an example test written in JavaScript for the PlayWright framework.
+Here is an example test written in JavaScript for the Playwright framework.
 
 ```js
 import { test, expect } from '@playwright/test';
