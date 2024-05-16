@@ -120,14 +120,20 @@ With MySQL running and our configuration all set up, you just need to add the st
 
 ## Reporting coverage and adding a version number
 
-Before you run you new workflow let's add one more thing. We want to be able to report our coverage publicly. One easy way to do that is to update the README.md file with our latest coverage percentage. We can also generate a version ID based upon the time that the code was committed. Here is the step to do this.
+Before you run your new workflow let's add one more thing. We want to be able to report our coverage publicly. One easy way to do that is to update the `coverageBadge.svg` file that is displayed in the README.md file with the latest coverage percentage. We do this with the help of an image generator found at `img.shields.io`.
+
+We also generate a version file that contains the latest version ID based upon the time that the code was committed.
+
+Here is the step to add these to pieces.
 
 ```yml
 - name: Update coverage and version
   run: |
     printf '{"version": "%s" }' $(date +'%Y%m%d.%H%M%S') > version.json
     coverage_pct=$(grep -o '"pct":[0-9.]*' coverage/coverage-summary.json | head -n 1 | cut -d ':' -f 2)
+    color=$(echo "$coverage_pct < 80" | bc -l | awk '{if ($1) print "yellow"; else print "green"}')
     sed -i "s/^Coverage: .*/Coverage: $coverage_pct %/" README.md
+    curl https://img.shields.io/badge/Coverage-$coverage_pct%25-$color -o coverageBadge.svg
     git config user.name github-actions
     git config user.email github-actions@github.com
     git add .
@@ -222,7 +228,9 @@ jobs:
         run: |
           printf '{"version": "%s" }' $(date +'%Y%m%d.%H%M%S') > version.json
           coverage_pct=$(grep -o '"pct":[0-9.]*' coverage/coverage-summary.json | head -n 1 | cut -d ':' -f 2)
+          color=$(echo "$coverage_pct < 80" | bc -l | awk '{if ($1) print "yellow"; else print "green"}')
           sed -i "s/^Coverage: .*/Coverage: $coverage_pct %/" README.md
+          curl https://img.shields.io/badge/Coverage-$coverage_pct%25-$color -o coverageBadge.svg
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
