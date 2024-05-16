@@ -304,7 +304,7 @@ test('add cities no auth', async () => {
 });
 ```
 
-Now we have **100%** coverage with 46 lines of testing code used to assure the quality of 30 lines of service code. That is a _1:.65_ ratio. Not a horrible amount of work, and we will sleep better tonight knowing that we can extend or refactor this code with confidence that we didn't break anything.
+Now we have 💯 coverage with 46 lines of testing code used to assure the quality of 30 lines of service code. That is a _1:.65_ ratio. Not a horrible amount of work, and we will sleep better tonight knowing that we can extend or refactor this code with confidence that we didn't break anything.
 
 ## ☑ Assignment
 
