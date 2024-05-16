@@ -40,12 +40,12 @@ Note that the `.gitignore` file ignores the `coverage` directory so that the res
 
 ## NPM test script
 
-Add the `test` script to `package.json` so that it knows to use Jest for testing. The options for `detectOpenHandles` and `forceExit` help for cases where the test cannot properly terminate when the application code is not properly configured to shutdown cleanly. This can expose serious problems in the code base.
+Add the `test` script to `package.json` so that it knows to use Jest for testing.
 
 ```json
   "scripts": {
     "run": "node index.js",
-    "test": "jest --detectOpenHandles --forceExit"
+    "test": "jest"
   },
 ```
 
