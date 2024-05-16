@@ -343,6 +343,55 @@ await page.getByRole('button', { name: '+' }).click({ clickCount: [...expected].
 
 ### Mocking
 
+We can demonstrate how mocking works with Playwright by replace our actual call to the `jwt-pizza-service` with a mocked HTTP response. We want to mock out the call because we don't want our test to fail whenever the menu changes. However, the danger here is that the JSON response might change and test will no longer detect the failure.
+
+This turns out to be really easy. You just call the `route` method on the page object that is passed to the test and provide a function that can both validate the request and return a response.
+
+```js
+// Mock out the service
+const menuResponse = [{ title: 'Veggie', description: 'A garden of delight' }];
+await page.route('*/**/api/order/menu', async (route) => {
+  expect(route.request().method()).toBe('GET');
+  await route.fulfill({ json: menuResponse });
+});
+```
+
+This doesn't return all the data that the actual endpoint was returning, but it is just what we need to validate that the UI is behaving properly.
+
+### Final test
+
+Here is the full test that we created.
+
+```js
+// @ts-check
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  const menuResponse = [{ title: 'Veggie', description: 'A garden of delight' }];
+
+  // Mock out the service
+  await page.route('*/**/api/order/menu', async (route) => {
+    expect(route.request().method()).toBe('GET');
+    await route.fulfill({ json: menuResponse });
+  });
+
+  await page.goto('http://localhost:5173/');
+  await expect(page.getByText('Pizza')).toBeVisible();
+  await expect(page.getByText('🍕')).toBeVisible();
+
+  const expected = '🍕🍕🍕🍕🍕';
+  await page.getByRole('button', { name: '+' }).click({ clickCount: [...expected].length - 1 });
+  await expect(page.getByText(expected)).toHaveText(expected);
+
+  await expect(page.getByRole('button', { name: 'Menu' })).toBeEnabled();
+  await page.getByRole('button', { name: 'Menu' }).click();
+  await expect(page.getByRole('list')).toContainText('Veggie-A garden of delight');
+  await expect(page.getByRole('button', { name: 'Menu' })).toBeDisabled();
+});
+```
+
+## Coverage
+
 ## GitHub Action execution
 
 ## Modify the tests

@@ -2,6 +2,14 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
+  const menuResponse = [{ title: 'Veggie', description: 'A garden of delight' }];
+
+  // Mock out the service
+  await page.route('*/**/api/order/menu', async (route) => {
+    expect(route.request().method()).toBe('GET');
+    await route.fulfill({ json: menuResponse });
+  });
+
   await page.goto('http://localhost:5173/');
   await expect(page.getByText('Pizza')).toBeVisible();
   await expect(page.getByText('🍕')).toBeVisible();
