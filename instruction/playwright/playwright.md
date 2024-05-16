@@ -184,9 +184,49 @@ This opens up a window that shows all the tests found in the `tests` directory a
 
 > ![Playwright UI](playwrightUi.gif)
 
-## Writing your own tests
+## Configuring to run with Vite
 
-Let's get rid of the example tests that were provided and create our own tests.
+Before we can write our own tests we need to finish configuring Playwright. Open the `playwright.config.js` file and modify it so that it will launch our service when ever a test needs to run. This is done by adding a `webServer` section to the config that provides the startup command for Vite and the URL that our service is running from.
+
+```js
+  webServer: {
+    command: 'npm run dev',
+    url: 'http://localhost:5173',
+    reuseExistingServer: !process.env.CI,
+    timeout: 5000,
+  },
+```
+
+You can also remove all the comments in order to make the file easier to read. When you are done your configuration file should look like the following.
+
+```js
+const { defineConfig, devices } = require('@playwright/test');
+
+module.exports = defineConfig({
+  testDir: './tests',
+  fullyParallel: true,
+  forbidOnly: !!process.env.CI,
+  retries: process.env.CI ? 2 : 0,
+  workers: process.env.CI ? 1 : undefined,
+  reporter: 'html',
+
+  /* Configure projects for major browsers */
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
+  ],
+
+  /* Run your local dev server before starting the tests */
+  webServer: {
+    command: 'npm run dev',
+    url: 'http://localhost:5173',
+    reuseExistingServer: !process.env.CI,
+    timeout: 5000,
+  },
+});
+```
 
 ## VS Code Playwright extension
 
@@ -208,52 +248,102 @@ Some of the cool features include:
 
 You can also debug your tests by placing a break point and walking through
 
+## Writing your own tests
+
+Now you are ready to write your first test against our demonstration service.
+
+Let's start by getting rid of the example tests. To do this you can either delete the `example.spec.js` file or move it to the `tests-examples` directory.
+
+### Recording a test
+
+We can create our test by using the VS Code Playwright extensions ability to recording the interactions with the browser. To start the recording press the `Record new` new option found under the `Playwright panel` of the Test Explorer side pane.
+
+> ![Playwright record test](playwrightRecordTest.gif)
+
+When you start the recording it will open up a browser window and connect to the server that you specified in the Playwright configuration file.
+
+You can then navigate to the desired webpage, interact with the page components and add assertions from the recording toolbar.
+
+When you are done, press the stop button and view the resulting test case.
+
+### Examining the test
+
+The test we recorded demonstrates all the interactions we recorded.
+
+```js
+test('test', async ({ page }) => {
+  await page.goto('http://localhost:5173/');
+  await page.getByRole('button', { name: '+' }).click();
+  await page.getByRole('button', { name: '+' }).click();
+  await expect(page.getByText('🍕🍕🍕')).toBeVisible();
+  await page.getByRole('button', { name: 'Menu' }).click();
+  await expect(page.getByRole('list')).toContainText('Veggie-A garden of delight');
+});
+```
+
+You can see how Playwright tries to abstract away as much of the locating of page elements as possible. Instead of using a CSS selector to find an element, it tries to find things by roles that have some distinguishing characteristic. For example, the different buttons are located by finding a role of button with with a `+` or `Menu` in their text.
+
+```sh
+  await page.getByRole('button', { name: '+' }).click();
+```
+
+Using the `expect` function we can assert that the desired changes happened in reaction to our clicks. Either that something was visible or that it contained certain text.
+
+```sh
+  await expect(page.getByText('🍕🍕🍕')).toBeVisible();
+  await expect(page.getByRole('list')).toContainText('Veggie-A garden of delight');
+```
+
+### Modifying the test
+
+Let's change the test up a bit to add some validation.
+
+```js
+test('test', async ({ page }) => {
+  await page.goto('http://localhost:5173/');
+  await expect(page.getByText('Pizza')).toBeVisible();
+  await expect(page.getByText('🍕')).toBeVisible();
+
+  const expected = '🍕🍕🍕🍕🍕';
+  await page.getByRole('button', { name: '+' }).click({ clickCount: expected.length });
+  await expect(page.getByText(expected)).toHaveText(expected);
+
+  await expect(page.getByRole('button', { name: 'Menu' })).toBeEnabled();
+  await page.getByRole('button', { name: 'Menu' }).click();
+  await expect(page.getByRole('list')).toContainText('Veggie-A garden of delight');
+  await expect(page.getByRole('button', { name: 'Menu' })).toBeDisabled();
+});
+```
+
+We add some validation of preconditions such that a pizza is already displayed at the start and that menu button goes from enabled to disabled.
+
+We also use data driven JavaScript to control how many times we push the pizza button and then to assert that the right number of pizzas occur, and we change the locator to find an exact text value rather than some possible substring.
+
+### Debug the test
+
+When we run the new test we get an error saying that it couldn't find the pizzas after we added them all. The error is showing that we made way more pizzas than we imagined.
+
+![expect pizzas error](expectPizzasError.png)
+
+If we debug the test by placing a breakpoint on the first line and then stepping through we can see our error.
+
+![Playwright debug](playwrightDebug.gif)
+
+We are using the `length` operation on a string with emojis in it. Length is not going to take into account the unicode size of the emoji. So we need to convert it to an array of characters first and then get the length.
+
+```js
+await page.getByRole('button', { name: '+' }).click({ clickCount: [...expected].length });
+```
+
+Running the test again reveals another error. We were not taking into account the original 🍕 that existed before we inserted the new ones. To solve this we just insert one less pizza than we expect to be there in the end.
+
+```js
+await page.getByRole('button', { name: '+' }).click({ clickCount: [...expected].length - 1 });
+```
+
+### Mocking
+
 ## GitHub Action execution
-
-# More old stuff
-
-To get Playwright to run I followed the instructions in [cs260](https://learn.cs260.click/page/webServices/uiTesting/uiTesting_md). I did have to change the created file so use ES modules instead of Common modules. This was a simple change from the `required` syntax to the `import` syntax.
-
-```js
-const { defineConfig, devices } = require('@playwright/test');
-import { defineConfig, devices } from '@playwright/test';
-```
-
-I also modified the config file to drop out the extra browsers and to specify the webServer to work with Vite on startup.
-
-```js
-  projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
-  ],
-
-  /* Run your local dev server before starting the tests */
-  webServer: {
-    command: 'npm run dev',
-    port: 5173,
-    reuseExistingServer: true,
-  },
-```
-
-## Install Playwright extension
-
-> Playwright Test for VSCode
-> v1.0.22
-> Microsoft
-
-This creates a little beaker icon in the tools
-
-![playwright](playwright-extension.png)
-
-### Show browser and Trace viewer
-
-These tools are great. They allow you to interactively see what the tests are doing.
-
-## Writing tests
-
-https://playwright.dev/docs/writing-tests
 
 ## Modify the tests
 
