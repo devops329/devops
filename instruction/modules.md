@@ -16,11 +16,11 @@
 - 🔵 [Static deployment](staticDeployment/staticDeployment.md)
 - 🚧 [Git Branches](gitBranches/gitBranches.md)
 - 🔵 [GitHub Pages](gitHubPages/gitHubPages.md)
-- ☑ 🔵 [⓵ Manual deploy](deliverable1ManualDeploy/deliverable1ManualDeploy.md)
+- ☑ 🔵 [⓵ Manual deployment: JWT Pizza](deliverable1ManualDeploy/deliverable1ManualDeploy.md)
 - 🚧 [Automation](automation/automation.md)
 - 🚧 [Continuous integration](continuousIntegration/continuousIntegration.md)
 - 🚧 [GitHub Actions](gitHubActions/gitHubActions.md)
-- ☑ 🔵 [⓶ Automated deploy](deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)
+- ☑ 🔵 [⓶ Automated deployment: JWT Pizza](deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)
 
 ## Quality assurance
 
@@ -34,12 +34,12 @@
 - ☑ ❌ [Mocking](mocking/mocking.md)
 - 🚧 [Dependency injection](dependencyInjection/dependencyInjection.md)
 - ☑ 🔵 [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
-- 🔵 [⓷ Unit testing](deliverable3UnitTesting/deliverable3UnitTesting.md)
-- 🚧 ☑ [⓷ Unit testing - CI](deliverable3Ci/deliverable3Ci.md)
+- 🔵 [⓷ Unit testing: JWT Pizza Service](deliverable3UnitTesting/deliverable3UnitTesting.md)
+- 🔵 ☑ [⓷ Unit testing - CI: JWT Pizza Service](deliverable3Ci/deliverable3Ci.md)
 - 🚧 [UI testing](uiTesting/uiTesting.md)
 - ☑ 🚧 [Playwright](playwright/playwright.md)
 - 🚧 [Integration testing](integrationTesting/integrationTesting.md)
-- ⓸ Integration test client - Integration test and analysis frontend using Playwright and GitHub Actions
+- ⓸ Integration test: JWT Pizza - Integration test and analysis frontend using Playwright and GitHub Actions
 
 ## CDN deployment
 
@@ -49,7 +49,7 @@
 - 🚧 [AWS S3](awsS3/awsS3.md)
 - 🚧 [AWS CloudFront](awsCouldfront/awsCloudfront.md)
 - ☑ 🚧 [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
-- ⓹ CDN deploy - Deploy frontend to AWS CloudFront
+- ⓹ CDN deploy: JWT Pizza - Deploy frontend to AWS CloudFront
 - ❌ [Serverless](serverless/serverless.md)
 - ❌ [AWS API Gateway](awsApiGateway/awsApiGateway.md)
 - ❌ [AWS Lambda](awsLambda/awsLambda.md)
@@ -72,27 +72,27 @@
 - 🚧 [Containers](containers/containers.md)
 - ☑ 🚧 [ECR](ecr/ecr.md)
 - ☑ 🚧 [AWS Fargate](awsFargate/awsFargate.md)
-- ⓺ Scalable deploy - Deploy backend to AWS Fargate and Aurora
+- ⓺ Scalable deploy: JWT Pizza Service - Deploy backend to AWS Fargate and Aurora
 
 ## System monitoring
 
 - [Grafana](grafana/grafana.md)
 - 🚧 [Logging](logging/logging.md)
 - 🚧 [Grafana Loki](loki/loki.md)
-- ⓼ Log - Provide logging with Grafana Loki
+- ⓼ Logging - Provide logging with Grafana Loki
 - 🚧 Metrics
 - 🚧 [Grafana Metrics](grafanaMetrics/grafanaMetrics.md)
-- ⓻ Metric - Provide metrics with Grafana Mimir
+- ⓻ Metrics - Provide metrics with Grafana Mimir
 - 🚧 Distributed tracing
 - 🚧 [Grafana Tempo](grafanaTempo/grafanaTempo.md)
-- ⓽ Trace - Provide execution tracing with Grafana Tempo
+- ⓽ Tracing - Provide execution tracing with Grafana Tempo
 
 ## Load testing
 
 - 🚧 [E2E testing](e2eTesting/e2eTesting.md)
 - 🚧 [Load testing](loadTesting/loadTesting.md)
 - 🚧 [Grafana K6](grafanaK6/grafanaK6.md)
-- ⓾ Load test - Execute end to end load testing with K6
+- ⓾ Load test: JWT Pizza - Execute end to end load testing with K6
 
 ## Failure testing
 
@@ -104,13 +104,13 @@
 - 🚧 SLO, RTO, RPO
 - 🚧 Chaos injection
 - 🚧 Post mortem
-- ⓫ Failure test - Failure test due to chaos injection
+- ⓫ Failure test: JWT Pizza - Failure test due to chaos injection
 
 ## Penetration testing
 
 - 🚧 [Penetration testing](penetrationTesting/penetrationTesting.md)
 - 🚧 [Burp Suite](burpSuite/burpSuite.md)
-- ⓬ Penetration test - Penetration testing using Burp Suite
+- ⓬ Penetration test: JWT Pizza - Penetration testing using Burp Suite
 
 ## Conclusion
 
