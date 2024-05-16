@@ -10,6 +10,8 @@ While the general idea of testing is to simply verify that code is doing what it
 
 Unit testing demonstrates the correctness of a very small piece of code such as a function or class. This differs from other testing models that focus on how code integrates into a larger system, is used by a customer, or handles load.
 
+### Component testing
+
 ### Integration testing
 
 ### End-to-end testing
