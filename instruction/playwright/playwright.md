@@ -2,6 +2,13 @@
 
 ![Playwright icon](playwrightIcon.png)
 
+📖 **Deeper dive reading**:
+
+- [Playwright](https://playwright.dev/)
+- [Testing best Practices](https://playwright.dev/docs/best-practices)
+- [Writing tests](https://playwright.dev/docs/writing-tests)
+- [VS Code Playwright extension](https://playwright.dev/docs/getting-started-vscode)
+
 For the purposes of this course, we could pick any of the top UI testing frameworks. However, we are going to pick a newcomer, Playwright. Playwright has some major advantages. It is backed by Microsoft, it integrates really well with VS Code, and it runs as a Node.js process. It is also considered one of the least flaky of the testing frameworks.
 
 Playwright gets its speed and stability by running directly against each of the major browsers DevTool API. This is a major advantage over other tools that either directly or indirectly use the Selenium WebDriver or only support a single browser.
@@ -65,11 +72,11 @@ In order to have something that we can use to demonstrate how to use Playwright,
 
      return (
        <div>
-         <h1>Playwright</h1>
-         <p>{'❤️'.repeat(count)}</p>
+         <h1>Pizza</h1>
+         <p>{'🍕'.repeat(count)}</p>
          <button onClick={() => setCount(count + 1)}>+1</button>
          <button disabled={!!menu.length} onClick={getMenu}>
-           Get menu
+           Menu
          </button>
          <ul>{menu}</ul>
        </div>
@@ -89,7 +96,9 @@ With our demonstration app created we are ready to install Playwright. While ins
 npm init playwright@latest
 ```
 
-This will update `package.json` with the `playwright` package, create a `playwright.config.js` file, and create some sample tests in the `test` and `tests-examples` directories.
+This will update `package.json` with the `playwright` package, create a `playwright.config.js` file, and create some sample tests in the `test` and `tests-examples` directories. This will also update your `.gitignore` file so that you don't accidentally check in test coverage or report information.
+
+### Install a testing browser
 
 If you review the `playwright.config.js` file you will notice the configuration of the browser it will run.
 
@@ -112,35 +121,96 @@ If you review the `playwright.config.js` file you will notice the configuration 
     },
 ```
 
-For simplicity sake, we will only tests with `chromium` and so delete the other entries.
-
-# Old stuff
-
-[CS260 Playwright docs](https://learn.cs260.click/page/webServices/uiTesting/uiTesting_md)
-
-This will install the package, a browser engine, and create some sample tests.
+For simplicity sake, we will only tests with `chromium` and so delete the other entries. Once you have modified the file we need to go install the `chromium` driver.
 
 ```sh
-npm init playwright@latest
+npx playwright install --with-deps chromium
 ```
 
-Install VS Code extension: Playwright Test for VSCode
+## Running your first test
 
-put your test in /tests
-
-Running UI mode
+The easiest way to run your first Playwright tests is to use the examples that came with the Playwright installation.
 
 ```sh
-npx playwright test --ui
+├── tests
+│   └── example.spec.js
+└── tests-examples
+    └── demo-todo-app.spec.js
 ```
 
-[Playwright with github actions](https://mmazzarolo.com/blog/2022-09-09-visual-regression-testing-with-playwright-and-github-actions/)
+Playwright will run any test found in its testing directory as defined by the `testDir` property in the `playwright.config.js` file. By default this is set to the `tests` directory. The `example.spec.js` found in the `tests` directory contains two simple tests. The first test goes to the Playwright website and checks to make sure the resulting page has the title `Playwright`.
+
+```js
+test('has title', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+  await expect(page).toHaveTitle(/Playwright/);
+});
+```
+
+You can run the tests from your project directory with the following console command.
+
+```sh
+npx playwright test
+
+Running 2 tests using 2 workers
+  2 passed (1.1s)
+```
+
+Congratulations you have just ran your first Playwright test.
+
+### Viewing the results
+
+In addition to outputting the result to the console, this will create a file named `test-results/.last-run.json` that contains the result of running the test.
+
+If you want to see a visual report in a browser window you can run:
+
+```
+npx playwright show-report
+```
+
+This will allow you to interactively review what happened with the test.
+
+![test result in browser](testResultInBrowser.png)
+
+### Interactive execution
+
+You can also run the test using the Playwright UI mode.
+
+```sh
+npx playwright test -ui
+```
+
+This opens up a window that shows all the tests found in the `tests` directory and allows you to interactively execute them and review the results. This includes a time lapse overview of what the browser was doing while it executed and the ability to see the state of the browser during each step of the test.
+
+> ![Playwright UI](playwrightUi.gif)
+
+## Writing your own tests
+
+Let's get rid of the example tests that were provided and create our own tests.
+
+## VS Code Playwright extension
+
+[Playwright extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)
+
+The VS Code extension for Playwright is well worth the time to install and master. You can actually use it to install Playwright for your project instead of using the manual steps defined above.
+
+Just like the Jest VS Code extension, the Playwright extension will detect that you have Playwright tests and allow you to run them from the `flask` menu of the sidebar.
+
+Some of the cool features include:
+
+- Installing other browsers
+- In context error messages
+- Debugging tests
+- Picking a locator by clicking on an element
+- Recording a new tests
+- Record starting at the cursor
+- Displaying the trace viewer
+
+You can also debug your tests by placing a break point and walking through
+
+## GitHub Action execution
 
 # More old stuff
-
-https://playwright.dev/
-
-[Best Practices](https://playwright.dev/docs/best-practices)
 
 To get Playwright to run I followed the instructions in [cs260](https://learn.cs260.click/page/webServices/uiTesting/uiTesting_md). I did have to change the created file so use ES modules instead of Common modules. This was a simple change from the `required` syntax to the `import` syntax.
 
@@ -222,28 +292,6 @@ test('testAddStoreButton', async ({ page }) => {
   await expect(storeTable).toHaveText('provo');
 });
 ```
-
-## Install Browser
-
-Because I didn't install any browsers on startup I had to do that before the tests would run.
-
-Press `Shift+Command+P` to open the Command Palette in VSCode, type 'Playwright' and select 'Install Playwright Browsers'.
-
-I only selected Chromium.
-
-I then went to the VS Code test extension and ran the tests.
-
-## Debugging Playwright
-
-https://playwright.dev/docs/debug
-
-## Other UI testing libraries
-
-https://www.accelq.com/blog/ui-testing-tools/
-
-### React Testing Library
-
-Alternatives to Playwright include using Jest with the [react testing library](https://medium.com/expedia-group-tech/ui-testing-with-react-testing-library-and-jest-f3bd9d4ec2ea).
 
 ## Adding coverage
 
