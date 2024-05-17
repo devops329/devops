@@ -526,9 +526,11 @@ node_modules
 Vite needs to know to include Istanbul as a plugin when bundling and so we create/modify `vite.config.js` to include instructions on what files you want to have Istanbul analyze.
 
 ```js
+import { defineConfig } from 'vite';
 import istanbul from 'vite-plugin-istanbul';
 
 export default defineConfig({
+  build: { sourcemap: true },
   plugins: [
     istanbul({
       include: ['src/**/*'],

@@ -33,14 +33,14 @@
 - ☑ 🔵 [Lint](lint/lint.md)
 - ☑ ❌ [Mocking](mocking/mocking.md)
 - 🚧 [Dependency injection](dependencyInjection/dependencyInjection.md)
+- 🔵 [Integration testing](integrationTesting/integrationTesting.md)
 - ☑ 🔵 [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
 - 🔵 [⓷ Unit testing: JWT Pizza Service](deliverable3UnitTesting/deliverable3UnitTesting.md)
 - 🔵 ☑ [⓷ Unit testing - CI: JWT Pizza Service](deliverable3Ci/deliverable3Ci.md)
 - 🔵 [UI testing](uiTesting/uiTesting.md)
 - ☑ 🔵 [Playwright](playwright/playwright.md)
 - 🚧 [Playwright CI](playwrightCI/playwrightCI.md)
-- 🔵 [Integration testing](integrationTesting/integrationTesting.md)
-- ⓸ Integration test: JWT Pizza - Integration test and analysis frontend using Playwright and GitHub Actions
+- 🚧 ☑ [⓸ UI test: JWT Pizza](deliverable4UiTesting/deliverable4UiTesting.md)
 
 ## CDN deployment
 
