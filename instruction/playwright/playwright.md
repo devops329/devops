@@ -403,6 +403,82 @@ test('test', async ({ page }) => {
 });
 ```
 
+## Learning Playwright
+
+It is highly suggested that you review the [Playwright instruction](https://playwright.dev/docs/writing-tests) for writing tests. This includes creating `locators` to find page elements, `actions` to interact with a locator, and `expect` operations to test your assertions.
+
+### Locators
+
+Generally a locator starts with the `page` object passed to the test function. The locators attempt to abstract the structure of the page and instead focus on things such as roles, text, and labels.
+
+If you need to locate a specific element it is good practice to add a `data-testid` to an element instead of using the DOM ID. That allows you the freedom to change the element ID that your code interacts with, without breaking your test.
+
+```html
+<p data-testid="generated-copy">Lorem ipsum</p>
+```
+
+```js
+await expect(page.getByTestId('generated-copy').toBe('Lorem ipsum');
+```
+
+Experiment with the different locators until you feel comfortable with the unique abilities of each type.
+
+| Locator                 | Description                                                                                |
+| ----------------------- | ------------------------------------------------------------------------------------------ |
+| page.getByRole()        | Locate by explicit and implicit accessibility attributes.                                  |
+| page.getByText()        | Locate by text content.                                                                    |
+| page.getByLabel()       | Locate a form control by associated label's text.                                          |
+| page.getByPlaceholder() | Locate an input by placeholder.                                                            |
+| page.getByAltText()     | Locate an element, usually image, by its text alternative.                                 |
+| page.getByTitle()       | Locate an element by its title attribute.                                                  |
+| page.getByTestId()      | Locate an element based on its data-testid attribute (other attributes can be configured). |
+
+### Actions
+
+Actions allow you to interact with a element in order to simulate a user. Here are the most commonly used locators.
+
+| Action                  | Description                     |
+| ----------------------- | ------------------------------- |
+| locator.check()         | Check the input checkbox        |
+| locator.click()         | Click the element               |
+| locator.uncheck()       | Uncheck the input checkbox      |
+| locator.hover()         | Hover mouse over the element    |
+| locator.fill()          | Fill the form field, input text |
+| locator.focus()         | Focus the element               |
+| locator.press()         | Press single key                |
+| locator.setInputFiles() | Pick files to upload            |
+| locator.selectOption()  | Select option in the drop down  |
+
+Here is an example of clicking on a button.
+
+```js
+await page.getByRole('button').click();
+```
+
+### Expect
+
+The expect method provides the validation that your assertions are correct. Playwright provides a large number of assertions.
+
+| Assertion                         | Description                       |
+| --------------------------------- | --------------------------------- |
+| expect(locator).toBe()            | Equality                          |
+| expect(locator).toBeChecked()     | Checkbox is checked               |
+| expect(locator).toBeEnabled()     | Control is enabled                |
+| expect(locator).toBeVisible()     | Element is visible                |
+| expect(locator).toContainText()   | Element contains text             |
+| expect(locator).toHaveAttribute() | Element has attribute             |
+| expect(locator).toHaveCount()     | List of elements has given length |
+| expect(locator).toHaveText()      | Element matches text              |
+| expect(locator).toHaveValue()     | Input element has value           |
+| expect(page).toHaveTitle()        | Page has title                    |
+| expect(page).toHaveURL()          | Page has URL                      |
+
+You can negate any of the above assertions by inserting the `not` in front of the assertion function.
+
+```js
+await expect(page.getByTestId('generated-copy').not.toBe('Lorem ipsum');
+```
+
 ## Coverage
 
 In order to add coverage reporting we have to install the coverage utilities and instrument the code. Unless Jest where they have coverage built into that application, Playwright requires you to install the coverage utility of your choice. This gives you freedom to customize things as you would like, but it is a bit painful to setup.
