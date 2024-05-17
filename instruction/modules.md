@@ -37,7 +37,7 @@
 - 🔵 [⓷ Unit testing: JWT Pizza Service](deliverable3UnitTesting/deliverable3UnitTesting.md)
 - 🔵 ☑ [⓷ Unit testing - CI: JWT Pizza Service](deliverable3Ci/deliverable3Ci.md)
 - 🔵 [UI testing](uiTesting/uiTesting.md)
-- ☑ 🚧 [Playwright](playwright/playwright.md)
+- ☑ 🔵 [Playwright](playwright/playwright.md)
 - 🚧 [Playwright CI](playwrightCI/playwrightCI.md)
 - 🚧 [Integration testing](integrationTesting/integrationTesting.md)
 - ⓸ Integration test: JWT Pizza - Integration test and analysis frontend using Playwright and GitHub Actions

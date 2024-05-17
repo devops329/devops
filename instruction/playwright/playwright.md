@@ -220,6 +220,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
+  timeout: 3000,
   use: {
     baseURL: 'http://localhost:5173',
     trace: 'on-first-retry',
@@ -376,7 +377,6 @@ This doesn't return all the data that the actual endpoint was returning, but it 
 Here is the full test that we created.
 
 ```js
-// @ts-check
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
@@ -524,6 +524,10 @@ All files  |   44.44 |      100 |      25 |   44.44 |
 -----------|---------|----------|---------|---------|-------------------
 ```
 
+### Visual code coverage
+
+If you want to be able to see what lines are covered by the NYC report you can install a VS Code extension such as [Cover](https://marketplace.visualstudio.com/items?itemName=hindlemail.cover).
+
 ## ☑ Assignment
 
 Create an project based on the instructions provided above. Change the `App` component to be the following. Install Playwright and create tests until you get 100% code coverage with this new code.
@@ -548,7 +552,7 @@ function App() {
     setMenu(
       data.map((item, i) => (
         <li key={i}>
-          {item.title}-{item.description}
+          {item.title} - {item.description}
         </li>
       ))
     );
@@ -567,7 +571,7 @@ function App() {
         <input type='text' id='pizza-type' value={pizzaType} placeholder='type' onChange={(e) => setPizzaType(e.target.value)} />
         &nbsp;<button onClick={() => setCount(count + 1)}>+1</button>
         &nbsp;
-        <button disabled={!!count.length || !pizzaType} onClick={handleOrder}>
+        <button disabled={!count || !pizzaType} onClick={handleOrder}>
           Order
         </button>
       </div>
