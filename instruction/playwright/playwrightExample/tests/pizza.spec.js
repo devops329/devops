@@ -1,5 +1,5 @@
 // @ts-check
-import { test, expect } from '@playwright/test';
+import { test, expect } from 'playwright-test-coverage';
 
 test('test', async ({ page }) => {
   const menuResponse = [{ title: 'Veggie', description: 'A garden of delight' }];
@@ -20,6 +20,6 @@ test('test', async ({ page }) => {
 
   await expect(page.getByRole('button', { name: 'Menu' })).toBeEnabled();
   await page.getByRole('button', { name: 'Menu' }).click();
-  await expect(page.getByRole('list')).toContainText('Veggie-A garden of delight');
+  await expect(page.getByRole('list')).toContainText('Veggie - A garden of delight');
   await expect(page.getByRole('button', { name: 'Menu' })).toBeDisabled();
 });

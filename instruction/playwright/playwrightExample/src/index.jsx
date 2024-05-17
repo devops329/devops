@@ -13,7 +13,7 @@ function App() {
     setMenu(
       data.map((item, i) => (
         <li key={i}>
-          {item.title}-{item.description}
+          {item.title} - {item.description}
         </li>
       ))
     );

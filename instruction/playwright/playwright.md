@@ -27,18 +27,27 @@ In order to have something that we can use to demonstrate how to use Playwright,
    npm install vite@latest -D
    npm install react react-dom
    ```
-1. Modify `package.json`
+1. Modify `package.json` to include the following
    ```json
+     "type": "module",
      "scripts": {
-       "dev": "vite"
+       "dev": "vite",
+       "test": "playwright test"
      },
    ```
 1. Create a very simple `index.html` home page
+
    ```html
    <!DOCTYPE html>
    <html lang="en">
      <head>
        <title>Playwright example</title>
+       <style>
+         div {
+           padding-bottom: 10px;
+           font-family: sans-serif;
+         }
+       </style>
      </head>
      <body>
        <div id="root"></div>
@@ -46,6 +55,7 @@ In order to have something that we can use to demonstrate how to use Playwright,
      </body>
    </html>
    ```
+
 1. Create a simple `index.jsx` React application
 
    ```jsx
@@ -64,7 +74,7 @@ In order to have something that we can use to demonstrate how to use Playwright,
        setMenu(
          data.map((item, i) => (
            <li key={i}>
-             {item.title}-{item.description}
+             {item.title} - {item.description}
            </li>
          ))
        );
@@ -84,13 +94,13 @@ In order to have something that we can use to demonstrate how to use Playwright,
    }
    ```
 
-   Now you can run `npm run dev` and experiment with the demonstration application. Notice that you can order pizzas by pressing the `+1` button and get the JWT pizza menu by pressing `Menu`. Once the menu is displayed it will disable the menu option. Get familiar with the code so that you are ready to start writing your UI tests.
+Now you can run `npm run dev` and experiment with the demonstration application. Notice that you can order pizzas by pressing the `+1` button and get the JWT pizza menu by pressing `Menu`. Once the menu is displayed it will disable the menu option. Get familiar with the code so that you are ready to start writing your UI tests.
 
 ![playwright demo](playWrightDemo.png)
 
 ## Installing Playwright
 
-With our demonstration app created we are ready to install Playwright. While installing tell it to use JavaScript, use the `tests` directory, ignore the GitHub Actions workflow for now, and not install any Playwright browsers.
+With our demonstration app created we are ready to install Playwright. When going through the installation steps, choose JavaScript, `tests` for the test directory, ignore the GitHub Actions workflow for now, and do not install any Playwright browsers.
 
 ```sh
 npm init playwright@latest
@@ -100,7 +110,7 @@ This will update `package.json` with the `playwright` package, create a `playwri
 
 ### Install a testing browser
 
-If you review the `playwright.config.js` file you will notice the configuration of the browser it will run.
+Now review the playwright configuration file: `playwright.config.js`. In there you will find the specification for which browser drivers to use.
 
 ```js
   /* Configure projects for major browsers */
@@ -121,7 +131,7 @@ If you review the `playwright.config.js` file you will notice the configuration 
     },
 ```
 
-For simplicity sake, we will only tests with `chromium` and so delete the other entries. Once you have modified the file we need to go install the `chromium` driver.
+For simplicity sake, we will only tests with `chromium` and so delete the other entries. Once you have modified the file you can install the `chromium` driver.
 
 ```sh
 npx playwright install --with-deps chromium
@@ -129,16 +139,17 @@ npx playwright install --with-deps chromium
 
 ## Running your first test
 
-The easiest way to run your first Playwright tests is to use the examples that came with the Playwright installation.
+The easiest way to run your first Playwright test is to use the examples that came with the Playwright installation.
 
 ```sh
-├── tests
-│   └── example.spec.js
-└── tests-examples
-    └── demo-todo-app.spec.js
+└── tests
+    └── example.spec.js
+
 ```
 
-Playwright will run any test found in its testing directory as defined by the `testDir` property in the `playwright.config.js` file. By default this is set to the `tests` directory. The `example.spec.js` found in the `tests` directory contains two simple tests. The first test goes to the Playwright website and checks to make sure the resulting page has the title `Playwright`.
+Playwright will run any test found in the testing directory as defined by the `testDir` property in the `playwright.config.js` file. You chose `tests` to be the testing directory during the installation. Playwright follows the common convention of including `.spec.` in test names. You can also use `.test.` if you want to be consistent with your Jest tests.
+
+The `example.spec.js` found in the `tests` directory contains two simple tests. Here is what the first one looks like.
 
 ```js
 test('has title', async ({ page }) => {
@@ -147,7 +158,7 @@ test('has title', async ({ page }) => {
 });
 ```
 
-You can run the tests from your project directory with the following console command.
+This test navigates to the Playwright website and checks to make sure the resulting page has the title `Playwright`. You can run the tests from your project directory with the following console command.
 
 ```sh
 npx playwright test
@@ -156,11 +167,11 @@ Running 2 tests using 2 workers
   2 passed (1.1s)
 ```
 
-Congratulations you have just ran your first Playwright test.
+Congratulations! You have just ran your first Playwright test.
 
 ### Viewing the results
 
-In addition to outputting the result to the console, this will create a file named `test-results/.last-run.json` that contains the result of running the test.
+In addition to outputting the result to the console, Playwright creates a file named `test-results/.last-run.json` that contains the result of running the test.
 
 If you want to see a visual report in a browser window you can run:
 
@@ -184,7 +195,7 @@ This opens up a window that shows all the tests found in the `tests` directory a
 
 > ![Playwright UI](playwrightUi.gif)
 
-## Configuring to run with Vite
+## Configuring to test with Vite
 
 Before we can write our own tests we need to finish configuring Playwright. Open the `playwright.config.js` file and modify it so that it will launch our service when ever a test needs to run. This is done by adding a `webServer` section to the config that provides the startup command for Vite and the URL that our service is running from.
 
@@ -197,24 +208,28 @@ Before we can write our own tests we need to finish configuring Playwright. Open
   },
 ```
 
-You can also remove all the comments in order to make the file easier to read. When you are done your configuration file should look like the following.
+You can also remove all the comments in order to make the file easier to read. When you are done your configuration file should look like the following. Make sure you understand what all of this [configuration](https://playwright.dev/docs/test-configuration) is doing so that you can maximum the value that Playwright provides.
 
 ```js
-const { defineConfig, devices } = require('@playwright/test');
+import { defineConfig, devices } from '@playwright/test';
 
-module.exports = defineConfig({
+export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
+  use: {
+    baseURL: 'http://localhost:5173',
+    trace: 'on-first-retry',
+  },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'], viewport: { width: 800, height: 300 } },
     },
   ],
 
@@ -230,9 +245,7 @@ module.exports = defineConfig({
 
 ## VS Code Playwright extension
 
-[Playwright extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)
-
-The VS Code extension for Playwright is well worth the time to install and master. You can actually use it to install Playwright for your project instead of using the manual steps defined above.
+The [VS Code extension for Playwright](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) is well worth the time to install and master. You can actually use it to install Playwright for your project instead of using the manual steps defined above.
 
 Just like the Jest VS Code extension, the Playwright extension will detect that you have Playwright tests and allow you to run them from the `flask` menu of the sidebar.
 
@@ -252,7 +265,7 @@ You can also debug your tests by placing a break point and walking through
 
 Now you are ready to write your first test against our demonstration service.
 
-Let's start by getting rid of the example tests. To do this you can either delete the `example.spec.js` file or move it to the `tests-examples` directory.
+Let's start by getting rid of the example tests. To do this you can either delete the `example.spec.js` file or move it to the `tests-examples` directory where it will be ignored.
 
 ### Recording a test
 
@@ -277,7 +290,7 @@ test('test', async ({ page }) => {
   await page.getByRole('button', { name: '+' }).click();
   await expect(page.getByText('🍕🍕🍕')).toBeVisible();
   await page.getByRole('button', { name: 'Menu' }).click();
-  await expect(page.getByRole('list')).toContainText('Veggie-A garden of delight');
+  await expect(page.getByRole('list')).toContainText('Veggie - A garden of delight');
 });
 ```
 
@@ -392,4 +405,186 @@ test('test', async ({ page }) => {
 
 ## Coverage
 
-## GitHub Action execution
+In order to add coverage reporting we have to install the coverage utilities and instrument the code. Unless Jest where they have coverage built into that application, Playwright requires you to install the coverage utility of your choice. This gives you freedom to customize things as you would like, but it is a bit painful to setup.
+
+The coverage tools we are going to use are called Istanbul and NYC.
+
+**Istanbul** is a JavaScript code coverage tool that computes statement, line, function, and branch coverage with module loader hooks to transparently add coverage when running tests. It can handle all types of testing including unit, functional, and end-to-end testing.
+
+**NYC** is the official command-line interface for Istanbul. It's a top-level wrapper around Istanbul, adding further capabilities and features. It hooks into your testing framework to track coverage information and then generates detailed reports.
+
+### Install the coverage packages
+
+First we need to install all of the packages required for generating coverage. In addition to NYC we include `vite-plugin-istanbul` and `playwright-test-coverage` to have Vite execute istanbul in order to instrument the code for coverage gathering.
+
+```sh
+npm install -D nyc vite-plugin-istanbul playwright-test-coverage
+```
+
+### Create the coverage configuration
+
+We create a `.nycrc.json` file in order to specify the required coverage thresholds.
+
+```js
+{
+  "check-coverage": true,
+  "branches": 100,
+  "lines": 100,
+  "functions": 100,
+  "statements": 100
+}
+```
+
+NYC will output coverage information to a directory named `.nyc_output`. We definitely don't want push that to GitHub and so we add it to our growing list of coverage files found in `.gitignore`
+
+```txt
+coverage
+node_modules
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+.nyc_output
+```
+
+Vite needs to know to include Istanbul as a plugin when bundling and so we create/modify `vite.config.js` to include instructions on what files you want to have Istanbul analyze.
+
+```js
+import istanbul from 'vite-plugin-istanbul';
+
+export default defineConfig({
+  plugins: [
+    istanbul({
+      include: ['src/**/*'],
+      exclude: ['node_modules'],
+      requireEnv: false,
+    }),
+  ],
+});
+```
+
+Finally we add another `package.json` script so that NYC runs the Playwright tests and reports the coverage results. We tell NYC to use two reporters. One that will save a high level JSON file, and another one that prints the details to the console.
+
+```json
+"scripts": {
+  "test:coverage": "nyc --reporter=json-summary --reporter=text playwright test"
+}
+```
+
+### Instrument the tests
+
+The last step is to replace the Playwright `test` function with one that wraps the `test` function and generates coverage data.
+
+```js
+// import { test, expect } from '@playwright/test' <- Replace this with the line below
+import { test, expect } from 'playwright-test-coverage';
+```
+
+### Run the tests with coverage
+
+With these changes, you are all set to run the tests and report coverage information.
+
+```sh
+➜  npm run test:coverage
+
+Running 1 test using 1 worker
+  1 passed (1.1s)
+
+-----------|---------|----------|---------|---------|-------------------
+File       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+-----------|---------|----------|---------|---------|-------------------
+All files  |     100 |      100 |     100 |     100 |
+ index.jsx |     100 |      100 |     100 |     100 |
+-----------|---------|----------|---------|---------|-------------------
+```
+
+It looks like we have 💯% line coverage. I'm feeling good!
+
+If we modify our test so that it doesn't do anything meaningful.
+
+```sh
+test('test', async ({ page }) => {
+  await page.goto('http://localhost:5173/');
+});
+```
+
+You can rerun the tests and see that we get a failure because the required coverage thresholds are not met.
+
+```sh
+➜  npm run test:coverage
+
+ERROR: Coverage for lines (44.44%) does not meet global threshold (80%)
+ERROR: Coverage for functions (25%) does not meet global threshold (80%)
+ERROR: Coverage for statements (44.44%) does not meet global threshold (80%)
+-----------|---------|----------|---------|---------|-------------------
+File       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+-----------|---------|----------|---------|---------|-------------------
+All files  |   44.44 |      100 |      25 |   44.44 |
+ index.jsx |   44.44 |      100 |      25 |   44.44 | 11-15,26
+-----------|---------|----------|---------|---------|-------------------
+```
+
+## ☑ Assignment
+
+Create an project based on the instructions provided above. Change the `App` component to be the following. Install Playwright and create tests until you get 100% code coverage with this new code.
+
+**index.jsx**
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
+function App() {
+  const [count, setCount] = React.useState(0);
+  const [pizzaType, setPizzaType] = React.useState('');
+  const [order, setOrder] = React.useState('Choose your pizza!');
+  const [menu, setMenu] = React.useState([]);
+
+  async function getMenu() {
+    const response = await fetch('https://jwt-pizza-service.cs329.click/api/order/menu');
+    const data = await response.json();
+    setMenu(
+      data.map((item, i) => (
+        <li key={i}>
+          {item.title}-{item.description}
+        </li>
+      ))
+    );
+  }
+
+  async function handleOrder() {
+    setOrder(`Ordering ${count} ${pizzaType} pizzas`);
+  }
+
+  return (
+    <div>
+      <h1>Pizza</h1>
+      <p>{'🍕'.repeat(count) || '👨‍🍳'}</p>
+      <label htmlFor='order'>Pizza:</label>
+      <div>
+        <input type='text' id='pizza-type' value={pizzaType} placeholder='type' onChange={(e) => setPizzaType(e.target.value)} />
+        &nbsp;<button onClick={() => setCount(count + 1)}>+1</button>
+        &nbsp;
+        <button disabled={!!count.length || !pizzaType} onClick={handleOrder}>
+          Order
+        </button>
+      </div>
+      <div id='orderValue'>
+        <i>{order}</i>
+      </div>
+      <button disabled={!!menu.length} onClick={getMenu}>
+        Menu
+      </button>
+      <ul>{menu}</ul>
+    </div>
+  );
+}
+```
+
+Once you are done, go over to Canvas and submit a screenshot of your code with 100% coverage.
+
+The following is an example of what you should submit.
+
+![Playwright coverage](playwrightCoverage.png)

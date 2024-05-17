@@ -586,7 +586,7 @@ That is a lot of functionality, and honestly, we have only covered the basics of
 
 ## ☑ Assignment
 
-Create an project based on the code provided below. Install Jest and write tests until you get 100% code coverage.
+Create a project based on the code provided below. Install Jest and write tests until you get 100% code coverage.
 
 **catFact.js**
 
