@@ -39,7 +39,7 @@
 - 🔵 [UI testing](uiTesting/uiTesting.md)
 - ☑ 🔵 [Playwright](playwright/playwright.md)
 - 🚧 [Playwright CI](playwrightCI/playwrightCI.md)
-- 🚧 [Integration testing](integrationTesting/integrationTesting.md)
+- 🔵 [Integration testing](integrationTesting/integrationTesting.md)
 - ⓸ Integration test: JWT Pizza - Integration test and analysis frontend using Playwright and GitHub Actions
 
 ## CDN deployment

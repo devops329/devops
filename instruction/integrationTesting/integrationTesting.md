@@ -7,10 +7,12 @@ We previously briefly introduced the concept of integration testing. Let's take 
 - If your mock is wrong your test is wrong.
 - You have to maintain your mock to match your components. 2X the dev effort.
 - Integration testing makes you more confident that your code actually works
-- Requires your components are fast
+- Requires that your components are fast
 - Requires that the dependent components are actually implemented. Not always possible when you have different teams building different parts. But you can have each team build a stubbed part of the application.
 
 ## JWT Pizza integration testing
+
+![component overview](componentOverview.png)
 
 An obvious candidate for integration testing is to assure the quality of the integration between the `jwt-pizza` and `jwt-pizza-service` code. Here are some of the options:
 
