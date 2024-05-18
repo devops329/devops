@@ -58,7 +58,7 @@
 
 - 🚧 [Versioning](versioning/versioning.md)
 - 🚧 [GitHub Versions](gitHubVersions/gitHubVersions.md)
-- 🚧 [DeploymentEnvironments](deploymentEnvironments/deploymentEnvironments.md)
+- 🚧 [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
 - 🚧 [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
 - 🚧 [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
 - 🚧 [Blue/Green](blueGreeen/blueGreen.md)
