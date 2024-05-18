@@ -18,9 +18,8 @@ You previously created a fork of `jwt-pizza`. Now you need to add Playwright and
       "test": "playwright test"
     },
    ```
-1. Verify that you can run the example test.
 1. Install the Playwright Chromium testing browser.
-1. Cleanup the `playwright.config.ts` file and add the ability to launch the jwt-pizza-service using Vite.
+1. Cleanup the `playwright.config.js` file and add the ability to launch the jwt-pizza-service using Vite.
 
    ```js
    import { defineConfig, devices } from '@playwright/test';
@@ -51,6 +50,8 @@ You previously created a fork of `jwt-pizza`. Now you need to add Playwright and
      },
    });
    ```
+
+1. Verify that you can run the example test.
 
 1. Install coverage support
 
