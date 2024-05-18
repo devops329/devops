@@ -4,6 +4,8 @@
 
 With the UI testing skills you have learned you are now ready to test the JWT Pizza frontend. As part of these tests you will mock out the backend service so that you don't have to worry about the problems that come with integration testing.
 
+## Configuring Playwright
+
 You previously created a fork of `jwt-pizza`. Now you need to add Playwright and the coverage functionality. The first step is to install the required packages and setup the project using the [Playwright instruction](../playwright/playwright.md) that you studied earlier. This includes the following:
 
 1. Install Playwright. You can choose if you want to use JavaScript or TypeScript.
@@ -38,7 +40,7 @@ You previously created a fork of `jwt-pizza`. Now you need to add Playwright and
      projects: [
        {
          name: 'chromium',
-         use: { ...devices['Desktop Chrome'], viewport: { width: 800, height: 300 } },
+         use: { ...devices['Desktop Chrome'], viewport: { width: 800, height: 600 } },
        },
      ],
      webServer: {
@@ -195,9 +197,21 @@ A different option is to mock out the JWT service. That way the we are only test
 
 ## Mocking JWT Pizza Service
 
-First we need to figure out what endpoints this series of calls will make. To accomplish this, we can use the Playwright Trace Viewer and then mock out each request it makes.
+First we need to figure out what endpoints the test will make. To accomplish this, we can use the Playwright Trace Viewer and then mock out each request it makes. This will show us all of the network requests that were made at each step of the test. We can then use the Playwright `route` method to create mocks for each network request.
 
-### Recording network traffic
+### Recording endpoint requests
+
+Follow these steps to use Trace Viewer to get the network requests.
+
+1. Open up the Test Explorer in VS Code.
+1. Select `Show trace viewer` from the Playwright pane located under the list of tests.
+1. Run the test that we recorded earlier.
+1. Trace Viewer should open at this point and execute all of the test steps.
+1. In the tools pane at the bottom of the browser, select the `Network` tab.
+1. Sort by 'Content Type'. This should move all of the fetch requests to the top of the list.
+1. Examine the requests to see what URL, HTTP method, request and response bodies were used for each request.
+
+![TraceViewer](traceViewer.gif)
 
 This shows us that we made four requests. After we simplify them down we have the following.
 
@@ -209,6 +223,26 @@ This shows us that we made four requests. After we simplify them down we have th
 | POST   | /api/order      | {"items":[{"menuId":1,"description":"Veggie","price":0.0038},{"menuId":2,"description":"Pepperoni","price":0.0042}],"storeId":"1","franchiseId":1} | {"order":{"items":[{"menuId":1,"description":"Veggie","price":0.0038},{"menuId":2,"description":"Pepperoni","price":0.0042}],"storeId":"1","franchiseId":1,"id":23},"jwt":"eyJpYXQ"}                                                                                                                                                                                                                      |
 
 ### Create the mocks
+
+Now that we have the endpoints that the test makes we can use the Playwright `route` function to mock each one out. Let's start with the `Login` endpoint.
+
+We specify the URL path to match with the glob sequence `*/**/api/auth`. This will match any fetch request that ends in `api/auth`. Next we define what the expected request body will be, and what we will return as the response.
+
+Then we assert that the HTTP method was `PUT` and that we got the expected request body. Finally, we fulfill the route request by returning the mocked response body.
+
+```js
+await page.route('*/**/api/auth', async (route) => {
+  const loginReq = { email: 'd@jwt.com', password: 'a' };
+  const loginRes = { id: 3, name: 'Kai Chen', email: 'd@jwt.com', roles: [{ role: 'diner' }] };
+  expect(route.request().method()).toBe('PUT');
+  expect(route.request().postDataJSON()).toMatchObject(loginReq);
+  await route.fulfill({ json: loginRes });
+});
+```
+
+We repeat this process by looking at each of the expected endpoint calls and creating a a route to verify and respond to them.
+
+The final version of the test, with all of the mocks looks like this. Note that there are a few things that were altered from the original recording to clean things up a bit.
 
 ```js
 test('purchase with login', async ({ page }) => {
@@ -299,6 +333,8 @@ test('purchase with login', async ({ page }) => {
   await page.getByRole('button', { name: 'Pay now' }).click();
 
   // Check balance
-  await expect(page.getByText('₿')).toHaveText('0.008 ₿');
+  await expect(page.getByText('0.008')).toBeVisible();
 });
 ```
+
+This should be enough to get you started. Your goal is to get at least 80% line coverage by creating meaningful tests that assure the quality of the frontend code.

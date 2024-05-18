@@ -7,7 +7,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
-  timeout: 3000,
+  timeout: 10000,
   use: {
     baseURL: 'http://localhost:5173',
     trace: 'on-first-retry',
@@ -17,7 +17,7 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], viewport: { width: 800, height: 300 } },
+      use: { ...devices['Desktop Chrome'], viewport: { width: 800, height: 600 } },
     },
   ],
 

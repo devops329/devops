@@ -188,7 +188,7 @@ This will allow you to interactively review what happened with the test.
 You can also run the test using the Playwright UI mode.
 
 ```sh
-npx playwright test -ui
+npx playwright test --ui
 ```
 
 This opens up a window that shows all the tests found in the `tests` directory and allows you to interactively execute them and review the results. This includes a time lapse overview of what the browser was doing while it executed and the ability to see the state of the browser during each step of the test.
@@ -220,7 +220,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
-  timeout: 3000,
+  timeout: 5000,
   use: {
     baseURL: 'http://localhost:5173',
     trace: 'on-first-retry',
@@ -230,7 +230,7 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], viewport: { width: 800, height: 300 } },
+      use: { ...devices['Desktop Chrome'], viewport: { width: 800, height: 600 } },
     },
   ],
 
