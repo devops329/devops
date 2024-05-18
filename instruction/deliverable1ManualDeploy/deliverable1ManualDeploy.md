@@ -77,9 +77,9 @@ The JWT Pizza frontend doesn't work correctly unless it is hosted on the root pa
 
 Using your domain name take the following steps in order to associate it to your GitHub Pages.
 
-1. Add a `CNAME` record to your domain name DNS records that points to the GitHub Pages hostname. For example, if your GitHub account name was `byucsstudent`, you owned a domain named `goat.click`, and you wanted to associate the static deployment of JWT Pizza with the subdomain of `pizza.goat.click` you would create the following DNS record.
+1. Add a `CNAME` record to your domain name DNS records that points to the GitHub Pages hostname. For example, if your GitHub account name was `byucsstudent`, you owned a domain named `byucsstudent.click`, and you wanted to associate the static deployment of JWT Pizza with the subdomain of `pizza.byucsstudent.click` you would create the following DNS record.
    ```txt
-   record name: pizza.goat.click
+   record name: pizza.byucsstudent.click
    record type: CNAME
    record value: byucsstudent.github.io
    ```
