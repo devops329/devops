@@ -36,7 +36,7 @@
 - 🔵 [Integration testing](integrationTesting/integrationTesting.md)
 - ☑ 🔵 [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
 - 🔵 [Unit testing](unitTesting/unitTesting.md)
-- 🔵 ☑ [⓷ Unit testing - JWT Pizza Service](deliverable3Ci/deliverable3Ci.md)
+- 🔵 ☑ [⓷ Unit testing - JWT Pizza Service](deliverable3UnitTesting/deliverable3UnitTesting.md)
 - 🔵 [UI testing](uiTesting/uiTesting.md)
 - ☑ 🔵 [Playwright](playwright/playwright.md)
 - ☑ 🔵 [⓸ UI test: JWT Pizza](deliverable4UiTesting/deliverable4UiTesting.md)

@@ -258,3 +258,13 @@ Once this is all working, submit the URL of your fork of the `jwt-pizza-service`
 ```txt
 https://github.com/youraccountnamehere/jwt-pizza-service
 ```
+
+### Rubric
+
+| Percent | Item                                                                                      |
+| ------- | ----------------------------------------------------------------------------------------- |
+| 20%     | Strong GitHub commit history that documents your work in your fork of `jwt-pizza-service` |
+| 10%     | Successful execution of GitHub Actions to run lint on commit                              |
+| 10%     | Successful execution of GitHub Actions to run tests on commit                             |
+| 5%      | Version updated with each build                                                           |
+| 55%     | At least 80% code coverage as documented by workflow execution and README.md badge        |

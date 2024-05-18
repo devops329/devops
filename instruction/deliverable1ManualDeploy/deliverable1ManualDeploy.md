@@ -129,3 +129,11 @@ Once JWT Pizza is live on your domain, go over to Canvas and submit the URL. Thi
 ```txt
 https://pizza.yourdomainname.click
 ```
+
+### Rubric
+
+| Percent | Item                                                                                        |
+| ------- | ------------------------------------------------------------------------------------------- |
+| 20%     | Strong GitHub commit history that documents your work in your fork of `jwt-pizza`           |
+| 50%     | Successful manual deployment of JWT Pizza to GitHub Pages using a `gh-pages` branch         |
+| 30%     | Completely functional JWT Pizza deployed with GitHub Pages accessible on custom domain name |
