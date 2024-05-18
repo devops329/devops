@@ -242,16 +242,16 @@ jobs:
 
 ## ☑ Assignment
 
-In order to demonstrate your mastery of the concepts for this phase, complete the following.
+In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
-1. Create Jest tests for the `jwt-pizza-service` that provide at least 80% coverage.
+1. Create Jest tests for `jwt-pizza-service` that provide at least 80% coverage.
 1. Add linting.
 1. Create a GitHub Actions workflow that executes the tests and linting.
 1. Add the configuration necessary so that the workflow fails if there is not 80% coverage or the linting fails.
-1. Add the reporting of the coverage to the workflow.
+1. Add the reporting of the coverage to the workflow by creating a coverage badge in the README.md file.
 1. Add the creation of a version file named `version.json`.
 
-Once this is all working submit the URL of your fork of the `jwt-pizza-service` repository to the Canvas assignment. This should look something like this:
+Once this is all working, submit the URL of your fork of the `jwt-pizza-service` repository to the Canvas assignment. This should look something like this:
 
 ```txt
 https://github.com/youraccountnamehere/jwt-pizza-service

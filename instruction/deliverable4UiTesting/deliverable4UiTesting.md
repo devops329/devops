@@ -338,3 +338,55 @@ test('purchase with login', async ({ page }) => {
 ```
 
 This should be enough to get you started. Your goal is to get at least 80% line coverage by creating meaningful tests that assure the quality of the frontend code.
+
+## Testing CI
+
+With your automated tests in place you can now update the GitHub Actions script the you created previously to include the execution of the tests. You also want to report your coverage publicly and create a version number.
+
+Running the test requires that you first install the desired Playwright browser driver, and then execute the test command.
+
+```yml
+- name: Run tests
+  run: |
+    npx playwright install --with-deps chromium
+    npm run test:coverage
+```
+
+You can then generate a version number based on the current date and parse the coverage output to build a new coverage badge that is displayed in the README.md for your repository.
+
+```yml
+- name: Update coverage and version
+  run: |
+    printf '{"version": "%s" }' $(date +'%Y%m%d.%H%M%S') > version.json
+    coverage_pct=$(grep -o '"pct":[0-9.]*' coverage/coverage-summary.json | head -n 1 | cut -d ':' -f 2)
+    color=$(echo "$coverage_pct < 80" | bc -l | awk '{if ($1) print "yellow"; else print "green"}')
+    sed -i "s/^Coverage: .*/Coverage: $coverage_pct %/" README.md
+    curl https://img.shields.io/badge/Coverage-$coverage_pct%25-$color -o coverageBadge.svg
+    git config user.name github-actions
+    git config user.email github-actions@github.com
+    git add .
+    git commit -m "generated"
+    git push
+```
+
+Carefully study these steps until you understand what each line does. Then add them to your GitHub Actions workflow file and push it to GitHub.
+
+This should trigger the workflow to execute, and if everything works properly you should see something similar to the following on the Actions page of the GitHub console for your repository.
+
+![Action result](actionResult.png)
+
+## ☑ Assignment
+
+In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
+
+1. Create Playwright tests for `jwt-pizza` that provide at least 80% coverage.
+1. Create a GitHub Actions workflow that executes the tests.
+1. Add the configuration necessary so that the workflow fails if there is not 80% coverage.
+1. Add the reporting of the coverage to the workflow by creating a coverage badge in the README.md file.
+1. Add the creation of a version file named `version.json`.
+
+Once this is all working, submit the URL of your fork of the `jwt-pizza` repository to the Canvas assignment. This should look something like this:
+
+```txt
+https://github.com/youraccountnamehere/jwt-pizza
+```
