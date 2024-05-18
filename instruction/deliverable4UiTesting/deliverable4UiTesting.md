@@ -1,4 +1,4 @@
-# Deliverable ⓸: UI test
+# Deliverable ⓸ User Interface testing: JWT Pizza
 
 ![course overview](../courseOverview.png)
 

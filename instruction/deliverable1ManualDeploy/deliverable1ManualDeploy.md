@@ -1,4 +1,4 @@
-# Deliverable ⓵: Manual deployment
+# Deliverable ⓵ Manual deployment: JWT Pizza
 
 ![course overview](../courseOverview.png)
 

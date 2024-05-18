@@ -1,4 +1,4 @@
-# Deliverable ⓷: Backend testing
+# Deliverable ⓷ Unit testing: JWT Pizza Service
 
 ![course overview](../courseOverview.png)
 

@@ -36,7 +36,7 @@
 - 🔵 [Integration testing](integrationTesting/integrationTesting.md)
 - ☑ 🔵 [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
 - 🔵 [Unit testing](unitTesting/unitTesting.md)
-- 🔵 ☑ [⓷ Unit testing - JWT Pizza Service](deliverable3UnitTesting/deliverable3UnitTesting.md)
+- 🔵 ☑ [⓷ Unit testing: JWT Pizza Service](deliverable3UnitTesting/deliverable3UnitTesting.md)
 - 🔵 [UI testing](uiTesting/uiTesting.md)
 - ☑ 🔵 [Playwright](playwright/playwright.md)
 - ☑ 🔵 [⓸ UI test: JWT Pizza](deliverable4UiTesting/deliverable4UiTesting.md)
@@ -49,7 +49,7 @@
 - 🚧 [AWS S3](awsS3/awsS3.md)
 - 🚧 [AWS CloudFront](awsCouldfront/awsCloudfront.md)
 - ☑ 🚧 [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
-- ⓹ CDN deploy: JWT Pizza - Deploy frontend to AWS CloudFront
+- [⓹ CDN deploy: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
 - ❌ [Serverless](serverless/serverless.md)
 - ❌ [AWS API Gateway](awsApiGateway/awsApiGateway.md)
 - ❌ [AWS Lambda](awsLambda/awsLambda.md)

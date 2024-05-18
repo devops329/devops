@@ -1,4 +1,4 @@
-# Deliverable ⓶: Automated deployment
+# Deliverable ⓶ Automated deployment: JWT Pizza
 
 ![course overview](../courseOverview.png)
 
