@@ -51,8 +51,6 @@ You previously created a fork of `jwt-pizza`. Now you need to add Playwright and
    });
    ```
 
-1. Verify that you can run the example test.
-
 1. Install coverage support
 
    ```sh
