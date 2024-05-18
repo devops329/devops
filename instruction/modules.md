@@ -39,7 +39,7 @@
 - 🔵 ☑ [⓷ Unit testing - JWT Pizza Service](deliverable3Ci/deliverable3Ci.md)
 - 🔵 [UI testing](uiTesting/uiTesting.md)
 - ☑ 🔵 [Playwright](playwright/playwright.md)
-- 🚧 ☑ 🔵 [⓸ UI test: JWT Pizza](deliverable4UiTesting/deliverable4UiTesting.md)
+- ☑ 🔵 [⓸ UI test: JWT Pizza](deliverable4UiTesting/deliverable4UiTesting.md)
 
 ## CDN deployment
 
