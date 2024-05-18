@@ -1,10 +1,10 @@
-# Deliverable ⓷: Unit testing
+# Unit testing
 
-![course overview](../courseOverview.png)
-
-Now that you have the JWT Pizza Service in your hands you can start to assure its quality by writing unit tests. Once you have your tests written, you will then use GitHub Actions to run your tests whenever a commit is made to your fork of the repository. If during the automatic execution of the test, the coverage requirements of your tests do not meet the required thresholds, then an error is generated.
+Now that you have the JWT Pizza Service in your hands you can start to assure its quality by writing unit tests. As part of your testing you will generate a coverage report.If the coverage requirements of your tests do not meet the required thresholds, then an error is generated.
 
 If you haven't already done so, make sure you fork the [jwt-pizza-service](../jwtPizzaService/jwtPizzaService.md) repository and clone it to your development environment.
+
+Within your fork of the jwt-pizza-service repository, follow the pervious instruction and install the [Jest](../jest/jest.md) testing framework.
 
 ```sh
 npm install -D jest supertest
@@ -21,7 +21,7 @@ In order to test service endpoints you need to decompose the creation of the Exp
 
 ![](../serviceTesting/endpointRequests.png)
 
-This is already done in `jwt-pizza-service` and so you don't need to worry about it, but you should clearly understand the implications of the design.
+This is already done in `jwt-pizza-service` and so you don't need to worry about it, but you should clearly understand the implications of the pattern.
 
 ## Coverage
 
@@ -34,7 +34,7 @@ Add the Jest config file, `jest.config.json`, so coverage would be turned on.
 }
 ```
 
-We request to different coverage reports to be generated. The `text` report generates a summary that is output to the console window. The `json-summary` report is created in the `coverage` directory and contains a JSON representation of the coverage information.
+This requests the generation of different coverage reports. The `text` report generates a summary that is output to the console window. The `json-summary` report is created in the `coverage` directory and contains a JSON representation of the coverage information.
 
 Note that the `.gitignore` file ignores the `coverage` directory so that the resulting coverage reports don't get added to GitHub.
 

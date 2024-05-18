@@ -39,3 +39,11 @@ Once we started writing unit, integration, and end to end tests, you could make 
 ### Beta testing
 
 ### Black and white box testing
+
+## Our plan
+
+For this course we will do the following:
+
+1. Integration and unit testing for the `jwt-pizza-service` and the database. This will make actual calls from the service to the MySQL database.
+1. Unit testing for `jwt-pizza`. This will mock out all calls to the external services.
+1. End to end, load, and penetration testing on the deployed production system.

@@ -14,7 +14,7 @@ We previously briefly introduced the concept of integration testing. Let's take 
 
 ![component overview](componentOverview.png)
 
-An obvious candidate for integration testing is to assure the quality of the integration between the `jwt-pizza` and `jwt-pizza-service` code. Here are some of the options:
+An obvious candidate for integration testing is to assure the quality of the integration between the `jwt-pizza` and `jwt-pizza-service` code. Here are the options:
 
 1. **None** - Don't do integration testing. This has some appeal. It means the frontend and backend teams can develop the application completely independent of each other. The frontend can build functionality that is still in the design phase on the backend. The test setup is easier in the sense that you don't need to run a backend at all. However, the benefits probably don't outweigh the advantages. Additionally, just because we mock out the coupling between the frontend and backend doesn't mean that you have removed the coupling. You have just hidden a whole class of bugs that the mocks may be hiding.
 1. **jwt-pizza and jwt-pizza-service** - Integrate the testing of the frontend and the backend, but mock out the pizza factory service and the database seems like an obvious choice. With a mocked out database, the performance characteristics of the integration test should be excellent and we get a more realistic representation of the performance of the frontend/backend communication. We also will immediately know if we introduce any bugs in the service endpoints.
