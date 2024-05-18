@@ -2,7 +2,7 @@
 
 ## Getting started
 
-- 🔵 [Overview](overview/overview.md)
+- ☑ 🔵 [Overview](overview/overview.md)
 - 🔵 [History](history/history.md)
 - 🔵 [JWT Pizza](jwtPizza/jwtPizza.md)
 - ☑ 🚧 [AWS Account](awsAccount/awsAccount.md)
