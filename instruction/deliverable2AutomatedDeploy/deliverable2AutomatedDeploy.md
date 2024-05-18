@@ -63,7 +63,7 @@ Here are the steps to make all the automation magic happen.
          id-token: write
        environment:
          name: github-pages
-         url: ${\{ steps.deployment.outputs.page_url }}
+         url: ${{ steps.deployment.outputs.page_url }}
        runs-on: ubuntu-latest
        steps:
          - name: Deploy to GitHub Pages
@@ -140,7 +140,7 @@ It then references the `github-pages` environment that was automatically created
 ```yml
 environment:
   name: github-pages
-  url: ${\{ steps.deployment.outputs.page_url }}
+  url: ${{ steps.deployment.outputs.page_url }}
 ```
 
 The final step deploys the contents of the artifact that was created in the previous job. This looks like magic because it used a bunch of default parameters that are tightly coupled with the `upload-pages-artifact`. This includes the name of the artifact and where to deploy the files to.

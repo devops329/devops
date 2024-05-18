@@ -133,7 +133,7 @@ Here is the step to add these to pieces.
 ```yml
 - name: Update coverage and version
   run: |
-    printf '{"version": "%s" }' $(date +'%Y%m%d.%H%M%S') > version.json
+    printf '{"version": "%s" }' $(date +'%Y%m%d.%H%M%S') > src/version.json
     coverage_pct=$(grep -o '"pct":[0-9.]*' coverage/coverage-summary.json | head -n 1 | cut -d ':' -f 2)
     color=$(echo "$coverage_pct < 80" | bc -l | awk '{if ($1) print "yellow"; else print "green"}')
     sed -i "s/^Coverage: .*/Coverage: $coverage_pct %/" README.md
@@ -156,7 +156,7 @@ The output from successfully running the workflow should look something like thi
 
 ![alt text](actionOutput.png)
 
-The README.md file should also display the current coverage and there should be a file named `version.json` in the root of the repository.
+The README.md file should also display the current coverage and there should be a file named `version.json` in the src directory of the repository.
 
 ![alt text](readmeCoverage.png)
 
@@ -230,7 +230,7 @@ jobs:
 
       - name: Update coverage and version
         run: |
-          printf '{"version": "%s" }' $(date +'%Y%m%d.%H%M%S') > version.json
+          printf '{"version": "%s" }' $(date +'%Y%m%d.%H%M%S') > src/version.json
           coverage_pct=$(grep -o '"pct":[0-9.]*' coverage/coverage-summary.json | head -n 1 | cut -d ':' -f 2)
           color=$(echo "$coverage_pct < 80" | bc -l | awk '{if ($1) print "yellow"; else print "green"}')
           sed -i "s/^Coverage: .*/Coverage: $coverage_pct %/" README.md
@@ -251,7 +251,7 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Create a GitHub Actions workflow that executes the tests and linting.
 1. Add the configuration necessary so that the workflow fails if there is not 80% coverage or the linting fails.
 1. Add the reporting of the coverage to the workflow by creating a coverage badge in the README.md file.
-1. Add the creation of a version file named `version.json`.
+1. Add the creation of a version file named `src/version.json`.
 
 Once this is all working, submit the URL of your fork of the `jwt-pizza-service` repository to the Canvas assignment. This should look something like this:
 
