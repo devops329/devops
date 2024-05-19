@@ -8,6 +8,8 @@ For these reasons we are going to move to AWS and use their S3, IAM, and CloudFr
 
 ⚠️ If you have not yet created your AWS account, you must do so now. We will be making extensive use of AWS for the rest of the course.
 
+🚧 This needs some diagrams or people are going to get lost.
+
 ## S3 static content bucket
 
 The first step we need to take is to create an S3 bucket to host the static files associated with the JWT Pizza frontend. Follow these steps to setup your S3 bucket.
@@ -65,7 +67,6 @@ With the bucket in place you can now create your CloudFront distribution that wi
    1. Under `Alternate domain name` press `add item` and type your DNS name.
    1. Chose the certificate that you created in the previous section.
       > ![Settings](settings.png)
-   1. Enable HTTP/3 just because it is awesome!
    1. Set `index.html` as the `Default root object` so that it will be used when the root domain is specified.
    1. Provide a description for the distribution such as `JWT Pizza`.
 1. Press `Create distribution`.
@@ -92,7 +93,7 @@ All that is left is to create a DNS record so that you can access the CDN using 
 
 After a short while the DNS record should propagate and you should be able to see the record pointing to CloudFront instead of GitHub with a console command like `dig` or `nslookup`. At that point your browser should also show the `Hello World` page.
 
-!!!!!!!!!!!!!!!!!!!!
+🚧 !!!!!!!!!!!!!!!!!!!!
 Start here. Setup actions to push to S3 and delete the old Pages hosting
 !!!!!!!!!!!!!!!!!!!!
 
@@ -162,3 +163,7 @@ Next add AWS CLI command with the acquired OIDC token
     aws s3 ls s3://test.leesjensen.com
     aws s3 cp dist s3://test.leesjensen.com --recursive
 ```
+
+## CI with Staging distributions
+
+🚧 Maybe we can use this when we talk about versioning.
