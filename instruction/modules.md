@@ -47,7 +47,7 @@
 - 🚧 [Cloud deployment](cloudDeployment/cloudDeployment.md)
 - ❌ [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
 - 🚧 [AWS S3](awsS3/awsS3.md)
-- 🚧 [AWS CloudFront](awsCouldfront/awsCloudfront.md)
+- 🔵 [AWS CloudFront](awsCloudFront/awsCloudFront.md)
 - ☑ 🚧 [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
 - [⓹ CDN deploy: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
 - ❌ [Serverless](serverless/serverless.md)
