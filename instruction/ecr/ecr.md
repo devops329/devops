@@ -6,7 +6,7 @@ Using ECR console I created a new repository called test329. I believe you can a
 aws ecr create-repository --region us-east-1 --repository-name test329
 ```
 
-- **Registory**: contains one or more repositories
+- **Registry**: contains one or more repositories
 - **Repository**: contains tags that differentiate between versions of an image
 
 The format of images are:

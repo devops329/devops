@@ -57,48 +57,17 @@ Modify package.json
   "homepage": "https://github.com/byucsstudent/jwt-pizza.git",
 ```
 
-# Changes made on FHT AWS account
+# Changes made on local account
 
-I have deleted all of this.
+## JWT Pizza Student
 
-1. ❌ Created a bucket for static client hosting. test.cs240.click
-1. ❌ Created a web certificate for cs240.click for cloudfront to enable HTTPS
-1. ❌ Added Route 53 DNS records to authorize the web certificate generation (\_c54655b34f31243aa575eb5008eb16ca.cs240.click)
-1. ❌ Created a cloudfront distribution for the bucket
-1. ❌ Created an IAM identity provider for GitHub so I can push to the bucket (token.actions.githubusercontent.com/devops329)
-1. ❌ Added a Route 53 record for cloudfront (test.cs240.click)
-1. ❌ Created role for CD connection to github actions (cs329-githubaction-cd). I used the Roles create role wizard to generate a Web Identity trusted entity type.
-1. ❌ Created a ECR registry and uploaded an image
+Implementation of course deliverables
 
-# Changes made on my account
-
-## GitHub Action
-
-With this in place I can now enhance the GitHub Action Workflow.
-
-First you need to add the permission to use OIDC tokens in the script.
-
-```yaml
-permissions:
-  id-token: write
-  contents: read
-```
-
-Next add AWS CLI command with the acquired OIDC token
-
-```yaml
-- name: Create OIDC token to AWS
-  uses: aws-actions/configure-aws-credentials@v4
-  with:
-    audience: sts.amazonaws.com
-    aws-region: us-east-1
-    role-to-assume: arn:aws:iam::464152414144:role/GitHubAction-CD
-- name: Push to AWS S3
-  run: |
-    ls -la
-    aws s3 ls s3://test.leesjensen.com
-    aws s3 cp dist s3://test.leesjensen.com --recursive
-```
+- CloudFront distribution
+- IAM Roles and policies for OIDC
+- Bucket for frontend
+- Route 53 domain
+- Certificate Manager for domain
 
 ## ECR
 
