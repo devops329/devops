@@ -2,75 +2,67 @@
 
 ![course overview](../courseOverview.png)
 
-Now that we know how to deploy static content using a CDN we want to move from GitHub Pages to AWS CloudFront.
+Now that we know how to deploy static content using CloudFront and S3 using GitHub Actions, it is time to move our CDN hosting from GitHub Pages to AWS CloudFront.
 
-## Clean up GitHub Pages
+## CDN distribution
 
-When you pointed your pizza URL to CloudFront you broke the link to your GitHub Pages static file hosting. Since we are no longer going to use GitHub Pages you can go and remove it from your fork of the jwt-pizza repository.
+Set up your AWS S3 and CloudFront configuration as described in the [AWS CloudFront](../awsCloudFront/awsCloudFront.md) instruction. Your AWS configuration should consist of a private S3 bucket that contains your static frontend code. A CloudFront distribution then exposes the frontend to the world using a secure HTTP connection defined by your DNS hostname.
 
-## IAM
+### Demonstrating completion
 
-1. Create a role for the GitHub Action.
-   1. Choose Web Identity
-   1. Create a new Identity Provider - OpenID Connect
-   1. You register the GitHub IP with AWS IAM and specify the AWS rights you are granting for an authenticated user.
-      1. provider URL: https://token.actions.githubusercontent.com. Press Get Thumbprint. I don't believe this is used anymore, but it makes me press it.
-      1. Audience: sts.amazonaws.com
-      1. Configure the IAM role
-      1. Permissions policy S3
-      ```json
-      {
-        "Version": "2012-10-17",
-        "Statement": [
-          {
-            "Effect": "Allow",
-            "Action": "sts:AssumeRoleWithWebIdentity",
-            "Principal": {
-              "Federated": "arn:aws:iam::464152414144:oidc-provider/token.actions.githubusercontent.com"
-            },
-            "Condition": {
-              "StringEquals": {
-                "token.actions.githubusercontent.com:aud": ["sts.amazonaws.com"]
-              },
-              "StringLike": {
-                "token.actions.githubusercontent.com:sub": ["repo:devops329/*"]
-              }
-            }
-          }
-        ]
-      }
-      ```
+Once completed, your DNS entry should point to your CloudFront endpoint. You can verify this with the `dig` or `nslookup` utility.
 
-## Update the deployment workflow
+```sh
+dig +short CNAME pizza.byucsstudent.click
 
-Modify the script to deploy to S3
-
-With this in place you can now enhance the GitHub Action Workflow.
-
-First you need to add the permission to use OIDC tokens in the script.
-
-```yaml
-permissions:
-  id-token: write
-  contents: read
+d3pl23dqq9jlpy.cloudfront.net.
 ```
 
-Next add AWS CLI command with the acquired OIDC token
+## Secure deployment
 
-```yaml
-- name: Create OIDC token to AWS
-  uses: aws-actions/configure-aws-credentials@v4
-  with:
-    audience: sts.amazonaws.com
-    aws-region: us-east-1
-    role-to-assume: arn:aws:iam::464152414144:role/GitHubAction-CD
-- name: Push to AWS S3
-  run: |
-    ls -la
-    aws s3 ls s3://test.leesjensen.com
-    aws s3 cp dist s3://test.leesjensen.com --recursive
+Alter your GitHub Actions deployment process using the [AWS S3 Deployment](../awsS3Deployment/awsS3Deployment.md) instruction such that it updates S3 when files are pushed to your fork of `jwt-pizza`. Your GitHub CI pipeline deploys your frontend code through a secure connection that is authenticated using OIDC that follows the principle of least privilege, by exposing only the necessary access.
+
+### 404 page
+
+You need to remove the creation of the `404.hml` that GitHub Pages used to handle when a user refreshes the browser. You can do that by deleting the creation of the file from your workflow.
+
+```yml
+cp dist/index.html dist/404.html
 ```
 
-## CI with Staging distributions
+Instead you need to configure CloudFront to return the `index.html` file whenever a 404 or 403 error is encountered.
 
-🚧 Maybe we can use this when we talk about versioning.
+![Handle 404](handle404.png)
+
+This will cause the React DOM Router to get loaded and properly route back to the correct React component for the path.
+
+### Demonstrating completion
+
+Once completed, your repository's GitHub Actions workflow history should demonstrate a successful deployment to S3.
+
+![Workflow output](workflowOutput.png)
+
+## ☑ Assignment
+
+Demonstrate your mastery of the concepts for this deliverable, complete the following.
+
+1. Create a secure S3 bucket to host the frontend static files.
+1. Create a CloudFront distribution.
+1. Alter your DNS record in Route 53 to point to the CloudFront distribution.
+1. Create the IAM policies, roles, and identity provider definitions necessary to secure access for deployment.
+1. Alter your GitHub Actions workflow to update S3 and CloudFront instead of deploying to GitHub Pages.
+
+Once this is all working, submit JWT Pizza URL of your fork of the `jwt-pizza` repository to the Canvas assignment. This should look something like this:
+
+```txt
+https://pizza.cs329.click
+```
+
+### Rubric
+
+| Percent | Item                                                                              |
+| ------- | --------------------------------------------------------------------------------- |
+| 10%     | Strong GitHub commit history that documents your work in your fork of `jwt-pizza` |
+| 48%     | Secure CloudFront deployment based on S3 bucket                                   |
+| 2%      | Properly handles browser refresh React DOM Routing                                |
+| 40%     | Updated GitHub Action workflow deploying to S3 bucket                             |
