@@ -1,0 +1,22 @@
+{
+  "name": "playwrightexample",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "test": "playwright test",
+    "test:coverage": "nyc --reporter=json-summary --reporter=text playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "@types/node": "^20.12.12",
+    "nyc": "^15.1.0",
+    "playwright-test-coverage": "^1.2.12",
+    "vite": "^5.2.11",
+    "vite-plugin-istanbul": "^6.0.2"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

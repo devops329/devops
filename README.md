@@ -14,7 +14,7 @@ The content for this course is represented by the following parts.
 
 - [Schedule](https://github.com/devops329/devops/blob/main/schedule/schedule.md)
 - [Instruction](https://github.com/devops329/devops/blob/main/instruction/modules.md#readme)
-- Pizza Factory
+- JWT Pizza - Demonstration project
 - Assignments and tests submitted through [Canvas](https://byu.instructure.com)
 
 ## Outcomes

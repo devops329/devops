@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QA &amp; DevOps 329</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        margin: 0;
+      }
+      main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-size: 3vw;
+        animation: fly-in 1s ease-out;
+      }
+
+      .large {
+        display: block;
+      }
+
+      p {
+        font-size: 2em;
+        display: flex;
+        color: #666;
+      }
+
+      .course {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .courseName {
+        margin: 0.25em;
+        font-size: 3em;
+        font-weight: bold;
+        color: #111;
+      }
+      .courseNum {
+        margin: 0.25em;
+        font-size: 3em;
+        color: #da9512;
+      }
+
+      .small {
+        display: none;
+        font-size: 30vw;
+        color: #f3cf8c;
+      }
+
+      a {
+        padding: 0 1em 0 0;
+        text-decoration: none;
+        color: #557aa0;
+      }
+
+      .small a {
+        color: #f3cf8c;
+      }
+
+      @keyframes fly-in {
+        0% {
+          transform: translateX(-200%);
+        }
+        80% {
+          transform: translateX(1%);
+        }
+        100% {
+          transform: translateX(0%);
+        }
+      }
+
+      @media (max-width: 500px) {
+        body {
+          background-color: rgb(23, 23, 23);
+        }
+        .large {
+          display: none;
+        }
+        .small {
+          display: block;
+        }
+        a {
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <div class="large">
+        <p>Welcome to</p>
+        <div class="course">
+          <div class="courseName">QA &amp; DevOps</div>
+          <div class="courseNum">329</div>
+        </div>
+        <p id="serviceName">
+          <a href="https://learn.cs329.click">Learn</a>
+          <a href="https://pizza.cs329.click">JWT Pizza</a>
+        </p>
+      </div>
+      <div class="small">
+        <a href="https://learn.cs329.click">260</a>
+      </div>
+    </main>
+  </body>
+</html>

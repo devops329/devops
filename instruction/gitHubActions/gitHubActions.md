@@ -120,3 +120,21 @@ For more information, see "Creating actions."
 ## Runners
 
 A runner is a server that runs your workflows when they're triggered. Each runner can run a single job at a time. GitHub provides Ubuntu Linux, Microsoft Windows, and macOS runners to run your workflows; each workflow run executes in a fresh, newly-provisioned virtual machine. GitHub also offers larger runners, which are available in larger configurations. For more information, see "About larger runners." If you need a different operating system or require a specific hardware configuration, you can host your own runners. For more information about self-hosted runners, see "Hosting your own runners."
+
+## Pull request deployment
+
+What if you don't want a production version of your code to be built or continuously deployed every time you commit to your repo. You can solve this by using pull requests. Here is the basic flow.
+
+1. As a team you create your production repository.
+1. Restrict the ability for the team to push directly to the repository.
+1. Team members create a branch of the repository and do their work there.
+1. A team member then pushes their code to the branch.
+1. The branch push triggers a workflow that tests and analyzes the code.
+1. If successful the team member can create a pull request.
+1. The repository is configured to require a certain number of reviews before the pull request can be merged.
+1. Once the pull request is accepted it is automatically merged into the main branch.
+1. The commit to the main branch triggers another workflow that creates and/or publishes a production deployment.
+
+Note that you can use this same pattern with forks instead of branches. A fork further isolates the code author from the production repository. Forks are commonly used for open source projects.
+
+![pull request deployment](pullRequestDeployment.png)
