@@ -49,7 +49,7 @@
 - 🚧 [AWS S3](awsS3/awsS3.md)
 - 🔵 [AWS CloudFront](awsCloudFront/awsCloudFront.md)
 - 🔵 [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
-- 🔵 ☑ [⓹ CDN deploy: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
+- 🔵 ☑ [⓹ CDN deployment: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
 - ❌ [Serverless](serverless/serverless.md)
 - ❌ [AWS API Gateway](awsApiGateway/awsApiGateway.md)
 - ❌ [AWS Lambda](awsLambda/awsLambda.md)
@@ -62,7 +62,7 @@
 - 🚧 [Containers](containers/containers.md)
 - ☑ 🚧 [ECR](ecr/ecr.md)
 - ☑ 🚧 [AWS Fargate](awsFargate/awsFargate.md)
-- ⓺ Scalable deploy: JWT Pizza Service - Deploy backend to AWS Fargate and Aurora
+- ☑ 🚧 [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
 
 ## Deployment strategies
 
@@ -97,7 +97,7 @@
 ## Failure testing
 
 - 🚧 Backup/Restore (Aurora)
-- 🚧 Alerts
+- 🚧 [Alerts](alerting/alerting.md)
 - 🚧 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
 - 🚧 Playbooks
 - 🚧 Self healing (scale groups)

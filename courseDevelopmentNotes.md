@@ -173,7 +173,7 @@ If you open your repository in ECR there is an option to `View push commands`. T
 First create a temporary login with ECR so that docker can push.
 
 ```sh
-aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 464152414144.dkr.ecr.us-east-2.amazonaws.com
+aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 1234567890.dkr.ecr.us-east-2.amazonaws.com
 
 Login Succeeded
 ```
@@ -181,13 +181,13 @@ Login Succeeded
 Tag my image in the local registry
 
 ```sh
-docker tag webserver:latest 464152414144.dkr.ecr.us-east-2.amazonaws.com/webserver:latest
+docker tag webserver:latest 1234567890.dkr.ecr.us-east-2.amazonaws.com/webserver:latest
 ```
 
 push the image to ECR
 
 ```sh
-docker push 464152414144.dkr.ecr.us-east-2.amazonaws.com/webserver:latest
+docker push 1234567890.dkr.ecr.us-east-2.amazonaws.com/webserver:latest
 ```
 
 ## ECS/Fargate

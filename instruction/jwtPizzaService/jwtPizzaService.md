@@ -45,7 +45,7 @@ Here are the steps to take:
 1. 🚧 Obtain a JWT Pizza Factory API Key. You can get this key from the [Autograder](https://autograder.cs329.click) application.
 1. Create a `config.js` file in the `src` directory and insert your database credentials, jwtSecret, and API Key. The factory should point to the ULR provided by JWT Headquarters. The following is an example `config.js` file.
 
-   ⚠️ Note that you must replace `jwtSecret`, `connection.password`, and `factory.apiKey` with a values that you generate. `jwtSecret` is used to sign authorization tokens. `connection.password` is the password for your MySQL database. `factory.apiKey` allows you to fulfill orders from the JWT Headquarters factory.
+   ⚠️ **Note**: Note that you must replace `jwtSecret`, `connection.password`, and `factory.apiKey` with a values that you generate. `jwtSecret` is used to sign authorization tokens. `connection.password` is the password for your MySQL database. `factory.apiKey` allows you to fulfill orders from the JWT Headquarters factory.
 
    ```sh
    module.exports =  {
@@ -79,7 +79,7 @@ As the application team makes changes to the frontend code you will need to sync
 
 To sync your fork, navigate to your account's fork of the `jwt-pizza-service` repository. It will display if your fork is out of date. Press the `Sync fork` button and confirm the action.
 
-⚠️ Do not press the `Discard commits` button if it is available or you will lose any code that you have added to your fork such as tests you have written.
+⚠️ **Note**: Do not press the `Discard commits` button if it is available or you will lose any code that you have added to your fork such as tests you have written.
 
 ![Sync fork](syncFork.png)
 

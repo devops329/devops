@@ -1,5 +1,9 @@
 # Docker
 
+[CLI Docs](https://docs.docker.com/reference/cli/docker/)
+
+🚧 This just needs to be a simple discussion of what docker is and perhaps an exciting demo of what it can do. This must also contain how to install Docker.
+
 ## Installation
 
 On windows and Mac you have to install a virtual machine so that you can run Linux and thus have docker.
