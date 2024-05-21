@@ -1,0 +1,5 @@
+{
+  "host": "logs-prod-021.grafana.net",
+  "user": 12345,
+  "accessToken": "YOUR_ACCESS_TOKEN"
+}

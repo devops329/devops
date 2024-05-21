@@ -5,10 +5,14 @@ They have their own open-source tools, which they provide in a cloud instance fo
 
 - Visualization: Dashboards
 - Logging: Loki
-- Metrics: Grafana Cloud Metrics
+- Metrics: Mimir
 - Tracing: Tempo
 - Alerts: Alert Rules and OnCall (Alert Escalation)
 - Load Testing: K6
+
+Grafana gives an explanation of some of these:
+
+> Each observability signal plays a unique role in providing insights into your systems. Metrics act as the high-level indicators of system health. They alert you that something is wrong or deviating from the norm. Logs then help you understand what exactly is going wrong, for example, the nature or cause of the elevated error rates you’re seeing in your metrics. Traces illustrate where in the sequence of events something is going wrong. They let you pinpoint which service in the many services that any given request traverses is the source of the delay or the error.
 
 ## Create a Grafana Cloud account
 
@@ -21,10 +25,12 @@ They have their own open-source tools, which they provide in a cloud instance fo
 - Go to Grafana Cloud
 - Go to Dashboards - New Dashboard
 - Add visualization
-  - We will start by adding one for metrics and one for logs.
-- Add Data Source
-  - grafanacloud-username-prom
-  - Change the visualization title to 'Metrics'
-- Repeat with:
-  - grafanacloud-username-logs
-  - Title: 'Logs'
+  - We will start by adding two for metrics and one for logs.
+  - Add Data Source
+    - grafanacloud-username-prom
+    - Change the visualization title to 'Requests per Minute'
+  - Repeat with:
+    - grafanacloud-username-prom
+    - Title: 'Requests per Minute'
+    - grafanacloud-username-logs
+    - Title: 'Logs'

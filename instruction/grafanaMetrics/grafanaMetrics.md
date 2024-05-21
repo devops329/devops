@@ -1,33 +1,24 @@
 ## Sending metrics via http to Grafana Cloud
 
+We have provided an example server with metrics added. Copy and edit this example on your computer.
+The steps below show how to send the logs from this example to your Grafana dashboard.
+
 ### Send some test metrics
 
--   Go to Grafana Cloud
--   Go to Connections - Add new connection
--   Search and select "Http Metrics"
--   Follow the provided steps.
-    -   Keep default metrics format (Prometheus)
-    -   Select Node for the code snippet and copy into a `metrics.js` file in the same folder as your pizza server
--   Run the code
+- Go to Grafana Cloud
+- Go to Connections - Add new connection
+- Search and select "Http Metrics"
+  - Keep metrics format as Prometheus
+  - Generate an API Key and add to config.json
+  - At the bottom of the page, select the Node code snippet. Add the user ID into config.json.
+- Run the server and make some requests to it in the browser
 
 ### Visualize the metrics in your PizzaServer dashboard.
 
--   Edit the Metrics visualization in your dashboard.
--   Enter a PromQL query to see all metrics from the test data source.
-    -   `{source="grafana_cloud_doc"}` or whatever source the test metric has.
-
-### Adapt the code snippet to send custom metrics
-
--   Convert the given fetch request into an async sendMetrics function with error handling.
--   Having learned the anatomy of a metric, create a function that takes a bar_label and metric value and returns a metric in the correct format.
-    -   Change the source to be `pizza_server`.
--   Adapt your sendMetrics function to send a metric given as a parameter, test it works.
--   Create an interval function that sends test metrics every 10 seconds.
-
-### Send Pizza Server metrics
-
--   Create a function that allows the Pizza Server to create a custom metric.
-    -   This could be requests per 10 seconds, total requests, current CPU usage, etc.
--   Export the function and import it in your server.
--   Change the test metric in the interval timer to be your custom metric.
--   View the metrics in your dashboard.
+- Edit the Requests per Minute visualization in your dashboard.
+- Enter a PromQL query to see the metrics data.
+  - `{source="example", bar_label="requests_per_minute"}`
+- Run query
+- Apply and save changes to Dashboard
+- Repeat for the Total Requests panel.
+  - `{source="example", bar_label="total_requests"}`
