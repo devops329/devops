@@ -1,12 +1,14 @@
 # AWS Elastic Container Registry (ECR)
 
+🚧 This should detail everything about registries and how you copy between them. This must also contain how to set up ECR.
+
 Using ECR console I created a new repository called test329. I believe you can also create one with the AWS CLI
 
 ```sh
 aws ecr create-repository --region us-east-1 --repository-name test329
 ```
 
-- **Registory**: contains one or more repositories
+- **Registry**: contains one or more repositories
 - **Repository**: contains tags that differentiate between versions of an image
 
 The format of images are:

@@ -47,12 +47,22 @@
 - 🚧 [Cloud deployment](cloudDeployment/cloudDeployment.md)
 - ❌ [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
 - 🚧 [AWS S3](awsS3/awsS3.md)
-- 🚧 [AWS CloudFront](awsCouldfront/awsCloudfront.md)
-- ☑ 🚧 [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
-- [⓹ CDN deploy: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
+- 🔵 [AWS CloudFront](awsCloudFront/awsCloudFront.md)
+- 🔵 [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
+- 🔵 ☑ [⓹ CDN deployment: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
 - ❌ [Serverless](serverless/serverless.md)
 - ❌ [AWS API Gateway](awsApiGateway/awsApiGateway.md)
 - ❌ [AWS Lambda](awsLambda/awsLambda.md)
+
+## Scalable deployment
+
+- 🚧 [Elasticity](elasticity/elasticity.md)
+- ☑ 🚧 [AWS Aurora](awsAurora/awsAurora.md)
+- 🚧 [Docker](docker/docker.md)
+- 🚧 [Containers](containers/containers.md)
+- ☑ 🚧 [ECR](ecr/ecr.md)
+- ☑ 🚧 [AWS Fargate](awsFargate/awsFargate.md)
+- ☑ 🚧 [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
 
 ## Deployment strategies
 
@@ -63,16 +73,6 @@
 - 🚧 [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
 - 🚧 [Blue/Green](blueGreeen/blueGreen.md)
 - We need a discussion on scalability, bottlenecks, and auto adjustment. This should tie into SLO.
-
-## Scalable deployment
-
-- 🚧 [Elasticity](elasticity/elasticity.md)
-- ☑ 🚧 [AWS Aurora](awsAurora/awsAurora.md)
-- 🚧 [Docker](docker/docker.md)
-- 🚧 [Containers](containers/containers.md)
-- ☑ 🚧 [ECR](ecr/ecr.md)
-- ☑ 🚧 [AWS Fargate](awsFargate/awsFargate.md)
-- ⓺ Scalable deploy: JWT Pizza Service - Deploy backend to AWS Fargate and Aurora
 
 ## System monitoring
 
@@ -97,7 +97,7 @@
 ## Failure testing
 
 - 🚧 Backup/Restore (Aurora)
-- 🚧 Alerts
+- 🚧 [Alerts](alerting/alerting.md)
 - 🚧 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
 - 🚧 Playbooks
 - 🚧 Self healing (scale groups)

@@ -1,5 +1,7 @@
 # Containers
 
+🚧 This should detail everything about containers and how they work.
+
 ![container overview](containerOverview.png)
 
 [Docker CLI docs](https://docs.docker.com/reference/)
@@ -250,13 +252,13 @@ app.listen(3000, () => console.log('Server ready'));
 I tried to do the multi-container support, but my dev environment didn't support it and so I just did arm64 so I can do graviton in ECS.
 
 ```sh
-docker build -t "464152414144.dkr.ecr.us-east-2.amazonaws.com/webserver:latest" --platform linux/arm64 .
+docker build -t "1234567890.dkr.ecr.us-east-2.amazonaws.com/webserver:latest" --platform linux/arm64 .
 ```
 
 You can test it with
 
 ```sh
-docker run --name webserver -p 3000:3000 464152414144.dkr.ecr.us-east-2.amazonaws.com/webserver:latest
+docker run --name webserver -p 3000:3000 1234567890.dkr.ecr.us-east-2.amazonaws.com/webserver:latest
 ```
 
 ### ECR
@@ -264,7 +266,7 @@ docker run --name webserver -p 3000:3000 464152414144.dkr.ecr.us-east-2.amazonaw
 Login to ECR
 
 ```sh
-aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 464152414144.dkr.ecr.us-east-2.amazonaws.com
+aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 1234567890.dkr.ecr.us-east-2.amazonaws.com
 
 Login Succeeded
 ```
@@ -272,10 +274,21 @@ Login Succeeded
 Push the container to ECR
 
 ```sh
-docker push 464152414144.dkr.ecr.us-east-2.amazonaws.com/webserver:latest
+docker push 1234567890.dkr.ecr.us-east-2.amazonaws.com/webserver:latest
 ```
 
 ## Docker CLI Reference
+
+Favorite commands
+
+````sh
+docker run -d --name jwt-pizza-service -p 3000:3000 <image id> # detached
+docker stop <container id> -t 0 # stop immediately
+docker rm -vf $(docker ps -aq) # To delete all containers and volumes. Force
+docker rmi -f $(docker images -aq) # To delete all the images. Force
+docker exec <container id> ls -la # runs a command on the container
+
+Common commands
 
 ```sh
 docker ps
@@ -284,12 +297,10 @@ docker images
 docker run
 docker start <container id>
 docker stop <container id>
-docker exec <container id> ls -la # runs a command on the container
-docker compose up   # build an image and started a container
 docker kill <container id> # stops and removes the container
-docker rm -vf $(docker ps -aq) # To delete all containers including its volumes use,
-docker rmi -f $(docker images -aq) # To delete all the images,
-```
+docker rm <container id>
+docker rmi <image id>
+````
 
 ```txt
 docker

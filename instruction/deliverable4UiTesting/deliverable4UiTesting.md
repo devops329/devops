@@ -342,6 +342,15 @@ This should be enough to get you started. Your goal is to get at least 80% line 
 
 With your automated tests in place you can now update the GitHub Actions script the you created previously to include the execution of the tests. You also want to report your coverage publicly and create a version number.
 
+To create a version number based on the current date, we just need to generate it before we bundle.
+
+```yml
+- name: Build
+  run: |
+    printf '{"version": "%s" }' $(date +'%Y%m%d.%H%M%S') > public/version.json
+    npm ci && npm run build
+```
+
 Running the test requires that you first install the desired Playwright browser driver, and then execute the test command.
 
 ```yml
@@ -351,12 +360,11 @@ Running the test requires that you first install the desired Playwright browser 
     npm run test:coverage
 ```
 
-You can then generate a version number based on the current date and parse the coverage output to build a new coverage badge that is displayed in the README.md for your repository.
+You can then parse the coverage output to build a new coverage badge that is displayed in the README.md for your repository.
 
 ```yml
 - name: Update coverage and version
   run: |
-    printf '{"version": "%s" }' $(date +'%Y%m%d.%H%M%S') > public/version.json
     coverage_pct=$(grep -o '"pct":[0-9.]*' coverage/coverage-summary.json | head -n 1 | cut -d ':' -f 2)
     color=$(echo "$coverage_pct < 80" | bc -l | awk '{if ($1) print "yellow"; else print "green"}')
     sed -i "s/^Coverage: .*/Coverage: $coverage_pct %/" README.md
@@ -376,7 +384,7 @@ This should trigger the workflow to execute, and if everything works properly yo
 
 ## ☑ Assignment
 
-In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
+Demonstrate your mastery of the concepts for this deliverable, complete the following.
 
 1. Create Playwright tests for `jwt-pizza` that provide at least 80% coverage.
 1. Create a GitHub Actions workflow that executes the tests.

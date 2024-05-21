@@ -109,10 +109,10 @@ docker run --rm -it -p 3000:3000 pizzashop
 Log into the AWS browser console and create an ECR repository. Supply a name. The name should match the image name you created previously (e.g. `pizzashop`). Press `Create repository`. If you press the `view push commands` it will display the exact commands you need to run in order to push your image.
 
 ```sh
-aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 464152414144.dkr.ecr.us-east-2.amazonaws.com
+aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 1234567890.dkr.ecr.us-east-2.amazonaws.com
 docker build -t pizzashop .
-docker tag pizzashop:latest 464152414144.dkr.ecr.us-east-2.amazonaws.com/pizzashop:latest
-docker push 464152414144.dkr.ecr.us-east-2.amazonaws.com/pizzashop:latest
+docker tag pizzashop:latest 1234567890.dkr.ecr.us-east-2.amazonaws.com/pizzashop:latest
+docker push 1234567890.dkr.ecr.us-east-2.amazonaws.com/pizzashop:latest
 ```
 
 ## Create a ECS task definition
