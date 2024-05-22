@@ -1,5 +1,11 @@
 # Modules
 
+- ☑ Has an assignment associated with it
+- 🚧 Lots of work to do
+- 🟢 Stephen has reviewed
+- 🔵 Lee has created first draft
+- ❌ We are probably going to drop this
+
 ## Getting started
 
 - ☑ 🔵 [Overview](overview/overview.md)
@@ -85,7 +91,7 @@
 - ⓻ Metrics - Provide metrics with Grafana Mimir
 - 🚧 Distributed tracing
 - 🚧 [Grafana Tempo](grafanaTempo/grafanaTempo.md)
-- ⓽ Tracing - Provide execution tracing with Grafana Tempo
+- ❌ ⓽ Tracing - Provide execution tracing with Grafana Tempo
 
 ## Load testing
 
