@@ -87,6 +87,7 @@ Using your domain name take the following steps in order to associate it to your
 1. Open the GitHub Pages settings for the fork of your jwt-pizza repository.
 1. Put your subdomain name in the `Custom domain` edit box and press `Save`.
    > ![Custom domain entry](customDomain.png)
+1. Check the box to `Enforce HTTPS`.
 1. After the check completes you can navigate your browser to your subdomain and verify that "Hello GitHub Pages" is still being displayed.
 
 ## Deploying JWT Pizza
