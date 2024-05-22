@@ -23,10 +23,11 @@ There is no cost to create an account with AWS, you only pay for what you use, a
 | **S3**                  | Static frontend files                | Free: 5GB standard storage, 20,000 GET Requests; 2,000 PUT, COPY, POST, or LIST Requests, 100 GB data transfer/month.   |
 | **ECR**                 | Docker image repository              | Free: 500 MB/month. After that $0.10/GB.                                                                                |
 | **ECS EC2**             | Docker container service             | ECS free. You only pay for the EC2 instance.                                                                            |
-| **ECS Fargate**         | Docker container service             | ECS free. Fargate: vCPU/hour $0.03238, GB/hour. 0.03594/hour ($26/month)                                                |
+| **ECS Fargate**         | Docker container service             | ECS free. Fargate: AMD vCPU/hour $0.03238, GB/hour. 0.03594/hour \* 0.25 vCPU ($9/month)                                |
+| **ALB**                 | Load balancing                       | $18/month.                                                                                                              |
 | **Certificate Manager** | Web certificate                      | Free.                                                                                                                   |
-|                         |                                      | **Estimated monthly cost: `$14` for MySQL, `$26` for Fargate**                                                          |
-|                         |                                      | **Estimated course cost: `$80`**                                                                                        |
+|                         |                                      | **Estimated monthly cost: `$15` for MySQL, `$10` for Fargate, `$18` for ALB**                                           |
+|                         |                                      | **Estimated course cost: `$50 - $120`**                                                                                 |
 
 ## ☑ Assignment
 

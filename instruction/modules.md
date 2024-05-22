@@ -66,8 +66,8 @@
 - ☑ 🚧 [AWS RDS MySQL](awsRdsMysql/awsRdsMysql.md)
 - 🚧 [Docker](docker/docker.md)
 - 🚧 [Containers](containers/containers.md)
-- ☑ 🚧 [ECR](ecr/ecr.md)
-- ☑ 🚧 [AWS Fargate](awsFargate/awsFargate.md)
+- ☑ 🚧 [AWS ECR](awsEcr/awsEcr.md)
+- ☑ 🚧 [AWS ECS](awsEcs/awsEcs.md)
 - ☑ 🚧 [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
 
 ## Deployment strategies

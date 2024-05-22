@@ -2,12 +2,6 @@
 
 ## Creating a VPC security group
 
----
-
-## START HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-+++++++++++++++++++++++++++++++++++
-
 Create a rule for both service and db
 Fix so Container doesn't use DB until I can prove the container is being loaded correctly.
 
@@ -17,6 +11,7 @@ Fix so Container doesn't use DB until I can prove the container is being loaded 
 1. Name the group `jwt-pizza-service`.
 1. Press the `Add rule` for inbound rules.
    1. Select the `type` of `HTTPS` this should populate the `Port range` with 443. Set the `Source` to `from anywhere`.
+   1. Select the `type` of `HTTP` this should populate the `Port range` with 80. Set the `Source` to `from anywhere`.
 1. Press `Create security group`.
 1. Name the group `jwt-pizza-db`.
 1. Press the `Add rule` for inbound rules.

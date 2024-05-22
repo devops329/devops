@@ -132,6 +132,9 @@ Log into the AWS browser console and create an ECS cluster. We will also define 
 - Press the `Create cluster` button
 - Choose Fargate
 - Create the cluster.
+
+## Create a ECS service
+
 - While viewing the newly created cluster, press the option to create a service
 - select the simple launch type. The option is for specifying different capacity strategies
 - Specify that you want to run as a service as opposed to a task that is short running.
