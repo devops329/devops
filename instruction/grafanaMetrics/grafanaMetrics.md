@@ -1,5 +1,7 @@
 ## Sending metrics via http to Grafana Cloud
 
+Grafana stores Prometheus metrics using Mimir, described as "scalable long-term storage for Prometheus."
+
 We have provided an example server with metrics added. Copy and edit this example on your computer.
 The steps below show how to send the logs from this example to your Grafana dashboard.
 
