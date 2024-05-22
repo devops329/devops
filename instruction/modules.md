@@ -5,7 +5,7 @@
 - ☑ 🔵 [Overview](overview/overview.md)
 - 🔵 [History](history/history.md)
 - 🔵 [JWT Pizza](jwtPizza/jwtPizza.md)
-- ☑ 🚧 [AWS Account](awsAccount/awsAccount.md)
+- ☑ 🔵 [AWS Account](awsAccount/awsAccount.md)
 - ☑ 🔵 [Christlike learning](christlikeLearning/christlikeLearning.md)
 - 🔵 [GitHub](gitHub/gitHub.md)
 - 🔵 [Curiosity report](curiosityReport/curiosityReport.md)
@@ -57,7 +57,7 @@
 ## Scalable deployment
 
 - 🚧 [Elasticity](elasticity/elasticity.md)
-- ☑ 🚧 [AWS Aurora](awsAurora/awsAurora.md)
+- ☑ 🚧 [AWS RDS MySQL](awsRdsMysql/awsRdsMysql.md)
 - 🚧 [Docker](docker/docker.md)
 - 🚧 [Containers](containers/containers.md)
 - ☑ 🚧 [ECR](ecr/ecr.md)
