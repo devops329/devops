@@ -17,51 +17,52 @@ https://aws.amazon.com/blogs/compute/building-blocks-of-amazon-ecs/
 - **Cluster**: A collection of EC2 instances or Fargate tasks. Clusters can span AZs. Has the ability to scale and delete.
 - **Agent**: When using EC2 there is a Go program that controls the communication of the instance and the cluster.
 
-## Installing
+### Create an ECS task
 
-1. Navigate to ECS
-1. Create a task definition
-   1. Use fargate, linux, 1vCPU, 3 GB
-   1. You can specify a role if you want to use other AWS services
-   1. You need a task execution role so that Fargate can do its work
-   1. I supplied the URI for my container on dockerhub. Not sure this is right. docker.io/leesjensen/cs329:linux-v2
-   1. It looks like is either used or created the task execution role (ecsTaskExecutionRole)
-1. Create a cluster
-   1. Chose the AWS Fargate Infrastructure option (other options include EC2 instances)
-   1. This apparently runs as a cloudformation stack. It failed for me the first time. So I went to cloudformation and told it to retry. This time it worked.
-   1. Back in the Fargate console my cluster appears.
-   1. Create a service in the cluster
-      1. Selected the capacity provider strategy
-      1. Used FARGATE as the capacity provider
-      1. Select the task definition I created above
-      1. Deployment configuration is Service (not task) since I want it to keep running.
-      1. There are options for the desired number of tasks to launch (I chose 1)
-      1. There are deployment options for `rolling update` or `blue/green`
-      1. There are options to use a `task definition`. This defines how the task will run
-      1. Options for a load balancer. This would be nice but maybe expensive
-      1. You can also auto scale based on cloudwatch alarms
+Created a task definition that references my ECR image using fargate.
 
-## Pricing
+- Navigate to the ECS service
+- Select `Task definitions`
+- Press `Create new task definition`
+- Define the task basics
+  - Give the task a name: `webserver`
+  - Infrastructure requirements: `AWS Fargate`
+  - Linux/X86/64 (I guess I can also do ARM if my container is set for that $0.040 vs $0.032.
+  - .5 vCPU
+  - Choose the task role (this allows ECS to execute the task on my behalf)
+  - Choose the task execution role (this allows my task to do things like make Aurora calls)
+- Define the container the task will run
+  - Copy the image URI from ECR
+  - Specify the port mapping 80-3000
+  - I enabled log collection to cloudwatch so I can see what happens
+- Press create task
 
-[Pricing comparison](https://www.simform.com/blog/fargate-vs-ec2-pricing/)
+## Create a cluster
 
-### Fargate
+The cluster specifies where the service runs (EC2 or Fargate)
 
-.5 vCPU, 1 GB Ram
-($0.044/hr)
+- Named it `webserver`
 
-Pricing calculations
-1 tasks x 0.50 vCPU x 720 hours x 0.04048 USD per hour = 14.57 USD for vCPU hours
-1 tasks x 1.00 GB x 720 hours x 0.004445 USD per GB per hour = 3.20 USD for GB hours
-20 GB - 20 GB (no additional charge) = 0.00 GB billable ephemeral storage per task
-14.57 USD for vCPU hours + 3.20 USD for GB hours = 17.77 USD total
-Fargate cost (monthly): 17.77 USD
+This kicked off a cloudformation script.
 
-### EC2
+### Deploy a service
 
-.5 vCPU, 1 GB Ram
-t3.nano ($0.0052/hr)
-if you need to burst it cost ($0.05/hr)
-Monthly: 3.80/Month
+From the task definition page choose to deploy or from the cluster/services pane create a service.
 
-The problem is that T class instances are so cheap. If I move to C4.xlarge ($0.199/hr) then the costs are about the same.
+A service defines the execution parameters for the task on the cluster.
+
+- You can define a capacity provider. This will seek to create instances from the provide. Like Fargate or Fargate spot.
+- Select service type to be service (instead of task) since it will keep running.
+- Specify the family (I believe this pulled from the task definition)
+- Specify replica
+- Desired tasks: 1
+
+This kicked off a cloudformation script.
+
+This failed to launch my service. Tried to launch the task multiple times with the same error:
+
+```txt
+exec /usr/local/bin/docker-entrypoint.sh: exec format error
+```
+
+Spot pricing is very interesting. That drops the price to $0.012.
