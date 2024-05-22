@@ -306,18 +306,18 @@ function fibonacci(pos) {
   for (let i = 2; i <= pos; i++) {
     [prev, curr] = [curr, prev + curr];
   }
-  return curr;
+  return pos <= 0 ? prev : curr;
 }
 ```
 
 ## Final thoughts
 
-Hopefully you have seen how TDD allows you to discover problems you would not have otherwise found, speed up your development, and generate confidence that you code still works when you make changes.
+Hopefully you have seen how TDD allows you to discover problems you would not have otherwise found, speed up your development, and generate confidence that your code still works when you make changes.
 
 When your tests pass it is also a good place to commit your changes to your version repository since you know you are in a stable state.
 
 ## ☑ Assignment
 
-Create a node.js project named tddExample. Reproduce the steps given above in order to solidify your understand of the concepts.
+Create a node.js project named tddExample. Reproduce the steps given above in order to solidify your understanding of the concepts.
 
 Once you are done, go over to Canvas and submit that you have completed this.
