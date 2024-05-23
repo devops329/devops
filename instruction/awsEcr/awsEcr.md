@@ -22,8 +22,8 @@
    WORKDIR /usr/src/app
    COPY . .
    RUN npm install
-   EXPOSE 3000
-   CMD node index.js
+   EXPOSE 80
+   CMD ["node", "index.js", "80"]
    ```
 
 1. Copy the source code files to `dist` that we want to distribute.
@@ -66,9 +66,9 @@
 1. Run the container and make sure it works. Substitute the image ID with the correct value for your newly created Docker image.
 
    ```sh
-   docker run -d --name jwt-pizza-service -p 3000:3000 9689e2852c3a
+   docker run -d --name jwt-pizza-service -p 80:80 9689e2852c3a
 
-   curl localhost:3000/api/docs
+   curl localhost:80/api/docs
    ```
 
    This should return the service documentation if successful.

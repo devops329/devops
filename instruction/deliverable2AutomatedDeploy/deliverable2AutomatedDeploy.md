@@ -23,11 +23,11 @@ Here are the steps to make all the automation magic happen.
 
    This turns off the monitoring of the `gh-pages` branch so that it will no longer trigger a deployment.
 
-1. Create a file named `.github/workflows/deploy-github-pages.yml`. This file is the automation script that GitHub actions will execute whenever you make a commit to the `main` branch.
+1. Create a file named `.github/workflows/ci.yml`. This file is the automation script that GitHub actions will execute whenever you make a commit to the `main` branch.
 1. Insert the following into the newly created file
 
    ```yml
-   name: Build and deploy to GitHub Pages
+   name: CI Pipeline
 
    on:
      push:

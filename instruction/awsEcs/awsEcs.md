@@ -51,7 +51,7 @@ Spot pricing is very interesting. That drops the price to $0.012.
    ```sh
    1234567890.dkr.ecr.us-east-1.amazonaws.com/jwt-pizza-service:latest
    ```
-   1. Assign the `Container port` to 3000 for the HTTP App protocol.
+   1. Assign the `Container port` to 80 for the HTTP App protocol.
 1. Press `Create`.
 
 ## Create ECS cluster
@@ -84,3 +84,21 @@ Spot pricing is very interesting. That drops the price to $0.012.
 Once you have launched the container it should only take a couple of seconds for it to be available for use. Navigate to the service and select the `Tasks` tab. Then select the currently running task and use the networking bindings to see the IP address that is being used. Navigate your browser to that location and you should see the `jwt-pizza-service`.
 
 ![ECS Container Launched](ecsContainerLaunched.gif)
+
+## Launch the ECS service ALB version
+
+In addition to the above, do the following to deploy with an Application Load Balancer.
+
+1. Under `Networking`
+   1. **Unselect** the option to auto assign a `Public IP` address.
+1. Under `Load balancing`
+   1. Select `Application Load Balancer`
+   1. Select the `Container` or incoming traffic to be `jwt-pizza-service 80:80`
+   1. Create a new load balancer
+      1. Provide `jwt-pizza-service` as the Load balancer name.
+      1. Create a new listener on port 443 using HTTPS.
+      1. Select the wildcard certificate for your hostname that you created previously.
+   1. Create a new target group.
+      1. Provide the name `jwt-pizza-service`.
+      1. Set the Protocol to HTTP.
+      1. Set the Health check path to `/api/docs`.

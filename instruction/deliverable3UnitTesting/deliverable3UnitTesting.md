@@ -83,7 +83,7 @@ Next, we create the configuration file that tells the service how to connect wit
 - name: Write config file
   run: |
     echo "module.exports = {
-      jwtSecret: '908f908dsvjdfnjoidfabv0j9few09gfdesjibdfsnkml',
+      jwtSecret: '${{ secrets.JWT_SECRET }}',
       db: {
         connection: {
           host: '127.0.0.1',
