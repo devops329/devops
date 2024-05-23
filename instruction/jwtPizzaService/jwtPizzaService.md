@@ -4,7 +4,7 @@
 
 The _JWT Pizza application_ team has finally finished their work on the backend JWT service and has given you access to the backend service code so that you can start testing and deploying it.
 
-Now that you have the service code you will test and deploy the full application stack. This includes the frontend (_jwt-pizza_), backend (_jwt-pizza-service_), and the database. The only piece that you do not actually manage is the service provided by JWT Headquarters the creates the JWT tokens that represents a completed pizza order. Instead you deployment of the JWT service will simply call the factory service that the JWT Headquarters provides.
+Now that you have the service code you will test and deploy the full application stack. This includes the frontend (_jwt-pizza_), backend (_jwt-pizza-service_), and the database. The only piece that you do not actually manage is the service provided by JWT Headquarters that creates the JWT tokens that represents a completed pizza order. Instead you deployment of the JWT service will simply call the factory service that the JWT Headquarters provides.
 
 ```mermaid
 graph LR;
