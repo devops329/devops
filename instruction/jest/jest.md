@@ -1,5 +1,7 @@
 # Jest
 
+🚧 We should break this into 2 modules
+
 ![Jest Logo](jestLogo.png)
 
 [Official Jest website](https://jestjs.io/)
