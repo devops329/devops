@@ -13,7 +13,7 @@ Previously we deployed the JWT Pizza static frontend content over the content de
 - GitHub Pages sites have a soft bandwidth limit of 100 GB per month.
 - GitHub Pages sites have a soft limit of 10 builds per hour.
 
-For these reasons we want to move to a CDN that provides the services and scale necessary for a production system. There are many great CDN services available. This includes Akamai, Cloudflare, Fastly, and AWS CloundFront. We are going to use CloudFront because of the additional cloud services that they provide and also because of their generous free tier that will make it basically free for our usage.
+For these reasons we want to move to a CDN that provides the services and scale necessary for a production system. There are many great CDN services available. This includes Akamai, Cloudflare, Fastly, and AWS CloudFront. We are going to use CloudFront because of the additional cloud services that they provide and also because of their generous free tier that will make it basically free for our usage.
 
 ⚠️ **Note**: If you have not yet created your AWS account, you must do so now. We will be making extensive use of AWS for the rest of the course.
 

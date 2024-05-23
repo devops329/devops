@@ -59,7 +59,7 @@ We want to be careful what AWS services and resources we expose through the cred
 1. Replace `DISTRIBUTION-HERE` with the CloudFront distribution ID.
    ![Create policy](createPolicy.png)
 1. Press `Next`.
-1. Provide a meaningful policy name such as `jwt-pizza-ci-deployment`.
+1. Name the policy `jwt-pizza-ci-deployment`.
 1. Press `Create policy`.
 
 ### Create the IAM role
@@ -88,7 +88,7 @@ Now we can create the AWS IAM role that allows access to S3.
    ![Policy permissions](policyPermissions.png)
 
 1. Press `Next`.
-1. Name the role something meaningful like `github-ci`.
+1. Name the role `github-ci`.
 1. Press `Create role`.
 
 ### Configure GitHub Actions
@@ -114,7 +114,7 @@ Go ahead and create the following secrets.
 
 #### Steps
 
-1. In the repository that you specified when you created you identity provider, create a GitHub Actions workflow file named `ci.yml` in your project's `.github/workflows` directory. This will contain the workflow to copy files to your S3 bucket.
+1. In the repository that you specified when you created your identity provider, create a GitHub Actions workflow file named `ci.yml` in your project's `.github/workflows` directory. This will contain the workflow to copy files to your S3 bucket.
 1. Paste the following template into the `ci.yml` file.
 
    ```yml
@@ -159,7 +159,12 @@ The interesting pieces of the workflow include the request for OIDC authorizatio
     role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT }}:role/${{ secrets.CI_IAM_ROLE }}
 ```
 
-If this is successful then you can execute any AWS CLI commands that the role allows. In our case it is the command to copy the `dist` directory to our bucket and invalidate the CloudFront distribution cache. If we didn't invalidate the cache than your new files would not
+If this is successful then you can execute any AWS CLI commands that the role allows. In our case it allows the commands to copy the `dist` directory to our S3 bucket and invalidate the CloudFront distribution cache. If we didn't invalidate the cache than your new files would not show up until the cache expired 24 hours later.
+
+```yml
+aws s3 cp dist s3://${{ secrets.APP_BUCKET }} --recursive
+aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
+```
 
 ## Result
 
