@@ -108,7 +108,7 @@ test('login', async () => {
   expect(loginRes.status).toBe(200);
 
   const cookies = loginRes.headers['set-cookie'];
-  expect(cookies[0]).toMatch(/token=.+; Path=\/; HttpOnly; Secure; SameSite=Strict/);
+  expect(cookies[0]).toMatch(/token=.+; Path=\/; HttpOnly; Secure; SameSite=None/);
 
   const { password, ...user } = { ...testUser, roles: [{ role: 'diner' }] };
   expect(loginRes.body).toMatchObject(user);
