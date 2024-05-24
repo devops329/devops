@@ -22,3 +22,5 @@
 1. Does not secure cookies
    - `res.cookie('token', token, { secure: true, httpOnly: true, sameSite: 'none' });`
 1. The default jwtSecret is not changed in their `config.js` file.
+1. Deployment will log db credentials when a connection failure happens.
+1. There is a default admin user with an email and password displayed in the docs

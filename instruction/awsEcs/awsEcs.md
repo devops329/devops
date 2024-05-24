@@ -19,7 +19,16 @@ The basic pieces that ECS provides are as follows.
 
 Spot pricing is very interesting. That drops the price to $0.012.
 
-## Create ECS task role
+## Required roles and rights
+
+There are two roles associated with an ECS task:
+
+1. **Task execution role** - This defines the right necessary to deploy a task. This includes things like the ability to start up a getting a ECR image and setting up CloudWatch logging.
+1. **Task role** - This defines what rights the task has. This includes things like database access rights or read from S3.
+
+### Create ECS task execution role
+
+Before you can create an ECS task you must
 
 1. Open the AWS browser console and navigate to the Identity Management (IAM) service.
 1. Press `Roles` from the left side navigation panel.

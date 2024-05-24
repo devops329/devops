@@ -21,7 +21,7 @@
    FROM node:${NODE_VERSION}-alpine
    WORKDIR /usr/src/app
    COPY . .
-   RUN npm install
+   RUN npm ci
    EXPOSE 80
    CMD ["node", "index.js", "80"]
    ```

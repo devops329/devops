@@ -70,7 +70,6 @@ Go ahead and create the following secrets.
 | --------------- | ---------------------------------------------------------------------- | ------------------------------- |
 | JWT_SECRET      | A random value that you create for signing your authentication tokens. | 343ab90294hijkfd2fdsaf4dsa3f424 |
 | FACTORY_API_KEY | The API Key for making calls to the Headquarters factory               | 83025y7098dsf9310dc90           |
-| DB_PASSWORD     | The password used to access the database                               | 90fnkl32sd9clza                 |
 
 ### Using MySQL in GitHub Actions
 
@@ -81,12 +80,12 @@ services:
   mysql:
     image: mysql:8.0.29
     env:
-      MYSQL_ROOT_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      MYSQL_ROOT_PASSWORD: tempdbpassword
       MYSQL_DATABASE: pizza
     ports:
       - '3306:3306'
     options: >-
-      --health-cmd "mysqladmin ping -p${{ secrets.DB_PASSWORD }}"
+      --health-cmd "mysqladmin ping -ptempdbpassword"
       --health-interval 10s
       --health-start-period 10s
       --health-timeout 5s
@@ -108,7 +107,7 @@ Next, we create the configuration file that tells the service how to connect wit
         connection: {
           host: '127.0.0.1',
           user: 'root',
-          password: '${{ secrets.DB_PASSWORD }}',
+          password: 'tempdbpassword',
           database: 'pizza',
           connectTimeout: 60000,
         },
@@ -190,12 +189,12 @@ jobs:
       mysql:
         image: mysql:8.0.29
         env:
-          MYSQL_ROOT_PASSWORD: temppwd
+          MYSQL_ROOT_PASSWORD: tempdbpassword
           MYSQL_DATABASE: pizza
         ports:
           - '3306:3306'
         options: >-
-          --health-cmd "mysqladmin ping -ptemppwd"
+          --health-cmd "mysqladmin ping -ptempdbpassword"
           --health-interval 10s
           --health-start-period 10s
           --health-timeout 5s
@@ -218,12 +217,12 @@ jobs:
       - name: Write config file
         run: |
           echo "module.exports = {
-            jwtSecret: '908f908dsvjdfnjoidfabv0j9few09gfdesjibdfsnkml',
+            jwtSecret: '${{ secrets.JWT_SECRET }}',
             db: {
               connection: {
                 host: '127.0.0.1',
                 user: 'root',
-                password: 'temppwd',
+                password: 'tempdbpassword',
                 database: 'pizza',
                 connectTimeout: 60000,
               },

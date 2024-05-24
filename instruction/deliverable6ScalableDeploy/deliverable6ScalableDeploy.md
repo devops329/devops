@@ -61,7 +61,7 @@ Next you need to enhance the `github-ci` user rights so that they can push to EC
 
 Previously the workflow stopped after the tests were done and the coverage badge was updated. Now, you need to do the following steps:
 
-1. Create a distribution folder that will become our Docker container. This copies all of the source code files and the newly created Dockerfile
+1. Create a distribution folder that will become our Docker container. This copies all of the source code files and the newly created Dockerfile. We also replace the temporary database credentials that were used during testing with the ones needed by the production environment.
    ```yml
    - name: Create dist
      run: |
@@ -69,6 +69,9 @@ Previously the workflow stopped after the tests were done and the coverage badge
        cp Dockerfile dist
        cp -r src/* dist
        cp *.json dist
+       sed -i "s/root/${{ secrets.DB_USERNAME }}/g" dist/config.js
+       sed -i "s/tempdbpassword/${{ secrets.DB_PASSWORD }}/g" dist/config.js
+       sed -i "s/127.0.0.1/${{ secrets.DB_HOSTNAME }}/g" dist/config.js
    ```
 1. Authenticate to AWS using OIDC. This is the same authentication step that we took with the frontend deployment. Using OIDC makes it so we don't have to store any credentials to our AWS account.
    ```yml
@@ -122,3 +125,5 @@ With a new image in the registry you can now automate the deployment of the cont
 
 1. Create a new task definition.
 1. Update the service to the new task.
+
+https://docs.github.com/en/actions/deployment/deploying-to-your-cloud-provider/deploying-to-amazon-elastic-container-service

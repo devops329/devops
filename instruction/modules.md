@@ -47,21 +47,14 @@
 - ☑ 🔵 [Playwright](playwright/playwright.md)
 - ☑ 🔵 [⓸ UI test: JWT Pizza](deliverable4UiTesting/deliverable4UiTesting.md)
 
-## CDN deployment
+## Cloud deployment
 
+- 🔵 [Cloud deployment](cloudDeployment/cloudDeployment.md)
 - 🚧 [Security](security/security.md)
-- 🚧 [Cloud deployment](cloudDeployment/cloudDeployment.md)
-- ❌ [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
 - 🚧 [AWS S3](awsS3/awsS3.md)
 - 🔵 [AWS CloudFront](awsCloudFront/awsCloudFront.md)
 - 🔵 [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
 - 🔵 ☑ [⓹ CDN deployment: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
-- ❌ [Serverless](serverless/serverless.md)
-- ❌ [AWS API Gateway](awsApiGateway/awsApiGateway.md)
-- ❌ [AWS Lambda](awsLambda/awsLambda.md)
-
-## Scalable deployment
-
 - 🚧 [Elasticity](elasticity/elasticity.md)
 - ☑ 🚧 [AWS RDS MySQL](awsRdsMysql/awsRdsMysql.md)
 - 🚧 [Docker](docker/docker.md)
@@ -69,6 +62,13 @@
 - ☑ 🚧 [AWS ECR](awsEcr/awsEcr.md)
 - ☑ 🚧 [AWS ECS](awsEcs/awsEcs.md)
 - ☑ 🚧 [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
+- 🚧 [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
+
+## Serverless
+
+- ❌ [Serverless](serverless/serverless.md)
+- ❌ [AWS API Gateway](awsApiGateway/awsApiGateway.md)
+- ❌ [AWS Lambda](awsLambda/awsLambda.md)
 
 ## Deployment strategies
 
@@ -77,7 +77,8 @@
 - 🚧 [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
 - 🚧 [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
 - 🚧 [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
-- 🚧 [Blue/Green](blueGreeen/blueGreen.md)
+- 🚧 [Rolling] We are probably just going to use the rolling deployment from ECS
+- 🚧 [Blue/Green](blueGreeen/blueGreen.md) It seems that cloudfront supports this.
 - We need a discussion on scalability, bottlenecks, and auto adjustment. This should tie into SLO.
 
 ## System monitoring
