@@ -29,6 +29,24 @@ There is no cost to create an account with AWS, you only pay for what you use, a
 |                         |                                      | **Estimated monthly cost: `$15` for MySQL, `$10` for Fargate, `$18` for ALB**                                           |
 |                         |                                      | **Estimated course cost: `$50 - $120`**                                                                                 |
 
+## Billing Management
+
+An important part of developer operations is to understand how the architecture choices you make impact the cost of doing business. You should carefully consider every service that you deploy and how much that will cost you. You then want to set up processes to both monitor and alert on those expenditures to make sure they match the anticipated amounts.
+
+AWS provides extensive reporting tools for billing and cost exploration. These tools are available form on the AWS browser console under the `Billing and Cost Management` service. You are highly encouraged to spend time understanding everything that is provided there.
+
+Below is an example billing report that shows the charges for load balancing, IPv4 address allocation, and Fargate.
+
+![Billing report](billingReport.png)
+
+### Billing alerts
+
+By default AWS will create _Free Tier alerts_ for you. These will send you an email whenever you come within a certain percentage threshold of your allocated free tier resource.
+
+Additionally, you can create your own billing alerts that will notify you for other cases. For example, you can create an alert whenever you spend more than $10 in a 30 day period.
+
+To learn more about billing alerts refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html) on this subject.
+
 ## ☑ Assignment
 
 1. Create your AWS [account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/)
