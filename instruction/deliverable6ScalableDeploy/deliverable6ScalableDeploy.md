@@ -46,6 +46,8 @@ Next you need to enhance the `github-ci` user rights so that they can push to EC
 1. Select `JSON` and press `Edit`.
 1. Add the following statement in order to allow the use of ECR and ECS.
 
+🚧 This is not right. We restricted this down much more and need to do the same thing for ECR access. Least required privilege principle.
+
 ```json
 {
   "Sid": "PushAndDeployImage",
@@ -127,3 +129,44 @@ With a new image in the registry you can now automate the deployment of the cont
 1. Update the service to the new task.
 
 https://docs.github.com/en/actions/deployment/deploying-to-your-cloud-provider/deploying-to-amazon-elastic-container-service
+
+## Deploy the full cloud stack
+
+Now that have both your frontend and your backend running on AWS you need to change the configuration of your jwt-pizza code so that it calls your deployment instead of the JWT Pizza Headquarters implementation.
+
+From your fork of the `jwt-pizza` repository open the `.env.production` and modify it so that the `VITE_PIZZA_SERVICE_URL` is pointing to your URL for your newly deployed backend.
+
+```json
+VITE_PIZZA_SERVICE_URL=https://jwt-pizza-service.YOURHOSTSNAMEHERE
+VITE_PIZZA_FACTORY_URL=https://jwt-pizza-factory.cs329.click
+```
+
+Then push your changes to GitHub. Your CI pipeline should deploy the frontend changes and complete your work on creating a full cloud stack.
+
+## ☑ Assignment
+
+Demonstrate your mastery of the concepts for this deliverable, complete the following.
+
+1. Alter the IAM policies, roles, and identity provider definitions necessary to secure access for backend deployment.
+1. Setting up ECR to host your backend Docker container.
+1. Setting up ECS to deploy your backend Docker container using Fargate.
+1. Alter your GitHub Actions workflow to update ECR and ECS in order to deploy the backend service.
+1. Alter your DNS record in Route 53 to point to the application load balancer distribution.
+1. Modify and deploy your frontend so that it calls your backend service.
+
+Once this is all working, submit JWT Pizza Service URL of your fork of the `jwt-pizza` repository to the Canvas assignment. This should look something like this:
+
+```txt
+https://pizza.cs329.click
+```
+
+### Rubric
+
+| Percent | Item                                                                                      |
+| ------- | ----------------------------------------------------------------------------------------- |
+| 10%     | Strong GitHub commit history that documents your work in your fork of `jwt-pizza-service` |
+| 20%     | Secure Fargate deployment based on ECR and ECS                                            |
+| 20%     | AWS Load balancer used to access Fargate                                                  |
+| 20%     | MySQL database deployed for backend data persistence                                      |
+| 20%     | Updated GitHub Action workflow deploying to ECR and ECS                                   |
+| 10%     | Your backend called for all frontend requests                                             |

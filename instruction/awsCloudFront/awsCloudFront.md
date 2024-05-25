@@ -113,7 +113,7 @@ The last step for configuring the CDN, is to create a DNS record so that you can
 1. Open the AWS browser console and navigate to the Route 53 service.
 1. Select the hosted zone for your hostname.
 1. Create a new record.
-1. Give it a meaningful subdomain. When you repeat this process for the JWT Pizza frontend, the name will be `pizza`.
+1. Give the name `pizza` for the subdomain.
 1. Set the record type to an `A` record.
 1. Move the slider to mark it as an `Alias`. This tells Route 53 that it can do some internal routing between its services rather than doing normal DNS routing.
 1. Route traffic to `Alias to CloudFront Distribution`.

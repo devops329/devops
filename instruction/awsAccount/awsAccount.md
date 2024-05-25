@@ -26,6 +26,7 @@ There is no cost to create an account with AWS, you only pay for what you use, a
 | **ECS Fargate**         | Docker container service             | ECS free. Fargate: AMD vCPU/hour $0.03238, GB/hour. 0.03594/hour \* 0.25 vCPU ($9/month)                                |
 | **ALB**                 | Load balancing                       | $18/month.                                                                                                              |
 | **Certificate Manager** | Web certificate                      | Free.                                                                                                                   |
+| **CloudFormation**      | Generate automation templates        | Free.                                                                                                                   |
 |                         |                                      | **Estimated monthly cost: `$15` for MySQL, `$10` for Fargate, `$18` for ALB**                                           |
 |                         |                                      | **Estimated course cost: `$50 - $120`**                                                                                 |
 

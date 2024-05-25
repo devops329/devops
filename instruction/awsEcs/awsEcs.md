@@ -94,7 +94,7 @@ Once you have launched the container it should only take a couple of seconds for
 
 ![ECS Container Launched](ecsContainerLaunched.gif)
 
-## Launch the ECS service ALB version
+## Configure the ECS service ALB version
 
 In addition to the above, do the following to deploy with an Application Load Balancer.
 
@@ -111,3 +111,25 @@ In addition to the above, do the following to deploy with an Application Load Ba
       1. Provide the name `jwt-pizza-service`.
       1. Set the Protocol to HTTP.
       1. Set the Health check path to `/api/docs`.
+
+## Redeploy using the load balancer
+
+🚧 Force the deployment.
+
+give a video showing it working here using the ALB's URL.
+
+## Route 53
+
+The last step for configuring the scalable deployment of your backend, is to create a DNS record so that you can access the container through the load balancer using your domain name rather than the generated one for the load balancer.
+
+🚧 Review these steps
+
+1. Open the AWS browser console and navigate to the Route 53 service.
+1. Select the hosted zone for your hostname.
+1. Create a new record.
+1. Give the name `pizza-service` for the subdomain.
+1. Set the record type to an `CNAME` record.
+1. Set the value of the record to the hostname for the application load balancer.
+1. Press the `Create records` button.
+
+🚧 Include an image

@@ -29,3 +29,65 @@ https://github.com/miketako3/cloki/blob/main/src/logger.ts
 It is probably safer to just pull in the lines of code. Review each one and skip the dependency.
 
 This would be a great discussion for the course about security.
+
+## Encryption
+
+at rest and in transit.
+KMS.
+
+## Network security
+
+Public/ Private networks.
+Security groups (firewalls).
+ACLs.
+
+## Package security
+
+Do you know what source code is in all of the NPM packages you have downloaded?
+
+We need to create a Pizza Factory Pizza maker NPM package that allows us to delete the database.
+
+## Protecting credentials
+
+Never let them get in logs.
+
+Keep them out of code.
+
+Best if you never have them at all.
+
+Never store them in your dev environment.
+
+Secrets manager.
+
+## Layers
+
+for example, consider the database.
+
+1. Passwords are hashed
+1. Database is encrypted
+1. Server is on a private network
+1. Only authorized devices can access the private network.
+1. Those devices are only accessible over HTTPS through the ALB.
+
+## Hardening
+
+Reducing down the rights that the IAM roles have
+
+## Removing default settings
+
+Like the default DB admin user
+
+## Store credentials with a third party
+
+Passwords in GitHub actions.
+Circle CI got hacked.
+
+## Logging
+
+Immutable, accessible, and searchable
+
+## Alerts
+
+You will get hacked, you need to be notified.
+
+### Honeypots
