@@ -2,9 +2,9 @@
 
 https://aws.amazon.com/blogs/compute/building-blocks-of-amazon-ecs/
 
-The Elastic Container Service (ECS) provides the functionality necessary to deploy your container image. After you have uploaded your image to [ECR](../awsEcr/awsEcr.md) you can create an ECS cluster and service to either load your container with the AWS Elastic Kubernetes Service (EKS) or AWS Fargate.
+The Elastic Container Service (ECS) provides the functionality necessary to deploy your container image. After you have uploaded your image to [ECR](../awsEcr/awsEcr.md) you can create an ECS cluster and service to either load your container on EC2 instances or AWS Fargate.
 
-The EKS deploys container to EC2 instances your you provision. This requires you to launch, scale, and manage your own EC2 instance. Alternatively, you can use AWS Fargate to automatically manage the host of your containers. For our work in the course we will use AWS Fargate.
+If you choose to configure ECS to deploy to EC2 instances then you must launch, scale, and manage your those EC2 instance. Alternatively, if you use AWS Fargate, Fargate will automatically manage the launching, scaling, and managing of the containers. For our work in the course we will use AWS Fargate.
 
 The basic pieces that ECS provides are as follows.
 
@@ -90,11 +90,15 @@ Before you can create an ECS task you must
    1. Select the option to auto assign a `Public IP` address.
 1. Press `Create`.
 
+## Verifying the container deployment
+
 Once you have launched the container it should only take a couple of seconds for it to be available for use. Navigate to the service and select the `Tasks` tab. Then select the currently running task and use the networking bindings to see the IP address that is being used. Navigate your browser to that location and you should see the `jwt-pizza-service`.
 
 ![ECS Container Launched](ecsContainerLaunched.gif)
 
 ## Configure the ECS service ALB version
+
+Exposing a container over a public IP address only works if you don't plan to scale the number of deployed containers to meet an increase in customer requests or ever deploy a new container whenever the code changes. That is not going to work for JWT Pizza. That means that we need to insert a load balancer into the architecture so that we can scale up and release new versions without change the IP address that a customer uses to access the service.
 
 In addition to the above, do the following to deploy with an Application Load Balancer.
 

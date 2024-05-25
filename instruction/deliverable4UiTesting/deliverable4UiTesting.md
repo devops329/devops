@@ -1,6 +1,6 @@
 # Deliverable ⓸ User Interface testing: JWT Pizza
 
-![course overview](../courseOverview.png)
+![course overview](../sharedImages/courseOverview.png)
 
 With the UI testing skills you have learned you are now ready to test the JWT Pizza frontend. As part of these tests you will mock out the backend service so that you don't have to worry about the problems that come with integration testing.
 

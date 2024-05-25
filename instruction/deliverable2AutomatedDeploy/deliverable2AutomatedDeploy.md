@@ -1,6 +1,6 @@
 # Deliverable ⓶ Automated deployment: JWT Pizza
 
-![course overview](../courseOverview.png)
+![course overview](../sharedImages/courseOverview.png)
 
 In your last deliverable we manually builded the JWT Pizza frontend, copied it into a branch, and pushed it to GitHub pages. While this process works, it has several problems.
 

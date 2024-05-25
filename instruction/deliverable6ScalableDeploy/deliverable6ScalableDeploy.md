@@ -1,24 +1,29 @@
 # Deliverable ⓺ Scalable deployment: JWT Pizza Service
 
-![course overview](../courseOverview.png)
+![course overview](../sharedImages/courseOverview.png)
 
-Now that you have some experience with creating, registering, and deploying simple containers it is time to deploy JWT Pizza Service to the Cloud.
+Now that you have experience with creating, registering, and deploying simple containers it is time to deploy JWT Pizza Service to the Cloud. This deliverable represents the **Scalable compute** portion of our product overview diagram. It provides the hosting of the jwt-pizza-service in a way that can support an ever growing customer base.
 
-## Setup ECR
+Your work on this deliverable consists of four parts:
 
-Follow the [AWS ECR instruction](../awsEcr/awsEcr.md) in order to get your AWS account setup to store the JWT Pizza Service container images in a Docker compliant Registry.
+1. **ECR configuration**: Setup ECR to keep track of the different versions of your jwt-pizza-service Docker container images.
+1. **Image registration CI**: Modify the CI pipeline to automatically build and deploy a new container image to ECR.
+1. **ECS configuration**: Setup ECS to deploy a container to Fargate and expose it publicly using the application load balancer.
+1. **Image deployment CI**: Modify the Ci pipeline to automatically deploy a new container image to ECS.
 
-## Setup ECS
+![Deliverable 6 overview](deliverable6Overview.png)
 
-Follow the [AWS ECS instruction](../awsEcs/awsEcs.md) in order to get your AWS account setup to host the JWT Pizza Service container using Fargate.
+## Step 1: ECR configuration
 
-## GitHub action: Upload container image
+You should have already followed the [AWS ECR instruction](../awsEcr/awsEcr.md) in order to get your AWS account setup to store the JWT Pizza Service container images in a Docker compliant Registry. If you have not done that yet, do so now.
 
-In order to automate building and uploading a Docker container image for the JWT Pizza service, you need increase the rights that the workflow has, and modify workflow script to build and push the image.
+## Step 2: Image registration CI
+
+The ECR fully configured you are ready to automate the building and uploading a Docker container image for the JWT Pizza service whenever a change is made to the jwt-pizza-service code base. This work requires that you increase the rights that the CI workflow has, and modify workflow script to build and push the Docker image.
 
 ### Modify the IAM trust policy
 
-We need to modify the `github-ci` IAM role so that it can create an OIDC connection when requests are made from the `jwt-pizza-service` GitHub repository.
+In order for the `jwt-pizza-service` CI workflow make requests over the OIDC authorized connection you must alter the previously configured `github-ci` IAM role so that the `jwt-pizza-service` GitHub repository is also part of the trust relationship.
 
 1. Open the AWS IAM service console.
 1. Choose `Roles`.
@@ -59,7 +64,7 @@ Next you need to enhance the `github-ci` user rights so that they can push to EC
 
 1. Press `Next`.
 
-### Modify the workflow script for upload
+### Modify the CI workflow script for image upload
 
 Previously the workflow stopped after the tests were done and the coverage badge was updated. Now, you need to do the following steps:
 
@@ -81,7 +86,7 @@ Previously the workflow stopped after the tests were done and the coverage badge
      uses: aws-actions/configure-aws-credentials@v4
      with:
        audience: sts.amazonaws.com
-       aws-region: us-east-2
+       aws-region: us-east-1
        role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT }}:role/${{ secrets.CI_IAM_ROLE }}
    ```
 1. Login to AWS ECR. We need to provide credentials to Docker so that it can push container images into the register. This [action](https://github.com/aws-actions/amazon-ecr-login) gets a temporary password from ECR using the OIDC credential we previously obtained.
@@ -115,20 +120,82 @@ Previously the workflow stopped after the tests were done and the coverage badge
        docker build --platform=linux/arm64 -t $ECR_REGISTRY/$ECR_REPOSITORY --push .
    ```
 
-### Test upload
+### Test the image push
 
-You should now be able to commit and push the workflow script to GitHub. This will trigger your container image to build and push to ECR. Once it is done you should see your image show up on the ECR images dashboard.
+You should now be able to commit and push the workflow script to GitHub. This will trigger a container image to build and push to ECR. Once it is done you should see your image show up on the ECR images dashboard.
 
 ![ECR images](ecrImages.png)
 
-## GitHub action: Deploy container
+## Step 3: ECS configuration
 
-With a new image in the registry you can now automate the deployment of the container to Fargate.
+You should have already followed the [AWS ECS instruction](../awsEcs/awsEcs.md) in order to get your AWS account setup to host the JWT Pizza Service container using Fargate and an application load balancer. Additionally, you should have already set up your [RDS MySQL database](../awsRdsMysql/awsRdsMysql.md). If you have not done this yet, then do so now.
 
-1. Create a new task definition.
-1. Update the service to the new task.
+## Step 4: Image deployment CI
 
-https://docs.github.com/en/actions/deployment/deploying-to-your-cloud-provider/deploying-to-amazon-elastic-container-service
+With ECR configured, the CI workflow for building and pushing a container image to ECR, and ECS configured to deploy a container, you are now ready to enhance the CI workflow to automatically push the container to ECS and update the application load balancer.
+
+You will do this by adding three new steps to the workflow.
+
+1. Make a copy of the existing `jwt-pizza-service` task definition and save it to a file named `task-definition.json`.
+   ```yml
+   - name: Download task definition
+   run: |
+      aws ecs describe-task-definition --region us-east-2 --task-definition jwt-pizza-service --query taskDefinition > task-definition.json
+      echo $(cat task-definition.json | jq 'del(.taskDefinitionArn, .requiresAttributes, .compatibilities, .revision, .status, .registeredAt, .registeredBy)') > task-definition.json
+   ```
+1. Modify the task definition so that it contains the name of the new container image that you just created.
+   ```yml
+   - name: Create new task definition
+   id: task-def
+   uses: aws-actions/amazon-ecs-render-task-definition@v1
+   with:
+      task-definition: task-definition.json
+      container-name: jwt-pizza-service
+      image: ${{ steps.build-image.outputs.image }}
+   ```
+1. Deploy the new task definition and update of the ECS service. This will trigger ECS to create a rolling deployment of the new container and update the application load balancer to expose the new container.
+   ```yml
+   - name: Deploy new task definition
+   uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+   with:
+      task-definition: ${{ steps.task-def.outputs.task-definition }}
+      service: jwt-pizza-service
+      cluster: jwt-pizza-service
+      wait-for-service-stability: false
+   ```
+
+### Test the container deployment
+
+With the above changes in place you should be able to test the backend by making curl requests.
+
+Replace the `byucsstudent.click` domain name with your own.
+
+```sh
+curl 'https://pizza-service.byucsstudent.click'
+{"message":"welcome to JWT Pizza","version":"20240525.025706"}
+
+curl 'https://pizza-service.byucsstudent.click/api/order/menu'
+[]
+
+curl -X PUT -c cookies.txt 'https://pizza-service.byucsstudent.click/api/auth' -d '{"email":"a@jwt.com", "password":"admin"}' -H 'Content-Type: application/json'
+{"id":1,"name":"常用名字","email":"a@jwt.com","roles":[{"role":"admin"}]}
+```
+
+Currently your database only has the default admin user that was inserted when the database was initialized the first time a connection was made. If you want to add some basic menu, user, franchise, and shop data you can run the following Curl commands.
+
+```sh
+curl -X PUT -c cookies.txt 'https://pizza-service.byucsstudent.click/api/auth' -d '{"email":"a@jwt.com", "password":"admin"}' -H 'Content-Type: application/json'
+
+curl -X POST -c cookies.txt 'https://pizza-service.byucsstudent.click/api/auth' -d '{"name":"pizza diner", "email":"d@jwt.com", "password":"diner"}' -H 'Content-Type: application/json'
+
+
+curl -X POST -c cookies.txt 'https://pizza-service.byucsstudent.click/api/auth' -d '{"name":"pizza franchisee", "email":"f@jwt.com", "password":"franchisee"}' -H 'Content-Type: application/json'
+
+add menu items
+
+add franchise with franchisee as admin
+
+```
 
 ## Deploy the full cloud stack
 
