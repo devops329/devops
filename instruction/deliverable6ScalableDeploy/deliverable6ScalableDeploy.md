@@ -184,17 +184,32 @@ curl -X PUT -c cookies.txt 'https://pizza-service.byucsstudent.click/api/auth' -
 Currently your database only has the default admin user that was inserted when the database was initialized the first time a connection was made. If you want to add some basic menu, user, franchise, and shop data you can run the following Curl commands.
 
 ```sh
-curl -X PUT -c cookies.txt 'https://pizza-service.byucsstudent.click/api/auth' -d '{"email":"a@jwt.com", "password":"admin"}' -H 'Content-Type: application/json'
+# Set the hostname
+host=pizza-service.byucsstudent.click
 
-curl -X POST -c cookies.txt 'https://pizza-service.byucsstudent.click/api/auth' -d '{"name":"pizza diner", "email":"d@jwt.com", "password":"diner"}' -H 'Content-Type: application/json'
+# Add users
+curl -X POST https://$host/api/auth -d '{"name":"pizza diner", "email":"d@jwt.com", "password":"diner"}' -H 'Content-Type: application/json'
 
+curl -X POST https://$host/api/auth -d '{"name":"pizza franchisee", "email":"f@jwt.com", "password":"franchisee"}' -H 'Content-Type: application/json'
 
-curl -X POST -c cookies.txt 'https://pizza-service.byucsstudent.click/api/auth' -d '{"name":"pizza franchisee", "email":"f@jwt.com", "password":"franchisee"}' -H 'Content-Type: application/json'
+curl -X PUT -c cookies.txt https://$host/api/auth -d '{"email":"a@jwt.com", "password":"admin"}' -H 'Content-Type: application/json'
 
-add menu items
+# Add menu
+curl -b cookies.txt -X PUT https://$host/api/order/menu -H 'Content-Type: application/json' -d '{ "title":"Veggie", "description": "A garden of delight", "image":"pizza1.png", "price": 0.0038 }'
 
-add franchise with franchisee as admin
+curl -b cookies.txt -X PUT https://$host/api/order/menu -H 'Content-Type: application/json' -d '{ "title":"Pepperoni", "description": "Spicy treat", "image":"pizza2.png", "price": 0.0042 }'
 
+curl -b cookies.txt -X PUT https://$host/api/order/menu -H 'Content-Type: application/json' -d '{ "title":"Margarita", "description": "Essential classic", "image":"pizza3.png", "price": 0.0042 }'
+
+curl -b cookies.txt -X PUT https://$host/api/order/menu -H 'Content-Type: application/json' -d '{ "title":"Crusty", "description": "A dry mouthed favorite", "image":"pizza4.png", "price": 0.0028 }'
+
+curl -b cookies.txt -X PUT https://$host/api/order/menu -H 'Content-Type: application/json' -d '{ "title":"Chared Leopard", "description": "For those with a darker side", "image":"pizza5.png", "price": 0.0099 }'
+
+# Add franchise
+curl -b cookies.txt -X POST https://$host/api/franchise -H 'Content-Type: application/json' -d '{"name": "pizzaPocket", "admins": [{"email": "f@jwt.com"}]'
+
+# Add store
+curl -b cookies.txt -X POST https://$host/api/franchise/1/store -H 'Content-Type: application/json' -d '{"franchiseId": 1, "name":"SLC"}'
 ```
 
 ## Deploy the full cloud stack
