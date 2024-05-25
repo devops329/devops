@@ -50,19 +50,19 @@ Next you need to enhance the `github-ci` user rights so that they can push to EC
 1. Click on the `jwt-pizza-ci-deployment` policy.
 1. Select `JSON` and press `Edit`.
 1. Add the following statement in order to allow the use of ECR and ECS.
+   🚧 This is not right. We restricted this down much more and need to do the same thing for ECR access. Least required privilege principle.
 
-🚧 This is not right. We restricted this down much more and need to do the same thing for ECR access. Least required privilege principle.
-
-```json
-{
-  "Sid": "PushAndDeployImage",
-  "Effect": "Allow",
-  "Action": ["ecr:*", "ecs:*"],
-  "Resource": ["*"]
-}
-```
+   ```json
+   {
+     "Sid": "PushAndDeployImage",
+     "Effect": "Allow",
+     "Action": ["ecr:*", "ecs:*"],
+     "Resource": ["*"]
+   }
+   ```
 
 1. Press `Next`.
+1. Press `Save`.
 
 ### Modify the CI workflow script for image upload
 
