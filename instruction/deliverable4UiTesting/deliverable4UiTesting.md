@@ -384,7 +384,7 @@ This should trigger the workflow to execute, and if everything works properly yo
 
 ## ☑ Assignment
 
-Demonstrate your mastery of the concepts for this deliverable, complete the following.
+In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
 1. Create Playwright tests for `jwt-pizza` that provide at least 80% coverage.
 1. Create a GitHub Actions workflow that executes the tests.

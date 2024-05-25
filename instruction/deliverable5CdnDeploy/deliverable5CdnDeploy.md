@@ -44,7 +44,7 @@ Once completed, your repository's GitHub Actions workflow history should demonst
 
 ## ☑ Assignment
 
-Demonstrate your mastery of the concepts for this deliverable, complete the following.
+In order to demonstrate your mastery of the concepts for this deliverable, complete the following.following.
 
 1. Create a secure S3 bucket to host the frontend static files.
 1. Create a CloudFront distribution.

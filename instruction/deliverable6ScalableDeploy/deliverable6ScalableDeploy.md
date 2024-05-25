@@ -223,11 +223,15 @@ VITE_PIZZA_SERVICE_URL=https://pizza-service.YOURHOSTSNAMEHERE
 VITE_PIZZA_FACTORY_URL=https://pizza-factory.cs329.click
 ```
 
-Then push your changes to GitHub. Your CI pipeline should deploy the frontend changes and complete your work on creating a full cloud stack.
+Repeat the same change with the `.env.development` file so that you use your backend when you are experimenting your frontend in your development environment.
+
+Then push your changes to GitHub. Your CI pipeline should deploy the frontend changes and complete your work on creating a full cloud stack. With this change you can open up the dev tools while visiting your front end and see the requests going to your backend.
+
+![Backend fetch](backendFetch.png)
 
 ## ☑ Assignment
 
-Demonstrate your mastery of the concepts for this deliverable, complete the following.
+In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
 1. Alter the IAM policies, roles, and identity provider definitions necessary to secure access for backend deployment.
 1. Setting up ECR to host your backend Docker container.
