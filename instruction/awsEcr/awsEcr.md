@@ -1,88 +1,29 @@
 # AWS Elastic Container Registry (ECR)
 
+AWS Elastic Container Register (ECR) is a [Open Container Initiative](https://opencontainers.org/) compliant container registry. You can store up to 500 MB of container images in a private repository without charge. Using ECR is a convenient and secure way to upload your jwt-pizza-servicer container images and then deploy them using AWS Elastic Container Services (ECS). Here is the long term architecture that we are working towards
+
+![Pizza service deployment](pizzaServiceDeployment.png)
+
 ## Setting up ECR
 
+In order to use ECR you must first create a ECS repository that will hold the jwt-pizza-service container images. Complete the following steps.
+
 1. Open the AWS browser console and navigate to the ECR service.
-1. Press `Create repository`.
-1. Leave the repository as `private`.
-1. Give the repository the name `jwt-pizza-service`
 1. Press `Create repository`.
 
    ![Create repository](createRepository.png)
 
-## Creating a JWT Pizza Service container
+1. Leave the repository as `private`.
+1. Give the repository the name `jwt-pizza-service`
+1. Press `Create repository`.
 
-1. Open your command console and navigate to the directory containing your fork of `jwt-pizza-service`.
-1. Create a file named `Dockerfile` in the project directory with the following content.
+## Push jwt-pizza-service container image
 
-   ```dockerFile
-   ARG NODE_VERSION=20.12.2
+Using the process that you executed in the previous instruction about how to build a [jwt-pizza-service container](../jwtPizzaServiceContainer/jwtPizzaServiceContainer.md), you will now build a container that can upload to ECR and deploy to ECS.
 
-   FROM node:${NODE_VERSION}-alpine
-   WORKDIR /usr/src/app
-   COPY . .
-   RUN npm ci
-   EXPOSE 80
-   CMD ["node", "index.js", "80"]
-   ```
+⚠️ **Note**: You must have the [AWS CLI installed](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) before you execute the next steps. If you have not done that yet, then go and do it now.
 
-1. Copy the source code files to `dist` that we want to distribute.
-   ```sh
-   mkdir dist
-   cp Dockerfile dist
-   cp -r src/* dist
-   cp *.json dist
-   ```
-1. Modify/Create the `config.json` file. Set the database host field so that it looks outside of the container for the MySQL server by specifying the value of `host.docker.internal`. Set the parameters, such as the jwtSecret and factory.apiKey, according to your environment.
-   ```sh
-   module.exports = {
-    jwtSecret: 'yourRandomJWTGenerationSecretForAuth',
-    db: {
-      connection: {
-        host: 'host.docker.internal',
-        user: 'root',
-        password: 'yourDatabasePassword',
-        database: 'pizza',
-        connectTimeout: 60000,
-      },
-      listPerPage: 10,
-    },
-    factory: {
-      url: 'https://pizza-factory.cs329.click',
-      apiKey: 'yourHeadquartersProvidedApiKey',
-    },
-   };
-   ```
-1. Build the image.
-   ```sh
-   docker build -t jwt-pizza-service .
-   ```
-1. Verify that the container exists
-   ```sh
-   ➜  docker image ls
-   REPOSITORY         TAG      IMAGE ID       CREATED         SIZE
-   jwt-pizza-service  latest   9689e2852c3a   2 seconds ago   132MB
-   ```
-1. Run the container and make sure it works. Substitute the image ID with the correct value for your newly created Docker image.
-
-   ```sh
-   docker run -d --name jwt-pizza-service -p 80:80 9689e2852c3a
-
-   curl localhost:80/api/docs
-   ```
-
-   This should return the service documentation if successful.
-
-1. Stop and delete the container
-   ```sh
-   docker rm -fv 0af
-   ```
-
-## Push to the registry
-
-⚠️ **Note**: You must have the AWS CLI installed before you execute the next steps.
-
-1. Build the image again, but this time specify the target platform (`linux/arm64`) that we will use when we deploy the container to AWS
+1. Follow the steps that you previously used to build the jwt-pizza-service container. However, this time specify the target platform of (`linux/arm64`) since that is the operating system you will use when you deploy the container to AWS.
    ```sh
    docker build  --platform=linux/arm64 -t jwt-pizza-service .
    ```
@@ -108,8 +49,10 @@
 
    ![View uploaded image](viewUploadedDockerImage.png)
 
-1. Copy the image URI for use when you define the ECS task.
+1. Note the image URI. You will use this when you define the ECS task that deploys the container.
 
-When you push a container image to ECR it will untag the pervious image and leave it in the repository. In order to clean these up, so that you don't go over the 500 MB free tier you can create a `lifecycle rule` that removes anything without a tag after 1 day.
+## Setup a lifecycle rule
+
+When you push a container image to ECR it will untag the pervious image and leave it in the repository. In order to clean these up, so that you don't go over the 500 MB free tier you can create a `lifecycle rule` that removes anything without a tag after 1 day. You can also set up a rule that only keeps the last N images.
 
 ![Lifecycle rule](lifecycleRule.png)
