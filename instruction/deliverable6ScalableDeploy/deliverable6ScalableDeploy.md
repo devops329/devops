@@ -219,8 +219,8 @@ Now that have both your frontend and your backend running on AWS you need to cha
 From your fork of the `jwt-pizza` repository open the `.env.production` and modify it so that the `VITE_PIZZA_SERVICE_URL` is pointing to your URL for your newly deployed backend.
 
 ```json
-VITE_PIZZA_SERVICE_URL=https://jwt-pizza-service.YOURHOSTSNAMEHERE
-VITE_PIZZA_FACTORY_URL=https://jwt-pizza-factory.cs329.click
+VITE_PIZZA_SERVICE_URL=https://pizza-service.YOURHOSTSNAMEHERE
+VITE_PIZZA_FACTORY_URL=https://pizza-factory.cs329.click
 ```
 
 Then push your changes to GitHub. Your CI pipeline should deploy the frontend changes and complete your work on creating a full cloud stack.

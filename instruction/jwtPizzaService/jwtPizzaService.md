@@ -61,7 +61,7 @@ Here are the steps to take:
         listPerPage: 10,
       },
       factory: {
-        url: 'https://jwt-pizza-factory.cs329.click',
+        url: 'https://pizza-factory.cs329.click',
         apiKey: 'yourapikeyhere',
       },
    };

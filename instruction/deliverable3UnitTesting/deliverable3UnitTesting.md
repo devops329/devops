@@ -114,7 +114,7 @@ Next, we create the configuration file that tells the service how to connect wit
         listPerPage: 10,
       },
       factory: {
-        url: 'https://jwt-pizza-factory.cs329.click',
+        url: 'https://pizza-factory.cs329.click',
         apiKey: '${{ secrets.FACTORY_API_KEY }}',
       },
     };" > src/config.js
@@ -229,7 +229,7 @@ jobs:
               listPerPage: 10,
             },
             factory: {
-              url: 'https://jwt-pizza-factory.cs329.click',
+              url: 'https://pizza-factory.cs329.click',
               apiKey: '${{ secrets.FACTORY_API_KEY }}',
             },
           };" > src/config.js
