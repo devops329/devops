@@ -171,7 +171,7 @@ With ECR configured, the CI workflow for building and pushing a container image 
 
 You will do this by adding three new steps to the workflow.
 
-1. Make a copy of the existing `jwt-pizza-service` task definition and save it to a file named `task-definition.json`.
+1. Make a copy of the existing `jwt-pizza-service` task definition and save it to a file named `task-definition.json`. Here is an example [task-definition.json](task-definition.json) if you are interested in what they look like.
    ```yml
    - name: Download task definition
    run: |
