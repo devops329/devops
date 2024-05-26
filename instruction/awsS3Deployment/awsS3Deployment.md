@@ -46,9 +46,15 @@ We want to be careful what AWS services and resources we expose through the cred
       "Resource": ["arn:aws:s3:::BUCKET-NAME-HERE"]
     },
     {
-      "Sid": "AllObjectActions",
+      "Sid": "UpdateS3Bucket",
       "Effect": "Allow",
-      "Action": ["s3:*Object", "cloudfront:CreateInvalidation"],
+      "Action": ["s3:*Object"],
+      "Resource": ["arn:aws:s3:::BUCKET-NAME-HERE/*"]
+    },
+    {
+      "Sid": "InvalidateCloudFront",
+      "Effect": "Allow",
+      "Action": ["cloudfront:CreateInvalidation"],
       "Resource": ["arn:aws:cloudfront:::distribution/DISTRIBUTION-HERE"]
     }
   ]

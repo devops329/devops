@@ -62,12 +62,8 @@
 - 🚧 [Containers](containers/containers.md)
 - ☑ 🔵 [JWT Pizza Service container](jwtPizzaServiceContainer/jwtPizzaServiceContainer.md)
 - ☑ 🔵 [AWS ECR](awsEcr/awsEcr.md)
-
-START HERE AND WALK THROUGH IT ALL.
-IF THAT IS GOOD, TEAR IT ALL DOWN AND WALK THROUGH IT AGAIN.
-
-- ☑ 🚧 [AWS ECS](awsEcs/awsEcs.md)
-- ☑ 🚧 [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
+- ☑ 🔵 [AWS ECS](awsEcs/awsEcs.md)
+- ☑ 🔵 [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
 - 🚧 [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
 
 ## Serverless

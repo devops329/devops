@@ -2,7 +2,7 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
-Now that you have experience with creating, registering, and deploying simple containers it is time to deploy JWT Pizza Service to the Cloud. This deliverable represents the **Scalable compute** portion of our product overview diagram. It provides the hosting of the jwt-pizza-service in a way that can support an ever growing customer base.
+Now that you have experience with creating, registering, and deploying the JWT Pizza Service manually, it is time to modify your CI workflow to do this automatically when you push a change to the repository. This deliverable represents the **Scalable compute** portion of our product overview diagram. It provides the hosting of the jwt-pizza-service in a way that can support an ever growing customer base, all driving by an automated CI process.
 
 Your work on this deliverable consists of four parts:
 
@@ -50,14 +50,49 @@ Next you need to enhance the `github-ci` user rights so that they can push to EC
 1. Click on the `jwt-pizza-ci-deployment` policy.
 1. Select `JSON` and press `Edit`.
 1. Add the following statement in order to allow the use of ECR and ECS.
-   🚧 This is not right. We restricted this down much more and need to do the same thing for ECR access. Least required privilege principle.
+   🚧 This is not right. We restricted ECR access to the least required privilege.
 
    ```json
    {
-     "Sid": "PushAndDeployImage",
-     "Effect": "Allow",
-     "Action": ["ecr:*", "ecs:*"],
-     "Resource": ["*"]
+      "Sid": "PushToECR",
+      "Effect": "Allow",
+      "Action": [
+            "ecr:*"
+      ],
+      "Resource": [
+            "*"
+      ]
+   },
+   {
+      "Sid": "RegisterTaskDefinition",
+      "Effect": "Allow",
+      "Action": [
+            "ecs:DescribeTaskDefinition",
+            "ecs:RegisterTaskDefinition"
+      ],
+      "Resource": "*"
+   },
+   {
+      "Sid": "PassRolesInTaskDefinition",
+      "Effect": "Allow",
+      "Action": [
+            "iam:PassRole"
+      ],
+      "Resource": [
+            "arn:aws:iam::464152414144:role/lee-base-base",
+            "arn:aws:iam::464152414144:role/jwt-pizza-ecs"
+      ]
+   },
+   {
+      "Sid": "DeployService",
+      "Effect": "Allow",
+      "Action": [
+            "ecs:UpdateService",
+            "ecs:DescribeServices"
+      ],
+      "Resource": [
+            "arn:aws:ecs:us-east-2:464152414144:service/jwt-pizza-service/jwt-pizza-service-albtest"
+      ]
    }
    ```
 
@@ -256,3 +291,5 @@ https://pizza.cs329.click
 | 20%     | MySQL database deployed for backend data persistence                                      |
 | 20%     | Updated GitHub Action workflow deploying to ECR and ECS                                   |
 | 10%     | Your backend called for all frontend requests                                             |
+
+Congratulations! You have completed the process of using RDS, IAM, ECR, ECS, and Route 53 to deploy your backend service. Time to go celebrate. I'm thinking ice cream 🍦.
