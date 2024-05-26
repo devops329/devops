@@ -1,8 +1,10 @@
 # AWS Cloud Formation
 
-I really don't want to use this since it is so verbose, but maybe it will be necessary. Fargate seems to manage this for us.
+We have been doing a lot of manual manipulation of AWS in order to setup our automated CI pipeline. As we have stressed previously, manual work, or toil, is the enemy of DevOps. You would think that this only has to be done once and so automation is not really necessary. However, there are some very important reasons to automate this work.
 
-However, it is really important that we automate all of your deployment, and if possible setting up of the resources. We can do it by hand the first time to show how error prone it is, but we should have scripts that do it automatically from scratch.
+1. Disaster recovery
+1. Building out new environment for staging, penetration testing, or marketing.
+1. Documenting the architecture
 
 Here is the stack to create the ECS cluster.
 
