@@ -250,3 +250,172 @@ Here is the stack to create the ECS service including a load balancer.
   }
 }
 ```
+
+ECS cluster, service, and ALB example from CloudFormation documentation.
+
+```json
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "The template used to create an ECS Service associated with an Application Load Balancer.",
+    "Parameters": {
+      "SecurityGroupIDs": {
+        "Type": "CommaDelimitedList",
+        "Default": "sg-1234567890abcdef0,sg-021345abcdef67890"
+      },
+      "SubnetIDs": {
+        "Type": "CommaDelimitedList",
+        "Default": "subnet-abcdef01234567890,subnet-fedcba01234567098,subnet-2135647890abcdef0"
+      },
+      "VpcID": {
+        "Type": "String",
+        "Default": "vpc-3214789650abcdef0"
+      }
+    },
+    "Resources": {
+        "ECSCluster": {
+            "Type": "AWS::ECS::Cluster",
+            "Properties": {
+                "ClusterName": "ALBCluster"
+            }
+        },
+      "ECSService": {
+        "Type": "AWS::ECS::Service",
+        "Properties": {
+          "Cluster": {"Ref":"ECSCluster"},
+          "TaskDefinition": "arn:aws:ecs:us-east-1:111122223333:task-definition/first-run-task:7",
+          "LaunchType": "FARGATE",
+          "ServiceName": "alb",
+          "SchedulingStrategy": "REPLICA",
+          "DesiredCount": 3,
+          "LoadBalancers": [
+            {
+              "ContainerName": "first-run-task",
+              "ContainerPort": 80,
+              "LoadBalancerName": {
+                "Ref": "AWS::NoValue"
+              },
+              "TargetGroupArn": {
+                "Ref": "TargetGroup"
+              }
+            }
+          ],
+          "HealthCheckGracePeriodSeconds": "20",
+          "NetworkConfiguration": {
+            "AwsvpcConfiguration": {
+              "AssignPublicIp": "ENABLED",
+              "SecurityGroups": {
+                "Ref": "SecurityGroupIDs"
+              },
+              "Subnets": {
+                "Ref": "SubnetIDs"
+              }
+            }
+          },
+          "PlatformVersion": "LATEST",
+          "DeploymentConfiguration": {
+            "MaximumPercent": 200,
+            "MinimumHealthyPercent": 100,
+            "DeploymentCircuitBreaker": {
+              "Enable": true,
+              "Rollback": true
+            }
+          },
+          "DeploymentController": {
+            "Type": "ECS"
+          },
+          "ServiceConnectConfiguration": {
+            "Enabled": false
+          },
+          "Tags": [],
+          "EnableECSManagedTags": true
+        },
+        "DependsOn": [
+          "Listener"
+        ]
+      },
+      "LoadBalancer": {
+        "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+        "Properties": {
+          "Type": "application",
+          "Name": "alb-test",
+          "SecurityGroups": {
+            "Ref": "SecurityGroupIDs"
+          },
+          "Subnets": {
+            "Ref": "SubnetIDs"
+          }
+        }
+      },
+      "TargetGroup": {
+        "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+        "Properties": {
+          "HealthCheckPath": "/",
+          "Name": "ecs-task-m-alb",
+          "Port": 80,
+          "Protocol": "HTTP",
+          "TargetType": "ip",
+          "HealthCheckProtocol": "HTTP",
+          "VpcId": {
+            "Ref": "VpcID"
+          },
+          "TargetGroupAttributes": [
+            {
+              "Key": "deregistration_delay.timeout_seconds",
+              "Value": "300"
+            }
+          ]
+        }
+      },
+      "Listener": {
+        "Type": "AWS::ElasticLoadBalancingV2::Listener",
+        "Properties": {
+          "DefaultActions": [
+            {
+              "Type": "forward",
+              "TargetGroupArn": {
+                "Ref": "TargetGroup"
+              }
+            }
+          ],
+          "LoadBalancerArn": {
+            "Ref": "LoadBalancer"
+          },
+          "Port": 80,
+          "Protocol": "HTTP"
+        }
+      }
+    },
+    "Outputs": {
+      "ClusterName": {
+        "Description": "The cluster used to create the service.",
+        "Value": {
+          "Ref": "ECSCluster"
+        }
+      },
+      "ECSService": {
+        "Description": "The created service.",
+        "Value": {
+          "Ref": "ECSService"
+        }
+      },
+      "LoadBalancer": {
+        "Description": "The created load balancer.",
+        "Value": {
+          "Ref": "LoadBalancer"
+        }
+      },
+      "Listener": {
+        "Description": "The created listener.",
+        "Value": {
+          "Ref": "Listener"
+        }
+      },
+      "TargetGroup": {
+        "Description": "The created target group.",
+        "Value": {
+          "Ref": "TargetGroup"
+        }
+      }
+    }
+  }
+```
