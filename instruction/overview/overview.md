@@ -8,10 +8,10 @@ This course covers everything necessary to successfully take an application from
 
 > _Source: [hubspot.com](https://blog.hubspot.com/website/what-is-devops)_
 
-Beyond the work necessary to build the actual application, there are two additional roles that are required to delivery the application to a customer.
+Beyond the work necessary to build the actual application, there are two additional roles that are required to deliver the application to a customer.
 
 1. **Quality Assurance (QA)** - Quality assurance provides an independent review of the application team's deliverables. Their job is to provide assurance that the application follows the design specification and is free from any critical issues that would harm the company or its customers.
-1. **Developer Operations (DevOps)** - DevOps provides the automated pipeline that takes the application team's deliverables and puts them into the hands of the customer. The term DevOps stems from the idea that the team is taking a developer mindset for deployment operations. In effect building an application for product delivery.
+1. **Developer Operations (DevOps)** - DevOps provides the automated pipeline that takes the application team's deliverables and puts them into the hands of the customer. The term DevOps stems from the idea that the team is taking a developer mindset for deployment operations. They are essentially building an application for product delivery.
 
 In a small company the application team will often assume the roles of QA and DevOps. However, the function of these teams is often more successful then they operate independently.
 
@@ -76,9 +76,9 @@ The key to learning how to be an exceptional software engineer rests in your abi
 
 ![learning](essentialsLearning.png)
 
-1. **`Capable`** - You need to know the technology. The better you know it the better you will be able to leverage its abilities and apply it correctly. Knowing who the experts are, and discerning between meaningful technology and fads, driven by marketeers, allows you to quickly find the valuable and avoid the distractions. Knowing technology will enable you to find the right tool for the job, maximize its performance, and automate its execution.
+1. **`Capable`** - You need to know the technology. The better you know it the better you will be able to leverage its abilities and apply it correctly. Knowing who the experts are, and discerning between meaningful technology and marketeer-driven fads, allows you to quickly find the valuable and avoid the distractions. Knowing technology will enable you to find the right tool for the job, maximize its performance, and automate its execution.
 1. **`Creative`** - We often think of artistic skills when considering creativity. However, there is just as much art in making software usable, efficient, and maintainable. Knowing how to organize and sculpt your code is incredibly creative. Well designed systems are often referred to as beautiful or elegant, and a reflection of the creativity of their authors.
-1. **`Collaborative`** - Web applications are rarely created and used by one person. Usually you build an application for a large group of customers, and they almost always are created by a team of contributors with different backgrounds and roles. The ability for that team to work together and interact with customers is essential. These are social skills. The more skilled you are at talking, writing, reading, presenting, expressing body language, projecting a good appearance, and most importantly, listening, the more successful you will be.
+1. **`Collaborative`** - Web applications are rarely created and used by one person. Usually you build an application for a large group of customers, and they are almost always created by a team of contributors with different backgrounds and roles. The ability for that team to work together and interact with customers is essential. These are social skills. The more skilled you are at talking, writing, reading, presenting, expressing body language, projecting a good appearance, and most importantly, listening, the more successful you will be.
 1. **`Curious`** - Having a mind that is always questioning will make all the difference. Simply doing the job is not enough. Wanting to know why the job is useful, searching for alternative directions, digging into the inner workings of a black box, and questioning accepted facts are all where progress is made. Cultivating a love for life long learning will take you from adequate to exceptional.
 
 > “When hiring we look for the ability to collaborate, creativity, curiosity, and expertise”
@@ -92,7 +92,7 @@ By developing and utilizing software engineering skills you can have a significa
 1. **Divine Inspiration** - Seeking for divine help and direction in your efforts, enables you to avoid paths that would otherwise diminish your impact, and instead create results that otherwise would have been beyond your abilities.
 1. **Eternal Perspective** - If you look beyond a project due date, problem to solve, diploma, employer, career, or even this mortal existence, you will find your focus gravitating towards a purpose that is guided by the eternal rather than the moment.
 
-As you learn to tap into these two principles, you will find greater motivation and enjoyment in your efforts to acquire and apply your skills as a software engineer. Make sure you emphasis being `Christlike` when making your journey through life.
+As you learn to tap into these two principles, you will find greater motivation and enjoyment in your efforts to acquire and apply your skills as a software engineer. Make sure you emphasise being `Christlike` when making your journey through life.
 
 > “The temple is a place of revelation. There you are shown how to progress toward a celestial life. There you are drawn closer to the Savior and given greater access to His power. There you are guided in solving the problems in your life, even your most perplexing problems.”
 >
@@ -110,7 +110,7 @@ Whenever you approach something new, approach it with the attitude that you will
 
 ## Welcome to `DevOps 329`!
 
-The class should have the energy of a startup. We are on the cutting edge of technology. You the skills you learn to build entire systems, you will change the world. I will do my best to bring all my energy to our time together, and hope you will do likewise. Together, as a team, we are going to have a lot of fun.
+The class should have the energy of a startup. We are on the cutting edge of technology. With the skills you learn to build entire systems, you will change the world. I will do my best to bring all my energy to our time together, and hope you will do likewise. Together, as a team, we are going to have a lot of fun.
 
 ## ☑ Assignment
 
