@@ -4,7 +4,7 @@
 
 The _JWT Pizza application_ team has finally finished their work on the backend JWT service and has given you access to the backend service code so that you can start testing and deploying it.
 
-Now that you have the service code you will test and deploy the full application stack. This includes the frontend (_jwt-pizza_), backend (_jwt-pizza-service_), and the database. The only piece that you do not actually manage is the service provided by JWT Headquarters the creates the JWT tokens that represents a completed pizza order. Instead you deployment of the JWT service will simply call the factory service that the JWT Headquarters provides.
+Now that you have the service code you will test and deploy the full application stack. This includes the frontend (_jwt-pizza_), backend (_jwt-pizza-service_), and the database. The only piece that you do not actually manage is the service provided by JWT Headquarters that creates the JWT tokens that represents a completed pizza order. Instead your deployment of the JWT service will simply call the factory service that the JWT Headquarters provides.
 
 ```mermaid
 graph LR;
@@ -21,9 +21,9 @@ With this deliverable from the application team you now have all the code for th
 
 ## Setting up your development environment
 
-As noted above, a database, is required for the successful deployment of the application. The application team has chosen MySQL as the persistent data store. You will therefore need a MySQL compatible instance of MySQL running both in your development and production environments.
+As noted above, a database is required for the successful deployment of the application. The application team has chosen MySQL as the persistent data store. You will therefore need a MySQL compatible instance of MySQL running both in your development and production environments.
 
-If you do not already have MySQL installed in your development environment, or want to reenforce your basic understanding of how MySQL works then you should review the [Getting Started guide](https://dev.mysql.com/doc/mysql-getting-started/en/) found on dev.mysql.com.
+If you do not already have MySQL installed in your development environment, or want to reinforce your basic understanding of how MySQL works, you should review the [Getting Started guide](https://dev.mysql.com/doc/mysql-getting-started/en/) found on dev.mysql.com.
 
 ## Forking the application team's repository
 
@@ -37,7 +37,7 @@ Here are the steps to take:
    ```sh
    git clone https://github.com/youraccountnamehere/jwt-pizza-service.git
    ```
-1. Change directory into the newly clone repository and install the NPM package dependencies.
+1. Change directory into the newly cloned repository and install the NPM package dependencies.
    ```sh
    cd jwt-pizza-service
    npm install
@@ -61,7 +61,7 @@ Here are the steps to take:
         listPerPage: 10,
       },
       factory: {
-        url: 'https://jwt-pizza-factory.cs329.click',
+        url: 'https://pizza-factory.cs329.click',
         apiKey: 'yourapikeyhere',
       },
    };

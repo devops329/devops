@@ -1,6 +1,6 @@
 # Deliverable ⓶ Automated deployment: JWT Pizza
 
-![course overview](../courseOverview.png)
+![course overview](../sharedImages/courseOverview.png)
 
 In your last deliverable we manually builded the JWT Pizza frontend, copied it into a branch, and pushed it to GitHub pages. While this process works, it has several problems.
 
@@ -23,11 +23,11 @@ Here are the steps to make all the automation magic happen.
 
    This turns off the monitoring of the `gh-pages` branch so that it will no longer trigger a deployment.
 
-1. Create a file named `.github/workflows/deploy-github-pages.yml`. This file is the automation script that GitHub actions will execute whenever you make a commit to the `main` branch.
+1. Create a file named `.github/workflows/ci.yml`. This file is the automation script that GitHub actions will execute whenever you make a commit to the `main` branch.
 1. Insert the following into the newly created file
 
    ```yml
-   name: Build and deploy to GitHub Pages
+   name: CI Pipeline
 
    on:
      push:

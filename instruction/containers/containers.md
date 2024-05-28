@@ -252,13 +252,13 @@ app.listen(3000, () => console.log('Server ready'));
 I tried to do the multi-container support, but my dev environment didn't support it and so I just did arm64 so I can do graviton in ECS.
 
 ```sh
-docker build -t "1234567890.dkr.ecr.us-east-2.amazonaws.com/webserver:latest" --platform linux/arm64 .
+docker build -t "1234567890.dkr.ecr.us-east-1.amazonaws.com/webserver:latest" --platform linux/arm64 .
 ```
 
 You can test it with
 
 ```sh
-docker run --name webserver -p 3000:3000 1234567890.dkr.ecr.us-east-2.amazonaws.com/webserver:latest
+docker run --name webserver -p 3000:3000 1234567890.dkr.ecr.us-east-1.amazonaws.com/webserver:latest
 ```
 
 ### ECR
@@ -266,7 +266,7 @@ docker run --name webserver -p 3000:3000 1234567890.dkr.ecr.us-east-2.amazonaws.
 Login to ECR
 
 ```sh
-aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 1234567890.dkr.ecr.us-east-2.amazonaws.com
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 1234567890.dkr.ecr.us-east-1.amazonaws.com
 
 Login Succeeded
 ```
@@ -274,7 +274,7 @@ Login Succeeded
 Push the container to ECR
 
 ```sh
-docker push 1234567890.dkr.ecr.us-east-2.amazonaws.com/webserver:latest
+docker push 1234567890.dkr.ecr.us-east-1.amazonaws.com/webserver:latest
 ```
 
 ## Docker CLI Reference

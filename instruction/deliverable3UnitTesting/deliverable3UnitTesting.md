@@ -1,6 +1,6 @@
 # Deliverable ⓷ Unit testing: JWT Pizza Service
 
-![course overview](../courseOverview.png)
+![course overview](../sharedImages/courseOverview.png)
 
 Now that you have added linting and created unit tests for the **jwt-pizza-service**, you are ready to implement the continuous integration (CI) process that will validate the code and calculate coverage on every commit. This will complete your work on this deliverable.
 
@@ -48,9 +48,28 @@ If you go and introduce a linting error to your code by doing something like dec
 
 ## Executing tests in the workflow
 
-Running the linter is fine, but what we really want to do is run our tests. This is complicated by the fact that we didn't mock out the database calls, and therefore your tests need a database to run against. You could go back and mock out the database calls. Doing so would make your tests faster, but would also remove a crucial integration test that represents a significant piece of what the service is doing. Additionally, creating a mock of the database could hide many possible errors, while creating a lot of testing code to maintain.
+Running the linter is fine, but what we really want to do is run our tests. This is complicated by the fact that we didn't mock out the database calls, and therefore your tests need a database to run against. You could go back and mock out the database calls. Doing so would make your tests faster, but would also remove a crucial integration test that represents a significant piece of what the service is doing. Additionally, creating a mock of the database would create a lot of testing code to maintain.
 
 So instead let's have GitHub Actions run with an instance of MySQL already running on it.
+
+### Storing secrets
+
+The first step is security. Your repository is public and so you want to make sure that you keep secret anything that would give an advantage to a nefarious party. This includes your JWT Factory API key, JWT authorization token secret, and database password. You can hide these secrets by creating [repository secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) and then referencing the secrets in your workflow.
+
+Using the GitHub Repository dashboard for your fork of `jwt-pizza-service`, select the repository's settings and then `Secrets and variables | Actions`. Chose to create a `New repository secret`.
+
+![Create repo secret](createRepoSecret.png)
+
+Enter the name `FACTORY_API_KEY` and then enter the value your received for making calls to the factory. Press `Save key` and then it is ready to be used in your workflow with the template placeholder of `${{ secrets.FACTORY_API_KEY }}`.
+
+![alt text](factorySecret.png)
+
+Go ahead and create the following secrets.
+
+| Secret          | Description                                                            | Example                         |
+| --------------- | ---------------------------------------------------------------------- | ------------------------------- |
+| JWT_SECRET      | A random value that you create for signing your authentication tokens. | 343ab90294hijkfd2fdsaf4dsa3f424 |
+| FACTORY_API_KEY | The API Key for making calls to the Headquarters factory               | 83025y7098dsf9310dc90           |
 
 ### Using MySQL in GitHub Actions
 
@@ -61,12 +80,12 @@ services:
   mysql:
     image: mysql:8.0.29
     env:
-      MYSQL_ROOT_PASSWORD: temppwd
+      MYSQL_ROOT_PASSWORD: tempdbpassword
       MYSQL_DATABASE: pizza
     ports:
       - '3306:3306'
     options: >-
-      --health-cmd "mysqladmin ping -ptemppwd"
+      --health-cmd "mysqladmin ping -ptempdbpassword"
       --health-interval 10s
       --health-start-period 10s
       --health-timeout 5s
@@ -83,33 +102,23 @@ Next, we create the configuration file that tells the service how to connect wit
 - name: Write config file
   run: |
     echo "module.exports = {
-      jwtSecret: '908f908dsvjdfnjoidfabv0j9few09gfdesjibdfsnkml',
+      jwtSecret: '${{ secrets.JWT_SECRET }}',
       db: {
         connection: {
           host: '127.0.0.1',
           user: 'root',
-          password: 'temppwd',
+          password: 'tempdbpassword',
           database: 'pizza',
           connectTimeout: 60000,
         },
         listPerPage: 10,
       },
       factory: {
-        url: 'https://jwt-pizza-factory.cs329.click',
+        url: 'https://pizza-factory.cs329.click',
         apiKey: '${{ secrets.FACTORY_API_KEY }}',
       },
     };" > src/config.js
 ```
-
-Notice that we use the same temporary password that we supplied above. We can also provide some random `jwtSecret` since it will only be useful while testing. The tricky one is the factory `apiKey`. This needs to be the actual API Key given to you from JWT Headquarters so that your service can create pizza JWTs. However, you can't check it into GitHub because it will be visible to the world. So you need to create a [repository secret](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) and then reference the secret in your workflow.
-
-Using the GitHub Repository dashboard for your fork of `jwt-pizza-service`, select the repository's settings and then `Secrets and variables | Actions`. Chose to create a `New repository secret`.
-
-![Create repo secret](createRepoSecret.png)
-
-Enter the name `FACTORY-API-KEY` and then enter the value your received for making calls to the factory. Press `Save key` and then it is ready to be used in your workflow with the template placeholder of `${{ secrets.FACTORY_API_KEY }}`.
-
-![alt text](factorySecret.png)
 
 ### Running the tests
 
@@ -180,12 +189,12 @@ jobs:
       mysql:
         image: mysql:8.0.29
         env:
-          MYSQL_ROOT_PASSWORD: temppwd
+          MYSQL_ROOT_PASSWORD: tempdbpassword
           MYSQL_DATABASE: pizza
         ports:
           - '3306:3306'
         options: >-
-          --health-cmd "mysqladmin ping -ptemppwd"
+          --health-cmd "mysqladmin ping -ptempdbpassword"
           --health-interval 10s
           --health-start-period 10s
           --health-timeout 5s
@@ -208,19 +217,19 @@ jobs:
       - name: Write config file
         run: |
           echo "module.exports = {
-            jwtSecret: '908f908dsvjdfnjoidfabv0j9few09gfdesjibdfsnkml',
+            jwtSecret: '${{ secrets.JWT_SECRET }}',
             db: {
               connection: {
                 host: '127.0.0.1',
                 user: 'root',
-                password: 'temppwd',
+                password: 'tempdbpassword',
                 database: 'pizza',
                 connectTimeout: 60000,
               },
               listPerPage: 10,
             },
             factory: {
-              url: 'https://jwt-pizza-factory.cs329.click',
+              url: 'https://pizza-factory.cs329.click',
               apiKey: '${{ secrets.FACTORY_API_KEY }}',
             },
           };" > src/config.js

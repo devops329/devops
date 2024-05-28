@@ -46,4 +46,10 @@ Later in the course you will fork the application team's repositories. You shoul
 
 GitHub allows you to create a fork of any repository on GitHub. You just push the `Fork` button from the repository's GitHub page. You can then make modifications to the repository fork and push the changes as a _pull request_. This notifies the original repository's owner that a request is being made to enhance the original repository. The owner can review your changes and if appropriate commit the changes into the original. This is how open source communities manage development from a volunteer group of global developers.
 
+![pull request deployment](../sharedImages/pullRequestDeployment.png)
+
+![Pull requests](pullRequests.png)
+
+## Contributing to the course instruction
+
 In this class, if you notice something in the instruction that needs to be enhanced, feel free to fork the [instruction repo](https://github.com/devops329/devops), and make a pull request. This will give you experience with this forking and improve the instruction for others at the same time. Plus your name will be included as a contributor. How cool is that!

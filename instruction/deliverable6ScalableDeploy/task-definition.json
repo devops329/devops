@@ -1,0 +1,45 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "jwt-pizza-service",
+      "image": "00000000000.dkr.ecr.us-east-1.amazonaws.com/jwt-pizza-service:latest",
+      "cpu": 0,
+      "portMappings": [
+        {
+          "name": "80-3000",
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp",
+          "appProtocol": "http"
+        }
+      ],
+      "essential": true,
+      "environment": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-create-group": "true",
+          "awslogs-group": "/ecs/jwt-pizza-service",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "systemControls": []
+    }
+  ],
+  "family": "jwt-pizza-service",
+  "executionRoleArn": "arn:aws:iam::00000000000:role/jwt-pizza-ecs",
+  "networkMode": "awsvpc",
+  "volumes": [],
+  "placementConstraints": [],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "1024",
+  "runtimePlatform": {
+    "cpuArchitecture": "ARM64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "tags": []
+}

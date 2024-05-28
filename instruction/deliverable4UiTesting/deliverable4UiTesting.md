@@ -1,6 +1,6 @@
 # Deliverable ⓸ User Interface testing: JWT Pizza
 
-![course overview](../courseOverview.png)
+![course overview](../sharedImages/courseOverview.png)
 
 With the UI testing skills you have learned you are now ready to test the JWT Pizza frontend. As part of these tests you will mock out the backend service so that you don't have to worry about the problems that come with integration testing.
 
@@ -384,7 +384,7 @@ This should trigger the workflow to execute, and if everything works properly yo
 
 ## ☑ Assignment
 
-Demonstrate your mastery of the concepts for this deliverable, complete the following.
+In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
 1. Create Playwright tests for `jwt-pizza` that provide at least 80% coverage.
 1. Create a GitHub Actions workflow that executes the tests.

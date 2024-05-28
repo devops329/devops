@@ -1,8 +1,14 @@
 # Modules
 
+- ☑ Has an assignment associated with it
+- 🚧 Lots of work to do
+- 🟢 Stephen has reviewed
+- 🔵 Lee has created first draft
+- ❌ We are probably going to drop this
+
 ## Getting started
 
-- ☑ 🔵 [Overview](overview/overview.md)
+- ☑ 🟢 [Overview](overview/overview.md)
 - 🔵 [History](history/history.md)
 - 🔵 [JWT Pizza](jwtPizza/jwtPizza.md)
 - ☑ 🔵 [AWS Account](awsAccount/awsAccount.md)
@@ -28,9 +34,9 @@
 - 🚧 [Testing variations](testingVariations/testingVariations.md)
 - 🔵 [Coverage](coverage/coverage.md)
 - ☑ 🔵 [Jest](jest/jest.md)
-- ☑ 🔵 [Test driven development (TDD)](tdd/tdd.md)
-- ☑ 🔵 [Service testing](serviceTesting/serviceTesting.md)
-- ☑ 🔵 [Lint](lint/lint.md)
+- ☑ 🟢 [Test driven development (TDD)](tdd/tdd.md)
+- ☑ 🟢 [Service testing](serviceTesting/serviceTesting.md)
+- ☑ 🟢 [Lint](lint/lint.md)
 - ☑ ❌ [Mocking](mocking/mocking.md)
 - 🚧 [Dependency injection](dependencyInjection/dependencyInjection.md)
 - 🔵 [Integration testing](integrationTesting/integrationTesting.md)
@@ -41,28 +47,30 @@
 - ☑ 🔵 [Playwright](playwright/playwright.md)
 - ☑ 🔵 [⓸ UI test: JWT Pizza](deliverable4UiTesting/deliverable4UiTesting.md)
 
-## CDN deployment
+## Cloud deployment
 
+- 🔵 [Cloud deployment](cloudDeployment/cloudDeployment.md)
 - 🚧 [Security](security/security.md)
-- 🚧 [Cloud deployment](cloudDeployment/cloudDeployment.md)
-- ❌ [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
 - 🚧 [AWS S3](awsS3/awsS3.md)
 - 🔵 [AWS CloudFront](awsCloudFront/awsCloudFront.md)
 - 🔵 [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
 - 🔵 ☑ [⓹ CDN deployment: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
+- 🚧 [Elasticity](elasticity/elasticity.md)
+
+- ☑ 🔵 [AWS RDS MySQL](awsRdsMysql/awsRdsMysql.md)
+- 🚧 [Docker](docker/docker.md)
+- 🚧 [Containers](containers/containers.md)
+- ☑ 🔵 [JWT Pizza Service container](jwtPizzaServiceContainer/jwtPizzaServiceContainer.md)
+- ☑ 🔵 [AWS ECR](awsEcr/awsEcr.md)
+- ☑ 🔵 [AWS ECS](awsEcs/awsEcs.md)
+- ☑ 🔵 [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
+- 🚧 [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
+
+## Serverless
+
 - ❌ [Serverless](serverless/serverless.md)
 - ❌ [AWS API Gateway](awsApiGateway/awsApiGateway.md)
 - ❌ [AWS Lambda](awsLambda/awsLambda.md)
-
-## Scalable deployment
-
-- 🚧 [Elasticity](elasticity/elasticity.md)
-- ☑ 🚧 [AWS RDS MySQL](awsRdsMysql/awsRdsMysql.md)
-- 🚧 [Docker](docker/docker.md)
-- 🚧 [Containers](containers/containers.md)
-- ☑ 🚧 [ECR](ecr/ecr.md)
-- ☑ 🚧 [AWS Fargate](awsFargate/awsFargate.md)
-- ☑ 🚧 [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
 
 ## Deployment strategies
 
@@ -71,7 +79,8 @@
 - 🚧 [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
 - 🚧 [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
 - 🚧 [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
-- 🚧 [Blue/Green](blueGreeen/blueGreen.md)
+- 🚧 [Rolling] We are probably just going to use the rolling deployment from ECS
+- 🚧 [Blue/Green](blueGreeen/blueGreen.md) It seems that cloudfront supports this.
 - We need a discussion on scalability, bottlenecks, and auto adjustment. This should tie into SLO.
 
 ## System monitoring
@@ -85,7 +94,7 @@
 - ⓻ Metrics - Provide metrics with Grafana Mimir
 - 🚧 Distributed tracing
 - 🚧 [Grafana Tempo](grafanaTempo/grafanaTempo.md)
-- ⓽ Tracing - Provide execution tracing with Grafana Tempo
+- ❌ ⓽ Tracing - Provide execution tracing with Grafana Tempo
 
 ## Load testing
 

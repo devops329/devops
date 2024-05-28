@@ -1,6 +1,6 @@
 # Deliverable ⓹ Content Delivery Network Deployment: JWT Pizza
 
-![course overview](../courseOverview.png)
+![course overview](../sharedImages/courseOverview.png)
 
 Now that we know how to deploy static content using CloudFront and S3 using GitHub Actions, it is time to move our CDN hosting from GitHub Pages to AWS CloudFront.
 
@@ -44,7 +44,7 @@ Once completed, your repository's GitHub Actions workflow history should demonst
 
 ## ☑ Assignment
 
-Demonstrate your mastery of the concepts for this deliverable, complete the following.
+In order to demonstrate your mastery of the concepts for this deliverable, complete the following.following.
 
 1. Create a secure S3 bucket to host the frontend static files.
 1. Create a CloudFront distribution.

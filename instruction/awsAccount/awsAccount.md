@@ -23,10 +23,30 @@ There is no cost to create an account with AWS, you only pay for what you use, a
 | **S3**                  | Static frontend files                | Free: 5GB standard storage, 20,000 GET Requests; 2,000 PUT, COPY, POST, or LIST Requests, 100 GB data transfer/month.   |
 | **ECR**                 | Docker image repository              | Free: 500 MB/month. After that $0.10/GB.                                                                                |
 | **ECS EC2**             | Docker container service             | ECS free. You only pay for the EC2 instance.                                                                            |
-| **ECS Fargate**         | Docker container service             | ECS free. Fargate: vCPU/hour $0.03238, GB/hour. 0.03594/hour ($26/month)                                                |
+| **ECS Fargate**         | Docker container service             | ECS free. Fargate: AMD vCPU/hour $0.03238, GB/hour. 0.03594/hour \* 0.25 vCPU ($9/month)                                |
+| **ALB**                 | Load balancing                       | $18/month.                                                                                                              |
 | **Certificate Manager** | Web certificate                      | Free.                                                                                                                   |
-|                         |                                      | **Estimated monthly cost: `$14` for MySQL, `$26` for Fargate**                                                          |
-|                         |                                      | **Estimated course cost: `$80`**                                                                                        |
+| **CloudFormation**      | Generate automation templates        | Free.                                                                                                                   |
+|                         |                                      | **Estimated monthly cost: `$15` for MySQL, `$10` for Fargate, `$18` for ALB**                                           |
+|                         |                                      | **Estimated course cost: `$50 - $120`**                                                                                 |
+
+## Billing Management
+
+An important part of developer operations is to understand how the architecture choices you make impact the cost of doing business. You should carefully consider every service that you deploy and how much that will cost you. You then want to set up processes to both monitor and alert on those expenditures to make sure they match the anticipated amounts.
+
+AWS provides extensive reporting tools for billing and cost exploration. These tools are available form on the AWS browser console under the `Billing and Cost Management` service. You are highly encouraged to spend time understanding everything that is provided there.
+
+Below is an example billing report that shows the charges for load balancing, IPv4 address allocation, and Fargate.
+
+![Billing report](billingReport.png)
+
+### Billing alerts
+
+By default AWS will create _Free Tier alerts_ for you. These will send you an email whenever you come within a certain percentage threshold of your allocated free tier resource.
+
+Additionally, you can create your own billing alerts that will notify you for other cases. For example, you can create an alert whenever you spend more than $10 in a 30 day period.
+
+To learn more about billing alerts refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html) on this subject.
 
 ## ☑ Assignment
 

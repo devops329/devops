@@ -49,7 +49,7 @@ Add the `test` script to `package.json` so that it knows to use Jest for testing
   },
 ```
 
-## Creating the first test
+## Creating a simple test
 
 Now that you have set up jwt-pizza-service to be tested with Jest we can make sure it is all working right by writing a simple test. Create a file named `authRouter.test.js` in the `src/routes` directory and place the following `hello world` test in file.
 
@@ -79,6 +79,17 @@ Tests:       1 passed, 1 total
 This is not very interesting from a coverage perspective, but it does demonstrate that you are configured correctly.
 
 Make sure you commit and push you code at this important milestone.
+
+## Mocking dependencies
+
+Before we can write a test that actually uses the functionality of the JWT Pizza Service we need to think about the service's dependencies. In this case it is the MySQL database. We have a choice here:
+
+1. **Unit test**: Mock out the the database dependency such that the service doesn't actually call the database.
+1. **Component test**: Let the service call the MySQL database so that we can actually tests that our SQL syntax is correct.
+
+The downside of component testing is that it complicates the test setup and potentially increases the time the test takes to execute. The downside of a pure unit test is that it doesn't actually test a core part of what the code is doing. You don't actually have any assurance that service can persist data correctly.
+
+For the JWT Pizza Service you will setup a MySQL database that your service code calls and use component testing to validate the interaction between the service and the database.
 
 ## Write a real test
 
@@ -150,6 +161,44 @@ Tests:       1 passed, 1 total
 ```
 
 Now it is your turn. Keep writing tests until you have at least 80% coverage.
+
+## Hints for writing service tests
+
+### Creating unique objects
+
+You will create a lot of test objects (e.g. users, menu items, franchises) as part of your tests. It is convenient to have a function that will create a unique random name for these objects.
+
+```js
+function randomName() {
+  return Math.random().toString(36).substring(2, 12);
+}
+```
+
+### Creating an admin user
+
+At some point in your testing you will need to have an administrator user in order to do things like create a franchise. You don't want ot hardcode a user that you have created in your database because you shouldn't assume any preexisting data when creating a unit test. However, the JWT Pizza Service doesn't have an obvious way to bootstrap an admin user. You can overcome this by calling directly into the DB.addUser function. The DB.addUser function has no constraints and will let you create any user that you would like, including a user with a role of Admin.
+
+```js
+const { DB } = require('./database/database.js');
+
+async function createAdminUser() {
+  let user = { password: 'toomanysecrets', roles: [{ role: Role.Admin }] };
+  user.name = randomName();
+  user.email = user.name + '@admin.com';
+
+  await DB.addUser(user);
+}
+```
+
+### Increasing the VS Code Jest debugging timeout
+
+The default timeout for a Jest test is just a few seconds. That means it will timeout on you as you are debugging through the tests with VS Code. You can increase the timeout by setting a high value with the `jest.setTimeout` function. You can also wrap the timer increase is a check that only triggers if you are debugging with VS Code.
+
+```js
+if (process.env.VSCODE_INSPECTOR_OPTIONS) {
+  jest.setTimeout(60 * 1000 * 5); // 5 minutes
+}
+```
 
 ## Linting
 

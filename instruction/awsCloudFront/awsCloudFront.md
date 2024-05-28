@@ -13,7 +13,7 @@ Previously we deployed the JWT Pizza static frontend content over the content de
 - GitHub Pages sites have a soft bandwidth limit of 100 GB per month.
 - GitHub Pages sites have a soft limit of 10 builds per hour.
 
-For these reasons we want to move to a CDN that provides the services and scale necessary for a production system. There are many great CDN services available. This includes Akamai, Cloudflare, Fastly, and AWS CloundFront. We are going to use CloudFront because of the additional cloud services that they provide and also because of their generous free tier that will make it basically free for our usage.
+For these reasons we want to move to a CDN that provides the services and scale necessary for a production system. There are many great CDN services available. This includes Akamai, Cloudflare, Fastly, and AWS CloudFront. We are going to use CloudFront because of the additional cloud services that they provide and also because of their generous free tier that will make it basically free for our usage.
 
 ⚠️ **Note**: If you have not yet created your AWS account, you must do so now. We will be making extensive use of AWS for the rest of the course.
 
@@ -113,7 +113,7 @@ The last step for configuring the CDN, is to create a DNS record so that you can
 1. Open the AWS browser console and navigate to the Route 53 service.
 1. Select the hosted zone for your hostname.
 1. Create a new record.
-1. Give it a meaningful subdomain. When you repeat this process for the JWT Pizza frontend, the name will be `pizza`.
+1. Give the name `pizza` for the subdomain.
 1. Set the record type to an `A` record.
 1. Move the slider to mark it as an `Alias`. This tells Route 53 that it can do some internal routing between its services rather than doing normal DNS routing.
 1. Route traffic to `Alias to CloudFront Distribution`.

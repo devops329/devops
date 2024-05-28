@@ -1,31 +1,40 @@
 # Cloud deployment
 
-- We now take our static page hosting on GitHub Pages to hosting on S3.
-- This will change our GitHub Action script
+Hosting on GitHub is fine for simple static websites that don't have to worry about significant scale. However, if you want to reach a large global audience with an architecture that is resilient and elastic you are going to need to deploy to a cloud environment that can meet those demands. To take things to the next level we are going to move to Amazon Web Service (AWS).
 
-https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/getting-started-cloudfront-overview.html
+Specifically, you will deploy the `jwt-pizza` frontend end using S3 and the `jwt-pizza-service` backend using Fargate. The following diagram shows all of the AWS services involved in supporting this architecture.
 
-- Step 1: Register a domain
-- Step 2: Request a public certificate
-- Step 3: Create an S3 bucket to host your subdomain
-- Step 4 : Create another S3 bucket, for your root domain
-- Step 5: Upload website files to your subdomain bucket
-- Step 6: Set up your root domain bucket for website redirect
-- Step 7: Create an Amazon CloudFront distribution for your subdomain
-- Step 8: Create an Amazon CloudFront distribution for your root domain
-- Step 9: Route DNS traffic for your domain to your CloudFront distribution
-- Step 10 : Test your website
+![Cloud deployment](cloudDeployment.png)
 
-1. Created Certificate in AWS certificate manager. The created a DNS record (CNAME \_c54655b34f31243aa575eb5008eb16ca.cs240.click) in cs240.click.
-1. Created an S3 bucket test.cs240.com
-1. Skipped step 4. I don't want the root domain to be handled by S3.
-1. Copied the Pizza client dist files to the bucket.
-1. Skipped step 6 since I don't want to do a redirect from the root domain.
-1. Followed the other instructions to create the distribution.
-1. Created an A record to a cloudfront distribution alias (dwiboy6bfbta4.cloudfront.net).
+## Architecture pieces
 
-There is an option for creating a staging distribution for [Continuous deployment](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/continuous-deployment.html?icmpid=docs_cf_help_panel#continuous-deployment-general). That looks interesting.
+We are going to go into detail on each of the services in the above architecture. This will include what they each do, how to set them up, and how to connect them to each other. In the meantime, the following table gives you a general feel for what each of the services do.
 
-Worked beautifully.
+| Service             | Description                                                                                                               |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Route 53            | DNS records that tell the web browser how to find the HTTP servers that deliver your front and backend.                   |
+| CloudFront          | Content delivery network (CDN) that globally distributes your frontend static files.                                      |
+| S3                  | Massively scalable file storage that contains your frontend static files.                                                 |
+| Certificate manager | Generates and manages your SSL web certificates in order to support secure (HTTPS) network communication.                 |
+| ALB                 | Network load balancer that distributes backend service requests across multiple network servers.                          |
+| ECR                 | Docker container registry that stores your backend container images.                                                      |
+| ECS                 | Docker container deployment system manager. This controls deploying new version and monitoring the health of the systems. |
+| Fargate             | Docker container scaling automation. This will automatically deploy new containers as the load on your system increases.  |
 
-https://test.cs240.click
+## Phased build out
+
+You will build this by taking the following steps:
+
+1. Migrate the **frontend** hosting to AWS
+   1. Remove the GitHub Pages hosting.
+   1. Manually setup CloudFront, S3, Certificate Manager, and Route 53.
+   1. Do a manual deployment to S3.
+   1. Modify your frontend deployment GitHub Actions workflow to push to S3.
+1. Migrate the **backend** hosting to AWS
+   1. Convert your build process to build a Docker container.
+   1. Manually setup ECR, ECS, ALB, and Fargate.
+   1. Do a manual deployment to ECR and trigger deployment with ECS.
+   1. Modify your backend deployment GitHub Actions workflow to push to ECR and trigger deployment with ECS.
+1. Create CloudFormation scripts to build and teardown your frontend and backend services from scratch.
+
+This will create a completely automated cloud scale architecture that should enable any level of growth that JWT Pizza achieves.

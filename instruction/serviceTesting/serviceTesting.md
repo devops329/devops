@@ -240,7 +240,7 @@ test('login', async () => {
 });
 ```
 
-The authorization cookie is returned in the `set-cookie` header. Even though our simple service code always returns the same authorization token we want to make our test more general than that and so we use a regular express match to validate that the cookie is set along with all of the cookie security options.
+The authorization cookie is returned in the `set-cookie` header. Even though our simple service code always returns the same authorization token we want to make our test more general than that and so we use a regular expression match to validate that the cookie is set along with all of the cookie security options.
 
 When we run the tests again we see that we are up to **73.68%**. So close that I can taste it. Just one more endpoint to test.
 

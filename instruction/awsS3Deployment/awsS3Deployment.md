@@ -46,9 +46,15 @@ We want to be careful what AWS services and resources we expose through the cred
       "Resource": ["arn:aws:s3:::BUCKET-NAME-HERE"]
     },
     {
-      "Sid": "AllObjectActions",
+      "Sid": "UpdateS3Bucket",
       "Effect": "Allow",
-      "Action": ["s3:*Object", "cloudfront:CreateInvalidation"],
+      "Action": ["s3:*Object"],
+      "Resource": ["arn:aws:s3:::BUCKET-NAME-HERE/*"]
+    },
+    {
+      "Sid": "InvalidateCloudFront",
+      "Effect": "Allow",
+      "Action": ["cloudfront:CreateInvalidation"],
       "Resource": ["arn:aws:cloudfront:::distribution/DISTRIBUTION-HERE"]
     }
   ]
@@ -59,7 +65,7 @@ We want to be careful what AWS services and resources we expose through the cred
 1. Replace `DISTRIBUTION-HERE` with the CloudFront distribution ID.
    ![Create policy](createPolicy.png)
 1. Press `Next`.
-1. Provide a meaningful policy name such as `jwt-pizza-ci-deployment`.
+1. Name the policy `jwt-pizza-ci-deployment`.
 1. Press `Create policy`.
 
 ### Create the IAM role
@@ -88,15 +94,34 @@ Now we can create the AWS IAM role that allows access to S3.
    ![Policy permissions](policyPermissions.png)
 
 1. Press `Next`.
-1. Name the role something meaningful like `github-ci`.
+1. Name the role `github-ci`.
 1. Press `Create role`.
 
 ### Configure GitHub Actions
 
 The final step is to create a GitHub Actions workflow that deploys to the S3 bucket using the OIDC credentials that you just created.
 
-1. In the repository that you specified when you created you identity provider, create a GitHub Actions workflow file named `deploy-s3.yml` in your project's `.github/workflows` directory. This will contain the workflow to copy files to your S3 bucket.
-1. Paste the following template into the `deploy-s3.yml` file.
+#### Storing secrets
+
+Your repository is public and so you want to make sure that you keep secret anything that would give an advantage to a nefarious party. This includes your AWS Account ID, IAM roles and S3 Bucket names.
+
+You can hide these secrets by creating [repository secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) and then referencing the secrets in your workflow.
+
+![Actions secrets](actionsSecrets.png)
+
+Go ahead and create the following secrets.
+
+| Secret          | Description                                                 | Example              |
+| --------------- | ----------------------------------------------------------- | -------------------- |
+| AWS_ACCOUNT     | Your AWS account number                                     | 343243424            |
+| CI_IAM_ROLE     | The IAM user with rights to deploy your application         | github-ci            |
+| APP_BUCKET      | The S3 bucket hosting your static deployment files          | pizza.ilovebyu.click |
+| DISTRIBUTION_ID | The CloudFront Distribution ID for your frontend deployment | F3GRFXFEBQ8EEU       |
+
+#### Steps
+
+1. In the repository that you specified when you created your identity provider, create a GitHub Actions workflow file named `ci.yml` in your project's `.github/workflows` directory. This will contain the workflow to copy files to your S3 bucket.
+1. Paste the following template into the `ci.yml` file.
 
    ```yml
    name: Deploy
@@ -118,18 +143,15 @@ The final step is to create a GitHub Actions workflow that deploys to the S3 buc
            with:
              audience: sts.amazonaws.com
              aws-region: us-east-1
-             role-to-assume: AWS-ROLE-HERE
+             role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT }}:role/${{ secrets.CI_IAM_ROLE }}
          - name: Push to AWS S3
            run: |
              mkdir dist
              printf "<h1>CloudFront deployment with GitHub Actions</h1>" > dist/index.html
-             aws s3 cp dist s3://BUCKET-NAME-HERE --recursive
-             aws cloudfront create-invalidation --distribution-id DISTRIBUTION-HERE --paths "/*"
+             aws s3 cp dist s3://${{ secrets.APP_BUCKET }} --recursive
+             aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
    ```
 
-1. Replace `AWS-ROLE-HERE` with the ARN of the AWS AMI role you created.
-1. Replace `BUCKET-NAME-HERE` with the name of the S3 bucket you created.
-1. Replace `DISTRIBUTION-HERE` with the ID of your CloudFront distribution.
 1. Save the file, commit, and push.
 
 The interesting pieces of the workflow include the request for OIDC authorization using the supplied role.
@@ -140,10 +162,15 @@ The interesting pieces of the workflow include the request for OIDC authorizatio
   with:
     audience: sts.amazonaws.com
     aws-region: us-east-1
-    role-to-assume: AWSROLEHERE
+    role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT }}:role/${{ secrets.CI_IAM_ROLE }}
 ```
 
-If this is successful then you can execute any AWS CLI commands that the role allows. In our case it is the command to copy the `dist` directory to our bucket and invalidate the CloudFront distribution cache. If we didn't invalidate the cache than your new files would not
+If this is successful then you can execute any AWS CLI commands that the role allows. In our case it allows the commands to copy the `dist` directory to our S3 bucket and invalidate the CloudFront distribution cache. If we didn't invalidate the cache than your new files would not show up until the cache expired 24 hours later.
+
+```yml
+aws s3 cp dist s3://${{ secrets.APP_BUCKET }} --recursive
+aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
+```
 
 ## Result
 
