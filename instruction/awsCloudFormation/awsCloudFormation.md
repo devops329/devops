@@ -1,5 +1,7 @@
 # AWS Cloud Formation
 
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.html
+
 We have been doing a lot of manual manipulation of AWS in order to setup our automated CI pipeline. As we have stressed previously, manual work, or toil, is the enemy of DevOps. You would think that this only has to be done once and so automation is not really necessary. However, there are some very important reasons to automate this work.
 
 1. Disaster recovery
@@ -75,7 +77,7 @@ Here is the stack to create the ECS cluster.
 
 Here is the stack to create the ECS service including a load balancer.
 
-```json
+````json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "The template used to create an ECS Service from the ECS Console.",
@@ -250,7 +252,6 @@ Here is the stack to create the ECS service including a load balancer.
   }
 }
 ```
-
 ECS cluster, service, and ALB example from CloudFormation documentation.
 
 ```json
@@ -391,31 +392,31 @@ ECS cluster, service, and ALB example from CloudFormation documentation.
         "Value": {
           "Ref": "ECSCluster"
         }
-      },
-      "ECSService": {
-        "Description": "The created service.",
-        "Value": {
-          "Ref": "ECSService"
-        }
-      },
-      "LoadBalancer": {
-        "Description": "The created load balancer.",
-        "Value": {
-          "Ref": "LoadBalancer"
-        }
-      },
-      "Listener": {
-        "Description": "The created listener.",
-        "Value": {
-          "Ref": "Listener"
-        }
-      },
-      "TargetGroup": {
-        "Description": "The created target group.",
-        "Value": {
-          "Ref": "TargetGroup"
-        }
+    },
+    "ECSService": {
+      "Description": "The created service.",
+      "Value": {
+        "Ref": "ECSService"
+      }
+    },
+    "LoadBalancer": {
+      "Description": "The created load balancer.",
+      "Value": {
+        "Ref": "LoadBalancer"
+      }
+    },
+    "Listener": {
+      "Description": "The created listener.",
+      "Value": {
+        "Ref": "Listener"
+      }
+    },
+    "TargetGroup": {
+      "Description": "The created target group.",
+      "Value": {
+        "Ref": "TargetGroup"
       }
     }
   }
-```
+}
+````
