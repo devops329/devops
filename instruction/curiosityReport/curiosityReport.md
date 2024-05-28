@@ -2,7 +2,7 @@
 
 Curiosity is a defining characteristic of a successful software engineer. Throughout this course you will be exposed to new technologies and concepts that we don't have time to deep dive into. When you hear about something that you would like to understand better, you should always make a note of that concept and then find time to understand it a little better. Indulging your curiosity will deepen your understanding and take you up a level in your ability to contribute to eternity.
 
-In order to help you develop your ability to be curious you, are required to at least once during the course take a deep dive into something related to QA or DevOps that is either not covered in the course, or is only tangentially covered.
+In order to help you develop your ability to be curious, you are required to take a deep dive at least once during the course into something related to QA or DevOps that is either not covered in the course, or is only tangentially covered.
 
 This could include such topics as:
 
@@ -14,8 +14,8 @@ This could include such topics as:
 1. Learning how Jest or Playwright work
 1. Learning how docker containers work
 1. Researching the origin of the Agile movement
-1. Studying how a company like NetFlix does their DevOps
-1. Learning what site reliability engineering (SRE) is
+1. Studying how a company like Netflix does their DevOps
+1. Learning about site reliability engineering (SRE)
 
 ## ☑ Assignment
 

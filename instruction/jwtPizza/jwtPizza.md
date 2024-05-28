@@ -2,7 +2,7 @@
 
 ![jwt pizza logo](../../jwt-pizza-logo-sm.png)
 
-In order for us to master the concepts of Quality Assurance and Developer Operations we will work on a simple web application named JWT Pizza (pronounced Jot Pizza).
+In order for us to master the concepts of Quality Assurance and Developer Operations, we will work on a simple web application named JWT Pizza (pronounced Jot Pizza).
 
 JWT Pizza provides the valuable service of exchanging BitCoin for virtual pizzas that are represented by a cryptographically signed token ([JWT](https://jwt.io/introduction)). JWT Pizza also provides the opportunity to create a franchise and cash in on the 🍕 virtual pizza craze.
 
@@ -63,11 +63,11 @@ graph TB;
 
 ## JWT Pizza Service
 
-The JWT Pizza frontend makes extensive use of backend endpoints in order to satisfy the required customer functionality. The chief architect for the JWT Pizza Service as defined else endpoints and you can review their documentation with the following undocumented [service docs](https://pizza.cs329.click/docs/service) endpoint.
+The JWT Pizza frontend makes extensive use of backend endpoints in order to satisfy the required customer functionality. The chief architect for the JWT Pizza Service has defined these endpoints and you can review their documentation with the following undocumented [service docs](https://pizza.cs329.click/docs/service) endpoint.
 
 ## JWT Pizza Factory
 
-The JWT Pizza Factory is called by the JWT Pizza Service to actually fulfill a pizza order and generate a JWT that represents the order. The chief architect for the JWT Pizza Service as defined else endpoints and you can review their documentation with the following undocumented [factory docs](https://pizza-factory.cs329.click/api/docs/factory) endpoint.
+The JWT Pizza Factory is called by the JWT Pizza Service to actually fulfill a pizza order and generate a JWT that represents the order. The chief architect for the JWT Pizza Service has defined these endpoints and you can review their documentation with the following undocumented [factory docs](https://pizza-factory.cs329.click/api/docs/factory) endpoint.
 
 ## Application team deployment plan
 

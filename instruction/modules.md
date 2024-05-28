@@ -9,12 +9,12 @@
 ## Getting started
 
 - ☑ 🟢 [Overview](overview/overview.md)
-- 🔵 [History](history/history.md)
-- 🔵 [JWT Pizza](jwtPizza/jwtPizza.md)
-- ☑ 🔵 [AWS Account](awsAccount/awsAccount.md)
-- ☑ 🔵 [Christlike learning](christlikeLearning/christlikeLearning.md)
-- 🔵 [GitHub](gitHub/gitHub.md)
-- 🔵 [Curiosity report](curiosityReport/curiosityReport.md)
+- 🟢 [History](history/history.md)
+- 🟢 [JWT Pizza](jwtPizza/jwtPizza.md)
+- ☑ 🟢 [AWS Account](awsAccount/awsAccount.md)
+- ☑ 🟢 [Christlike learning](christlikeLearning/christlikeLearning.md)
+- 🟢 [GitHub](gitHub/gitHub.md)
+- 🟢 [Curiosity report](curiosityReport/curiosityReport.md)
 
 ## Static deployment
 

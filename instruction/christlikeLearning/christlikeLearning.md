@@ -1,6 +1,6 @@
 # Christlike learning
 
-No education is eternally complete unless you combine it with the influence and inspiration of the divine. Likewise no education is profitable unless we partner with the divine and apply it in the service of righteousness.
+No education is eternally complete unless you combine it with the influence and inspiration of the divine. Likewise, no education is profitable unless we partner with the divine and apply it in the service of righteousness.
 
 ## Letting the Spirit influence our work
 
@@ -26,7 +26,7 @@ In a similar manner, we are promised that with the Spirit's influence we can lea
 
 [_Doctrine and Covenants 8:1_](https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/8)
 
-I have found this to be true. When I put forth my best efforts, combined with the earnestly company of the spirit, I feel the walls of ignorance fall, and comprehension enters in. It does require me to study it out in my mind, but there is no question but to conclude that the spirit clarifies concepts and opens my thoughts to previously unconsidered paths.
+I have found this to be true. When I put forth my best efforts, combined with earnestly seeking the company of the spirit, I feel the walls of ignorance fall, and comprehension enter in. It does require me to study it out in my mind, but there is no doubt that the spirit clarifies concepts and opens my thoughts to previously unconsidered paths.
 
 - Approach your learning with a desire to obtain knowledge and skills so that you can further the Kingdom of God.
 - Consider the eternal value and impact of your learning.

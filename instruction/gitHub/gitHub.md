@@ -9,7 +9,7 @@ You should already be familiar with the basics of Git and GitHub. If you do not 
 - [GitHub Hello World](https://docs.github.com/en/get-started/start-your-journey/hello-world)
 - [Git Cheat Sheet](https://training.github.com/downloads/github-git-cheat-sheet/)
 
-For this course we will be using GitHub for the following reasons:
+For this course we will be using GitHub for the following purposes:
 
 1. Hosting all of the course instruction
 1. Forking the application code
@@ -23,7 +23,7 @@ If you do not already have a GitHub account then go and [create one now](https:/
 
 ## Forks
 
-A GitHub fork provides the ability to create a copy of a GitHub repository. Usually you [fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo) to get a copy of an open source code base that you want to experiment with, or contribute to. For example, the repository containing these instructions. A fork is similar to cloning a repository to your development environment, but it clones to GitHub instead. Then pull the fork down to your development environment to work on it. The fork maintains a link to the upstream (original) repository that allows you to easily pull down updates and merge them with your fork. A fork also allows you to create a pull request in order to push suggested changes to the original repository.
+A GitHub fork provides the ability to create a copy of a GitHub repository. Usually you [fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo) to get a copy of an open source code base that you want to experiment with, or contribute to. One such example could be the repository containing these instructions. A fork is similar to cloning a repository to your development environment, but it clones to GitHub instead. You can then pull the fork down to your development environment to work on it. The fork maintains a link to the upstream (original) repository that allows you to easily pull down updates and merge them with your fork. A fork also allows you to create a pull request in order to push suggested changes to the original repository.
 
 If you have never forked a repository before you should go find an open source project that interests you. For example, here is the [Dad Jokes API](https://github.com/DadJokes-io/Dad_Jokes_API). This simple web service provides an endpoint to get a joke. Consider forking this repository in order to experiment with how it works.
 
@@ -52,4 +52,4 @@ GitHub allows you to create a fork of any repository on GitHub. You just push th
 
 ## Contributing to the course instruction
 
-In this class, if you notice something in the instruction that needs to be enhanced, feel free to fork the [instruction repo](https://github.com/devops329/devops), and make a pull request. This will give you experience with this forking and improve the instruction for others at the same time. Plus your name will be included as a contributor. How cool is that!
+In this class, if you notice something in the instruction that needs to be enhanced, feel free to fork the [instruction repo](https://github.com/devops329/devops), and make a pull request. This will give you experience with forking and improve the instruction for others at the same time, plus your name will be included as a contributor. How cool is that!
