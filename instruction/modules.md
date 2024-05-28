@@ -32,9 +32,9 @@
 
 ## Quality assurance
 
-- 🔵 [Testing](testing/testing.md)
+- 🟢 [Testing](testing/testing.md)
 - 🚧 [Testing variations](testingVariations/testingVariations.md)
-- 🔵 [Coverage](coverage/coverage.md)
+- 🟢 [Coverage](coverage/coverage.md)
 - ☑ 🔵 [Jest](jest/jest.md)
 - ☑ 🟢 [Test driven development (TDD)](tdd/tdd.md)
 - ☑ 🟢 [Service testing](serviceTesting/serviceTesting.md)

@@ -8,11 +8,11 @@
 
 Software and system development should not be separated from the concept of testing any more than it can in other domains such as construction, writing, or the food industry. There always needs to be some sort of review to ensure the quality of the product. Without a testing cycle you have no assurance that the system meets the design characteristic or is satisfactory to the customer.
 
-In reality, you cannot have a product without testing. If you don't test the product internally, you are just pushing the role of testing onto your customer, and that type of attitude will not work very well for long. It is much better for everyone if quality is baked in to what you deliver.
+In reality, you cannot have a product without testing. If you don't test the product internally, you are just pushing the role of testing onto your customer, and that type of attitude will not work very well for long. It is much better for everyone if quality is baked into what you deliver.
 
-Testing in general gives a different mindset to creating a project. It focuses the producer of the product to focus on the product from a consumer's perspective. Generally this creates a cleaner design that is more likely to satisfy the customer.
+Testing in general gives a different mindset to creating a project. It forces the producer of the product to focus on the product from a consumer's perspective. Generally this creates a cleaner design that is more likely to satisfy the customer.
 
-What is different with testing software products, is that we can test one software system, by creating another software system to automatically do the testing.
+What is different with testing software products is that we can test one software system by creating another software system to automatically do the testing.
 
 ![testing](testing.png)
 
@@ -23,7 +23,7 @@ This gives us some unexpected benefits.
 - Prevents breakage of existing functionality because it is cheap to test everything that was done before
 - The tests provide a working example of the product that documents how the product works
 
-Combined together these benefits result in a better design, in a shorter amount of time, with a reduced number of defects. This all leads to greater customer and developer satisfaction.
+Combined together, these benefits result in a better design, in a shorter amount of time, with a reduced number of defects. This all leads to greater customer and developer satisfaction.
 
 ## More than just testing
 
@@ -50,7 +50,7 @@ First of all, testing forces you to consider the design of the code from the con
 
 Second, there is no better documentation than the code itself. Unfortunately, code can take a long time to read. However, an example of how to use the code is often the exact concise documentation that we are looking for. Well written, clearly named, tests can provide just that.
 
-Consider the following test for a `Catalog` object. We can see from the test that we can `add` items and then get them all back with the `history`. Items can be of different type. It is also obvious that both the add and history methods are asynchronous. No long winded narratives necessary, I can experiment with this example, and I can use it to start my code.
+Consider the following test for a `Catalog` object. We can see from the test that we can `add` items and then get them all back with the `history`. Items can be of different type. It is also obvious that both the add and history methods are asynchronous. No long winded narratives are necessary; I can experiment with this example, and I can use it to start my code.
 
 ```js
 test('history', async () => {
@@ -68,7 +68,7 @@ test('history', async () => {
 
 - Test only one thing
 - Don't repeat tests that are already covered elsewhere
-- Design your production code so that test is naturally supported
+- Design your production code so that testing is naturally supported
 - Make the tests readable
 - Test can run in any order
 
@@ -78,7 +78,7 @@ test('history', async () => {
 
 _Source_: Robert C. Martin - Clean Code
 
-Modern testing automation naturally creates a game like environment. It can take the drudgery out of programming and give you an immediate dopamine hit.
+Modern testing automation naturally creates a game-like environment. It can take the drudgery out of programming and give you an immediate dopamine hit.
 
 ### Ohhh, look, tests! I wanna play!
 
@@ -152,7 +152,7 @@ You are writing a program to test your program. Make no mistakes, this is more c
 
 ### Incomprehensible
 
-It is common to take time to properly design production software without giving the same thought to the design of tests. Watch out for these red flags:
+It is common to take time to properly design production software without giving the same thought to the design of tests. Watch out for these red flags in test code:
 
 - Run on for hundreds of lines
 - Use overly terse constructs

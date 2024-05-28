@@ -1,6 +1,6 @@
 # Coverage
 
-Code coverage is a metric that helps measure the percentage of a program code was executed when testing. A high percentage of code coverage suggests that the code has been more thoroughly tested and has a lower chance of containing undetected software bugs.
+Code coverage is a metric that helps measure the percentage of a program code that was executed when testing. A high percentage of code coverage suggests that the code has been more thoroughly tested and has a lower chance of containing undetected software bugs.
 
 Here is an example of a code coverage report that represents several different coverage metrics for the files in a simple application. The color coding of the percentages help you focus on the areas that are the most problematic.
 
@@ -10,7 +10,7 @@ Here is an example of a code coverage report that represents several different c
 
 There are several types of code coverage. This includes:
 
-- **Line**: The percentage of lines that have been executed in the program. Usually this only counts lines of code. Comments and whitespace is not counted.
+- **Line**: The percentage of lines that have been executed in the program. Usually this only counts lines of code. Comments and whitespace are not counted.
 - **Statement**: The percentage of statements that have been executed in the program. In the following example there are three statements that will not be tested if the line is not executed.
   ```js
   let result = a > 0 && x(a) && y(a);
@@ -31,7 +31,7 @@ There are several types of code coverage. This includes:
 
 ## How much coverage is enough?
 
-Hopefully you are seeing the immediately see the value of automated testing and will have a hard time writing code without at the same time writing the tests.
+Hopefully you are seeing the immediate value of automated testing and will have a hard time writing code without at the same time writing the tests.
 
 However, there is a point of diminishing returns. Most of the negative effects of taking a testing mindset result from pushing testing too far. One place this is clearly a problem is in the debate about the correct percentage of code coverage.
 
@@ -49,11 +49,11 @@ However, in complex applications there is often significant code for supporting 
 
 This means you have to make extensive investments in testing code and inject special code into your production system to cover these cases.
 
-You many find that for those extreme cases, it is better to actually manually test them instead of doing back flips to automate the testing. You can also take the, somewhat questionable strategy, of waiting until an actual bug is reported for these edge cases before you make an extreme investment.
+You many find that for those extreme cases, it is better to actually manually test them instead of doing backflips to automate the testing. You can also take the somewhat questionable strategy of waiting until an actual bug is reported for these edge cases before you make an extreme investment.
 
-You should also realize what 100% coverage actually means. It does not mean 100% verification. There are infinite possibilities for different parameters, paths, timings, and configurations to a complex software package. Hitting every line of code **does not** mean that you have hit every permutation that you code can execute.
+You should also realize what 100% coverage actually means. It does not mean 100% verification. There are infinite possibilities for different parameters, paths, timings, and configurations to a complex software package. Hitting every line of code **does not** mean that you have hit every permutation that your code can execute.
 
-The amount of effort you put into verifying the correctness of your code should be inline with the value and potential for harm of the software you are testing. A pet project that will never be used by anyone should not involve millions of hours and a 300:1 testing/production code ratio. However, for a health device where a bug would be lethal, or a financial management package where a bug would result in poverty, that cost might be justified.
+The amount of effort you put into verifying the correctness of your code should be in line with the value and potential for harm of the software you are testing. A pet project that will never be used by anyone should not involve millions of hours and a 300:1 testing/production code ratio. However, for a health device where a bug would be lethal, or a financial management package where a bug would result in poverty, that cost might be justified.
 
 For common web application development it is common to have around a 1:1 test/production code ratio, with somewhere above 80% line coverage.
 
