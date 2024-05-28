@@ -24,7 +24,7 @@ To configure GitHub Pages to host a static deployment you need to first create a
 
 Next you need to associate our new branch with GitHub Pages for the jwt-pizza repository.
 
-1. Select the `Setting` option form the main navigation.
+1. Select the `Setting` option from the main navigation.
 1. Select the `Pages` option from the left hand navigation.
 1. Select the `Source` option and verify that `Deploy from a branch` is selected
    > ![GitHub Pages settings](gitHubPagesSettings.png)
@@ -50,9 +50,9 @@ Now you can copy the branch to your development environment, set up some files, 
    git checkout -b gh-pages origin/gh-pages
    ```
 
-   This branch should contain all of the files for the jwt-pizza frontend. However, you don't want to deploy the project code, instead you want to deploy the distribution bundled that Vite creates. Before you do that let's deploy a simple Hello World page to make sure things are working.
+   This branch should contain all of the files for the jwt-pizza frontend. However, you don't want to deploy the project code, instead you want to deploy the distribution bundle that Vite creates. Before you do that, let's deploy a simple Hello World page to make sure things are working.
 
-1. Delete all of the code in the branch. Remember, that this branch is just to host a static deployment on GitHub Pages. You should never merge it back into `main`.
+1. Delete all of the code in the branch. Remember that this branch is just to host a static deployment on GitHub Pages. You should never merge it back into `main`.
    ```sh
    rm -r * .env* .vscode
    print "hello GitHub pages" > index.html

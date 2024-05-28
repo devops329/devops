@@ -2,7 +2,7 @@
 
 Sometimes your application consists of files that can be loaded and executed on a user's device. The simplifies things because you do not need to deploy backend computing resources to handle things like functional endpoints or storing customer data.
 
-A common example of static deployment is a website that only consists of set of HTML pages can be hosted as files on an HTTP server and then executed on the user's computer when they load the files in the browser. Taking to the extreme, we can provide a sample application that simply prints out _Hello World_.
+A common example of static deployment is this: A website that only consists of a set of HTML pages can be hosted as files on an HTTP server and then executed on the user's computer when they load the files in the browser. Taking this to the extreme, we can provide a sample application that simply prints out _Hello World_.
 
 ```html
 <!DOCTYPE html>
@@ -61,6 +61,6 @@ graph LR;
     end
 ```
 
-This greatly simplifies your life because you don't have to worry about deploying and managing code running on backend servers. That is left to the DevOps engineers working at JWT Headquarters. You just need to put the JWT Pizza frontend code in a location that a browser can load the frontend code from.
+This greatly simplifies your life because you don't have to worry about deploying and managing code running on backend servers. That is left to the DevOps engineers working at JWT Headquarters. You just need to put the JWT Pizza frontend code in a location from where a browser can load the frontend code.
 
 In later instruction you will learn how to statically deploy the JWT Pizza Service. However, eventually you will need to also host your own JWT Pizza Service and database. At that point things get significantly more complicated, but that is also where all the fun is.

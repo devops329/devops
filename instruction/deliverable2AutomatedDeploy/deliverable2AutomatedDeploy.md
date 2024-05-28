@@ -5,16 +5,16 @@
 In your last deliverable we manually builded the JWT Pizza frontend, copied it into a branch, and pushed it to GitHub pages. While this process works, it has several problems.
 
 1. **Slow**: It requires a human to execute a series of steps. That slows down your ability to move quickly.
-1. **Error prone**: If a step is skipped or a parameter is misplaced it could cause the deployment to fail, or worse take down the website entirely.
-1. **Non-reproducible**: You have no way of knowing what steps were followed, or who even executed them.
+1. **Error prone**: If a step is skipped or a parameter is misplaced it could cause the deployment to fail, or worse, take down the website entirely.
+1. **Non-reproducible**: You have no way of knowing which steps were followed, or who executed them.
 
-Basically, manual processes violates the prime directive of DevOps, that everything should be automated.
+Basically, manual processes violate the prime directive of DevOps, that everything should be automated.
 
 So now it is time to take the next step. You are going to use `GitHub Actions` to deploy your static deployment each time a commit is pushed to your fork of the jwt-pizza repository.
 
 ## Create the GitHubAction workflow
 
-Here are the steps to make all the automation magic happen.
+Here are the steps to make the automation magic happen.
 
 1. Open your fork of `jwt-pizza`.
 1. Change the GitHub Pages option for the _Build and deployment/Source_ to `GitHub Actions`. This causes GitHub to add an environment called `github-pages`
