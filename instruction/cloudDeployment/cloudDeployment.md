@@ -30,9 +30,9 @@ You will build this by taking the following steps:
    1. Manually setup CloudFront, S3, Certificate Manager, and Route 53.
    1. Do a manual deployment to S3.
    1. Modify your frontend deployment GitHub Actions workflow to push to S3.
-1. Migrate the **backend** hosting AWS
-   1. Convert your build process to build a Docker container
-   1. Manually setup ECR, ECS, ALB, and Fargate
+1. Migrate the **backend** hosting to AWS
+   1. Convert your build process to build a Docker container.
+   1. Manually setup ECR, ECS, ALB, and Fargate.
    1. Do a manual deployment to ECR and trigger deployment with ECS.
    1. Modify your backend deployment GitHub Actions workflow to push to ECR and trigger deployment with ECS.
 1. Create CloudFormation scripts to build and teardown your frontend and backend services from scratch.
