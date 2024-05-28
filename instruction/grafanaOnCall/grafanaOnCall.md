@@ -10,14 +10,15 @@ The following steps will allow you to create an alerting system in Grafana:
 -   Set default and important notification method to SMS / call (whichever you prefer)
 -   Add and verify your phone number
 
-2. Create a Contact Point
+1. Create a Contact Point
     - Note - The Contact Point is the bridge between an alert and the OnCall integration
 
 -   Alerting -> Contact Points -> Add Contact Point
 -   Give it a name (I named mine after myself)
 -   Select Grafana OnCall for Integration
 
-3. Create an Escalation Chain
+1. Create an Escalation Chain
+- An escalation chain is a chain of actions to be taken to escalate the alert - notifying those who need to take action.
 
 -   OnCall -> Escalation Chains -> New Escalation Chain
 -   Give it a name
@@ -27,7 +28,7 @@ The following steps will allow you to create an alerting system in Grafana:
         -   Do one of the above once every minute until the alert is acknowledged
 -   Select notification style, yourself as the user
 
-4. Create an integration
+1. Create an integration
 
 -   OnCall -> Integrations -> New Integration
 -   Choose Grafana Alerting
@@ -36,7 +37,7 @@ The following steps will allow you to create an alerting system in Grafana:
 -   Add your contact point
 -   Send a test alert
 
-5. Create an Alert Rule
+1. Create an Alert Rule
 
 -   Give it a name
 -   Create query (I queried requests per minute)
@@ -47,4 +48,3 @@ The following steps will allow you to create an alerting system in Grafana:
 Escalation chains options
 I have it send a single text to my phone.
 I could get it to text every minute until resolved, call me, send an email, whatever.
-Escalation chain = chain of actions to escalate the alert.
