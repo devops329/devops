@@ -49,7 +49,7 @@ Add the `test` script to `package.json` so that it knows to use Jest for testing
   },
 ```
 
-## Creating the first test
+## Creating a simple test
 
 Now that you have set up jwt-pizza-service to be tested with Jest we can make sure it is all working right by writing a simple test. Create a file named `authRouter.test.js` in the `src/routes` directory and place the following `hello world` test in file.
 
@@ -79,6 +79,17 @@ Tests:       1 passed, 1 total
 This is not very interesting from a coverage perspective, but it does demonstrate that you are configured correctly.
 
 Make sure you commit and push you code at this important milestone.
+
+## Mocking dependencies
+
+Before we can write a test that actually uses the functionality of the JWT Pizza Service we need to think about the service's dependencies. In this case it is the MySQL database. We have a choice here:
+
+1. **Unit test**: Mock out the the database dependency such that the service doesn't actually call the database.
+1. **Component test**: Let the service call the MySQL database so that we can actually tests that our SQL syntax is correct.
+
+The downside of component testing is that it complicates the test setup and potentially increases the time the test takes to execute. The downside of a pure unit test is that it doesn't actually test a core part of what the code is doing. You don't actually have any assurance that service can persist data correctly.
+
+For the JWT Pizza Service you will setup a MySQL database that your service code calls and use component testing to validate the interaction between the service and the database.
 
 ## Write a real test
 
