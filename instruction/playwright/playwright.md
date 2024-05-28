@@ -260,7 +260,7 @@ Some of the cool features include:
 - Record starting at the cursor
 - Displaying the trace viewer
 
-You can also debug your tests by placing a break point and walking through
+You can also debug your tests by placing a break point and walking through test code in VS Code and the frontend code in the browser's dev tools.
 
 ## Writing your own tests
 
