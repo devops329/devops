@@ -1,0 +1,31 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Parameters": {
+    "MyBucketName": {
+      "Description": "Unique name for the bucket",
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "S3Bucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": {
+          "Ref": "MyBucketName"
+        }
+      },
+      "DeletionPolicy": "Delete"
+    }
+  },
+  "Outputs": {
+    "MyBucketsArn": {
+      "Value": {
+        "Fn::GetAtt": [
+          "S3Bucket",
+          "Arn"
+        ]
+      },
+      "Description": "The arn for the newly created bucket."
+    }
+  }
+}
