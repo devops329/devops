@@ -6,7 +6,7 @@ With the UI testing skills you have learned you are now ready to test the JWT Pi
 
 ## Configuring Playwright
 
-You previously created a fork of `jwt-pizza`. Now you need to add Playwright and the coverage functionality. The first step is to install the required packages and setup the project using the [Playwright instruction](../playwright/playwright.md) that you studied earlier. This includes the following:
+You previously created a fork of `jwt-pizza`. Now you need to add Playwright and the coverage functionality. The first step is to install the required packages and set up the project using the [Playwright instruction](../playwright/playwright.md) that you studied earlier. This includes the following:
 
 1. Install Playwright. You can choose if you want to use JavaScript or TypeScript.
    ```sh
@@ -59,6 +59,7 @@ You previously created a fork of `jwt-pizza`. Now you need to add Playwright and
 
 1. Modify `.gitignore` to excluded `.nyc_output`.
 1. Add the configuration files
+
    **.nycrc.json**
 
    ```js
@@ -130,7 +131,7 @@ test('login/profile/logout', async ({ page }) => {
 }
 ```
 
-Now when we run the test we get **14.75%** coverage. Just for loading the home page.
+Now when we run the test we get **14.75%** coverage. Just for loading the home page!
 
 ```sh
 ➜  npm run test:coverage
@@ -142,13 +143,13 @@ All files                |   14.69 |    13.66 |      17 |   14.75 |
 
 ## Recording a test
 
-We can use the VS Code Playwright extension `Record at coursor` functionality to give us a jump start on writing our tests. Open your `pizza.spec.js` file and add a new empty test.
+We can use the VS Code Playwright extension `Record at cursor` functionality to give us a jump start on writing our tests. Open your `pizza.spec.js` file and add a new empty test.
 
 ```js
 test('buy pizza with login', async ({ page }) => {});
 ```
 
-Put your cursor in the body of the test function, open the `Test Explorer` tab and press the `Record at cursor` action. This wil start up the recorded. Then go through the steps of ordering a pizza and logging in as prompted.
+Put your cursor in the body of the test function, open the `Test Explorer` tab and press the `Record at cursor` action. This wil start up the recording. Then go through the steps of ordering a pizza and logging in as prompted.
 
 ![alt text](playwrightTestRecord.gif)
 
@@ -192,11 +193,11 @@ That takes us to **35%** line coverage. This seems really promising and if we ke
 
 To solve this you could start your own JWT service in your dev environment and run against that. However, we eventually want to run our test with GitHub Actions and so that strategy will be difficult.
 
-A different option is to mock out the JWT service. That way the we are only testing the frontend. This will make the tests more stable and even make they run faster, but it has the disadvantage of insulating us from bugs that might get introduced when the protocol between the front and backend changes. Still this seems like the right option. So let's look at converting the test we just created over to using a mocked out service.
+A different option is to mock out the JWT service. That way the we are only testing the frontend. This will make the tests more stable and even make they run faster, but it has the disadvantage of insulating us from bugs that might get introduced when the protocol between the front and backend changes. Still, this seems like the right option. So let's look at converting the test we just created over to using a mocked out service.
 
 ## Mocking JWT Pizza Service
 
-First we need to figure out what endpoints the test will make. To accomplish this, we can use the Playwright Trace Viewer and then mock out each request it makes. This will show us all of the network requests that were made at each step of the test. We can then use the Playwright `route` method to create mocks for each network request.
+First we need to figure out which endpoints the test uses. To accomplish this, we can use the Playwright Trace Viewer. This will show us all of the network requests that were made at each step of the test. We can then use the Playwright `route` method to create mocks for each network request.
 
 ### Recording endpoint requests
 
@@ -212,7 +213,7 @@ Follow these steps to use Trace Viewer to get the network requests.
 
 ![TraceViewer](traceViewer.gif)
 
-This shows us that we made four requests. After we simplify them down we have the following.
+This shows us that we made four requests. After we simplify them, we have the following.
 
 | method | endpoint        | request body                                                                                                                                       | response body                                                                                                                                                                                                                                                                                                                                                                                             |
 | ------ | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -223,7 +224,7 @@ This shows us that we made four requests. After we simplify them down we have th
 
 ### Create the mocks
 
-Now that we have the endpoints that the test makes we can use the Playwright `route` function to mock each one out. Let's start with the `Login` endpoint.
+Now that we have the endpoints that the test uses we can use the Playwright `route` function to mock each one out. Let's start with the `Login` endpoint.
 
 We specify the URL path to match with the glob sequence `*/**/api/auth`. This will match any fetch request that ends in `api/auth`. Next we define what the expected request body will be, and what we will return as the response.
 
@@ -241,7 +242,7 @@ await page.route('*/**/api/auth', async (route) => {
 
 We repeat this process by looking at each of the expected endpoint calls and creating a a route to verify and respond to them.
 
-The final version of the test, with all of the mocks looks like this. Note that there are a few things that were altered from the original recording to clean things up a bit.
+The final version of the test, with all of the mocks, looks like this. Note that there are a few things that were altered from the original recording to clean things up a bit.
 
 ```js
 test('purchase with login', async ({ page }) => {

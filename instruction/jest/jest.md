@@ -33,7 +33,7 @@ Then change the package.json script so that the `test` command runs Jest.
 }
 ```
 
-Now you need a simple test that will demonstrate that everything is wired up correctly. All you need to do is include the phrase `.test.` as part of your file name and Jest will pick the test up automatically. In this test we just expect that one plus one will be 2. Notice how the Jest syntax reads naturally.
+Now you need a simple test that will demonstrate that everything is wired up correctly. All you need to do is include the phrase `.test.` as part of your file name and Jest will pick the test up automatically. In this test we just expect that one plus one will be two. Notice how the Jest syntax reads naturally.
 
 **index.test.js**
 
@@ -170,7 +170,7 @@ There are many different reporters that you can use. Here are the most common on
 | **lcov**         | Creates an LCOV report, another popular format supported by CI tools for integration with coverage analysis platforms.                                           |
 | **clover**       | Generates a Clover coverage report. This format is specifically designed for the Clover code coverage tool, offering detailed metrics and analysis capabilities. |
 
-Some reporters output to the `coverage` directory while other output to the console. For example, the `text-summary` reporter will output the following to the console.
+Some reporters output to the `coverage` directory while others output to the console. For example, the `text-summary` reporter will output the following to the console.
 
 ```sh
 =============================== Coverage summary ===============================
@@ -228,7 +228,7 @@ You can run Jest from the console, but it is much nicer to install an extension 
 
 ![Jest VS Code extension](jestVsCodeExtension.png)
 
-Make sure you checkout the ability for the extension to run the tests whenever they change and also to show the code coverage. To access this functionality click on the gear icon in the Test Explore pane. Then chose when you want the test to run and also toggle the coverage option.
+Make sure you check out the ability for the extension to run the tests whenever they change and also to show the code coverage. To access this functionality click on the gear icon in the Test Explore pane. Then choose when you want the test to run and also toggle the coverage option.
 
 ![code Coverage](codeCoverage.png)
 
@@ -250,7 +250,7 @@ if (process.env.VSCODE_INSPECTOR_OPTIONS) {
 
 [Jest Expect](https://jestjs.io/docs/expect)
 
-When you create assertions with Jest, you use the `expect` method to generate an expectation object. The expectation object has numerous matcher operations that assert the state of the expectation. You will want to be come familiar with all of the matchers, but we will give you a taste fo the most common ones here.
+When you create assertions with Jest, you use the `expect` method to generate an expectation object. The expectation object has numerous matcher operations that assert the state of the expectation. You will want to be come familiar with all of the matchers, but we will give you a taste of the most common ones here.
 
 ### Equality
 
@@ -354,7 +354,7 @@ test('exceptions', () => {
 
 Mocking parameters and return results enables you to create unit tests without having to worry about integrating with the rest of the code base. This is especially important when you need to isolate fetch or database requests.
 
-Jests support mocking in two major ways. The first way is by creating a mocking function that tracks the calls that are made to function, and mock out the return values. The second way is to mock an entire module so that you can replace or alter what how the module interacts with the code you are trying to test.
+Jests support mocking in two major ways. The first way is by creating a mocking function that tracks the calls that are made to function, and mock out the return values. The second way is to mock an entire module so that you can replace or alter how the module interacts with the code you are trying to test.
 
 ### Mocking functions
 
@@ -375,11 +375,11 @@ test('mocking functions', () => {
 });
 ```
 
-This might seem like we are just creating and calling a normal JavaScript function, but the magic happens in the tracking of all the calls to the mocked function. By referencing the `calls` and `results` properties you can see what happened with each invocation of the function. The `calls` property provides an array with an entry representing an array for all the parameters for every call. In this example, there was two calls and so there are two array values in the call property. Likewise the `results` property contains an array for each call's return value. This tracking enables you to assert that your code is flowing as expected.
+This might seem like we are just creating and calling a normal JavaScript function, but the magic happens in the tracking of all the calls to the mocked function. By referencing the `calls` and `results` properties you can see what happened with each invocation of the function. The `calls` property provides an array with each entry representing an array containing all the parameters for that call. In this example, there were two calls and so there are two array values in the calls property. Likewise the `results` property contains an array for each call's return value. This tracking enables you to assert that your code is flowing as expected.
 
 #### Expect mocking helper methods
 
-Jest provides several helper methods that make it easier to work with the calls and results. This includes the `toHaveBeenCalledWith` function that checks if a call has ever been made with the given parameters, and the `toHaveBeenLastCalledWith` that assert parameters for the last call.
+Jest provides several helper methods that make it easier to work with the calls and results. This includes the `toHaveBeenCalledWith` function that checks if a call has ever been made with the given parameters, and the `toHaveBeenLastCalledWith` function that asserts parameters for the last call.
 
 ```js
 test('mocking function matchers', () => {
@@ -417,7 +417,7 @@ test('mocking function multiple calls', () => {
 
 #### Mocking function parameters
 
-To this point we really haven't show a valid use for mocking out parameters. Let's correct that by considering a pipeline module that provides a class named `Pipeline` that takes a series of step functions than then calls them when the Pipeline `run` method is called.
+To this point we haven't really shown a valid use for mocking out parameters. Let's correct that by considering a pipeline module that provides a class named `Pipeline` that takes a series of step functions then calls them when the Pipeline `run` method is called.
 
 ```js
 class Pipeline {
@@ -438,7 +438,7 @@ class Pipeline {
 module.exports = Pipeline;
 ```
 
-Using mocked functions it is easy to write a test that verifies that each step added to the pipeline is called at the appropriate number of times and with the right data.
+Using mocked functions, it is easy to write a test that verifies that each step added to the pipeline is called the appropriate number of times and with the right data.
 
 ```js
 test('mocking callback functions', () => {
@@ -490,7 +490,7 @@ jest.mock('./pipeline', () => {
 });
 ```
 
-Here is an example of using the mocked version of the pipeline module. Notice that we can reference the mocked classes `mockRun` function to see how the `Pipeline.run` function was called.
+Here is an example of using the mocked version of the pipeline module. Notice that we can reference the mocked class's `mockRun` function to see how the `Pipeline.run` function was called.
 
 ```js
 test('mocking modules', () => {
@@ -553,6 +553,8 @@ test('fake timers', async () => {
   jest.useRealTimers();
 });
 ```
+
+When incrementing the runtime of asynchronous code, you can adapt the jest timer functions to also be async, for example `jest.advanceTimersByTimeAsync(1000)`
 
 ## Mocking fetch requests
 
@@ -631,6 +633,6 @@ module.exports = CatFact;
 
 Once you are done, go over to Canvas and submit a screenshot of your code with 100% coverage.
 
-The following is an example of what you should submit. Notice the coverage line at the top of the `catFact.js` file that demonstrated the complete coverage.
+The following is an example of what you should submit. Notice the coverage line at the top of the `catFact.js` file that demonstrates the complete coverage.
 
 ![Cat Fact Coverage](catFactCoverage.png)

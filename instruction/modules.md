@@ -35,7 +35,7 @@
 - 🟢 [Testing](testing/testing.md)
 - 🚧 [Testing variations](testingVariations/testingVariations.md)
 - 🟢 [Coverage](coverage/coverage.md)
-- ☑ 🔵 [Jest](jest/jest.md)
+- ☑ 🟢 [Jest](jest/jest.md)
 - ☑ 🟢 [Test driven development (TDD)](tdd/tdd.md)
 - ☑ 🟢 [Service testing](serviceTesting/serviceTesting.md)
 - ☑ 🟢 [Lint](lint/lint.md)
@@ -44,10 +44,10 @@
 - 🟢 [Integration testing](integrationTesting/integrationTesting.md)
 - ☑ 🟢 [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
 - 🟢 [Unit testing](unitTesting/unitTesting.md)
-- 🔵 ☑ [⓷ Unit testing: JWT Pizza Service](deliverable3UnitTesting/deliverable3UnitTesting.md)
-- 🔵 [UI testing](uiTesting/uiTesting.md)
-- ☑ 🔵 [Playwright](playwright/playwright.md)
-- ☑ 🔵 [⓸ UI test: JWT Pizza](deliverable4UiTesting/deliverable4UiTesting.md)
+- 🟢 ☑ [⓷ Unit testing: JWT Pizza Service](deliverable3UnitTesting/deliverable3UnitTesting.md)
+- 🟢 [UI testing](uiTesting/uiTesting.md)
+- ☑ 🟢 [Playwright](playwright/playwright.md)
+- ☑ 🟢 [⓸ UI test: JWT Pizza](deliverable4UiTesting/deliverable4UiTesting.md)
 - [Frequently Asked Questions](faq/qualityAssuranceFaq.md)
 
 ## Cloud deployment

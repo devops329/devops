@@ -36,7 +36,7 @@ Browser drivers act as the bridge between your test scripts and the actual web b
 
 ![testingStack](testingStack.png)
 
-Currently, the most common browser drivers are based upon the W3C [WebDriver](https://www.w3.org/TR/webdriver2/) specification. The standard was derived based upon an early pioneer of browser testing named [Selenium](). Many of the common testing framework that exist today use the Selenium WebDriver as their foundation. There are other drivers that follow the WebDriver specification for specific browsers. For example, this includes SafariDriver, OperaDriver, and FirefoxDriver.
+Currently, the most common browser drivers are based upon the W3C [WebDriver](https://www.w3.org/TR/webdriver2/) specification. The standard was derived based upon an early pioneer of browser testing named [Selenium](). Many of the common testing frameworks that exist today use the Selenium WebDriver as their foundation. There are other drivers that follow the WebDriver specification for specific browsers. These include SafariDriver, OperaDriver, and FirefoxDriver.
 
 Alternatively, the testing framework Playwright chose to go directly against the browser APIs for all of the major browsers. This includes WebKit (Safari), Chromium, and Firefox. They took this approach in order to execute tests faster, with less flakiness.
 

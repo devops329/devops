@@ -38,7 +38,7 @@ jobs:
 
 This workflow is fairly simple. It checks out the code, installs the NPM dependencies, and runs the linter.
 
-When you commit and push this change, you can view the workflow executing on the GitHub Actions view of your repository. Assuming that you have cleaned up all of the linting error, you should see something similar to the following.
+When you commit and push this change, you can view the workflow executing on the GitHub Actions view of your repository. Assuming that you have cleaned up all of the linting errors, you should see something similar to the following.
 
 > ![action result](actionResult.png)
 
@@ -60,7 +60,7 @@ Using the GitHub Repository dashboard for your fork of `jwt-pizza-service`, sele
 
 ![Create repo secret](createRepoSecret.png)
 
-Enter the name `FACTORY_API_KEY` and then enter the value your received for making calls to the factory. Press `Save key` and then it is ready to be used in your workflow with the template placeholder of `${{ secrets.FACTORY_API_KEY }}`.
+Enter the name `FACTORY_API_KEY` and then enter the value you received for making calls to the factory. Press `Save key` and then it is ready to be used in your workflow with the template placeholder of `${{ secrets.FACTORY_API_KEY }}`.
 
 ![alt text](factorySecret.png)
 

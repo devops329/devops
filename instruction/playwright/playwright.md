@@ -11,7 +11,7 @@
 
 For the purposes of this course, we could pick any of the top UI testing frameworks. However, we are going to pick a newcomer, Playwright. Playwright has some major advantages. It is backed by Microsoft, it integrates really well with VS Code, and it runs as a Node.js process. It is also considered one of the least flaky of the testing frameworks.
 
-Playwright gets its speed and stability by running directly against each of the major browsers DevTool API. This is a major advantage over other tools that either directly or indirectly use the Selenium WebDriver or only support a single browser.
+Playwright gets its speed and stability by running directly against each of the major browsers' DevTool API. This is a major advantage over other tools that either directly or indirectly use the Selenium WebDriver or only support a single browser.
 
 ## Tutorial project
 
@@ -21,7 +21,7 @@ In order to have something that we can use to demonstrate how to use Playwright,
    ```sh
    mkdir playwrightExample && cd playwrightExample
    ```
-1. Create the basic Vite React app.
+1. Create the basic Vite React app
    ```sh
    npm init -y
    npm install vite@latest -D
@@ -131,7 +131,7 @@ Now review the playwright configuration file: `playwright.config.ts`. In there y
     },
 ```
 
-For simplicity sake, we will only tests with `chromium` and so delete the other entries. Once you have modified the file you can install the `chromium` driver.
+For simplicity sake, we will only run tests with `chromium`, so delete the other entries. Once you have modified the file you can install the `chromium` driver.
 
 ```sh
 npx playwright install --with-deps chromium
@@ -270,7 +270,7 @@ Let's start by getting rid of the example tests. To do this you can either delet
 
 ### Recording a test
 
-We can create our test by using the VS Code Playwright extensions ability to recording the interactions with the browser. To start the recording press the `Record new` new option found under the `Playwright panel` of the Test Explorer side pane.
+We can create our test by using the VS Code Playwright extension's ability to record the interactions with the browser. To start the recording press the `Record new` new option found under the `Playwright panel` of the Test Explorer side pane.
 
 > ![Playwright record test](playwrightRecordTest.gif)
 
@@ -301,7 +301,7 @@ You can see how Playwright tries to abstract away as much of the locating of pag
   await page.getByRole('button', { name: '+' }).click();
 ```
 
-Using the `expect` function we can assert that the desired changes happened in reaction to our clicks. Either that something was visible or that it contained certain text.
+Using the `expect` function we can assert that the desired changes happened in reaction to our clicks, either that something was visible or that it contained certain text.
 
 ```sh
   await expect(page.getByText('🍕🍕🍕')).toBeVisible();
@@ -357,9 +357,9 @@ await page.getByRole('button', { name: '+' }).click({ clickCount: [...expected].
 
 ### Mocking
 
-We can demonstrate how mocking works with Playwright by replace our actual call to the `jwt-pizza-service` with a mocked HTTP response. We want to mock out the call because we don't want our test to fail whenever the menu changes. However, the danger here is that the JSON response might change and test will no longer detect the failure.
+We can demonstrate how mocking works with Playwright by replacing our actual call to the `jwt-pizza-service` with a mocked HTTP response. We want to mock out the call because we don't want our test to fail whenever the menu changes. However, the danger here is that the JSON response might change and the test will no longer detect the failure.
 
-This turns out to be really easy. You just call the `route` method on the page object that is passed to the test and provide a function that can both validate the request and return a response.
+Mocking the call turns out to be really easy. You just call the `route` method on the page object that is passed to the test and provide a function that can both validate the request and return a response.
 
 ```js
 // Mock out the service
@@ -481,7 +481,7 @@ await expect(page.getByTestId('generated-copy').not.toBe('Lorem ipsum');
 
 ## Coverage
 
-In order to add coverage reporting we have to install the coverage utilities and instrument the code. Unless Jest where they have coverage built into that application, Playwright requires you to install the coverage utility of your choice. This gives you freedom to customize things as you would like, but it is a bit painful to setup.
+In order to add coverage reporting we have to install the coverage utilities and instrument the code. Unlike Jest, where they have coverage built into the application, Playwright requires you to install the coverage utility of your choice. This gives you freedom to customize things as you would like, but it is a bit painful to setup.
 
 The coverage tools we are going to use are called Istanbul and NYC.
 
@@ -523,7 +523,7 @@ node_modules
 .nyc_output
 ```
 
-Vite needs to know to include Istanbul as a plugin when bundling and so we create/modify `vite.config.js` to include instructions on what files you want to have Istanbul analyze.
+Vite needs to know to include Istanbul as a plugin when bundling and so we create/modify `vite.config.js` to include instructions on which files you want to have Istanbul analyze.
 
 ```js
 import { defineConfig } from 'vite';
@@ -541,7 +541,7 @@ export default defineConfig({
 });
 ```
 
-Finally we add another `package.json` script so that NYC runs the Playwright tests and reports the coverage results. We tell NYC to use two reporters. One that will save a high level JSON file, and another one that prints the details to the console.
+Finally we add another `package.json` script so that NYC runs the Playwright tests and reports the coverage results. We tell NYC to use two reporters: one that will save a high level JSON file, and another one that prints the details to the console.
 
 ```json
 "scripts": {
@@ -578,7 +578,7 @@ All files  |     100 |      100 |     100 |     100 |
 
 It looks like we have 💯% line coverage. I'm feeling good!
 
-If we modify our test so that it doesn't do anything meaningful.
+If we modify our test so that it doesn't do anything meaningful:
 
 ```sh
 test('test', async ({ page }) => {
@@ -604,11 +604,11 @@ All files  |   44.44 |      100 |      25 |   44.44 |
 
 ### Visual code coverage
 
-If you want to be able to see what lines are covered by the NYC report you can install a VS Code extension such as [Cover](https://marketplace.visualstudio.com/items?itemName=hindlemail.cover).
+If you want to be able to see which lines are covered by the NYC report you can install a VS Code extension such as [Cover](https://marketplace.visualstudio.com/items?itemName=hindlemail.cover).
 
 ## ☑ Assignment
 
-Create an project based on the instructions provided above. Change the `App` component to be the following. Install Playwright and create tests until you get 100% code coverage with this new code.
+Create a project based on the instructions provided above. Change the `App` component to be the following. Install Playwright and create tests until you get 100% code coverage with this new code.
 
 **index.tsx**
 
@@ -644,16 +644,16 @@ function App() {
     <div>
       <h1>Pizza</h1>
       <p>{'🍕'.repeat(count) || '👨‍🍳'}</p>
-      <label htmlFor='order'>Pizza:</label>
+      <label htmlFor="order">Pizza:</label>
       <div>
-        <input type='text' id='pizza-type' value={pizzaType} placeholder='type' onChange={(e) => setPizzaType(e.target.value)} />
+        <input type="text" id="pizza-type" value={pizzaType} placeholder="type" onChange={(e) => setPizzaType(e.target.value)} />
         &nbsp;<button onClick={() => setCount(count + 1)}>+1</button>
         &nbsp;
         <button disabled={!count || !pizzaType} onClick={handleOrder}>
           Order
         </button>
       </div>
-      <div id='orderValue'>
+      <div id="orderValue">
         <i>{order}</i>
       </div>
       <button disabled={!!menu.length} onClick={getMenu}>
