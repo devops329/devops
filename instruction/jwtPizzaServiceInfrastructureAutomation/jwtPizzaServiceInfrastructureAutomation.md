@@ -1,13 +1,244 @@
 # JWT Pizza Service infrastructure automation
 
-As the last step of our DevOps automation, let's go ahead and create a CloudFormation template that will allow us to quickly setup and teardown the ECS and ALB service configuration necessary to host your JWT Pizza Service backend. Before you do that you should probably delete all of the existing AWS infrastructure that you created previously. You can then start up your CloudFormation stack to represent the same infrastructure.
+For the last step in your backend DevOps automation, you will create a CloudFormation template that will allow you to quickly setup and teardown the ECS and ALB service configuration that hosts your JWT Pizza Service backend.
 
-This is a critical piece of your DevOps infrastructure because it will enable you create some critical cost savings. Instead of paying for keeping your backend service running throughout the month, or manually recreating it when needed, you can tear it down and start it up in a matter of minutes.
+## Delete the manual deployment
 
-## Creating a JWT Pizza Service backend template
+Before you do that you should need delete all of the existing AWS infrastructure that you created previously. You can then rebuild the infrastructure using CloudFormation stack automation.
 
-START HERE! Use the validator to create an image of the resources.
-Need to add the database creation to list of things to delete and create in the script
+To delete the backend infrastructure you can simply delete the ECS jwt-pizza-service cluster. This should cause the ECS jwt-pizza-service service and EC2 ALB load balancer to also be deleted.
+
+## Cutting your AWS bill
+
+Using CloudFormation to automate the creation and teardown of your backend JWT Pizza Service infrastructure will provide some significant cost savings. Instead of paying for keeping your backend service running throughout the month, or going through the pain of manually recreating it when needed, you can tear it down and start it up in a matter of minutes.
+
+## Creating a JWT Pizza Service backend CloudFront template
+
+The following is a complete CloudFront template that deploys the JWT Pizza Service to ECS and ALB.
+
+![CloudFormation resources](cloudFormationResources.png)
+
+The resources that are created include:
+
+1. **ECS Cluster** - Controls the management of the ECS service.
+1. **ECS Service** - Deploys the Docker containers and coordinates with the ALB target group to handle a rolling deployment.
+1. **ALB Load Balancer** - Exposes the containers in the ALB Target Group to the public internet as defined by the ALB Listener.
+1. **ALB Target Group** - Manages the connections to the Docker containers in the ECS Service.
+1. **ALB Listener** - Defines the connection on port 443 and terminates the HTTPS connection.
+
+Take the time to completely review the template and become familiar with what it does. It follows the pattern discussed in the [CloudFormation](../awsCloudFormation/awsCloudFormation.md) instruction of declaring parameters, specifying resources to create, and outputting the results.
+
+```json
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "JWT Pizza Service infrastructure",
+  "Parameters": {
+    "TaskVersion": {
+      "Type": "String",
+      "Description": "JWT Pizza Service Task Definition version to initialize the ECS service with",
+      "Default": ""
+    },
+    "CertificateArn": {
+      "Type": "String",
+      "Description": "Load balancer web certificate ARN use to support HTTPS on the ALB",
+      "Default": ""
+    },
+    "SecurityGroupIDs": {
+      "Type": "CommaDelimitedList",
+      "Description": "ECS service and ALB Security groups",
+      "Default": ""
+    },
+    "SubnetIDs": {
+      "Type": "CommaDelimitedList",
+      "Description": "A comma delimited list of VPC network subnets for the ECS service and ALB",
+      "Default": ""
+    },
+    "VpcID": {
+      "Type": "String",
+      "Description": "The ID of the VPC for the ALB",
+      "Default": "vpc-192e8e70",
+      "AllowedPattern": "^(?:vpc-[0-9a-f]{8,17}|)$",
+      "ConstraintDescription": "VPC ID must begin with 'vpc-' and have a valid uuid"
+    }
+  },
+  "Resources": {
+    "ECSCluster": {
+      "Type": "AWS::ECS::Cluster",
+      "Properties": {
+        "ClusterName": "jwt-pizza-service"
+      }
+    },
+    "ECSService": {
+      "Type": "AWS::ECS::Service",
+      "Properties": {
+        "Cluster": { "Ref": "ECSCluster" },
+        "CapacityProviderStrategy": [{ "CapacityProvider": "FARGATE", "Base": 0, "Weight": 1 }],
+        "TaskDefinition": {
+          "Fn::Join": [":", ["arn:aws:ecs", { "Ref": "AWS::Region" }, { "Ref": "AWS::AccountId" }, "task-definition/jwt-pizza-service", { "Ref": "TaskVersion" }]]
+        },
+        "ServiceName": "jwt-pizza-service",
+        "SchedulingStrategy": "REPLICA",
+        "DesiredCount": 1,
+        "LoadBalancers": [
+          {
+            "ContainerName": "jwt-pizza-service",
+            "ContainerPort": 80,
+            "LoadBalancerName": {
+              "Ref": "AWS::NoValue"
+            },
+            "TargetGroupArn": {
+              "Ref": "TargetGroup"
+            }
+          }
+        ],
+        "NetworkConfiguration": {
+          "AwsvpcConfiguration": {
+            "AssignPublicIp": "ENABLED",
+            "SecurityGroups": {
+              "Ref": "SecurityGroupIDs"
+            },
+            "Subnets": {
+              "Ref": "SubnetIDs"
+            }
+          }
+        },
+        "PlatformVersion": "LATEST",
+        "DeploymentConfiguration": {
+          "MaximumPercent": 200,
+          "MinimumHealthyPercent": 100,
+          "DeploymentCircuitBreaker": {
+            "Enable": true,
+            "Rollback": true
+          }
+        },
+        "DeploymentController": {
+          "Type": "ECS"
+        },
+        "ServiceConnectConfiguration": {
+          "Enabled": false
+        },
+        "Tags": [],
+        "EnableECSManagedTags": true
+      },
+      "DependsOn": ["Listener"]
+    },
+    "LoadBalancer": {
+      "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+      "Properties": {
+        "Type": "application",
+        "Name": "jwt-pizza-service",
+        "SecurityGroups": {
+          "Ref": "SecurityGroupIDs"
+        },
+        "Subnets": {
+          "Ref": "SubnetIDs"
+        }
+      }
+    },
+    "TargetGroup": {
+      "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+      "Properties": {
+        "HealthCheckPath": "/",
+        "Name": "jwt-pizza-service",
+        "Port": 80,
+        "Protocol": "HTTP",
+        "TargetType": "ip",
+        "HealthCheckProtocol": "HTTP",
+        "VpcId": {
+          "Ref": "VpcID"
+        },
+        "TargetGroupAttributes": [
+          {
+            "Key": "deregistration_delay.timeout_seconds",
+            "Value": "300"
+          }
+        ]
+      }
+    },
+    "Listener": {
+      "Type": "AWS::ElasticLoadBalancingV2::Listener",
+      "Properties": {
+        "DefaultActions": [
+          {
+            "Type": "forward",
+            "TargetGroupArn": {
+              "Ref": "TargetGroup"
+            }
+          }
+        ],
+        "LoadBalancerArn": {
+          "Ref": "LoadBalancer"
+        },
+        "Port": 443,
+        "Protocol": "HTTPS",
+        "Certificates": [
+          {
+            "CertificateArn": { "Ref": "CertificateArn" }
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "ClusterName": {
+      "Description": "Cluster",
+      "Value": {
+        "Ref": "ECSCluster"
+      }
+    },
+    "ECSService": {
+      "Description": "Service",
+      "Value": {
+        "Ref": "ECSService"
+      }
+    },
+    "LoadBalancer": {
+      "Description": "Load balancer",
+      "Value": {
+        "Ref": "LoadBalancer"
+      }
+    },
+    "Listener": {
+      "Description": "Load balancer listener",
+      "Value": {
+        "Ref": "Listener"
+      }
+    },
+    "TargetGroup": {
+      "Description": "Load balancer target group",
+      "Value": {
+        "Ref": "TargetGroup"
+      }
+    }
+  }
+}
+```
+
+## Creating the CloudFormation stack
+
+1. Create a new CloudFormation stack using the above template.
+1. Name the stack `jwtpizzaservice`.
+
+   ![Create CloudFormation stack](createCloudFormationStack.png)
+
+1. Supply the requested parameters based upon your AWS account. You can obtain these values form the following locations:
+   1. The VPC ID and VPC subnets from the AWS VPC service dashboard.
+   1. The latest Task Definition version from the ECS service dashboard.
+   1. The web certificate ARN from the Certificate Manager service dashboard.
+   1. The security group from the EC2 service dashboard.
+1. Complete the creation process as you did with the previous simple S3 bucket example.
+
+## DNS update
+
+Because you are recreating the ALB, the DNS record you previously created for `pizza-service.YOURDOMAIN` is no longer valid. You will need to copy the new ALB DNS Name and update the DNS record before you can connect to your backend through the internet.
+
+Once you have updated the DNS record you should be able to connect to your backend using curl as demonstrated in the example below.
+
+```sh
+➜  curl https://pizza-service.byucsstudent.click/
+
+{"message":"welcome to JWT Pizza","version":"20240525.191742"}
+```
 
 ## ☑ Assignment
 
@@ -19,6 +250,6 @@ Complete the following.
 1. Deploy a CloudFormation stack using the `jwt-pizza-service.json` template.
 1. Trigger your `jwt-pizza-service` CI deployment pipeline and verify that the new service is deployed.
 
-Once this is all working that you have completed the work to the Canvas assignment.
+Once this is all working, mark that you have completed the work to the Canvas assignment.
 
-🚧 As an alternative to this assignment we could have them create a template for deploying the frontend infrastructure.
+🚧 As an alternative to this assignment we could have them create a template for deploying the frontend or MySQL database infrastructure.

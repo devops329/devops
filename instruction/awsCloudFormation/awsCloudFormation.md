@@ -119,10 +119,10 @@ Before we can execute a template we need to put the template file in a location 
 1. Create your own S3 bucket to host all of your templates.
 1. Give CloudFormation access to your Git repository that contains your templates.
 
-Let's choose the option to create our own S3 bucket so that we can keep everything in one place that we name. We just need to create a bucket to hold all our templates and copy the templates into it.
+Let's choose the option to create our own S3 bucket so that we can keep everything in one place that we specify. To make this happen, we just need to create a bucket to hold all our templates and copy the templates into it.
 
 1. Open the AWS browser console and navigate to the S3 service.
-1. Create a new bucket names something unique such as `YOURAMEHERE-cloudformation-templates`.
+1. Create a new bucket names something unique such as `YOURNAMEHERE-cloudformation-templates`.
 1. Save the above example to a file named `create-bucket.json` in your development environment and then upload it to the S3 bucket you just created.
 1. Copy the URL for the file you just uploaded so that you can use it when you create your CloudFormation stack.
 
@@ -136,7 +136,7 @@ Now you are ready to use the template to create a CloudFormation stack.
 1. Select `Amazon S3 URL` and supply the Amazon S3 URL you copied earlier.
 1. Press `Next`.
 1. Give the stack the name `testcf`.
-1. Provide the input parameter for **MyBucketName** as something unique like `YOURAMEHERE-byu329test`.
+1. Provide the input parameter for **MyBucketName** as something unique like `YOURNAMEHERE-byu329test`.
 1. Press `Next`.
 1. Leave the stack configuration with all the defaults and press `Next`.
 1. Review the setup and press `Next`.
