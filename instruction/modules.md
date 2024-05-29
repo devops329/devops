@@ -59,7 +59,6 @@
 - 🔵 [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
 - 🔵 ☑ [⓹ CDN deployment: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
 - 🚧 [Elasticity](elasticity/elasticity.md)
-
 - ☑ 🔵 [AWS RDS MySQL](awsRdsMysql/awsRdsMysql.md)
 - 🚧 [Docker](docker/docker.md)
 - 🚧 [Containers](containers/containers.md)
@@ -67,7 +66,8 @@
 - ☑ 🔵 [AWS ECR](awsEcr/awsEcr.md)
 - ☑ 🔵 [AWS ECS](awsEcs/awsEcs.md)
 - ☑ 🔵 [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
-- 🚧 [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
+- 🔵 [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
+- ☑ 🔵 [JWT Pizza Service infrastructure automation](jwtPizzaServiceInfrastructureAutomation/jwtPizzaServiceInfrastructureAutomation.md)
 - [Frequently Asked Questions](faq/cloudDeploymentFaq.md)
 
 ## Serverless
