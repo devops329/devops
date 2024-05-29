@@ -1,13 +1,5 @@
 # Grafana Cloud
 
-## Application Observability
-
-The "three pillars of observability" are logging, metrics and tracing.
-
-Grafana gives an explanation of these:
-
-> Each observability signal plays a unique role in providing insights into your systems. Metrics act as the high-level indicators of system health. They alert you that something is wrong or deviating from the norm. Logs then help you understand what exactly is going wrong, for example, the nature or cause of the elevated error rates you’re seeing in your metrics. Traces illustrate where in the sequence of events something is going wrong. They let you pinpoint which service in the many services that any given request traverses is the source of the delay or the error.
-
 ## Grafana
 
 Grafana is a company known for data visualization, allowing you to monitor observability data through customizable dashboards. It supports various data sources and integrations, including popular monitoring tools like Prometheus, Graphite, and Elasticsearch.

@@ -48,7 +48,7 @@
 - 🟢 [UI testing](uiTesting/uiTesting.md)
 - ☑ 🟢 [Playwright](playwright/playwright.md)
 - ☑ 🟢 [⓸ UI test: JWT Pizza](deliverable4UiTesting/deliverable4UiTesting.md)
-- [Frequently Asked Questions](faq/qualityAssuranceFaq.md)
+- 🚧 [Frequently Asked Questions](faq/qualityAssuranceFaq.md)
 
 ## Cloud deployment
 
@@ -68,7 +68,7 @@
 - ☑ 🔵 [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
 - 🔵 [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
 - ☑ 🔵 [JWT Pizza Service infrastructure automation](jwtPizzaServiceInfrastructureAutomation/jwtPizzaServiceInfrastructureAutomation.md)
-- [Frequently Asked Questions](faq/cloudDeploymentFaq.md)
+- 🚧 [Frequently Asked Questions](faq/cloudDeploymentFaq.md)
 
 ## Serverless
 
@@ -86,31 +86,32 @@
 - 🚧 [Rolling] We are probably just going to use the rolling deployment from ECS
 - 🚧 [Blue/Green](blueGreeen/blueGreen.md) It seems that cloudfront supports this.
 - We need a discussion on scalability, bottlenecks, and auto adjustment. This should tie into SLO.
-- [Frequently Asked Questions](faq/deploymentStrategiesFaq.md)
+- 🚧 [Frequently Asked Questions](faq/deploymentStrategiesFaq.md)
 
-## System monitoring
+## Observability
 
-- [Grafana](grafana/grafana.md)
+- 🚧 [Observability](observability/observability.md)
+- 🚧 [Grafana](grafana/grafana.md)
 - 🚧 [Logging](logging/logging.md)
 - 🚧 [Grafana Loki](loki/loki.md)
-- ⓼ Logging - Provide logging with Grafana Loki
+- 🚧 ⓼ Logging - Provide logging with Grafana Loki
 - 🚧 Metrics
 - 🚧 [Grafana Metrics](grafanaMetrics/grafanaMetrics.md)
-- ⓻ Metrics - Provide metrics with Grafana Mimir
+- 🚧 ⓻ Metrics - Provide metrics with Grafana Mimir
 - 🚧 Distributed tracing
 - 🚧 [Grafana Tempo](grafanaTempo/grafanaTempo.md)
 - ❌ ⓽ Tracing - Provide execution tracing with Grafana Tempo
-- [Frequently Asked Questions](faq/systemMonitoringFaq.md)
+- 🚧 [Frequently Asked Questions](faq/systemMonitoringFaq.md)
 
 ## Load testing
 
 - 🚧 [E2E testing](e2eTesting/e2eTesting.md)
 - 🚧 [Load testing](loadTesting/loadTesting.md)
 - 🚧 [Grafana K6](grafanaK6/grafanaK6.md)
-- ⓾ Load test: JWT Pizza - Execute end to end load testing with K6
-- [Frequently Asked Questions](faq/loadTestingFaq.md)
+- 🚧 ⓾ Load test: JWT Pizza - Execute end to end load testing with K6
+- 🚧 [Frequently Asked Questions](faq/loadTestingFaq.md)
 
-## Failure testing
+## Failure management
 
 - 🚧 Backup/Restore (Aurora)
 - 🚧 [Alerts](alerting/alerting.md)
@@ -120,19 +121,19 @@
 - 🚧 SLO, RTO, RPO
 - 🚧 Chaos injection
 - 🚧 Post mortem
-- ⓫ Failure test: JWT Pizza - Failure test due to chaos injection
-- [Frequently Asked Questions](faq/failureTestingFaq.md)
+- 🚧 ⓫ Failure test: JWT Pizza - Failure test due to chaos injection
+- 🚧 [Frequently Asked Questions](faq/failureTestingFaq.md)
 
 ## Penetration testing
 
 - 🚧 [Penetration testing](penetrationTesting/penetrationTesting.md)
 - 🚧 [Burp Suite](burpSuite/burpSuite.md)
-- ⓬ Penetration test: JWT Pizza - Penetration testing using Burp Suite
-- [Frequently Asked Questions](faq/penetrationTestingFaq.md)
+- 🚧 ⓬ Penetration test: JWT Pizza - Penetration testing using Burp Suite
+- 🚧 [Frequently Asked Questions](faq/penetrationTestingFaq.md)
 
 ## Conclusion
 
-- ⓭ Curiosity report - Independent research on a QA/DevOps topic
+- 🚧 ⓭ Curiosity report - Independent research on a QA/DevOps topic
 - ☑ 🔵 [Christlike learning conclusion](christlikeLearningConclusion/christlikeLearningConclusion.md)
-- ⓮ Christlike introspection - Introspection into your relationship with the divine
-- Course wrap up: Clean up your AWS resources
+- 🚧 ⓮ Christlike introspection - Introspection into your relationship with the divine
+- 🚧 Course wrap up: Clean up your AWS resources
