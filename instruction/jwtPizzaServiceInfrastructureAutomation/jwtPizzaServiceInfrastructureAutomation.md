@@ -247,9 +247,13 @@ As part of this automation, we did not automate the deployment of the MySQL data
 1. **Leave it running**: You can leave your database continually running. This will cost you about $15/month, but has the advantage of not having to worry about changing anything. The disadvantage is that you will not gain any experience from managing the database.
 1. **Manual management**: You can manually teardown and deploy the database as desired.
 1. **Automate**: You can create a CloudFormation template in order to automate the creation and destruction of the database. As part of the automation you can also create and restore a snapshot of the database's data.
-1. **Temporary stop**: RDS allows you to temporarily stop the database. You will still pay for any storage associated with the database, but you don't pay for the instance when it is stopped. You can then simply press a button to restart that database when you are ready to use it again.
+1. **Temporary stop**: RDS allows you to temporarily stop the database by selecting the database actions in the RDS service console and pressing `Stop temporarily`.
 
-   ![alt text](image.png)
+   ![alt text](stopDatabase.png)
+
+   You will still pay for any storage associated with the database, but you don't pay for the instance when it is stopped. When you are ready to use the database again press the `Start` action.
+
+   ![alt text](startDatabase.png)
 
    Note that it does take a few minutes for the database to stop or start.
 
