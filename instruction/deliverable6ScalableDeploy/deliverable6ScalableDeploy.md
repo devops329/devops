@@ -219,7 +219,7 @@ curl -X PUT -c cookies.txt 'https://pizza-service.byucsstudent.click/api/auth' -
 Currently your database only has the default admin user that was inserted when the database was initialized the first time a connection was made. If you want to add some basic menu, user, franchise, and shop data you can run the following Curl commands.
 
 ```sh
-# Set the hostname
+# Set the hostname - replace with your hostname
 host=pizza-service.byucsstudent.click
 
 # Add users
@@ -241,7 +241,7 @@ curl -b cookies.txt -X PUT https://$host/api/order/menu -H 'Content-Type: applic
 curl -b cookies.txt -X PUT https://$host/api/order/menu -H 'Content-Type: application/json' -d '{ "title":"Chared Leopard", "description": "For those with a darker side", "image":"pizza5.png", "price": 0.0099 }'
 
 # Add franchise
-curl -b cookies.txt -X POST https://$host/api/franchise -H 'Content-Type: application/json' -d '{"name": "pizzaPocket", "admins": [{"email": "f@jwt.com"}]'
+curl -b cookies.txt -X POST https://$host/api/franchise -H 'Content-Type: application/json' -d '{"name": "pizzaPocket", "admins": [{"email": "f@jwt.com"}]}'
 
 # Add store
 curl -b cookies.txt -X POST https://$host/api/franchise/1/store -H 'Content-Type: application/json' -d '{"franchiseId": 1, "name":"SLC"}'
