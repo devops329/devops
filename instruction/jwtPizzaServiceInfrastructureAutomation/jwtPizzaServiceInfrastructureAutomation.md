@@ -209,7 +209,7 @@ Take the time to completely review the template and become familiar with what it
       "Value": {
         "Ref": "TargetGroup"
       }
-    }
+
   }
 }
 ```
@@ -240,6 +240,12 @@ Once you have updated the DNS record you should be able to connect to your backe
 {"message":"welcome to JWT Pizza","version":"20240525.191742"}
 ```
 
+## MySQL Database
+
+As part of this automation we did not automate the deployment of the MySQL database. That means you will need to either manually teardown and deploy the database as desired, or create your own CloudFormation template in order to add that to the stack.
+
+Note that if you automate the deployment of your database you will need to update the DB_HOSTNAME secret in your GitHub Actions workflow.
+
 ## ☑ Assignment
 
 Complete the following.
@@ -248,6 +254,7 @@ Complete the following.
 1. Create a S3 bucket to host your CloudFormation templates.
 1. Create the `jwt-pizza-service.json` template file.
 1. Deploy a CloudFormation stack using the `jwt-pizza-service.json` template.
+1. Fix your JWT Pizza Service DNS entry to point to the new ALB URL.
 1. Trigger your `jwt-pizza-service` CI deployment pipeline and verify that the new service is deployed.
 
 Once this is all working, mark that you have completed the work to the Canvas assignment.

@@ -14,7 +14,7 @@
             "Ref": "MyDbSecurityByCIDRIPGroup"
           }
         ],
-        "AllocatedStorage": "5",
+        "AllocatedStorage": "20",
         "DBInstanceClass": "db.t4g.micro",
         "Engine": "MySQL",
         "MasterUsername": "MyName",
