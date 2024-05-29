@@ -66,7 +66,8 @@
 - ☑ 🔵 [AWS ECR](awsEcr/awsEcr.md)
 - ☑ 🔵 [AWS ECS](awsEcs/awsEcs.md)
 - ☑ 🔵 [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
-- 🚧 [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
+- 🔵 [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
+- 🚧 ☑ [JWT Pizza Service Infrastructure Automation](jwtPizzaServiceInfrastructureAutomation/jwtPizzaServiceInfrastructureAutomation.md)
 - [Frequently Asked Questions](faq/cloudDeploymentFaq.md)
 
 ## Serverless
