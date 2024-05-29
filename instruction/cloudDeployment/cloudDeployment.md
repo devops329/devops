@@ -1,6 +1,6 @@
 # Cloud deployment
 
-Hosting on GitHub is fine for simple static websites that don't have to worry about significant scale. However, if you want to reach a large global audience with an architecture that is resilient and elastic you are going to need to deploy to a cloud environment that can meet those demands. To take things to the next level we are going to move to Amazon Web Service (AWS).
+Hosting on GitHub is fine for simple static websites that don't have to worry about significant scale. However, if you want to reach a large global audience with an architecture that is resilient and elastic, you are going to need to deploy to a cloud environment that can meet those demands. To take things to the next level we are going to move to Amazon Web Service (AWS).
 
 Specifically, you will deploy the `jwt-pizza` frontend end using S3 and the `jwt-pizza-service` backend using Fargate. The following diagram shows all of the AWS services involved in supporting this architecture.
 
@@ -10,16 +10,16 @@ Specifically, you will deploy the `jwt-pizza` frontend end using S3 and the `jwt
 
 We are going to go into detail on each of the services in the above architecture. This will include what they each do, how to set them up, and how to connect them to each other. In the meantime, the following table gives you a general feel for what each of the services do.
 
-| Service             | Description                                                                                                               |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Route 53            | DNS records that tell the web browser how to find the HTTP servers that deliver your front and backend.                   |
-| CloudFront          | Content delivery network (CDN) that globally distributes your frontend static files.                                      |
-| S3                  | Massively scalable file storage that contains your frontend static files.                                                 |
-| Certificate manager | Generates and manages your SSL web certificates in order to support secure (HTTPS) network communication.                 |
-| ALB                 | Network load balancer that distributes backend service requests across multiple network servers.                          |
-| ECR                 | Docker container registry that stores your backend container images.                                                      |
-| ECS                 | Docker container deployment system manager. This controls deploying new version and monitoring the health of the systems. |
-| Fargate             | Docker container scaling automation. This will automatically deploy new containers as the load on your system increases.  |
+| Service             | Description                                                                                                                |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Route 53            | DNS records that tell the web browser how to find the HTTP servers that deliver your front and backend.                    |
+| CloudFront          | Content delivery network (CDN) that globally distributes your frontend static files.                                       |
+| S3                  | Massively scalable file storage that contains your frontend static files.                                                  |
+| Certificate manager | Generates and manages your SSL web certificates in order to support secure (HTTPS) network communication.                  |
+| ALB                 | Network load balancer that distributes backend service requests across multiple network servers.                           |
+| ECR                 | Docker container registry that stores your backend container images.                                                       |
+| ECS                 | Docker container deployment system manager. This controls deploying new versions and monitoring the health of the systems. |
+| Fargate             | Docker container scaling automation. This will automatically deploy new containers as the load on your system increases.   |
 
 ## Phased build out
 

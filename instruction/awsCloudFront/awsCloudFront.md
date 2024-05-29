@@ -13,11 +13,11 @@ Previously we deployed the JWT Pizza static frontend content over the content de
 - GitHub Pages sites have a soft bandwidth limit of 100 GB per month.
 - GitHub Pages sites have a soft limit of 10 builds per hour.
 
-For these reasons we want to move to a CDN that provides the services and scale necessary for a production system. There are many great CDN services available. This includes Akamai, Cloudflare, Fastly, and AWS CloudFront. We are going to use CloudFront because of the additional cloud services that they provide and also because of their generous free tier that will make it basically free for our usage.
+For these reasons we want to move to a CDN that provides the services and scale necessary for a production system. There are many great CDN services available. These include Akamai, Cloudflare, Fastly, and AWS CloudFront. We are going to use CloudFront because of the additional cloud services that they provide and also because of their generous free tier that will make it basically free for our usage.
 
 ⚠️ **Note**: If you have not yet created your AWS account, you must do so now. We will be making extensive use of AWS for the rest of the course.
 
-In order to fully utilize CloudFront as a CDN we need to configure several AWS services. This includes the following:
+In order to fully utilize CloudFront as a CDN we need to configure several AWS services. These include the following:
 
 - **CloudFront** - CDN to globally distribute the frontend content.
 - **S3** - File service storing the static frontend content.
@@ -33,7 +33,7 @@ The first step we need to take is to create an S3 bucket to host the static file
 1. Open the AWS browser console and navigate to the S3 service.
 1. Click on the `Create bucket` button.
 1. Select the `General purpose` option and name it the name of your JWT Pizza website. For the purposes of this instruction we will use the hostname `pizza.csbyustudent.click`.
-1. Leave all the other settings with their default. Including _Block all public access_. Press the button to create the bucket.
+1. Leave all the other settings with their default, including _Block all public access_. Press the button to create the bucket.
 1. Create a file named `index.html` in VS Code and insert a basic _Hello World_ page.
    ```html
    <h1>Hello World!</h1>

@@ -4,7 +4,7 @@
 
 The _JWT Pizza application_ team has finally finished their work on the backend JWT service and has given you access to the backend service code so that you can start testing and deploying it.
 
-Now that you have the service code you will test and deploy the full application stack. This includes the frontend (_jwt-pizza_), backend (_jwt-pizza-service_), and the database. The only piece that you do not actually manage is the service provided by JWT Headquarters that creates the JWT tokens that represents a completed pizza order. Instead your deployment of the JWT service will simply call the factory service that the JWT Headquarters provides.
+Now that you have the service code, you will test and deploy the full application stack. This includes the frontend (_jwt-pizza_), backend (_jwt-pizza-service_), and the database. The only piece that you do not actually manage is the service provided by JWT Headquarters that creates the JWT tokens that represent a completed pizza order. Instead your deployment of the JWT service will simply call the factory service that the JWT Headquarters provides.
 
 ```mermaid
 graph LR;
@@ -27,7 +27,7 @@ If you do not already have MySQL installed in your development environment, or w
 
 ## Forking the application team's repository
 
-To get started you need to fork the code to your GitHub account, run it locally and study how it works. This will get you comfortable with the code so that you are ready to start putting on your QA and DevOps hat.
+To get started, you need to fork the code to your GitHub account, run it locally and study how it works. This will get you comfortable with the code so that you are ready to start putting on your QA and DevOps hat.
 
 Here are the steps to take:
 
@@ -45,7 +45,7 @@ Here are the steps to take:
 1. 🚧 Obtain a JWT Pizza Factory API Key. You can get this key from the [Autograder](https://autograder.cs329.click) application.
 1. Create a `config.js` file in the `src` directory and insert your database credentials, jwtSecret, and API Key. The factory should point to the ULR provided by JWT Headquarters. The following is an example `config.js` file.
 
-   ⚠️ **Note**: Note that you must replace `jwtSecret`, `connection.password`, and `factory.apiKey` with a values that you generate. `jwtSecret` is used to sign authorization tokens. `connection.password` is the password for your MySQL database. `factory.apiKey` allows you to fulfill orders from the JWT Headquarters factory.
+   ⚠️ **Note**: Note that you must replace `jwtSecret`, `connection.password`, and `factory.apiKey` with a values that you generate. `jwtSecret` is used to sign authorization tokens and can be any random string. `connection.password` is the password for your MySQL database. `factory.apiKey` allows you to fulfill orders from the JWT Headquarters factory.
 
    ```sh
    module.exports =  {

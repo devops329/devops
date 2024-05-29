@@ -1,10 +1,10 @@
 # Unit testing
 
-Now that you have the JWT Pizza Service in your hands you can start to assure its quality by writing unit tests. As part of your testing you will generate a coverage report.If the coverage requirements of your tests do not meet the required thresholds, then an error is generated.
+Now that you have the JWT Pizza Service in your hands you can start to assure its quality by writing unit tests. As part of your testing you will generate a coverage report. Later you will add coverage thresholds, so that if the coverage requirements of your tests do not meet the required thresholds, then an error is generated.
 
 If you haven't already done so, make sure you fork the [jwt-pizza-service](../jwtPizzaService/jwtPizzaService.md) repository and clone it to your development environment.
 
-Within your fork of the jwt-pizza-service repository, follow the pervious instruction and install the [Jest](../jest/jest.md) testing framework.
+Within your fork of the jwt-pizza-service repository, follow the previous instruction and install the [Jest](../jest/jest.md) testing framework.
 
 ```sh
 npm install -D jest supertest
@@ -21,11 +21,11 @@ In order to test service endpoints you need to decompose the creation of the Exp
 
 ![](../serviceTesting/endpointRequests.png)
 
-This is already done in `jwt-pizza-service` and so you don't need to worry about it, but you should clearly understand the implications of the pattern.
+This is already done in `jwt-pizza-service` and so you don't need to worry about it, but you should clearly understand the implications of the pattern. The `service.js` file creates the Express app and exports it. The `index.js` file then uses the app to listen for HTTP requests. The `service.test.js` file uses the app to run tests.
 
 ## Coverage
 
-Add the Jest config file, `jest.config.json`, so coverage would be turned on.
+Add the Jest config file, `jest.config.json`, so coverage is turned on.
 
 ```json
 {
@@ -78,7 +78,7 @@ Tests:       1 passed, 1 total
 
 This is not very interesting from a coverage perspective, but it does demonstrate that you are configured correctly.
 
-Make sure you commit and push you code at this important milestone.
+Make sure you commit and push your code at this important milestone.
 
 ## Mocking dependencies
 
@@ -176,7 +176,7 @@ function randomName() {
 
 ### Creating an admin user
 
-At some point in your testing you will need to have an administrator user in order to do things like create a franchise. You don't want ot hardcode a user that you have created in your database because you shouldn't assume any preexisting data when creating a unit test. However, the JWT Pizza Service doesn't have an obvious way to bootstrap an admin user. You can overcome this by calling directly into the DB.addUser function. The DB.addUser function has no constraints and will let you create any user that you would like, including a user with a role of Admin.
+At some point in your testing you will need to have an administrator user in order to do things like create a franchise. You don't want to hardcode a user that you have created in your database because you shouldn't assume any preexisting data when creating a unit test. However, the JWT Pizza Service doesn't have an obvious way to bootstrap an admin user. You can overcome this by calling directly into the DB.addUser function. The DB.addUser function has no constraints and will let you create any user that you would like, including a user with a role of Admin.
 
 ```js
 const { DB } = require('./database/database.js');
@@ -192,7 +192,7 @@ async function createAdminUser() {
 
 ### Increasing the VS Code Jest debugging timeout
 
-The default timeout for a Jest test is just a few seconds. That means it will timeout on you as you are debugging through the tests with VS Code. You can increase the timeout by setting a high value with the `jest.setTimeout` function. You can also wrap the timer increase is a check that only triggers if you are debugging with VS Code.
+The default timeout for a Jest test is just a few seconds. That means it will timeout on you as you are debugging through the tests with VS Code. You can increase the timeout by setting a high value with the `jest.setTimeout` function. You can also wrap the timer increase in a check that only triggers if you are debugging with VS Code.
 
 ```js
 if (process.env.VSCODE_INSPECTOR_OPTIONS) {
@@ -204,7 +204,7 @@ if (process.env.VSCODE_INSPECTOR_OPTIONS) {
 
 In addition to assuring the quality of the code with automated tests we also want to make sure that there isn't any lint in there. So let's install `eslint` and see what it reports.
 
-We start by installing eslint as a development dependency. Review, or following, the [lint instructions](../lint/lint.md) if you are unclear how to do this. Once this is done you can run eslint from your command console.
+We start by installing eslint as a development dependency. Review or follow the [lint instructions](../lint/lint.md) if you are unclear how to do this. Once this is done, you can run eslint from your command console.
 
 ```sh
 npm run lint
@@ -240,4 +240,4 @@ Now when you run `npm run lint` you should only see errors that are due to probl
 
 ## Reporting problems with JWT Pizza Service
 
-If during the testing or linting process you discover problems with `jwt-pizza-service` then you can open an issue or pull request on the repository to report them. This will help future students and also give you experience with this vital development process.
+If during the testing or linting process you discover problems with `jwt-pizza-service`, then you can open an issue or pull request on the repository to report them. This will help future students and also give you experience with this vital development process.
