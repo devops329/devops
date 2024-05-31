@@ -1,6 +1,6 @@
 # Christlike learning conclusion
 
-At the beginning of the course you recorded your thoughts about how you can partner with the divine to both learn and apply your learning in a Christlike way. Take a moment to consider how being deliberate about combining the eternal into your everyday live changed your experience.
+At the beginning of the course, you recorded your thoughts about how you can partner with the divine to both learn and apply your learning in a Christlike way. Take a moment to consider how being deliberate about combining the eternal into your everyday life changed your experience.
 
 ## ☑ Assignment
 

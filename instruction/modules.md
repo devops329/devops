@@ -55,19 +55,19 @@
 - 🟢 [Cloud deployment](cloudDeployment/cloudDeployment.md)
 - 🚧 [Security](security/security.md)
 - 🚧 [AWS S3](awsS3/awsS3.md)
-- 🔵 [AWS CloudFront](awsCloudFront/awsCloudFront.md)
-- 🔵 [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
-- 🔵 ☑ [⓹ CDN deployment: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
+- 🟢 [AWS CloudFront](awsCloudFront/awsCloudFront.md)
+- 🟢 [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
+- 🟢 ☑ [⓹ CDN deployment: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
 - 🚧 [Elasticity](elasticity/elasticity.md)
-- ☑ 🔵 [AWS RDS MySQL](awsRdsMysql/awsRdsMysql.md)
+- ☑ 🟢 [AWS RDS MySQL](awsRdsMysql/awsRdsMysql.md)
 - 🚧 [Docker](docker/docker.md)
 - 🚧 [Containers](containers/containers.md)
-- ☑ 🔵 [JWT Pizza Service container](jwtPizzaServiceContainer/jwtPizzaServiceContainer.md)
-- ☑ 🔵 [AWS ECR](awsEcr/awsEcr.md)
-- ☑ 🔵 [AWS ECS](awsEcs/awsEcs.md)
-- ☑ 🔵 [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
-- 🔵 [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
-- ☑ 🔵 [JWT Pizza Service infrastructure automation](jwtPizzaServiceInfrastructureAutomation/jwtPizzaServiceInfrastructureAutomation.md)
+- ☑ 🟢 [JWT Pizza Service container](jwtPizzaServiceContainer/jwtPizzaServiceContainer.md)
+- ☑ 🟢 [AWS ECR](awsEcr/awsEcr.md)
+- ☑ 🟢 [AWS ECS](awsEcs/awsEcs.md)
+- ☑ 🟢 [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
+- 🟢 [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
+- ☑ 🟢 [JWT Pizza Service infrastructure automation](jwtPizzaServiceInfrastructureAutomation/jwtPizzaServiceInfrastructureAutomation.md)
 - [Frequently Asked Questions](faq/cloudDeploymentFaq.md)
 
 ## Serverless
@@ -107,7 +107,7 @@
 - 🚧 [E2E testing](e2eTesting/e2eTesting.md)
 - 🚧 [Load testing](loadTesting/loadTesting.md)
 - 🚧 [Grafana K6](grafanaK6/grafanaK6.md)
-- ⓾ Load test: JWT Pizza - Execute end to end load testing with K6
+- 🚧⓾ [Load test: JWT Pizza - Execute end to end load testing with K6](deliverable11LoadTesting/deliverable11LoadTesting.md)
 - [Frequently Asked Questions](faq/loadTestingFaq.md)
 
 ## Failure testing
@@ -133,6 +133,6 @@
 ## Conclusion
 
 - ⓭ Curiosity report - Independent research on a QA/DevOps topic
-- ☑ 🔵 [Christlike learning conclusion](christlikeLearningConclusion/christlikeLearningConclusion.md)
+- ☑ 🟢 [Christlike learning conclusion](christlikeLearningConclusion/christlikeLearningConclusion.md)
 - ⓮ Christlike introspection - Introspection into your relationship with the divine
 - Course wrap up: Clean up your AWS resources

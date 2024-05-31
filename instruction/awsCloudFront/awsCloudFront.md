@@ -32,7 +32,7 @@ The first step we need to take is to create an S3 bucket to host the static file
 
 1. Open the AWS browser console and navigate to the S3 service.
 1. Click on the `Create bucket` button.
-1. Select the `General purpose` option and name it the name of your JWT Pizza website. For the purposes of this instruction we will use the hostname `pizza.csbyustudent.click`.
+1. Select the `General configuration` option and name it the name of your JWT Pizza website. For the purposes of this instruction we will use the hostname `pizza.csbyustudent.click`.
 1. Leave all the other settings with their default, including _Block all public access_. Press the button to create the bucket.
 1. Create a file named `index.html` in VS Code and insert a basic _Hello World_ page.
    ```html
@@ -49,7 +49,7 @@ For this tutorial, the _Hello World_ page will serve as a representation of all 
 You want your static content to be securely hosted. AWS offers a free service for managing SSL certificates when they are used for AWS services such as CloudFront.
 
 1. Open the AWS browser console and navigate to the AWS Certificate Manager service.
-1. Click on `Request certificate`.
+1. Click on `Request a certificate`.
 1. Select `Request a public certificate` and press `Next`.
 1. Enter your fully qualified domain name and use `DNS validation`. This will either automatically verify your domain name if you are using Route53, or give you instructions for what you need to add to your DNS records in order for the validation to be successful.
 
@@ -75,7 +75,7 @@ With the bucket in place you can now create your CloudFront distribution that wi
    1. Under `Viewer protocol policy` specify `Redirect HTTP to HTTPS`
    1. Under `Allowed HTTP methods` specify `GET, HEAD, OPTIONS`.
    1. Under `Cache key and origin requests` choose the `CachingOptimized` cache policy.
-   1. Under the `Web Application Firewall (WAF)` choose the option to ** Do not support the security protections**. This is an additional paid service that you don't need at this time.
+   1. Under the `Web Application Firewall (WAF)` choose the option to `Do not enable security protections`. This is an additional paid service that you don't need at this time.
 1. Skip down to `Settings`
    1. Under `Price class` specify `Use only North America and Europe. Unless of course you want your JWT Pizza to be optimized for access in Asia. (Realize that there may be additional charges for choosing this option.)
    1. Under `Alternate domain name` press `add item` and type your DNS name (e.g. pizza.byucsstudent.click).
@@ -87,7 +87,7 @@ With the bucket in place you can now create your CloudFront distribution that wi
 
 ### Associate the security policy with your S3 bucket
 
-After creating your distributionThis will display your newly created policy with a warning that you need to set the provided security policy on your S3 bucket.
+After creating your distribution this will display your newly created policy with a warning that you need to set the provided security policy on your S3 bucket.
 
 ![Create policy warning](createPolicyWarning.png)
 
@@ -121,6 +121,8 @@ The last step for configuring the CDN, is to create a DNS record so that you can
 1. Press the `Create records` button.
 
 ![create DNS record](createDnsRecord.png)
+
+Alternatively, you can create a CNAME record from your domain to the CloudFront distribution. If you are using an alternate domain name provider you will need to do this.
 
 After a short while the DNS record should propagate and you should be able to see the record pointing to CloudFront instead of GitHub with a console command like `dig` or `nslookup`. At that point your browser should also show the `Hello World` page.
 

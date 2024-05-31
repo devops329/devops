@@ -1,10 +1,10 @@
 # JWT Pizza Service infrastructure automation
 
-For the last step in your backend DevOps automation, you will create a CloudFormation template that will allow you to quickly setup and teardown the ECS and ALB service configuration that hosts your JWT Pizza Service backend.
+For the last step in your backend DevOps automation, you will create a CloudFormation template that will allow you to quickly set up and tear down the ECS and ALB service configuration that hosts your JWT Pizza Service backend.
 
 ## Delete the manual deployment
 
-Before you do that you should need delete all of the existing AWS infrastructure that you created previously. You can then rebuild the infrastructure using CloudFormation stack automation.
+Before you do that you need to delete all of the existing AWS infrastructure that you created previously. You can then rebuild the infrastructure using CloudFormation stack automation.
 
 To delete the backend infrastructure you can simply delete the ECS jwt-pizza-service cluster. This should cause the ECS jwt-pizza-service service and EC2 ALB load balancer to also be deleted.
 
@@ -221,7 +221,7 @@ Take the time to completely review the template and become familiar with what it
 
    ![Create CloudFormation stack](createCloudFormationStack.png)
 
-1. Supply the requested parameters based upon your AWS account. You can obtain these values form the following locations:
+1. Supply the requested parameters based upon your AWS account. You can obtain these values from the following locations:
    1. The VPC ID and VPC subnets from the AWS VPC service dashboard.
    1. The latest Task Definition version from the ECS service dashboard.
    1. The web certificate ARN from the Certificate Manager service dashboard.
@@ -242,7 +242,7 @@ Once you have updated the DNS record you should be able to connect to your backe
 
 ## MySQL Database
 
-As part of this automation we did not automate the deployment of the MySQL database. That means you will need to either manually teardown and deploy the database as desired, or create your own CloudFormation template in order to add that to the stack.
+As part of this automation we did not automate the deployment of the MySQL database. That means you will need to either manually tear down and deploy the database as desired, or create your own CloudFormation template in order to add that to the stack.
 
 Note that if you automate the deployment of your database you will need to update the DB_HOSTNAME secret in your GitHub Actions workflow.
 

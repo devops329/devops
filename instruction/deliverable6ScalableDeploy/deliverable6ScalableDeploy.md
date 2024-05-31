@@ -2,32 +2,32 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
-Now that you have experience with creating, registering, and deploying the JWT Pizza Service manually, it is time to modify your CI workflow to do this automatically when you push a change to the repository. This deliverable represents the **Scalable compute** portion of our product overview diagram. It provides the hosting of the jwt-pizza-service in a way that can support an ever growing customer base, all driving by an automated CI process.
+Now that you have experience with creating, registering, and deploying the JWT Pizza Service manually, it is time to modify your CI workflow to do this automatically when you push a change to the repository. This deliverable represents the **Scalable compute** portion of our product overview diagram. It provides the hosting of the jwt-pizza-service in a way that can support an ever growing customer base, all driven by an automated CI process.
 
 Your work on this deliverable consists of four parts:
 
-1. **ECR configuration**: Setup ECR to keep track of the different versions of your jwt-pizza-service Docker container images.
+1. **ECR configuration**: Set up ECR to keep track of the different versions of your jwt-pizza-service Docker container images.
 1. **Image registration CI**: Modify the CI pipeline to automatically build and deploy a new container image to ECR.
 1. **ECS configuration**: Setup ECS to deploy a container to Fargate and expose it publicly using the application load balancer.
-1. **Image deployment CI**: Modify the Ci pipeline to automatically deploy a new container image to ECS.
+1. **Image deployment CI**: Modify the CI pipeline to automatically deploy a new container image to ECS.
 
 ![Deliverable 6 overview](deliverable6Overview.png)
 
 ## Step 1: ECR configuration
 
-You should have already followed the [AWS ECR instruction](../awsEcr/awsEcr.md) in order to get your AWS account setup to store the JWT Pizza Service container images in a Docker compliant Registry. If you have not done that yet, do so now.
+You should have already followed the [AWS ECR instruction](../awsEcr/awsEcr.md) in order to get your AWS account set up to store the JWT Pizza Service container images in a Docker compliant registry. If you have not done that yet, do so now.
 
 ## Step 2: Image registration CI
 
-The ECR fully configured you are ready to automate the building and uploading a Docker container image for the JWT Pizza service whenever a change is made to the jwt-pizza-service code base. This work requires that you increase the rights that the CI workflow has, and modify workflow script to build and push the Docker image.
+With the ECR fully configured, you are ready to automate the building and uploading a Docker container image for the JWT Pizza service whenever a change is made to the jwt-pizza-service code base. This work requires that you increase the rights that the CI workflow has, and modify the workflow script to build and push the Docker image.
 
 ### Modify the IAM trust policy
 
-In order for the `jwt-pizza-service` CI workflow make requests over the OIDC authorized connection you must alter the previously configured `github-ci` IAM role so that the `jwt-pizza-service` GitHub repository is also part of the trust relationship.
+In order for the `jwt-pizza-service` CI workflow to make requests over the OIDC authorized connection, you must alter the previously configured `github-ci` IAM role so that the `jwt-pizza-service` GitHub repository is also part of the trust relationship.
 
 1. Open the AWS IAM service console.
 1. Choose `Roles`.
-1. Select the `github-ci` role that you created when you setup `jwt-pizza` to deploy to S3.
+1. Select the `github-ci` role that you created when you set up `jwt-pizza` to deploy to S3.
 1. Select the `Trust relationships` tab.
 1. Press `Edit trust policy`.
 1. Replace the `token.actions.githubusercontent.com:sub` value with the following. This allows both of your source repositories to make an OIDC connection.
@@ -101,7 +101,7 @@ Next you need to enhance the `github-ci` user rights so that they can push to EC
 
 ### Modify the CI workflow script for image upload
 
-Previously the workflow stopped after the tests were done and the coverage badge was updated. Now, you need to do the following steps:
+Previously the workflow stopped after the tests were done and the coverage badge was updated. Now you need to add the following steps:
 
 1. Create a distribution folder that will become our Docker container. This copies all of the source code files and the newly created Dockerfile. We also replace the temporary database credentials that were used during testing with the ones needed by the production environment.
    ```yml
@@ -142,7 +142,7 @@ Previously the workflow stopped after the tests were done and the coverage badge
       uses: docker/setup-buildx-action@v3
    ```
 
-1. Build and push the docker container. We used the `--push` parameter to automatically push the container image to ECR once it is done building.
+1. Build and push the docker container. We use the `--push` parameter to automatically push the container image to ECR once it finishes building.
    ```yml
    - name: Build and push container image
      env:
@@ -171,7 +171,7 @@ With ECR configured, the CI workflow for building and pushing a container image 
 
 You will do this by adding three new steps to the workflow.
 
-1. Make a copy of the existing `jwt-pizza-service` task definition and save it to a file named `task-definition.json`. Here is an example [task-definition.json](task-definition.json) if you are interested in what they look like.
+1. Make a copy of the existing `jwt-pizza-service` task definition and save it to a file named `task-definition.json`. Here is an [example task-definition.json](task-definition.json) if you are interested in what they look like.
    ```yml
    - name: Download task definition
    run: |
@@ -188,6 +188,7 @@ You will do this by adding three new steps to the workflow.
       container-name: jwt-pizza-service
       image: ${{ steps.build-image.outputs.image }}
    ```
+   🚧 not sure what this is supposed to say ("update of the ECS service")
 1. Deploy the new task definition and update of the ECS service. This will trigger ECS to create a rolling deployment of the new container and update the application load balancer to expose the new container.
    ```yml
    - name: Deploy new task definition
@@ -254,7 +255,7 @@ Now that have both your frontend and your backend running on AWS you need to cha
 From your fork of the `jwt-pizza` repository open the `.env.production` and modify it so that the `VITE_PIZZA_SERVICE_URL` is pointing to your URL for your newly deployed backend.
 
 ```json
-VITE_PIZZA_SERVICE_URL=https://pizza-service.YOURHOSTSNAMEHERE
+VITE_PIZZA_SERVICE_URL=https://pizza-service.YOURHOSTNAMEHERE
 VITE_PIZZA_FACTORY_URL=https://pizza-factory.cs329.click
 ```
 
@@ -269,8 +270,8 @@ Then push your changes to GitHub. Your CI pipeline should deploy the frontend ch
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
 1. Alter the IAM policies, roles, and identity provider definitions necessary to secure access for backend deployment.
-1. Setting up ECR to host your backend Docker container.
-1. Setting up ECS to deploy your backend Docker container using Fargate.
+1. Set up ECR to host your backend Docker container.
+1. Set up ECS to deploy your backend Docker container using Fargate.
 1. Alter your GitHub Actions workflow to update ECR and ECS in order to deploy the backend service.
 1. Alter your DNS record in Route 53 to point to the application load balancer distribution.
 1. Modify and deploy your frontend so that it calls your backend service.

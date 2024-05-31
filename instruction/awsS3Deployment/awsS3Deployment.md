@@ -27,7 +27,7 @@ First you need to set up AWS to use GitHub as an OIDC provider.
 
 ### Create the IAM policy
 
-We want to be careful what AWS services and resources we expose through the credentials we are creating and so we need to create an AWS IAM policy that only provides what in necessary to update your S3 deployment bucket and invalidate the files that the CloudFront distribution is hosting.
+We want to be careful which AWS services and resources we expose through the credentials we are creating and so we need to create an AWS IAM policy that only provides what is necessary to update your S3 deployment bucket and invalidate the files that the CloudFront distribution is hosting.
 
 1. Open the AWS IAM service console.
 1. Choose `Policies`.
@@ -43,26 +43,27 @@ We want to be careful what AWS services and resources we expose through the cred
       "Sid": "ListObjectsInBucket",
       "Effect": "Allow",
       "Action": ["s3:ListBucket"],
-      "Resource": ["arn:aws:s3:::BUCKET-NAME-HERE"]
+      "Resource": ["arn:aws:s3:::BUCKET_NAME_HERE"]
     },
     {
       "Sid": "UpdateS3Bucket",
       "Effect": "Allow",
       "Action": ["s3:*Object"],
-      "Resource": ["arn:aws:s3:::BUCKET-NAME-HERE/*"]
+      "Resource": ["arn:aws:s3:::BUCKET_NAME_HERE/*"]
     },
     {
       "Sid": "InvalidateCloudFront",
       "Effect": "Allow",
       "Action": ["cloudfront:CreateInvalidation"],
-      "Resource": ["arn:aws:cloudfront:::distribution/DISTRIBUTION-HERE"]
+      "Resource": ["arn:aws:cloudfront::AWS_ACCOUNT_HERE:distribution/DISTRIBUTION_HERE"]
     }
   ]
 }
 ```
 
-1. Replace `BUCKET-NAME-HERE` with the name of the S3 bucket you created.
-1. Replace `DISTRIBUTION-HERE` with the CloudFront distribution ID.
+1. Replace `BUCKET_NAME_HERE` with the name of the S3 bucket you created.
+1. Replace `AWS_ACCOUNT` with your AWS account number.
+1. Replace `DISTRIBUTION_HERE` with the CloudFront distribution ID.
    ![Create policy](createPolicy.png)
 1. Press `Next`.
 1. Name the policy `jwt-pizza-ci-deployment`.
@@ -80,7 +81,6 @@ Now we can create the AWS IAM role that allows access to S3.
 
    ![alt text](createRole.png)
 
-1. Press the `Next` button.
 1. Add the `Audience` to be sts.amazonaws.com from the dropdown.
 1. Add the `GitHub organization` to be you GitHub account name.
 1. Add the `GitHub repository` for your fork of the `jwt-pizza` repository.

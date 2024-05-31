@@ -30,7 +30,7 @@ You need to remove the creation of the `404.hml` that GitHub Pages used to handl
 cp dist/index.html dist/404.html
 ```
 
-Instead you need to configure CloudFront to return the `index.html` file whenever a 404 or 403 error is encountered.
+Instead you need to configure CloudFront to return the `index.html` file whenever a 404 or 403 error is encountered. You can do this by going to `Error Pages` in the CloudFront distribution and adding a custom error response.
 
 ![Handle 404](handle404.png)
 
@@ -44,7 +44,7 @@ Once completed, your repository's GitHub Actions workflow history should demonst
 
 ## ☑ Assignment
 
-In order to demonstrate your mastery of the concepts for this deliverable, complete the following.following.
+In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
 1. Create a secure S3 bucket to host the frontend static files.
 1. Create a CloudFront distribution.

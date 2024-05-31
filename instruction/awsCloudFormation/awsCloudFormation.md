@@ -12,9 +12,9 @@ We have been doing a lot of manual manipulation of AWS in order to setup our aut
 
 ## CloudFormation
 
-CloudFormation is AWS's primary automation tool. With CloudFormation you can create a parameterized JSON file, called a **CloudFormation Template**, that describe each AWS resource that you want to create. You then use the template to create a CloudFormation stack. A stack represents the instantiation of all the resources defined by the template. You can also delete all the resources represented by the stack with a single button press.
+CloudFormation is AWS's primary automation tool. With CloudFormation you can create a parameterized JSON file, called a **CloudFormation Template**, that describes each AWS resource that you want to create. You then use the template to create a CloudFormation stack. A stack represents the instantiation of all the resources defined by the template. You can also delete all the resources represented by the stack with a single button press.
 
-- **Resource**: An AWS object such as a S3 Bucker or EC2 instance.
+- **Resource**: An AWS object such as a S3 Bucket or EC2 instance.
 - **Template**: A JSON script that defines resources to deploy.
 - **Stack**: The deployed resources.
 
@@ -57,7 +57,7 @@ The following is a basic CloudFormation template that creates an S3 bucket with 
 
 ### Obtaining template parameters
 
-The `Parameters` section defines the input parameters necessary to create the stack. When the stack is created the user will be prompted for the required parameters. You can define as many parameters as you would like. You then use them later in the script with a `Ref` field. You can see the unique bucket name referenced in the _Resources_ section later in the script.
+The `Parameters` section defines the input parameters necessary to create the stack. When the stack is created, the user will be prompted for the required parameters. You can define as many parameters as you would like. You then use them later in the script with a `Ref` field. You can see the unique bucket name referenced in the _Resources_ section later in the script.
 
 ```json
 "Parameters": {
@@ -70,7 +70,7 @@ The `Parameters` section defines the input parameters necessary to create the st
 
 ### Definition resources to create
 
-The `Resources` section may contain one or more resources to create. In this case we are creating an S3 bucket. We start by specifying a template ID for the resource with the value of `S3Bucket`. The ID is only meaningful in the context of the template so that it can be referenced for creation, deletion, and use by other resources contained in the template. The type of the resource is defined by the [Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) value of [AWS::S3::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html). If you review the documentation for this type you will see that it has several properties you can set such as the BucketName, BucketEncryption, AccessControl, and LifecycleConfiguration. Basically, you can create any AWS object and you are in complete control of how the object is defined.
+The `Resources` section may contain one or more resources to create. In this case we are creating an S3 bucket. We start by specifying a template ID for the resource with the value of `S3Bucket`. The ID is only meaningful in the context of the template so that it can be referenced for creation, deletion, and use by other resources contained in the template. The type of the resource is defined by the [Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) value of [AWS::S3::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html). If you review the documentation for this type, you will see that it has several properties that you can set, such as the BucketName, BucketEncryption, AccessControl, and LifecycleConfiguration. Basically, you can create any AWS object and you are in complete control of how the object is defined.
 
 For this example, we defined the _BucketName_ to be the value of the template parameter **MyBucketName**.
 
@@ -147,4 +147,4 @@ Now you are ready to use the template to create a CloudFormation stack.
 
 ### Deleting the stack
 
-One of the great things about creating a CloudFormation stack is that it is easy to teardown everything that you create. We can delete our S3 bucket, and all other resources defined by the stack template, by simply pressing the `Delete` button for the stack. After a few seconds it will all be gone.
+One of the great things about creating a CloudFormation stack is that it is easy to tear down everything that you create. We can delete our S3 bucket, and all other resources defined by the stack template, by simply pressing the `Delete` button for the stack. After a few seconds it will all be gone.
