@@ -91,7 +91,7 @@
 ## Observability
 
 - 🚧 [Observability](observability/observability.md)
-- 🚧 [Grafana](grafana/grafana.md)
+- ☑ 🔵 [Grafana](grafana/grafana.md)
 - 🚧 [Logging](logging/logging.md)
 - 🚧 [Grafana Loki](loki/loki.md)
 - 🚧 ⓼ Logging - Provide logging with Grafana Loki
@@ -109,6 +109,7 @@
 - 🚧 [Load testing](loadTesting/loadTesting.md)
 - 🚧 [Grafana K6](grafanaK6/grafanaK6.md)
 - 🚧⓾ [Load test: JWT Pizza - Execute end to end load testing with K6](deliverable11LoadTesting/deliverable11LoadTesting.md)
+- [Status](statusReporting/statusReporting.md)
 - [Frequently Asked Questions](faq/loadTestingFaq.md)
 
 ## Failure management
