@@ -189,7 +189,7 @@ You will do this by adding three new steps to the workflow.
       image: ${{ steps.build-image.outputs.image }}
    ```
    🚧 not sure what this is supposed to say ("update of the ECS service")
-1. Deploy the new task definition and update of the ECS service. This will trigger ECS to create a rolling deployment of the new container and update the application load balancer to expose the new container.
+1. Deploy the new task definition and update the ECS service. This will trigger ECS to create a rolling deployment of the new container and update the application load balancer to expose the new container.
    ```yml
    - name: Deploy new task definition
    uses: aws-actions/amazon-ecs-deploy-task-definition@v1
