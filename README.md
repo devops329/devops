@@ -19,7 +19,7 @@ The content for this course is represented by the following parts.
 
 ## Outcomes
 
-By the end of the course you will have experienced the following outcomes.
+By the end of the course you will have experienced the following [outcomes](https://docs.google.com/presentation/d/1i1Mw90497u9KMhIqZm8ucYIGQpnjLz_ajMyaiL3wMak).
 
 Students will be able to:
 
