@@ -92,12 +92,12 @@
 
 - 🚧 [Observability](observability/observability.md)
 - ☑ 🔵 [Grafana](grafana/grafana.md)
-- 🚧 [Logging](logging/logging.md)
-- 🚧 [Grafana Loki](loki/loki.md)
-- 🚧 ⓼ Logging - Provide logging with Grafana Loki
 - 🚧 Metrics
 - 🚧 [Grafana Metrics](grafanaMetrics/grafanaMetrics.md)
 - 🚧 ⓻ Metrics - Provide metrics with Grafana Mimir
+- 🚧 [Logging](logging/logging.md)
+- 🚧 [Grafana Loki](loki/loki.md)
+- 🚧 ⓼ Logging - Provide logging with Grafana Loki
 - 🚧 Distributed tracing
 - 🚧 [Grafana Tempo](grafanaTempo/grafanaTempo.md)
 - ❌ ⓽ Tracing - Provide execution tracing with Grafana Tempo
