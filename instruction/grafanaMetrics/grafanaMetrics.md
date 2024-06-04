@@ -235,3 +235,18 @@ At this point you should have a pretty good idea how to create a Grafana dashboa
 When you are done, take a screenshot of your dashboard and upload it to the Canvas assignment. It should look something like this:
 
 ![HTTP requests by method](httpRequestsByMethod.png)
+
+### Make your dashboard public
+
+In order to complete the assignment you need to make you dashboard public so that all of your adoring fans (i.e. the TAs) can admire it.
+
+1. From your Grafana dashboard click on the `Share` button.
+1. Click on the `Public dashboard` tab.
+1. Acknowledge all the warnings.
+
+   ![Make public dashboard](makePublicDashboard.png)
+
+1. Press the `Generate public URL` button.
+1. Copy the generated dashboard URL.
+
+Go to the associated Canvas assignment and submit the dashboard URL.
