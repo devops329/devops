@@ -4,9 +4,9 @@ In 2014, Grafana started as an open source metric visualization tool based on th
 
 ![Grafana Dashboard](grafanaDashboard.png)
 
-The model allowed for a wide variety of data sources to be plugged into a set of stunning collection of data visualizations.
+The model allowed for a wide variety of data sources to be plugged into a set of stunning collections of data visualizations.
 
-The Grafana team, lead by Torkel Ödegaard, continues to enhance the application to to include alerting, logging, stack tracing support, and even load testing. With a full suite of observability tools, Grafana created a SaaS offering named Grafana Cloud that handles and manages all of the metrics, logging, and tracing needs for an application.
+The Grafana team, lead by Torkel Ödegaard, continued to enhance the application to include alerting, logging, stack tracing support, and even load testing. With a full suite of observability tools, Grafana created a SaaS offering named Grafana Cloud that handles and manages all of the metrics, logging, and tracing needs for an application.
 
 ### Torkel Ödegaard
 
@@ -31,7 +31,7 @@ Grafana's product suite includes the following.
 
 ## Grafana Cloud
 
-Grafana Cloud provides a generous free tier to get you started and allow you experiment. No credit card is required and there is enough in the offering to fully explore the product or build a small observability system. In addition to full access for the first two weeks, the following are included in the free tier:
+Grafana Cloud provides a generous free tier to get you started and allow you to experiment. No credit card is required and there is enough in the offering to fully explore the product or build a small observability system. In addition to full access for the first two weeks, the following are included in the free tier:
 
 - 10k series Prometheus metrics
 - 50GB logs, 50GB traces, 50GB profiles
@@ -61,8 +61,8 @@ In order to get started with Grafana Cloud you need to create a free account.
 At a high level, Grafana Cloud consists of three major parts.
 
 1. **Collector**: Software running as part of your application, either in your code or as an additional agent program, collects data and send it over a connection to be stored in Grafana Cloud.
-1. **Data source**: A representation of logging or metrics data that configured to either be read directly from the service providing the data (e.g. MySQL database or AWS CloudWatch), or from data stored in Grafana Cloud (e.g. Prometheus or Loki). The data source also defines a query and filter that controls how the data is presented to the visualization dashboard.
-1. **Dashboard**: The dashboard contains visualization panes that each display a data source with additional rendering properties such as the time range to display, colors, visualization type. There are [dozens of panel types](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/) that you can use when building your dashboard. This includes line charts, bar charts, pie charts, gauges, big numbers, node networks, tables, flame graphs, and so on.
+1. **Data source**: A representation of logging or metrics data that is configured to either be read directly from the service providing the data (e.g. MySQL database or AWS CloudWatch), or from data stored in Grafana Cloud (e.g. Prometheus or Loki). The data source also defines a query and filter that controls how the data is presented to the visualization dashboard.
+1. **Dashboard**: The dashboard contains visualization panels that each display a data source with additional rendering properties such as the time range to display, colors, visualization type. There are [dozens of panel types](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/) that you can use when building your dashboard. This includes line charts, bar charts, pie charts, gauges, big numbers, node networks, tables, flame graphs, and so on.
 
 ![Grafana architecture](grafanaArchitecture.png)
 
@@ -114,7 +114,7 @@ Now you can create a visualization from the data source.
 
 You have just created your first visualization dashboard. Way to go! Now let's add another panel by duplicating the first one and modifying its properties.
 
-1. Click on the panels dot menu and select `Duplicate`.
+1. Click on the panel's dot menu and select `Duplicate`.
 
    ![Duplicate menu](duplicateMenu.png)
 
@@ -124,7 +124,7 @@ You have just created your first visualization dashboard. Way to go! Now let's a
 
    ![Gauge visualization](gaugeVisualization.png)
 
-1. Save the changes and go back to your awesome dashboard.
+1. Save the changes and go back to your awesome dashboard. You may need to refresh the page for the changes to display.
 
    ![Final dashboard](finalDashboard.png)
 

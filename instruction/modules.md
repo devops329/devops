@@ -91,7 +91,7 @@
 ## Observability
 
 - 🚧 [Observability](observability/observability.md)
-- ☑ 🔵 [Grafana](grafana/grafana.md)
+- ☑ 🟢 [Grafana](grafana/grafana.md)
 - 🚧 Metrics
 - 🚧 [Grafana Metrics](grafanaMetrics/grafanaMetrics.md)
 - 🚧 ⓻ Metrics - Provide metrics with Grafana Mimir

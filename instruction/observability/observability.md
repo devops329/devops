@@ -8,6 +8,15 @@ Has the database run out of memory, is an old version being deployed for the fro
 
 Without being able to observe what is happening inside the box, you are left to guess what the problem is based entirely on external observations. That usually means that a frustrated customer is reporting a problem in very vague terms, or worse no one is reporting the problem and your customers are just walking away to your competitor.
 
+## Golden Signals
+
+Per the [Google SRE Handbook](https://sre.google/sre-book/monitoring-distributed-systems/), "The four golden signals of monitoring are latency, traffic, errors, and saturation."
+
+- **Latency**: The time it takes to service a request.
+- **Traffic**: A measure of how much demand is being placed on the system.
+- **Errors**: The rate of requests that fail.
+- **Saturation**: How "full" your service is.
+
 ## Observability tools
 
 There are three types of tools that are usually associated with increasing the observability of a software system.
@@ -42,7 +51,7 @@ The record an observability tools creates must be immutable, or in other words, 
 
 ## Incident response
 
-In the early days of system monitoring humans watched metric dashboards looking for anomalies. It was common for a Network Operations Center (NOC) to be staffer 24 hours a day 7 days a week in order to respond to critical system failures.
+In the early days of system monitoring humans watched metric dashboards looking for anomalies. It was common for a Network Operations Center (NOC) to be staffed 24 hours a day 7 days a week in order to respond to critical system failures.
 
 This quickly evolved into the adoption of triggered alerts that would fire when certain thresholds were exceeded. That made it possible to drastically reduce the operations staff, or eliminate it entirely, with _on call_ staff who could be woken in the middle of the night.
 
