@@ -6,23 +6,25 @@ const SOURCE = config.source;
 
 class Metrics {
   constructor() {
-    this.totalRequests = 0;
+    this.requests = {};
 
     // This will periodically sent metrics to Grafana
     setInterval(() => {
-      this.sendMetricToGrafana(this.createMetricString('request', 'total', this.totalRequests));
+      Object.keys(this.requests).forEach((httpMethod) => {
+        this.sendMetricToGrafana('request', httpMethod, 'total', this.requests[httpMethod]);
+      });
+      const totalRequests = Object.values(this.requests).reduce((acc, curr) => acc + curr, 0);
+      this.sendMetricToGrafana('request', 'all', 'total', totalRequests);
     }, 10000);
   }
 
-  incrementRequests() {
-    this.totalRequests++;
+  incrementRequests(httpMethod) {
+    this.requests[httpMethod] = (this.requests[httpMethod] || 0) + 1;
   }
 
-  createMetricString(metricPrefix, metricName, metric) {
-    return `${metricPrefix},source=${SOURCE} ${metricName}=${metric}`;
-  }
+  sendMetricToGrafana(metricPrefix, httpMethod, metricName, metricValue) {
+    const metric = `${metricPrefix},source=${SOURCE},method=${httpMethod} ${metricName}=${metricValue}`;
 
-  sendMetricToGrafana(metric) {
     fetch(`https://${config.host}/api/v1/push/influx/write`, {
       method: 'post',
       body: metric,

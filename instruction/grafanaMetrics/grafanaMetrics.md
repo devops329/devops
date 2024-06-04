@@ -154,19 +154,17 @@ Create a simple Express app by doing the following.
 
        // This will periodically sent metrics to Grafana
        setInterval(() => {
-         this.sendMetricToGrafana(this.createMetricString('request', 'total', this.totalRequests));
+         this.sendMetricToGrafana('request', 'all', 'total', totalRequests);
        }, 10000);
      }
 
-     incrementRequests() {
+     incrementRequests(httpMethod) {
        this.totalRequests++;
      }
 
-     createMetricString(metricPrefix, metricName, metric) {
-       return `${metricPrefix},source=${SOURCE} ${metricName}=${metric}`;
-     }
+     sendMetricToGrafana(metricPrefix, httpMethod, metricName, metricValue) {
+       const metric = `${metricPrefix},source=${SOURCE},method=${httpMethod} ${metricName}=${metricValue}`;
 
-     sendMetricToGrafana(metric) {
        fetch(`https://${config.host}/api/v1/push/influx/write`, {
          method: 'post',
          body: metric,
@@ -196,21 +194,17 @@ Create a simple Express app by doing the following.
    const app = express();
 
    const metrics = require('./metrics');
+   let greeting = 'hello';
 
    app.use(express.json());
 
-   app.use((_, _res, next) => {
-     metrics.incrementRequests();
-     next();
-   });
-
    app.get('/hello/:name', (req, res) => {
-     res.send(`hello ${req.params.name}`);
+     metrics.incrementRequests('get');
+     res.send({ [greeting]: req.params.name });
    });
 
-   const port = 3000;
-   app.listen(port, function () {
-     console.log(`Listening on port ${port}`);
+   app.listen(3000, function () {
+     console.log(`Listening on port 3000`);
    });
    ```
 
@@ -229,15 +223,15 @@ You should be able to now go back to your dash board and see a request rate of a
 
 ## ☑ Assignment
 
-At this point you should have a pretty good idea how to create a Grafana dashboard that displays a simple request count metric from JavaScript. Let's see if you can build on what you have learned.
+At this point you should have a pretty good idea how to create a Grafana dashboard that displays a simple request count metric as generated from JavaScript. Now it is time to take it to the next level. Do the following:
 
-Do the following:
-
-1. Change the visualization so that it shows multiple series with the counts for each type of HTTP method.
 1. Modify the service code to do the following:
    1. Has a POST endpoint that sets the greeting.
-   1. Has a Delete endpoint that resets the greeting back to the default.
+   1. Has a DELETE endpoint that resets the greeting back to the default.
    1. Sends metrics that count the total for each HTTP method.
 1. Create Curl commands that calls all of the services endpoints.
+1. Change the visualization so that it shows multiple series with the counts for each type of HTTP method.
 
-When you are done, take a screenshot of your dashboard and upload it to the Canvas assignment.
+When you are done, take a screenshot of your dashboard and upload it to the Canvas assignment. It should look something like this:
+
+![HTTP requests by method](httpRequestsByMethod.png)
