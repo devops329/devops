@@ -74,7 +74,7 @@ Security is often a trade off between ease of use and strong protections. Note t
 
 You can solve the network problem by deploying the JWT Pizza service to AWS and opening a hole in the network firewall so that only the service can access the database. You already configured the network hole when you created the security group for the database and specified that only devices in the `jwt-pizza-service` security group could access it.
 
-Keeping the database off of a private network is a good security practice since the database is a high value target that contains user information and credentials.
+Keeping the database on a private network is a good security practice since the database is a high value target that contains user information and credentials.
 
 ### DB credentials
 
