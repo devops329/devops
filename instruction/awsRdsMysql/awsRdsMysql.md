@@ -18,14 +18,18 @@ Eventually you will change the jwt-pizza-service security group so that only the
 1. Select `Security groups` from the left panel navigation.
 1. Press `Create security group`.
 1. Name the group `jwt-pizza-service`.
+1. Give a simple description like `Security group for the JWT Pizza Service`.
 1. Press the `Add rule` for inbound rules.
-   1. Select the `type` of **HTTPS**. This should populate the `Port range` with 443. Set the `Source` to **from anywhere**.
-   1. Select the `type` of **HTTP**. This should populate the `Port range` with 80. Set the `Source` to **from anywhere**.
+   1. Select the `type` of **HTTPS**. This should populate the `Port range` with 443. Set the `Source` to **Anywhere-IPv4**.
+   1. Add a second rule. Select the `type` of **HTTP**. This should populate the `Port range` with 80. Set the `Source` to **Anywhere-IPv4**.
+1. Press the `Create security group` button.
 
 ### Create the database security group
 
+1. Navigate to `Security groups` in the VPC service.
 1. Press `Create security group`.
 1. Name the security group `jwt-pizza-db`.
+1. Give a simple description.
 1. Press the `Add rule` for inbound rules.
    1. Select the `type` of `MYSQL/Aurora`. This should populate the `Port range` with 3306. Set the `Source` to be the **jwt-pizza-service** security group that you just created.
 
@@ -64,7 +68,7 @@ After a few minutes your database will display that it has been created. Note th
 
 With the database deployed, it would be great if you could immediately use it. However, you have two problems. You need to safely provide the credentials to the JWT Pizza Service, and you have to access the database over a private network.
 
-Security is often a trade off between ease of use and strong protections. Note that DevOps automation can often help alleviate the burden of the security overhead, by removing the manual hoops to that you otherwise have to jump through.
+Security is often a trade off between ease of use and strong protections. Note that DevOps automation can often help alleviate the burden of the security overhead by removing the manual hoops to that you otherwise have to jump through.
 
 ### Private network access
 

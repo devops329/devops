@@ -16,14 +16,7 @@ Now that you know how Docker containers work, you need to create a jwt-pizza-ser
    CMD ["node", "index.js", "80"]
    ```
 
-1. Copy the source code files to `dist` that we want to distribute.
-   ```sh
-   mkdir dist
-   cp Dockerfile dist
-   cp -r src/* dist
-   cp *.json dist
-   ```
-1. Modify/Create the `config.json` file. Set the database host field so that it looks outside of the container for the MySQL server by specifying the value of `host.docker.internal`. Make sure you include the `config.json` file in your `.gitignore` file so that you do not accidentally push it to your repository. Set the parameters, such as the jwtSecret and factory.apiKey, according to your environment.
+1. Modify/Create the `config.js` file. Set the database host field so that it looks outside of the container for the MySQL server by specifying the value of `host.docker.internal`. Make sure you include the `config.js` file in your `.gitignore` file so that you do not accidentally push it to your repository. Set the parameters, such as the jwtSecret and factory.apiKey, according to your environment.
    ```sh
    module.exports = {
     jwtSecret: 'yourRandomJWTGenerationSecretForAuth',
@@ -43,11 +36,22 @@ Now that you know how Docker containers work, you need to create a jwt-pizza-ser
     },
    };
    ```
+1. Copy the source code files to `dist` that we want to distribute.
+   ```sh
+   mkdir dist
+   cp Dockerfile dist
+   cp -r src/* dist
+   cp *.json dist
+   ```
+1. Navigate to the `dist` directory.
+   ```sh
+   cd dist
+   ```
 1. Build the image.
    ```sh
    docker build -t jwt-pizza-service .
    ```
-1. Verify that the container exists
+1. Verify that the container exists.
 
    ```sh
    ➜  docker images -a
