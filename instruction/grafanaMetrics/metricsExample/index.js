@@ -10,15 +10,19 @@ app.use((_, _res, next) => {
   next();
 });
 
-app.get('/hello', (_, res) => {
-  res.send('hello');
+app.get('/hello/:name', (req, res) => {
+  res.send({ hello: req.params.name });
+});
+
+app.post('/hello/:greeting', (req, res) => {
+  res.send({ hello: req.params.name });
+});
+
+app.delete('/hello', (req, res) => {
+  res.send({ hello: req.params.name });
 });
 
 const port = 3000;
 app.listen(port, function () {
   console.log(`Listening on port ${port}`);
-
-  setInterval(() => {
-    metrics.incrementRequests();
-  }, 100);
 });

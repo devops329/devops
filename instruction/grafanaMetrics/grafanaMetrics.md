@@ -67,9 +67,14 @@ Using the example command and your newly minted API key you can now insert data 
    ```sh
    curl -X  POST -H  "Authorization: Bearer $API_KEY" -H  "Content-Type: text/plain" "$URL" -d "request,source=jwt_pizza_service total=1000"
    ```
-1. Execute the Curl command a few more times. Wait a couple seconds between each execution. This will insert multiple metrics so that the visualization is more interesting.
+   This should execute without any error and put your first metric into the Prometheus database.
+1. Now modify the shell command so that it inserts a new metric every few seconds.
+   ```sh
+   total=0; while true; do total=$((total+1000)); curl -X POST -H "Authorization: Bearer $API_KEY" -H "Content-Type: text/plain" "$URL" -d "request,source=jwt_pizza_service total=$total"; sleep 10; done;
+   ```
+   This should simulate about 100 requests per second. That should be enough data to make things interesting. Let this keep running while you create your visualization.
 
-### Create a visualization
+## Create a visualization
 
 1. Open up your Grafana Cloud dashboard.
 1. Open the Home menu, click on Dashboards, and then select **Awesome Dashboard** that you previous created.
@@ -85,6 +90,24 @@ Using the example command and your newly minted API key you can now insert data 
 1. Save the dashboard with the new panel by pressing the `Save` button.
 
 This should display the metrics that you inserted using Curl. You can experiment with this by executing more Curl commands and refreshing the dashboard to see the result.
+
+### Calculating metrics
+
+If you insert enough metrics you will see the total request count going up and up. What you really want to know is how many requests have happened over the last period. You can accomplish by changing the query that you use to generate the visualization data.
+
+1. Edit the panel.
+1. Click on the `Code` button in the metric definition area.
+1. Replace the query that is there with one that computes the difference over a one minute period.
+   ```
+   rate(request_total{source="jwt_pizza_service"}[1m])
+   ```
+1. Press the `Run queries` button. This should recalculate the displayed data to show a difference instead of a total.
+
+   ![Rate query](rateQuery.png)
+
+If you switch the visualization editor back to `Builder` mode from the `Code` mode then you can experiment with all of the query operations that Prometheus provides. Take some time to play with these and see what you can do.
+
+![Query builder](queryBuilder.png)
 
 ## Sending metrics from code
 
@@ -105,9 +128,116 @@ Create a simple Express app by doing the following.
        "start": "node index.js"
      },
    ```
-1. Create a `config.json` file to include your credentials. Make sure you include this in your `.gitignore` file if you push this code to GitHub.
-1. Create an `index.js` that contains your simple demonstration service.
+1. Create a `config.json` file to include your Grafana credentials. Replace the values with the ones that were supplied when you created the data source connection. Make sure you include this in your `.gitignore` file if you push this code to GitHub so that you don't publicly post your Grafana API key.
+
+   ```json
+   {
+     "source": "jwt_pizza_service",
+     "userId": 1,
+     "host": "",
+     "apiKey": ""
+   }
+   ```
+
+1. Create a `metrics.js` file that basically does the same thing that the curl command was doing. The difference is that the total request count only increments every time `incrementRequests` is called.
 
    ```js
-   cow;
+   const config = require('./config.json');
+
+   const USER_ID = config.userId;
+   const API_KEY = config.apiKey;
+   const SOURCE = config.source;
+
+   class Metrics {
+     constructor() {
+       this.totalRequests = 0;
+
+       // This will periodically sent metrics to Grafana
+       setInterval(() => {
+         this.sendMetricToGrafana(this.createMetricString('request', 'total', this.totalRequests));
+       }, 10000);
+     }
+
+     incrementRequests() {
+       this.totalRequests++;
+     }
+
+     createMetricString(metricPrefix, metricName, metric) {
+       return `${metricPrefix},source=${SOURCE} ${metricName}=${metric}`;
+     }
+
+     sendMetricToGrafana(metric) {
+       fetch(`https://${config.host}/api/v1/push/influx/write`, {
+         method: 'post',
+         body: metric,
+         headers: { Authorization: `Bearer ${USER_ID}:${API_KEY}` },
+       })
+         .then((response) => {
+           if (!response.ok) {
+             console.error('Failed to push metrics data to Grafana');
+           } else {
+             console.log(`Pushed ${metric}`);
+           }
+         })
+         .catch((error) => {
+           console.error('Error pushing metrics:', error);
+         });
+     }
+   }
+
+   const metrics = new Metrics();
+   module.exports = metrics;
    ```
+
+1. Create an `index.js` that contains your simple demonstration service. Every time an HTTP request is made to the service it will
+
+   ```js
+   const express = require('express');
+   const app = express();
+
+   const metrics = require('./metrics');
+
+   app.use(express.json());
+
+   app.use((_, _res, next) => {
+     metrics.incrementRequests();
+     next();
+   });
+
+   app.get('/hello/:name', (req, res) => {
+     res.send(`hello ${req.params.name}`);
+   });
+
+   const port = 3000;
+   app.listen(port, function () {
+     console.log(`Listening on port ${port}`);
+   });
+   ```
+
+1. Start up the service.
+
+   ```sh
+   npm run start
+   ```
+
+1. Run a curl command to repeatedly hit the **hello** endpoint.
+   ```sh
+   while true; do curl localhost:3000/hello/Torkel; sleep 1; done;
+   ```
+
+You should be able to now go back to your dash board and see a request rate of about 1 per second.
+
+## ☑ Assignment
+
+At this point you should have a pretty good idea how to create a Grafana dashboard that displays a simple request count metric from JavaScript. Let's see if you can build on what you have learned.
+
+Do the following:
+
+1. Change the visualization so that it shows multiple series with the counts for each type of HTTP method.
+1. Modify the service code to do the following:
+   1. Has a POST endpoint that sets the greeting.
+   1. Has a Delete endpoint that resets the greeting back to the default.
+   1. Sends metrics that count the total for each HTTP method.
+1. Create Curl commands that calls all of the services endpoints.
+
+When you are done, take a screenshot of your dashboard and upload it to the Canvas assignment.

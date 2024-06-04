@@ -93,7 +93,7 @@
 - 🚧 [Observability](observability/observability.md)
 - ☑ 🟢 [Grafana](grafana/grafana.md)
 - 🚧 Metrics
-- 🚧 [Grafana Metrics](grafanaMetrics/grafanaMetrics.md)
+- ☑ 🔵 [Grafana Metrics](grafanaMetrics/grafanaMetrics.md)
 - 🚧 ⓻ Metrics - Provide metrics with Grafana Mimir
 - 🚧 [Logging](logging/logging.md)
 - 🚧 [Grafana Loki](loki/loki.md)
