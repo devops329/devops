@@ -10,9 +10,6 @@ app.use((_, _res, next) => {
   next();
 });
 
-// Every minute this will send the total requests and the requests per minute
-metrics.sendRequestsMetrics();
-
 app.get('/hello', (_, res) => {
   res.send('hello');
 });
@@ -20,4 +17,8 @@ app.get('/hello', (_, res) => {
 const port = 3000;
 app.listen(port, function () {
   console.log(`Listening on port ${port}`);
+
+  setInterval(() => {
+    metrics.incrementRequests();
+  }, 100);
 });

@@ -2,30 +2,22 @@ const config = require('./config.json');
 
 const USER_ID = config.userId;
 const API_KEY = config.apiKey;
-const SOURCE = 'example';
+const SOURCE = config.source;
 
 let totalRequests = 0;
-let requestsPerMinute = 0;
 
 function incrementRequests() {
   totalRequests++;
-  requestsPerMinute++;
 }
 
-function createMetricString(label, metric) {
-  return `counter,bar_label=${label},source=${SOURCE} metric=${metric}`;
+function createMetricString(metricPrefix, metricName, metric) {
+  return `${metricPrefix},source=${SOURCE} ${metricName}=${metric}`;
 }
 
-function sendRequestsMetrics() {
-  // Every minute this will send the requests per minute and the total requests to grafana
-  setInterval(() => {
-    const requests_per_minute_metric = createMetricString('requests_per_minute', requestsPerMinute);
-    sendMetricToGrafana(requests_per_minute_metric);
-    const total_requests_metric = createMetricString('total_requests', totalRequests);
-    sendMetricToGrafana(total_requests_metric);
-    requestsPerMinute = 0;
-  }, 60000);
-}
+// This will periodically sent metrics to Grafana
+setInterval(() => {
+  sendMetricToGrafana(createMetricString('request', 'total', totalRequests));
+}, 10000);
 
 async function sendMetricToGrafana(metric) {
   fetch(`https://${config.host}/api/v1/push/influx/write`, {
@@ -49,6 +41,5 @@ async function sendMetricToGrafana(metric) {
 }
 
 module.exports = {
-  sendRequestsMetrics,
   incrementRequests,
 };

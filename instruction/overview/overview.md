@@ -39,7 +39,7 @@ The class will follows a cycle like this:
 
 Multiple phases of development releases and changes to the devOps pipeline will occur as different technologies and strategies are employed. As part of this process, you will create the following deliverables that demonstrate your mastery of the course concepts.
 
-![overview](overview.png)
+![overview](../sharedImages/courseOverview.png)
 
 1. **Manual deploy** - Deploy frontend to GitHub Pages manually
 1. **Automated deploy** - Deploy frontend to GitHub Pages using GitHub Actions
