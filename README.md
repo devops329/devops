@@ -29,7 +29,7 @@ Students will be able to:
 - **Curious**: Characterize and address gaps in understanding related to DevOps techniques and principles.
 - **Creative**: Discuss and generate alternate DevOps designs.
 - **Collaborative**: Work as a team to discover DevOps design weaknesses.
-- **Christlike**: Strive for divine inspiration for, and ability to apply capabilities to, celestial pursuits.
+- **Christlike**: Strive for gratitude for, inspiration in, and the ability to apply capabilities to, celestial pursuits.
 
 ## Technologies
 
