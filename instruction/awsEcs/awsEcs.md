@@ -121,8 +121,7 @@ Take the following steps to deploy with an Application Load Balancer.
 1. Open the AWS browser console and navigate to the Elastic Container Service (ECS) service.
 1. Press `Clusters` from the left side navigation panel.
 1. Press the cluster you created earlier (`jwt-pizza-service`).
-1. Press the service you created earlier (`jwt-pizza-service`).
-1. Press the `Update service` button.
+1. Press the `Create service` button.
 1. Under `Load balancing`
 
    1. Select `Application Load Balancer`
@@ -131,10 +130,12 @@ Take the following steps to deploy with an Application Load Balancer.
       1. Provide `jwt-pizza-service` as the `Load balancer name`.
       1. Create a new listener on port 443 using HTTPS.
       1. Select the wildcard certificate for the hostname that you created previously.
+         🚧 they never actually created a wildcard certificate
    1. Create a new target group.
       1. Provide the name `jwt-pizza-service`.
       1. Set the Protocol to HTTP.
       1. Set the Health check path to `/api/docs`.
+   1. Press `Create`.
 
 🚧 You put port 80 for https in this image, your target group uses https, not http and the health check path is `/`.
 ![Load balancer config](loadBalancerConfig.png)

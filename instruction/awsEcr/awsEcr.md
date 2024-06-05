@@ -53,7 +53,7 @@ Using the process that you executed in the previous instruction about how to bui
 
 ## Setup a lifecycle rule
 
-When you push a container image to ECR it will untag the previous image and leave it in the repository. In order to clean these up and avoid going over the 500 MB free tier, you can create a `lifecycle rule` that removes anything without a tag after 1 day. You can also set up a rule that only keeps the last N images.
+When you push a container image to ECR it will untag the previous image and leave it in the repository. In order to clean these up and avoid going over the 500 MB free tier, you can create a `Lifecycle policy rule` that removes anything without a tag after 1 day. You can also set up a rule that only keeps the last N images.
 
 ![Lifecycle rule](lifecycleRule.png)
 

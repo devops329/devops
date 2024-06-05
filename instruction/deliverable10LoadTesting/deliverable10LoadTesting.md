@@ -11,21 +11,16 @@ In the `k6` folder, create a `jwt-pizza-order.js` file. The options can be ident
 
 To see how to structure your request objects, you can look at the endpoint specifications in `jwt-pizza-service`.
 
-## Managing cookies
+### Managing authentication
 
-The order endpoint expects the authentication cookie that was sent in the register response. A simple way to get and send cookies is by using a `cookie jar` as follows:
+You will need to save the authentication token returned by the login request and send this with the authorization header in the order requests.
 
 ```javascript
-// Create a cookie jar to store the authentication cookie
-const jar = http.cookieJar();
-// Replace the backend url with the url of your pizza-service
-res = http.post('https://pizza-service.cs329.click/api/auth', JSON.stringify(userObject), {
-  headers: { 'Content-Type': 'application/json' },
-  jar: jar,
-});
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${authToken}`
+   },
 ```
-
-The cookie jar will store the cookies from the response, and you can send them in the order request by adding the `jar` property to the request.
 
 ## ☑ Assignment
 
