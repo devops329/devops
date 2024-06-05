@@ -79,7 +79,6 @@ Next you need to enhance the `github-ci` user rights so that they can push to EC
             "iam:PassRole"
       ],
       "Resource": [
-            "arn:aws:iam::YOURACCOUNTIDHERE:role/lee-base-base",
             "arn:aws:iam::YOURACCOUNTIDHERE:role/jwt-pizza-ecs"
       ]
    },
@@ -142,9 +141,10 @@ Previously the workflow stopped after the tests were done and the coverage badge
       uses: docker/setup-buildx-action@v3
    ```
 
-1. Build and push the docker container. We use the `--push` parameter to automatically push the container image to ECR once it finishes building.
+1. Build and push the docker container. We use the `--push` parameter to automatically push the container image to ECR once it finishes building. We also define an output variable that will contain the name of the image that was pushed, so we can reference it later.
    ```yml
    - name: Build and push container image
+     id: build-image
      env:
        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
        ECR_REPOSITORY: 'jwt-pizza-service'
@@ -153,6 +153,7 @@ Previously the workflow stopped after the tests were done and the coverage badge
        cd dist
        ls -la
        docker build --platform=linux/arm64 -t $ECR_REGISTRY/$ECR_REPOSITORY --push .
+       echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:latest"
    ```
 
 ### Test the image push
