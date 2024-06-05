@@ -1,5 +1,6 @@
 # Modules
 
+- ⚠️ Learner should take note
 - ☑ Has an assignment associated with it
 - 🚧 Lots of work to do
 - 🟢 Stephen has reviewed

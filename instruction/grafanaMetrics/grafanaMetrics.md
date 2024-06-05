@@ -1,6 +1,6 @@
 # Grafana metrics
 
-In previous instruction we use the TestData data source to display randomly generated metrics on a Grafana dashboard. Now we want to demonstrate how to actually to actually supply data for visualization.
+In previous instruction we used the TestData data source to display randomly generated metrics on a Grafana dashboard. Now we want to demonstrate how to actually to actually supply data for visualization.
 
 Grafana has dozens of predefined data sources for all kinds of data services. This includes services such as MySQL, AWS CloudWatch, Caddy Server, CSV files, ElasticSearch, GitHub, and so on. Each of these data sources define how to connect to the service and what data they expose for visualization in a dashboard panel.
 
@@ -72,7 +72,7 @@ Using the example command and your newly minted API key you can now insert data 
    ```sh
    total=0; while true; do total=$((total+1000)); curl -X POST -H "Authorization: Bearer $API_KEY" -H "Content-Type: text/plain" "$URL" -d "request,source=jwt_pizza_service total=$total"; sleep 10; done;
    ```
-   This should simulate about 100 requests per second. That should be enough data to make things interesting. Let this keep running while you create your visualization.
+   This should simulate about 100 requests per second. That should be enough data to make things interesting. Keep this running while you create your visualization.
 
 ## Create a visualization
 
@@ -232,7 +232,7 @@ At this point you should have a pretty good idea how to create a Grafana dashboa
 1. Create Curl commands that calls all of the services endpoints.
 1. Change the visualization so that it shows multiple series with the counts for each type of HTTP method.
 
-When you are done, take a screenshot of your dashboard and upload it to the Canvas assignment. It should look something like this:
+When you are done, you should have a dashboard that looks something like this:
 
 ![HTTP requests by method](httpRequestsByMethod.png)
 
