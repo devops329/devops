@@ -1,4 +1,4 @@
-# Loki Logging
+# Grafana logging
 
 https://grafana.com/docs/loki/latest/
 
