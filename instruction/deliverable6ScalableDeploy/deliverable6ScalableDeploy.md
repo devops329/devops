@@ -121,7 +121,7 @@ Previously the workflow stopped after the tests were done and the coverage badge
      uses: aws-actions/configure-aws-credentials@v4
      with:
        audience: sts.amazonaws.com
-       aws-region: us-east-1
+       aws-region: us-east-2
        role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT }}:role/${{ secrets.CI_IAM_ROLE }}
    ```
 1. Login to AWS ECR. We need to provide credentials to Docker so that it can push container images into the register. This [action](https://github.com/aws-actions/amazon-ecr-login) gets a temporary password from ECR using the OIDC credential we previously obtained.
