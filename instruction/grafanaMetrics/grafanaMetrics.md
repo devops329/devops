@@ -154,11 +154,11 @@ Create a simple Express app by doing the following.
 
        // This will periodically sent metrics to Grafana
        setInterval(() => {
-         this.sendMetricToGrafana('request', 'all', 'total', totalRequests);
+         this.sendMetricToGrafana('request', 'all', 'total', this.totalRequests);
        }, 10000);
      }
 
-     incrementRequests(httpMethod) {
+     incrementRequests() {
        this.totalRequests++;
      }
 
@@ -199,7 +199,7 @@ Create a simple Express app by doing the following.
    app.use(express.json());
 
    app.get('/hello/:name', (req, res) => {
-     metrics.incrementRequests('get');
+     metrics.incrementRequests();
      res.send({ [greeting]: req.params.name });
    });
 
