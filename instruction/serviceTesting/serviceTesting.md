@@ -30,10 +30,9 @@ Then modify `package.js` so that it serves up the endpoints over HTTP by adding 
 },
 ```
 
-Create a `.gitignore` file so that we don't accidentally commit the `node_modules`, `cookies.txt`, or `coverage` files that will be generated as we use the project.
+Create a `.gitignore` file so that we don't accidentally commit the `node_modules` or `coverage` files that will be generated as we use the project.
 
 ```txt
-cookies.txt
 node_modules
 coverage
 ```

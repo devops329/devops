@@ -231,48 +231,47 @@ curl -X POST $host/api/franchise/1/store -H 'Content-Type: application/json' -d 
 
 With the above changes in place you should be able to test the backend by making curl requests.
 
-Replace the `byucsstudent.click` domain name with your own.
+Replace the assignment of the host variable with your own hostname.
 
 ```sh
-curl 'https://pizza-service.byucsstudent.click'
-{"message":"welcome to JWT Pizza","version":"20240525.025706"}
+# Set the hostname - replace with your hostname
+host=https://pizza-service.byucsstudent.click
 
-curl 'https://pizza-service.byucsstudent.click/api/order/menu'
-[]
+curl $host
 
-curl -X PUT -c cookies.txt 'https://pizza-service.byucsstudent.click/api/auth' -d '{"email":"a@jwt.com", "password":"admin"}' -H 'Content-Type: application/json'
-{"id":1,"name":"常用名字","email":"a@jwt.com","roles":[{"role":"admin"}]}
+curl $host/api/order/menu
+
+# Capture the authorization token for later use
+response=$(curl -s -X PUT $host/api/auth -d '{"email":"a@jwt.com", "password":"admin"}' -H 'Content-Type: application/json')
+token=$(echo $response | jq -r '.token')
+echo $response
 ```
 
 Currently your database only has the default admin user that was inserted when the database was initialized the first time a connection was made. If you want to add some basic menu, user, franchise, and shop data you can run the following Curl commands.
 
 ```sh
-# Set the hostname - replace with your hostname
-host=pizza-service.byucsstudent.click
-
 # Add users
-curl -X POST https://$host/api/auth -d '{"name":"pizza diner", "email":"d@jwt.com", "password":"diner"}' -H 'Content-Type: application/json'
+curl -X POST $host/api/auth -d '{"name":"pizza diner", "email":"d@jwt.com", "password":"diner"}' -H 'Content-Type: application/json'
 
-curl -X POST https://$host/api/auth -d '{"name":"pizza franchisee", "email":"f@jwt.com", "password":"franchisee"}' -H 'Content-Type: application/json'
+curl -X POST $host/api/auth -d '{"name":"pizza franchisee", "email":"f@jwt.com", "password":"franchisee"}' -H 'Content-Type: application/json'
 
-curl -X PUT -c cookies.txt https://$host/api/auth -d '{"email":"a@jwt.com", "password":"admin"}' -H 'Content-Type: application/json'
 
 # Add menu
-curl -b cookies.txt -X PUT https://$host/api/order/menu -H 'Content-Type: application/json' -d '{ "title":"Veggie", "description": "A garden of delight", "image":"pizza1.png", "price": 0.0038 }'
+curl -X PUT $host/api/order/menu -H 'Content-Type: application/json' -d '{ "title":"Veggie", "description": "A garden of delight", "image":"pizza1.png", "price": 0.0038 }'  -H "Authorization: Bearer $token"
 
-curl -b cookies.txt -X PUT https://$host/api/order/menu -H 'Content-Type: application/json' -d '{ "title":"Pepperoni", "description": "Spicy treat", "image":"pizza2.png", "price": 0.0042 }'
+curl -X PUT $host/api/order/menu -H 'Content-Type: application/json' -d '{ "title":"Pepperoni", "description": "Spicy treat", "image":"pizza2.png", "price": 0.0042 }'  -H "Authorization: Bearer $token"
 
-curl -b cookies.txt -X PUT https://$host/api/order/menu -H 'Content-Type: application/json' -d '{ "title":"Margarita", "description": "Essential classic", "image":"pizza3.png", "price": 0.0042 }'
+curl -X PUT $host/api/order/menu -H 'Content-Type: application/json' -d '{ "title":"Margarita", "description": "Essential classic", "image":"pizza3.png", "price": 0.0042 }'  -H "Authorization: Bearer $token"
 
-curl -b cookies.txt -X PUT https://$host/api/order/menu -H 'Content-Type: application/json' -d '{ "title":"Crusty", "description": "A dry mouthed favorite", "image":"pizza4.png", "price": 0.0028 }'
+curl -X PUT $host/api/order/menu -H 'Content-Type: application/json' -d '{ "title":"Crusty", "description": "A dry mouthed favorite", "image":"pizza4.png", "price": 0.0028 }'  -H "Authorization: Bearer $token"
 
-curl -b cookies.txt -X PUT https://$host/api/order/menu -H 'Content-Type: application/json' -d '{ "title":"Chared Leopard", "description": "For those with a darker side", "image":"pizza5.png", "price": 0.0099 }'
+curl -X PUT $host/api/order/menu -H 'Content-Type: application/json' -d '{ "title":"Charred Leopard", "description": "For those with a darker side", "image":"pizza5.png", "price": 0.0099 }'  -H "Authorization: Bearer $token"
 
 # Add franchise
-curl -b cookies.txt -X POST https://$host/api/franchise -H 'Content-Type: application/json' -d '{"name": "pizzaPocket", "admins": [{"email": "f@jwt.com"}]}'
+curl -X POST $host/api/franchise -H 'Content-Type: application/json' -d '{"name": "pizzaPocket", "admins": [{"email": "f@jwt.com"}]}'  -H "Authorization: Bearer $token"
 
 # Add store
-curl -b cookies.txt -X POST https://$host/api/franchise/1/store -H 'Content-Type: application/json' -d '{"franchiseId": 1, "name":"SLC"}'
+curl -X POST $host/api/franchise/1/store -H 'Content-Type: application/json' -d '{"franchiseId": 1, "name":"SLC"}'  -H "Authorization: Bearer $token"
 ```
 
 ## Deploy the full cloud stack
