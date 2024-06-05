@@ -1,4 +1,4 @@
-# Deliverable 11: Perform Service Load Testing on JWT Pizza
+# Deliverable ⓾ Load testing: JWT Pizza Service
 
 Now that you have learned to perform simple load tests with k6, it's time to load test a more typical use of your pizza application. In this deliverable, you will load test the process of a new user registering and ordering pizzas.
 
