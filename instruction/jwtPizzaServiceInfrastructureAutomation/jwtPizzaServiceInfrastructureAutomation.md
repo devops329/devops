@@ -209,7 +209,7 @@ Take the time to completely review the template and become familiar with what it
       "Value": {
         "Ref": "TargetGroup"
       }
-
+    }
   }
 }
 ```
@@ -257,7 +257,7 @@ As part of this automation, we did not automate the deployment of the MySQL data
 
    Note that it does take a few minutes for the database to stop or start.
 
-If you do chose an option to that deletes and recreates your database, either manually or with automation, then will need to update the DB_HOSTNAME secret in your GitHub Actions workflow since a new hostname will be generated. You will also lose any data you have stored in the database unless you take a snapshot before you delete the database and then restore it after you recreated it.
+If you do choose an option that deletes and recreates your database, either manually or with automation, then you will need to update the DB_HOSTNAME secret in your GitHub Actions workflow since a new hostname will be generated. You will also lose any data you have stored in the database unless you take a snapshot before you delete the database and then restore it after you recreated it.
 
 ## ☑ Assignment
 
@@ -270,6 +270,6 @@ Complete the following.
 1. Fix your JWT Pizza Service DNS entry to point to the new ALB URL.
 1. Trigger your `jwt-pizza-service` CI deployment pipeline and verify that the new service is deployed.
 
-Once this is all working, mark that you have completed the work to the Canvas assignment.
+Once this is all working, mark that you have completed the work in the Canvas assignment.
 
 🚧 As an alternative to this assignment we could have them create a template for deploying the frontend or MySQL database infrastructure.

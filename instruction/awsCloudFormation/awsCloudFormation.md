@@ -139,7 +139,7 @@ Now you are ready to use the template to create a CloudFormation stack.
 1. Provide the input parameter for **MyBucketName** as something unique like `YOURNAMEHERE-byu329test`.
 1. Press `Next`.
 1. Leave the stack configuration with all the defaults and press `Next`.
-1. Review the setup and press `Next`.
+1. Review the setup and press `Submit`.
 1. Watch the events for the newly created stack as it deploys all the resources defined in the template. When it is done you will have a nice new bucket.
 1. Switch over to the S3 service console and admire your bucket.
 
