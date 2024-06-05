@@ -2,53 +2,46 @@ const config = require('./config.json');
 
 const USER_ID = config.userId;
 const API_KEY = config.apiKey;
-const SOURCE = 'example';
+const SOURCE = config.source;
 
-let totalRequests = 0;
-let requestsPerMinute = 0;
+class Metrics {
+  constructor() {
+    this.requests = {};
 
-function incrementRequests() {
-  totalRequests++;
-  requestsPerMinute++;
-}
+    // This will periodically sent metrics to Grafana
+    setInterval(() => {
+      Object.keys(this.requests).forEach((httpMethod) => {
+        this.sendMetricToGrafana('request', httpMethod, 'total', this.requests[httpMethod]);
+      });
+      const totalRequests = Object.values(this.requests).reduce((acc, curr) => acc + curr, 0);
+      this.sendMetricToGrafana('request', 'all', 'total', totalRequests);
+    }, 10000);
+  }
 
-function createMetricString(label, metric) {
-  return `counter,bar_label=${label},source=${SOURCE} metric=${metric}`;
-}
+  incrementRequests(httpMethod) {
+    this.requests[httpMethod] = (this.requests[httpMethod] || 0) + 1;
+  }
 
-function sendRequestsMetrics() {
-  // Every minute this will send the requests per minute and the total requests to grafana
-  setInterval(() => {
-    const requests_per_minute_metric = createMetricString('requests_per_minute', requestsPerMinute);
-    sendMetricToGrafana(requests_per_minute_metric);
-    const total_requests_metric = createMetricString('total_requests', totalRequests);
-    sendMetricToGrafana(total_requests_metric);
-    requestsPerMinute = 0;
-  }, 60000);
-}
+  sendMetricToGrafana(metricPrefix, httpMethod, metricName, metricValue) {
+    const metric = `${metricPrefix},source=${SOURCE},method=${httpMethod} ${metricName}=${metricValue}`;
 
-async function sendMetricToGrafana(metric) {
-  fetch(`https://${config.host}/api/v1/push/influx/write`, {
-    method: 'post',
-    body: metric,
-    headers: {
-      Authorization: `Bearer ${USER_ID}:${API_KEY}`,
-      'Content-Type': 'text/plain',
-    },
-  })
-    .then((response) => {
-      if (!response.ok) {
-        console.error('Failed to push metrics data to Grafana');
-      } else {
-        console.log('Metrics pushed successfully');
-      }
+    fetch(`https://${config.host}/api/v1/push/influx/write`, {
+      method: 'post',
+      body: metric,
+      headers: { Authorization: `Bearer ${USER_ID}:${API_KEY}` },
     })
-    .catch((error) => {
-      console.error('Error pushing metrics:', error);
-    });
+      .then((response) => {
+        if (!response.ok) {
+          console.error('Failed to push metrics data to Grafana');
+        } else {
+          console.log(`Pushed ${metric}`);
+        }
+      })
+      .catch((error) => {
+        console.error('Error pushing metrics:', error);
+      });
+  }
 }
 
-module.exports = {
-  sendRequestsMetrics,
-  incrementRequests,
-};
+const metrics = new Metrics();
+module.exports = metrics;

@@ -2,22 +2,27 @@ const express = require('express');
 const app = express();
 
 const metrics = require('./metrics');
+let greeting = 'hello';
 
 app.use(express.json());
 
-app.use((_, _res, next) => {
-  metrics.incrementRequests();
-  next();
+app.get('/hello/:name', (req, res) => {
+  metrics.incrementRequests('get');
+  res.send({ [greeting]: req.params.name });
 });
 
-// Every minute this will send the total requests and the requests per minute
-metrics.sendRequestsMetrics();
-
-app.get('/hello', (_, res) => {
-  res.send('hello');
+app.post('/greeting/:greeting', (req, res) => {
+  greeting = req.params.greeting;
+  metrics.incrementRequests('post');
+  res.send({ msg: `greeting is now ${greeting}` });
 });
 
-const port = 3000;
-app.listen(port, function () {
-  console.log(`Listening on port ${port}`);
+app.delete('/greeting', (req, res) => {
+  greeting = 'hello';
+  metrics.incrementRequests('delete');
+  res.send({ msg: `greeting is now ${greeting}` });
+});
+
+app.listen(3000, function () {
+  console.log(`Listening on port 3000`);
 });

@@ -93,8 +93,8 @@
 - 🚧 [Observability](observability/observability.md)
 - ☑ 🟢 [Grafana](grafana/grafana.md)
 - 🚧 Metrics
-- 🚧 [Grafana Metrics](grafanaMetrics/grafanaMetrics.md)
-- 🚧 ⓻ Metrics - Provide metrics with Grafana Mimir
+- ☑ 🔵 [Grafana Metrics](grafanaMetrics/grafanaMetrics.md)
+- 🚧 [⓻ Metrics: JWT Pizza Service](deliverable7Metrics/deliverable7Metrics.md)
 - 🚧 [Logging](logging/logging.md)
 - 🚧 [Grafana Loki](loki/loki.md)
 - 🚧 ⓼ Logging - Provide logging with Grafana Loki
@@ -109,7 +109,7 @@
 - 🚧 [E2E testing](e2eTesting/e2eTesting.md)
 - 🚧 [Load testing](loadTesting/loadTesting.md)
 - 🚧 [Grafana K6](grafanaK6/grafanaK6.md)
-- 🚧 ⓾ [Load test: JWT Pizza - Execute service load testing with K6](deliverable11LoadTesting/deliverable11LoadTesting.md)
+- 🚧 [⓾ Load testing: JWT Pizza Service](deliverable10LoadTesting/deliverable10LoadTesting.md)
 - [Status](statusReporting/statusReporting.md)
 - [Frequently Asked Questions](faq/loadTestingFaq.md)
 
