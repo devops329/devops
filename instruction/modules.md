@@ -94,7 +94,7 @@
 - 🚧 [Observability](observability/observability.md)
 - ☑ 🟢 [Grafana](grafana/grafana.md)
 - 🚧 Metrics
-- ☑ 🔵 [Grafana metrics](grafanaMetrics/grafanaMetrics.md)
+- ☑ 🟢 [Grafana metrics](grafanaMetrics/grafanaMetrics.md)
 - ☑ 🔵 [⓻ Metrics: JWT Pizza Service](deliverable7Metrics/deliverable7Metrics.md)
 - 🚧 [Logging](logging/logging.md)
 - 🚧 [Grafana logging](grafanaLogging/grafanaLogging.md)
