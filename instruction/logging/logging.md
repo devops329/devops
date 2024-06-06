@@ -4,6 +4,8 @@ Metrics give you a good overview of how well the system is operating, but someti
 
 A logging system usually gives you a record of an individual event that is tagged with information that you can use to aggregate similar events. You can also use the timestamp of the events to see what is going on in the system at the same time.
 
+![Grafana log explorer](grafanaLogExplorer.png)
+
 ## Timestamps
 
 ## Event tags

@@ -29,7 +29,7 @@ Modify your config.js file to contain the Grafana credentials. You can then refe
 
 ```js
   metrics: {
-    source: 'jwt_pizza_service',
+    source: 'jwt-pizza-service',
     userId: 1,
     host: '',
     apiKey: '',

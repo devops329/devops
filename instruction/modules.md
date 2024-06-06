@@ -97,7 +97,7 @@
 - ☑ 🟢 [Grafana metrics](grafanaMetrics/grafanaMetrics.md)
 - ☑ 🔵 [⓻ Metrics: JWT Pizza Service](deliverable7Metrics/deliverable7Metrics.md)
 - 🚧 [Logging](logging/logging.md)
-- 🚧 [Grafana logging](grafanaLogging/grafanaLogging.md)
+- 🔵 [Grafana logging](grafanaLogging/grafanaLogging.md)
 - 🚧 ⓼ Logging - Provide logging with Grafana Loki
 - 🚧 Distributed tracing
 - 🚧 [Grafana Tempo](grafanaTempo/grafanaTempo.md)

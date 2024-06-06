@@ -55,7 +55,7 @@ This will create a Prometheus metric named **test_metric** with a value of 35.2 
 We want to insert data that represents the number of total HTTP requests we have seen, and so we will use the following:
 
 ```sh
-request,source=jwt_pizza_service total=1000
+request,source=jwt-pizza-service total=1000
 ```
 
 ### Using Curl to insert metrics
@@ -66,12 +66,12 @@ Using the example command and your newly minted API key you can now insert data 
 1. Paste and execute the commands that set up the key and URL shell variables.
 1. Modify the Curl command to insert the data so that it represents total number of requests.
    ```sh
-   curl -X  POST -H  "Authorization: Bearer $API_KEY" -H  "Content-Type: text/plain" "$URL" -d "request,source=jwt_pizza_service total=1000"
+   curl -X  POST -H  "Authorization: Bearer $API_KEY" -H  "Content-Type: text/plain" "$URL" -d "request,source=jwt-pizza-service total=1000"
    ```
    This should execute without any error and put your first metric into the Prometheus database.
 1. Now modify the shell command so that it inserts a new metric every few seconds.
    ```sh
-   total=0; while true; do total=$((total+1000)); curl -X POST -H "Authorization: Bearer $API_KEY" -H "Content-Type: text/plain" "$URL" -d "request,source=jwt_pizza_service total=$total"; sleep 10; done;
+   total=0; while true; do total=$((total+1000)); curl -X POST -H "Authorization: Bearer $API_KEY" -H "Content-Type: text/plain" "$URL" -d "request,source=jwt-pizza-service total=$total"; sleep 10; done;
    ```
    This should simulate about 100 requests per second. That should be enough data to make things interesting. Keep this running while you create your visualization.
 
@@ -82,7 +82,7 @@ Using the example command and your newly minted API key you can now insert data 
 1. Click the `Add` button on the top menu and create a new visualization.
 1. For the `Data source` specify **grafanacloud-youraccountnamehere-prom**.
 1. Toggle the query editor to `Builder` mode.
-1. For `Metric` select **request_total**, and for `Label filters` select **source** with a value of **jwt_pizza_service**. These are the values that you provided with the Curl command.
+1. For `Metric` select **request_total**, and for `Label filters` select **source** with a value of **jwt-pizza-service**. These are the values that you provided with the Curl command.
 1. Press `Run Queries` to cause the data source to pull data from Prometheus.
 1. Change the time range, on the top menu bar, to be the last 15 minutes.
 
@@ -100,7 +100,7 @@ If you insert enough metrics you will see the total request count going up and u
 1. Toggle the query editor to `Code` mode.
 1. Replace the query that is there with one that computes the difference over a one minute period.
    ```
-   rate(request_total{source="jwt_pizza_service"}[1m])
+   rate(request_total{source="jwt-pizza-service"}[1m])
    ```
 1. Press the `Run queries` button. This should recalculate the displayed data to show a difference instead of a total.
 
@@ -133,7 +133,7 @@ Create a simple Express app by doing the following.
 
    ```json
    {
-     "source": "jwt_pizza_service",
+     "source": "jwt-pizza-service",
      "userId": 1,
      "url": "",
      "apiKey": ""
@@ -227,12 +227,8 @@ You should be able to now go back to your dashboard and see a request rate of ab
 At this point you should have a pretty good idea how to create a Grafana dashboard that displays a simple request count metric as generated from JavaScript. Now it is time to take it to the next level. Do the following:
 
 1. Modify the service code to do the following:
-   1. Has a POST endpoint that sets the greeting. Note you will need to add middleware to parse the body from the curl commands.
-      ```js
-      // Middleware to parse URL-encoded bodies
-      app.use(express.urlencoded({ extended: true }));
-      ```
-   1. Has a DELETE endpoint that resets the greeting back to the default.
+   1. Provides a POST endpoint that sets the greeting.
+   1. Provides a DELETE endpoint that resets the greeting back to the default.
    1. Sends metrics that count the total for each HTTP method.
 1. Create Curl commands that call all of the service's endpoints.
 1. Change the visualization so that it shows multiple series with the counts for each type of HTTP method.

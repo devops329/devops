@@ -1,28 +1,30 @@
 const express = require('express');
 const app = express();
-
 const logger = require('./logger');
 
 app.use(express.json());
+app.use(logger.httpLogger);
 
-app.use((req, _, next) => {
-  logger.info(
-    {
-      timestamp: new Date().toISOString(),
-      message: 'Request received',
-      method: req.method,
-      path: req.path,
-    },
-    { app: 'example' }
-  );
-  next();
+app.get('/hello/:name', (req, res) => {
+  res.send({ hello: req.params.name });
 });
 
-app.get('/hello', (_, res) => {
-  res.send('hello');
+app.post('/hello', (req, res) => {
+  res.send({ hello: req.body.name });
 });
 
-const port = 3000;
-app.listen(port, function () {
-  console.log(`Listening on port ${port}`);
+app.get('/error', (req, res) => {
+  throw new Error('Trouble in river city!');
+});
+
+app.use((req, res) => {
+  res.status(404).send({ msg: 'Not Found' });
+});
+
+app.use((err, req, res, next) => {
+  res.status(500).send({ msg: 'Internal Server Error' });
+});
+
+app.listen(3000, function () {
+  console.log(`Listening on port 3000`);
 });
