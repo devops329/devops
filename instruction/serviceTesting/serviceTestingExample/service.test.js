@@ -13,23 +13,23 @@ test('get cities', async () => {
 });
 
 test('login', login);
+
 async function login() {
   const loginRes = await request(app).post('/login');
 
   expect(loginRes.status).toBe(200);
   expect(loginRes.headers['content-type']).toMatch('application/json; charset=utf-8');
-  expect(loginRes.body).toMatchObject({ message: 'Success' });
+  expect(loginRes.body.message).toMatch('Success');
+  expect(loginRes.body.authorization).toMatch(/^[a-zA-Z0-9]*$/);
 
-  const cookies = loginRes.headers['set-cookie'];
-  expect(cookies[0]).toMatch(/token=.+; Path=\/; HttpOnly; Secure; SameSite=Strict/);
-  return cookies;
+  return loginRes.body.authorization;
 }
 
 test('add cities', async () => {
-  const cookies = await login();
+  const authToken = await login();
 
   const city = { name: 'Orem', population: 89932 };
-  const addCitiesRes = await request(app).post('/cities').set('Cookie', cookies).send(city);
+  const addCitiesRes = await request(app).post('/cities').set('Authorization', `Bearer ${authToken}`).send(city);
 
   expect(addCitiesRes.status).toBe(200);
   expect(addCitiesRes.headers['content-type']).toMatch('application/json; charset=utf-8');

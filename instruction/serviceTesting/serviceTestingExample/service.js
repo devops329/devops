@@ -1,16 +1,13 @@
 const express = require('express');
-const cookieParser = require('cookie-parser');
 
 const app = express();
 app.use(express.json());
-app.use(cookieParser());
 
 const cities = [{ name: 'Provo', population: 116618 }];
 const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp9';
 
 app.post('/login', (req, res) => {
-  res.cookie('token', authToken, { secure: true, httpOnly: true, sameSite: 'strict' });
-  res.json({ message: 'Success' });
+  res.json({ message: 'Success', authorization: authToken });
 });
 
 app.get('/cities', (req, res) => {
@@ -18,7 +15,7 @@ app.get('/cities', (req, res) => {
 });
 
 app.post('/cities', (req, res) => {
-  const token = req.cookies.token;
+  const token = req.headers.authorization?.split(' ')[1] ?? '';
   if (token !== authToken) {
     res.status(401).json({ message: 'Unauthorized' });
   } else {

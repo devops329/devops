@@ -106,7 +106,7 @@ Consider the case where you have a suite of tests that validate the endpoints fo
 ```js
 test('create franchise', async () => {
   const franchiseReq = { name: TestHelper.randomName(), admins: [{ email: user.email }] };
-  const getFranchiseRes = await request(app).post(`/api/franchise`).set('Cookie', userCookie).send(franchiseReq);
+  const getFranchiseRes = await request(app).post(`/api/franchise`).set('Authorization', `Bearer ${authToken}`).send(franchiseReq);
   expect(getFranchiseRes.status).toBe(200);
   expect(getFranchiseRes.headers['content-type']).toMatch('application/json; charset=utf-8');
   expect(getFranchiseRes.admins[0].id).toBe(adminUser.id);
@@ -115,7 +115,7 @@ test('create franchise', async () => {
 
 test('create store', async () => {
   const franchiseReq = { name: TestHelper.randomName(), admins: [{ email: user.email }] };
-  const getFranchiseRes = await request(app).post(`/api/franchise`).set('Cookie', userCookie).send(franchiseReq);
+  const getFranchiseRes = await request(app).post(`/api/franchise`).set('Authorization', `Bearer ${authToken}`).send(franchiseReq);
   expect(getFranchiseRes.status).toBe(200);
   expect(getFranchiseRes.headers['content-type']).toMatch('application/json; charset=utf-8');
   expect(getFranchiseRes.admins[0].id).toBe(adminUser.id);
@@ -164,11 +164,10 @@ It is common to take time to properly design production software without giving 
 
 ### Coverage fixation
 
-If you become focused on testing coverage you can sometimes create tests that hit every line, but don't actually verify anything that is happening on those lines. For example, the following test code makes an endpoint request, but never looks at anything but the response code. The body may be completely incorrect, but the test coverage will 💯!
+If you become focused on testing coverage you can sometimes create tests that hit every line, but don't actually verify anything that is happening on those lines. For example, the following test code makes an endpoint request, but never looks at the result. The request may have completely failed, but the test coverage will 💯!
 
 ```js
 test('get orders', async () => {
-  const getOrdersRes = await request(app).get('/api/order/').set('Cookie', testUserCookie);
-  expect(getOrdersRes.status).toBe(200);
+  await request(app).get('/api/order/').set('Authorization', `Bearer ${authToken}`);
 });
 ```

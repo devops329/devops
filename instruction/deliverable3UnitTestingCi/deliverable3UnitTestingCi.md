@@ -277,3 +277,5 @@ https://github.com/youraccountnamehere/jwt-pizza-service
 | 10%     | Successful execution of GitHub Actions to run tests on commit                             |
 | 5%      | Version updated with each build                                                           |
 | 55%     | At least 80% code coverage as documented by workflow execution and README.md badge        |
+
+Time to go and celebrate. How about cake 🍰?

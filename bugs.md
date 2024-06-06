@@ -13,8 +13,6 @@
 
 1. Inject on order description
 1. Escalation on add user with a given role
-1. Doesn't delete cookie on logout
-   - Fixed: res.clearCookie('token');
 1. Reveals config `server: Express`
 1. If you use the same name for creating a franchise it will leak the SQL error
 1. Returns code stack with error

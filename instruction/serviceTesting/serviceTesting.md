@@ -4,19 +4,19 @@ We can now apply what we have learned about unit testing by creating a simple HT
 
 The example HTTP service is a simple Express based service called `City`, that provides the following endpoints.
 
-- **Login**: Sets an authorization cookie
+- **Login**: Sets an authorization token
 - **List cities**: Returns a list of city names and their populations
-- **Add city**: Authenticates the cookie and inserts a new city with its population
+- **Add city**: Authenticates the authorization token and inserts a new city with its population
 
 The following are the steps needed to take to create the City service and set it up for testing.
 
 ### Installing the necessary packages
 
-First create an NPM based project and install the packages need to create an HTTP service with cookie support.
+First create an NPM based project and install the packages need to create an HTTP service.
 
 ```sh
 npm init -y
-npm install express cookie-parser
+npm install express
 ```
 
 ### Configuring the project
@@ -45,18 +45,15 @@ Next, create a file named `service.js` that initializes Express and defines all 
 
 ```js
 const express = require('express');
-const cookieParser = require('cookie-parser');
 
 const app = express();
 app.use(express.json());
-app.use(cookieParser());
 
 const cities = [{ name: 'Provo', population: 116618 }];
 const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp9';
 
 app.post('/login', (req, res) => {
-  res.cookie('token', authToken, { secure: true, httpOnly: true, sameSite: 'strict' });
-  res.json({ message: 'Success' });
+  res.json({ message: 'Success', authorization: authToken });
 });
 
 app.get('/cities', (req, res) => {
@@ -64,7 +61,7 @@ app.get('/cities', (req, res) => {
 });
 
 app.post('/cities', (req, res) => {
-  const token = req.cookies.token;
+  const token = req.headers.authorization?.split(' ')[1] ?? '';
   if (token !== authToken) {
     res.status(401).json({ message: 'Unauthorized' });
   } else {
@@ -110,13 +107,13 @@ Service started on port 3000
 Then execute each of the endpoints using Curl.
 
 ```sh
-➜  curl -c cookies.txt -X POST localhost:3000/login
-{"message":"Success"}
+➜  curl -X POST localhost:3000/login
+{"message":"Success","authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp9"}
 
 ➜  curl localhost:3000/cities
 [{"name":"Provo","population":116618}]
 
-curl -b cookies.txt -X POST localhost:3000/cities -H 'Content-Type: application/json' -d '{ "name":"Lehi", "population": 33435}'
+curl -X POST localhost:3000/cities -H 'Content-Type: application/json' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp9' -d '{ "name":"Lehi", "population": 33435}'
 [{"name":"Provo","population":116618},{"name":"Lehi","population":33435}]
 ```
 
@@ -227,25 +224,25 @@ Tests:       1 passed, 1 total
 
 Next on our list is to test the `[POST] /login` endpoint. We need to do this first because it is necessary to login before we can call our last endpoint.
 
-This test is a little more complex because we have to deal with cookies. However, other than the cookie header and the change from a `get` request to a `post` request it is pretty similar to the previous test.
+This test is a little more complex because we have to deal with the authorization token. However, other than the authorization header and the change from a `get` request to a `post` request it is pretty similar to the previous test.
 
 ```js
 test('login', async () => {
   const loginRes = await request(app).post('/login');
   expect(loginRes.status).toBe(200);
   expect(loginRes.headers['content-type']).toMatch('application/json; charset=utf-8');
-  expect(loginRes.body).toMatchObject({ message: 'Success' });
-  expect(loginRes.headers['set-cookie'][0]).toMatch(/token=.+; Path=\/; HttpOnly; Secure; SameSite=Strict/);
+  expect(loginRes.body.message).toMatch('Success');
+  expect(loginRes.body.authorization).toMatch(/^[a-zA-Z0-9]*$/);
 });
 ```
 
-The authorization cookie is returned in the `set-cookie` header. Even though our simple service code always returns the same authorization token we want to make our test more general than that and so we use a regular expression match to validate that the cookie is set along with all of the cookie security options.
+The authorization token is returned in the body of the response. Even though our simple service code always returns the same authorization token we want to make our test more general than that and so we use a regular expression match to validate that the authorization token matches the pattern we expect.
 
 When we run the tests again we see that we are up to **73.68%**. So close that I can taste it. Just one more endpoint to test.
 
 ### Add city
 
-The `[POST] /cities` endpoint requires that we have previously logged in and so we need to combine this test with the action of logging in. We don't want to repeat the code for logging in for every endpoint that requires authorization and so we are going to decompose the problem and reuse login functionality in order to create our last test.
+The `[POST] /cities` endpoint requires that we have previously logged in and so we need to combine this test with the action of logging in. We don't want to repeat the code for logging in for every endpoint that requires authorization and so we are going to decompose the problem and reuse the login functionality in order to create our last test.
 
 Here is what the resulting tests look like.
 
@@ -258,23 +255,23 @@ test('get cities', async () => {
 });
 
 test('login', login);
+
 async function login() {
   const loginRes = await request(app).post('/login');
 
   expect(loginRes.status).toBe(200);
   expect(loginRes.headers['content-type']).toMatch('application/json; charset=utf-8');
-  expect(loginRes.body).toMatchObject({ message: 'Success' });
+  expect(loginRes.body.message).toMatch('Success');
+  expect(loginRes.body.authorization).toMatch(/^[a-zA-Z0-9]*$/);
 
-  const cookies = loginRes.headers['set-cookie'];
-  expect(cookies[0]).toMatch(/token=.+; Path=\/; HttpOnly; Secure; SameSite=Strict/);
-  return cookies;
+  return loginRes.body.authorization;
 }
 
 test('add cities', async () => {
-  const cookies = await login();
+  const authToken = await login();
 
   const city = { name: 'Orem', population: 89932 };
-  const addCitiesRes = await request(app).post('/cities').set('Cookie', cookies).send(city);
+  const addCitiesRes = await request(app).post('/cities').set('Authorization', `Bearer ${authToken}`).send(city);
 
   expect(addCitiesRes.status).toBe(200);
   expect(addCitiesRes.headers['content-type']).toMatch('application/json; charset=utf-8');
@@ -285,7 +282,7 @@ test('add cities', async () => {
 });
 ```
 
-The `add cities` test gets the cookies from the login request and passes them into the post request to add a new city. The rest is just assertions that we got back a list containing both the old and new cities.
+The `add cities` test gets the authorization token from the login request and passes it as a header with the post request to add a new city. The rest is just assertions that we got back a list containing both the old and new cities.
 
 ## Diagnosing missing coverage
 
@@ -293,7 +290,7 @@ With the above tests implemented we are now up to **94.73%** coverage. Where is 
 
 ![Missing coverage](missingCoverage.png)
 
-We can fix that by writing a test that doesn't provide the cookie and expects to get back a 401 HTTP status code.
+We can fix that by writing a test that doesn't provide the authorization token and expects to get back a 401 HTTP status code.
 
 ```js
 test('add cities no auth', async () => {
@@ -312,5 +309,3 @@ Create a node.js project named serviceTestingExample. Reproduce the steps given 
 Once you are done, go over to Canvas and submit a screenshot showing that you have 100% coverage. It should look similar to the image shown below.
 
 ![total coverage](totalCoverage.png)
-
-Time to go and celebrate. 🍦

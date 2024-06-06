@@ -105,30 +105,27 @@ const request = require('supertest');
 const app = require('../service');
 
 const testUser = { name: 'pizza diner', email: 'reg@test.com', password: 'a' };
-let testUserCookie;
+let testUserAuthToken;
 
 beforeAll(async () => {
   testUser.email = Math.random().toString(36).substring(2, 12) + '@test.com';
   const registerRes = await request(app).post('/api/auth').send(testUser);
-  testUserCookie = registerRes.headers['set-cookie'];
+  testUserAuthToken = registerRes.body.token;
 });
 
 test('login', async () => {
   const loginRes = await request(app).put('/api/auth').send(testUser);
-
   expect(loginRes.status).toBe(200);
-
-  const cookies = loginRes.headers['set-cookie'];
-  expect(cookies[0]).toMatch(/token=.+; Path=\/; HttpOnly; Secure; SameSite=Strict/);
+  expect(loginRes.body.token).toMatch(/^[a-zA-Z0-9\-_]*\.[a-zA-Z0-9\-_]*\.[a-zA-Z0-9\-_]*$/);
 
   const { password, ...user } = { ...testUser, roles: [{ role: 'diner' }] };
-  expect(loginRes.body).toMatchObject(user);
+  expect(loginRes.body.user).toMatchObject(user);
 });
 ```
 
-In this code the `beforeAll` function registers a random user every time the tests run. You can use the user and its associated cookie for tests that require an existing registered user.
+In this code the `beforeAll` function registers a random user every time the tests run. You can use the user and its associated authorization token for tests that require an existing registered user.
 
-The `login` test logs the test user in and verifies that it gets back an authorization token cookie along with the expected user information.
+The `login` test logs the test user in and verifies that it gets back an authorization token along with the expected user information.
 
 This one test should bump your line coverage up to **50%**. Only 30% more to go. You can verify this by running the test.
 
