@@ -1,8 +1,8 @@
-# Deliverable ⓷ Unit testing: JWT Pizza Service
+# Deliverable ⓷ Unit testing CI
 
 ![course overview](../sharedImages/courseOverview.png)
 
-Now that you have added linting and created unit tests for the **jwt-pizza-service**, you are ready to implement the continuous integration (CI) process that will validate the code and calculate coverage on every commit. This will complete your work on this deliverable.
+Now that you have added linting and created unit tests for the **jwt-pizza-service**, you are ready to implement the continuous integration (CI) process that will validate the code with tests and calculate coverage on every commit. This will complete your work on this deliverable.
 
 ## Create the GitHub Action workflow
 

@@ -44,11 +44,11 @@
 - 🚧 [Dependency injection](dependencyInjection/dependencyInjection.md)
 - 🟢 [Integration testing](integrationTesting/integrationTesting.md)
 - ☑ 🟢 [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
-- 🟢 [Unit testing](unitTesting/unitTesting.md)
-- 🟢 ☑ [⓷ Unit testing: JWT Pizza Service](deliverable3UnitTesting/deliverable3UnitTesting.md)
+- 🟢 [Unit testing: JWT Pizza Service](unitTestingJwtPizzaService/unitTestingJwtPizzaService.md)
+- ☑ 🟢 [⓷ Unit testing CI](deliverable3UnitTestingCi/deliverable3UnitTestingCi.md)
 - 🟢 [UI testing](uiTesting/uiTesting.md)
 - ☑ 🟢 [Playwright](playwright/playwright.md)
-- ☑ 🟢 [⓸ UI test: JWT Pizza](deliverable4UiTesting/deliverable4UiTesting.md)
+- ☑ 🟢 [⓸ User interface testing: JWT Pizza](deliverable4UiTesting/deliverable4UiTesting.md)
 - 🚧 [Frequently Asked Questions](faq/qualityAssuranceFaq.md)
 
 ## Cloud deployment
@@ -58,7 +58,7 @@
 - 🚧 [AWS S3](awsS3/awsS3.md)
 - 🟢 [AWS CloudFront](awsCloudFront/awsCloudFront.md)
 - 🟢 [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
-- 🟢 ☑ [⓹ CDN deployment: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
+- ☑ 🟢 [⓹ CDN deployment: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
 - 🚧 [Elasticity](elasticity/elasticity.md)
 - ☑ 🟢 [AWS RDS MySQL](awsRdsMysql/awsRdsMysql.md)
 - 🚧 [Docker](docker/docker.md)

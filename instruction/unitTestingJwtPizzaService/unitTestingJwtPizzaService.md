@@ -1,4 +1,4 @@
-# Unit testing
+# Unit testing: JWT Pizza Service
 
 Now that you have the JWT Pizza Service in your hands you can start to assure its quality by writing unit tests. As part of your testing you will generate a coverage report. Later you will add coverage thresholds, so that if the coverage requirements of your tests do not meet the required thresholds, then an error is generated.
 
