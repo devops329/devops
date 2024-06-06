@@ -1,6 +1,6 @@
 # ⓻ Metrics: JWT Pizza Service
 
-It is time to add observability to the jwt-pizza-service code. In your fork of the code use what you learned about Grafana metrics to create visualizations that demonstrate the following:
+It is time to add metrics observability to the jwt-pizza-service code. In your fork of the code use what you learned about [Grafana metrics](../grafanaMetrics/grafanaMetrics.md) to create visualizations that demonstrate the following:
 
 1. HTTP requests by method/minute
 1. Active users
@@ -148,4 +148,4 @@ https://youraccounthere.grafana.net/public-dashboards/29305se9fsacc66a21fa91899b
 | 30%     | Storing all required metrics in Grafana Cloud Prometheus data store                       |
 | 60%     | Visualizing all required metrics in Grafana Cloud dashboard                               |
 
-Congratulations! You have provided significant observability for your JWT Pizza Service. Time to go celebrate. I'm thinking tacos 🌮.
+**Congratulations!** You have provided significant observability for your JWT Pizza Service. Time to go celebrate. I'm thinking tacos 🌮.
