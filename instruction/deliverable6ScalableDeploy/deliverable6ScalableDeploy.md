@@ -292,4 +292,4 @@ https://pizza.cs329.click
 | 20%     | Updated GitHub Action workflow deploying to ECR and ECS                                   |
 | 10%     | Your backend called for all frontend requests                                             |
 
-Congratulations! You have completed the process of using RDS, IAM, ECR, ECS, and Route 53 to deploy your backend service. Time to go celebrate. I'm thinking ice cream 🍦.
+**Congratulations!** You have completed the process of using RDS, IAM, ECR, ECS, and Route 53 to deploy your backend service. Time to go celebrate. I'm thinking ice cream 🍦.

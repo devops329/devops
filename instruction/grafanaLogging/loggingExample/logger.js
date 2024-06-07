@@ -1,58 +1,60 @@
-const configFile = require('./config.json');
+const config = require('./config.json');
 
-const logger = getLokiLogger({
-  lokiHost: configFile.host,
-  lokiUser: configFile.user,
-  lokiToken: configFile.accessToken,
-});
-
-function getLokiLogger(config) {
-  if (!config.lokiHost || !config.lokiUser || !config.lokiToken) {
-    throw new Error('Missing necessary configuration for Loki logger');
-  }
-  return ['info', 'warn', 'error', 'debug'].reduce((acc, level) => {
-    acc[level] = (message, labels = {}) => log(config, level, message, labels);
-    return acc;
-  }, {});
-}
-
-async function log(config, logLevel, message, labels) {
-  try {
-    const lokiMessage = generateLokiMessage(logLevel, message, labels);
-    await sendToLoki(config, lokiMessage);
-  } catch (e) {
-    console.error(`Failed to log message at level ${logLevel}:`, e);
-  }
-}
-
-function generateLokiMessage(logLevel, message, labels) {
-  return {
-    streams: [
-      {
-        stream: Object.assign({ level: logLevel }, labels),
-        values: [[`${Date.now().toString()}000000`, JSON.stringify(message)]],
-      },
-    ],
+class Logger {
+  httpLogger = (req, res, next) => {
+    let send = res.send;
+    res.send = (resBody) => {
+      const logData = {
+        authorized: !!req.headers.authorization,
+        path: req.path,
+        method: req.method,
+        statusCode: res.statusCode,
+        reqBody: JSON.stringify(req.body),
+        resBody: JSON.stringify(resBody),
+      };
+      const level = this.statusToLogLevel(res.statusCode);
+      this.log(level, 'http', logData);
+      res.send = send;
+      return res.send(resBody);
+    };
+    next();
   };
-}
 
-async function sendToLoki(config, lokiMessage) {
-  await fetch(`https://${config.lokiHost}/loki/api/v1/push`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Basic ${btoa(`${config.lokiUser}:${config.lokiToken}`)}`,
-    },
-    body: JSON.stringify(lokiMessage),
-  })
-    .then((r) => {
-      if (!r.ok) {
-        throw new Error(r.statusText);
-      }
-    })
-    .catch((e) => {
-      console.error('Error:', e);
+  log(level, type, logData) {
+    const labels = { component: config.source, level: level, type: type };
+    const values = [this.nowString(), this.sanitize(logData)];
+    const logEvent = { streams: [{ stream: labels, values: [values] }] };
+
+    this.sendLogToGrafana(logEvent);
+  }
+
+  statusToLogLevel(statusCode) {
+    if (statusCode >= 500) return 'error';
+    if (statusCode >= 400) return 'warn';
+    return 'info';
+  }
+
+  nowString() {
+    return (Math.floor(Date.now()) * 1000000).toString();
+  }
+
+  sanitize(logData) {
+    logData = JSON.stringify(logData);
+    return logData.replace(/\\"password\\":\s*\\"[^"]*\\"/g, '\\"password\\": \\"*****\\"');
+  }
+
+  sendLogToGrafana(event) {
+    const body = JSON.stringify(event);
+    fetch(`https://${config.host}/loki/api/v1/push`, {
+      method: 'post',
+      body: body,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${config.userId}:${config.apiKey}`,
+      },
+    }).then((res) => {
+      if (!res.ok) console.log('Failed to send log to Grafana');
     });
+  }
 }
-
-module.exports = logger;
+module.exports = new Logger();

@@ -167,7 +167,7 @@ Running 2 tests using 2 workers
   2 passed (1.1s)
 ```
 
-Congratulations! You have just ran your first Playwright test.
+**Congratulations!** You have just ran your first Playwright test.
 
 ### Viewing the results
 
@@ -644,16 +644,16 @@ function App() {
     <div>
       <h1>Pizza</h1>
       <p>{'🍕'.repeat(count) || '👨‍🍳'}</p>
-      <label htmlFor="order">Pizza:</label>
+      <label htmlFor='order'>Pizza:</label>
       <div>
-        <input type="text" id="pizza-type" value={pizzaType} placeholder="type" onChange={(e) => setPizzaType(e.target.value)} />
+        <input type='text' id='pizza-type' value={pizzaType} placeholder='type' onChange={(e) => setPizzaType(e.target.value)} />
         &nbsp;<button onClick={() => setCount(count + 1)}>+1</button>
         &nbsp;
         <button disabled={!count || !pizzaType} onClick={handleOrder}>
           Order
         </button>
       </div>
-      <div id="orderValue">
+      <div id='orderValue'>
         <i>{order}</i>
       </div>
       <button disabled={!!menu.length} onClick={getMenu}>
