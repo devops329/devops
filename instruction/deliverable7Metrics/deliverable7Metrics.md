@@ -31,7 +31,7 @@ Modify your config.js file to contain the Grafana credentials. You can then refe
   metrics: {
     source: 'jwt_pizza_service',
     userId: 1,
-    host: '',
+    url: '',
     apiKey: '',
   }
 ```
@@ -42,7 +42,7 @@ Create a file named `metrics.js`. Use this file to for all the code necessary to
 
 ### Add request metrics code
 
-Modify your Express application routers to report on the request related metrics. If you expose an Express middleware function from your metrics class this can get a good start on providing metrics by installing that the metrics middleware.
+Modify your Express application routers to report on the request related metrics. If you expose an Express middleware function from your metrics class, this can get a good start on providing metrics by installing the metrics middleware.
 
 ```js
 app.use(metrics.requestTracker);

@@ -13,7 +13,7 @@ For this exercise you will use the `HTTP Metrics` connector to insert data into 
 In order to send metrics over HTTP you will need an API key.
 
 1. Open up your Grafana Cloud dashboard.
-1. Select the `Connections` option form the left home menu and press `Add new connection`.
+1. Select the `Connections` option from the left home menu and press `Add new connection`.
 1. In the connection search box enter `HTTP Metrics` and press enter
 
    ![HTTP Metrics connection](httpMetricsConnection.png)
