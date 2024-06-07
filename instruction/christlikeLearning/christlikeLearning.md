@@ -10,11 +10,23 @@ This can be summarized by three principles to apply in all of our educational an
 
 ## Founding our learning with gratitude
 
-🚧 Fill this out.
+Creating an environment where we can reason and work with a positive mindset is essential to our eternal progression.
+
+> “We can lift ourselves, and others as well, when we refuse to remain in the realm of negative thought and cultivate within our hearts an attitude of gratitude.”
+>
+> Thomas S. Monson - _[An Attitude of Gratitude](https://www.churchofjesuschrist.org/study/general-conference/1992/04/an-attitude-of-gratitude)_
+
+Likewise,
+
+> The prophet Alma taught, “When thou risest in the morning let thy heart be full of thanks unto God” ([Alma 37:37](https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/37.37?lang=eng#p37)). And in modern revelation the Lord declared that “he who receiveth all things with thankfulness shall be made glorious; and the things of this earth shall be added unto him, even an hundred fold” ([D&C 78:19](https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/78.19?lang=eng#p19)).
+>
+> Dallin H. Oaks - _[Give Thanks in All Things](https://www.churchofjesuschrist.org/study/general-conference/2003/04/give-thanks-in-all-things)_
+
+Gratitude removes the obstacles that pride creates. It allows us to see things as the really are and explore the path forward with the purest of motives. That is why it is essential to begin any endeavor, educational or otherwise, with a spirit of thankfulness to the source from whom all blessing flow.
 
 ## Learning by the inspiration of the Spirit
 
-In a similar manner, we are promised that with the Spirit's influence we can learn all things. When instructing Oliver Cowdery on how to gain knowledge, the Lord said:
+We are promised that with the Spirit's influence we can learn all things. When instructing Oliver Cowdery on how to gain knowledge, the Lord said:
 
 > “... verily, I say unto you, that assuredly as the Lord liveth, who is your God and your Redeemer, even so surely shall **you receive a knowledge of whatsoever things you shall ask in faith**, with an honest heart, believing that you shall receive ...”
 
