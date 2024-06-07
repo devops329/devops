@@ -14,14 +14,18 @@ Load testing is similar to integration or end-to-end testing in that you can tes
 
 ## Types of testing
 
-There are several types of load testing:
+There are several varieties of load testing:
 
 - Smoke testing - low load
 
-- Load testing - normal load
+- Load testing (yes, it has the same name) - normal load
 
 - Stress testing - higher than normal load
 
 - Spike testing - sudden increase in load
 
-- Soak testing - extended time, normal load
+- Soak testing - normal load over an extended time period
+
+## Load testing
+
+In testing JWT Pizza, we will focus on load testing, or testing with a normal expected load. The next instructions will teach you to execute a load test using Grafana's open source load testing tool, K6.

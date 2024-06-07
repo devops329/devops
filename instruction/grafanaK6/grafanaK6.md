@@ -51,7 +51,7 @@ Let's break this down a bit.
 
 ### Options
 
-The `vus` refers to the number of virtual users that will be using the test application concurrently. The `duration` is the amount of time the test will run for. The `cloud` object contains the project ID and the name of the test. You can configure the options object to suit your needs. For example, instead of setting values for the `vus` and `duration` that remain constant over the whole test, you could add stages to the testing to simulate different users at different times:
+The `vus` refers to the number of virtual users that will be using the test application concurrently. The `duration` is the amount of time the test will run for. The `cloud` object contains the project ID and the name of the test. Tests with the same name will be grouped together in Grafana Cloud. You can configure the options object to suit your needs. For example, instead of setting values for the `vus` and `duration` that remain constant over the whole test, you could add stages to the testing to simulate different users at different times:
 
 ```javascript
 export const options = {
