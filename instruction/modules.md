@@ -124,7 +124,7 @@
 - 🚧 SLO, RTO, RPO
 - 🚧 Chaos injection
 - 🚧 Post mortem
-- 🚧 ⓫ Failure test: JWT Pizza - Failure test due to chaos injection
+- 🚧 ☑ [⓫ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
 - 🚧 [Frequently Asked Questions](faq/failureTestingFaq.md)
 
 ## Penetration testing
