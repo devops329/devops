@@ -111,7 +111,7 @@
 - 🔵 [Load testing](loadTesting/loadTesting.md)
 - 🔵 [Grafana K6](grafanaK6/grafanaK6.md)
 - 🔵 [⓾ Load testing: JWT Pizza Service](deliverable10LoadTesting/deliverable10LoadTesting.md)
-- 🚧 [Status](statusReporting/statusReporting.md)
+- 🔵 [Status](statusReporting/statusReporting.md)
 - 🚧 [Frequently Asked Questions](faq/loadTestingFaq.md)
 
 ## Failure management
