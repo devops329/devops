@@ -1,5 +1,7 @@
 # Modules
 
+**Legend**
+
 - ⚠️ Learner should take note
 - ☑ Has an assignment associated with it
 - 🚧 Lots of work to do
@@ -131,12 +133,11 @@
 
 - 🚧 [Penetration testing](penetrationTesting/penetrationTesting.md)
 - 🚧 [Burp Suite](burpSuite/burpSuite.md)
-- 🚧 ⓬ Penetration test: JWT Pizza - Penetration testing using Burp Suite
+- 🚧 ⓬ Penetration test: JWT Pizza - Penetration testing and collaborative report
 - 🚧 [Frequently Asked Questions](faq/penetrationTestingFaq.md)
 
 ## Conclusion
 
 - ⓭ Curiosity report - Independent research on a QA/DevOps topic
-- ☑ 🟢 [Christlike learning conclusion](christlikeLearningConclusion/christlikeLearningConclusion.md)
-- ⓮ Christlike introspection - Introspection into your relationship with the divine
+- ☑ 🟢 [⓮ Christlike introspection conclusion](christlikeLearningConclusion/christlikeLearningConclusion.md)
 - Course wrap up: Clean up your AWS resources
