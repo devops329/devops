@@ -223,7 +223,7 @@ function fibonacci(pos) {
 }
 ```
 
-This implementation passes all the tests except for the `position large` test. Here we hit a problem with the the JavaScript numeric type is not large enough to represent the desired value.
+This implementation passes all the tests except for the `position large` test. Here we hit a problem with the JavaScript numeric type is not large enough to represent the desired value.
 
 ```sh
  FAIL  ./fibonacci.test.js
