@@ -118,13 +118,14 @@
 
 ## Failure management
 
+- 🔵 [Failure](failure/failure.md)
 - 🚧 Backup/Restore (Aurora)
 - 🚧 [Alerts](alerting/alerting.md)
 - 🚧 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
 - 🚧 Playbooks
 - 🚧 Self healing (scale groups)
 - 🚧 SLO, RTO, RPO
-- 🚧 Chaos injection
+- 🔵 [Chaos testing](chaosTesting/chaosTesting.md)
 - 🚧 Post mortem
 - 🚧 ☑ [⓫ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
 - 🚧 [Frequently Asked Questions](faq/failureTestingFaq.md)
