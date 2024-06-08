@@ -13,12 +13,12 @@ For this exercise you will use the `HTTP Metrics` connector to insert data into 
 In order to send logs over HTTP you will need an API key.
 
 1. Open up your Grafana Cloud dashboard.
-1. Select the `Connections` option form the left home menu and press `Add new connection`.
+1. Select the `Connections` option from the left home menu and press `Add new connection`.
 1. In the connection search box enter `Logs HTTP` and press enter
 1. This will display the template necessary to obtain the API Key for uploading logs to the Grafana Cloud Loki service.
 1. Supply the name `jwt-pizza-logs` for the `Access Policy token name`.
 1. Press `Create token`.
-1. Copy the token to a secure location in your development environment. You will need this token up upload logs.
+1. Copy the token to a secure location in your development environment. You will need this token to upload logs.
 1. Note the section titled `Anatomy of your Loki log`. This defines how to format the data that you upload to Loki.
 1. Note the section titled `Send logs from your application code`. This gives you examples of how to upload a log event using things like Curl, Node.js, or Go. The example has your API Key already prepopulated in the example.
 1. Examine the example for Curl. It will look something like the following:
@@ -67,7 +67,7 @@ If you were going to create a log message that described a login HTTP request, y
 
 ### Using Curl to insert logs
 
-Using the example command and your newly minted API key, you can now insert data into Loki. Make sure you replace the Grafana account number and API key represented in the authorization token with your account number and API key.
+Using the example command and your newly minted API key, you can now insert data into Loki. Make sure you replace the Grafana account number and API key represented in the authorization token with your account number and API key. Ensure the Loki url matches that given in the curl example Grafana gave you; your subdomain may differ from `logs-prod-006`.
 
 ```sh
 curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer 111111:glc_xxxxxxx" -d '{"streams": [{"stream": {"component":"jwt-pizza-service", "level": "info", "type":"http-req"},"values": [["'"$(($(date +%s)*1000000000))"'","{\"name\":\"hacker\", \"email\":\"d@jwt.com\", \"password\":\"****\"}",{"user_id": "44","traceID": "9bc86924d069e9f8ccf09192763f1120"}]]}]}' -H "Content-Type:application/json" https://logs-prod-006.grafana.net/loki/api/v1/push
@@ -143,7 +143,7 @@ You can stop your curl command from generated logs by directly calling the Grafa
 
 In order to demonstrate how to generate logs from you code we need a simple Express service. Create the service by doing the following.
 
-1. Open you command console.
+1. Open your command console.
 1. Execute the commends:
    ```sh
    mkdir loggingExample && cd loggingExample
@@ -162,14 +162,14 @@ In order to demonstrate how to generate logs from you code we need a simple Expr
    {
      "source": "jwt-pizza-service",
      "userId": 1,
-     "host": "",
+     "url": "",
      "apiKey": ""
    }
    ```
 
 1. Create a `logger.js` file that at the basic level does the same thing that the curl command was doing. However, there are some additions.
 
-   - The configuration is read form the `config.json` file.
+   - The configuration is read from the `config.json` file.
    - The `httpLogger` function provides an Express custom middleware to handle all the HTTP request and response logging in one place.
    - The `log` function can be called directly if you want to log additional information.
    - The `sanitize` function keeps any confidential information from entering the logs.
@@ -222,7 +222,7 @@ In order to demonstrate how to generate logs from you code we need a simple Expr
 
      sendLogToGrafana(event) {
        const body = JSON.stringify(event);
-       fetch(`https://${config.host}/loki/api/v1/push`, {
+       fetch(`${config.url}`, {
          method: 'post',
          body: body,
          headers: {
