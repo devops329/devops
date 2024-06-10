@@ -73,6 +73,16 @@ Here are the steps to take:
       curl http://localhost:3000/api/docs
       ```
 
+## Initial pizza data
+
+When you start up the service for the first time it will initialize your database with all of the required tables and create a single administrative user with the following defaults:
+
+- **Name**: 常用名字
+- **Email**: a@jwt.com
+- **Password**: admin
+
+You can use these credentials to populate your database with information that makes the JWT Pizza interesting to use. The easiest way to do this is to use the commands found in the [populate.sh](./populate.sh) shell script.
+
 ## Keep in sync
 
 As the application team makes changes to the frontend code you will need to sync your fork of the repository. As long as you are only adding tests and **not changing the core code**, you shouldn't have to merge any code.
