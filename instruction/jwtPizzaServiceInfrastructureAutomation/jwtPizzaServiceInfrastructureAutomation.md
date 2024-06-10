@@ -266,6 +266,7 @@ Complete the following.
 1. Delete your previous ECS and ALB infrastructure.
 1. Create a S3 bucket to host your CloudFormation templates.
 1. Create the `jwt-pizza-service.json` template file.
+1. Save the CloudFormation template to your fork of the `jwt-pizza-service` in a folder named `cloudFormation`.
 1. Deploy a CloudFormation stack using the `jwt-pizza-service.json` template.
 1. Fix your JWT Pizza Service DNS entry to point to the new ALB URL.
 1. Trigger your `jwt-pizza-service` CI deployment pipeline and verify that the new service is deployed.
