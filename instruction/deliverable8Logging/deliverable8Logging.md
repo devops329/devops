@@ -1,6 +1,6 @@
 # ⓼ Logging: JWT Pizza Service
 
-It is time to add logging observability to the jwt-pizza-service code. In your fork of the code use what you learned about [Grafana logging](../grafanaLogging/grafanaLogging.md) to create a log of all the following:
+It is time to add logging observability to the jwt-pizza-service code. In your fork of the code, use what you learned about [Grafana logging](../grafanaLogging/grafanaLogging.md) to create a log of all the following:
 
 1. HTTP requests
    1. HTTP method, path, status code
@@ -31,7 +31,7 @@ Modify your config.js file to contain the Grafana logging credentials. You can t
   logging: {
     source: 'jwt-pizza-service',
     userId: 1,
-    host: '',
+    url: '',
     apiKey: '',
   }
 ```

@@ -10,12 +10,12 @@ It is time to add metrics observability to the jwt-pizza-service code. In your f
 1. CPU usage percentage
 1. Memory usage percentage
 1. Pizzas
-   1. sold/minute
+   1. Sold/minute
    1. Revenue/minute
 
 ## Modifying the application code
 
-You are going to have to modify the `jwt-pizza-service` code in order to add observability. You want to be careful to not modify the development team's work as much as possible. If you change things too much then you are probably going to have merge problems when they update the application and you have to merge your fork.
+You are going to have to modify the `jwt-pizza-service` code in order to add observability. You want to keep modifications to the development team's work to a minimum. If you change things too much, you are probably going to have merge problems when they update the application and you have to merge your fork.
 
 Try to use design patterns and principles such as middleware and modularity to isolate your changes as much as possible.
 
