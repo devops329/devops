@@ -1,9 +1,5 @@
 const config = require('./config.json');
 
-const USER_ID = config.userId;
-const API_KEY = config.apiKey;
-const SOURCE = config.source;
-
 class Metrics {
   constructor() {
     this.requests = {};
@@ -23,12 +19,12 @@ class Metrics {
   }
 
   sendMetricToGrafana(metricPrefix, httpMethod, metricName, metricValue) {
-    const metric = `${metricPrefix},source=${SOURCE},method=${httpMethod} ${metricName}=${metricValue}`;
+    const metric = `${metricPrefix},source=${config.source},method=${httpMethod} ${metricName}=${metricValue}`;
 
-    fetch(`https://${config.host}/api/v1/push/influx/write`, {
+    fetch(`${config.url}/api/v1/push/influx/write`, {
       method: 'post',
       body: metric,
-      headers: { Authorization: `Bearer ${USER_ID}:${API_KEY}` },
+      headers: { Authorization: `Bearer ${config.userId}:${config.apiKey}` },
     })
       .then((response) => {
         if (!response.ok) {
