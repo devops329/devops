@@ -140,7 +140,7 @@ Create a simple Express app by doing the following.
    }
    ```
 
-1. Create a `metrics.js` file that basically does the same thing that the curl command was doing. The difference is that the total request count only increments every time `incrementRequests` is called.
+1. Create a `metrics.js` file that basically does the same thing that the curl command was doing. The difference is that the total request count only increments every time `incrementRequests` is called. Note that `unref` is called on the timer so that node.js will shutdown even though the timer is still running.
 
    ```js
    const config = require('./config.json');
@@ -150,9 +150,10 @@ Create a simple Express app by doing the following.
        this.totalRequests = 0;
 
        // This will periodically sent metrics to Grafana
-       setInterval(() => {
+       const timer = setInterval(() => {
          this.sendMetricToGrafana('request', 'all', 'total', this.totalRequests);
        }, 10000);
+       timer.unref();
      }
 
      incrementRequests() {

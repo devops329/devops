@@ -36,6 +36,40 @@ Modify your config.js file to contain the Grafana credentials. You can then refe
   }
 ```
 
+### Modify CI pipeline
+
+Because you are added new configuration to the JWT Service, you will need to also enhance your GitHub Actions workflow to have the new metrics configuration fields. You must also add secrets for the metrics GRAFANA_USER_ID, METRICS_URL,and METRICS_API_KEY.
+
+Without this your CI pipeline will fail because of missing references from your new metrics code when your tests run.
+
+```yml
+- name: Write config file
+  run: |
+    echo "module.exports = {
+      jwtSecret: '${{ secrets.JWT_SECRET }}',
+      db: {
+        connection: {
+          host: '127.0.0.1',
+          user: 'root',
+          password: 'tempdbpassword',
+          database: 'pizza',
+          connectTimeout: 60000,
+        },
+        listPerPage: 10,
+      },
+      factory: {
+        url: 'https://pizza-factory.cs329.click',
+        apiKey: '${{ secrets.FACTORY_API_KEY }}',
+      },
+      metrics: {
+        source: 'jwt_pizza_service',
+        userId: ${{ secrets.GRAFANA_USER_ID }},
+        url: '${{ secrets.METRICS_URL }}',
+        apiKey: '${{ secrets.METRICS_API_KEY }}',
+      },            
+    };" > src/config.js
+```
+
 ### Create metrics.js
 
 Create a file named `metrics.js`. Use this file to for all the code necessary to interact with Grafana. This may be somewhat similar to what you created in the [Grafana Metrics instruction](../grafanaMetrics/grafanaMetrics.md). However, it will need to be more complex than what was presented in the instruction because it will have to supply metrics for more than just http requests.

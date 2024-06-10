@@ -5,13 +5,15 @@ class Metrics {
     this.requests = {};
 
     // This will periodically sent metrics to Grafana
-    setInterval(() => {
+    const timer = setInterval(() => {
       Object.keys(this.requests).forEach((httpMethod) => {
         this.sendMetricToGrafana('request', httpMethod, 'total', this.requests[httpMethod]);
       });
       const totalRequests = Object.values(this.requests).reduce((acc, curr) => acc + curr, 0);
       this.sendMetricToGrafana('request', 'all', 'total', totalRequests);
     }, 10000);
+
+    timer.unref();
   }
 
   incrementRequests(httpMethod) {
