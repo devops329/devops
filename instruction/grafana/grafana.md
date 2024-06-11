@@ -106,7 +106,7 @@ Now you can create a visualization from the data source.
 
    ![Dashboard with panel](dashboardWithPanel.png)
 
-1. Rename the dashboard to `Awesome Dashboard`.
+1. Rename the dashboard to `Pizza Dashboard`.
 1. Press the `Save` button and confirm.
 1. Click on the `Auto refresh` button and select 5s to have the visualization refresh every five seconds. This will bring in new random data, but with a real data source it would create a rolling display of the metrics.
 
@@ -124,7 +124,7 @@ You have just created your first visualization dashboard. Way to go! Now let's a
 
    ![Gauge visualization](gaugeVisualization.png)
 
-1. Save the changes and go back to your awesome dashboard. You may need to refresh the page for the changes to display.
+1. Save the changes and go back to your Pizza Dashboard. You may need to refresh the page for the changes to display.
 
    ![Final dashboard](finalDashboard.png)
 

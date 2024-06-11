@@ -42,7 +42,7 @@ Create a file named `logger.js`. Use this file to for all the code necessary to 
 
 ### Add HTTP logging code
 
-Modify your Express application routers to report on the HTTP request log events. If you expose an Express middleware function from your Logger class this can get a good start on providing logs by installing that the logger middleware.
+Modify your Express application routers to report on the HTTP request log events. If you expose an Express middleware function from your Logger class, this can get a good start on providing logs by installing the logger middleware.
 
 ```js
 app.use(logger.httpLogger);
@@ -107,7 +107,7 @@ while true
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
 1. Modify your fork of the `jwt-pizza-service` to generate the required logs and store them in your Grafana Cloud account.
-1. Create a log visualization on your Grafana Cloud `Awesome Dashboard` to display all of the required log fields.
+1. Create a log visualization on your Grafana Cloud `Pizza Dashboard` to display all of the required log fields.
 1. Export a copy of your dashboard and save it to your fork of the `jwt-pizza-service` repository in a directory named `grafana`.
    1. On the Grafana Cloud console, navigate to your dashboard.
    1. Press the `Share` button.

@@ -78,7 +78,7 @@ Using the example command and your newly minted API key you can now insert data 
 ## Create a visualization
 
 1. Open up your Grafana Cloud dashboard.
-1. Open the Home menu, click on Dashboards, and then select **Awesome Dashboard** that you previous created.
+1. Open the Home menu, click on Dashboards, and then select **Pizza Dashboard** that you previous created.
 1. Click the `Add` button on the top menu and create a new visualization.
 1. For the `Data source` specify **grafanacloud-youraccountnamehere-prom**.
 1. Toggle the query editor to `Builder` mode.

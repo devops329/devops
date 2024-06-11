@@ -131,7 +131,7 @@ Once you have the Explorer displaying your logs exactly as you would like, press
 
 ![Add to dashboard](addToDashboard.png)
 
-Change the option to add to an **Existing dashboard** and then select your **Awesome Dashboard** and press `Open in new tab`.
+Change the option to add to an **Existing dashboard** and then select your **Pizza Dashboard** and press `Open in new tab`.
 
 ![Specify dashboard](specifyDashboard.png)
 
