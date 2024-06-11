@@ -4,23 +4,69 @@
 
 📖 **Deeper dive reading**: [Grafana OnCall](https://grafana.com/docs/oncall)
 
-Grafana Cloud provides a service called `OnCall` that integrates with all of your logging, metric, and synthetic testing alerts. With **OnCall** you can trigger email or SMS notifications whenever an anomaly occurs in your application.
+Grafana Cloud provides a service called `OnCall` that generates notifications that are triggered by your logging, metrics, or synthetic testing. To get started you define a on-call schedule for team members and define your alerts. When an alert is triggered anyone who is on-call will be notified according to their notification preferences. If no one is on-call, or they do not respond, then the notification escalate according to a predefined escalation chain.
 
-## Functionality
+## Architectural pieces
 
 Grafana OnCall works by defining alert rules. Each rule has a trigger such as when CPU goes above 90% for 10 minutes. When a rule is triggered it notifies the
 
+- **Alert**:
+- **Contact point**:
 - **Alert group**: Aggregated sets of related alerts that are grouped by some attribute.
 - **Escalation chain**: A set of predefined steps, rules, and time intervals dictating how and when alerts are directed to OnCall schedules or users directly.
 - **Routes**: Configurable paths that direct alerts to designated responders or channels. Tailor Routes to send alerts to specific escalation chains based on alert details. Additionally, enhance flexibility by incorporating regular expressions when adding routes to integrations.
 - **On-call schedule**: A calendar-based system defining when team members are on-call.
-- **Rotation**: The scheduled shift during which a specific team or individual is responsible for incident response.
 - **Shift**: The designated time period within a rotation when a team or individual is actively on-call.
 - **Notification policy**: Set of rules dictating how, when, and where alerts notifications are sent to a responder.
 
 ## Setup
 
+1. create a contact
+1. Create an integration
+1. Set up an alert
+
 The following steps will allow you to create an alerting system in Grafana:
+
+### Attempt 1
+
+This is all you need to do to get alerting working assuming that you have added your email in the list for the `grafana-default-email` contact point.
+
+If you want it to show up in the OnCall Alert Groups you also need to add the Grafana OnCall integration to the `grafana-default-email` contact point. This will force you to create an integration. The funny thing is that you cannot create an integration without a contact point. They are tightly coupled.
+
+1. Create a rule
+   1. Rename condition
+   1. Metric: Purchase bucket, category: count
+   1. Specify the query `increase(purchase_bucket{category="count"}[1m])`
+   1. I deleted the default expressions.
+   1. `Add expression` type: threshold
+   1. Input: Purchase, is above 2
+   1. Set as `alert condition`
+   1. Press `Preview`. Note that it should be firing.
+   1. Set the evaluation behavior to be Folder: GrafanaCloud.
+   1. New Evaluation group named `jwt pizza`. You can reuse this for future rules.
+   1. Set the contact point to the one we previously created. I used `grafana-default-email` for right now.
+   1. Press Save rule and exit
+
+The only way you can get a Grafana user associated with an alert is to create a escalation chain that references the user and then associate the escalation chain with the integration.
+
+1. Escalation Chain
+
+   1. new escalation chain
+   1. Add a step for default notification to User and then your user.
+   1. Add another step to wait 5 minutes
+   1. Add another step to send important notification to your user.
+
+1. Modify Integration that was created when you created the contact point
+   1. Click on Routes `default`
+   1. Choose the escalation chain you just created.
+
+### Attempt 2
+
+We will need:
+
+1. An integration and its associated contact
+1. A schedule
+1. An alert
 
 ### Configure your ability to receive notifications
 
@@ -61,12 +107,18 @@ add an expression, threshold > 2 for the alert purchase_bucket.
 
 ### Random notes
 
+- An alert will not show up in the OnCall Alert Groups unless you have a contact point with a Grafana OnCall integration associated with it.
 - Contact point: who to contact. This references an integration that can be Grafana OnCall or a bunch of things like AWS SNS, Discord, Pager Duty, ...Each has their own configuration.
 - Alertmanager: There is a default of Grafana. Grafana is built in and accessible from the top level alert settings. I have associated my cs Email with this manager as the `grafana-default-email`.
 - Notification policies: tell who to send them to and how to aggregate alerts. There is a default policy that is sent to `grafana-default-email`, group for 30s and then wait 5 minutes before sending updates.
 - ML Support - They can look for patterns and forecast from data sources.
 - You can define your SLO, put them on a dashboard and generate alerts.
 - You can manage and declare incidents
+
+- OnCall and alerts are related by not the same thing.
+- An integration connects contact points, message templates, routes, and escalation chains to OnCall. Without an integration you cannot use the notification settings for a user.
+
+- If you don't want to use onCall then you can just create a contact point and associated it with an alert. The problem is that it only allows email by default.
 
 # --------------------------------- OLD
 
@@ -96,7 +148,8 @@ add an expression, threshold > 2 for the alert purchase_bucket.
 - Name it
 - Choose Grafana as the alert manager
 - Add your contact point
-- Send a test alert
+- Save
+- Send a demo alert
 
 1. Create an Alert Rule
 
