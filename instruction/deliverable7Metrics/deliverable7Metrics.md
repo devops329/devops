@@ -1,5 +1,7 @@
 # ⓻ Metrics: JWT Pizza Service
 
+![course overview](../sharedImages/courseOverview.png)
+
 It is time to add metrics observability to the jwt-pizza-service code. In your fork of the code use what you learned about [Grafana metrics](../grafanaMetrics/grafanaMetrics.md) to create visualizations that demonstrate the following:
 
 1. HTTP requests by method/minute
