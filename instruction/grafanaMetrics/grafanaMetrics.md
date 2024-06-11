@@ -4,6 +4,10 @@ In previous instruction we used the TestData data source to display randomly gen
 
 Grafana has dozens of predefined data sources for all kinds of data services. This includes services such as MySQL, AWS CloudWatch, Caddy Server, CSV files, ElasticSearch, GitHub, and so on. Each of these data sources define how to connect to the service and what data they expose for visualization in a dashboard panel.
 
+## Metrics demonstration
+
+🚧 Add a discussion about using the Grafana Pizza demonstration dashboard
+
 ## Inserting metrics using HTTP
 
 For this exercise you will use the `HTTP Metrics` connector to insert data into a Prometheus data service hosted on Grafana Cloud and exposed using the `grafana-youraccountnamehere-prom` data source that Grafana created by default when you set up your account.

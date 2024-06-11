@@ -1,5 +1,7 @@
 # ⓻ Metrics: JWT Pizza Service
 
+![course overview](../sharedImages/courseOverview.png)
+
 It is time to add metrics observability to the jwt-pizza-service code. In your fork of the code use what you learned about [Grafana metrics](../grafanaMetrics/grafanaMetrics.md) to create visualizations that demonstrate the following:
 
 1. HTTP requests by method/minute
@@ -38,7 +40,7 @@ Modify your config.js file to contain the Grafana credentials. You can then refe
 
 ### Modify CI pipeline
 
-Because you are added new configuration to the JWT Service, you will need to also enhance your GitHub Actions workflow to have the new metrics configuration fields. You must also add secrets for the metrics GRAFANA_USER_ID, METRICS_URL,and METRICS_API_KEY.
+Because you are added new configuration to the JWT Service, you will need to also enhance your GitHub Actions workflow to have the new metrics configuration fields. You must also add secrets for the metrics METRICS_USER_ID, METRICS_URL, and METRICS_API_KEY.
 
 Without this your CI pipeline will fail because of missing references from your new metrics code when your tests run.
 
@@ -63,7 +65,7 @@ Without this your CI pipeline will fail because of missing references from your 
       },
       metrics: {
         source: 'jwt_pizza_service',
-        userId: ${{ secrets.GRAFANA_USER_ID }},
+        userId: ${{ secrets.METRICS_USER_ID }},
         url: '${{ secrets.METRICS_URL }}',
         apiKey: '${{ secrets.METRICS_API_KEY }}',
       },            
@@ -107,11 +109,17 @@ function getMemoryUsagePercentage() {
 
 You will need some traffic to your website in order to demonstrate that the visualizations are working. You can open your browser and start manually buying pizzas or you can write some code to automate a simulation of the traffic. One way to do this is to use Curl commands wrapped in some scripting code. The following are some examples that you can use. Note that you must use a POSIX compliant command console to use these scripts.
 
+First you need to assign the host that you are wanting to drive traffic against. If you are running in your development environment then it will look like this:
+
+```sh
+host=http://localhost:3000
+```
+
 #### Hit the home page every three seconds
 
 ```sh
 while true
- do curl -s localhost:3000/;
+ do curl -s $host/;
   sleep 3;
  done;
 ```
@@ -121,7 +129,7 @@ while true
 ```sh
 while true
  do
-  curl -s -X PUT localhost:3000/api/auth -d '{"email":"unknown@jwt.com", "password":"bad"}' -H 'Content-Type: application/json';
+  curl -s -X PUT $host/api/auth -d '{"email":"unknown@jwt.com", "password":"bad"}' -H 'Content-Type: application/json';
   sleep 25;
  done;
 ```
@@ -131,10 +139,10 @@ while true
 ```sh
 while true
  do
-  response=$(curl -s -X PUT localhost:3000/api/auth -d '{"email":"f@jwt.com", "password":"franchisee"}' -H 'Content-Type: application/json');
+  response=$(curl -s -X PUT $host/api/auth -d '{"email":"f@jwt.com", "password":"franchisee"}' -H 'Content-Type: application/json');
   token=$(echo $response | jq -r '.token');
   sleep 110;
-  curl -X DELETE localhost:3000/api/auth -H "Authorization: Bearer $token";
+  curl -X DELETE $host/api/auth -H "Authorization: Bearer $token";
   sleep 10;
  done;
 ```
@@ -144,9 +152,9 @@ while true
 ```sh
 while true
  do
-   response=$(curl -s -X PUT localhost:3000/api/auth -d '{"email":"a@jwt.com", "password":"admin"}' -H 'Content-Type: application/json');
+   response=$(curl -s -X PUT $host/api/auth -d '{"email":"a@jwt.com", "password":"admin"}' -H 'Content-Type: application/json');
    token=$(echo $response | jq -r '.token');
-   curl -s -X POST localhost:3000/api/order -H 'Content-Type: application/json' -d '{"franchiseId": 1, "storeId":1, "items":[{ "menuId": 1, "description": "Veggie", "price": 0.05 }]}'  -H "Authorization: Bearer $token"; curl -X DELETE localhost:3000/api/auth -H "Authorization: Bearer $token";
+   curl -s -X POST $host/api/order -H 'Content-Type: application/json' -d '{"franchiseId": 1, "storeId":1, "items":[{ "menuId": 1, "description": "Veggie", "price": 0.05 }]}'  -H "Authorization: Bearer $token"; curl -X DELETE $host/api/auth -H "Authorization: Bearer $token";
    sleep 10;
  done;
 ```
@@ -161,7 +169,7 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
    1. On the Grafana Cloud console, navigate to your dashboard.
    1. Press the `Share` button.
    1. Press the `Export` tab and `Save to file`.
-   1. Name the file `deliverable7dashboard.json`
+   1. Name the file `grafana/deliverable7dashboard.json`
 1. Commit and push your changes so that they are running in your production environment.
 
 Once this is all working you should have something like this:

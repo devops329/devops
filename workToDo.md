@@ -19,10 +19,10 @@
 | May x  | Lee     | Student example Phase 5 - Deployment strategies                                        |
 | May 29 | Stephen | Student example Phase 6 - Logging, metrics, and load repo complete                     |
 | May 31 | Stephen | Student example Phase 7 - load repo complete                                           |
-| May x  | Lee     | Student example Phase 8 - Chaos injection                                              |
-| May x  | Lee     | Student example Phase 9 - Pen testing                                                  |
-| May x  | x       | Canvas creation complete                                                               |
-| May x  | x       | Course repo complete                                                                   |
+| Jun x  | Lee     | Student example Phase 8 - Chaos injection                                              |
+| Jun x  | Lee     | Student example Phase 9 - Pen testing                                                  |
+| Jun x  | x       | Canvas creation complete                                                               |
+| Jun x  | x       | Course repo complete                                                                   |
 | Aug 28 | Lee     | Instruction written                                                                    |
 | Sept 4 | Lee     | Slides written                                                                         |
 | Sept 4 | Lee     | Videos created                                                                         |

@@ -23,7 +23,7 @@ class Metrics {
   sendMetricToGrafana(metricPrefix, httpMethod, metricName, metricValue) {
     const metric = `${metricPrefix},source=${config.source},method=${httpMethod} ${metricName}=${metricValue}`;
 
-    fetch(`${config.url}/api/v1/push/influx/write`, {
+    fetch(`${config.url}`, {
       method: 'post',
       body: metric,
       headers: { Authorization: `Bearer ${config.userId}:${config.apiKey}` },

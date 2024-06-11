@@ -23,6 +23,7 @@
 ## Static deployment
 
 - ☑ 🟢 [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
+- 🔵 [Merge conflicts](mergeConflicts/mergeConflicts.md)
 - 🟢 [Static deployment](staticDeployment/staticDeployment.md)
 - 🚧 [Git Branches](gitBranches/gitBranches.md)
 - 🟢 [GitHub Pages](gitHubPages/gitHubPages.md)
@@ -120,7 +121,7 @@
 
 - 🔵 [Failure](failure/failure.md)
 - 🚧 Backup/Restore (Aurora)
-- 🚧 [Alerts](alerting/alerting.md)
+- 🔵 [Alerts](alerting/alerting.md)
 - 🚧 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
 - 🚧 Playbooks
 - 🚧 Self healing (scale groups)

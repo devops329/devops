@@ -45,7 +45,7 @@ class Logger {
 
   sendLogToGrafana(event) {
     const body = JSON.stringify(event);
-    fetch(`https://${config.host}/loki/api/v1/push`, {
+    fetch(`${config.url}`, {
       method: 'post',
       body: body,
       headers: {
