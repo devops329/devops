@@ -15,7 +15,7 @@ As the application team makes changes to the frontend code you will need to sync
 
 ## Merging your fork
 
-In the case where you make a change to your fork that causes a conflict, you will need to resolve the conflict in your development environment.
+In the case where you make a change to your fork that causes a conflict with the course repository, you will need to resolve the conflict from your development environment.
 
 Open a command console window in your development environment and navigate to the directory containing your fork. The first time you resolve a merge conflict you will need to associate your repository with the remote's upstream repository that the fork was created from. You can do that with this command:
 
