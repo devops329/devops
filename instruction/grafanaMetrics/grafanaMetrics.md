@@ -106,7 +106,7 @@ If you insert enough metrics you will see the total request count going up and u
 1. Toggle the query editor to `Code` mode.
 1. Replace the query that is there with one that computes the difference over a one minute period.
    ```
-   rate(request_total{source="jwt-pizza-service"}[1m])
+   increase(request_total{source="jwt-pizza-service"}[1m])
    ```
 1. Press the `Run queries` button. This should recalculate the displayed data to show a difference instead of a total.
 
