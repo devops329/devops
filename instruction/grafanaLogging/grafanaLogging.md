@@ -1,5 +1,7 @@
 # Grafana logging
 
+![alt text](lokiIcon.png)
+
 Grafana Cloud provides a service called Loki that makes it easy to harness the full power of logging.
 
 Your application sends log events over HTTP to the Loki service which stores the log events persistently. A data source then represents the logs and allows you to create visualizations on your Grafana dashboard.

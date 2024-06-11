@@ -1,5 +1,7 @@
 # Grafana OnCall
 
+![alt text](onCallIcon.png)
+
 📖 **Deeper dive reading**: [Grafana OnCall](https://grafana.com/docs/oncall)
 
 Grafana Cloud provides a service called `OnCall` that integrates with all of your logging, metric, and synthetic testing alerts. With **OnCall** you can trigger email or SMS notifications whenever an anomaly occurs in your application.
@@ -39,11 +41,32 @@ Back on the `User info` tab, you can specify how you want to be notified. There 
 
 ### Create a contact point
 
+There is a default contact point. You can set yourself as the default by editing it and then setting the integration.
+
 1. Open up your Grafana Cloud dashboard.
 1. Open the Home menu, from the `Alerts & IRM` category click on `Alerting`, and then select **Contact points**.
 1. Press the `Add contact point` button.
 1. Supply the name `jwt-pizza-devops`
 1. Select **Grafana OnCall** as the `Integration`.
+
+### Create an integration
+
+There are things like Email, or discord, but there is also Grafana OnCall which I think gives better control. You can console to messages that are sent.
+
+### Create a rule
+
+grafanacloud-byu-prom
+metric=purchase_bucket category=count
+add an expression, threshold > 2 for the alert purchase_bucket.
+
+### Random notes
+
+- Contact point: who to contact. This references an integration that can be Grafana OnCall or a bunch of things like AWS SNS, Discord, Pager Duty, ...Each has their own configuration.
+- Alertmanager: There is a default of Grafana. Grafana is built in and accessible from the top level alert settings. I have associated my cs Email with this manager as the `grafana-default-email`.
+- Notification policies: tell who to send them to and how to aggregate alerts. There is a default policy that is sent to `grafana-default-email`, group for 30s and then wait 5 minutes before sending updates.
+- ML Support - They can look for patterns and forecast from data sources.
+- You can define your SLO, put them on a dashboard and generate alerts.
+- You can manage and declare incidents
 
 # --------------------------------- OLD
 
