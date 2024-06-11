@@ -23,6 +23,7 @@
 ## Static deployment
 
 - ☑ 🟢 [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
+- 🔵 [Merge conflicts](mergeConflicts/mergeConflicts.md)
 - 🟢 [Static deployment](staticDeployment/staticDeployment.md)
 - 🚧 [Git Branches](gitBranches/gitBranches.md)
 - 🟢 [GitHub Pages](gitHubPages/gitHubPages.md)
