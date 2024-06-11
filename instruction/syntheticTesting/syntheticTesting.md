@@ -4,7 +4,7 @@ Synthetic testing, sometimes called _end user testing_, exercises the applicatio
 
 In one sense, synthetic testing is the most authentic testing because it uses the actual environment that your customers are using. If your synthetic tests fail, then it probably means that your users are currently experiencing problems.
 
-A good synthetic testing system seeks to recreate real world usage. This means it needs to simulate requests on different devices and from different places in the world. The exercises things that are usually out of the control of the application developer, such as hardware, bandwidth and network connectivity, but that are just as vital to the usefulness of the application as functional correctness and database resilience.
+A good synthetic testing system seeks to recreate real world usage. This means it needs to simulate requests on different devices and from different places in the world. This exercises things that are usually out of the control of the application developer, such as hardware, bandwidth and network connectivity, but that are just as vital to the usefulness of the application as functional correctness and database resilience.
 
 ## Grafana synthetic testing
 
@@ -36,7 +36,7 @@ To create a Grafana synthetic test do the following:
    1. Provide `jwt-pizza` as the **Job name**.
    1. Provide the URL of your JWT Pizza application as the **Request target**.
 
-      ⚠️ **Note**: This will require that your application is currently running.If it is not, then go and deploy it now.
+      ⚠️ **Note**: This will require that your application is currently running. If it is not, then go and deploy it now.
 
    1. Check `Enabled` so that metrics for the tests will be stored in you Grafana data source (i.e. `grafanacloud-*-prom`) under metrics that begin with `probe_`. This is useful if you want to create your own visualizations.
 
@@ -84,7 +84,7 @@ In a later section you will define the rules for triggering alerts and the metho
 
 ## Reducing cost
 
-Grafana Cloud provides you with a limited number of free synthetic testing checks. Once you have experimented with this functionality you want to reduce the number of checks that you make so something that falls within their free tier.
+Grafana Cloud provides you with a limited number of free synthetic testing checks. Once you have experimented with this functionality, you want to reduce the number of checks that you make so that it falls within their free tier.
 
 To reduce the number of checks edit the check that you just created and navigate to the `Probe options` view. Change the frequency to 60 minutes and press `Save`.
 
