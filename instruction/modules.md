@@ -121,7 +121,7 @@
 
 - 🔵 [Failure](failure/failure.md)
 - 🚧 Backup/Restore (Aurora)
-- 🚧 [Alerts](alerting/alerting.md)
+- 🔵 [Alerts](alerting/alerting.md)
 - 🚧 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
 - 🚧 Playbooks
 - 🚧 Self healing (scale groups)
