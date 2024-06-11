@@ -38,7 +38,7 @@ Modify your config.js file to contain the Grafana logging credentials. You can t
 
 ### Modify CI pipeline
 
-Because you are added new configuration to the JWT Service, you will need to also enhance your GitHub Actions workflow to have the new logging configuration fields. You must also add secrets for the metrics GRAFANA_USER_ID, LOGGING_URL,and LOGGING_API_KEY.
+Because you are added new configuration to the JWT Service, you will need to also enhance your GitHub Actions workflow to have the new logging configuration fields. You must also add secrets for the metrics LOGGING_USER_ID, LOGGING_URL, and LOGGING_API_KEY.
 
 Without this your CI pipeline will fail because of missing references from your new logging code when your tests run.
 
@@ -63,16 +63,16 @@ Without this your CI pipeline will fail because of missing references from your 
       },
       metrics: {
         source: 'jwt_pizza_service',
-        userId: ${{ secrets.GRAFANA_USER_ID }},
+        userId: ${{ secrets.METRICS_USER_ID }},
         url: '${{ secrets.METRICS_URL }}',
         apiKey: '${{ secrets.METRICS_API_KEY }}',
       },
       logging:    {
         source: "jwt-pizza-service",
-        userId: ${{ secrets.GRAFANA_USER_ID }},
+        userId: ${{ secrets.LOGGING_USER_ID }},
         url: '${{ secrets.LOGGING_URL }}',
         apiKey: '${{ secrets.LOGGING_API_KEY }}',
-      }
+      },
     };" > src/config.js
 ```
 
