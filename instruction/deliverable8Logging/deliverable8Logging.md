@@ -98,11 +98,17 @@ Consider modifying the `DB.query` function to handle all of the database logging
 
 You will need some traffic to your website in order to demonstrate that the logging is working. You can open your browser and start manually buying pizzas or you can write some code to automate a simulation of the traffic. One way to do this is to use Curl commands wrapped in some scripting code. The following are some examples that you can use. Note that you must use a POSIX compliant command console to use these scripts.
 
+First you need to assign the host that you are wanting to drive traffic against. If you are running in your development environment then it will look like this:
+
+```sh
+host=http://localhost:3000
+```
+
 #### Hit the home page every three seconds
 
 ```sh
 while true
- do curl -s localhost:3000/;
+ do curl -s $host/;
   sleep 3;
  done;
 ```
@@ -112,7 +118,7 @@ while true
 ```sh
 while true
  do
-  curl -s -X PUT localhost:3000/api/auth -d '{"email":"unknown@jwt.com", "password":"bad"}' -H 'Content-Type: application/json';
+  curl -s -X PUT $host/api/auth -d '{"email":"unknown@jwt.com", "password":"bad"}' -H 'Content-Type: application/json';
   sleep 25;
  done;
 ```
@@ -122,10 +128,10 @@ while true
 ```sh
 while true
  do
-  response=$(curl -s -X PUT localhost:3000/api/auth -d '{"email":"f@jwt.com", "password":"franchisee"}' -H 'Content-Type: application/json');
+  response=$(curl -s -X PUT $host/api/auth -d '{"email":"f@jwt.com", "password":"franchisee"}' -H 'Content-Type: application/json');
   token=$(echo $response | jq -r '.token');
   sleep 110;
-  curl -X DELETE localhost:3000/api/auth -H "Authorization: Bearer $token";
+  curl -X DELETE $host/api/auth -H "Authorization: Bearer $token";
   sleep 10;
  done;
 ```
@@ -135,9 +141,9 @@ while true
 ```sh
 while true
  do
-   response=$(curl -s -X PUT localhost:3000/api/auth -d '{"email":"a@jwt.com", "password":"admin"}' -H 'Content-Type: application/json');
+   response=$(curl -s -X PUT $host/api/auth -d '{"email":"a@jwt.com", "password":"admin"}' -H 'Content-Type: application/json');
    token=$(echo $response | jq -r '.token');
-   curl -s -X POST localhost:3000/api/order -H 'Content-Type: application/json' -d '{"franchiseId": 1, "storeId":1, "items":[{ "menuId": 1, "description": "Veggie", "price": 0.05 }]}'  -H "Authorization: Bearer $token"; curl -X DELETE localhost:3000/api/auth -H "Authorization: Bearer $token";
+   curl -s -X POST $host/api/order -H 'Content-Type: application/json' -d '{"franchiseId": 1, "storeId":1, "items":[{ "menuId": 1, "description": "Veggie", "price": 0.05 }]}'  -H "Authorization: Bearer $token"; curl -X DELETE $host/api/auth -H "Authorization: Bearer $token";
    sleep 10;
  done;
 ```
