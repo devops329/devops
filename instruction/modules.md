@@ -98,6 +98,7 @@
 - ☑ 🟢 [Grafana](grafana/grafana.md)
 - 🚧 Metrics
 - ☑ 🟢 [Grafana metrics](grafanaMetrics/grafanaMetrics.md)
+- 🔵 [Visualizing metrics](visualizingMetrics/visualizaingMetrics.md)
 - ☑ 🟢 [⓻ Metrics: JWT Pizza Service](deliverable7Metrics/deliverable7Metrics.md)
 - 🚧 [Logging](logging/logging.md)
 - ☑ 🟢 [Grafana logging](grafanaLogging/grafanaLogging.md)
