@@ -14,7 +14,7 @@ The content for this course is represented by the following parts.
 
 - [Schedule](https://github.com/devops329/devops/blob/main/schedule/schedule.md)
 - [Instruction](https://github.com/devops329/devops/blob/main/instruction/modules.md#readme)
-- JWT Pizza - Demonstration project
+- [JWT Pizza](https://pizza.cs329.click) - Demonstration project
 - Assignments and tests submitted through [Canvas](https://byu.instructure.com)
 
 ## Outcomes
@@ -37,21 +37,27 @@ The course covers a full spectrum of devOps technologies.
 
 - **Testing**
 
-  - Unit, End to End (E2E), Coverage (Jest),
+  - Unit, integration, end to end, coverage (Jest),
   - UI (Playwright)
-  - Performance, Load (K6)
-  - Dependency injection (DI), mocking
+  - Mocking (Jest, Playwright)
+  - Synthetic (Grafana)
+  - Load (K6)
+  - Chaos
+  - Penetration (Burp suite)
 
 - **Deployment**
 
   - Software version control (GitHub)
+  - Static deployment (GitHub Pages)
   - Continuous integration/continuous delivery (GitHub Actions)
-  - Server, serverless, edge, container (AWS EC2, Lambda, CloudFront, Fargate)
-  - Infrastructure as code (IaC), elasticity
+  - CDN, load balancers, and containers (AWS EC2, CloudFront, ECR, ECS, Fargate)
+  - Infrastructure as code (CloudFormation), elasticity (ECS)
   - Versioning (N-1, deprecating, unsupported)
+  - Strategies (Blue/green, rolling, replacement)
 
 - **Management**
-  - Logging, Metrics (AWS CloudWatch, Google Analytics)
-  - Alerts, response teams, pager duty, resolution documentation, triages
-  - Backup/restore (AWS Aurora)
+  - Logging, Metrics, Tracing (Grafana)
+  - Alerts, response teams, Grafana OnCall, resolution documentation, triages
+  - Backup/restore (AWS RDS)
   - Recovery time objective (RTO), Recovery point objective (RPO), playbooks
+  - Failure reporting
