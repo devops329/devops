@@ -35,6 +35,8 @@ Students will be able to:
 
 The course covers a full spectrum of devOps technologies.
 
+<img src="https://github.com/devops329/devops/blob/main/instruction/sharedImages/courseOverview.png" alt="cover" width="600"/>
+
 - **Testing**
 
   - Unit, integration, end to end, coverage (Jest),
