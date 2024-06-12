@@ -1,6 +1,6 @@
 # Visualizing metrics
 
-Inserting and visualizing can take some time to get comfortable with and so let's carefully walk through a demonstration in order to understand the basic concepts you are going to need in order to build your JWT Pizza dashboard.
+Inserting and visualizing metrics can take some time to get comfortable with, so let's carefully walk through a demonstration in order to understand the basic concepts you are going to need in order to build your JWT Pizza dashboard.
 
 ## Demo data
 
@@ -10,11 +10,11 @@ We start by simplifying our generation of data to be two values.
 | ---------------------- | ------------------------------------------------------------------ |
 | demo_instant           | Random number between 1-100                                        |
 | demo_accumulator_total | Accumulation total that increases by a random number between 1-200 |
-| demo_accumulator_count | Number of times we have increase the accumulator total             |
+| demo_accumulator_count | Number of times we have increased the accumulator total            |
 
 ### Generating data
 
-We generate our data by creating a metric generation program ([metricsGenerator.js](visualizingMetricsExample/metricsGenerator.js)) that is similar to what was presented in the previous topic. Reuse your `config.js` settings that you created for your Grafana Cloud account.
+We generate our data by creating a metric generation program ([metricsGenerator.js](visualizingMetricsExample/metricsGenerator.js)) that is similar to what was presented in the previous topic. Reuse the `config.js` settings that you created for your Grafana Cloud account.
 
 This code sets a timer that triggers every second and supplies our metric values to Grafana Cloud.
 
@@ -72,13 +72,13 @@ demo,source=jwt_pizza_service accumulator_total=368
 demo,source=jwt_pizza_service accumulator_count=5
 ```
 
-Go grab some an apple 🍏 while you let this run for 15 minutes or so. This will give you some meaningful data to play with.
+Go grab an apple 🍏 while you let this run for 15 minutes or so. This will give you some meaningful data to play with.
 
 ## Visualizing data in Grafana
 
 Now you can open up your Grafana Cloud dashboard and create a new visualization. Make sure the `Data source` is set to your **grafanacloud-\*-prom** data source. Set the time window to be the **Last 5 minutes**.
 
-Create two queries, with `demo_accumulator_total` for the first query, and `demo_instant` for the second query. Switch the input mode from `Builder` to `Code` so that we can just supply PromQL queries. However, if you prefer the Builder input mode better then you can stick with that and adapt the following instruction.
+Create two queries, with `demo_accumulator_total` for the first query, and `demo_instant` for the second query. Switch the input mode from `Builder` to `Code` so that we can just supply PromQL queries. However, if you prefer the `Builder` input mode better then you can stick with that and adapt the following instruction. You can also input PromQL queries before switching to `Builder` to view a breakdown of how they are constructed.
 
 ![Initial queries](initalQueries.png)
 
@@ -90,7 +90,7 @@ Depending how long it has been since you started generating data you should see 
 
 ### Computing average metrics from totals
 
-The `demo_accumulator_total` metric is going to keep on growing, which is fine if you want it to represent something like the total number of pizzas sold. However, if you want to represent the number of pizzas sold per some interval then you need to divide it by the number of times the metric has been increased. That is where the `demo_accumulator_count` metric comes into play. We can use that to figure out the average value of the accumulator at each interval represented in the visualization. You can do this by changing the query for the accumulator to be `demo_accumulator / demo_accumulator_count`. Now the visualization displays with the current value of the instant metric and the average at each interval for the accumulator metric.
+The `demo_accumulator_total` metric is going to keep on growing, which is fine if you want it to represent something like the total number of pizzas sold. However, if you want to represent the number of pizzas sold per some interval, then you need to divide it by the number of times the metric has been increased. That is where the `demo_accumulator_count` metric comes into play. We can use that to figure out the average value of the accumulator at each interval represented in the visualization. You can do this by changing the query for the accumulator to be `demo_accumulator / demo_accumulator_count`. Now the visualization displays with the current value of the instant metric and the average at each interval for the accumulator metric.
 
 ![Average by division](averageByDivision.png)
 
@@ -112,7 +112,7 @@ rate(demo_accumulator_total[1m])
 
 ### Computing totals from instant metrics
 
-You can also reverse the process of averaging metrics from a total, and compute a total from a metric that is reported an instant values. Currently the **instant** metric is reporting something like CPU % at this moment, current active users, or revenue for the past data collection. So assuming that **instant** represents revenue for the past data collection you cant figure out the total revenue for the past day by using the`sum_over_time` function.
+You can also reverse the process of averaging metrics from a total, and compute a total from a metric that is reported as instant values. Currently the **instant** metric is reporting something like CPU % at this moment, current active users, or revenue for the past data collection. So assuming that **instant** represents revenue for the past data collection, you can figure out the total revenue for the past day by using the`sum_over_time` function.
 
 ```sh
 sum_over_time(demo_instant[24h])
@@ -132,4 +132,4 @@ You can also experiment with the threshold options found at the bottom of the li
 
 ## Experiment
 
-Grafana and prometheus are very powerful, but it takes time to understand what they can do, how to properly provide metric data, and create impactful visualizations. Take some time to play around. Generate different data and experiment with both PromQL and the different visualizations.
+Grafana and Prometheus are very powerful, but it takes time to understand what they can do, how to properly provide metric data, and create impactful visualizations. Take some time to play around. Generate different data and experiment with both PromQL and the different visualizations.
