@@ -1,6 +1,6 @@
 # Alerting
 
-A critical piece of any observability architecture is the automatic notification of a problem that needs human intervention. Without an alert, a problem may persist for hours, days, or even months before it is resolved. Counterintuitively, The more observability data you acquire and store, the more likely it is that a problem will be missed by manual review of a metric dashboard.
+A critical piece of any observability architecture is the automatic notification of a problem that needs human intervention. Without an alert, a problem may persist for hours, days, or even months before it is resolved. Counterintuitively, the more observability data you acquire and store, the more likely it is that a problem will be missed by manual review of a metric dashboard.
 
 ![Alerting](alterting.png)
 
@@ -14,7 +14,7 @@ An effective alerting system consists of the following parts:
 
 ## Defining alerts
 
-Before you can enable actionable alerts you need to identify the metrics that are signify a problem in the system. Some metrics are obvious, such as running out of memory or storage space. Other metrics require you to spend time reviewing code, architecture, and reported values of existing metrics.
+Before you can enable actionable alerts, you need to identify the metrics that signify a problem in the system. Some metrics are obvious, such as running out of memory or storage space. Other metrics require you to spend time reviewing code, architecture, and reported values of existing metrics.
 
 Keep a prioritized list of metrics that you believe have a direct impact on the system, and then review their historical values to see if they correlate with significant incidents. When an incident does occur, review the metrics and find the key indicators that would have led to a prompt resolution.
 
@@ -55,7 +55,7 @@ Within this category, we can have alerts triggered by state conditions or metric
 
 These are alerts that are triggered based on the contents of logs. For example, if the logs contain the word "error" more than 10 times in a minute, then an alert is triggered.
 
-The following show an attacker attempting to prob our Pizza Service for known security holes. They have bypassed the DNS name of the service and have obtained the public IP address directly. In this cause you might trigger an information alert if the probe traffic exceeds an certain level, or if the same source IP address is later used in a legitimate request.
+The following show an attacker attempting to probe our Pizza Service for known security holes. They have bypassed the DNS name of the service and have obtained the public IP address directly. In this cause you might trigger an information alert if the probe traffic exceeds an certain level, or if the same source IP address is later used in a legitimate request.
 
 ![Security violation logs](securityViolationLogs.png)
 
@@ -69,4 +69,4 @@ When a alert is triggered the appropriate response must be initiated. The [Googl
 
 Once an alert has triggered and the appropriate party notified, the alerting system will require an acknowledgement. If no acknowledgement is given then the system will escalate the alert to additional parties until an acknowledgement is received.
 
-Once the incident is resolved the handling party will close the incident with the alerting system. This prevents the system from any further escalation.
+Once the incident is resolved the handling party will close the incident with the alerting system. This prevents the system from escalating the incident further.

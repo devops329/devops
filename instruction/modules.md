@@ -18,7 +18,6 @@
 - ☑ 🟢 [Christlike learning](christlikeLearning/christlikeLearning.md)
 - 🟢 [GitHub](gitHub/gitHub.md)
 - 🟢 [Curiosity report](curiosityReport/curiosityReport.md)
-- [Frequently Asked Questions](faq/gettingStartedFaq.md)
 
 ## Static deployment
 
@@ -32,7 +31,6 @@
 - 🚧 [Continuous integration (CI)](continuousIntegration/continuousIntegration.md)
 - 🚧 [GitHub Actions](gitHubActions/gitHubActions.md)
 - ☑ 🟢 [⓶ Automated deployment: JWT Pizza](deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)
-- [Frequently Asked Questions](faq/staticDeploymentFaq.md)
 
 ## Quality assurance
 
@@ -52,7 +50,6 @@
 - 🟢 [UI testing](uiTesting/uiTesting.md)
 - ☑ 🟢 [Playwright](playwright/playwright.md)
 - ☑ 🟢 [⓸ User interface testing: JWT Pizza](deliverable4UiTesting/deliverable4UiTesting.md)
-- 🚧 [Frequently Asked Questions](faq/qualityAssuranceFaq.md)
 
 ## Cloud deployment
 
@@ -72,7 +69,6 @@
 - ☑ 🟢 [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
 - 🟢 [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
 - ☑ 🟢 [JWT Pizza Service infrastructure automation](jwtPizzaServiceInfrastructureAutomation/jwtPizzaServiceInfrastructureAutomation.md)
-- [Frequently Asked Questions](faq/cloudDeploymentFaq.md)
 
 ## Serverless
 
@@ -90,7 +86,6 @@
 - 🚧 [Rolling] We are probably just going to use the rolling deployment from ECS
 - 🚧 [Blue/Green](blueGreeen/blueGreen.md) It seems that cloudfront supports this.
 - We need a discussion on scalability, bottlenecks, and auto adjustment. This should tie into SLO.
-- 🚧 [Frequently Asked Questions](faq/deploymentStrategiesFaq.md)
 
 ## Observability
 
@@ -107,7 +102,6 @@
 - ❌ [Grafana Tempo](grafanaTempo/grafanaTempo.md)
 - ❌ ⓽ Tracing - Provide execution tracing with Grafana Tempo
 - ☑ 🔵 [Synthetic testing](syntheticTesting/syntheticTesting.md)
-- 🚧 [Frequently Asked Questions](faq/systemMonitoringFaq.md)
 
 ## Load testing
 
@@ -116,28 +110,25 @@
 - 🔵 [Grafana K6](grafanaK6/grafanaK6.md)
 - 🔵 [⓾ Load testing: JWT Pizza Service](deliverable10LoadTesting/deliverable10LoadTesting.md)
 - 🔵 [Status](statusReporting/statusReporting.md)
-- 🚧 [Frequently Asked Questions](faq/loadTestingFaq.md)
 
 ## Failure management
 
-- 🔵 [Failure](failure/failure.md)
+- 🟢 [Failure](failure/failure.md)
 - 🚧 Backup/Restore (Aurora)
-- 🔵 [Alerts](alerting/alerting.md)
+- 🟢 [Alerts](alerting/alerting.md)
 - 🚧 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
 - 🚧 Playbooks
 - 🚧 Self healing (scale groups)
 - 🚧 SLO, RTO, RPO
-- 🔵 [Chaos testing](chaosTesting/chaosTesting.md)
-- 🔵 [Incident report](incidentReport/incidentReport.md)
+- 🟢 [Chaos testing](chaosTesting/chaosTesting.md)
+- 🟢 [Incident report](incidentReport/incidentReport.md)
 - 🔵 ☑ [⓫ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
-- 🚧 [Frequently Asked Questions](faq/failureTestingFaq.md)
 
 ## Penetration testing
 
 - 🚧 [Penetration testing](penetrationTesting/penetrationTesting.md)
 - 🚧 [Burp Suite](burpSuite/burpSuite.md)
 - 🚧 ⓬ Penetration test: JWT Pizza - Penetration testing and collaborative report
-- 🚧 [Frequently Asked Questions](faq/penetrationTestingFaq.md)
 
 ## Conclusion
 
