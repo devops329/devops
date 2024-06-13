@@ -1,4 +1,4 @@
-# GitHub
+# Notes
 
 ## Setting the upstream user and password
 
@@ -37,14 +37,29 @@ git checkout main
 git merge upstream/main
 ```
 
-# Changes made on local account
+# Changes made for coursework
 
-## JWT Pizza Student
+## GitHub
 
-Implementation of course deliverables
+- Creation of junk account
+- fork of jwt-pizza and jwt-pizza-service repos
+- Creation of github pages deployment
+- Creation of Actions workflows
+
+## AWS
 
 - CloudFront distribution
-- IAM Roles and policies for OIDC
+- IAM Roles and policies for OIDC connection to GitHub
 - Bucket for frontend
 - Route 53 domain
 - Certificate Manager for domain
+- Bucket for ECR images
+- ECR repository with associated image uploads
+- ECS cluster with associated task definitions, services, security groups, and deployments
+- EC2 ALB for cluster
+- Bucket for cloudformation templates
+- CloudFormation deployment stack
+
+## Grafana
+
+- Creation of junk account

@@ -45,6 +45,7 @@
 - 🚧 [Dependency injection](dependencyInjection/dependencyInjection.md)
 - 🟢 [Integration testing](integrationTesting/integrationTesting.md)
 - ☑ 🟢 [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
+- 🔵 [JWT Pizza data](jwtPizzaData/jwtPizzaData.md)
 - 🟢 [Unit testing: JWT Pizza Service](unitTestingJwtPizzaService/unitTestingJwtPizzaService.md)
 - ☑ 🟢 [⓷ Unit testing CI](deliverable3UnitTestingCi/deliverable3UnitTestingCi.md)
 - 🟢 [UI testing](uiTesting/uiTesting.md)
@@ -95,6 +96,7 @@
 - 🚧 Metrics
 - ☑ 🟢 [Grafana metrics](grafanaMetrics/grafanaMetrics.md)
 - 🔵 [Visualizing metrics](visualizingMetrics/visualizaingMetrics.md)
+- 🔵 [Simulating traffic](simulatingTraffic/simulatingTraffic.md)
 - ☑ 🟢 [⓻ Metrics: JWT Pizza Service](deliverable7Metrics/deliverable7Metrics.md)
 - 🚧 [Logging](logging/logging.md)
 - ☑ 🟢 [Grafana logging](grafanaLogging/grafanaLogging.md)

@@ -210,20 +210,18 @@ Replace the assignment of the host variable with your own hostname.
 # Set the hostname - replace with your hostname
 host=https://pizza-service.byucsstudent.click
 
+# Note that the version number will be different
 curl $host
+{"message":"welcome to JWT Pizza","version":"20240613.144627"}
 
+# Note that the menu will be empty until you add some tasty pizzas
 curl $host/api/order/menu
+[]
 ```
 
 ### Initial pizza data
 
-Just like when you ran the JWT Pizza Service for the first time in your development environment, the service will initialize your database with all of the required tables and create a single administrative user with the following defaults:
-
-- **Name**: 常用名字
-- **Email**: a@jwt.com
-- **Password**: admin
-
-You can use these credentials to populate your database with information that makes the JWT Pizza interesting to use. The easiest way to do this is to use the commands found in the [populate.sh](../jwtPizzaService/populate.sh) shell script.
+Just like when you initialized the JWT Pizza Service for your development environment data, you will need to repeat those steps now so that you have some interesting data in your production environment. Follow the steps provided in the [JWT Pizza Data](../jwtPizzaData/jwtPizzaData.md) instruction with your production Pizza Service hostname.
 
 ## Deploy the full cloud stack
 
