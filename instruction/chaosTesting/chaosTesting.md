@@ -52,3 +52,19 @@ Even if you never inject chaos into your production systems, the exercise of con
 It is always better to know what your system will do, rather than hope that it will turn out for the best when a failure happens.
 
 At a minimum you should be conducting chaos testing in your staging and other non-customer facing environments. Once you are confident that those systems are handling chaos correctly, you might have the confidence to apply the chaos test to your production system.
+
+## ☑ Assignment
+
+Do the following:
+
+1. Create an endpoint on your fork of the `jwt-pizza-service` code that can enable and disable chaos by causing one of your endpoints to always fail. Only allow an admin to execute the chaos endpoint.
+1. Make sure you have metrics that will display the chaos.
+1. Create an OnCall alert that will trigger based on chaos.
+1. Deploy your JWT Pizza Service to production.
+1. Simulate traffic to the service. (See the _Curl commands_ found [Logging deliverable](../deliverable8Logging/deliverable8Logging.md) for examples of how to do this.)
+1. Trigger the chaos.
+1. Wait for, acknowledge, and resolve the alert.
+
+Go to the associated Canvas assignment and submit a screenshot of the OnCall alert history. This should look something like this:
+
+![alt text](alertHistory.png)

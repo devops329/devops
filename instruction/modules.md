@@ -121,7 +121,7 @@
 - 🚧 Self healing (scale groups)
 - 🚧 SLO, RTO, RPO
 - 🟢 [Chaos testing](chaosTesting/chaosTesting.md)
-- 🟢 [Incident report](incidentReport/incidentReport.md)
+- ☑ 🟢 [Incident report](incidentReport/incidentReport.md)
 - 🔵 ☑ [⓫ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
 
 ## Penetration testing
