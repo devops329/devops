@@ -65,8 +65,9 @@
 - 🚧 [Containers](containers/containers.md)
 - ☑ 🟢 [JWT Pizza Service container](jwtPizzaServiceContainer/jwtPizzaServiceContainer.md)
 - ☑ 🟢 [AWS ECR](awsEcr/awsEcr.md)
-- ☑ 🟢🚧 [AWS ECS](awsEcs/awsEcs.md)
+- ☑ 🟢 🚧 [AWS ECS](awsEcs/awsEcs.md)
 - ☑ 🟢 [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
+- 🚧 [Code as infrastructure](codeAsInfrastructure/codeAsInfrastructure.md)
 - 🟢 [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
 - ☑ 🟢 [JWT Pizza Service infrastructure automation](jwtPizzaServiceInfrastructureAutomation/jwtPizzaServiceInfrastructureAutomation.md)
 
