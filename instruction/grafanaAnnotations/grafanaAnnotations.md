@@ -70,7 +70,7 @@ If you go view your dashboard you should see the annotation.
 
 ## ☑ Assignment
 
-Now that you know how to add annotations, your assignment is to add annotations your CI workflows. You will need to add a new secret to GitHub Actions that represents your Grafana service access token. Name this `GRAFANA_ACCESS_TOKEN`. Then add something similar to the following to your workflow. This assumes that you have a version number assigned to an environment variable named `version`. Replace the Grafana hostname, dashboard ID, and panel ID with your values.
+Now that you know how to add annotations, your assignment is to add annotation generation your CI workflows. You will need to add a new secret to GitHub Actions that represents your Grafana service access token. Name this `GRAFANA_ACCESS_TOKEN`. Then add something similar to the following to your workflow. This assumes that you have a version number assigned to an environment variable named `version`. Replace the Grafana hostname, dashboard ID, and panel ID with your values.
 
 ```yml
 - name: Annotate deployment in Grafana
