@@ -27,7 +27,7 @@ This includes graphs that show the latency of requests, locations that requests 
 
 To create a Grafana synthetic test do the following:
 
-1. Open the Grafana Dashboard.
+1. Open the Grafana Cloud Dashboard.
 1. Open the home menu and click on `Synthetics`.
 1. Click on `Add new check`.
 1. Select the check type. These represent the network request times that you can make. Select `HTTP` in order to make a single request that assures that your application resource is available.

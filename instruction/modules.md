@@ -102,6 +102,7 @@
 - ❌ Distributed tracing
 - ❌ [Grafana Tempo](grafanaTempo/grafanaTempo.md)
 - ❌ ⓽ Tracing - Provide execution tracing with Grafana Tempo
+- 🔵 [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
 - ☑ 🔵 [Synthetic testing](syntheticTesting/syntheticTesting.md)
 
 ## Load testing
