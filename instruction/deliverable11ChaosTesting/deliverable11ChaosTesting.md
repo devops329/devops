@@ -12,7 +12,17 @@ This means that you need to know when resources are maxed out, requests are fail
 
 ![Error state dashboard](errorStateDashboard.png)
 
-Consider using color as a key indicator of a problem with the system. With the proper metrics in place you can then trigger alerts to resolve the incident in a timely manner.
+Consider using color as a key indicator of a problem with the system.
+
+## Useful alerts
+
+With the proper metrics in place you can then trigger alerts to resolve the incident in a timely manner. Make sure you create as many alerts as necessary to that you can respond at any hour of the day or night.
+
+![Alert rules](alertRules.png)
+
+## Simulate traffic
+
+You will probably need to simulate traffic in order for most failures to trigger. Consider using the [simulating traffic](../simulatingTraffic/simulatingTraffic.md) Curl commands that were described previously.
 
 ## ☑ Assignment
 

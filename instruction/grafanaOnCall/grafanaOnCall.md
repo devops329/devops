@@ -27,6 +27,40 @@ Grafana OnCall works by defining alert rules. Each rule has a trigger such as wh
 
 The following steps will allow you to create an alerting system in Grafana:
 
+### Attempt 99
+
+![alt text](onCallOverview.png)
+
+![alt text](userConfiguration.png)
+
+![alt text](teams.png)
+
+![alt text](integration.png)
+
+![alt text](contactPoint.png)
+
+![alt text](escalationChain.png)
+
+![alt text](schedule.png)
+
+![alt text](notificationPolicies2.png)
+
+![alt text](alertDetail2.png)
+
+![alt text](alertList2.png)
+
+1. Set up you contact info
+1. Create a team
+1. Add yourself to the team
+1. Create a schedule with you on it. Set the team for the schedule.
+1. Create the integration
+   1. Create a contact point
+   1. Associate the team.
+1. Create a contact point for grafana oncall
+1. Create an alert.
+   1. Create an evaluation group.
+   1. connect the contact point created earlier.
+
 ### Attempt 1
 
 This is all you need to do to get alerting working assuming that you have added your email in the list for the `grafana-default-email` contact point.
