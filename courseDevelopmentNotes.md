@@ -42,7 +42,7 @@ git merge upstream/main
 You trigger an injection for a learner with a call like:
 
 ```sh
-curl -s -X PUT http://localhost:4000/api/admin/vendor/111111 -H "Content-Type:application/json" -H "authorization:Bearer xxxx" -d '{"chaos":{"type":"badjwt|fail|throttle"}}' | jq '.'
+curl -X PUT http://localhost:4000/api/admin/vendor/111111 -H "Content-Type:application/json" -H "authorization:Bearer xxxx" -d '{"chaos":{"type":"badjwt|fail|throttle"}}' | jq '.'
 ```
 
 This will cause a `reportUrl` field to start appearing on pizza order requests. The location of the field will differ depending on the injection type. However, it always shows up and if they debug or have good logs they should be able to find it easily.

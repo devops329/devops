@@ -4,12 +4,22 @@
 
 We have built in to the JWT Pizza application the ability to inject Chaos into the system. It is an important part of your role as a DevOps engineer to know how to efficiently respond to critical events. This deliverable will give you significant experience with the process.
 
+## Useful logs and metrics
+
+In order to be successful with this deliverable you must have logs and metrics are not only reporting nominal information, but also surfacing when there is a problem.
+
+This means that you need to know when resources are maxed out, requests are failing, or latency is too high. The following example dashboard shows that they is a problem making pizzas and that the logs are filled with errors.
+
+![Error state dashboard](errorStateDashboard.png)
+
+Consider using color as a key indicator of a problem with the system. With the proper metrics in place you can then trigger alerts to resolve the incident in a timely manner.
+
 ## ☑ Assignment
 
 You job is to do the following:
 
 1. Make sure the application is up and running correctly during the testing period. This will be announced previous to it beginning.
-1. Have all the [metrics](../grafanaMetrics/grafanaMetrics.md) and [logging](../grafanaLogging/grafanaLogging.md) reporting in place necessary for you to be able to observe and diagnose the failure.
+1. Have all the [metrics](../grafanaMetrics/grafanaMetrics.md) and [logging](../grafanaLogging/grafanaLogging.md) reporting in place necessary for you to be able to observe and diagnose a failure.
 1. Have an appropriate [altering system](../grafanaOnCall/grafanaOnCall.md) in place so that you are effectively on call during the entire testing period.
 1. Respond to the incident in a timely manner.
 1. Properly diagnose the the root cause of the failure.
