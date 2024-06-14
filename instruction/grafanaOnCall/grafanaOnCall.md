@@ -4,15 +4,41 @@
 
 📖 **Deeper dive reading**: [Grafana OnCall](https://grafana.com/docs/oncall)
 
-Grafana has alerts based on metric thresholds built right into their dashboards. Those alerts can trigger a wide variety of systems. For example, they can send emails, post to a Discord server, activate PagerDuty, invoke AWS SNS, or call an HTTP endpoint.
+Grafana generates alerts based on metric thresholds that you can define when you build a metric visualization. Those alerts can trigger a wide variety of systems. For example, they can send emails, post to a Discord server, activate PagerDuty, invoke AWS SNS, or call an HTTP endpoint. Grafana also provides a more complex alerting system that allows you to set up teams, rotation schedules, and incident management.
 
 ## Simple Grafana alerts
 
-Insert image of simple grafana alerts
+Let's first take a look at the simple alerting system. There are two steps involved. First you define a contact point and then you associate the contact with an alert definition. When the alert triggers it sends the notification to what ever the contact point is defined to use.
+
+![alt text](simpleAlerts.png)
+
+### Creating a email contact point
+
+You create a contact point by opening your Grafana Cloud dashboard and selecting `Alerting > Contact points`. This will displays all of your currently defined contact points. If you haven't created any contact points then the `grafana-default-email` contact will be the only thing in the list. Let's create a new contact point by pressing the `Add contact point` button. This will give you the option to provide a name and define the integration for notification. Provide the name **JWT Pizza Email** with an integration choice of **Email** and an email address that you can access. For this example I used the throw away _Mailinator_ email service.
+
+![alt text](defineContactPoint.png)
+
+We then press the `Test` button and check our email. There we find the notification message. You can use the Contact Point optional email settings to configure the format and what the message says.
+
+![alt text](notificationEmail.png)
+
+### Create an email alert
+
+Now that we have a contact point we can attach it to a alert. You can define the alert directly from the main menu `Alerting > Alert rules` navigation, or by editing the visualization that you want to trigger the alert. Let's assume we have a visualization the displays the current number of active users. From this you can define an alert by editing a visualization, selecting the alerts tab, and pressing `New alert rule`.
+
+![Add alert on visualization](addAlertOnVisualization.png)
+
+This displays the alert dialog with everything preset to trigger based on the state of the _Active users_ visualization. This includes the PromQL query that selects the metric data. In this case it is querying the current count of pizza users from the JWT Pizza Service.
+
+![Alert configure condition](alertConfigureCondition.png)
+
+As you scroll the settings for the alert you will see that it is reducing the metric data to only select the last value. Other options include things such as selecting the average or the sum of the data. The threshold for triggering the alert is customizable with predicates such as above or below, or a specific range. We will set the value for the threshold to anything above 1.
+
+![Alert configure threshold](alertConfigureThreshold.png)
 
 ## OnCall
 
-Inset picture of oncall alerts
+![alt text](onCallAlerts.png)
 
 Additionally, an alert can activate another Grafana service called `OnCall`. OnCall provides the ability to schedule, manage, and coordinate the incident responses for an entire team of DevOps engineers. Here is a list of the functionality that OnCall provides above the simple notification ability provided by metric alerting.
 
