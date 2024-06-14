@@ -2,21 +2,19 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
-We have built in to the JWT Pizza application the ability to inject Chaos into the system. It is an important part of your role as a DevOps engineer to know how to efficiently respond to critical events. This deliverable will give you significant experience with the process.
+The JWT Pizza application has the ability built into it to inject Chaos into the system. It is an important part of your role as a DevOps engineer to know how to expediently, and efficiently, respond to critical events. This deliverable will give you significant experience with that process.
 
 ## Useful logs and metrics
 
 In order to be successful with this deliverable you must have logs and metrics are not only reporting nominal information, but also surfacing when there is a problem.
 
-This means that you need to know when resources are maxed out, requests are failing, or latency is too high. The following example dashboard shows that they is a problem making pizzas and that the logs are filled with errors.
+This means that you need to know when resources are maxed out, requests are failing, or latency is too high. The following example dashboard shows that there is a problem making pizzas and that the logs are filled with errors.
 
 ![Error state dashboard](errorStateDashboard.png)
 
-Consider using color as a key indicator of a problem with the system.
-
 ## Useful alerts
 
-With the proper metrics in place you can then trigger alerts to resolve the incident in a timely manner. Make sure you create as many alerts as necessary to that you can respond at any hour of the day or night.
+With the proper metrics in place you can then trigger alerts to resolve the incident in a timely manner. Make sure you create as many alerts as necessary so that you can respond at any hour of the day or night.
 
 ![Alert rules](alertRules.png)
 

@@ -120,13 +120,13 @@
 - 🟢 [Failure](failure/failure.md)
 - 🚧 Backup/Restore (Aurora)
 - 🟢 [Alerts](alerting/alerting.md)
-- 🚧 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
+- ☑ 🔵 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
 - 🚧 Playbooks
 - 🚧 Self healing (scale groups)
 - 🚧 SLO, RTO, RPO
 - 🟢 [Chaos testing](chaosTesting/chaosTesting.md)
 - ☑ 🟢 [Incident report](incidentReport/incidentReport.md)
-- 🟢 ☑ [⓫ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
+- ☑ 🟢 [⓫ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
 
 ## Penetration testing
 
