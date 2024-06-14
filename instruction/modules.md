@@ -138,4 +138,4 @@
 
 - ⓭ Curiosity report - Independent research on a QA/DevOps topic
 - ☑ 🟢 [⓮ Christlike introspection conclusion](christlikeLearningConclusion/christlikeLearningConclusion.md)
-- Course wrap up: Clean up your AWS resources
+- ☑ 🔵 [Wrap up](wrapUp/wrapUp.md)

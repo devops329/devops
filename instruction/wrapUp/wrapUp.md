@@ -1,0 +1,28 @@
+# Wrap up
+
+We hope that you have enjoyed learning how to assure the quality of an application, deploy it to a production environment, and monitor its state.The concepts you have mastered from this instruction are the same ones that professional software engineers use on a daily basis.
+
+Always remember to continually invest in your capabilities, collaboration, curiosity, creativity, and Christlike skills as you make the world a better place.
+
+## Clean up AWS
+
+After everything has been graded, you should consider cleaning up your resources on AWS.
+
+![Clean up meme](turnOffAws.jpg)
+
+- Delete your S3 buckets
+- Terminate your CloudFront distribution
+- Terminate your RDS instance
+- Terminate your ECS cluster
+- Delete your ECR registry
+- Delete your CloudFormation stack
+- Make sure you do not have auto renew set for your domain name
+- Delete your Route 53 hosted zone for your domain name
+- Clean up your security group and key pair
+- Check your bill to make sure you haven't missed anything
+
+## ☑ Assignment - Optional
+
+Please take the time to provide us with honest feedback by responding to the university student ratings survey.
+
+If you complete the student ratings survey you will receive 5 bonus points towards your midterm/final grade. In order to receive the bonus you must release your name as part of the survey so that I can see that you completed the survey. Note that releasing your name does not allow me to associate your responses with your name. It only informs me that you completed the survey. Thanks in advance for helping to make the course better.
