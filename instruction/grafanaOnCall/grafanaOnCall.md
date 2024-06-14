@@ -1,23 +1,38 @@
 # Grafana OnCall
 
-![alt text](onCallIcon.png)
+![OnCall icon](onCallIcon.png)
 
 📖 **Deeper dive reading**: [Grafana OnCall](https://grafana.com/docs/oncall)
 
-Grafana Cloud provides a service called `OnCall` that generates notifications that are triggered by your logging, metrics, or synthetic testing. To get started you define a on-call schedule for team members and define your alerts. When an alert is triggered anyone who is on-call will be notified according to their notification preferences. If no one is on-call, or they do not respond, then the notification escalate according to a predefined escalation chain.
+Grafana has alerts based on metric thresholds built right into their dashboards. Those alerts can trigger a wide variety of systems. For example, they can send emails, post to a Discord server, activate PagerDuty, invoke AWS SNS, or call an HTTP endpoint.
 
-## Architectural pieces
+## Simple Grafana alerts
 
-Grafana OnCall works by defining alert rules. Each rule has a trigger such as when CPU goes above 90% for 10 minutes. When a rule is triggered it notifies the
+Insert image of simple grafana alerts
 
-- **Alert**:
-- **Contact point**:
-- **Alert group**: Aggregated sets of related alerts that are grouped by some attribute.
-- **Escalation chain**: A set of predefined steps, rules, and time intervals dictating how and when alerts are directed to OnCall schedules or users directly.
-- **Routes**: Configurable paths that direct alerts to designated responders or channels. Tailor Routes to send alerts to specific escalation chains based on alert details. Additionally, enhance flexibility by incorporating regular expressions when adding routes to integrations.
-- **On-call schedule**: A calendar-based system defining when team members are on-call.
-- **Shift**: The designated time period within a rotation when a team or individual is actively on-call.
-- **Notification policy**: Set of rules dictating how, when, and where alerts notifications are sent to a responder.
+## OnCall
+
+Inset picture of oncall alerts
+
+Additionally, an alert can activate another Grafana service called `OnCall`. OnCall provides the ability to schedule, manage, and coordinate the incident responses for an entire team of DevOps engineers. Here is a list of the functionality that OnCall provides above the simple notification ability provided by metric alerting.
+
+- **Escalation chains**: Prioritized actions paths that escalate the management of an alert until it is resolved.
+- **Teams**: Any number of specialized teams can be created and associated with escalation chains or alerts.
+- **Scheduling**: Individuals or teams can be scheduled for being _on call_. When an event is triggered, the escalation chain attempts to notify the scheduled team members first.
+- **Alert groups**: Associate related alerts and serve as a history for responses and resolutions. An alert group is automatically
+- **Incident management**: Provides long running tracking, managing, and reporting of an incident that results form an alert.
+- **Notifications**: Convenient email, text message, and push notification.
+- **Mobile application integration**: A full mobile app for your team members that allows them to adjust their schedule, respond to alerts, and define their desired notification chain.
+
+### OnCall flow
+
+In order to use OnCall you must do the following:
+
+1. Define the communication methods and notification policy for yourself.
+1. Associate yourself with a team.
+1. Schedule yourself for an OnCall shift.
+1. Create an escalation chain that describes how events should be handled.
+1. Create an integration between a Grafana alert contact point and an OnCall escalation chain.
 
 ## Setup
 
@@ -28,8 +43,6 @@ Grafana OnCall works by defining alert rules. Each rule has a trigger such as wh
 The following steps will allow you to create an alerting system in Grafana:
 
 ### Attempt 99
-
-![alt text](onCallOverview.png)
 
 ![alt text](userConfiguration.png)
 
