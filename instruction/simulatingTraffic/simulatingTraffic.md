@@ -1,6 +1,6 @@
 # Simulating traffic
 
-It is often necessary when building DevOps automation component to simulate traffic in order to validate that things for working. For example, when creating metrics, logs, or alerts. You can open your browser and start manually buying pizzas or you can write some code to automate a simulation of the traffic. One way to do this is to use Curl commands wrapped in some scripting code.
+It is often necessary when building DevOps automation components (e.g. when creating metrics, logs, or alerts) to simulate traffic in order to validate that things are working. You can open your browser and start manually buying pizzas, or you can write some code to automate a simulation of the traffic. One way to do this is to use Curl commands wrapped in some scripting code.
 
 ## Specifying the target host
 

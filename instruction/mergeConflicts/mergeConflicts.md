@@ -1,6 +1,6 @@
 # Merge conflicts
 
-When you created a fork of the course repository and then cloned the repository to your local development environment this resulted in three copies of the repository. From the perspective of the repository in your development environment, your fork in GitHub is the remote **origin**. Your fork in GitHub is has an **upstream**, that is the course repository.
+When you created a fork of the course repository and then cloned the repository to your local development environment, this resulted in three copies of the repository. From the perspective of the repository in your development environment, your fork in GitHub is the remote **origin**. Your fork in GitHub has an **upstream** that is the course repository.
 
 ![alt text](image.png)
 
@@ -31,7 +31,7 @@ git checkout main
 git fetch upstream
 git merge upstream/main
 
-# Open the files with conflict and resolve the problems
+# Open the files with conflicts and resolve the problems
 
 git add .
 git commit -m "merge() conflict due to ..."

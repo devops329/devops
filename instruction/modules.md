@@ -22,7 +22,7 @@
 ## Static deployment
 
 - ☑ 🟢 [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
-- 🔵 [Merge conflicts](mergeConflicts/mergeConflicts.md)
+- 🟢 [Merge conflicts](mergeConflicts/mergeConflicts.md)
 - 🟢 [Static deployment](staticDeployment/staticDeployment.md)
 - 🚧 [Git Branches](gitBranches/gitBranches.md)
 - 🟢 [GitHub Pages](gitHubPages/gitHubPages.md)
@@ -45,7 +45,7 @@
 - 🚧 [Dependency injection](dependencyInjection/dependencyInjection.md)
 - 🟢 [Integration testing](integrationTesting/integrationTesting.md)
 - ☑ 🟢 [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
-- 🔵 [JWT Pizza data](jwtPizzaData/jwtPizzaData.md)
+- 🟢 [JWT Pizza data](jwtPizzaData/jwtPizzaData.md)
 - 🟢 [Unit testing: JWT Pizza Service](unitTestingJwtPizzaService/unitTestingJwtPizzaService.md)
 - ☑ 🟢 [⓷ Unit testing CI](deliverable3UnitTestingCi/deliverable3UnitTestingCi.md)
 - 🟢 [UI testing](uiTesting/uiTesting.md)
@@ -96,7 +96,7 @@
 - 🚧 Metrics
 - ☑ 🟢 [Grafana metrics](grafanaMetrics/grafanaMetrics.md)
 - 🔵 [Visualizing metrics](visualizingMetrics/visualizaingMetrics.md)
-- 🔵 [Simulating traffic](simulatingTraffic/simulatingTraffic.md)
+- 🟢 [Simulating traffic](simulatingTraffic/simulatingTraffic.md)
 - ☑ 🟢 [⓻ Metrics: JWT Pizza Service](deliverable7Metrics/deliverable7Metrics.md)
 - 🚧 [Logging](logging/logging.md)
 - ☑ 🟢 [Grafana logging](grafanaLogging/grafanaLogging.md)
@@ -126,7 +126,7 @@
 - 🚧 SLO, RTO, RPO
 - 🟢 [Chaos testing](chaosTesting/chaosTesting.md)
 - ☑ 🟢 [Incident report](incidentReport/incidentReport.md)
-- 🔵 ☑ [⓫ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
+- 🟢 ☑ [⓫ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
 
 ## Penetration testing
 

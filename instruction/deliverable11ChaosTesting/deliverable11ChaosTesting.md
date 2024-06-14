@@ -29,8 +29,8 @@ You will probably need to simulate traffic in order for most failures to trigger
 You job is to do the following:
 
 1. Make sure the application is up and running correctly during the testing period. This will be announced previous to it beginning.
-1. Have all the [metrics](../grafanaMetrics/grafanaMetrics.md) and [logging](../grafanaLogging/grafanaLogging.md) reporting in place necessary for you to be able to observe and diagnose a failure.
-1. Have an appropriate [altering system](../grafanaOnCall/grafanaOnCall.md) in place so that you are effectively on call during the entire testing period.
+1. Have all the [metrics](../grafanaMetrics/grafanaMetrics.md) and [logging](../grafanaLogging/grafanaLogging.md) reporting in place necessary for you to be able to observe and diagnose the failure.
+1. Have an appropriate [alerting system](../grafanaOnCall/grafanaOnCall.md) in place so that you are effectively on call during the entire testing period.
 1. Respond to the incident in a timely manner.
 1. Properly diagnose the the root cause of the failure.
 1. Propose and deploy a remedy.
@@ -42,8 +42,8 @@ As you resolve the incidents and generate your report you must commit the report
 
 ```txt
 incidentReports/
-├── incident-2025-03-01.1.md
-└── incident-2025-03-01.2.md
+├── incident-2025-03-01-1.md
+└── incident-2025-03-01-2.md
 ```
 
 After the testing period has ended, submit the URL for the location of where the incident reports are found in your fork of the `jwt-pizza` repository to the Canvas assignment. This should look something like this:
