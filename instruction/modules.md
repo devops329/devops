@@ -95,7 +95,7 @@
 - ☑ 🟢 [Grafana](grafana/grafana.md)
 - 🚧 Metrics
 - ☑ 🟢 [Grafana metrics](grafanaMetrics/grafanaMetrics.md)
-- 🔵 [Visualizing metrics](visualizingMetrics/visualizaingMetrics.md)
+- 🟢 [Visualizing metrics](visualizingMetrics/visualizingMetrics.md)
 - 🟢 [Simulating traffic](simulatingTraffic/simulatingTraffic.md)
 - ☑ 🟢 [⓻ Metrics: JWT Pizza Service](deliverable7Metrics/deliverable7Metrics.md)
 - 🚧 [Logging](logging/logging.md)
@@ -104,8 +104,8 @@
 - ❌ Distributed tracing
 - ❌ [Grafana Tempo](grafanaTempo/grafanaTempo.md)
 - ❌ ⓽ Tracing - Provide execution tracing with Grafana Tempo
-- 🔵 [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
-- ☑ 🔵 [Synthetic testing](syntheticTesting/syntheticTesting.md)
+- 🟢 [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
+- ☑ 🟢 [Synthetic testing](syntheticTesting/syntheticTesting.md)
 
 ## Load testing
 

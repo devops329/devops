@@ -27,7 +27,7 @@ In order to automate Grafana interactions using the Grafana HTTP API, you need a
 
 ## Automating annotation generation
 
-With your newly minted service account token, you can create an annotation by using the [Grafana Annotations HTTP API](https://grafana.com/docs/grafana/latest/developers/http_api/annotations/). This API provides ability to specify a dashboard and panel to create the annotation on, along with the text, tags, and timestamp of the annotation.
+With your newly minted service account token, you can create an annotation by using the [Grafana Annotations HTTP API](https://grafana.com/docs/grafana/latest/developers/http_api/annotations/). This API provides the ability to specify a dashboard and panel on which to create the annotation, along with the text, tags, and timestamp of the annotation.
 
 ### Getting your dashboard and panel IDs
 
@@ -41,7 +41,7 @@ In the above example the Dashboard ID is `xyz123` and the panel ID is `14`.
 
 ### Creating a annotation with Curl
 
-Now that you have your service account token and the desired IDs you can use Curl to make the API call. This call has the following format.
+Now that you have your service account token and the desired IDs, you can use Curl to make the API call. This call has the following format.
 
 ```txt
 curl -X POST https://YOUR-GRAFANA-CLOUD-DOMAIN.grafana.net/api/annotations -H "Authorization: Bearer YOUR-SERVICE-ACCOUNT-TOKEN" -H "Content-Type:application/json" -d '{"dashboardUID":"YOUR-DASHBOARD-ID", "panelId":YOUR-PANEL-ID, "text":"Your annotation text" }'
@@ -70,7 +70,7 @@ If you go view your dashboard you should see the annotation.
 
 ## ☑ Assignment
 
-Now that you know how to add annotations, your assignment is to add annotation generation your CI workflows. You will need to add a new secret to GitHub Actions that represents your Grafana service access token. Name this `GRAFANA_ACCESS_TOKEN`. Then add something similar to the following to your workflow. This assumes that you have a version number assigned to an environment variable named `version`. Replace the Grafana hostname, dashboard ID, and panel ID with your values.
+Now that you know how to add annotations, your assignment is to add annotation generation to your CI workflows. You will need to add a new secret to GitHub Actions that represents your Grafana service access token. Name this `GRAFANA_ACCESS_TOKEN`. Then add something similar to the following to your workflow. This assumes that you have a version number assigned to an environment variable named `version`. Replace the Grafana hostname, dashboard ID, and panel ID with your values.
 
 ```yml
 - name: Annotate deployment in Grafana

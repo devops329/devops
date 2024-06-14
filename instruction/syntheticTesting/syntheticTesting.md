@@ -78,7 +78,7 @@ Click on the `View dashboard` link to see the details of the test.
 
 ## Configuring alerts
 
-Running tests is only as valuable as your ability to react to the results. In the case of synthetic testing you need to define an alert that will draw the attention of the responsible parties.
+Running tests is only as valuable as your ability to react to the results. In the case of synthetic testing, you need to define an alert that will contact the responsible parties when results need attention.
 
 In a later section you will define the rules for triggering alerts and the methods for contacting the responsible parties.
 
@@ -86,7 +86,7 @@ In a later section you will define the rules for triggering alerts and the metho
 
 Grafana Cloud provides you with a limited number of free synthetic testing checks. Once you have experimented with this functionality, you want to reduce the number of checks that you make so that it falls within their free tier.
 
-To reduce the number of checks edit the check that you just created and navigate to the `Probe options` view. Change the frequency to 60 minutes and press `Save`.
+To reduce the number of checks, edit the check that you just created and navigate to the `Probe options` view. Change the frequency to 60 minutes and press `Save`.
 
 ## ☑ Assignment
 
