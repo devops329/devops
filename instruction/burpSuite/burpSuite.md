@@ -14,3 +14,15 @@ Burp Suite is a software security application used for penetration testing of we
 - **Decoder**: Decodes and encodes data in various formats.
 - **Comparer**: Compares HTTP responses.
 - **Extender**: Allows the integration of third-party extensions to enhance functionality.
+
+## Dastardly
+
+Really easy scan in your GitHub action workflow.
+
+```yml
+steps:
+  - name: Run Dastardly Action Step
+    uses: PortSwigger/dastardly-github-action@main
+    with:
+      target-url: 'https://pizza.cs329.click'
+```
