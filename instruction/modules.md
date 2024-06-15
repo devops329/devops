@@ -110,7 +110,7 @@
 ## Load testing
 
 - 🚧 [E2E testing](e2eTesting/e2eTesting.md)
-- 🔵 [Load testing](loadTesting/loadTesting.md)
+- 🟢 [Load testing](loadTesting/loadTesting.md)
 - 🔵 [Grafana K6](grafanaK6/grafanaK6.md)
 - 🔵 [⓾ Load testing: JWT Pizza Service](deliverable10LoadTesting/deliverable10LoadTesting.md)
 - 🔵 [Status](statusReporting/statusReporting.md)
