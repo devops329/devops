@@ -78,6 +78,21 @@ The learner the calls that url and the problem goes away. In the factory I track
 }
 ```
 
+### Three chaos injections
+
+1. Fail responses
+1. Bad JWT
+1. Throttled responses.
+
+They have 24 hours to correct. Every hour after the first 24 hours deducts 5%.
+
+## Vulnerabilities
+
+- Didn't change default password (admin)
+- Misconfigured authentication (delete franchise)
+- URL bypass (docs)
+- Revealed config (stack in errors, Express header)
+
 # Changes made for coursework
 
 ## GitHub
