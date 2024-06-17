@@ -28,7 +28,7 @@ As Netflix moved their application to AWS they took advantage of all this redund
 
 ## Chaos Monkey
 
-![alt text](chaosMonkeyIcon.png)
+![Chaos monkey icon](chaosMonkeyIcon.png)
 
 The system that Netflix build to inject chaos into the application is called the `Chaos Monkey`. There are different forms of monkeys that each focus on a type of possible failure. These include:
 
@@ -67,4 +67,4 @@ Do the following:
 
 Go to the associated Canvas assignment and submit a screenshot of the OnCall alert history. This should look something like this:
 
-![alt text](alertHistory.png)
+![Alert history](alertHistory.png)

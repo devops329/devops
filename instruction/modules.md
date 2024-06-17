@@ -125,14 +125,14 @@
 - 🚧 Self healing (scale groups)
 - 🚧 SLO, RTO, RPO
 - 🟢 [Chaos testing](chaosTesting/chaosTesting.md)
-- ☑ 🟢 [Incident report](incidentReport/incidentReport.md)
+- 🟢 [Incident report](incidentReport/incidentReport.md)
 - ☑ 🟢 [⓫ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
 
 ## Penetration testing
 
 - 🔵 [OWASP top 10](owaspTop10/owaspTop10.md)
 - 🚧 [Penetration testing](penetrationTesting/penetrationTesting.md)
-- 🚧 [Burp Suite](burpSuite/burpSuite.md)
+- ☑ 🚧 [Burp Suite](burpSuite/burpSuite.md)
 - 🚧 ⓬ Penetration test: JWT Pizza - Penetration testing and collaborative report
 
 ## Conclusion

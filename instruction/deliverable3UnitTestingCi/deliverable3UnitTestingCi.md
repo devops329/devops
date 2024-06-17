@@ -62,7 +62,7 @@ Using the GitHub Repository dashboard for your fork of `jwt-pizza-service`, sele
 
 Enter the name `FACTORY_API_KEY` and then enter the value you received for making calls to the factory. Press `Save key` and then it is ready to be used in your workflow with the template placeholder of `${{ secrets.FACTORY_API_KEY }}`.
 
-![alt text](factorySecret.png)
+![Factory secret](factorySecret.png)
 
 Go ahead and create the following secrets.
 
@@ -163,11 +163,11 @@ Now when you commit and push these changes to GitHub it should automatically do 
 
 The output from successfully running the workflow should look something like this.
 
-![alt text](actionOutput.png)
+![Action output](actionOutput.png)
 
 The README.md file should also display the current coverage and there should be a file named `version.json` in the src directory of the repository.
 
-![alt text](readmeCoverage.png)
+![Readme coverage](readmeCoverage.png)
 
 ## The final workflow
 

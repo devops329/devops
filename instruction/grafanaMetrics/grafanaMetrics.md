@@ -1,6 +1,6 @@
 # Grafana metrics
 
-![alt text](prometheusIcon.png)
+![Prometheus Logo](prometheusLogo.png)
 
 In previous instruction we used the TestData data source to display randomly generated metrics on a Grafana dashboard. Now we want to demonstrate how to actually to actually supply data for visualization.
 

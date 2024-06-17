@@ -249,11 +249,11 @@ As part of this automation, we did not automate the deployment of the MySQL data
 1. **Automate**: You can create a CloudFormation template in order to automate the creation and destruction of the database. As part of the automation you can also create and restore a snapshot of the database's data.
 1. **Temporary stop**: RDS allows you to temporarily stop the database by selecting the database actions in the RDS service console and pressing `Stop temporarily`.
 
-   ![alt text](stopDatabase.png)
+   ![Stop database](stopDatabase.png)
 
    You will still pay for any storage associated with the database, but you don't pay for the instance when it is stopped. When you are ready to use the database again press the `Start` action.
 
-   ![alt text](startDatabase.png)
+   ![Start database](startDatabase.png)
 
    Note that it does take a few minutes for the database to stop or start.
 

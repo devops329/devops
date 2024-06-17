@@ -1,6 +1,6 @@
 # K6
 
-![alt text](k6Logo.png)
+![K6 logo](k6Logo.png)
 
 In 2000, a pair of game developers were working on an MMORPG (massively multiplayer online role-playing game). The demands of such a game required them to invest in load testing tools and design. This eventually led them to create a consulting company that helped others conduct effective load testing with their applications.
 Eventually, in 2016, they took all the best practices they had learned and built an open source tool named K6 and sold it as a SaaS (software as a service) offering. In 2021, K6 was acquired by Grafana Labs and became part of Grafana Cloud.

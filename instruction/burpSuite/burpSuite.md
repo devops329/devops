@@ -1,14 +1,18 @@
 # Burp Suite
 
+![Burp Suite logo](burpSuiteLogo.png)
+
 Burp Suite is a software security application, created by Port Swigger, that accelerates and automates penetration testing.
 
-Burp Suite comes in a free community version and a paid enterprise edition. The main difference between the two is that community version throttles the execution of some penetration tools, and the enterprise edition comes with a large library of pre-configured attacks.
+Burp Suite comes in a free community version and a paid enterprise edition. The main difference between the two is that the community version throttles the execution of some penetration tools, and the enterprise edition comes with a large library of pre-configured attacks.
 
-Burp Suite is an incredibly powerful tool and is a foundation piece for most penetration testing efforts. That level of usage is beyond the scope of this course, but we can give you an introduction to its capabilities.
+Burp Suite is an incredibly powerful tool and is a foundational piece for most penetration testing efforts. Fully covering all the features of Burp Suite is beyond the scope of this course, but we will cover the basics of its functionality.
+
+⚠️ **Note** that any of the tools that you use for penetration testing must not be executed against an application without the explicit permission of the owner of the application.
 
 ## Functionality
 
-Much of the functionality provided by Burp Suite can be accomplished using tools such as your browser's dev tools, Curl, or Postman. However, Burp Suite brings all of the functionality of these tools into a single place and is optimized to automated the execution of the tools.
+Much of what you need to conduct penetration testing can be accomplished using programs such as your browser's dev tools, Curl, Postman, or some custom code. However, Burp Suite brings all of the functionality of these tools into a single place and is optimized to automation.
 
 The following is a list of the penetration tools provided with Burp Suite.
 
@@ -23,9 +27,9 @@ The following is a list of the penetration tools provided with Burp Suite.
 
 ## Getting started
 
-First you need to [install](https://portswigger.net/burp/communitydownload) Burp Suite from the Port Swigger website. When you open the application you will see the project selection dialog. You can save a project to disk so that you can continue working through multiple sessions, or you can create a temporary project in memory so that you can play around and then discard your work. In order to just get familiar with Burp Suite you should just create a temporary project and start Burp with the default configuration.
+To get started, you need to [install](https://portswigger.net/burp/communitydownload) Burp Suite from the Port Swigger website. When you first open the application you will see the project selection dialog. You are given the option to create a project on disk that you will work on over time, or you can create a temporary project in memory so that you can play around and then discard your work. In order to just get familiar with Burp Suite you should just create a temporary project and start Burp with the default configuration.
 
-![alt text](openProjectDialog.png)
+![Open project dialog](openProjectDialog.png)
 
 Next you will see the default workspace with all of the tools listed across the top of the application. We will walk through some of the tools beginning with the **Proxy** tool.
 
@@ -35,19 +39,19 @@ The Proxy tool allows you to intercept and record requests made from the browser
 
 Click on the **Proxy** tool from the top menu you will see the option to `Open browser` and begin intercepting requests. Press the `Open browser` button.
 
-![alt text](proxyTab.png)
+![Proxy tab](proxyTab.png)
 
 This will open a Chromium browser window. Type in the URL of your JWT Pizza website. This will create a secure connection to your website that is proxied through Burp Suite so that it can capture all of the network traffic.
 
 Toggle back to Burp Suite and click on the `HTTP history` tab under the `Proxy` tab of the main menu. This will show the requests that were made to render JWT Pizza. If you click on one of the requests you will see the HTTP request and response object.
 
-![alt text](proxyView.png)
+![Proxy view](proxyView.png)
 
 Now go and login, order a pizza, and verify the pizza using the proxied browser. This should generate a whole sequence of interesting requests. If you click on the `Target` tab it will display a `Site map` of all the requests that were made nicely displayed in a tree based on hostname and path.
 
 Take some time and play around with all the data that is collected there.
 
-![alt text](targetView.png)
+![Target view](targetView.png)
 
 ## Intruder
 
@@ -55,21 +59,21 @@ The Intruder tool makes it easy to automate variations of a requests in order to
 
 You can populate an intruder request by selecting one of the requests from the Target or Proxy views. For example, from the Target view right click on the login (_PUT /api/auth_) request and select the option to `Send to Intruder`.
 
-![alt text](sendToIntruder.png)
+![Send to intruder](sendToIntruder.png)
 
 This will create an entry on the `Intruder` tab that you can parameterize in order to generate modified versions of the request.
 
 In order to automate to brute force attack of the authentication request with a bunch different passwords, we select the password displayed in the `Payload positions` input and press the `Add §` button. This will put the `§` characters around the portion of the request and make it an automation parameter.
 
-![alt text](payloadPositions.png)
+![Payload positions](payloadPositions.png)
 
 Now we can press on the `Payloads` tab and specify the values that will replace the password. Add a bunch of candidate passwords by using the `Add` input.
 
-![alt text](payloadParameters.png)
+![Payload parameters](payloadParameters.png)
 
 Press the `Attack` button. You will need to dismiss the warning about the Community Edition being throttled, but then it will display the results.
 
-![alt text](intruderResults.png)
+![Intruder results](intruderResults.png)
 
 Notice that two of the requests returned a 200 status code. The first empty request, which defaults to the original request value and the injection of the `a` password.
 
@@ -83,15 +87,15 @@ You can populate an sequencer request by right click on any request in the Targe
 
 Next, we press the `Start live capture` button. This will begin the process of executing thousands of requests.
 
-![alt text](sequencerToken.png)
+![Sequencer token](sequencerToken.png)
 
 You can see partial results as the process continues by pressing the `Auto analyze` button. After a period of time the Sequencer will display the effective entropy of the analyzed token. In the case of the JWT Pizza token, which is a JWT, there is not much non-randomness there. It computes that 199 out of the 224 bits are completely random with a significance level of 1%.
 
-![alt text](sequencerResults.png)
+![Sequencer results](sequencerResults.png)
 
-Note that this will execute thousands or even tens of thousands of login requests. Depending on your backend service configuration this might my cause a scaling or additional payment charges. So be careful what you do here.
+Note that this will execute thousands or even tens of thousands of login requests. Depending on your backend service configuration this might my cause a scaling or additional payment charges. So be careful what you do here. The following Cloud Watch metrics so the JWT Pizza Service container CPU jumping to almost 80% due to this test.
 
-![alt text](sequencerCloudWatchMetrics.png)
+![Sequencer cloud watch metrics.](sequencerCloudWatchMetrics.png)
 
 ## Decoder
 
@@ -105,7 +109,7 @@ It supports many different formats including URL, HTML, Base64, Hex, and Gzip. Y
 
 The Comparer tool allows you to add a number of requests or responses and then quickly compare them to see the differences. Here is the difference between an unsuccessful and successful login request.
 
-![alt text](comparerResponse.png)
+![Comparer response](comparerResponse.png)
 
 To use the comparer you can right click on any request and select the `Save to Comparer` option. Then in the comparer tool you click on the two items you want to compare and the difference is displayed.
 
@@ -159,17 +163,15 @@ def handleResponse(req, interesting):
 
 Once you have the script just the way you would like you can press the `Attack` button at the bottom of the view.
 
-![alt text](attack.png)
+![Attack](attack.png)
 
 Almost immediately it will display a request that returned a status code of 200. The response is also display.
 
-![alt text](attackResult.png)
+![Attack result](attackResult.png)
 
 ## Dastardly
 
 In addition to Burp Suite, Port Swigger also provides a free security DAST (Dynamic Application Security Testing) tool that you can include in your CI workflow. Unlike static analysis tools, a DAST tool analyze web applications for security vulnerabilities while they are running. This allows you to simulate the actions of a real-time attacker.
-
-⚠️ **Note** that with Dastardly, as with all penetration testing, you must not execute against an application that you do not have explicit permission to examine.
 
 To include Dastardly in your GitHub action workflow, you only need to include a step that references Port Swigger's Dastardly GitHub Action component, and provide the name of the website you wish to examine.
 
@@ -218,3 +220,11 @@ Installing or running Dastardly affirms your agreement to the Terms of Service h
 ```
 
 This report looks pretty clean. There are a few warnings about CORS being too general for some resources, but nothing of significant concern.
+
+## ☑ Assignment
+
+Install Burp Suite and execute a brute force attack against your JWT Pizza website. See what you can discover about the website. Capture a screenshot of the your Intruder execution result.
+
+When you are done, submit the screenshot to the Canvas assignment. This should look something like the following.
+
+![Intruder results](intruderResults.png)

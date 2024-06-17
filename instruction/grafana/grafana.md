@@ -12,7 +12,7 @@ The Grafana team, lead by Torkel Ödegaard, continued to enhance the application
 
 Grafana Labs Co-Founder, Grafana creator & and tech lead. Avid book reader, SciFi fan, coder, guitar player.
 
-![alt text](image-1.png)
+![Torkel Ödegaard](torkelOdegaard.png)
 
 > “I have been a fan of code coverage before (not anymore). They end up being cool, I can see what lines are executed in tests, and what % that is. But never have I found them useful for informing me what to do, and become noise as well as promote bad unit tests.”
 >
@@ -98,7 +98,7 @@ Now you can create a visualization from the data source.
    1. The `Scenario` has **Random Walk** selected. This means the you are pulling random data from the data source. There are lots of other types of data that the data source exposes for use with different types of visualizations.
    1. The `Visualization` is set to **Time series**. This is a good choice for your random walk data.
 
-      ![alt text](image-2.png)
+      ![Time series visualization](timeSeriesVisualization.png)
 
    1. Press the refresh button at the top of the graph to pull in some data from the data source.
 

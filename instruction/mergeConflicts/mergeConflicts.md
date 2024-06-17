@@ -2,7 +2,7 @@
 
 When you created a fork of the course repository and then cloned the repository to your local development environment, this resulted in three copies of the repository. From the perspective of the repository in your development environment, your fork in GitHub is the remote **origin**. Your fork in GitHub has an **upstream** that is the course repository.
 
-![alt text](image.png)
+![Repository relationships](repositoryRelationships.png)
 
 You can reference your fork in GitHub with `remote.origin.url` and the course repository with `remote.upstream.url` from your development environment.
 

@@ -8,15 +8,15 @@ With load testing you should be able to answer questions such as how does your n
 
 Is latency linear?
 
-![alt text](linearScaling.png)
+![Linear scaling](linearScaling.png)
 
 Or is it constant with usage, but it spikes as new resources come online?
 
-![alt text](spikeyScaling.png)
+![Spiky scaling](spikyScaling.png)
 
 Or does it go exponential and completely collapse at a certain level of usage?
 
-![alt text](exponentialScaling.png)
+![Exponential scaling](exponentialScaling.png)
 
 The key value of load testing is that you can know how your application will perform before your company's reputation is destroyed.
 

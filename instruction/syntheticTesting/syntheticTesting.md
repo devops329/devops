@@ -40,7 +40,7 @@ To create a Grafana synthetic test do the following:
 
    1. Check `Enabled` so that metrics for the tests will be stored in you Grafana data source (i.e. `grafanacloud-*-prom`) under metrics that begin with `probe_`. This is useful if you want to create your own visualizations.
 
-   ![alt text](image.png)
+   ![Define check](defineCheck.png)
 
 1. Click the `→ Probes` button to define the frequency and location where request originate.
 
