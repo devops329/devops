@@ -91,3 +91,13 @@ Immutable, accessible, and searchable
 You will get hacked, you need to be notified.
 
 ### Honeypots
+
+## Non-software security concerns
+
+In addition to securing your software application, it is important that your organization if familiar with non-software associated attacks. This includes:
+
+- **Social engineering attacks**: Human subversion of security controls and practices based on emotional appeal.
+- **Insider threats**: Insufficient hiring practices, periodic reviews of internal staff, automated auditing controls, restriction of access to least privilege, or consensus access controls (where multiple independent parties are required to provide credentials for access).
+- **Physical security**: Insufficient physical controls to sensitive infrastructure or workspaces.
+- **Improper data management**: Allowing confidential data to be accessed without authorization or to be transported outside the security parameter.
+- **Insecure network typography**: Allowing non-authorized, or insecure devices, within the security parameter.

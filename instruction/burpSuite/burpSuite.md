@@ -1,25 +1,177 @@
 # Burp Suite
 
-[Download](https://portswigger.net/burp/communitydownload)
+Burp Suite is a software security application, created by Port Swigger, that accelerates and automates penetration testing.
 
-Burp Suite is a software security application used for penetration testing of web applications. Both a free and a paid version of the software are available. The software is developed by the company PortSwigger.[1][2] The suite includes tools such as a proxy server (Burp Proxy), an indexing robot (Burp Spider), an intrusion tool (Burp Intruder), a vulnerability scanner (Burp Scanner) and an HTTP repeater (Burp Repeater)
+Burp Suite comes in a free community version and a paid enterprise edition. The main difference between the two is that community version throttles the execution of some penetration tools, and the enterprise edition comes with a large library of pre-configured attacks.
 
-> Wikipedia
+Burp Suite is an incredibly powerful tool and is a foundation piece for most penetration testing efforts. That level of usage is beyond the scope of this course, but we can give you an introduction to its capabilities.
 
-- **Proxy**: Intercepts and inspects web traffic between the browser and the server.
+## Functionality
+
+Much of the functionality provided by Burp Suite can be accomplished using tools such as your browser's dev tools, Curl, or Postman. However, Burp Suite brings all of the functionality of these tools into a single place and is optimized to automated the execution of the tools.
+
+The following is a list of the penetration tools provided with Burp Suite.
+
+- **Proxy**: Intercepts, records, and inspects web traffic between the browser and the server.
 - **Scanner**: Automatically scans web applications for vulnerabilities.
-- **Intruder**: Performs automated attacks to identify vulnerabilities like SQL injection, cross-site scripting (XSS), and more.
+- **Intruder**: Performs automated attacks to identify vulnerabilities like SQL injection, cross-site scripting (XSS), and brute force attacks.
 - **Repeater**: Allows manual testing by replaying individual HTTP requests.
 - **Sequencer**: Analyzes the randomness of session tokens.
 - **Decoder**: Decodes and encodes data in various formats.
 - **Comparer**: Compares HTTP responses.
 - **Extender**: Allows the integration of third-party extensions to enhance functionality.
 
+## Getting started
+
+First you need to [install](https://portswigger.net/burp/communitydownload) Burp Suite from the Port Swigger website. When you open the application you will see the project selection dialog. You can save a project to disk so that you can continue working through multiple sessions, or you can create a temporary project in memory so that you can play around and then discard your work. In order to just get familiar with Burp Suite you should just create a temporary project and start Burp with the default configuration.
+
+![alt text](openProjectDialog.png)
+
+Next you will see the default workspace with all of the tools listed across the top of the application. We will walk through some of the tools beginning with the **Proxy** tool.
+
+## Proxy and Target
+
+The Proxy tool allows you to intercept and record requests made from the browser. The Target tool organizes the structure and information into navigable structure.
+
+Click on the **Proxy** tool from the top menu you will see the option to `Open browser` and begin intercepting requests. Press the `Open browser` button.
+
+![alt text](proxyTab.png)
+
+This will open a Chromium browser window. Type in the URL of your JWT Pizza website. This will create a secure connection to your website that is proxied through Burp Suite so that it can capture all of the network traffic.
+
+Toggle back to Burp Suite and click on the `HTTP history` tab under the `Proxy` tab of the main menu. This will show the requests that were made to render JWT Pizza. If you click on one of the requests you will see the HTTP request and response object.
+
+![alt text](proxyView.png)
+
+Now go and login, order a pizza, and verify the pizza using the proxied browser. This should generate a whole sequence of interesting requests. If you click on the `Target` tab it will display a `Site map` of all the requests that were made nicely displayed in a tree based on hostname and path.
+
+Take some time and play around with all the data that is collected there.
+
+![alt text](targetView.png)
+
+## Intruder
+
+The Intruder tool makes it easy to automate variations of a requests in order to explore responses and execute brute force attacks. For example, we can use the Intruder tool to brute force a password discovery attack.
+
+You can populate an intruder request by selecting one of the requests from the Target or Proxy views. For example, from the Target view right click on the login (_PUT /api/auth_) request and select the option to `Send to Intruder`.
+
+![alt text](sendToIntruder.png)
+
+This will create an entry on the `Intruder` tab that you can parameterize in order to generate modified versions of the request.
+
+In order to automate to brute force attack of the authentication request with a bunch different passwords, we select the password displayed in the `Payload positions` input and press the `Add §` button. This will put the `§` characters around the portion of the request and make it an automation parameter.
+
+![alt text](payloadPositions.png)
+
+Now we can press on the `Payloads` tab and specify the values that will replace the password. Add a bunch of candidate passwords by using the `Add` input.
+
+![alt text](payloadParameters.png)
+
+Press the `Attack` button. You will need to dismiss the warning about the Community Edition being throttled, but then it will display the results.
+
+![alt text](intruderResults.png)
+
+Notice that two of the requests returned a 200 status code. The first empty request, which defaults to the original request value and the injection of the `a` password.
+
+The intruder tool provides for complex combinations of injections including multiple parameter permutations, concurrent executions, delays, and throttling based on response codes.
+
+## Sequencer
+
+The Sequencer tool executes the same request multiple times and automatically analyzes the randomness of the results. For example, we can determine the randomness of the authorization token to see if there is a pattern that we can exploit to generate our own authentication tokens.
+
+You can populate an sequencer request by right click on any request in the Target or Proxy view and select the `Send to Sequencer` option. If we select a login (_PUT /api/auth_) into the Sequencer we can then press the `Custom location` configure button and select the portion of the request that we want the sequencer to analyze. This will generate an expression that uses regular expressions to select the desired token.
+
+Next, we press the `Start live capture` button. This will begin the process of executing thousands of requests.
+
+![alt text](sequencerToken.png)
+
+You can see partial results as the process continues by pressing the `Auto analyze` button. After a period of time the Sequencer will display the effective entropy of the analyzed token. In the case of the JWT Pizza token, which is a JWT, there is not much non-randomness there. It computes that 199 out of the 224 bits are completely random with a significance level of 1%.
+
+![alt text](sequencerResults.png)
+
+Note that this will execute thousands or even tens of thousands of login requests. Depending on your backend service configuration this might my cause a scaling or additional payment charges. So be careful what you do here.
+
+![alt text](sequencerCloudWatchMetrics.png)
+
+## Decoder
+
+The decoder tool allows you to interactively decode and encode text from many different formats.
+
+It supports many different formats including URL, HTML, Base64, Hex, and Gzip. You can also apply most of the major hash code operations.
+
+![Comparer tool](comparerTool.gif)
+
+## Comparer
+
+The Comparer tool allows you to add a number of requests or responses and then quickly compare them to see the differences. Here is the difference between an unsuccessful and successful login request.
+
+![alt text](comparerResponse.png)
+
+To use the comparer you can right click on any request and select the `Save to Comparer` option. Then in the comparer tool you click on the two items you want to compare and the difference is displayed.
+
+## Extensions
+
+In addition to all the functionality that is built into Burp Suite there is a reach market place of third party extensions that you can install. To install an extension, select the `Extensions` top level navigation and then select the `BApp Store` tab.
+
+![Extension App Store](bAppStore.png)
+
+If you sort by **Popularity** you should get a good feel for what people are using.
+
+### Turbo Intruder
+
+One extension that you might experiment with is the `Turbo Intruder`. Since the community edition of Burp Suite throttles its ability to execute intrusions, you can get around this with the Turbo Intruder extension. Go ahead and install the extension from the BApp Store and try it out.
+
+You add a request to the Turbo Intruder by right clicking on it and selecting the `Extensions >  Turbo Intruder > Send to trubo intruder` option.
+
+![Use turbo intruder](useTurboIntruder.png)
+
+You will need to manually insert your parameter variables in the request to use `%s`. For example:
+
+```
+PUT /api/auth HTTP/2
+Host: pizza-service.cs329.click
+Content-Length: 40
+Content-Type: application/json
+Accept: */*
+Origin: https://pizza.cs329.click
+
+{"email":"admin@jwt.com","password":"%s"}
+```
+
+You then use Python to define how many concurrent connections you would like and queue requests.
+
+```py
+def queueRequests(target, wordlists):
+    engine = RequestEngine(endpoint=target.endpoint,
+                           concurrentConnections=5,
+                           requestsPerConnection=100,
+                           pipeline=False
+                           )
+    # Check all the words in the UNIX dictionary
+    for word in open('/usr/share/dict/words'):
+        engine.queue(target.req, word.rstrip())
+
+# Success for any 200 response
+def handleResponse(req, interesting):
+    if '200 OK' in req.response:
+        table.add(req)
+```
+
+Once you have the script just the way you would like you can press the `Attack` button at the bottom of the view.
+
+![alt text](attack.png)
+
+Almost immediately it will display a request that returned a status code of 200. The response is also display.
+
+![alt text](attackResult.png)
+
 ## Dastardly
 
-A security DAST (Dynamic Application Security Testing) tool is a type of software used to analyze web applications for security vulnerabilities while they are running. Unlike static analysis tools, which examine source code, DAST tools test applications from the outside in, simulating the actions of an attacker to identify vulnerabilities in real-time.
+In addition to Burp Suite, Port Swigger also provides a free security DAST (Dynamic Application Security Testing) tool that you can include in your CI workflow. Unlike static analysis tools, a DAST tool analyze web applications for security vulnerabilities while they are running. This allows you to simulate the actions of a real-time attacker.
 
-Really easy scan in your GitHub action workflow.
+⚠️ **Note** that with Dastardly, as with all penetration testing, you must not execute against an application that you do not have explicit permission to examine.
+
+To include Dastardly in your GitHub action workflow, you only need to include a step that references Port Swigger's Dastardly GitHub Action component, and provide the name of the website you wish to examine.
 
 ```yml
 steps:
@@ -30,21 +182,6 @@ steps:
 ```
 
 ```sh
-    §§§§§§§§§§§§§§§§§§§§§§§§\
-    §                      § |
-    §          ||          § |
-    §         //           § |    §§§§§§§\                        §§\                               §§\ §§\
-    §        //            § |    §§  __§§\                       §§ |                              §§ |§§ |
-    §      /////|          § |    §§ |  §§ | §§§§§§\   §§§§§§§\ §§§§§§\    §§§§§§\   §§§§§§\   §§§§§§§ |§§ |§§\   §§\
-    §          ||          § |    §§ |  §§ | \____§§\ §§  _____|\_§§  _|   \____§§\ §§  __§§\ §§  __§§ |§§ |§§ |  §§ |
-    §          |/////      § |    §§ |  §§ | §§§§§§§ |\§§§§§§\    §§ |     §§§§§§§ |§§ |  \__|§§ /  §§ |§§ |§§ |  §§ |
-    §            //        § |    §§ |  §§ |§§  __§§ | \____§§\   §§ |§§\ §§  __§§ |§§ |      §§ |  §§ |§§ |§§ |  §§ |
-    §           //         § |    §§§§§§§  |\§§§§§§§ |§§§§§§§  |  \§§§§  |\§§§§§§§ |§§ |      \§§§§§§§ |§§ |\§§§§§§§ |
-    §          ||          § |    \_______/  \_______|\_______/    \____/  \_______|\__|       \_______|\__| \____§§ |
-    §                      § |                                                                              §§\   §§ |
-    §§§§§§§§§§§§§§§§§§§§§§§§ |                                           from Burp Suite v2024.5.1-17301    \§§§§§§  |
-    \________________________|                                                                               \______/
-
 Installing or running Dastardly affirms your agreement to the Terms of Service https://portswigger.net/burp/dastardly/eula
 
 2024-06-14 22:45:07 INFO  dastardly.StartDastardly - Using Java version 21.0.3
@@ -80,77 +217,4 @@ Installing or running Dastardly affirms your agreement to the Terms of Service h
 2024-06-14 22:46:59 INFO  b.s.LoggingScanProgressCollector - Scan has completed successfully
 ```
 
-## Sequencer
-
-Get a request with a token or cookie in it. Use the sequencer to run the request a bunch of times and see if there is any sort of randomness to the token.
-
-![alt text](sequencerToken.png)
-
-![alt text](sequencerResults.png)
-
-Note that this made thousands of requests. This can impact your AWS bill.
-
-![alt text](sequencerCloudWatchMetrics.png)
-
-## Comparer
-
-This allows you to take any number o
-
-![alt text](comparerResponse.png)
-
-## Turbo Intruder
-
-I couldn't get the standard intruder to work and so I used this extension. It is pretty fast.
-
-https://www.youtube.com/watch?v=UMaZc3yV2Oo
-
-![Use turbo intruder](useTurboIntruder.png)
-
-Insert the parameter variable `%s`
-
-```
-PUT /api/auth HTTP/2
-Host: pizza-service.cs329.click
-Content-Length: 40
-Sec-Ch-Ua: "Chromium";v="125", "Not.A/Brand";v="24"
-Sec-Ch-Ua-Platform: "macOS"
-Sec-Ch-Ua-Mobile: ?0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6422.112 Safari/537.36
-Content-Type: application/json
-Accept: */*
-Origin: https://pizza.cs329.click
-Sec-Fetch-Site: same-site
-Sec-Fetch-Mode: cors
-Sec-Fetch-Dest: empty
-Referer: https://pizza.cs329.click/
-Accept-Encoding: gzip, deflate, br
-Accept-Language: en-US,en;q=0.9
-Priority: u=1, i
-
-{"email":"admin@jwt.com","password":"%s"}
-```
-
-```py
-# Find more example scripts at https://github.com/PortSwigger/turbo-intruder/blob/master/resources/examples/default.py
-def queueRequests(target, wordlists):
-    engine = RequestEngine(endpoint=target.endpoint,
-                           concurrentConnections=5,
-                           requestsPerConnection=100,
-                           pipeline=False
-                           )
-#
-#    engine.queue(target.req, 'admin')
-#    engine.queue(target.req, 'a')
-
-    for i in range(3, 8):
-        engine.queue(target.req, randstr(i), learn=1)
-        engine.queue(target.req, target.baseInput, learn=2)
-
-    for word in open('/usr/share/dict/words'):
-        engine.queue(target.req, word.rstrip())
-
-
-def handleResponse(req, interesting):
-    if '200 OK' in req.response:
-        table.add(req)
-```
+This report looks pretty clean. There are a few warnings about CORS being too general for some resources, but nothing of significant concern.
