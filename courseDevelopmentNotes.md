@@ -78,6 +78,28 @@ The learner the calls that url and the problem goes away. In the factory I track
 }
 ```
 
+### Three chaos injections
+
+1. Fail responses
+1. Bad JWT
+1. Throttled responses.
+
+They have 24 hours to correct. Every hour after the first 24 hours deducts 5%.
+
+## Vulnerabilities
+
+- Broken access control
+  - Didn't change default password (admin)
+- Misconfigured authentication (delete franchise)
+- URL bypass (docs)
+- Information disclosure
+  - stack in errors,
+  - jwt-pizza-service: `X-Powered-By: Express`
+- SQL Injection (update user)
+  ```sh
+  curl -X PUT $host/api/auth/4 -d '{"email":"f@jwt.com'\'' WHERE id=3333; select 1+1; -- "}' -H 'Content-Type: application/json' -H "Authorization: bearer $token" | jq '.'
+  ```
+
 # Changes made for coursework
 
 ## GitHub

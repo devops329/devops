@@ -1,6 +1,6 @@
 # Grafana logging
 
-![alt text](lokiIcon.png)
+![Loki logo](lokiLogo.png)
 
 Grafana Cloud provides a service called Loki that makes it easy to harness the full power of logging.
 

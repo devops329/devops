@@ -79,7 +79,7 @@ Now we can create the AWS IAM role that allows access to S3.
 1. Choose `Web identity`.
 1. Select the identity provider that you just created for GitHub.
 
-   ![alt text](createRole.png)
+   ![Create role](createRole.png)
 
 1. Add the `Audience` to be sts.amazonaws.com from the dropdown.
 1. Add the `GitHub organization` to be you GitHub account name.

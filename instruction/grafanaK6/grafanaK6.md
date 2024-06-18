@@ -1,15 +1,18 @@
 # K6
 
-In 2000, a pair of game developers were working on an MMORPG (massively multiplayer online role-playing game). The demands of such a game introduced them to the need for load testing, which led them to creating a consultancy business for load testing.
-After years of consultancy, they shifted to SaaS (software as a service), offering a load-testing tool instead of consulting. In 2016, they developed a new open source tool (K6) for load testing and continued to expand its capabilities. In 2021, this tool was acquired by Grafana Labs, which means we can now run and view the results of our load tests in Grafana Cloud.
+![K6 logo](k6Logo.png)
+
+In 2000, a pair of game developers were working on an MMORPG (massively multiplayer online role-playing game). The demands of such a game required them to invest in load testing tools and design. This eventually led them to create a consulting company that helped others conduct effective load testing with their applications.
+Eventually, in 2016, they took all the best practices they had learned and built an open source tool named K6 and sold it as a SaaS (software as a service) offering. In 2021, K6 was acquired by Grafana Labs and became part of Grafana Cloud.
 
 ## Run a test on a sample application
 
-In this exercise, you will perform a simple load test on an [example website](https://test.k6.io) provided by K6 for the purpose of demoing load testing.
+In this exercise, you will perform a simple load test on the [K6 example website](https://test.k6.io) so that you can get familiar with load testing. Take the following steps:
 
 1. Open up your Grafana Cloud dashboard.
-1. Select the `Testing and Synthetics` option from the home menu and select `Performance`.
-1. Click on the `Default Project` and click `Create new test`. Steps will show up for running a test from the CLI.
+1. Select the `Testing and Synthetics > Performance > Projects` option from the home menu.
+1. Press the `Start testing` button. This will create a default project.
+1. Click on the `Default Project` and press the `Create new test` button. Steps will show up for running a test from the CLI.
 1. Create a load testing folder in your development environment.
 
 ```sh

@@ -2,7 +2,7 @@
 
 # BYU **DevOps** `cs329`
 
-<img src="https://github.com/devops329/devops/blob/main/devopscover2.jpeg" alt="cover" width="600"/>
+<img src="https://github.com/devops329/devops/blob/main/devopscover2.png?raw=true" alt="cover"/>
 
 _Image Generated with AI_
 
@@ -35,7 +35,7 @@ Students will be able to:
 
 The course covers a full spectrum of devOps technologies.
 
-<img src="https://github.com/devops329/devops/blob/main/instruction/sharedImages/courseOverview.png" alt="cover" width="600"/>
+<img src="https://github.com/devops329/devops/blob/main/instruction/sharedImages/courseOverview.png?raw=true" alt="cover"/>
 
 - **Testing**
 

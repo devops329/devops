@@ -151,7 +151,7 @@ test('buy pizza with login', async ({ page }) => {});
 
 Put your cursor in the body of the test function, open the `Test Explorer` tab and press the `Record at cursor` action. This wil start up the recording. Then go through the steps of ordering a pizza and logging in as prompted.
 
-![alt text](playwrightTestRecord.gif)
+![Playwright test record](playwrightTestRecord.gif)
 
 After all that is done you should end up with a test that looks something like the following.
 

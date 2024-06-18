@@ -1,3 +1,5 @@
 # Penetration Testing
 
-[PortSwigger Academy](https://portswigger.net/web-security/all-topics)
+📖 **Deeper dive reading**: [PortSwigger Academy](https://portswigger.net/web-security/all-topics)
+
+![alt text](penetrationTesting.png)

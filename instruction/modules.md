@@ -110,7 +110,7 @@
 ## Load testing
 
 - 🚧 [E2E testing](e2eTesting/e2eTesting.md)
-- 🔵 [Load testing](loadTesting/loadTesting.md)
+- 🟢 [Load testing](loadTesting/loadTesting.md)
 - 🔵 [Grafana K6](grafanaK6/grafanaK6.md)
 - 🔵 [⓾ Load testing: JWT Pizza Service](deliverable10LoadTesting/deliverable10LoadTesting.md)
 - 🔵 [Status](statusReporting/statusReporting.md)
@@ -125,17 +125,18 @@
 - 🚧 Self healing (scale groups)
 - 🚧 SLO, RTO, RPO
 - 🟢 [Chaos testing](chaosTesting/chaosTesting.md)
-- ☑ 🟢 [Incident report](incidentReport/incidentReport.md)
+- 🟢 [Incident report](incidentReport/incidentReport.md)
 - ☑ 🟢 [⓫ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
 
 ## Penetration testing
 
+- 🔵 [OWASP top 10](owaspTop10/owaspTop10.md)
 - 🚧 [Penetration testing](penetrationTesting/penetrationTesting.md)
-- 🚧 [Burp Suite](burpSuite/burpSuite.md)
-- 🚧 ⓬ Penetration test: JWT Pizza - Penetration testing and collaborative report
+- ☑ 🔵 [Burp Suite](burpSuite/burpSuite.md)
+- 🚧 [⓬ Penetration testing: JWT Pizza](deliverable11PenetrationTesting/deliverable11PenetrationTesting.md)
 
 ## Conclusion
 
-- ⓭ Curiosity report - Independent research on a QA/DevOps topic
+- ⓭ Curiosity report conclusion
 - ☑ 🟢 [⓮ Christlike introspection conclusion](christlikeLearningConclusion/christlikeLearningConclusion.md)
 - ☑ 🔵 [Wrap up](wrapUp/wrapUp.md)
