@@ -88,10 +88,17 @@ They have 24 hours to correct. Every hour after the first 24 hours deducts 5%.
 
 ## Vulnerabilities
 
-- Didn't change default password (admin)
+- Broken access control
+  - Didn't change default password (admin)
 - Misconfigured authentication (delete franchise)
 - URL bypass (docs)
-- Revealed config (stack in errors, Express header)
+- Information disclosure
+  - stack in errors,
+  - jwt-pizza-service: `X-Powered-By: Express`
+- SQL Injection (update user)
+  ```sh
+  curl -X PUT $host/api/auth/4 -d '{"email":"f@jwt.com'\'' WHERE id=3333; select 1+1; -- "}' -H 'Content-Type: application/json' -H "Authorization: bearer $token" | jq '.'
+  ```
 
 # Changes made for coursework
 
