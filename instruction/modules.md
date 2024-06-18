@@ -113,14 +113,14 @@
 - 🟢 [Load testing](loadTesting/loadTesting.md)
 - 🔵 [Grafana K6](grafanaK6/grafanaK6.md)
 - 🔵 [⓾ Load testing: JWT Pizza Service](deliverable10LoadTesting/deliverable10LoadTesting.md)
-- 🔵 [Status](statusReporting/statusReporting.md)
+- 🟢 [Status](statusReporting/statusReporting.md)
 
 ## Failure management
 
 - 🟢 [Failure](failure/failure.md)
 - 🚧 Backup/Restore (Aurora)
 - 🟢 [Alerts](alerting/alerting.md)
-- ☑ 🔵 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
+- ☑ 🟢 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
 - 🚧 Playbooks
 - 🚧 Self healing (scale groups)
 - 🚧 SLO, RTO, RPO
@@ -130,13 +130,13 @@
 
 ## Penetration testing
 
-- 🔵 [OWASP top 10](owaspTop10/owaspTop10.md)
+- 🟢 [OWASP top 10](owaspTop10/owaspTop10.md)
 - 🚧 [Penetration testing](penetrationTesting/penetrationTesting.md)
-- ☑ 🔵 [Burp Suite](burpSuite/burpSuite.md)
+- ☑ 🟢 [Burp Suite](burpSuite/burpSuite.md)
 - 🚧 [⓬ Penetration testing: JWT Pizza](deliverable11PenetrationTesting/deliverable11PenetrationTesting.md)
 
 ## Conclusion
 
 - ⓭ Curiosity report conclusion
 - ☑ 🟢 [⓮ Christlike introspection conclusion](christlikeLearningConclusion/christlikeLearningConclusion.md)
-- ☑ 🔵 [Wrap up](wrapUp/wrapUp.md)
+- ☑ 🟢 [Wrap up](wrapUp/wrapUp.md)

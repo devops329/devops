@@ -12,7 +12,7 @@ Burp Suite is an incredibly powerful tool and is a foundational piece for most p
 
 ## Functionality
 
-Much of what you need to conduct penetration testing can be accomplished using programs such as your browser's dev tools, Curl, Postman, or some custom code. However, Burp Suite brings all of the functionality of these tools into a single place and is optimized to automation.
+Much of what you need to conduct penetration testing can be accomplished using programs such as your browser's dev tools, Curl, Postman, or some custom code. However, Burp Suite brings all of the functionality of these tools into a single place and is optimized for automation.
 
 The following is a list of the penetration tools provided with Burp Suite.
 
@@ -71,7 +71,7 @@ Now we can press on the `Payloads` tab and specify the values that will replace 
 
 ![Payload parameters](payloadParameters.png)
 
-Press the `Attack` button. You will need to dismiss the warning about the Community Edition being throttled, but then it will display the results.
+Press the `Attack` button. You will need to dismiss the warning about the Community Edition being throttled, but then it will display the results in a new window.
 
 ![Intruder results](intruderResults.png)
 
@@ -83,9 +83,11 @@ The intruder tool provides for complex combinations of injections including mult
 
 The Sequencer tool executes the same request multiple times and automatically analyzes the randomness of the results. For example, we can determine the randomness of the authorization token to see if there is a pattern that we can exploit to generate our own authentication tokens.
 
-You can populate an sequencer request by right click on any request in the Target or Proxy view and select the `Send to Sequencer` option. If we select a login (_PUT /api/auth_) into the Sequencer we can then press the `Custom location` configure button and select the portion of the request that we want the sequencer to analyze. This will generate an expression that uses regular expressions to select the desired token.
+You can populate an sequencer request by right clicking on any request in the Target or Proxy view and selecting the `Send to Sequencer` option. If we select a login (_PUT /api/auth_) into the Sequencer, we can then press the `Custom location` configure button and select the portion of the request that we want the sequencer to analyze. This will generate an expression that uses regular expressions to select the desired token.
 
 Next, we press the `Start live capture` button. This will begin the process of executing thousands of requests.
+
+⚠️ **Note**: This will execute thousands or even tens of thousands of login requests. Depending on your backend service configuration this might cause scaling or additional payment charges. So be careful what you do here.
 
 ![Sequencer token](sequencerToken.png)
 
@@ -93,7 +95,7 @@ You can see partial results as the process continues by pressing the `Auto analy
 
 ![Sequencer results](sequencerResults.png)
 
-Note that this will execute thousands or even tens of thousands of login requests. Depending on your backend service configuration this might my cause a scaling or additional payment charges. So be careful what you do here. The following Cloud Watch metrics so the JWT Pizza Service container CPU jumping to almost 80% due to this test.
+The following CloudWatch metrics show the JWT Pizza Service container CPU jumping to almost 80% due to this test.
 
 ![Sequencer cloud watch metrics.](sequencerCloudWatchMetrics.png)
 
@@ -115,7 +117,7 @@ To use the comparer you can right click on any request and select the `Save to C
 
 ## Extensions
 
-In addition to all the functionality that is built into Burp Suite there is a reach market place of third party extensions that you can install. To install an extension, select the `Extensions` top level navigation and then select the `BApp Store` tab.
+In addition to all the functionality that is built into Burp Suite there is a marketplace of third party extensions that you can install. To install an extension, select the `Extensions` top level navigation and then select the `BApp Store` tab.
 
 ![Extension App Store](bAppStore.png)
 
@@ -125,7 +127,7 @@ If you sort by **Popularity** you should get a good feel for what people are usi
 
 One extension that you might experiment with is the `Turbo Intruder`. Since the community edition of Burp Suite throttles its ability to execute intrusions, you can get around this with the Turbo Intruder extension. Go ahead and install the extension from the BApp Store and try it out.
 
-You add a request to the Turbo Intruder by right clicking on it and selecting the `Extensions >  Turbo Intruder > Send to trubo intruder` option.
+You add a request to the Turbo Intruder by right clicking on it and selecting the `Extensions >  Turbo Intruder > Send to turbo intruder` option.
 
 ![Use turbo intruder](useTurboIntruder.png)
 
@@ -165,13 +167,13 @@ Once you have the script just the way you would like you can press the `Attack` 
 
 ![Attack](attack.png)
 
-Almost immediately it will display a request that returned a status code of 200. The response is also display.
+Almost immediately it will display a request that returned a status code of 200. The response is also displayed.
 
 ![Attack result](attackResult.png)
 
 ## Dastardly
 
-In addition to Burp Suite, Port Swigger also provides a free security DAST (Dynamic Application Security Testing) tool that you can include in your CI workflow. Unlike static analysis tools, a DAST tool analyze web applications for security vulnerabilities while they are running. This allows you to simulate the actions of a real-time attacker.
+In addition to Burp Suite, Port Swigger also provides a free security DAST (Dynamic Application Security Testing) tool that you can include in your CI workflow. Unlike static analysis tools, a DAST tool analyzes web applications for security vulnerabilities while they are running. This allows you to simulate the actions of a real-time attacker.
 
 To include Dastardly in your GitHub action workflow, you only need to include a step that references Port Swigger's Dastardly GitHub Action component, and provide the name of the website you wish to examine.
 

@@ -10,6 +10,8 @@ After everything has been graded, you should consider cleaning up your resources
 
 ![Clean up meme](turnOffAws.jpg)
 
+_Meme credit: [Reddit](https://www.reddit.com/r/ProgrammerHumor/comments/qbx03g/better_turn_off_aws_before_you_get_a_huge_bill/)_
+
 - Delete your S3 buckets
 - Terminate your CloudFront distribution
 - Terminate your RDS instance
@@ -17,7 +19,7 @@ After everything has been graded, you should consider cleaning up your resources
 - Delete your ECR registry
 - Delete your CloudFormation stack
 - Make sure you do not have auto renew set for your domain name
-- Delete your Route 53 hosted zone for your domain name
+- Delete the Route 53 hosted zone for your domain name
 - Clean up your security group and key pair
 - Check your bill to make sure you haven't missed anything
 
@@ -25,4 +27,4 @@ After everything has been graded, you should consider cleaning up your resources
 
 Please take the time to provide us with honest feedback by responding to the university student ratings survey.
 
-If you complete the student ratings survey you will receive 5 bonus points towards your midterm/final grade. In order to receive the bonus you must release your name as part of the survey so that I can see that you completed the survey. Note that releasing your name does not allow me to associate your responses with your name. It only informs me that you completed the survey. Thanks in advance for helping to make the course better.
+If you complete the student ratings survey you will receive 5 bonus points towards your midterm/final grade. In order to receive the bonus, you must release your name as part of the survey so that I can see that you completed the survey. Note that releasing your name does not allow me to associate your response with your name. It only informs me that you completed the survey. Thanks in advance for helping to make the course better.
