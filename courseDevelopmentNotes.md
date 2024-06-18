@@ -99,6 +99,7 @@ They have 24 hours to correct. Every hour after the first 24 hours deducts 5%.
   ```sh
   curl -X PUT $host/api/auth/4 -d '{"email":"f@jwt.com'\'' WHERE id=3333; select 1+1; -- "}' -H 'Content-Type: application/json' -H "Authorization: bearer $token" | jq '.'
   ```
+- Containers have a public IP address
 
 # Changes made for coursework
 

@@ -131,7 +131,7 @@
 ## Penetration testing
 
 - 🟢 [OWASP top 10](owaspTop10/owaspTop10.md)
-- 🚧 [Penetration testing](penetrationTesting/penetrationTesting.md)
+- 🔵 [Penetration testing](penetrationTesting/penetrationTesting.md)
 - ☑ 🟢 [Burp Suite](burpSuite/burpSuite.md)
 - 🚧 [⓬ Penetration testing: JWT Pizza](deliverable11PenetrationTesting/deliverable11PenetrationTesting.md)
 
