@@ -4,6 +4,8 @@
 
 Have a login ID and a action ID. The action ID is what you use for grading. An admin user can change their Action ID. Everyone else the two IDs are always the same.
 
+Fix the deliverable steps to reflect the autograder usage.
+
 Change instruction for when they fork, add ta as collaborator
 
 - ☑ 🟢 [⓵ Manual deployment: JWT Pizza](deliverable1ManualDeploy/deliverable1ManualDeploy.md)
@@ -314,7 +316,7 @@ They have 24 hours to correct. Every hour after the first 24 hours deducts 5%.
 - Identification and Authentication Failures
   - Weak passwords
 - Broken Access Control
-  - URL bypass (docs)
+  - URL bypass (docs) (robots.txt)
   - delete franchise
 - Security Misconfiguration
   - stack in errors,
@@ -326,3 +328,16 @@ They have 24 hours to correct. Every hour after the first 24 hours deducts 5%.
   ```sh
   curl -X PUT $host/api/auth/4 -d '{"email":"f@jwt.com'\'' WHERE id=3333; select 1+1; -- "}' -H 'Content-Type: application/json' -H "Authorization: bearer $token" | jq '.'
   ```
+
+## Known security vulnerabilities
+
+1. Inject on order description
+1. Escalation on add user with a given role
+1. Reveals config `server: Express`
+1. If you use the same name for creating a franchise it will leak the SQL error
+1. Returns code stack with error
+1. Docs page has the demo data user's email and password
+1. Does not use cookies
+1. The default jwtSecret is not changed in their `config.js` file.
+1. Deployment will log db credentials when a connection failure happens.
+1. There is a default admin user with an email and password displayed in the docs

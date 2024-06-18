@@ -52,7 +52,7 @@ https://github.com/youraccountname/jwt-pizza/tree/main/incidentReports
 
 ### Rubric
 
-| Percent | Item                                                                                                       |
-| ------- | ---------------------------------------------------------------------------------------------------------- |
-| 80%     | Timely response and correction to chaos incidents. 5% is deducted for each hour that the failure persists. |
-| 20%     | Accurate and informative incident reports                                                                  |
+| Percent | Item                                                                                                                             |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| 80%     | Timely response and correction to chaos incidents. After first 12 hours, 5% is deducted for each hour that the failure persists. |
+| 20%     | Accurate and informative incident reports                                                                                        |

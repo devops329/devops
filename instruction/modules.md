@@ -72,12 +72,6 @@
 - 🟢 [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
 - ☑ 🟢 [JWT Pizza Service infrastructure automation](jwtPizzaServiceInfrastructureAutomation/jwtPizzaServiceInfrastructureAutomation.md)
 
-## Serverless
-
-- ❌ [Serverless](serverless/serverless.md)
-- ❌ [AWS API Gateway](awsApiGateway/awsApiGateway.md)
-- ❌ [AWS Lambda](awsLambda/awsLambda.md)
-
 ## Deployment strategies
 
 - 🚧 [Versioning](versioning/versioning.md)
@@ -101,9 +95,6 @@
 - 🚧 [Logging](logging/logging.md)
 - ☑ 🟢 [Grafana logging](grafanaLogging/grafanaLogging.md)
 - ☑ 🟢 [⓼ Logging: JWT Pizza Service](deliverable8Logging/deliverable8Logging.md)
-- ❌ Distributed tracing
-- ❌ [Grafana Tempo](grafanaTempo/grafanaTempo.md)
-- ❌ ⓽ Tracing - Provide execution tracing with Grafana Tempo
 - 🟢 [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
 - ☑ 🟢 [Synthetic testing](syntheticTesting/syntheticTesting.md)
 
@@ -112,7 +103,7 @@
 - 🚧 [E2E testing](e2eTesting/e2eTesting.md)
 - 🟢 [Load testing](loadTesting/loadTesting.md)
 - 🔵 [Grafana K6](grafanaK6/grafanaK6.md)
-- 🔵 [⓾ Load testing: JWT Pizza Service](deliverable10LoadTesting/deliverable10LoadTesting.md)
+- 🔵 [⓽ Load testing: JWT Pizza Service](deliverable9LoadTesting/deliverable9LoadTesting.md)
 - 🟢 [Status](statusReporting/statusReporting.md)
 
 ## Failure management
@@ -126,17 +117,17 @@
 - 🚧 SLO, RTO, RPO
 - 🟢 [Chaos testing](chaosTesting/chaosTesting.md)
 - 🟢 [Incident report](incidentReport/incidentReport.md)
-- ☑ 🟢 [⓫ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
+- ☑ 🟢 [⓾ Chaos testing: JWT Pizza](deliverable10ChaosTesting/deliverable10ChaosTesting.md)
 
 ## Penetration testing
 
 - 🟢 [OWASP top 10](owaspTop10/owaspTop10.md)
 - 🔵 [Penetration testing](penetrationTesting/penetrationTesting.md)
 - ☑ 🟢 [Burp Suite](burpSuite/burpSuite.md)
-- ☑ 🟢 [⓬ Penetration testing: JWT Pizza](deliverable11PenetrationTesting/deliverable11PenetrationTesting.md)
+- ☑ 🟢 [⓫ Penetration testing: JWT Pizza](deliverable11PenetrationTesting/deliverable11PenetrationTesting.md)
 
 ## Conclusion
 
+- ☑ 🟢 [⓬ Christlike introspection conclusion](deliverable11ChristlikeLearning/deliverable11ChristlikeLearning.md)
 - ⓭ Curiosity report conclusion
-- ☑ 🟢 [⓮ Christlike introspection conclusion](christlikeLearningConclusion/christlikeLearningConclusion.md)
 - ☑ 🟢 [Wrap up](wrapUp/wrapUp.md)

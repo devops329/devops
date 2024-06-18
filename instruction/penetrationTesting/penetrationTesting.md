@@ -17,7 +17,7 @@ Taking security seriously means taking penetration testing seriously. Don't let 
 
 > “Constant vigilance”
 >
-> — Barty Crouch Jr. (_Impersonating Mad-Eye Moody_)
+> — Barty Crouch Jr. (_man-in-the-middle attack on Mad-Eye Moody_)
 
 ## Putting on your white hat
 
