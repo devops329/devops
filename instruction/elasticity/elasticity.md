@@ -11,5 +11,7 @@ Load balancer allows for scaling
 Redis and memcache allow for compute scalability on stable data
 CloudFront allows for global network scalability on network resources
 
+Redundancy / fallbacks?
+
 Availability zone scaling
 Regional scaling
