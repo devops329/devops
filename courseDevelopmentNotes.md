@@ -1,5 +1,77 @@
 # Notes
 
+## Autograder
+
+Have a login ID and a action ID. The action ID is what you use for grading. An admin user can change their Action ID. Everyone else the two IDs are always the same.
+
+Change instruction for when they fork, add ta as collaborator
+
+- ☑ 🟢 [⓵ Manual deployment: JWT Pizza](deliverable1ManualDeploy/deliverable1ManualDeploy.md)
+
+  - fetch webpage and regex jwt pizza
+  - dig to check dns for github pages
+
+- ☑ 🟢 [⓶ Automated deployment: JWT Pizza](deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)
+
+  - Run workflow
+  - Rerun d1 grader
+  - latest github action, check for actions/deploy-pages
+
+- ☑ 🟢 [⓷ Unit testing CI](deliverable3UnitTestingCi/deliverable3UnitTestingCi.md)
+
+  - Run workflow
+  - Check lint ran
+  - Check coverage ran > 80%
+  - Check test succeed
+  - Version increase
+
+- ☑ 🟢 [⓸ User interface testing: JWT Pizza](deliverable4UiTesting/deliverable4UiTesting.md)
+
+  - Run workflow
+  - Check coverage ran > 80%
+  - Check test succeed
+  - Version increase
+
+- ☑ 🟢 [⓹ CDN deployment: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
+
+  - Run workflow
+  - DNS is cloudfront
+  - Check for 404 not returned on path url
+  - check for s3 push
+
+- ☑ 🟢 [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
+
+  - Run workflow
+  - check for ecr and ecs in actions workflow
+  - DNS on jwt-pizza-service URL (jwt-pizza-service-1608398899.us-east-2.elb.amazonaws.com.)
+  - check that .env.production contains their service url (VITE_PIZZA_SERVICE_URL=https://pizza-service.byucsstudent.click)
+  - Use curl to create a user and then login in as the user
+
+- ☑ 🟢 [⓻ Metrics: JWT Pizza Service](deliverable7Metrics/deliverable7Metrics.md)
+
+  - Not autograded
+
+- ☑ 🟢 [⓼ Logging: JWT Pizza Service](deliverable8Logging/deliverable8Logging.md)
+
+  - Not autograded
+
+- 🔵 [⓽ Load testing: JWT Pizza Service](deliverable10LoadTesting/deliverable10LoadTesting.md)
+
+  - Not autograded
+
+- ☑ 🟢 [⓾ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
+
+  - Learner ready action for next 48 hours - waits random 0 - 6 hours after 8 AM to trigger
+    - Provide grader resolve URL
+  - They 24 hours from trigger time to resolve.
+    - When they resolve with grader, the grader calls the factory and it stop chaos. If 200 returned they fixed the problem.
+  - Grader grades.
+
+- ☑ 🟢 [⓫ Penetration testing: JWT Pizza](deliverable11PenetrationTesting/deliverable11PenetrationTesting.md)
+
+  - no autograde
+  - partners are assigned
+
 ## Dates
 
 - Stephen gone may 1-18
