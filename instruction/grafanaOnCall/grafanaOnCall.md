@@ -22,9 +22,11 @@ We then press the `Test` button and check our email. There we find the notificat
 
 ![Notification email](notificationEmail.png)
 
+Save the contact point.
+
 ### Create an email alert
 
-Now that we have a contact point we can attach it to an alert. We can define the alert directly from the main menu using `Alerting > Alert rules` navigation, or by editing the visualization that we want to trigger the alert. Let's assume we have a visualization that displays the current number of active users. From the visualization panel we can define an alert by editing a visualization, selecting the alerts tab, and pressing `New alert rule`.
+Now that we have a contact point we can attach it to an alert. We can define the alert directly from the main menu using `Alerting > Alert rules` navigation, or by editing the visualization that we want to trigger the alert. Let's use the visualization from our `Pizza Dashboard` that displays the current number of active users. From the visualization panel we can define an alert by editing the visualization, selecting the alerts tab, and pressing `New alert rule`.
 
 ![Add alert on visualization](addAlertOnVisualization.png)
 
@@ -122,7 +124,7 @@ The following user configuration specifies that first an SMS message is sent and
 
 Create a Grafana Cloud team so that you can define on-call schedules and notification priorities.
 
-Use the Grafana Cloud main navigation menu for `Adminstation > Users and access > Teams`. Press the `New team` button and provide the `Name` of **JWT Pizza DevOps**. Select the roles for alerting, annotations, dashboards, data sources, and folders.
+Use the Grafana Cloud main navigation menu for `Administration > Users and access > Teams`. Press the `New team` button and provide the `Name` of **JWT Pizza DevOps**. Select the roles for alerting, annotations, dashboards, data sources, and folders.
 
 ![Create team](createTeam.png)
 
@@ -138,7 +140,7 @@ This will show an empty schedule with the quality marked in red as **Bad**. That
 
 ![New schedule layer](newScheduleLayer.png)
 
-Leave everything as the defaults and add yourself as a `User`. Press the `Create` button. This will add you as the only on team member and put you on call 24 hours a day, 7 days a week. The quality of the schedule will now turn green and be marked as **Great**. Obviously this is not an ideal team schedule, but until JWT Pizza really takes off, it will have to do.
+Leave everything as the defaults and add yourself as a `User`. Press the `Create` button. This will add you as the only team member and put you on call 24 hours a day, 7 days a week. The quality of the schedule will now turn green and be marked as **Great**. Obviously this is not an ideal team schedule, but until JWT Pizza really takes off, it will have to do.
 
 ![Schedule](schedule.png)
 
