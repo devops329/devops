@@ -92,6 +92,24 @@ You will get hacked, you need to be notified.
 
 ### Honeypots
 
+## Common attacks
+
+- Phishing: Attempting to acquire sensitive information such as usernames, passwords, and credit card details by masquerading as a trustworthy entity in electronic communications.
+- Malware: Malicious software designed to harm, exploit, or otherwise compromise computer systems. Types of malware include viruses, worms, Trojans, ransomware, and spyware.
+- Ransomware: A type of malware that encrypts the victim's files and demands a ransom payment to restore access to the data.
+- Denial of Service (DoS) and Distributed Denial of Service (DDoS): Attacks aimed at making a system, service, or network resource unavailable to its intended users by overwhelming it with a flood of illegitimate requests.
+- Man-in-the-Middle (MitM): An attacker intercepts and possibly alters the communication between two parties who believe they are directly communicating with each other.
+- SQL Injection: A code injection technique that exploits a security vulnerability in a website's software by injecting malicious SQL statements into an entry field for execution.
+- Cross-Site Scripting (XSS): A security vulnerability typically found in web applications that allows attackers to inject malicious scripts into webpages viewed by other users.
+- Password Attacks: Attempts to obtain or guess passwords through various methods, including brute force, dictionary attacks, and credential stuffing.
+- Zero-Day Exploit: An attack that targets a previously unknown vulnerability in software or hardware, which has not yet been patched or disclosed.
+- Insider Threats: Attacks originating from within the organization, carried out by employees, contractors, or others with internal access.
+- Social Engineering: Manipulating individuals into divulging confidential information or performing actions that compromise security, often through deception and psychological manipulation.
+- Advanced Persistent Threat (APT): A prolonged and targeted cyberattack in which an intruder gains access to a network and remains undetected for an extended period.
+- Drive-by Download: The unintentional download of malicious software onto a user’s computer when they visit a compromised or malicious website.
+- Eavesdropping: Intercepting and listening to private communications, such as network traffic, without the consent of the communicating parties.
+- Session Hijacking: Taking over a user session by obtaining or predicting the session ID, enabling the attacker to assume the identity of the user.
+
 ## Non-software security concerns
 
 In addition to securing your software application, it is important that your organization if familiar with non-software associated attacks. This includes:
