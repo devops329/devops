@@ -33,7 +33,7 @@ Here are the steps to make the automation magic happen.
      push:
        branches:
          - main
-
+     workflow_dispatch:
    jobs:
      build:
        name: Build frontend
@@ -77,13 +77,14 @@ Here are the steps to make the automation magic happen.
 
 Let's look at each of the steps in the GitHub Actions workflow.
 
-First off we tell GitHub actions that we want to trigger this workflow whenever a commit is pushed into the main branch.
+First off we tell GitHub actions that we want to trigger this workflow whenever a commit is pushed into the main branch. We also add a trigger for when a workflow dispatch event is created, which will allow the autograder to trigger your workflow via an API call.
 
 ```yml
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 ```
 
 Next we define the jobs we want to run.
