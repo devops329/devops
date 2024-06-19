@@ -32,6 +32,8 @@ To get started, you need to fork the code to your GitHub account, run it locally
 Here are the steps to take:
 
 1. Navigate your browser over to the [jwt-pizza-service](https://github.com/devops329/jwt-pizza-service) repository on GitHub.
+1. Fork the repository.
+1. Invite `byucs329ta` to be a collaborator.
 1. Copy the URL for your fork of the repository.
 1. Use the URL to clone the repository from your account to your development environment.
    ```sh

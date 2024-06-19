@@ -2,13 +2,13 @@
 
 ## Autograder
 
-Have a login ID and a action ID. The action ID is what you use for grading. An admin user can change their Action ID. Everyone else the two IDs are always the same.
+Allow impersonation. ✅
 
 Fix the deliverable steps to reflect the autograder usage.
 
-Change instruction for when they fork, add ta as collaborator
+Change instruction for when they fork, add ta as collaborator ✅
 
-- ☑ 🟢 [⓵ Manual deployment: JWT Pizza](deliverable1ManualDeploy/deliverable1ManualDeploy.md)
+- ☑ 🟢 [⓵ Manual deployment: JWT Pizza](deliverable1ManualDeploy/deliverable1ManualDeploy.md) ✅
 
   - fetch webpage and regex jwt pizza
   - dig to check dns for github pages

@@ -30,6 +30,8 @@ Here are the steps to take:
    > ![forkRepo](forkRepo.png)
 1. Create the fork by pressing the `Create fork` button. For clarity reasons, it is highly suggested that you leave the name of the repository `jwt-pizza`.
    > ![createFork](createFork.png)
+1. Invite `byucs329ta` to be a collaborator on your repository by navigating to `Settings -> Collaborators -> Add People` and searching `byucs329ta`.
+   > ![collab](../gitHub/collab.png)
 1. Copy the URL for your fork of the repository.
    > ![cloneUrl](cloneUrl.png)
 1. Use the URL to clone the repository from your account to your development environment.

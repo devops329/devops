@@ -31,6 +31,12 @@ If you have never forked a repository before you should go find an open source p
 
 It would be awesome if we can increase the fork count for `Dad Jokes API` into the hundreds. Also make sure you push the `Star` button to show that you like the repo. Let's blow KegenGuyll's mind!
 
+## Collaboration
+
+In order for the Autograder to grade the work you do in your forks of the application code, you will need to invite the TAs for this class to be collaborators on your repositories. This will allow them to run your deployment workflows and see the results. To invite collaboration, navigate within your repository to `Settings -> Collaborators -> Add People` and search `byucs329ta`.
+
+![collab](collab.png)
+
 ## Taking notes
 
 Keeping notes of what you have learned and things that you want to remember is an essential step for accelerating your web programming skills. GitHub supports the inclusion of a file with the special name `README.md` in the root of your repository. The `README.md` file is displayed in GitHub when you view your repository. This file uses `Markdown` syntax. If you have not used Markdown before, then take some time to [learn how to use it](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
