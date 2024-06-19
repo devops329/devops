@@ -1,5 +1,37 @@
 # Notes
 
+## Image manipulation
+
+### Resize image
+
+```sh
+ffmpeg -i $imageFile -vf scale=$size:-1 -q 1 $newImageFile
+```
+
+### Resize png image without loosing transparency
+
+```sh
+ffmpeg -i x.png -vf scale=75:-1 -pred mixed -y -pix_fmt rgba caddyLogoS.png
+```
+
+### Animated gif creation
+
+```sh
+ffmpeg -i x.mov -filter_complex "[0:v] fps=6,scale=480:-1,split [a][b];[a] palettegen [p];[b][p] paletteuse" x.gif
+```
+
+### Launch multiple OBS
+
+```sh
+open -n -a OBS.app
+```
+
+Display properties crop 2500, 1400
+
+### Multi-cam editing in DaVinci
+
+    https://www.youtube.com/watch?v=ZzPZe36RdkU
+
 ## Autograder
 
 Allow impersonation. ✅
