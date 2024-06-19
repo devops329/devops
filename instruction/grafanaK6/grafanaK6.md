@@ -6,8 +6,9 @@ K6 automates load testing by playing back requests you make from a browser or wr
 
 ### History
 
-In 2000, a pair of game developers were working on an MMORPG (massively multiplayer online role-playing game). The demands of such a game required them to invest in load testing tools and design. This eventually led them to create a consulting company that helped others conduct effective load testing with their applications.
-Eventually, in 2016, they took all the best practices they had learned and built an open source SaaS offering named K6. In 2021, K6 was acquired by Grafana Labs and became part of Grafana Cloud.
+In 2000, a pair of developers were working on a multiplayer game that required significant load testing in order to simulate real usage. Taking what they learned from building internal load tools they started a consulting company to help other developers benefit from their expertise. In 2016, they took the next step and coded all the best practices they had learned into an open source SaaS offering named K6. In 2021, K6 was acquired by Grafana Labs and became part of Grafana Cloud.
+
+This is a great example of a small team doing what they love, building something useful, and making a good living in the process.
 
 ## An example run
 

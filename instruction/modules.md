@@ -102,8 +102,8 @@
 
 - 🚧 [E2E testing](e2eTesting/e2eTesting.md)
 - 🟢 [Load testing](loadTesting/loadTesting.md)
-- 🔵 [Grafana K6](grafanaK6/grafanaK6.md)
-- 🔵 [⓽ Load testing: JWT Pizza Service](deliverable9LoadTesting/deliverable9LoadTesting.md)
+- 🟢 [Grafana K6](grafanaK6/grafanaK6.md)
+- 🟢 [⓽ Load testing: JWT Pizza Service](deliverable9LoadTesting/deliverable9LoadTesting.md)
 - 🟢 [Status](statusReporting/statusReporting.md)
 
 ## Failure management
