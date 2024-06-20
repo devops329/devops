@@ -67,7 +67,9 @@ You can use the Google Chrome developer tools to easily record and export a HTTP
    ![Record HAR](recordHar.gif)
 
 1. Refresh the browser so that the first request for JWT Pizza is recorded. Go through the process of logging in, selecting a pizza from the menu, buying the pizza, and then verifying that the pizza is valid.
-1. Save the HAR file representing all of the displayed requests on the Network tab by pressing the download icon. Name the file `buyPizza`. This will save the HAR file to your computer. If you curiosity is itching then go ahead an examine the contents of the file and take some time to read about HAR files. This would make a great Curiosity project.
+1. Save the HAR file representing all of the displayed requests on the Network tab by pressing the download icon. Name the file `buyPizza`. This will save the HAR file to your computer.
+
+❓ If you curiosity sense is tingling then go ahead an examine the contents of the HAR file and take some time to read about HAR files. This would make a great Curiosity project.
 
 ### Initializing the test with the HAR file
 
