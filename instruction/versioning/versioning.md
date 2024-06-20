@@ -105,3 +105,21 @@ JWT Pizza uses a date version scheme with the day in the first position and the 
 The use of a date makes it cumbersome to tie the version to a Git commit, but the CI process does annotate the observability metrics and also makes it easy to find the CI execution that created the deployment at that time. From that information you can get the Git SHA and also see the impact of the release using Grafana.
 
 ![alt text](image.png)
+
+### Package archive
+
+Based on how you set up your GitHub Actions pipeline you have the ability to create an artifact that represents the deployed version.
+
+For example, in your Actions workflow, if you have a step that uploads an artifact then you can always retrieve the exact binaries that were deployed.
+
+```yml
+- name: Update pages artifact
+  uses: actions/upload-artifact@v4
+  with:
+    name: package
+    path: dist/
+```
+
+Note however, that GitHub will only store the artifact for as long as your repository defines. By default this is 90 days. This setting is found in your repository `Settings > Actions > General` view.
+
+![Artifact retention](artifactRetention.png)
