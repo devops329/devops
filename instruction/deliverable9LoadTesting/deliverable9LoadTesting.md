@@ -6,7 +6,7 @@ In order to demonstrate your mastery of load testing you will now create and exe
 
 ## ☑ Assignment
 
-Follow the steps described in the [Grafana K6](../grafanaK6/grafanaK6.md) instruction, to do the following.
+Follow the steps described in the [Grafana K6](../grafanaK6/grafanaK6.md) instruction to do the following.
 
 1. Using the K6 Test Builder interface, create a test that:
    1. Logs in a user

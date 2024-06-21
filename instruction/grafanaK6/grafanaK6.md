@@ -2,17 +2,17 @@
 
 ![K6 logo](k6Logo.png)
 
-K6 automates load testing by playing back requests you make from a browser or writing HTTP requests commands using JavaScript. K6 executes the HTTP requests concurrently with the number of simulated users that you define. Given enough computation power and network bandwidth you can simulate realistic customer load so that you can gain confidence that the system won't fail when handling real traffic.
+K6 automates load testing by playing back requests you make from a browser or writing HTTP request commands using JavaScript. K6 executes the HTTP requests concurrently with the number of simulated users that you define. Given enough computation power and network bandwidth you can simulate realistic customer load so that you can gain confidence that the system won't fail when handling real traffic.
 
 ### History
 
-In 2000, a pair of developers were working on a multiplayer game that required significant load testing in order to simulate real usage. Taking what they learned from building internal load tools they started a consulting company to help other developers benefit from their expertise. In 2016, they took the next step and coded all the best practices they had learned into an open source SaaS offering named K6. In 2021, K6 was acquired by Grafana Labs and became part of Grafana Cloud.
+In 2000, a pair of developers were working on a multiplayer game that required significant load testing in order to simulate real usage. Taking what they learned from building internal load tools, they started a consulting company to help other developers benefit from their expertise. In 2016, they took the next step and coded all the best practices they had learned into an open source SaaS offering named K6. In 2021, K6 was acquired by Grafana Labs and became part of Grafana Cloud.
 
 This is a great example of a small team doing what they love, building something useful, and making a good living in the process.
 
 ## An example run
 
-The following results are based upon a load test against the JWT Pizza application that simulates a simple login, look at the menu, and purchase a pizza scenario. K6 generates an impressive amount of metrics and visualizations that help to understand how well the application responded to the simulated load. The following graph shows 10 concurrent virtual users (VU), making a maximum of 3.33 request per second, with an average 95th percentile response time of 118ms.
+The following results are based upon a load test against the JWT Pizza application that simulates a simple login, look at the menu, and purchase a pizza scenario. K6 generates an impressive amount of metrics and visualizations that help to understand how well the application responded to the simulated load. The following graph shows 10 concurrent virtual users (VU), making a maximum of 3.33 requests per second, with an average 95th percentile response time of 118ms.
 
 ![K6 example test graph](k6ExampleTestGraph.png)
 
@@ -26,7 +26,7 @@ By simulating load and experimenting with changes in the architecture, you can q
 
 ## Setting up a K6 test
 
-You will create your first K6 load against your JWT Pizza production deployment. Normally you would not load test a production system. Instead you would spin up an environment specifically for load testing using your CloudFormation automation template, but since spinning up hardware costs money and you don't have any customers yet hitting your production environment, you will use production for now. Take the following steps.
+You will create your first K6 load against your JWT Pizza production deployment. Normally you would not load test a production system. Instead you would spin up an environment specifically for load testing using your CloudFormation automation template, but since spinning up hardware costs money and you don't have any customers hitting your production environment yet, you will use production for now. Take the following steps.
 
 ### Creating the project and test
 
@@ -45,7 +45,7 @@ You will create your first K6 load against your JWT Pizza production deployment.
    1. write a JavaScript testing script in the Grafana Cloud K6 **Script Editor**
    1. or use the Grafana Cloud K6 **Test Builder**.
 
-   Using the Test Builder is the fastest way to get up an running and so we will use that.
+   Using the Test Builder is the fastest way to get up and running and so we will use that.
 
 1. Press the `Start Building` button.
 1. This will display the **Test Builder** interface.
@@ -60,7 +60,7 @@ You will create your first K6 load against your JWT Pizza production deployment.
 
 You can use the Google Chrome developer tools to easily record and export a HTTP Archive (HAR) file.
 
-1. Open Google Chrome, navigate to your JWT Pizza production website. Make sure you are logged out of the website so that you can have a clean start.
+1. Open Google Chrome and navigate to your JWT Pizza production website. Make sure you are logged out of the website so that you can have a clean start.
 1. Open the developer tools. Switch the developer tools to the network tab. This is where everything gets recorded and where you will eventually export the HAR file from.
 1. Select the `Preserve log` button so that your entire sequence of requests are saved. Clear the recorded requests if it isn't already blank.
 
@@ -69,7 +69,7 @@ You can use the Google Chrome developer tools to easily record and export a HTTP
 1. Refresh the browser so that the first request for JWT Pizza is recorded. Go through the process of logging in, selecting a pizza from the menu, buying the pizza, and then verifying that the pizza is valid.
 1. Save the HAR file representing all of the displayed requests on the Network tab by pressing the download icon. Name the file `buyPizza`. This will save the HAR file to your computer.
 
-❓ If you curiosity sense is tingling then go ahead an examine the contents of the HAR file and take some time to read about HAR files. This would make a great Curiosity project.
+❓ If your curiosity sense is tingling then go ahead an examine the contents of the HAR file and take some time to read about HAR files. This would make a great Curiosity project.
 
 ### Initializing the test with the HAR file
 
@@ -90,7 +90,7 @@ Take some time and examine each step in the test. You can give a name to each HT
 
 ![Test steps](testSteps.png)
 
-Now you need to define how test will execute. On the left hand menu, click the `Options` navigation. This will display how the test Scenario will execute. By default it will gradually ramp up from 0 to 20 virtual users over a 1 minute period. These users will make the requests represented by the requests you just defined over and over again. For the next 3 and a half minutes the 20 users will keep making the requests. Then over a period of 1 minute the users will trickle down until there are none left.
+Now you need to define how the test will execute. On the left hand menu, click the `SCENARIO_1 -> Options` navigation. This will display how the test scenario will execute. By default it will gradually ramp up from 0 to 20 virtual users over a 1 minute period. These users will make the requests represented by the requests you just defined over and over again. For the next 3 and a half minutes the 20 users will keep making the requests. Then over a period of 1 minute the users will trickle down until there are none left.
 
 ![Default scenario](defaultScenario.png)
 
@@ -126,7 +126,7 @@ Notice that this test recorded a few failures with the **login** (8 of 41) and *
 
 The login requests return 500, while the order requests returned 401. That makes sense because if you didn't authenticate then you won't be able to order a pizza. We can fix that in a minute, but let's continue looking at the results.
 
-If you click on the other options under the `PERFORMANCE INSIGHTS` you will see lots of details information. For example, the `ANALYSIS` tab contains graphs the help to understand the performance characteristics of the test. Take some time and explore the meaning of each of the graphs. Notice that you can change the aggregation to be things like the average or a certain percentile.
+If you click on the other options under the `PERFORMANCE INSIGHTS` you will see lots of detailed information. For example, the `ANALYSIS` tab contains graphs that help to understand the performance characteristics of the test. Take some time and explore the meaning of each of the graphs. Notice that you can change the aggregation to be things like the average or a certain percentile.
 
 ![Analysis](analysis.png)
 
@@ -156,7 +156,7 @@ response = http.put('https://pizza-service.cs329.click/api/auth', '{"email":"d@j
 check(response, { 'status equals 200': (response) => response.status.toString() === '200' });
 ```
 
-However, we want to iteration to stop executing the following steps if the check fails. To make that happen we need to get out of the test Builder and create a test that is driven by a script that you write.
+However, we want the iteration to stop executing the following steps if the check fails. To make that happen we need to get out of the test Builder and create a test that is driven by a script that you write.
 
 ## Editing the test script
 
