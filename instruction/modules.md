@@ -79,7 +79,7 @@
 - 🔵 [Versioning](versioning/versioning.md)
 - ☑ 🔵 [GitHub Versions](gitHubVersions/gitHubVersions.md)
 - 🔵 [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
-- 🚧 [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
+- ☑ 🔵 [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
 - 🚧 [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
 
 - ☑ 🚧 [ Environments: JWT Pizza](environmentsJwtPizza/environmentsJwtPizza.md)
