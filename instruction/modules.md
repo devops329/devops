@@ -76,7 +76,7 @@
 
 ## Deployment strategies
 
-- 🔵 [Versioning](versioning/versioning.md)
+- 🟢 [Versioning](versioning/versioning.md)
 - 🚧 [GitHub Versions](gitHubVersions/gitHubVersions.md)
 - 🚧 [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
 - 🚧 [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
