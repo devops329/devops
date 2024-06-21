@@ -1,6 +1,6 @@
 # Versioning
 
-When building production software it is vital that you make use of version identifiers that uniquely represent each component that is used by a customer. The version ID makes it so you know what code was used when features were introduced, bugs were discovered, or a failure occurred. Without the version ID it would be very difficult to reproduce a problem, or to say with any certainty that the problem as been remedied.
+When building production software, it is vital that you make use of version identifiers that uniquely represent each component that is used by a customer. The version ID makes it so you know what code was used when features were introduced, bugs were discovered, or a failure occurred. Without the version ID it would be very difficult to reproduce a problem, or to say with any certainty that the problem as been remedied.
 
 The most critical requirement for a version ID is that it can be used to uniquely reference an immutable copy of the deliverable package, or the source code that can be used to rebuild the deliverable package. Preferably, you want both. The source code is necessary for debugging, and sometimes it is impossible to reproduce the actual deliverable package. This happens when the CI workflow or tools necessary to build the package no longer exist.
 
@@ -64,6 +64,8 @@ The downside of this versioning scheme is that it lacks any information in the I
 ## Examples
 
 #### Apple macOS
+
+Apple uses a semantic versioning ID for their OS versions as described above, with a `major.minor.patch` structure.
 
 ![MacOS version](macOsVersion.png)
 
