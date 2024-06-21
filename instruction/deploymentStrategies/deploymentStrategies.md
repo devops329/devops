@@ -15,3 +15,14 @@ An important consideration is how your compute is structured. Is it a fixed set,
 ## Branches
 
 Consider creating a production branch. They you have scripts that do the testing on every commit, but only a prop branch commit would push to production.
+
+# Blue Green deployment
+
+[Blue/Green AWS ECS](https://aws.amazon.com/blogs/compute/bluegreen-deployments-with-amazon-ecs/)
+
+This is the one I think we will use because it is supported both by lambda and Fargate.
+
+- Blue current stable (prod)
+- Green next version (staging)
+
+Have two complete systems. swap when the staging becomes stable. Allow for rollback until new features are deployed to Green.

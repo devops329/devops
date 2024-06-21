@@ -1,105 +1,41 @@
 # Deployment environments
 
-You must modify the S3 bucket script to allow the CloudFormation distribution.
-
-Create a staging distribution. Set the policy to be a percentage of the requests.
-
-You have to issue an invalidation to make any of this work.
-
-## Keep versions around in S3
-
-Since we will have multiple environments we need more control over what version is deployed in each environment.
-
-1. Change the CI pipeline to copy to a version directory. You can delete the root files if desired.
-
-Using the generated version you can now deploy to the version directory.
+To this point you have been deploying your code directly to your production environment using what is called a `reboot` strategy. If you look at your GitHub Actions CI workflow for `jwt-pizza` you will see something like the following step.
 
 ```yml
-deploy:
-  needs: build
-  permissions:
-    id-token: write
-  runs-on: ubuntu-latest
-  env:
-    version: ${{needs.build.outputs.version}}
-  # environment: # This is a test. We may not want this. it requires special IAM permissions and GitHub secrets
-  #   name: production
-  #   url: https://pizza.byucsstudent.click
-  steps:
-    - name: Create OIDC token to AWS
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        audience: sts.amazonaws.com
-        aws-region: us-east-1
-        role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT }}:role/${{ secrets.CI_IAM_ROLE }}
-
-    - name: Download pages artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: package
-        path: dist/
-
-    - name: Push to AWS S3
-      # Note the inclusion of the version in the path
-      run: |
-        aws s3 cp dist s3://pizza.byucsstudent.click/$version --recursive
-```
-
-Now you can update the cloudfront distribution to use the new version. This requires you to first get the current configuration, modify it with the new path, and they update it.
-
-You also need to wait until it is done distributing before you invalidate the cache of the old version.
-
-## Change production
-
-1. Rename the distribution
-1. Set the distribution origin path to point to the desired s3 version path.
-
-## Create staging
-
-1. Create a new CloudFormation distribution. Similar to prod, but set the origin path to point to a version directory.
-   1. Name it stage-pizza.domainname.
-   1. Create Route 53 record to point to it.
-   1. Add the distribution to the S3 policy
-   1. Verify that you can see the staging environment.
-   1. Invalidate the staging distribution so the new files show up
-
-## To deploy a new version to an environment
-
-Just go want change the origin path, wait for it to deploy, and invalidate the cache.
-
-It is pretty instantaneous to move back and forth.
-
-## Automating the deployment for staging
-
-```yml
-- name: Update staging version
+- name: Push to AWS S3
   run: |
-    # Get the current distribution and update it to use the new version
-    aws cloudfront get-distribution-config --id ${{ secrets.DISTRIBUTION_ID }} > original.json
-    etag=$(jq -r '.ETag' original.json)
-    jq '.DistributionConfig' original.json > request.json
-    jq --arg version "/$version" '.Origins.Items[0].OriginPath = $version' request.json > finalRequest.json
-    aws cloudfront update-distribution --id ${{ secrets.DISTRIBUTION_ID }} --if-match $etag --distribution-config file://finalRequest.json
-
-    # Wait for the distribution to deploy and then invalidate the cache
-    while [ "$(aws cloudfront get-distribution --id ${{ secrets.DISTRIBUTION_ID }} --query 'Distribution.Status' --output text)" != "Deployed" ]; do echo "Distribution is still updating..."; sleep 5; done
-    aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
+    aws s3 cp dist s3://pizza.byucsstudent.click/$version --recursive
 ```
 
-I had to update the IAM CI Role to allow for getting the distribution config.
+This has several problems. First off it just copies the deployment package files directly into the S3 location that CloudFront hosts to the world using your application URL. That means that old files that are no longer used by the application are still available for public access. This creates a security, as well as a maintenance, problem.
 
-```json
-		{
-			"Sid": "InvalidateCloudFront",
-			"Effect": "Allow",
-			"Action": [
-				"cloudfront:CreateInvalidation",
-				"cloudfront:UpdateDistribution",
-				"cloudfront:GetDistribution",
-        "cloudfront:GetDistributionConfig"
-			],
-			"Resource": [
-				"arn:aws:cloudfront::XXXXXXXX:distribution/YYYYYYYY"
-			]
-		},
-```
+If you delete the old version before you copy up the new version, then this introduces the possibility of the customer getting a 404 error if they try and load the application between the deletion and the copying up of the new files.
+
+Additionally, if you want to rollback to a previous version of the application you would need to rerun your CI pipeline with a pervious Git commit. Something that you are not currently configured to easily do, and that would take several minutes to execute. That is not a good position to be in when a critical failure is occurring.
+
+Finally there is the problem that there is only one environment that hosts your entire application stack. You have a development environment where individual developers can create and experiment. You have a CI environment where a version is built, tested, and analyzed. But there is no place that you can go to see how the application actually works without doing that in the same place as your customers.
+
+What you really need is a central repository of all of the candidate versions that can be quickly deployed to different environments that each serve a specific purpose.
+
+![Environments](environments.png)
+
+The above diagram shows three such possible environments. This includes a production, penetration, and staging environment. Each of these environments hosts the entire stack of the application, but may have different data, device configurations, or versions of the software. The environments may also have different access controls that limit who can access it, and from where.
+
+Each environment has the same starting flow where the software is tested, analyzed, and cataloged to ensure quality and automated access, but the deployment environments themselves target different purposes.
+
+- **Production**: This environment is where the live application is hosted, accessible to end-users and customers. It must be highly reliable, secure, and performant since it directly impacts the user experience. Changes to this environment should be thoroughly tested and rolled out carefully to minimize downtime and avoid introducing new bugs.
+
+- **Staging**: A staging environment is a pre-production environment that mirrors the production environment as closely as possible. It is used to perform final testing before deploying to production. This environment allows you to catch any last-minute issues that might not have been caught in earlier testing phases. It ensures that the deployment process works smoothly and that the application behaves as expected in a production-like setting.
+
+- **Penetration**: This environment is dedicated to security testing, including penetration testing and vulnerability assessments. It is used to identify and fix security issues before they can be exploited in the production environment. This environment can simulate various attack scenarios to ensure that the application is secure against real-world threats. A key difference with this environment is that the data is not customer data and that a penetration tester is encouraged to bring the application down if possible.
+
+- **Sales**: The sales environment is tailored specifically for demonstrations and presentations to potential customers and stakeholders. It allows the sales team to showcase the latest features and capabilities of the application in a controlled and polished setting. This environment often includes sample data and custom configurations that highlight the application's strengths and selling points, helping to create a compelling and impactful sales pitch. The data contained in this environment is created completely to tell a good sales story and can be reset after a demo.
+
+- **Single tenancy**: You may also want to create an environment to isolates a single customer. This can be done for security or performance reasons.
+
+## Conclusion
+
+By adopting multiple deployment environments, you can improve the reliability, security, and overall quality of your application. You also provide for specialized uses like single tenancy or sells demos. Each environment serves a specific purpose, from ensuring smooth deployment and final testing in staging, to safeguarding against vulnerabilities in penetration testing, to providing a stable and performant user experience in production.
+
+The key is that by automating your CI/CD pipeline it is easy to spin up new environments. This keeps you flexible to explore new business models as well as prevent, and recover from system, failures.

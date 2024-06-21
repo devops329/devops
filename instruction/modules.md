@@ -78,12 +78,11 @@
 
 - 🔵 [Versioning](versioning/versioning.md)
 - ☑ 🔵 [GitHub Versions](gitHubVersions/gitHubVersions.md)
-- 🚧 [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
+- 🔵 [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
 - 🚧 [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
 - 🚧 [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
-- 🚧 [Rolling] We are probably just going to use the rolling deployment from ECS
-- 🚧 [Blue/Green](blueGreeen/blueGreen.md) It seems that cloudfront supports this.
-- We need a discussion on scalability, bottlenecks, and auto adjustment. This should tie into SLO.
+
+- ☑ 🚧 [ Environments: JWT Pizza](environmentsJwtPizza/environmentsJwtPizza.md)
 
 ## Observability
 

@@ -39,3 +39,5 @@ We actually do this for the pizza service. The ALB monitors the health of the co
 Stephen Amos — Today at 11:18 AM
 Ok. I'm just not sure where we would talk about redundancy.
 Also should the status instruction be in the failure management section, instead of load testing section?
+
+- We need a discussion on scalability, bottlenecks, and auto adjustment. This should tie into SLO.
