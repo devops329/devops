@@ -152,6 +152,20 @@ The final step deploys the contents of the artifact that was created in the prev
   uses: actions/deploy-pages@v4
 ```
 
+## Adding a status badge
+
+GitHub Actions will automatically create an image that shows the state of an Action workflow. You can reference the badge in the `README.md` file found in the root of your fork of `jwt-pizza`.
+
+All you need to do copy the following markdown, paste it in the readme file, replace the account name with your GitHub account name, and commit.
+
+```md
+[![CI Pipeline](https://github.com/YOURACCOUNTNAMEHERE/jwt-pizza/actions/workflows/ci.yml/badge.svg)](https://github.com/YOURACCOUNTNAMEHERE/jwt-pizza/actions/workflows/ci.yml)
+```
+
+Now whenever you pipeline runs you will be able to see the status in your repos home page on GitHub.
+
+![Pipeline status](pipelineStatus.png)
+
 ## Wrap up
 
 In about the same amount of code that we used to do our manual deployment we are able to do an automated deployment that is triggered by a git push.
