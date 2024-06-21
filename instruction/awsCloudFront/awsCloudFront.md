@@ -49,9 +49,18 @@ For this tutorial, the _Hello World_ page will serve as a representation of all 
 You want your static content to be securely hosted. AWS offers a free service for managing SSL certificates when they are used for AWS services such as CloudFront.
 
 1. Open the AWS browser console and navigate to the AWS Certificate Manager service.
+
+   ⚠️ **Note** that you must be in the **North America Virginia** region when creating this certificate in order for it to work with CloudFront.
+
 1. Click on `Request a certificate`.
 1. Select `Request a public certificate` and press `Next`.
-1. Enter your fully qualified domain name and use `DNS validation`. This will either automatically verify your domain name if you are using Route53, or give you instructions for what you need to add to your DNS records in order for the validation to be successful.
+1. Enter a wildcard subdomain for your the fully qualified domain name and use `DNS validation`. Your domain name should look like:
+
+   ```txt
+   *.yourdomainnamehere
+   ```
+
+   For example:
 
    > ![create Certificate](createCert.png)
 
@@ -70,18 +79,18 @@ With the bucket in place you can now create your CloudFront distribution that wi
 1. For the `Origin domain` start typing the name of the bucket you create. The S3 bucket should appear.
    > ![Origin domain entry](originDomainEntry.png)
 1. In the name edit box, change the name so that it is just your DNS name for simplicity.
-1. Under `Origin access` change from `public`, because our S3 bucket is not public, to `Origin access control settings`. Create a new OAC if you don't already have one, and press `Create`. The OAC allows CloudFront to request private files from S3. This will display a message saying that you need to update the S3 bucket policy. We will do this step later.
+1. Under `Origin access` change from `public`, because our S3 bucket is not public, to **Origin access control settings**. Create a new OAC if you don't already have one, and press `Create`. The OAC allows CloudFront to request private files from S3. This will display a message saying that you need to update the S3 bucket policy. We will do this step later.
 1. Skip down to `Default cache behavior`
-   1. Under `Viewer protocol policy` specify `Redirect HTTP to HTTPS`
-   1. Under `Allowed HTTP methods` specify `GET, HEAD, OPTIONS`.
-   1. Under `Cache key and origin requests` choose the `CachingOptimized` cache policy.
-   1. Under the `Web Application Firewall (WAF)` choose the option to `Do not enable security protections`. This is an additional paid service that you don't need at this time.
+   1. Under `Viewer protocol policy` specify **Redirect HTTP to HTTPS**
+   1. Under `Allowed HTTP methods` specify **GET, HEAD, OPTIONS**.
+   1. Under `Cache key and origin requests` choose the **CachingOptimized** cache policy.
+   1. Under the `Web Application Firewall (WAF)` choose the option to **Do not enable security protections**. This is an additional paid service that you don't need at this time.
 1. Skip down to `Settings`
-   1. Under `Price class` specify `Use only North America and Europe. Unless of course you want your JWT Pizza to be optimized for access in Asia. (Realize that there may be additional charges for choosing this option.)
-   1. Under `Alternate domain name` press `add item` and type your DNS name (e.g. pizza.byucsstudent.click).
+   1. Under `Price class` specify **Use only North America and Europe**. Unless of course you want your JWT Pizza to be optimized for access in Asia. (Realize that there may be additional charges for choosing this option.)
+   1. Under `Alternate domain name` press **add item** and type your DNS name (e.g. pizza.byucsstudent.click).
    1. Chose the certificate that you created in the previous section.
       > ![Settings](settings.png)
-   1. Set _index.html_ as the `Default root object` so that it will be used when the root domain is specified.
+   1. Set **index.html** as the `Default root object` so that it will be used when the root domain is specified.
    1. Provide a description for the distribution such as `JWT Pizza`.
 1. Press `Create distribution`.
 
