@@ -28,9 +28,9 @@ The danger with this strategy is that if you discover a problem after you have r
 
 An important consideration of application deployment is the required resources. Common strategies include:
 
-- **In situ**: Replace the old application on existing resources as each one is temporarily taken off line.
-- **Rolling**: Allocate a small percentage of new resources, take the same percentage offline and replace it with the new version. Then use the old resources that were just removed to be the next replacement block.
-- **Immutable**: Allocate up entirely new resources, switch, and then throw away the old resources.
+- **In situ**: Replace the old application using existing resources as each one is temporarily taken offline.This requires no new resources, but it does reduce capacity during the deployment.
+- **Rolling**: Allocate a small percentage of new resources, take the same percentage offline and replace it with the new version. Then use the old resources that were just removed to be the next replacement block. The advantage of this approach is that you never decrease in capacity during the deployment.
+- **Immutable**: Allocate up entirely new resources, switch, and then throw away the old resources. This doubles the amount of required resources, but it has no impact on capacity and can be immediately reversed.
 
 With the advent of cloud computing, it is so easy and cheap to spin up new resources that the **immutable** strategy is very attractive. This is especially true since it is closely related to strategies for increasing elasticity due to changes in customer demand. It is also easy to rollback as long as you keep the old version's resources around until you are confident that the system is stable.
 
@@ -40,30 +40,46 @@ The following is a list of common deployment strategies. There is not perfect st
 
 ### Reboot
 
-Stop, delete, replace, and restart everything. This has the advantage of being very simple and removing all possible dependencies between versions. It also requires a minimum of resources since you simply reuse everything that was already deployed. However, for anything but development or prototype deployments, this is usually a poor solution. Your customers will be interrupted, it is difficult to rollback, and it leaves your application dead if it fails to restart.
+Drain, stop, delete, replace, and restarts each resource. This has the advantage of being very simple and removing all possible dependencies between versions as long as requests are sticky to a specific resource. It also requires a minimum of resources since you simply reuse everything that was already deployed. However, it takes time to move through the resources one by one, it is slow to rollback, and it decreases the capacity of the application during deployment.
+
+![Reboot strategy](reboot.png)
 
 ### Canary
 
-This strategy is called a canary because, like the coal mines of old, a canary is used to see if there is a looming failure before you expose everyone to the new version. You start by exposing the new version to a small number of users. You can make the requests sticky so that a specific customer only sees one version, or allow all the customers to bounce back and forth in order to determine that the versions are compatible with each other. If all of your observability metrics show that things are going well with the canary, you can increase the number of customers on the new version. When a significant percentage of customers are successfully using the canary, you switch everyone over.
+This strategy is called a canary because, like the coal mines of old, a canary is used to see if there is a looming failure awaiting you. You start by exposing the new version to a small number of users. You can make the requests sticky so that a specific customer only sees one version, or allow all the customers to bounce back and forth in order to determine that the versions are compatible with each other. If all of your observability metrics show that things are going well with the canary, you can increase the number of customers on the new version. When a significant percentage of customers are successfully using the canary, you switch everyone over.
 
 ### Rolling
 
 The rolling strategy partitions the resources into equal parts. Each partition is then successively taken offline and replaced with the new version and put back online. As the process continues a greater percentage of the application is running the new version.
 
+![Rolling strategy](rolling.png)
+
 ### Blue/Green
 
-With the blue/green strategy you allocate two equal sets of resources. The green set represents the new version and the blue represents the old version. You then drain all users off from teh blue version and move them to the green version. If there is problem then you simply switch the load back. With this strategy you can allocate an entirely new
+With the blue/green strategy you allocate two equal sets of resources. The green set represents the new version and the blue represents the old version. You then drain all users off from the blue version and move them to the green version. If there is problem then you simply switch the load back. With this strategy you can allocate an entirely new set of resources every time you deploy, or you can keep the green set around and use it as your staging environment. Once you make the swap then the blue environment is upgraded to the latest code and it becomes both your new green and staging environment. The advantage of this strategy is that your staging environment has the exact same hardware configuration as your production environment.
+
+![Blue green strategy](blueGreen.png)
 
 ### A/B testing
 
-Filter on loadbalancer, or by cookies, who gets the A and who gets the B. Metrics report on success.
+With A/B testing you have two versions running at the same time, but traffic is routed by the load balancer based upon some trigger such as an assigned cookie, URL parameter, geographic location, or IP address range. This is commonly used to determine the success of a new feature. Once the test is over the alternative version is drained and all of its traffic is moved back to the core version. Note that sometimes A/B testing doesn't actually require a different version of the application to be deployed. The switch can simply be a gate within a single deployed version.
 
 ### Continuous
 
-goes automatically. Differentiate from Continuous Delivery which might have a manual gate.
-
-### Feature switched
-
-(URL parameter, user setting, or subdomain)
+Continuous deployment (CD) immediately deploys a version as soon as the automated tests complete. This is in contrast to continuous delivery which creates new versions that are usually deployed as part of a schedule or human trigger. For continuous deployment to be successful your architecture must automatically alert on any anomalies and have the ability to rollback quickly. Otherwise your customers, become your quality assurance team and that usually doesn't go very well for very long.
 
 ### Serverless
+
+Serverless deployment take the idea of elastic deployment of resources to a new level. The system will automatically allocate resources as demand increases and release them as it decreases. Resources may be allocated for each specific requests, but usually, in the name of performance, a resources is initially allocated and then kept around for a time in anticipation of future use. The serverless system manager has to handle the deployment of new versions. This is usually done with a pattern that allows current requests to drain off the old version and new requests are allocated with the new version.
+
+## Deployment strategies for JWT Pizza
+
+#### JWT Pizza Service
+
+The JWT Pizza backend uses a **Immutable** strategy that is managed by ECS and the EC2 application load balancer. When a new version is created, EC2 spins up the required number of containers and creates a new load balancer cluster. The old cluster is drained as all the new traffic is moved to the new cluster. Once all the traffic has been moved over and the health of the cluster is deemed to be acceptable the old cluster is destroyed. If during the deployment, the health of the cluster is unacceptable then the traffic is returned to the old cluster and the new cluster is destroyed.
+
+#### JWT Pizza
+
+The JWT Pizza frontend currently uses an **In Situ** strategy that is executed by your CI workflow. As soon as the S3 copy command is executed the new version files are available. Because the copy is not atomic, and the resource is never taken out of service, there may be situations where only some of the application files are present. However, CloudFront does cache files for a period of time and so only customers who experience a cache timeout during the deployment are likely to see a partially deployed application.
+
+For a production system, the situation for the JWT Pizza frontend is not really acceptable. Not only that, but it is difficult to rollback since it requires a new build and deployment of the files. That is something that could take 10 minutes or more, during which the application could be down. For this reason, we will move the frontend deployment to a strategy where the files are deployed atomically and can be quickly rolled back.
