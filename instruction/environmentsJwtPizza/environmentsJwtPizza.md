@@ -1,12 +1,14 @@
 # Environments: JWT Pizza
 
-You must modify the S3 bucket script to allow the CloudFormation distribution.
+We want to enhance the JWT Pizza frontend deployment process in three ways. First we want to preserve each of the production releases in S3 so that we can easily switch between them if one of them causes a failure. Next, we want to have both a **Production** and **Staging** environment. Finally, we want to be able to quickly promote any version to any environment.
+
+You must modify the S3 bucket script to allow the CloudFront distribution.
 
 Create a staging distribution. Set the policy to be a percentage of the requests.
 
 You have to issue an invalidation to make any of this work.
 
-## Keep versions around in S3
+## Hosting multiple versions in S3
 
 Since we will have multiple environments we need more control over what version is deployed in each environment.
 
@@ -56,8 +58,8 @@ You also need to wait until it is done distributing before you invalidate the ca
 
 ## Create staging
 
-1. Create a new CloudFormation distribution. Similar to prod, but set the origin path to point to a version directory.
-   1. Name it stage-pizza.domainname.
+1. Create a new CloudFront distribution using the [same instructions](../deliverable5CdnDeploy/deliverable5CdnDeploy.md) that you used to originally set up CloudFront, but set the origin path to point to the version directory that you copied to S3 in the prior instructions.
+   1. Name it stage-pizza.YOURDOMAINNAME.
    1. Create Route 53 record to point to it.
    1. Add the distribution to the S3 policy
    1. Verify that you can see the staging environment.
