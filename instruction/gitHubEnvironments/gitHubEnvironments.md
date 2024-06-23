@@ -16,9 +16,7 @@ Make yourself the reviewer and add the same [secrets](../awsS3Deployment/awsS3De
 
 ## Configuring access
 
-In order for your CI workflow to still have access using the AWS IAM CI rule that you created previously you must now modify it so that it is accessible when your workflow runs under this environment. In the AWS Console, open up the IAM dashboard, and modify the `Trust relationship` for the `github-ci` role that you created previously.
-
-Modify the access condition so that it allows access for any environment on your `jwt-pizza` repository.
+In order for your CI workflow to still have access using the AWS IAM CI rule that you created previously you must now modify it so that it is accessible when your workflow runs under this environment. In the AWS Console, open up the IAM dashboard, and modify the `Trust relationship` for the `github-ci` role that you created previously. In the `Condition` object modify it so that it allows access for the **production** environment on your `jwt-pizza` repository.
 
 ```json
 {
@@ -27,16 +25,16 @@ Modify the access condition so that it allows access for any environment on your
     {
       "Effect": "Allow",
       "Principal": {
-        "Federated": "arn:aws:iam::xxxxxxxxx:oidc-provider/token.actions.githubusercontent.com"
+        "Federated": "arn:aws:iam::YOURAWSACCOUNTID:oidc-provider/token.actions.githubusercontent.com"
       },
       "Action": "sts:AssumeRoleWithWebIdentity",
       "Condition": {
         "StringEquals": {
           "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
           "token.actions.githubusercontent.com:sub": [
-            "repo:byucsstudent/jwt-pizza:environment:*",
-            "repo:byucsstudent/jwt-pizza:ref:refs/heads/main",
-            "repo:byucsstudent/jwt-pizza-service:ref:refs/heads/main"
+            "repo:YOURGITHUBACCOUNTNAME/jwt-pizza:environment:production",
+            "repo:YOURGITHUBACCOUNTNAME/jwt-pizza:ref:refs/heads/main",
+            "repo:YOURGITHUBACCOUNTNAME/jwt-pizza-service:ref:refs/heads/main"
           ]
         }
       }

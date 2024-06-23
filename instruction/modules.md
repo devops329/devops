@@ -4,7 +4,7 @@
 
 - ⚠️ Learner should take note
 - ☑ Contains assignment
-- ⓵ Course deliverable
+- ⓵ Milestone deliverable
 - 🚧 Lots of work to do
 - 🟢 Stephen has reviewed
 - 🔵 Stephen to review
@@ -77,11 +77,11 @@
 ## Deployment strategies
 
 - 🔵 [Versioning](versioning/versioning.md)
-- ☑ 🔵 [GitHub Versions](gitHubVersions/gitHubVersions.md)
+- ☑ 🔵 [GitHub Releases](gitHubReleases/gitHubReleases.md)
 - 🔵 [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
 - ☑ 🔵 [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
 - 🔵 [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
-- ☑ 🚧 [ Environments: JWT Pizza](environmentsJwtPizza/environmentsJwtPizza.md)
+- ☑ 🚧 [Environments: JWT Pizza](environmentsJwtPizza/environmentsJwtPizza.md)
 
 ## Observability
 
