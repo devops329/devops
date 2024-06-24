@@ -20,7 +20,7 @@
 - ☑ 🟠 [AWS Account](awsAccount/awsAccount.md)
 - ☑ 🟠 [Christlike learning](christlikeLearning/christlikeLearning.md)
 - 🟠 [GitHub](gitHub/gitHub.md)
-- 🟠 [Curiosity report](curiosityReport/curiosityReport.md)
+- ☑ 🟠 [Curiosity report](curiosityReport/curiosityReport.md)
 
 ## Static deployment
 
@@ -130,5 +130,4 @@
 ## Conclusion
 
 - ☑ 🟠 [Christlike introspection conclusion](christlikeLearningConclusion/christlikeLearningConclusion.md)
-- ☑ 🚧 Curiosity report conclusion
 - ☑ 🟠 [Wrap up](wrapUp/wrapUp.md)
