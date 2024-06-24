@@ -2,7 +2,7 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
-In your last deliverable we manually builded the JWT Pizza frontend, copied it into a branch, and pushed it to GitHub pages. While this process works, it has several problems.
+In your last deliverable we manually built the JWT Pizza frontend, copied it into a branch, and pushed it to GitHub pages. While this process works, it has several problems.
 
 1. **Slow**: It requires a human to execute a series of steps. That slows down your ability to move quickly.
 1. **Error prone**: If a step is skipped or a parameter is misplaced it could cause the deployment to fail, or worse, take down the website entirely.

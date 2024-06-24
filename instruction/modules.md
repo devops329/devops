@@ -5,6 +5,7 @@
 - ⚠️ Learner should take note
 - ☑ Contains assignment
 - ⓵ Milestone deliverable
+- 💡 Curiosity report ideas
 - 🚧 Lots of work to do
 - 🟢 Stephen has reviewed
 - 🔵 Stephen to review
@@ -81,7 +82,7 @@
 - 🔵 [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
 - ☑ 🔵 [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
 - 🔵 [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
-- ☑ 🚧 [Environments: JWT Pizza](environmentsJwtPizza/environmentsJwtPizza.md)
+- ☑ 🔵 [⓻ Environments: JWT Pizza](deliverable7Environments/deliverable7Environments.md)
 
 ## Observability
 
@@ -91,10 +92,10 @@
 - ☑ 🟠 [Grafana metrics](grafanaMetrics/grafanaMetrics.md)
 - 🟠 [Visualizing metrics](visualizingMetrics/visualizingMetrics.md)
 - 🟠 [Simulating traffic](simulatingTraffic/simulatingTraffic.md)
-- ☑ 🟠 [⓻ Metrics: JWT Pizza Service](deliverable7Metrics/deliverable7Metrics.md)
+- ☑ 🟠 [⓼ Metrics: JWT Pizza Service](deliverable8Metrics/deliverable8Metrics.md)
 - 🚧 [Logging](logging/logging.md)
 - ☑ 🟠 [Grafana logging](grafanaLogging/grafanaLogging.md)
-- ☑ 🟠 [⓼ Logging: JWT Pizza Service](deliverable8Logging/deliverable8Logging.md)
+- ☑ 🟠 [⓽ Logging: JWT Pizza Service](deliverable9Logging/deliverable9Logging.md)
 - 🟠 [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
 - ☑ 🟠 [Synthetic testing](syntheticTesting/syntheticTesting.md)
 
@@ -103,13 +104,13 @@
 - 🚧 [E2E testing](e2eTesting/e2eTesting.md)
 - 🟠 [Load testing](loadTesting/loadTesting.md)
 - 🟢 [Grafana K6](grafanaK6/grafanaK6.md)
-- 🟢 [⓽ Load testing: JWT Pizza Service](deliverable9LoadTesting/deliverable9LoadTesting.md)
+- 🟢 [⓾ Load testing: JWT Pizza Service](deliverable10LoadTesting/deliverable10LoadTesting.md)
 - 🟠 [Status](statusReporting/statusReporting.md)
 
 ## Failure management
 
 - 🟠 [Failure](failure/failure.md)
-- 🚧 Backup/Restore (Aurora)
+- 🚧 Backup/Restore
 - 🟠 [Alerts](alerting/alerting.md)
 - ☑ 🟠 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
 - 🚧 Playbooks
@@ -117,17 +118,17 @@
 - 🚧 SLO, RTO, RPO
 - 🟠 [Chaos testing](chaosTesting/chaosTesting.md)
 - 🟠 [Incident report](incidentReport/incidentReport.md)
-- ☑ 🟠 [⓾ Chaos testing: JWT Pizza](deliverable10ChaosTesting/deliverable10ChaosTesting.md)
+- ☑ 🟠 [⓫ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
 
 ## Penetration testing
 
 - 🟠 [OWASP top 10](owaspTop10/owaspTop10.md)
 - 🟢 [Penetration testing](penetrationTesting/penetrationTesting.md)
 - ☑ 🟠 [Burp Suite](burpSuite/burpSuite.md)
-- ☑ 🟠 [⓫ Penetration testing: JWT Pizza](deliverable11PenetrationTesting/deliverable11PenetrationTesting.md)
+- ☑ 🟠 [⓬ Penetration testing: JWT Pizza](deliverable12PenetrationTesting/deliverable12PenetrationTesting.md)
 
 ## Conclusion
 
-- ☑ 🟠 [⓬ Christlike introspection conclusion](deliverable11ChristlikeLearning/deliverable11ChristlikeLearning.md)
-- ⓭ Curiosity report conclusion
+- ☑ 🟠 [Christlike introspection conclusion](christlikeLearningFinal/christlikeLearningFinal.md)
+- ☑ Curiosity report conclusion
 - ☑ 🟠 [Wrap up](wrapUp/wrapUp.md)

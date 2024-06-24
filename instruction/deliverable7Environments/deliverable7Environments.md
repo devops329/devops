@@ -1,4 +1,4 @@
-# Environments: JWT Pizza
+# Deliverable ⓻ Environments: JWT Pizza
 
 Now that you know all about versions, releases, environments, and different deployment strategies, it is time for you to enhance your JWT Pizza frontend deployment process. What you want to end up with is a CI process that automatically creates a new version in S3 and deploys it to your **staging** environment every time a new commit is pushed to the `jwt-pizza` repository.
 
@@ -414,3 +414,29 @@ Go ahead and makes some changes to your `jwt-pizza` source code and watch the au
 This type of automation is at the heart of what a DevOps engineer does. Sometimes we think of coding only in regard to writing some algorithmic computation. However, the code found in your CI pipeline is just as valuable as any other lines of your application code. Furthermore, the application code that automates the calculation of Fibonacci would be pointless without the DevOp automation code that makes Fibonacci available to a customer.
 
 It is also pretty cool to write a couple dozen lines of automation code and see it completion build, test, archive, and deploy an application to multiple data centers around the world all with elastic, resilient, hardware and services. After that writing Fibonacci code feels kinda boring.
+
+## ☑ Assignment
+
+In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
+
+1. Archive each version build in your JWT Pizza S3 bucket.
+1. Create a GitHub staging environment.
+1. Convert your CloudFront distribution to be a staging distribution.
+1. Create a staging DNS record.
+1. Modify your GitHub Action workflow (`ci.ym`) to automatically update your **staging** CloudFront distribution.
+1. Create a GitHub version record for each build.
+1. Create a GitHub Action workflow (`release.yml`) that deploys to your **production** CloudFront distribution.
+
+Go to the [AutoGrader](https://cs329.cs.byu.edu) and submit your work for the **Environments** deliverable.
+
+### Rubric
+
+| Percent | Item                                                                              |
+| ------- | --------------------------------------------------------------------------------- |
+| 10%     | Strong GitHub commit history that documents your work in your fork of `jwt-pizza` |
+| 20%     | Versions archived in S3                                                           |
+| 10%     | GitHub version records created for both staging and production                    |
+| 30%     | Continuous deployment to your staging environment                                 |
+| 30%     | Triggered continuous delivery to your production environment                      |
+
+**Congratulations!** You have applied continuous delivery patterns to, and created different deployment environments for, your JWT Pizza application. Time to go celebrate. I'm thinking waffles 🧇.

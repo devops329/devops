@@ -31,7 +31,7 @@ The class will follows a cycle like this:
 
 1. A _third party_ development team will complete a phase of their application development and commit the results to GitHub.
 1. _You_ will act as the QA team to create the tests and analyze the code in order to assure its **quality**.
-1. _You_ will act as the DevOps team to create the continuous integration (CI) pipeline to **deploy** the application, **monitor** its use, and resolve incidents as they occur.
+1. _You_ will act as the DevOps team to create the continuous integration (CI) pipeline to **deploy** the application, **monitor** its use, and **resolve** incidents as they occur.
 
 ![workflow](workflow.png)
 
@@ -43,20 +43,22 @@ Multiple phases of development releases and changes to the devOps pipeline will 
 
 1. **Manual deploy** - Deploy frontend to GitHub Pages manually
 1. **Automated deploy** - Deploy frontend to GitHub Pages using GitHub Actions
-1. **Unit test** - Unit test backend and analysis using Jest and GitHub Actions
-1. **UI test** - User interface frontend testing using Playwright and GitHub Actions
+1. **Unit test** - Backend unit testing and analysis using Jest and GitHub Actions automation
+1. **UI test** - User interface unit testing using Playwright and GitHub Actions automation
 1. **CDN deploy** - Deploy frontend to AWS CloudFront
-1. **Scalable deploy** - Deploy backend to AWS Fargate and Aurora
-1. **Metric** - Provide metrics with Grafana Mimir
+1. **Scalable deploy** - Deploy backend to AWS Fargate and RDS MySQL
+1. **Environments** - Deploy to staging and production environments
+1. **Metric** - Provide metrics with Grafana Prometheus
 1. **Log** - Provide logging with Grafana Loki
-1. **Trace** - Provide execution tracing with Grafana Tempo
 1. **Load test** - Execute end to end load testing with K6
-1. **Failure test** - Failure test due to chaos injection
+1. **Choas test** - Chaos testing
 1. **Penetration test** - Penetration testing using Burp Suite
-1. **Curiosity report** - Independent research on a QA/DevOps topic
-1. **Christlike introspection** - Introspection into your relationship with the divine
 
-The following diagram represents the relationship between your deliverables.
+You will also create three reports as part of your work.
+
+1. **Penetration test report** - Work with a peer to attack each others JWT Pizza applications.
+1. **Curiosity report** - Independent research on a QA/DevOps topic
+1. **Christlike introspection** - Introspection into your relationship with the divine.
 
 ## Outcomes
 
@@ -70,7 +72,7 @@ By the end of the course you can expect the following outcomes in your personal 
 - **Collaborative**: Work as a team to discover DevOps design weaknesses.
 - **Christlike**: Strive for gratitude for, inspiration in, and the ability to apply capabilities to, celestial pursuits.
 
-## Well Rounded Software Engineers
+## Well rounded software engineers
 
 The key to learning how to be an exceptional software engineer rests in your ability to continually improve in four areas.
 
