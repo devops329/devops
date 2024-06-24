@@ -129,6 +129,6 @@
 
 ## Conclusion
 
-- ☑ 🟠 [Christlike introspection conclusion](christlikeLearningFinal/christlikeLearningFinal.md)
-- ☑ Curiosity report conclusion
+- ☑ 🟠 [Christlike introspection conclusion](christlikeLearningConclusion/christlikeLearningConclusion.md)
+- ☑ 🚧 Curiosity report conclusion
 - ☑ 🟠 [Wrap up](wrapUp/wrapUp.md)
