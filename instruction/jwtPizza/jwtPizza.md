@@ -6,9 +6,9 @@ In order for us to master the concepts of Quality Assurance and Developer Operat
 
 JWT Pizza provides the valuable service of exchanging BitCoin for virtual pizzas that are represented by a cryptographically signed token ([JWT](https://jwt.io/introduction)). JWT Pizza also provides the opportunity to create a franchise and cash in on the 🍕 virtual pizza craze.
 
-An external contracted application team has written the code for the application and you are in charge of the QA and DevOps roles for writing the tests, deploying to, and managing the production environment.
+An external contracted application team has written the code for the application and you are in charge of the QA and DevOps roles for writing the tests, deploying to, and managing the production and staging environments.
 
-You shouldn't assume that the external development engineers have done a perfect job with JWT Pizza. In fact, there are several known bugs and security vulnerabilities in the code. Part of your job will be to discover and report these problems.
+You shouldn't assume that the external development engineers have done a perfect job with JWT Pizza. In fact, there are several known bugs and security vulnerabilities in the code. Part of your job will be to discover and correct these problems.
 
 ## JWT Pizza architecture
 
@@ -34,8 +34,6 @@ graph TB;
 
 The following is the sitemap for JWT Pizza as provided by the product team. Note that while JWT Pizza is a fairly simple website, it has a significant amount of components and views that will require testing.
 
-Note that interfaces support a breadcrumb that allows a user to view and backtrack their navigation.
-
 ```mermaid
 graph TB;
     Home-->Login
@@ -52,8 +50,8 @@ graph TB;
     AdminDashboard-->CloseStore
     FranchiseDashboard-->CreateStore
     FranchiseDashboard-->CloseStore
-    Home-->DinnerDashboard
-    DinnerDashboard-->Menu
+    Home-->DinerDashboard
+    DinerDashboard-->Menu
     Menu-->Payment
     Payment-->Login
     Payment-->Delivery
@@ -75,7 +73,9 @@ The application team plans on the following release phases to the QA and DevOps 
 
 Note that the application team may release updates to their original deliverable. This will require you to merge your fork with their updates. As long as you do not manipulate the core application code beyond what is necessary to test and deploy the application this should not require you to resolve and merge conflicts.
 
-| Phase | Deliverable                     | Notes                                                                                                                                                                                                                                                                                                              | Repo                                                                |
-| :---: | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- |
-|   1   | **JWT Pizza (frontend)**        | By using the reference version of the [_JWT Pizza Service_](https://pizza-service.cs329.click) that is provided by _JWT headquarters_ you can deploy the frontend while you are waiting for the application team to deliver the backend service.                                                                   | [JWT Pizza](https://github.com/devops329/jwt-pizza)                 |
-|   2   | **JWT Pizza Service (backend)** | With this deliverable you can change your frontend to use your deployment of this service rather than the JWT headquarters version. Note that you are required to obtain an API key from JWT headquarters before you will be able deploy your service. The API key is necessary to create a JWT pizza order token. | [JWT Pizza Service](https://github.com/devops329/jwt-pizza-service) |
+| Phase | Deliverable                                     | Notes                                                                                                                                                                                                                                                                                                              | Repo                                                                |
+| :---: | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- |
+|   1   | **[JWT Pizza](pizza.cs329.click) (frontend)**   | By using the reference version of the [_JWT Pizza Service_](https://pizza-service.cs329.click) that is provided by _JWT headquarters_ you can deploy the frontend while you are waiting for the application team to deliver the backend service.                                                                   | [JWT Pizza](https://github.com/devops329/jwt-pizza)                 |
+|   2   | **https://pizza-service.cs329.click (backend)** | With this deliverable you can change your frontend to use your deployment of this service rather than the JWT headquarters version. Note that you are required to obtain an API key from JWT headquarters before you will be able deploy your service. The API key is necessary to create a JWT pizza order token. | [JWT Pizza Service](https://github.com/devops329/jwt-pizza-service) |
+
+Take some time playing around with the JWT Pizza application. Register yourself as a diner and order some pizza. The more you become familiar with the application the easier it will be for you to test, deploy, and manage it.

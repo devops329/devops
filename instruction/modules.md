@@ -16,7 +16,7 @@
 
 - ☑ [Overview](overview/overview.md)
 - [History](history/history.md)
-- 🟠 [JWT Pizza](jwtPizza/jwtPizza.md)
+- [JWT Pizza](jwtPizza/jwtPizza.md)
 - ☑ 🟠 [AWS Account](awsAccount/awsAccount.md)
 - ☑ 🟠 [Christlike learning](christlikeLearning/christlikeLearning.md)
 - 🟠 [GitHub](gitHub/gitHub.md)
