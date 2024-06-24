@@ -70,7 +70,7 @@ Continuous deployment (CD) immediately deploys a version as soon as the automate
 
 ### Serverless
 
-Serverless deployment take the idea of elastic deployment of resources to a new level. The system will automatically allocate resources as demand increases and release them as it decreases. Resources may be allocated for each specific requests, but usually, in the name of performance, a resources is initially allocated and then kept around for a time in anticipation of future use. The serverless system manager has to handle the deployment of new versions. This is usually done with a pattern that allows current requests to drain off the old version and new requests are allocated with the new version.
+Serverless deployment take the idea of elastic deployment of resources to a new level. The system will automatically allocate resources as demand increases and release them as it decreases. Resources may be allocated for each specific request, but usually, in the name of performance, a resources is initially allocated and then kept around for a time in anticipation of future use. The serverless system manager has to handle the deployment of new versions. This is usually done with a pattern that allows current requests to drain off the old version and new requests are allocated with the new version.
 
 ## Deployment strategies for JWT Pizza
 
