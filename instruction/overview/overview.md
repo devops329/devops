@@ -15,7 +15,7 @@ Beyond the work necessary to build the actual application, there are two additio
 
 In a small company the application team will often assume the roles of QA and DevOps. However, the function of these teams is often more successful then they operate independently.
 
-It assumed that you already have the skill necessary to build a reasonable web application. What this course will teach you is how to test, deploy, and manage an application in production.
+It assumes that you already have the skill necessary to build a reasonable web application. What this course will teach you is how to test, deploy, and manage an application in production.
 
 Your efforts will focus on playing the role of both a QA and DevOps engineer. You will ensure the quality of the software provided by the application team, and deploy the software to a production environment.
 
@@ -51,12 +51,12 @@ Multiple phases of development releases and changes to the devOps pipeline will 
 1. **Metric** - Provide metrics with Grafana Prometheus
 1. **Log** - Provide logging with Grafana Loki
 1. **Load test** - Execute end to end load testing with K6
-1. **Choas test** - Chaos testing
+1. **Chaos test** - Chaos testing
 1. **Penetration test** - Penetration testing using Burp Suite
 
 You will also create three reports as part of your work.
 
-1. **Penetration test report** - Work with a peer to attack each others JWT Pizza applications.
+1. **Penetration test report** - Work with a peer to attack each other's JWT Pizza applications.
 1. **Curiosity report** - Independent research on a QA/DevOps topic
 1. **Christlike introspection** - Introspection into your relationship with the divine.
 
@@ -94,7 +94,7 @@ By developing and utilizing software engineering skills you can have a significa
 1. **Divine Inspiration** - Seeking for divine help and direction in your efforts, enables you to avoid paths that would otherwise diminish your impact, and instead create results that otherwise would have been beyond your abilities.
 1. **Eternal Perspective** - If you look beyond a project due date, problem to solve, diploma, employer, career, or even this mortal existence, you will find your focus gravitating towards a purpose that is guided by the eternal rather than the moment.
 
-As you learn to tap into these two principles, you will find greater motivation and enjoyment in your efforts to acquire and apply your skills as a software engineer. Make sure you emphasise being `Christlike` when making your journey through life.
+As you learn to tap into these two principles, you will find greater motivation and enjoyment in your efforts to acquire and apply your skills as a software engineer. Make sure you emphasize being `Christlike` when making your journey through life.
 
 > “The temple is a place of revelation. There you are shown how to progress toward a celestial life. There you are drawn closer to the Savior and given greater access to His power. There you are guided in solving the problems in your life, even your most perplexing problems.”
 >
