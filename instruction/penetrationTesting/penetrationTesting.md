@@ -75,7 +75,7 @@ The goal here is not to actually use the weapon on the production system, but to
 
 There is great value in sharing information about best practices, vulnerabilities, and attempted and successful penetrations. Only by working together as a community can hope to protect the integrity of the global information infrastructure. The two main tools for sharing vulnerability information are the [Common Vulnerabilities and Exposures](https://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures) (CVE) report, and the [Common Vulnerability Scoring System](https://en.wikipedia.org/wiki/Common_Vulnerability_Scoring_System) (CVSS).
 
-❓ You might consider doing your curiosity report on the design of CVE and CVSS as well as its usefulness in supporting the security community.
+💡 You might consider doing your curiosity report on the design of CVE and CVSS as well as its usefulness in supporting the security community.
 
 ### CVE
 
