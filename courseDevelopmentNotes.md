@@ -32,11 +32,11 @@ Display properties crop 2500, 1400
 
     https://www.youtube.com/watch?v=ZzPZe36RdkU
 
-## Autograder
+## AutoGrader
 
 Allow impersonation. ✅
 
-Fix the deliverable steps to reflect the autograder usage.
+Fix the deliverable steps to reflect the AutoGrader usage.
 
 Change instruction for when they fork, add ta as collaborator ✅
 
@@ -118,7 +118,7 @@ Change instruction for when they fork, add ta as collaborator ✅
 | May 17 | Lee     | Research complete                                                                      |
 | May 22 | Lee     | Assignment definition complete                                                         |
 | May 24 | Lee     | Pizza Shop code complete                                                               |
-| May 24 | Stephen | Autograder design                                                                      |
+| May 24 | Stephen | AutoGrader design                                                                      |
 | May x  | x       | Course repo definition complete                                                        |
 | May x  | Lee     | Student example Phase 1 - UI Testing, Deploy to GitHub pages, with and without actions |
 | May x  | Lee     | Student example Phase 2 - Cloudfront deploy with version increment                     |
@@ -134,13 +134,13 @@ Change instruction for when they fork, add ta as collaborator ✅
 | Aug 28 | Lee     | Instruction written                                                                    |
 | Sept 4 | Lee     | Slides written                                                                         |
 | Sept 4 | Lee     | Videos created                                                                         |
-| Aug 28 | Stephen | Autograder complete                                                                    |
+| Aug 28 | Stephen | AutoGrader complete                                                                    |
 | Sept 4 | All     | Go Live                                                                                |
 
 ## Stephen's Core Responsibilities
 
 - [ ] K6, Grafana for logging and metrics
-- [ ] Autograder
+- [ ] AutoGrader
 - [ ] Student solutions for all assignments
 - [ ] Fix all of Professor Jensen's logic, grammar, and spelling errors
 
@@ -207,7 +207,7 @@ graph LR;
     end
 ```
 
-## Autograder
+## AutoGrader
 
 - Hook into CAS
 - Has DB for storing student info
@@ -219,14 +219,14 @@ graph LR;
 
 ```mermaid
 graph LR;
-    subgraph class autograder
-    autograder-->|get version/JWT|PizzaShopUI
-    autograder-->|trigger deployment|GitHubAction
-    autograder-->|get coverage|GitHub
-    autograder-->|inject chaos|ClassBE
-    autograder-->|record grade|Canvas
-    autograder-->|auth|ByuCas
-    autograder-->DB
+    subgraph class AutoGrader
+    AutoGrader-->|get version/JWT|PizzaShopUI
+    AutoGrader-->|trigger deployment|GitHubAction
+    AutoGrader-->|get coverage|GitHub
+    AutoGrader-->|inject chaos|ClassBE
+    AutoGrader-->|record grade|Canvas
+    AutoGrader-->|auth|ByuCas
+    AutoGrader-->DB
     end
 ```
 

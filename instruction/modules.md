@@ -18,8 +18,8 @@
 - [History](history/history.md)
 - [JWT Pizza](jwtPizza/jwtPizza.md)
 - ☑ 🟠 [AWS Account](awsAccount/awsAccount.md)
-- ☑ 🟠 [Christlike learning](christlikeLearning/christlikeLearning.md)
 - 🟠 [GitHub](gitHub/gitHub.md)
+- ☑ 🟠 [Christlike learning](christlikeLearning/christlikeLearning.md)
 - ☑ 🟠 [Curiosity report](curiosityReport/curiosityReport.md)
 
 ## Static deployment
@@ -27,7 +27,6 @@
 - ☑ 🟠 [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
 - 🟠 [Merge conflicts](mergeConflicts/mergeConflicts.md)
 - 🟠 [Static deployment](staticDeployment/staticDeployment.md)
-- 🚧 [Git Branches](gitBranches/gitBranches.md)
 - 🟠 [GitHub Pages](gitHubPages/gitHubPages.md)
 - ☑ 🟠 [⓵ Manual deployment: JWT Pizza](deliverable1ManualDeploy/deliverable1ManualDeploy.md)
 - 🚧 [Automation](automation/automation.md)

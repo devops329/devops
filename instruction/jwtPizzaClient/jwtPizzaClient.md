@@ -28,7 +28,7 @@ Here are the steps to take:
 
 1. Navigate your browser over to the [jwt-pizza](https://github.com/devops329/jwt-pizza) repository on GitHub and select the option to `Fork` the repository.
    > ![forkRepo](forkRepo.png)
-1. Create the fork by pressing the `Create fork` button. For the autograder to find your repo, leave the name of the repository `jwt-pizza`.
+1. Create the fork by pressing the `Create fork` button. For the AutoGrader to find your repo, leave the name of the repository `jwt-pizza`.
    > ![createFork](createFork.png)
 1. Invite `byucs329ta` to be a collaborator on your repository by navigating to `Settings -> Collaborators -> Add People` and searching `byucs329ta`.
    > ![collab](../gitHub/collab.png)
