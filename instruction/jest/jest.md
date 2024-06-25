@@ -600,8 +600,7 @@ class CatFact {
     this.facts = [];
   }
 
-  // Add a step to the pipeline. Each step is called in the order it was
-  // added.
+  // Add a step to the pipeline. Each step is called in the order it was added.
   async add() {
     try {
       const response = await fetch('https://meowfacts.herokuapp.com/');
