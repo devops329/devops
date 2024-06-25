@@ -77,10 +77,10 @@
 
 ## Deployment strategies
 
-- 🔵 [Versioning](versioning/versioning.md)
-- ☑ 🔵 [GitHub Releases](gitHubReleases/gitHubReleases.md)
-- 🔵 [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
-- ☑ 🔵 [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
+- 🟢 [Versioning](versioning/versioning.md)
+- ☑ 🟢 [GitHub Releases](gitHubReleases/gitHubReleases.md)
+- 🟢 [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
+- ☑ 🟢 [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
 - 🔵 [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
 - ☑ 🔵 [⓻ Environments: JWT Pizza](deliverable7Environments/deliverable7Environments.md)
 

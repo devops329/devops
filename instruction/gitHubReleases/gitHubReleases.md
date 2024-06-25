@@ -2,7 +2,7 @@
 
 📖 **Deeper dive reading**: [Managing GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
 
-GitHub support the ability to associate a release with a version and commit. You can do this manually by going to the home page for a repository and selecting controls on the `Releases` section on the right of the view. From there you can press the `Draft a new release` button.
+GitHub supports the ability to associate a release with a version and commit. You can do this manually by going to the home page for a repository and selecting controls on the `Releases` section on the right of the view. From there you can press the `Draft a new release` button.
 
 Type your version ID into the version box. This will automatically create a Git tag with this name and apply it to the latest commit. You can also select an existing Git tag if you already have one.
 
@@ -10,7 +10,7 @@ You can then give your release a name and provide a description using markdown. 
 
 ![Create release](createRelease.png)
 
-This will create the release and also associate it with any artifacts that exist on the commit that was tagged as well as display the release on the repositories main page.
+This will create the release and also associate it with any artifacts that exist on the commit that was tagged as well as display the release on the repository's main page.
 
 ![Manual release creation](manualReleaseCreation.png)
 
@@ -18,7 +18,7 @@ This is a really nice way to visualize when a commit was deployed as a productio
 
 ## Automating releases
 
-Since we are DevOps engineers we should have got immediately uncomfortable with anything that requires a human in the process. So let's change your `jwt-pizza` CI pipeline so that it creates the release instead of depending on a manually executed step.
+Since we are DevOps engineers, reading the human-dependent steps above should immediately make us uncomfortable. So let's change your `jwt-pizza` CI pipeline so that it creates the release instead of depending on a manually executed step.
 
 First of all you need to create a version ID that can be used through out the GitHub action workflow. You can do this by outputting the version from your **build** job. You can reuse the version output to create the version.json file that is deployed to the production environment. That ensures that your version number is consistent across the deployment.
 
@@ -64,7 +64,7 @@ release:
           **commit**: ${{ github.sha }}
 ```
 
-With this job in your pipeline, it will automatically create the version the next time you commit to your fork of the `jwt-pizza` repository.The next time you run your CI pipeline it
+With this job in your pipeline, it will automatically create the version the next time you commit to your fork of the `jwt-pizza` repository.
 
 ## ☑ Assignment
 

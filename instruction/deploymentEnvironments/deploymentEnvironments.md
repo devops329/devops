@@ -8,11 +8,11 @@ To this point you have been deploying your code directly to your production envi
     aws s3 cp dist s3://pizza.byucsstudent.click/$version --recursive
 ```
 
-This has several problems. First off it just copies the deployment package files directly into the S3 location that CloudFront hosts to the world using your application URL. That means that old files that are no longer used by the application are still available for public access. This creates a security, as well as a maintenance, problem.
+This has several problems. First, it just copies the deployment package files directly into the S3 location that CloudFront hosts to the world using your application URL. That means that old files that are no longer used by the application (and therefore will not be overwritten by copying) are still available for public access. This creates a security, as well as a maintenance, problem.
 
-If you delete the old version before you copy up the new version, then this introduces the possibility of the customer getting a 404 error if they try and load the application between the deletion and the copying up of the new files.
+If you delete the old version before you copy up the new version, then this introduces the possibility of the customer getting a 404 error if they try to load the application between the deletion and the copying up of the new files.
 
-Additionally, if you want to rollback to a previous version of the application you would need to rerun your CI pipeline with a pervious Git commit. Something that you are not currently configured to easily do, and that would take several minutes to execute. That is not a good position to be in when a critical failure is occurring.
+Additionally, if you want to rollback to a previous version of the application, you would need to rerun your CI pipeline with a previous Git commit. This is not something that you are currently configured to easily do, and it would take several minutes to execute. That is not a good position to be in when a critical failure is occurring.
 
 Finally there is the problem that there is only one environment that hosts your entire application stack. You have a development environment where individual developers can create and experiment. You have a CI environment where a version is built, tested, and analyzed. But there is no place that you can go to see how the application actually works without doing that in the same place as your customers.
 
@@ -32,7 +32,7 @@ Each environment has the same starting flow where the software is tested, analyz
 
 - **Sales**: The sales environment is tailored specifically for demonstrations and presentations to potential customers and stakeholders. It allows the sales team to showcase the latest features and capabilities of the application in a controlled and polished setting. This environment often includes sample data and custom configurations that highlight the application's strengths and selling points, helping to create a compelling and impactful sales pitch. The data contained in this environment is created completely to tell a good sales story and can be reset after a demo.
 
-- **Single tenancy**: You may also want to create an environment to isolates a single customer. This can be done for security or performance reasons.
+- **Single tenancy**: You may also want to create an environment to isolate a single customer. This can be done for security or performance reasons.
 
 ## Conclusion
 
