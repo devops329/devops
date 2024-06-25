@@ -30,7 +30,7 @@
 - 🟠 [Static deployment](staticDeployment/staticDeployment.md)
 - 🟠 [GitHub Pages](gitHubPages/gitHubPages.md)
 - ☑ 🟠 [⓵ Manual deployment: JWT Pizza](deliverable1ManualDeploy/deliverable1ManualDeploy.md)
-- 🔵 [Automation](automation/automation.md)
+- 🟢 [Automation](automation/automation.md)
 - 🚧 [Continuous integration (CI)](continuousIntegration/continuousIntegration.md)
 - 🚧 [GitHub Actions](gitHubActions/gitHubActions.md)
 - ☑ 🟠 [⓶ Automated deployment: JWT Pizza](deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)
