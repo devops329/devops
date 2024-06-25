@@ -16,7 +16,7 @@
 
 - ☑ [Overview](overview/overview.md)
 - [History](history/history.md)
-- 🔵 [Terminology](terminology/terminology.md)
+- 🟢 [Terminology](terminology/terminology.md)
 - [JWT Pizza](jwtPizza/jwtPizza.md)
 - ☑ 🟠 [AWS Account](awsAccount/awsAccount.md)
 - 🟠 [GitHub](gitHub/gitHub.md)
@@ -81,7 +81,7 @@
 - ☑ 🟢 [GitHub Releases](gitHubReleases/gitHubReleases.md)
 - 🟢 [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
 - ☑ 🟢 [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
-- 🔵 [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
+- 🟢 [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
 - ☑ 🔵 [⓻ Environments: JWT Pizza](deliverable7Environments/deliverable7Environments.md)
 
 ## Observability

@@ -1,6 +1,6 @@
 # Deployment strategies
 
-There are many different deployment strategies you can use when deploying your application. Each of the different strategies address a specific system complexities. All strategies require some concept of a version and they usually requires some level of compatibility between deployed versions.
+There are many different deployment strategies you can use when deploying your application. Each of the different strategies address a specific system of complexities. All strategies require some concept of a version and they usually require some level of compatibility between deployed versions.
 
 ## Branches
 
@@ -10,11 +10,11 @@ You can also use branches as the source for different deployment environments. F
 
 ## Rollback
 
-You must also consider the possibility that you need to roll your application back as well as rolling forward. This happens when a bug has slipped through the quality assurance process. When it is necessary to rollback a deployment it is usually critical to do it quickly. You cannot wait to rebuild an older version from your Git commit chain, or for significant resources to be allocated in order to support the unexpected deployment.
+You must also consider the possibility that you need to roll your application back as well as rolling forward. This happens when a bug has slipped through the quality assurance process. When it is necessary to rollback a deployment, it is usually critical to do it quickly. You cannot wait to rebuild an older version from your Git commit chain, or for significant resources to be allocated in order to support the unexpected deployment.
 
 ## Version compatibility
 
-An important consideration for deploying a new version, is its compatibility with previous and future versions. In an ideal world all versions of the software would be compatible with all other versions. In reality that is hard to deliver. Database schemas change, old features are dropped, and new ones added. Parameters for endpoints also change. If you are not careful this can trigger significant failures and even destroy customer or application data.
+An important consideration for deploying a new version is its compatibility with previous and future versions. In an ideal world, all versions of the software would be compatible with all other versions. In reality, that is hard to deliver. Database schemas change, old features are dropped, and new ones added. Parameters for endpoints also change. If you are not careful this can trigger significant failures and even destroy customer or application data.
 
 A common strategy is to keep N-1 compatibility. This means that the new version is always compatible with the previous version. The new version can add new functionality, but it always has code that handles how things were done previously. In the most problematic cases this code usually takes the form of a conditional that creates a shim for the old functionality that makes it appear like the new functionality.
 
@@ -36,11 +36,11 @@ With the advent of cloud computing, it is so easy and cheap to spin up new resou
 
 ## Strategies
 
-The following is a list of common deployment strategies. There is not perfect strategy that works for all situations and you can even combine strategies into hybrids to handle complex architectures that have multiple levels of deployment concerns.
+The following is a list of common deployment strategies. There is no perfect strategy that works for all situations, and you can even combine strategies to handle complex architectures that have multiple levels of deployment concerns.
 
 ### Reboot
 
-Drain, stop, delete, replace, and restarts each resource. This has the advantage of being very simple and removing all possible dependencies between versions as long as requests are sticky to a specific resource. It also requires a minimum of resources since you simply reuse everything that was already deployed. However, it takes time to move through the resources one by one, it is slow to rollback, and it decreases the capacity of the application during deployment.
+Drain, stop, delete, replace, and restart each resource. This has the advantage of being very simple and removing all possible dependencies between versions as long as requests are sticky to a specific resource. It also requires a minimum of resources since you simply reuse everything that was already deployed. However, it takes time to move through the resources one by one, it is slow to rollback, and it decreases the capacity of the application during deployment.
 
 ![Reboot strategy](reboot.png)
 
@@ -66,17 +66,17 @@ With A/B testing you have two versions running at the same time, but traffic is 
 
 ### Continuous
 
-Continuous deployment (CD) immediately deploys a version as soon as the automated tests complete. This is in contrast to continuous delivery which creates new versions that are usually deployed as part of a schedule or human trigger. For continuous deployment to be successful your architecture must automatically alert on any anomalies and have the ability to rollback quickly. Otherwise your customers, become your quality assurance team and that usually doesn't go very well for very long.
+Continuous deployment (CD) immediately deploys a version as soon as the automated tests complete. This is in contrast to continuous delivery which creates new versions that are usually deployed as part of a schedule or human trigger. For continuous deployment to be successful your architecture must automatically alert on any anomalies and have the ability to rollback quickly. Otherwise your customers become your quality assurance team and that usually doesn't go very well for very long.
 
 ### Serverless
 
-Serverless deployment take the idea of elastic deployment of resources to a new level. The system will automatically allocate resources as demand increases and release them as it decreases. Resources may be allocated for each specific request, but usually, in the name of performance, a resources is initially allocated and then kept around for a time in anticipation of future use. The serverless system manager has to handle the deployment of new versions. This is usually done with a pattern that allows current requests to drain off the old version and new requests are allocated with the new version.
+Serverless deployment takes the idea of elastic deployment of resources to a new level. The system will automatically allocate resources as demand increases and release them as it decreases. Resources may be allocated for each specific request, but usually, in the name of performance, a resource is initially allocated and then kept around for a time in anticipation of future use. The serverless system manager has to handle the deployment of new versions. This is usually done with a pattern that allows current requests to drain off the old version and new requests are allocated with the new version.
 
 ## Deployment strategies for JWT Pizza
 
 #### JWT Pizza Service
 
-The JWT Pizza backend uses a **Immutable** strategy that is managed by ECS and the EC2 application load balancer. When a new version is created, EC2 spins up the required number of containers and creates a new load balancer cluster. The old cluster is drained as all the new traffic is moved to the new cluster. Once all the traffic has been moved over and the health of the cluster is deemed to be acceptable the old cluster is destroyed. If during the deployment, the health of the cluster is unacceptable then the traffic is returned to the old cluster and the new cluster is destroyed.
+The JWT Pizza backend uses a **Immutable** strategy that is managed by ECS and the EC2 application load balancer. When a new version is created, EC2 spins up the required number of containers and creates a new load balancer cluster. The old cluster is drained as all the new traffic is moved to the new cluster. Once all the traffic has been moved over and the health of the cluster is deemed to be acceptable, the old cluster is destroyed. If during the deployment, the health of the cluster is unacceptable, then the traffic is returned to the old cluster and the new cluster is destroyed.
 
 #### JWT Pizza
 

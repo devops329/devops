@@ -394,7 +394,7 @@ If you save, commit, and push the changes the above changes to your CI pipelines
 
 You can then grab the version ID from the release record and use it to manually do a production release.
 
-1. navigate to the GitHub dashboard for your fork of the `jwt-pizza` repository.
+1. Navigate to the GitHub dashboard for your fork of the `jwt-pizza` repository.
 1. Click on `Actions` and then select the `Production release` workflow.
 1. Press the `Run workflow` button and add both the version ID and a description of the release as inputs.
 
@@ -411,9 +411,9 @@ Go ahead and makes some changes to your `jwt-pizza` source code and watch the au
 
 ## Thoughts on automation programming
 
-This type of automation is at the heart of what a DevOps engineer does. Sometimes we think of coding only in regard to writing some algorithmic computation. However, the code found in your CI pipeline is just as valuable as any other lines of your application code. Furthermore, the application code that automates the calculation of Fibonacci would be pointless without the DevOp automation code that makes Fibonacci available to a customer.
+This type of automation is at the heart of what a DevOps engineer does. Sometimes we think of coding only in regard to writing some algorithmic computation. However, the code found in your CI pipeline is just as valuable as any other lines of your application code. Furthermore, the application code that automates the calculation of Fibonacci would be pointless without the DevOps automation code that makes Fibonacci available to a customer.
 
-It is also pretty cool to write a couple dozen lines of automation code and see it completion build, test, archive, and deploy an application to multiple data centers around the world all with elastic, resilient, hardware and services. After that writing Fibonacci code feels kinda boring.
+It is also pretty cool to write a couple dozen lines of automation code and see it build, test, archive, and deploy an application to multiple data centers around the world all with elastic, resilient hardware and services. After that writing Fibonacci code feels kinda boring.
 
 ## ☑ Assignment
 
@@ -423,7 +423,7 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Create a GitHub staging environment.
 1. Convert your CloudFront distribution to be a staging distribution.
 1. Create a staging DNS record.
-1. Modify your GitHub Action workflow (`ci.ym`) to automatically update your **staging** CloudFront distribution.
+1. Modify your GitHub Action workflow (`ci.yml`) to automatically update your **staging** CloudFront distribution.
 1. Create a GitHub version record for each build.
 1. Create a GitHub Action workflow (`release.yml`) that deploys to your **production** CloudFront distribution.
 
