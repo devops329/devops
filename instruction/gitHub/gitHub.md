@@ -67,11 +67,15 @@ Now we can add a couple more commits and they will **branch** of from the **new-
 
 You can merge two branches together again using the `git merge` command. To create a merge you check out the branch that you want to merge into and request that the other branch is merged into it.
 
+```sh
+git merge new-feature-branch
+```
+
 ![alt text](mergeBranch.png)
 
 Now all the changes that were created on the **new-feature-branch** are also included in the **master** branch. If there is a conflicting change in either branch then an additional commit is created that resolves the conflict.
 
-Hopefully, you can see the possibilities that this functionality provides.
+As simple as this process of committing, branching, and merging may appear, hopefully you can see the possibilities that this functionality provides. Proper source code version control is a foundational piece of modern software engineering. It is well worth the time to dig deep into this functional. 💡 Perhaps consider digging into the internals of how Git works as your curiosity project.
 
 ### Visualizing branches
 
@@ -117,3 +121,9 @@ GitHub allows you to create a fork of any repository on GitHub. You just push th
 ## Contributing to the course instruction
 
 In this class, if you notice something in the instruction that needs to be enhanced, feel free to fork the [instruction repo](https://github.com/devops329/devops), and make a pull request. This will give you experience with forking and improve the instruction for others at the same time, plus your name will be included as a contributor. How cool is that!
+
+## Commit often
+
+You are required to have a significant number of meaningful commits for each course deliverable in order to get full credit. Commonly, this will be an initial commit that contains some initial design or code placeholders, followed by commits at each functional milestone, and then a final commit for the working deliverable. Committing your code often is an important practice for you to develop. It protects you from losing your work, allows access from anywhere, makes it so you can quickly share changes, reduces conflicts with your peers, and enables you to efficiently explore different possibilities. This also enables others to review the progression of your development efforts in order to prove the originality of your work.
+
+Remember to make meaningful commit messages that describe the **what** and **why** of the changes made. Here is a [good post](https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/) on how to make meaningful commit messages.
