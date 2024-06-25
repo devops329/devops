@@ -16,7 +16,7 @@
 
 - ☑ [Overview](overview/overview.md)
 - [History](history/history.md)
-- [Terminology](terminology/terminology.md)
+- 🔵 [Terminology](terminology/terminology.md)
 - [JWT Pizza](jwtPizza/jwtPizza.md)
 - ☑ 🟠 [AWS Account](awsAccount/awsAccount.md)
 - 🟠 [GitHub](gitHub/gitHub.md)
@@ -30,9 +30,9 @@
 - 🟠 [Static deployment](staticDeployment/staticDeployment.md)
 - 🟠 [GitHub Pages](gitHubPages/gitHubPages.md)
 - ☑ 🟠 [⓵ Manual deployment: JWT Pizza](deliverable1ManualDeploy/deliverable1ManualDeploy.md)
-- 🟢 [Automation](automation/automation.md)
-- 🚧 [Continuous integration (CI)](continuousIntegration/continuousIntegration.md)
-- 🚧 [GitHub Actions](gitHubActions/gitHubActions.md)
+- 🔵 [Automation](automation/automation.md)
+- 🔵 [Continuous integration (CI)](continuousIntegration/continuousIntegration.md)
+- 🔵 [GitHub Actions](gitHubActions/gitHubActions.md)
 - ☑ 🟠 [⓶ Automated deployment: JWT Pizza](deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)
 
 ## Quality assurance
@@ -50,7 +50,7 @@
 - ☑ 🟠 [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
 - 🟠 [JWT Pizza data](jwtPizzaData/jwtPizzaData.md)
 - 🟠 [Unit testing: JWT Pizza Service](unitTestingJwtPizzaService/unitTestingJwtPizzaService.md)
-- ☑ 🟠 [⓷ Unit testing CI](deliverable3UnitTestingCi/deliverable3UnitTestingCi.md)
+- ☑ 🟠 [⓷ Unit testing CI: JWT Pizza Service](deliverable3UnitTesting/deliverable3UnitTesting.md)
 - 🟠 [UI testing](uiTesting/uiTesting.md)
 - ☑ 🟠 [Playwright](playwright/playwright.md)
 - ☑ 🟠 [⓸ User interface testing: JWT Pizza](deliverable4UiTesting/deliverable4UiTesting.md)

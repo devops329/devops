@@ -1,4 +1,4 @@
-# Deliverable ⓷ Unit testing CI
+# Deliverable ⓷ Unit testing CI: JWT Pizza Service
 
 ![course overview](../sharedImages/courseOverview.png)
 
@@ -40,11 +40,11 @@ This workflow is fairly simple. It checks out the code, installs the NPM depende
 
 When you commit and push this change, you can view the workflow executing on the GitHub Actions view of your repository. Assuming that you have cleaned up all of the linting errors, you should see something similar to the following.
 
-> ![action result](actionResult.png)
+![action result](actionResult.png)
 
 If you go and introduce a linting error to your code by doing something like declaring an unused variable, you should see an error when you commit.
 
-> ![action result error](actionResultError.png)
+![action result error](actionResultError.png)
 
 ## Executing tests in the workflow
 

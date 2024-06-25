@@ -1,140 +1,131 @@
 # GitHub Actions
 
-☑ Deploy the front end app to GitHub Pages
-
-We are using GitHub actions for your CI pipeline. We will first apply it to our GitHub page deployment. We will then add other pipelines to go to AWS
+📖 **Deeper dive reading**:
 
 - [Quick Start](https://docs.github.com/en/actions/quickstart)
 - [GitHub Token](https://dev.to/github/the-githubtoken-in-github-actions-how-it-works-change-permissions-customizations-3cgp)
 - [Actions Tutorial](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions)
 - [Secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions)
-- [Article similar to what I did](https://gohugo.io/hosting-and-deployment/hosting-on-github/)
-- [Docs Pages from actions](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#creating-a-custom-github-actions-workflow-to-publish-your-site)
-- add build.yml
-- I got a good deployment script to work with just actions owned by github. But it only deploys to the [pizzashop repo](https://devops329.github.io/pizzashop/). I need to figure out how to get it on a URL without a path.
 
-You define a workflow that is triggered by events and runs jobs that have steps that do actions. A step is either a shell script or an action to run.
+For this course we are using GitHub Actions as the execution engine for the JWT Pizza CI pipelines. GitHub Actions represent a CI pipeline with a YAML formatted **workflow** file. Workflows are stored in the `.github/workflows` directory in a repository. Any `.yml` files located in that directory will automatically be loaded and executed. A repository can have multiple workflows, each of which can perform a different set of tasks. For example, you can have one workflow to build and test pull requests and another workflow to deploy your application every time a release is created.
 
-Jobs run in parallel. They can be dependent on each other.
+The workflow is comprised of one or more **jobs** which are in turn, comprised of one or more **steps**. A step will execute an individual task such as building the code, running tests, or copying files. When workflows triggers based upon some event such as a push, issue creation, or timer, a **runner** loads and executes the workflow. It is common for there to be some sort of output for a workflow such as a release artifact or a binary that is pushed into production.
 
-```yaml
+![alt text](gitHubActionWorkflow.png)
+
+## A simple example
+
+In the following example, the name of the workflow is **basic** and it is triggered by a **workflow_dispatch**, meaning when someone presses a button. This runs the **greeter** job in a container running the latest version of ubuntu. The job executes two steps. One that echos _hello_ and one that echos _goodbye_ to the console.
+
+```yml
+name: basic
+
+on:
+  workflow_dispatch:
+
 jobs:
-  job1:
+  greeter:
     runs-on: ubuntu-latest
-    name: build and test
-  job2:
-    name: lint and security analysis
-    needs: job1
-  job3:
-    name: deploy
-    if: ${{ success() }}
-    needs: [job1, job2]
+    steps:
+      - run: echo hello
+      - run: echo goodbye
 ```
 
-[Pull Request Best Practices](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/best-practices-for-pull-requests)
-[GitHubActionsHero](https://github-actions-hero.vercel.app/)
-[Pluralsight GitHub Actions](https://app.pluralsight.com/library/courses/github-actions-getting-started/table-of-contents)
+You can create and trigger this workflow by opening GitHub in your browser and opening any repository in your account. Add a new file to your repository code that is named `.github/workflows/test.yml`. Paste the above workflow into the contents of the file and then commit the change.
 
-- Created actions-demo repo
-- Edit repo settings. Removed wiki, project, issues,
-- Added Branches/Branch protection. Set on main, require pull requests with one approver, don't allow bypass
-- I enabled auto delete and suggest merge on pull requests
-- Created a TA team
-- Added actions-demo repo to TA team so they can maintain it
-- cloned the repo locally, added vanilla vite app, and pushed
-- Added Branches/Branch protection on main don't allow bypass
-- Made a change to the code in dev.
-- Tried to push, got this error now because even the admin can bypass
-  ```sh
-  git push
-      Enumerating objects: 5, done.
-      Counting objects: 100% (5/5), done.
-      Delta compression using up to 8 threads
-      Compressing objects: 100% (3/3), done.
-      Writing objects: 100% (3/3), 359 bytes | 359.00 KiB/s, done.
-      Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
-      remote: Resolving deltas: 100% (1/1), completed with 1 local object.
-      remote: error: GH006: Protected branch update failed for refs/heads/main.
-      remote: error: Changes must be made through a pull request.
-      To https://github.com/devops329/actions-demo.git
-      ! [remote rejected] main -> main (protected branch hook declined)
-      error: failed to push some refs to 'https://github.com/devops329/actions-demo.git'
-  ```
-- Created a `phase1` branch and pushed.
-  ```sh
-  git branch phase1
-  git push origin phase1
-  ```
-- Now I have two branches for the repo
-- Went to GitHub and viewed the `phase` branch. Created a pull request.
-- Got the warning that at least on reviewer is required before merge.
-- Couldn't review, because I can't review my own pull request. Arrrgh! So I change the admin bypass restriction back. Now an admin can make changes.
-- However, I want to test this and so I create a student account.
-- Created a new github user account and invited user
-  - byucsstudent
-  - lee@cs.byu.edu
-- I create a Team called students and add the byucsstudent to the team.
-- I give the students team the ability to write, but that requires them to write using a pull request.
-- The student then goes to their github account, views the actions-demo repo and makes a change. When they commit it says they must create a branch and use a pull request. Nice!
-- The pull request shows that it is block on a review before it can merge.
-- As an admin I can review the pull request and approve it. Now it is ready to merge and so I do that.
-- I can also delete the student submitted branch so that we keep things clean.
-- As an admin I can also create a branch and pull request. The student can then review it and merge it in.
-- Love this. It should definitely be an assignment so that they learn how to work as a team. We can have them talk to someone in class has have them act as the reviewer. Or have a TA act as a reviewer. However, that would require that they get invited to their repo. Maybe at the beginning of class we should have a partner. If that partner fails we can replace them with a TA.
+![Create workflow](createWorkflow.png)
 
-# GitHub Actions Docs
+Navigate to the `Actions` tab on the repository's main menu, select the `basic` workflow and press the `Run workflow` button.
 
-> The following was taken directly from the GitHub documentation.
+![Run workflow](runWorkflow.png)
 
-## Workflows
+Once the workflow has completed you can inspect the results.
 
-A workflow is a configurable automated process that will run one or more jobs. Workflows are defined by a YAML file checked in to your repository and will run when triggered by an event in your repository, or they can be triggered manually, or at a defined schedule.
+![View workflow results](viewWorkflowResults.png)
 
-Workflows are defined in the .github/workflows directory in a repository, and a repository can have multiple workflows, each of which can perform a different set of tasks. For example, you can have one workflow to build and test pull requests, another workflow to deploy your application every time a release is created, and still another workflow that adds a label every time someone opens a new issue.
+## Triggers
 
-You can reference a workflow within another workflow. For more information, see "Reusing workflows."
+In the simple example given above, you executed the workflow using a manual trigger (workflow_dispatch). Generally you want a CI pipeline to be completely automated. GitHub supports a long list of possible [triggers](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows). Here is a list of some of the more common ones.
 
-For more information about workflows, see "Using workflows."
+| Trigger             | Description                                                                                 |
+| ------------------- | ------------------------------------------------------------------------------------------- |
+| create              | A branch or tag is created                                                                  |
+| fork                | A fork is created                                                                           |
+| issues              | An issue is created, edited, closed or deleted                                              |
+| pull_request        | A pull request is created                                                                   |
+| push                | A push is executed                                                                          |
+| release             | A release is created                                                                        |
+| repository_dispatch | A GitHub API webhook is called. This lets you automate the workflow from an external system |
+| schedule            | Based on a cron job                                                                         |
+| watch               | a GitHub user is watching your repository                                                   |
+| workflow_dispatch   | A manual button press                                                                       |
+| workflow_run        | Another workflow started or completed                                                       |
 
-Events
-An event is a specific activity in a repository that triggers a workflow run. For example, activity can originate from GitHub when someone creates a pull request, opens an issue, or pushes a commit to a repository. You can also trigger a workflow to run on a schedule, by posting to a REST API, or manually.
+## Workflow pieces
 
-For a complete list of events that can be used to trigger workflows, see Events that trigger workflows.
+Now that we have a general idea of how GitHub Actions work and what can trigger a workflow, let's take a step back and example the parts of a workflow in detail.
 
-## Jobs
+### Jobs
 
-A job is a set of steps in a workflow that is executed on the same runner. Each step is either a shell script that will be executed, or an action that will be run. Steps are executed in order and are dependent on each other. Since each step is executed on the same runner, you can share data from one step to another. For example, you can have a step that builds your application followed by a step that tests the application that was built.
+A job consists of steps in a workflow executed on the same runner. Each step can be a shell script or an action, executed sequentially and interdependently, allowing data sharing between steps. For example, a build step can be followed by a test step.
 
-You can configure a job's dependencies with other jobs; by default, jobs have no dependencies and run in parallel with each other. When a job takes a dependency on another job, it will wait for the dependent job to complete before it can run. For example, you may have multiple build jobs for different architectures that have no dependencies, and a packaging job that is dependent on those jobs. The build jobs will run in parallel, and when they have all completed successfully, the packaging job will run.
+Jobs can be configured with dependencies on other jobs, though by default, they run in parallel. When a job depends on another, it waits for the dependent job to complete. For instance, multiple build jobs for different architectures can run in parallel, followed by a packaging job that depends on the successful completion of all build jobs.
 
-For more information about jobs, see "Using jobs."
+Workflow jobs run concurrently, but they can be dependent on each other by specifying what a job **needs** before it can execute. In the following example workflow defines build, analyze, and deploy jobs. The analyze job requires the build job to complete before it runs. The deploy job requires both the build and analyze to complete.
 
-## Actions
+```yml
+jobs:
+  build:
+    steps:
+      - run: npm build
+  analyze:
+    needs: build
+    steps:
+      - run: npm run analyze
+  deploy:
+    needs: [build, analyze]
+    steps:
+      - run: aws s3 cp dist s3://bucket
+```
 
-An action is a custom application for the GitHub Actions platform that performs a complex but frequently repeated task. Use an action to help reduce the amount of repetitive code that you write in your workflow files. An action can pull your git repository from GitHub, set up the correct toolchain for your build environment, or set up the authentication to your cloud provider.
+### Steps
 
-You can write your own actions, or you can find actions to use in your workflows in the GitHub Marketplace.
+Steps can either be a simple shell command with the **run** clause, or an **action** with the **uses** clause. An action is a simple docker container that can receive input from the step and generate outputs. GitHub provides many standard actions and then there are also community provided actions.
 
-For more information, see "Creating actions."
+A basic GitHub Actions workflow that builds a Node.js project and runs the tests what have the following steps for 1) checking out the code, 2) installing Node.js, and 3) installing the packages and running the tests.
 
-## Runners
+```yml
+name: Test
 
-A runner is a server that runs your workflows when they're triggered. Each runner can run a single job at a time. GitHub provides Ubuntu Linux, Microsoft Windows, and macOS runners to run your workflows; each workflow run executes in a fresh, newly-provisioned virtual machine. GitHub also offers larger runners, which are available in larger configurations. For more information, see "About larger runners." If you need a different operating system or require a specific hardware configuration, you can host your own runners. For more information about self-hosted runners, see "Hosting your own runners."
+on:
+  push:
+    branches:
+      - main
 
-## Pull request deployment
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-What if you don't want a production version of your code to be built or continuously deployed every time you commit to your repo. You can solve this by using pull requests. Here is the basic flow.
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
 
-1. As a team you create your production repository.
-1. Restrict the ability for the team to push directly to the repository.
-1. Team members create a branch of the repository and do their work there.
-1. A team member then pushes their code to the branch.
-1. The branch push triggers a workflow that tests and analyzes the code.
-1. If successful the team member can create a pull request.
-1. The repository is configured to require a certain number of reviews before the pull request can be merged.
-1. Once the pull request is accepted it is automatically merged into the main branch.
-1. The commit to the main branch triggers another workflow that creates and/or publishes a production deployment.
+      - name: Test
+        run: |
+          npm ci
+          npm test
+```
 
-Note that you can use this same pattern with forks instead of branches. A fork further isolates the code author from the production repository. Forks are commonly used for open source projects.
+## An example: Pull request deployment
+
+In order to help you see the value the comes from GitHub Actions, let's consider a real world example. You have created a popular open source repository. You already created a **deploy** workflow that triggers whenever a change is made to the main branch of your repo. The deploy workflow builds your code and hosts the resulting binary on AWS.
 
 ![pull request deployment](pullRequestDeployment.png)
+
+Now you want to allow external contributors to fork your repository and create pull results for new features or bug fixes. When an external contributor creates a pull request the **verify** workflow is triggered and the code is automatically analyzed to make sure the changes honor all of the linting and security policies. If successful then the **approval** workflow is triggered and a team member is notified to conduct a code review. If the reviewer approves the changes then she confirms her approval and the workflow commits the changes to the main branch. The commit triggers the original **deploy** workflow and a production release is created.
+
+Note that you can use this same pattern with forks instead of branches. Branches are generally used for internal reviews, while forks are used with open source project external contributors.

@@ -1,5 +1,9 @@
 # Notes
 
+## Testing user
+
+- byucsstudent (CS email)
+
 ## Image manipulation
 
 ### Resize image
