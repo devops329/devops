@@ -15,7 +15,7 @@ The workflow is comprised of one or more **jobs** which are in turn, comprised o
 
 ## A simple example
 
-In the following example, the name of the workflow is **basic** and it is triggered by a **workflow_dispatch**, meaning when someone presses a button. This runs the **greeter** job in a container running the latest version of ubuntu. The job executes two steps. One that echos _hello_ and one that echos _goodbye_ to the console.
+In the following example, the name of the workflow is **basic** and it is triggered by a **workflow_dispatch**, meaning when someone presses a button or makes an api call to trigger the workflow. This runs the **greeter** job in a container running the latest version of ubuntu. The job executes two steps. One echos _hello_ and one echos _goodbye_ to the console.
 
 ```yml
 name: basic
@@ -71,7 +71,7 @@ A job consists of steps in a workflow executed on the same runner. Each step can
 
 Jobs can be configured with dependencies on other jobs, though by default, they run in parallel. When a job depends on another, it waits for the dependent job to complete. For instance, multiple build jobs for different architectures can run in parallel, followed by a packaging job that depends on the successful completion of all build jobs.
 
-Workflow jobs run concurrently, but they can be dependent on each other by specifying what a job **needs** before it can execute. In the following example workflow defines build, analyze, and deploy jobs. The analyze job requires the build job to complete before it runs. The deploy job requires both the build and analyze to complete.
+Workflow jobs run concurrently, but they can be dependent on each other by specifying what a job **needs** before it can execute. In the following example, the workflow defines build, analyze, and deploy jobs. The analyze job requires the build job to complete before it runs. The deploy job requires both the build and analyze to complete.
 
 ```yml
 jobs:
@@ -90,9 +90,9 @@ jobs:
 
 ### Steps
 
-Steps can either be a simple shell command with the **run** clause, or an **action** with the **uses** clause. An action is a simple docker container that can receive input from the step and generate outputs. GitHub provides many standard actions and then there are also community provided actions.
+Steps can either be a simple shell command with the **run** clause, or an **action** with the **uses** clause. An action is a simple docker container that can receive input from the step and generate outputs. GitHub provides many standard actions and there are also community provided actions.
 
-A basic GitHub Actions workflow that builds a Node.js project and runs the tests what have the following steps for 1) checking out the code, 2) installing Node.js, and 3) installing the packages and running the tests.
+A basic GitHub Actions workflow that builds a Node.js project and runs the tests could have the following steps for 1) checking out the code, 2) installing Node.js, and 3) installing the packages and running the tests.
 
 ```yml
 name: Test
