@@ -1,32 +1,11 @@
 # Continuous integration
 
-- Automation is the mantra of DevOps
-- Automating the process of validating the state of the next application and preparing it for deployment is continuous delivery.
-- Common CI items include
-  - Build
-  - Test
-  - Lint
-  - Version assignment
-  - Bundle, deployment package building
-- Automating the actual deployment (CD) takes things to the next level. To make this successful you want to make sure you have massive automated testing and metric analysis for the production system. Which is probably a good thing to have anyway.
-- Without CD there is often a manual button someone has to push to do the deployment from a CI version.
+If automation is the mantra of DevOps, then continuous integration (CI) is the result. The idea with CI is to turn up the dial on how quickly and efficiently code flows from an application developer's fingertips in the hands of a customer. The flow from developer to customer is often called a CI pipeline.
 
-This is all general, but will we will demonstrate it with GitHub actions in the next instruction.
+![Continuous integration](continuousIntegration.png)
 
-## Workflows
+A CI pipeline generally starts when a code change is committed to the code repository. This will trigger an automated pipeline that includes code reviews, code analysis (coverage, linting, ...), and automated testing. If any of these fail then the commit is rejected and the CI pipe aborts.
 
-- Build and test
-- Deployments - If the tests pass then build a release candidate
-- Releases - I think you can create releases from previous steps. It would be good to tag the version and other stuff. You may want to make this a manual process.
+If everything looks good with the change then it is bundled and placed in a version archive where it is a candidate for deployment to a production system as part of a continuous deployment process. Usually the version is automatically deployed to a staging environment as part of a continuous delivery process. In the staging environment the CI pipeline may continue its automation with integration, end to end, chaos, and penetration testing.
 
-[Triggers](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows)
-
-- push commit
-- release published
-- label creation
-- Schedule triggered by cron job.
-- Deployment
-
-## Reusing workflows
-
-[Reusing workflows](https://docs.github.com/en/actions/using-workflows/reusing-workflows)
+Notice that there are lot of moving parts in a CI pipeline. If these were all manual steps it would require an operational manager that babysat the process. That manual process might take weeks to fully validate and test the a change. By automating the pipeline, with safety checks at each step, you can confidently take a code change from developer to production in a matter of minutes.
