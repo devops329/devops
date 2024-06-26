@@ -1,5 +1,13 @@
 # Integration testing
 
+🔑 **Key points**
+
+- Integration test increases your confidence that component work together correctly
+- Mocking can hide significant integration bugs
+- Removing mocking can improve application performance and design
+
+---
+
 We previously briefly introduced the concept of integration testing. Let's take a bit of a deeper look at what integration testing means and the tradeoffs that it presents.
 
 Integration testing makes sure that dependent components work well with each other. It would seem, that if you mock out all of those dependencies then it is easier to test the target component without having to deal with the messy details of the dependencies. But is that really true?
