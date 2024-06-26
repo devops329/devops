@@ -194,5 +194,5 @@ https://pizza.yourdomainname.click
 | ------- | ------------------------------------------------------------------------------------------- |
 | 20%     | Strong GitHub commit history that documents your work in your fork of `jwt-pizza`           |
 | 50%     | Successful execution of GitHub Actions to deploy JWT Pizza to GitHub Pages on push          |
-| 35%     | Completely functional JWT Pizza deployed with GitHub Pages accessible on custom domain name |
+| 25%     | Completely functional JWT Pizza deployed with GitHub Pages accessible on custom domain name |
 | 5%      | Pipeline status badge display on your JWT Pizza **README.md** home page                     |

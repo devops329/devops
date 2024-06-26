@@ -59,7 +59,7 @@ Add the `test` script to `package.json` so that it knows to use Jest for testing
 
 ## Creating a simple test
 
-Now that you have set up jwt-pizza-service to be tested with Jest we can make sure it is all working right by writing a simple test. Create a file named `authRouter.test.js` in the `src/routes` directory and place the following `hello world` test in file.
+Now that you have set up jwt-pizza-service to be tested with Jest, you can make sure it is all working right by writing a simple test. Create a file named `authRouter.test.js` in the `src/routes` directory and place the following `hello world` test in file.
 
 ```sh
 test('hello world', () => {
@@ -93,7 +93,7 @@ Make sure you commit and push your code at this important milestone.
 Before we can write a test that actually uses the functionality of the JWT Pizza Service we need to think about the service's dependencies. In this case it is the MySQL database. We have a choice here:
 
 1. **Unit test**: Mock out the the database dependency such that the service doesn't actually call the database.
-1. **Component test**: Let the service call the MySQL database so that we can actually tests that our SQL syntax is correct.
+1. **Component test**: Let the service call the MySQL database so that we can actually test that our SQL syntax is correct.
 
 The downside of component testing is that it complicates the test setup and potentially increases the time the test takes to execute. The downside of a pure unit test is that it doesn't actually test a core part of what the code is doing. You don't actually have any assurance that service can persist data correctly.
 
@@ -135,32 +135,32 @@ In this code the `beforeAll` function registers a random user every time the tes
 
 The `login` test logs the test user in and verifies that it gets back an authorization token along with the expected user information.
 
-This one test should bump your line coverage up to **50%**. Only 30% more to go. You can verify this by running the test.
+This one test should bump your line coverage up to **40%**. Only 40% more to go. You can verify this by running the test.
 
 ```sh
 ➜  npm test
 
  PASS  src/routes/authRouter.test.js
-  ✓ login (65 ms)
+  ✓ login (70 ms)
 
----------------------|---------|----------|---------|---------|-----------------------------------
+---------------------|---------|----------|---------|---------|------------------------------------------------------
 File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
----------------------|---------|----------|---------|---------|-----------------------------------
-All files            |   49.83 |     32.3 |      40 |   50.51 |
- src                 |   82.85 |       50 |   42.85 |   82.35 |
+---------------------|---------|----------|---------|---------|------------------------------------------------------
+All files            |   42.69 |    25.64 |    32.2 |   43.14 |
+ src                 |   81.08 |       50 |    37.5 |   80.55 |
   config.js          |     100 |      100 |     100 |     100 |
   endpointHelper.js  |   66.66 |      100 |   66.66 |      60 | 3-4
-  service.js         |   85.71 |       50 |      25 |   85.71 | 26,33,40-41
- src/database        |   41.46 |    46.66 |   53.57 |   41.71 |
-  database.js        |   40.32 |    45.45 |   43.47 |   40.65 | 23-26,39-41,58,70-184,193-197,297
-  testData.js        |      45 |       50 |     100 |      45 | 7-17,26-48,57-96,107-134
+  service.js         |   83.33 |       50 |      20 |   83.33 | 26,34,41,48-49
+ src/database        |   32.62 |    36.36 |   39.28 |   32.79 |
+  database.js        |   31.89 |    36.36 |   39.28 |   32.06 | 13-28,42-44,64,79-95,110-276,284,293-297,335-336,342
+  dbModel.js         |     100 |      100 |     100 |     100 |
  src/model           |     100 |      100 |     100 |     100 |
   model.js           |     100 |      100 |     100 |     100 |
- src/routes          |   51.04 |    16.12 |      20 |   53.26 |
-  authRouter.js      |   65.78 |    45.45 |   44.44 |   69.44 | 39-44,50-53,61,81-82
-  franchiseRouter.js |   34.21 |        0 |       0 |   36.11 | 38,46-52,60-65,73-78,86-91,99-105
-  orderRouter.js     |      55 |        0 |       0 |      55 | 25,34,43-54
----------------------|---------|----------|---------|---------|-----------------------------------
+ src/routes          |   45.52 |    14.63 |   21.73 |   47.05 |
+  authRouter.js      |   56.36 |    31.57 |   45.45 |   58.49 | 45-52,60-63,72,96-97,106-114,125-127,134
+  franchiseRouter.js |   30.95 |        0 |       0 |    32.5 | 62,71-77,86-91,99-105,114-120,129-137
+  orderRouter.js     |   46.15 |        0 |       0 |   46.15 | 47,56-62,71,80-91
+---------------------|---------|----------|---------|---------|------------------------------------------------------
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 ```
@@ -192,6 +192,7 @@ async function createAdminUser() {
   user.email = user.name + '@admin.com';
 
   await DB.addUser(user);
+  return user;
 }
 ```
 
