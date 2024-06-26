@@ -9,15 +9,15 @@
 
 ---
 
-The user interface of your application is often times the most crucial part of your application. It doesn't matter how quickly or elegantly you can compute a Fibonacci sequence if the customer never gets to see the result, or if the result displays off of the screen with a few digits missing.
+The user interface is often the most crucial part of your application. It doesn't matter how quickly or elegantly you can compute a Fibonacci sequence if the customer never gets to see the result, or if the result displays off the screen with a few digits missing.
 
-UI testing consists of emulating a customer interaction with the application and then assert the correct response. When a customer presses the button to order a pizza, a pizza better show up in a reasonable amount of time.
+UI testing consists of emulating a customer interaction with the application and then asserting the correct response. When a customer presses the button to order a pizza, a pizza better show up in a reasonable amount of time.
 
-UI testing can be some of the most valuable tests that you can execute due to the fact that it is always at the top of your application stack and is the actual component that a customer interacts with. However, for UI testing obtain is full value, it has to actually integrate with the underlying architecture during the tests and represent realistic customer usage. It is not enough to display the home page. The tests must validate that all of the vital navigation elements are displayed and the customer's data is rendered appropriately.
+UI tests can be some of the most valuable tests that you can execute, because the UI is always at the top of your application stack and is the actual component that a customer interacts with. However, for UI testing to obtain its full value, it has to actually integrate with the underlying architecture during the tests and represent realistic customer usage. It is not enough to display the home page. The tests must validate that all of the vital navigation elements are displayed and the customer's data is rendered appropriately.
 
 ## The difficulties of UI testing
 
-No one understands the difficulty of testing applications in a browser better than the companies that build web browsers. They have to test every possible use of HTML, CSS, and JavaScript that a user could think of. There is no way that manual testing is going to work and so early on they started putting hooks into their browsers that allowed them to be driven from automated external processes. [Selenium](https://www.selenium.dev/) was introduced in 2004 as the first popular tool to automate the browser. However, Selenium is generally considered to be flaky and slow. Flakiness means that a test fails in unpredictable, unreproducible ways. When you need thousands of tests to pass before you can deploy a new feature, even a little flakiness becomes a big problem. If those tests take hours to run then you have an even bigger problem.
+No one understands the difficulty of testing applications in a browser better than the companies that build web browsers. They have to test every possible use of HTML, CSS, and JavaScript that a user could think of. There is no way that manual testing is going to work and so early on they started putting hooks into their browsers that allowed them to be driven from automated external processes. [Selenium](https://www.selenium.dev/) was introduced in 2004 as the first popular tool to automate the browser. However, Selenium is generally considered to be flaky and slow. Flakiness means that a test fails in unpredictable, unreproducible ways. When you need thousands of tests to pass before you can deploy a new feature, even a little flakiness becomes a big problem. If those tests take hours to run, you have an even bigger problem.
 
 Testing UI code that executes in a web browser is significantly harder than testing backend code that runs from a command console. With backend code you are running under a predictable operating system with little variation on how it executes. With code that renders in a browser, you must actually execute the code in the browser and then simulate a user interacting with the application through mouse, finger, and keyboard actions.
 
@@ -46,7 +46,7 @@ Browser drivers act as the bridge between your test scripts and the actual web b
 
 ![testingStack](testingStack.png)
 
-Currently, the most common browser drivers are based upon the W3C [WebDriver](https://www.w3.org/TR/webdriver2/) specification. The standard was derived based upon an early pioneer of browser testing named [Selenium](). Many of the common testing frameworks that exist today use the Selenium WebDriver as their foundation. There are other drivers that follow the WebDriver specification for specific browsers. These include SafariDriver, OperaDriver, and FirefoxDriver.
+Currently, the most common browser drivers are based upon the W3C [WebDriver](https://www.w3.org/TR/webdriver2/) specification. The standard was derived based upon the previously mentioned [Selenium](https://www.selenium.dev/). Many of the common testing frameworks that exist today use the Selenium WebDriver as their foundation. There are other drivers that follow the WebDriver specification for specific browsers. These include SafariDriver, OperaDriver, and FirefoxDriver.
 
 Alternatively, the testing framework Playwright chose to go directly against the browser APIs for all of the major browsers. This includes WebKit (Safari), Chromium, and Firefox. They took this approach in order to execute tests faster, with less flakiness.
 
@@ -66,7 +66,7 @@ There are lots of UI testing frameworks available for you to use. Here are some 
 
 ## Writing tests
 
-The various test frameworks provide different methods for writing tests. This can be customer scripting language, visual interactions, or using common programming languages such as JavaScript or C#. The chose of the language has a significant impact on the performance, capability, and ease of the framework.
+The various test frameworks provide different methods for writing tests. This can be customer scripting language, visual interactions, or using common programming languages such as JavaScript or C#. The choice of language has a significant impact on the performance, capability, and ease of the framework.
 
 Here is an example test written in JavaScript for the Playwright framework.
 
@@ -106,7 +106,7 @@ test('addStore', async ({ page }) => {
 
 ## Flakiness
 
-Browser driven testing is inherently flaky tests due to the nature of simulating a user across diverse devices. Flake can cause tests to intermittently pass or fail. This slows down development cycles and create a sense of distrust in the testing process. Here are some ways to combat flaky tests:
+Browser driven testing is inherently flaky due to the nature of simulating a user across diverse devices. Flake can cause tests to intermittently pass or fail. This slows down development cycles and create a sense of distrust in the testing process. Here are some ways to combat flaky tests:
 
 - Identify and eliminate synchronization issues: Ensure your tests wait for elements to load completely before interacting with them.
 - Handle dynamic content effectively: Use robust selectors that can adapt to slight changes in the UI.
