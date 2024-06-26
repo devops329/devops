@@ -58,7 +58,7 @@
 ## Cloud deployment
 
 - 🟠 [Cloud deployment](cloudDeployment/cloudDeployment.md)
-- 🚧 [Security](security/security.md)
+- 🔵 [Security](security/security.md)
 - 🚧 [AWS S3](awsS3/awsS3.md)
 - 🟠 [AWS CloudFront](awsCloudFront/awsCloudFront.md)
 - 🟠 [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
