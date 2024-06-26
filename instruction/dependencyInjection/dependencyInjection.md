@@ -12,7 +12,7 @@
 
 ---
 
-The principle of dependency inversion states that high-level modules should not depend on low-level modules. In practice that means that you should use abstractions to represent a component's dependencies. This allows for greater flexibility as the code is less coupled with the details of a particular implementation.
+The principle of dependency inversion states that high-level modules should not depend on low-level modules. In practice, that means that you should use abstractions to represent a component's dependencies. This allows for greater flexibility as the code is less coupled with the details of a particular implementation.
 
 Consider the situation where you want to create a printer that adds some formatting to the content being printed. You could write the printer with the formatting hardcoded into the print function.
 
@@ -46,7 +46,7 @@ class SwitchedPrinter {
 }
 ```
 
-Perhaps you are starting to see the problem with this approach. Every time you want to add a new formatting style you need to modify the printer. The printer doesn't really care what the style things are printed in, but the code structure is forcing the styling details into the printer.
+Perhaps you are starting to see the problem with this approach. Every time you want to add a new formatting style, you need to modify the printer. The printer doesn't really care what the style things are printed in, but the code structure is forcing the styling details into the printer.
 
 ### Inverting the dependency
 
@@ -85,7 +85,7 @@ const formatter = new UppercaseFormatter();
 printer.print('Hello, World!', formatter);
 ```
 
-Now you want to write a test to make sure our printer is actually using the correct format. Unfortunately the printer writes to the console and so it is difficult for you validate that the formatter ever got called. You can solve this by creating a mocked version of the formatter.
+Now you want to write a test to make sure your printer is actually using the correct format. Unfortunately the printer writes to the console and so it is difficult for you validate that the formatter ever got called. You can solve this by creating a mocked version of the formatter.
 
 ```js
 class TestFormatter {
@@ -101,7 +101,7 @@ printer.print('Hello, World!', testFormatter);
 if (!testFormatter.wasCalled) throw new Error('trouble');
 ```
 
-The use of dependency inversion makes it really easy to write tests. You could even improve this code by inverting the dependency on the output stream so that `console` was not hard coded into the printer.
+The use of dependency inversion makes it really easy to write tests. You could even improve this code by inverting the dependency on the output stream so that `console` is not hard coded into the printer.
 
 ```js
 class Printer {
@@ -154,7 +154,7 @@ const ctx = new Context();
 ctx.printer.print('Hello, World!');
 ```
 
-If you want to use your code in testing then you just allocate a different context and nothing in the underlying application implementation need to change.
+If you want to use your code in testing then you just allocate a different context and nothing in the underlying application implementation needs to change.
 
 ```js
 class TestContext {
@@ -185,7 +185,7 @@ Most common languages have multiple open source dependency frameworks written th
 
 These frameworks commonly use formats such as XML to describe the objects that their context contains. Some frameworks even instrument the code so that the injection context is completely hidden.
 
-All of this makes your code more modular and easier to test, but it comes at a cost. It can introduce complexity and increase the learning curve for developers. This often happens when the abstractions are, well abstract, that it becomes difficult to see what the code is doing. In order to actually follow what concrete implementation are being injected you need to either carefully review all of the configuration files, or debug the code and examine the variables.
+All of this makes your code more modular and easier to test, but it comes at a cost. It can introduce complexity and increase the learning curve for developers. This often happens when the abstractions are, well abstract, and it becomes difficult to see what the code is doing. In order to actually follow what concrete implementation are being injected, you need to either carefully review all of the configuration files, or debug the code and examine the variables.
 
 This can serve as a common warning that sometimes turning up the dial on a good idea can create new unintended complexities and problems.
 
