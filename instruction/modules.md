@@ -38,13 +38,12 @@
 ## Quality assurance
 
 - 🟠 [Testing](testing/testing.md)
-- 🚧 [Testing variations](testingCategories/testingCategories.md)
+- 🔵 [Testing variations](testingCategories/testingCategories.md)
 - 🟠 [Coverage](coverage/coverage.md)
 - ☑ 🟠 [Jest](jest/jest.md)
 - ☑ 🟠 [Test driven development (TDD)](tdd/tdd.md)
 - ☑ 🟠 [Service testing](serviceTesting/serviceTesting.md)
 - ☑ 🟠 [Lint](lint/lint.md)
-- ☑ ❌ [Mocking](mocking/mocking.md)
 - 🚧 [Dependency injection](dependencyInjection/dependencyInjection.md)
 - 🟠 [Integration testing](integrationTesting/integrationTesting.md)
 - ☑ 🟠 [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
