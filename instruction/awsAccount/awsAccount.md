@@ -1,5 +1,13 @@
 # AWS Account
 
+🔑 **Key points**
+
+- You are required to have an AWS account.
+- You are required to lease a DNS hostname.
+- Make sure you are acquainted with your AWS bill.
+
+---
+
 Before we get started with anything else, you need to create an account with Amazon Web Services (AWS). Do this as soon as possible as you will need it for much of the work in this course and it might take some time to authorize your account.
 
 There are lots of other great vendors out there, but AWS is by far the leader in the space so it is good for you to get experience with them. Follow these instructions on how to [create an account with AWS](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/). When you create your account make sure you remember your account ID so that you can use it when you log in to the AWS browser console.

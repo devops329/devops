@@ -1,5 +1,13 @@
 # JWT Pizza Client
 
+🔑 **Key points**
+
+- You need to fork the [jwt-pizza](https://github.com/devops329/jwt-pizza) repository.
+- Become intimately familiar with the JTW Pizza frontend code.
+- Many projects revolve around your manipulating this project.
+
+---
+
 ![JWT Pizza](jwtPizzaPhone.png)
 
 The _JWT Pizza application_ team has finally finished their work on the website and has given you access to the frontend application code so that you can start testing and deploying it.

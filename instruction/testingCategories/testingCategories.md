@@ -2,7 +2,10 @@
 
 🔑 **Key points**
 
-- Understand the different categories of testing
+- Understand the different categories of testing.
+- Know which testing strategy to use for every situation.
+
+---
 
 While the general idea of testing is to simply verify that code is doing what it is supposed to do, it is often helpful to classify testing into different categories. Each category has different tools, limits, and expectations. It also gets a bit fuzzy where the boundaries of each type cross. In general there is a lot of overlap. The thing to keep in mind is the focus of the category and teh value it brings. It is not so important how much you are blurring the lines between catagories as long as you are not overly duplicating your tests.
 

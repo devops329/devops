@@ -1,6 +1,14 @@
 # GitHub Pages
 
+🔑 **Key points**
+
+- GitHub pages allow you to do an easy static deployment.
+
+---
+
 📖 **Deeper dive reading**: [GitHub Pages Quickstart](https://docs.github.com/en/pages/quickstart)
+
+---
 
 With our newly delivered JWT Pizza frontend and the understanding of what a static deployment looks like, we can take the next step of deploying the frontend to the world.
 

@@ -2,8 +2,8 @@
 
 🔑 **Key points**
 
-- QA and DevOps have revolutionized software development over the last decade
-- Cloud services have increase the effectiveness of QA and DevOps teams
+- QA and DevOps have revolutionized software development over the last decade.
+- Cloud services have increase the effectiveness of QA and DevOps teams.
 
 ---
 

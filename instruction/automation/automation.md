@@ -1,5 +1,13 @@
 # Automation
 
+🔑 **Key points**
+
+- Automation is a the core tenant of DevOps.
+- Automation enables speed, safety, and reproducibility.
+- Learn to prioritize what you will automate.
+
+---
+
 Automation is _the_ core tenant of DevOps. The idea that you can write code that automates the testing, analysis, deployment, and management of an application is what differentiates DevOps from the historical role of System Operations. As a DevOps engineer, you should always be looking for ways to remove human toil from a process and replace it with automation. The realization that operational tasks are best implemented using code that requires the skill sets of a software developer is what drove the creation of the DevOps role.
 
 ## Reducing toil

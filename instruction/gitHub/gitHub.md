@@ -4,9 +4,9 @@
 
 🔑 **Key points**
 
-- GitHub is a foundational resource for DevOps
-- Branching and forks enable collaboration and exploration
-- Successful software engineers commit atomically and frequently
+- GitHub is a foundational resource for DevOps.
+- Branching and forks enable collaboration and exploration.
+- Successful software engineers commit atomically and frequently.
 
 ---
 

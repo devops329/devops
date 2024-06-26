@@ -2,7 +2,8 @@
 
 🔑 **Key points**
 
-- Gratitude, inspiration, and action are divine traits of successful software engineers
+- Gratitude, inspiration, and action are divine traits of successful software engineers.
+- Apply these principles as part of your work in this course.
 
 ---
 

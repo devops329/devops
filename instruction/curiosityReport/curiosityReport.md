@@ -2,7 +2,8 @@
 
 🔑 **Key points**
 
-- Curiosity is a foundational trait for successful software engineers
+- Curiosity is a foundational trait for successful software engineers.
+- You need to create a curiosity report before the end of the course.
 
 ---
 

@@ -1,5 +1,11 @@
 # Terminology
 
+🔑 **Key points**
+
+- Computer science is full of acronyms. Learn to speak like a pro.
+
+---
+
 As with any branch of computer science, we like to throw around a lot of technical sounding terms that are wrapped up in cryptic acronyms. This is certainly true of Quality Assurance (QA) and DevOps. DevOps itself is a obfuscation of the term developer operations, which is a combination of software development skills and application management operations. You don't need to know the details of each of these terms, but you should be familiar with all of them. It is highly likely that you will encounter them in a professional setting.
 
 | Acronym   | Term                                         | Description                                                                                                                   |

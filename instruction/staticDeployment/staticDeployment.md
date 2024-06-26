@@ -1,5 +1,11 @@
 # Static deployment
 
+🔑 **Key points**
+
+- An application that doesn't require you to provide backend support is called a static deployment.
+
+---
+
 Sometimes your application consists of files that can be loaded and executed on a user's device. The simplifies things because you do not need to deploy backend computing resources to handle things like functional endpoints or storing customer data.
 
 A common example of static deployment is this: A website that only consists of a set of HTML pages can be hosted as files on an HTTP server and then executed on the user's computer when they load the files in the browser. Taking this to the extreme, we can provide a sample application that simply prints out _Hello World_.

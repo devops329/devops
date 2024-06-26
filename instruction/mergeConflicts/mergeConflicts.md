@@ -1,5 +1,11 @@
 # Merge conflicts
 
+🔑 **Key points**
+
+- Conflicts happen. Know how to deal with them.
+
+---
+
 When you created a fork of the course repository and then cloned the repository to your local development environment, this resulted in three copies of the repository. From the perspective of the repository in your development environment, your fork in GitHub is the remote **origin**. Your fork in GitHub has an **upstream** that is the course repository.
 
 ![Repository relationships](repositoryRelationships.png)

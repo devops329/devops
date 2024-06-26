@@ -1,5 +1,11 @@
 # Continuous integration
 
+🔑 **Key points**
+
+- Continuous integration is the process of successfully automating production deployments.
+
+---
+
 If automation is the mantra of DevOps, then continuous integration (CI) is the result. The idea with CI is to turn up the dial on how quickly and efficiently code flows from an application developer's fingertips to the hands of a customer. The flow from developer to customer is often called a CI pipeline.
 
 ![Continuous integration](continuousIntegration.png)

@@ -1,11 +1,20 @@
 # GitHub Actions
 
+🔑 **Key points**
+
+- GitHub Actions is a powerful CI tool.
+- Actions involve workflows, jobs, and steps.
+
+---
+
 📖 **Deeper dive reading**:
 
 - [Quick Start](https://docs.github.com/en/actions/quickstart)
 - [GitHub Token](https://dev.to/github/the-githubtoken-in-github-actions-how-it-works-change-permissions-customizations-3cgp)
 - [Actions Tutorial](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions)
 - [Secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions)
+
+---
 
 For this course we are using GitHub Actions as the execution engine for the JWT Pizza CI pipelines. GitHub Actions represent a CI pipeline with a YAML formatted **workflow** file. Workflows are stored in the `.github/workflows` directory in a repository. Any `.yml` files located in that directory will automatically be loaded and executed. A repository can have multiple workflows, each of which can perform a different set of tasks. For example, you can have one workflow to build and test pull requests and another workflow to deploy your application every time a release is created.
 

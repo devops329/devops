@@ -1,5 +1,11 @@
 # JWT Pizza
 
+🔑 **Key points**
+
+- You will use JWT Pizza to master the concepts of QA and DevOps.
+
+---
+
 ![jwt pizza logo](../../jwt-pizza-logo-sm.png)
 
 In order for us to master the concepts of Quality Assurance and Developer Operations, we will work on a simple web application named JWT Pizza (pronounced Jot Pizza).

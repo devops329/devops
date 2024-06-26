@@ -2,9 +2,11 @@
 
 🔑 **Key points**
 
-- Testing leads to better developer and customer experiences
-- Understand the right and wrong way to do testing
-- Find the right balance when testing in your code
+- Testing leads to better developer and customer experiences.
+- Understand the right and wrong way to do testing.
+- Find the right balance when testing in your code.
+
+---
 
 Software and system development should not be separated from the concept of testing any more than it can in other domains such as construction, writing, or the food industry. There always needs to be some sort of review to ensure the quality of the product. Without a testing cycle you have no assurance that the system meets the design characteristic or is satisfactory to the customer.
 

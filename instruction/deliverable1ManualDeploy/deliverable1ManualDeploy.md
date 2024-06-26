@@ -1,5 +1,11 @@
 # Deliverable ⓵ Manual deployment: JWT Pizza
 
+🔑 **Key points**
+
+- Deploy JWT Pizza to GitHub Pages.
+
+---
+
 ![course overview](../sharedImages/courseOverview.png)
 
 You now have everything you need to complete the first deliverable of the course. To create this deliverable you will complete the following steps:
