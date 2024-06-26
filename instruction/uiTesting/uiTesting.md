@@ -2,10 +2,20 @@
 
 🔑 **Key points**
 
-- UI testing can be difficult
-- Devices, OS, and browsers create a complicated testing matrix
-- Browsers, drivers, and frameworks create the testing stack
-- Flakiness is a major problem
+- UI testing is a critical piece of your application testing strategy.
+- Devices, OS, and browsers create a complicated testing matrix.
+- Browsers, drivers, and frameworks create the testing stack.
+- Flakiness is a major problem.
+
+---
+
+The user interface of your application is often times the most crucial part of your application. It doesn't matter how quickly or elegantly you can compute a Fibonacci sequence if the customer never gets to see the result, or if the result displays off of the screen with a few digits missing.
+
+UI testing consists of emulating a customer interaction with the application and then assert the correct response. When a customer presses the button to order a pizza, a pizza better show up in a reasonable amount of time.
+
+UI testing can be some of the most valuable tests that you can execute due to the fact that it is always at the top of your application stack and is the actual component that a customer interacts with. However, for UI testing obtain is full value, it has to actually integrate with the underlying architecture during the tests and represent realistic customer usage. It is not enough to display the home page. The tests must validate that all of the vital navigation elements are displayed and the customer's data is rendered appropriately.
+
+## The difficulties of UI testing
 
 No one understands the difficulty of testing applications in a browser better than the companies that build web browsers. They have to test every possible use of HTML, CSS, and JavaScript that a user could think of. There is no way that manual testing is going to work and so early on they started putting hooks into their browsers that allowed them to be driven from automated external processes. [Selenium](https://www.selenium.dev/) was introduced in 2004 as the first popular tool to automate the browser. However, Selenium is generally considered to be flaky and slow. Flakiness means that a test fails in unpredictable, unreproducible ways. When you need thousands of tests to pass before you can deploy a new feature, even a little flakiness becomes a big problem. If those tests take hours to run then you have an even bigger problem.
 

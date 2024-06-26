@@ -1,5 +1,13 @@
 # Unit testing: JWT Pizza Service
 
+🔑 **Key points**
+
+- Write tests against the JWT Pizza service.
+- Compute your coverage.
+- Run linting analysis.
+
+---
+
 Now that you have the JWT Pizza Service in your hands you can start to assure its quality by writing unit tests. As part of your testing you will generate a coverage report. Later you will add coverage thresholds, so that if the coverage requirements of your tests do not meet the required thresholds, then an error is generated.
 
 If you haven't already done so, make sure you fork the [jwt-pizza-service](../jwtPizzaService/jwtPizzaService.md) repository and clone it to your development environment.

@@ -1,5 +1,11 @@
 # JWT Pizza data
 
+🔑 **Key points**
+
+- Use Curl to populate the JWT Pizza data when testing.
+
+---
+
 In order to use your JWT Pizza Service in any meaningful way you are going to need to populate it with some basic data such as menu items, franchises, stores, and users.
 
 When you start up your JWT Pizza Service for the first time it will initialize your database with all of the required tables and create a single administrative user with the following defaults:

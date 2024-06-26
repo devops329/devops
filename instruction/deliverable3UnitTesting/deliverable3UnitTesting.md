@@ -1,5 +1,13 @@
 # Deliverable ⓷ Unit testing CI: JWT Pizza Service
 
+🔑 **Key points**
+
+- Deploy your tests, coverage and linting analysis using a CI pipeline.
+- Protect the confidentiality of your secrets
+- Create a version ID
+
+---
+
 ![course overview](../sharedImages/courseOverview.png)
 
 Now that you have added linting and created unit tests for the **jwt-pizza-service**, you are ready to implement the continuous integration (CI) process that will validate the code with tests and calculate coverage on every commit. This will complete your work on this deliverable.

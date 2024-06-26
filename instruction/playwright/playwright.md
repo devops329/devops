@@ -1,6 +1,12 @@
 # Playwright
 
-![Playwright icon](playwrightIcon.png)
+🔑 **Key points**
+
+- How to install Playwright
+- Understand the functionality of Playwright
+- Gain experience with Playwright by testing a simple application
+
+---
 
 📖 **Deeper dive reading**:
 
@@ -8,6 +14,10 @@
 - [Testing best Practices](https://playwright.dev/docs/best-practices)
 - [Writing tests](https://playwright.dev/docs/writing-tests)
 - [VS Code Playwright extension](https://playwright.dev/docs/getting-started-vscode)
+
+---
+
+![Playwright icon](playwrightIcon.png)
 
 For the purposes of this course, we could pick any of the top UI testing frameworks. However, we are going to pick a newcomer, Playwright. Playwright has some major advantages. It is backed by Microsoft, it integrates really well with VS Code, and it runs as a Node.js process. It is also considered one of the least flaky of the testing frameworks.
 

@@ -1,5 +1,15 @@
 # Deliverable ⓸ User Interface testing: JWT Pizza
 
+🔑 **Key points**
+
+- Use Playwright for JWT Pizza testing
+- Learn to create tests by recording browser interactions
+- Compute coverage
+- Mock out the JWT Pizza Service
+- Update the CI pipeline to run the tests
+
+---
+
 ![course overview](../sharedImages/courseOverview.png)
 
 With the UI testing skills you have learned you are now ready to test the JWT Pizza frontend. As part of these tests you will mock out the backend service so that you don't have to worry about the problems that come with integration testing.

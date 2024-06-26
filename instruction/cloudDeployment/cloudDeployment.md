@@ -1,5 +1,12 @@
 # Cloud deployment
 
+🔑 **Key points**
+
+- AWS provides a rich set of cloud based services.
+- Use these services for deploying the JWT Pizza application.
+
+---
+
 Hosting on GitHub is fine for simple static websites that don't have to worry about significant scale. However, if you want to reach a large global audience with an architecture that is resilient and elastic, you are going to need to deploy to a cloud environment that can meet those demands. To take things to the next level we are going to move to Amazon Web Service (AWS).
 
 Specifically, you will deploy the `jwt-pizza` frontend end using S3 and the `jwt-pizza-service` backend using Fargate. The following diagram shows all of the AWS services involved in supporting this architecture.

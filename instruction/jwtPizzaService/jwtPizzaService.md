@@ -1,5 +1,12 @@
 # JWT Pizza Service
 
+🔑 **Key points**
+
+- Fork the [JWT Pizza](https://github.com/devops329/jwt-pizza-service) service.
+- Study the code.
+
+---
+
 ![jwt pizza service](jwtPizzaServicePhone.png)
 
 The _JWT Pizza application_ team has finally finished their work on the backend JWT service and has given you access to the backend service code so that you can start testing and deploying it.
