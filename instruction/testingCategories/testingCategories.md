@@ -1,6 +1,6 @@
 # Testing categories
 
-**Key points**
+🔑 **Key points**
 
 - Understand the different categories of testing
 

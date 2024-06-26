@@ -1,6 +1,6 @@
 # Testing
 
-**Key points**
+🔑 **Key points**
 
 - Testing leads to better developer and customer experiences
 - Understand the right and wrong way to do testing

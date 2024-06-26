@@ -1,5 +1,11 @@
 # Curiosity report
 
+🔑 **Key points**
+
+- Curiosity is a foundational trait for successful software engineers
+
+---
+
 Curiosity is a defining characteristic of a successful software engineer. Throughout this course you will be exposed to new technologies and concepts that we don't have time to deep dive into. When you hear about something that you would like to understand better, you should always make a note of that concept and then find time to understand it a little better. Indulging your curiosity will deepen your understanding and take you up a level in your ability to contribute to eternity.
 
 In order to help you develop your ability to be curious, you are required to take a deep dive at least once during the course into something related to QA or DevOps that is either not covered in the course, or is only tangentially covered.

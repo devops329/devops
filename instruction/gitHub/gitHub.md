@@ -2,12 +2,26 @@
 
 ![GitHub logo](gitHubLogo.png)
 
-You should already be familiar with the basics of Git and GitHub. If you do not feel comfortable with using Git or GitHub then you should spend sometime learning about and experimenting with the functionality that they provide. Here are some suggested resources:
+🔑 **Key points**
+
+- GitHub is a foundational resource for DevOps
+- Branching and forks enable collaboration and exploration
+- Successful software engineers commit atomically and frequently
+
+---
+
+📖 **Deeper dive reading**:
 
 - [Git Guide](https://github.com/git-guides)
 - [Introduction to GitHub](https://github.com/skills/introduction-to-github)
 - [GitHub Hello World](https://docs.github.com/en/get-started/start-your-journey/hello-world)
 - [Git Cheat Sheet](https://training.github.com/downloads/github-git-cheat-sheet/)
+- [GitHub Pull Requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
+- [GitHub pulls from forks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
+
+---
+
+You should already be familiar with the basics of Git and GitHub. If you do not feel comfortable with using Git or GitHub then you should spend sometime learning about and experimenting with the functionality that they provide.
 
 For this course we will be using GitHub for the following purposes:
 
@@ -108,11 +122,6 @@ Keeping notes of what you have learned and things that you want to remember is a
 Later in the course you will fork the application team's repositories. You should consider adding another Markdown file named `notes.md` to these repositories so that you can track what you have learned in the course.
 
 ## Pull requests
-
-📖 **Deeper dive reading**:
-
-- [GitHub Pull Requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
-- [GitHub pulls from forks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
 
 GitHub allows you to create a fork of any repository on GitHub. You just push the `Fork` button from the repository's GitHub page. You can then make modifications to the repository fork and push the changes as a _pull request_. This notifies the original repository's owner that a request is being made to enhance the original repository. The owner can review your changes and if appropriate commit the changes into the original. This is how open source communities manage development from a volunteer group of global developers.
 

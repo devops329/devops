@@ -1,5 +1,11 @@
 # Christlike learning
 
+🔑 **Key points**
+
+- Gratitude, inspiration, and action are divine traits of successful software engineers
+
+---
+
 Humility is a foundational requirement for a learning mindset. By intentionally acknowledging the source of our the blessings and opportunities we approach learning with eagerness and openness. This then allows us to receive the influence and inspiration of the divine and in turn apply our talents in the service of righteousness.
 
 This can be summarized by three principles to apply in all of our educational and temporal endeavors.

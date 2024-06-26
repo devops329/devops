@@ -1,5 +1,12 @@
 # A brief history of QA and DevOps
 
+🔑 **Key points**
+
+- QA and DevOps have revolutionized software development over the last decade.
+- Cloud services have increase the effectiveness of QA and DevOps teams
+
+---
+
 Surprisingly little has changed about how software engineers build an application, but the process of ensuring quality and delivering software has changed drastically in the last two decades. In the early days of computing, the expense and complexity of hardware required the application to be hosted at the application provider's physical location. The customer would then bring their data to the vendor office for processing. The vendor would execute extensive manual testing to make sure the application was behaving properly.
 
 ![Vendor hosting](vendorHosting.png)

@@ -1,6 +1,6 @@
 # UI Testing
 
-**Key points**
+🔑 **Key points**
 
 - UI testing can be difficult
 - Devices, OS, and browsers create a complicated testing matrix
