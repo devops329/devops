@@ -1,5 +1,11 @@
 # Deliverable ⓹ Content Delivery Network Deployment: JWT Pizza
 
+🔑 **Key points**
+
+- Deploy your JWT Pizza frontend using S3, CloudFront, and GitHub Actions
+
+---
+
 ![course overview](../sharedImages/courseOverview.png)
 
 Now that we know how to deploy static content using CloudFront and S3 using GitHub Actions, it is time to move our CDN hosting from GitHub Pages to AWS CloudFront.

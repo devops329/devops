@@ -1,10 +1,12 @@
 # AWS CloudFront
 
-- What is cloudFront
-- CDNs in general
-- Edge computing
-- Relationship to Route 53, S3, EC2
-- We will use this as a CDN for our static files hosted on S3
+🔑 **Key points**
+
+- CloudFront is a content delivery network (CDN).
+- You can associate an S3 bucket as the origin of a CloudFront distribution.
+- You can associate a Route 53 DNS record and hostname with your CloudFront distribution.
+
+---
 
 Previously we deployed the JWT Pizza static frontend content over the content delivery network (CDN) that GitHub Pages provides. However, GitHub Pages has some significant limitations that disqualify it for large scale production usage. These [limitations](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#limits-on-use-of-github-pages) include the following:
 
@@ -33,12 +35,12 @@ The first step we need to take is to create an S3 bucket to host the static file
 1. Open the AWS browser console and navigate to the S3 service.
 1. Click on the `Create bucket` button.
 1. Select the `General configuration` option and name it the name of your JWT Pizza website. For the purposes of this instruction we will use the hostname `pizza.csbyustudent.click`.
-1. Leave all the other settings with their default, including _Block all public access_. Press the button to create the bucket.
+1. Leave all the other settings with their default, including _Block all public access_. Press the `Create bucket` button.
 1. Create a file named `index.html` in VS Code and insert a basic _Hello World_ page.
    ```html
    <h1>Hello World!</h1>
    ```
-1. Click on the newly created Open the bucket.
+1. Click on the newly created bucket to open it up.
 1. Drag the `index.html` file into the bucket and press the `Upload` button.
    > ![S3 Upload](s3Upload.png)
 

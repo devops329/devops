@@ -1,5 +1,12 @@
 # Security
 
+🔑 **Key points**
+
+- Security is a critical skill for any software engineer.
+- There are many aspects of security that you should be familiar with.
+
+---
+
 Now that you are preparing to deploy your application with a cloud service provider it is important that we take a moment to discuss security. Security should be a foundational piece of your application design. An application that is not secure is an application that will eventually do more harm than good. It doesn't matter that you application provides hours of entertainment, increases your customer's financial wealth, or obtains world peace if it eventually leads to compromised credentials, the loss of personal information, or monetary theft.
 
 You should seriously consider that God has given you talents that are meant to do eternal good. That includes watching out for those who have been entrusted to your care. Providing for their security is an important part of the responsibility.

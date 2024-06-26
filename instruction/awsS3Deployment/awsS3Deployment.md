@@ -1,5 +1,13 @@
 # AWS S3 deployment
 
+🔑 **Key points**
+
+- You must authorized GitHub to have access to your AWS account.
+- You can use a GitHub Action workflow to execute AWS CLI commands.
+- You will create a workflow that upload a file to your S3 bucket.
+
+---
+
 In order to use CI to deploy our static frontend content to S3 you need to create a trust relationship between GitHub and AWS. This is done by using the Open ID Connection (OIDC) protocol to dynamically obtain an authentication token whenever you want to call the S3 endpoints for copying files. Using OIDC to authenticate with AWS makes it so that you don't ever have to store credentials in your CI pipeline.
 
 ![S3 Deployment](s3Deployment.png)
