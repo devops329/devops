@@ -12,6 +12,8 @@
 
 ---
 
+Dependency injection is a programming pattern that seeks to abstract coupling of components to the highest level. The **dependency injection** pattern has its roots in an important design principle called **dependency inversion**.
+
 The principle of dependency inversion states that high-level modules should not depend on low-level modules. In practice, that means that you should use abstractions to represent a component's dependencies. This allows for greater flexibility as the code is less coupled with the details of a particular implementation.
 
 Consider the situation where you want to create a printer that adds some formatting to the content being printed. You could write the printer with the formatting hardcoded into the print function.
