@@ -120,7 +120,7 @@ The only question that remains is how do you determine which dependencies are in
 
 ## Dependency injection
 
-Dependency injection can take many forms. You can create a `service locator` object that defines a global singleton or context parameter that resolves the concrete implementation for the desired object. You can also utilize a dependency injection framework that instruments the parameterization of the components to the top level of the application.
+Dependency injection requires passing (or injecting) dependencies to a class, rather than having the class manage these dependencies itself. It can take many forms. You can create a `service locator` object that defines a global singleton or context parameter that resolves the concrete implementation for the desired object. You can also utilize a dependency injection framework that instruments the parameterization of the components to the top level of the application.
 
 in order to make this work we need to change our printer to receive its configuration when the class is created instead of as parameters to the function. This generates the same result as before, but it moves the coupling to when the object is allocated instead of when its method is invoked.
 
