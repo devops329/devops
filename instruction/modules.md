@@ -46,7 +46,7 @@
 - ☑ 🟠 [Service testing](serviceTesting/serviceTesting.md)
 - ☑ 🟠 [Lint](lint/lint.md)
 - 🔵 [Dependency injection](dependencyInjection/dependencyInjection.md)
-- 🟠 [Integration testing](integrationTesting/integrationTesting.md)
+- 🔵 [Integration testing](integrationTesting/integrationTesting.md)
 - ☑ 🟠 [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
 - 🟠 [JWT Pizza data](jwtPizzaData/jwtPizzaData.md)
 - 🟠 [Unit testing: JWT Pizza Service](unitTestingJwtPizzaService/unitTestingJwtPizzaService.md)
