@@ -1,5 +1,12 @@
 # Service testing
 
+🔑 **Key points**
+
+- Testing distributed services requires specialized techniques.
+- Gain experience by writing service tests.
+
+---
+
 We can now apply what we have learned about unit testing by creating a simple HTTP service and driving our testing of the service with [Jest](https://jestjs.io/) and a service testing helper package called [SuperTest](https://www.testim.io/blog/supertest-how-to-test-apis-like-a-pro/).
 
 The example HTTP service is a simple Express based service called `City`, that provides the following endpoints.

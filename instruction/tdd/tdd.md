@@ -1,5 +1,12 @@
 # Test driven development (TDD)
 
+🔑 **Key points**
+
+- Test driven development (TDD) accelerates development and enables refactoring.
+- Master TDD through practice.
+
+---
+
 Test driven development inverts the development process by focusing first on what the code is supposed to do, and then implementing the code until all of the tests pass.
 
 1. You can isolate your testing to the specific objects you are currently implementing.
