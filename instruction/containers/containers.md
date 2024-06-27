@@ -1,47 +1,91 @@
 # Containers
 
-🚧 This should detail everything about containers and how they work.
+🔑 **Key points**
 
-![container overview](containerOverview.png)
+- fdsfs
 
-[Docker CLI docs](https://docs.docker.com/reference/)
+---
 
-**OCI** - Open Container Initiative - What the open source name specification for all things docker.
+📖 **Deeper dive reading**: [Docker CLI Docs](https://docs.docker.com/reference/cli/docker/)
 
-- Image spec
-- Runtime spec
-- Distribution spec (registries)
+---
 
-https://www.docker.com/resources/what-container/
+Your main tool for working with containers is the Docker CLI. It allows you to run commands to build images, push and pull containers to and from a registry, run, stop, and delete containers and images.
 
-![containers and vms](contianersAndVms.png)
+The following image depicts the standard container flow. You setup an application in your development environment and build an image. You then push that image to a container registry. The container is then pulled down to some environment and ran.
 
-## Run the standard linux image
+![Container flow](containerFlow.png)
 
-`-i` means interactive (keep STDIN open)
-`-t` means allocate a pseudo-TTY
-`-d` is detached
-`--rm` remove the container when it stops
+## Run a standard Linux container
+
+In order to give you experience with containers, let's start by pulling down a standard Linux container form Docker Hub and running it. You can do this all with one command.
 
 ```sh
 docker run -it --rm alpine sh
 ```
 
-Know you can run things like
+This command will attempt to execute the container named `alpine`. You probably won't have that image in your local registry and so it will attempt to pull it from Docker Hub by default. Once it is pulled into your local registry, it will load the image. The provided parameters indicate the following:
+
+- `-i` tells the Docker daemon to run in interactive mode. This keeps STDIN open so that you can type commands that the container will receive.
+- `-t` opens a pseudo terminal so that you can see what the container is outputting.
+- `-rm` instructs the Docker daemon to remove the container when the root process terminates.
+
+When you run the command you should see something similar to the following.
+
+```sh
+Unable to find image 'alpine:latest' locally
+latest: Pulling from library/alpine
+a258b2a6b59a: Pull complete
+Digest: sha256:b89d9c93e9ed3597455c90a0b88a8bbb5cb7188438f70953fede212a0c4394e0
+Status: Downloaded newer image for alpine:latest
+/ #
+```
+
+You can then execute shell command that are isolated to the container runtime environment. This is a great way to learn Linux since an mistakes you make will get thrown away once the container completes. Go ahead and try the following commands.
 
 ```sh
 ls -la
 echo hello
-top
-ping google.com
-whois google.com
+top # Type q to quit
+ping google.com # Type CTRL-C to stop
+whois byu.edu
 df -h
-rm -rf /bin # No big deal. It is just a container!
+rm -rf /bin
 ```
 
-`CTRL-C CTRL-D` to escape the shell.
+After that last command you won't be able to do much else since you just deleted all of the shell utility programs.
+
+To close the pseudo terminal type `CTRL-C CTRL-D`. That will kill the shell and terminate the container.
 
 ## Building an image
+
+Now let's build an image. Make a directory and change into that directory. Then run the Docker CLI `init` command. This
+
+```sh
+mkdir containerExample && cd containerExample
+docker init
+```
+
+The Docker CLI will ask you what you want your container to do. We want to build a simple Express web server and so answer the questions as shown below.
+
+```sh
+Welcome to the Docker Init CLI!
+
+? What application platform does your project use? Node
+? What version of Node do you want to use? 20.10.0
+? Which package manager do you want to use? npm
+? What command do you want to use to start the app? npm run start
+? What port does your server listen on? 3000
+
+CREATED: .dockerignore
+CREATED: Dockerfile
+CREATED: compose.yaml
+CREATED: README.Docker.md
+
+✔ Your Docker files are ready!
+```
+
+# ------
 
 I ran `docker init` in a directory. This set up the Dockerfile and a compose.yaml file.
 
@@ -135,8 +179,6 @@ docker container rm demo
 ```
 
 Normally you would have to stop a container before you remove it, but you can use the force `-f` flag to both stop and remove it.
-
-![vm and containers](vmAndContainers.png)
 
 You can think of virtual machines as virtual devices that run on top of the hardware level.
 You can think of containers as virtual machines that run on top of the operating system level.

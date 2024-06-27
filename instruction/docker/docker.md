@@ -8,7 +8,7 @@
 
 ---
 
-📖 **Deeper dive reading**: [Docker CLI Docs](https://docs.docker.com/reference/cli/docker/)
+📖 **Deeper dive reading**: [What are containers](https://www.docker.com/resources/what-container/)
 
 ---
 
