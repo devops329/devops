@@ -63,7 +63,7 @@
 - 🟠 [AWS CloudFront](awsCloudFront/awsCloudFront.md)
 - 🟠 [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
 - ☑ 🟠 [⓹ CDN deployment: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
-- 🚧 [Elasticity](elasticity/elasticity.md)
+- 🔵 [Elasticity](elasticity/elasticity.md)
 - ☑ 🟠 [AWS RDS MySQL](awsRdsMysql/awsRdsMysql.md)
 - 🚧 [Docker](docker/docker.md)
 - 🚧 [Containers](containers/containers.md)
@@ -113,7 +113,7 @@
 - 🟠 [Alerts](alerting/alerting.md)
 - ☑ 🟠 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
 - 🚧 Playbooks
-- 🚧 Self healing (scale groups)
+- 🚧 [Self healing](selfHealing/selfHealing.md)
 - 🚧 SLO, RTO, RPO
 - 🟠 [Chaos testing](chaosTesting/chaosTesting.md)
 - 🟠 [Incident report](incidentReport/incidentReport.md)

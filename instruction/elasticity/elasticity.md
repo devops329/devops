@@ -1,43 +1,34 @@
 # Elasticity
 
-Making your systems scalable is important for both cost and customer satisfaction.
+🔑 **Key points**
 
-S3 scales
-You can scale vertically by increasing the container vCPU, memory
-You can scale horizontally by increasing the number of deployed containers
-MySQL allows for DB scalability. Aurora would be better.
-ALB Scale groups, ECS Scaling, Fargate Scaling all allows for compute scalability
-Load balancer allows for scaling
-Redis and memcache allow for compute scalability on stable data
-CloudFront allows for global network scalability on network resources
+- Elasticity is vital in order to prevent failure and reduce costs
+- All AWS services are elastic
 
-Redundancy / fallbacks?
+---
 
-Availability zone scaling
-Regional scaling
+An application is considered elastic if it can increase and decrease in capacity according to demand. This is critical for two reasons. First, it **prevents failing** when there are not enough resources to satisfy demand, and second, **reduces cost** when there are the system is over provisioned.
 
-I was just reading the line in the status reporting instruction about 'circuit breakers', or fallbacks. What would fallbacks / redundancy look like in the context of JWT Pizza?
-Professor Jensen — Today at 11:13 AM
-For example, the factory pizza order might fail. The pizza service would then store the order in a database for later processing and report to the customer that they will be notified when the order is complete (with a coupon or discount), or give them a chance to cancel the order altogether.
+## An example
 
-Redundancy would mean that you have a secondary factory, perhaps in a different region, that might not be able to process the order as quickly, but will get the job done while the primary factory is not responding.
+It is very common for an application to have periods of high and low demand. Consider the JWT Pizza application. People want pizza at lunch and dinner time. Then from late evening until the next lunch time there is very little demand for the application. Things get really crazy during the Superbowl when everyone wants a pizza and demand goes through the roof. The next day everyone is looking to eat salad and recover from their indulgence and so there are very few pizza orders.
 
-Feel free to add content like this if you think it will help.
-The idea is to never say something like:
+![alt text](pizzaOrders.png)
 
-Error (500): looks like we are lame
-Stephen Amos — Today at 11:15 AM
-Haha yeah makes sense. So we won't actively build fallbacks into our app, but it would be good to discuss with them
-Professor Jensen — Today at 11:16 AM
-I don't think I built any.
-Stephen Amos — Today at 11:16 AM
-Would that maybe be in self healing?
-Professor Jensen — Today at 11:17 AM
-Self healing would actually automatically fix the nonresponsive factory service. For example, the metric might trigger an automated action that spins up a new factory service and replace it.
+This creates a significant problem for the management of the application. If you run your own data center then you have to purchase servers based on estimates of what your peak demand will be. Usually there was a buffer of maybe 30%. That means that most of the time you have as much as 50% of the servers sitting idle, during off hours you would have 80% idle, and when the Superbowl happens, your customers experience significant latency of minutes in the best case or complete system failure in the worst case.
 
-We actually do this for the pizza service. The ALB monitors the health of the container. If it fails, it will spin up a new container.
-Stephen Amos — Today at 11:18 AM
-Ok. I'm just not sure where we would talk about redundancy.
-Also should the status instruction be in the failure management section, instead of load testing section?
+Neither one of these scenarios are good for the business and this is why the idea of leasing resources by the hour in a cloud hosting environment becomes so attractive. The cloud provider can amortize the use of the servers across a diverse population of application types and geographical locations. What is crunch time for one application will be go time for another application. You may need to pay a small premium for an hourly lease, but you benefit from being able to scale up your application when needed and reduce the servers when the demand drops. Overall there are significant cost savings and no more outages just when business is getting good.
 
-- We need a discussion on scalability, bottlenecks, and auto adjustment. This should tie into SLO.
+## AWS Elasticity
+
+Almost every AWS service is built with elasticity in mind. This is important because all of your services need to scale together. If everything scales except your network bandwidth then your application is going down. The same goes for S3 requests or RDS queries. A single bottleneck is all it takes for the whole system to fail. The following table shows how each of the services we use for JWT Pizza provides elasticity.
+
+| Service    | Automatic | Pricing               | Elasticity                                                                    |
+| ---------- | :-------: | --------------------- | ----------------------------------------------------------------------------- |
+| S3         |    yes    | per GB & request      | Automatic storage allocation.                                                 |
+| RDS MySQL  |    no     | instance size         | Manual instance size adjustments. These usually take a few minutes to deploy. |
+| Fargate    |    yes    | instance size & count | Automatic deployment and reduction to satisfy desired parameters.             |
+| ALB        |    yes    | per GB & connection   | Automatic bandwidth management.                                               |
+| CloudFront |    yes    | per GB & request      | Automatic distribution and bandwidth management.                              |
+
+This is all good news for small DevOps teams that are budget or size constrained. Once an architecture is defined and deployed, the automatic elasticity of the system mostly takes care of itself. What would have taken a team of a dozen engineers to deploy and manage can now be done by a single part time DevOps engineer.
