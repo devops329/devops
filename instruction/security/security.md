@@ -7,7 +7,7 @@
 
 ---
 
-Now that you are preparing to deploy your application with a cloud service provider it is important that we take a moment to discuss security. Security should be a foundational piece of your application design. An application that is not secure is an application that will eventually do more harm than good. It doesn't matter that you application provides hours of entertainment, increases your customer's financial wealth, or obtains world peace if it eventually leads to compromised credentials, the loss of personal information, or monetary theft.
+Now that you are preparing to deploy your application with a cloud service provider, it is important that we take a moment to discuss security. Security should be a foundational piece of your application design. An application that is not secure is an application that will eventually do more harm than good. It doesn't matter that your application provides hours of entertainment, increases your customer's financial wealth, or obtains world peace if it eventually leads to compromised credentials, the loss of personal information, or monetary theft.
 
 You should seriously consider that God has given you talents that are meant to do eternal good. That includes watching out for those who have been entrusted to your care. Providing for their security is an important part of the responsibility.
 
@@ -15,18 +15,18 @@ You should seriously consider that God has given you talents that are meant to d
 
 There are four major themes that you should consider when building a secure application.
 
-1. **Education**: Becoming familiar with common and current attacks. Know industry best practices. Help educate all the members of your team.
+1. **Education**: Become familiar with common and current attacks. Know industry best practices. Help educate all the members of your team.
 1. **Prevention**: Instrument your code to reduce the attack surface area, secure credentials, encrypt data, authorize access, harden configurations, validate dependencies, and prevent injections.
 1. **Detection**: Log usage, track metrics, and alert on anomalies.
 1. **Remediation**: Deploy corrections quickly, notify impacted customers, report penetrations, and share attack vectors and vulnerabilities.
 
-The important thing is that you are constantly including these themes in your design discussion and implementing them in your architectures. Hopefully you will see these themes repeatedly occurring trough out this course.
+The important thing is that you are constantly including these themes in your design discussion and implementing them in your architectures. Hopefully you will see these themes repeatedly occurring throughout this course.
 
 In order to make the concept of security more concrete, let's go ahead and review some specific topics.
 
 ### Layers
 
-No system is completely immune to a persistent, dedicated, well funded, team of attackers. The best you can do is hope to stay ahead of them as you play a game of cat and mouse. One proven technique for staying ahead of your opponent is to create layers to your security. For example, consider the credentials stored in your database.
+No system is completely immune to a persistent, dedicated, well funded team of attackers. The best you can do is hope to stay ahead of them as you play a game of cat and mouse. One proven technique for staying ahead of your opponent is to create layers to your security. For example, consider the credentials stored in your database.
 
 1. Passwords are hashed using properly configured, modern cryptographic algorithms, and flavored with salt and pepper.
 1. The database files are encrypted.
@@ -34,8 +34,8 @@ No system is completely immune to a persistent, dedicated, well funded, team of 
 1. Only port 3306 is open to network requests.
 1. The database server is on a private network.
 1. Only authorized devices can access the server over the network.
-1. Authorized devices are can only make requests using an encrypted protocol.
-1. The authorized devices credentials are rotated hourly.
+1. Authorized devices can only make requests using an encrypted protocol.
+1. The authorized devices' credentials are rotated hourly.
 1. The types of SQL queries that the device can make are restricted and can only return the amount of data that is required for their role.
 1. All authentication and queries to the database is immutably logged. Anomalies trigger an alert.
 1. Request metrics are tracked. Anomalies trigger an alert.
@@ -77,7 +77,7 @@ The JWT Pizza Service attempts to keep passwords out of log files with code such
 
 #### JWT Pizza database password
 
-The JWT Pizza Service is currently defined to store the database password in a local configuration file. If that file is ever accidentally posted to GitHub, or located on a compromised storage device, then it will give an attacker an essential piece to your security puzzle. Instead of storing the password in clear text in the configuration file several other options could have been used.
+The JWT Pizza Service is currently defined to store the database password in a local configuration file. If that file is ever accidentally posted to GitHub, or located on a compromised storage device, then it will give an attacker an essential piece to your security puzzle. Instead of storing the password in clear text in the configuration file, several other options could have been used.
 
 1. Encrypt the password in the configuration file. Require a private key to decrypt the password which is only obtainable if the device is executing with a given role in the AWS environment.
 1. Retrieve the password from the AWS secrets manager when the service starts up. Only allow the key to be retrieved from a device with a given role in the AWS environment.
@@ -85,9 +85,9 @@ The JWT Pizza Service is currently defined to store the database password in a l
 
 ### Hardening
 
-Consider a device that allows the entire world to make an unauthenticated SSH connection on any network port, that then gives them root to the device. This is an obvious security violation, but an only slightly less egregious example includes letting anyone access port 22, but requiring a textual password for the root user. What you really want is to only allow only network access from an approved list, a white list, of IP addresses, where a user is authenticated by a named account using a cryptographically secure private key. The user is then restricted to only have access to the storage, memory, and applications necessary for them to accomplish their job.
+Consider a device that allows the entire world to make an unauthenticated SSH connection on any network port, and then gives them root access to the device. This is an obvious security violation, but an only slightly less egregious example includes letting anyone access to port 22, but requiring a textual password for the root user. What you really want is to only allow only network access from an approved list, a white list, of IP addresses, where a user is authenticated by a named account using a cryptographically secure private key. The user is then restricted to only have access to the storage, memory, and applications necessary for them to accomplish their job.
 
-This process of going from being extremely open to allowing only the very smallest window necessary to accomplish a task is called hardening. When developing a system it is often necessary to be liberal with access until you can figure out what exact access is required. However, you must make sure that you restrict that access down once the system definition has matured.
+This process of going from being extremely open to allowing only the very smallest window necessary to accomplish a task is called hardening. When developing a system it is often necessary to be liberal with access until you can figure out what exact access is required. However, you must make sure that you restrict that access once the system definition has matured.
 
 For example, while setting up your JWT Pizza Service on AWS it is tempting to supply liberal permissions to your CI pipeline so that it can deploy containers to the AWS container registry, ECR. This might look like the following.
 
@@ -100,7 +100,7 @@ For example, while setting up your JWT Pizza Service on AWS it is tempting to su
 }
 ```
 
-However, once have the deployment working correctly you want to restrict this policy down so that it can only push to certain locations from certain locations.
+However, once you have the deployment working correctly you want to restrict this policy so that it can only push to certain locations from certain locations.
 
 ```json
 {
@@ -111,11 +111,11 @@ However, once have the deployment working correctly you want to restrict this po
 }
 ```
 
-Failing to harden your application exposes a larger attack surface area and make you more likely to be attacked or to miss that a penetration has occurred.
+Failing to harden your application exposes a larger attack surface area and makes you more likely to be attacked or to miss that a penetration has occurred.
 
 ### Removing default settings
 
-Often times devices or software packages come with default configurations that allow anyone to gain administrative access. Home network routers are notorious for this. Immediately after install the device or package you should remove any default configuration that might cause a security threat. This includes default credentials, but it can also include liberal port access, administration utilities that are unnecessary, or verbose logging.
+Often times devices or software packages come with default configurations that allow anyone to gain administrative access. Home network routers are notorious for this. Immediately after installing the device or package, you should remove any default configuration that might cause a security threat. This includes default credentials, but it can also include liberal port access, administration utilities that are unnecessary, or verbose logging.
 
 ### Store credentials with a third party
 
@@ -221,11 +221,11 @@ A better policy would be:
 }
 ```
 
-You want to make sure that you understand the AWS IAM permissions model so that when you start allocating AWS resources you don't expose anything more than is required for your CI pipelines need.
+You want to make sure that you understand the AWS IAM permissions model so that when you start allocating AWS resources you don't expose anything more than is required for your CI pipeline's needs.
 
 ### Package security
 
-Sometimes it is tempting to think that code downloaded from a popular repository is safe to use. Unfortunately that is the exact opposite attitude that you should have. Popular repositories and packages are high value targets for attackers. You should be very careful about what you download and include in your code. When you do download code you need to thoroughly review it in order to make sure it only does exactly what you want it to do. You also need to repeat your review every time you update the package to make sure that your assumptions still are valid.
+Sometimes it is tempting to think that code downloaded from a popular repository is safe to use. Unfortunately that is the exact opposite attitude that you should have. Popular repositories and packages are high value targets for attackers. You should be very careful about what you download and include in your code. When you do download code, you need to thoroughly review it in order to make sure it only does exactly what you want it to do. You also need to repeat your review every time you update the package to make sure that your assumptions still are valid.
 
 Most security minded software companies will not allow you to download and use 3rd party software. Instead, external software must be downloaded, examined, and vetted by their security team. It is then placed in an internal package manager where it can be used internally for your application.
 
@@ -274,7 +274,7 @@ In this case it is much safer to just copy the ten lines of code and forget the 
 
 ### Logging and Metric
 
-Your logs an metrics are a foundational piece of your security architecture. They alert you to anomalous behavior that can indicate an intruders presence, and provide the forensic evidence necessary to determine the attackers target and strategy. In order for you logs to be useful, they must be immutable, aggregated, accessible, and highly searchable.
+Your logs and metrics are a foundational piece of your security architecture. They alert you to anomalous behavior that can indicate an intruder's presence, and provide the forensic evidence necessary to determine the attacker's target and strategy. In order for your logs to be useful, they must be immutable, aggregated, accessible, and highly searchable.
 
 ## Common attacks
 
@@ -306,10 +306,10 @@ In addition to securing your software application, it is important that your org
 - **Improper data management**: Allowing confidential data to be accessed without authorization or to be transported outside the security parameter.
 - **Insecure network typography**: Allowing non-authorized, or insecure devices, within the security parameter.
 
-In many ways these attacks are the most dangerous because they exploit your system behind your wall of trust. Having a hardened, secure, architecture is pointless if one of your team members gives out the administrative password to someone contacts them from the "operations team" with a desperate need to correct a "critical emergency" that is threatening to take the company down in the next few minutes.
+In many ways these attacks are the most dangerous because they exploit your system behind your wall of trust. Having a hardened, secure, architecture is pointless if one of your team members gives out the administrative password to someone who contacts them from the "operations team" with a desperate need to correct a "critical emergency" that is threatening to take the company down in the next few minutes.
 
 ## Parting thoughts
 
-Security is a massive topic that deserves your serious consideration. Gone are the days when a programmer could just focus on an algorithm without having to consider how that code could be exploited to seal someone's life. The more valuable your code the more likely it is that you will be a high value target that will attract attention from all sorts of ill intended individuals, gangs, terrorists, Gadianton robbers, and state sponsored criminals. The better you are educated and engaged the less chance the trust your customers place in you will be violated.
+Security is a massive topic that deserves your serious consideration. Gone are the days when a programmer could just focus on an algorithm without having to consider how that code could be exploited to steal someone's life. The more valuable your code, the more likely it is that you will be a high value target that will attract attention from all sorts of ill intended individuals, gangs, terrorists, Gadianton robbers, and state sponsored criminals. The better you are educated and engaged, the less chance the trust your customers place in you will be violated.
 
 💡 Hopefully the security topics covered in this instruction have set your curiosity senses tingling. There are many subjects that you can dig into as part of your curiosity report.
