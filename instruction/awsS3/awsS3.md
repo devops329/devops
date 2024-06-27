@@ -11,11 +11,11 @@
 
 One of the earliest services provided by Amazon Web Services was an object storage service named S3 (Simple Storage Service). S3 is a scalable, high-speed, web-based cloud storage service designed for online backup and archiving of data. S3 provides access through a web service interface, allowing users to store and retrieve any amount of data from anywhere on the web.
 
-S3 provides high durability, availability, security features such as encryption and access controls, scalability to handle large volumes of data, cost-effectiveness, and integration with a wide range of AWS services and third-party tools. All of these reasons make it a good choice for your production deployment of the JWT Pizza static frontend.
+S3 provides high durability and availability, security features such as encryption and access controls, scalability to handle large volumes of data, cost-effectiveness, and integration with a wide range of AWS services and third-party tools. All of these reasons make it a good choice for your production deployment of the JWT Pizza static frontend.
 
 ![S3 bucket](s3Bucket.png)
 
-At a basic level S3 is just global list of bucket names that each contain a potentially very large number of named objects. There is no directory structure like you might expect in a file system. However, S3 honors a naming convention that mimics much of the structure you would expect. For example if you name an object:
+At a basic level S3 is just a global list of bucket names that each contain a potentially very large number of named objects. There is no directory structure like you might expect in a file system. However, S3 honors a naming convention that mimics much of the structure you would expect. For example if you name an object:
 
 ```txt
 20240623.002941/assets/index-BwtN1-bI.css
