@@ -21,7 +21,7 @@ https://www.docker.com/resources/what-container/
 `-i` means interactive (keep STDIN open)
 `-t` means allocate a pseudo-TTY
 `-d` is detached
-`-rm` remove the container when it stops
+`--rm` remove the container when it stops
 
 ```sh
 docker run -it --rm alpine sh
