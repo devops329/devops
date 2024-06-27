@@ -1,5 +1,13 @@
 # Grafana
 
+🔑 **Key points**
+
+- Grafana provides a full suite of open source observability tools.
+- You will use Grafana Cloud as your observability tool.
+- Create a Grafana Cloud account and build your first dashboard.
+
+---
+
 In 2014, Grafana started as an open source metric visualization tool based on the Kibana logging dashboard for ElasticSearch.
 
 ![Grafana Dashboard](grafanaDashboard.png)

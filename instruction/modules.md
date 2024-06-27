@@ -86,7 +86,7 @@
 
 ## Observability
 
-- 🚧 [Observability](observability/observability.md)
+- 🔵 [Observability](observability/observability.md)
 - ☑ 🟠 [Grafana](grafana/grafana.md)
 - 🚧 Metrics
 - ☑ 🟠 [Grafana metrics](grafanaMetrics/grafanaMetrics.md)
