@@ -1,5 +1,12 @@
 # Deployment strategies
 
+🔑 **Key points**
+
+- There are many tools and strategies that you can use to deploy your code.
+- Version compatibility and rollback is a key part of your strategy
+
+---
+
 There are many different deployment strategies you can use when deploying your application. Each of the different strategies address a specific system of complexities. All strategies require some concept of a version and they usually require some level of compatibility between deployed versions.
 
 ## Branches

@@ -1,5 +1,11 @@
 # Deliverable ⓻ Environments: JWT Pizza
 
+🔑 **Key points**
+
+- Implement versions and environments for JWT Pizza in your CI pipeline.
+
+---
+
 Now that you know all about versions, releases, environments, and different deployment strategies, it is time for you to enhance your JWT Pizza frontend deployment process. What you want to end up with is a CI process that automatically creates a new version in S3 and deploys it to your **staging** environment every time a new commit is pushed to the `jwt-pizza` repository.
 
 A manual trigger of a GitHub Actions workflow then deploys any desired version to your **production** environment.

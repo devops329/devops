@@ -1,5 +1,11 @@
 # Deliverable ⓺ Scalable deployment: JWT Pizza Service
 
+🔑 **Key points**
+
+- Deploy JWT Pizza Service to scalable services using CI.
+
+---
+
 ![course overview](../sharedImages/courseOverview.png)
 
 Now that you have experience with creating, registering, and deploying the JWT Pizza Service manually, it is time to modify your CI workflow to do this automatically when you push a change to the repository. This deliverable represents the **Scalable compute** portion of our product overview diagram. It provides the hosting of the jwt-pizza-service in a way that can support an ever growing customer base, all driven by an automated CI process.

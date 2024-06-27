@@ -1,5 +1,12 @@
 # GitHub Releases
 
+🔑 **Key points**
+
+- GitHub support representing releases as part of its core functionality.
+- Add GitHub releases to your CI pipeline.
+
+---
+
 📖 **Deeper dive reading**: [Managing GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
 
 GitHub supports the ability to associate a release with a version and commit. You can do this manually by going to the home page for a repository and selecting controls on the `Releases` section on the right of the view. From there you can press the `Draft a new release` button.

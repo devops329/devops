@@ -1,5 +1,12 @@
 # Deployment environments
 
+🔑 **Key points**
+
+- Deployment environments allow you to target specific customer requirements.
+- Common environments include production, staging, and development.
+
+---
+
 To this point you have been deploying your code directly to your production environment using what is called a `reboot` strategy. If you look at your GitHub Actions CI workflow for `jwt-pizza` you will see something like the following step.
 
 ```yml
@@ -23,6 +30,8 @@ What you really need is a central repository of all of the candidate versions th
 The above diagram shows three such possible environments. This includes a production, penetration, and staging environment. Each of these environments hosts the entire stack of the application, but may have different data, device configurations, or versions of the software. The environments may also have different access controls that limit who can access it, and from where.
 
 Each environment has the same starting flow where the software is tested, analyzed, and cataloged to ensure quality and automated access, but the deployment environments themselves target different purposes.
+
+- **Development**: Commonly the machine that a software engineer does their work on is considered one of many development environments. Your team can formalize what that environment looks like, what tools are required, and how it is configured. Additionally, there are several cloud based development environments that you can choose from such as [AWS Cloud 9](https://aws.amazon.com/cloud9/), [GitHub Codespaces](https://github.com/features/codespaces), or [Replit](https://replit.com/). These types of tools have an advantage of creating uniformity across teams, sharing access and configuration, and being accessible from anywhere.
 
 - **Production**: This environment is where the live application is hosted, accessible to end-users and customers. It must be highly reliable, secure, and performant since it directly impacts the user experience. Changes to this environment should be thoroughly tested and rolled out carefully to minimize downtime and avoid introducing new bugs.
 

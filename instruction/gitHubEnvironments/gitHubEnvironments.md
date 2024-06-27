@@ -1,5 +1,12 @@
 # GitHub Environments
 
+🔑 **Key points**
+
+- GitHub environment allow you to isolate your secrets and tag workflows.
+- Convert your CI workflow to use GitHub environments.
+
+---
+
 GitHub supports the concept of `environments` that allow you to isolate your secrets and enforce protection rules. Protection rules can require a manual approval, delay a job, or restrict the environment to certain branches.
 
 ## Creating an environment

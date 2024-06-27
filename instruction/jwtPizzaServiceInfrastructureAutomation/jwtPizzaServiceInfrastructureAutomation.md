@@ -1,5 +1,11 @@
 # JWT Pizza Service infrastructure automation
 
+🔑 **Key points**
+
+- Convert your manual JWT Pizza Service deployment to IaC using CloudFormation.
+
+---
+
 For the last step in your backend DevOps automation, you will create a CloudFormation template that will allow you to quickly set up and tear down the ECS and ALB service configuration that hosts your JWT Pizza Service backend.
 
 ## Delete the manual deployment
@@ -273,4 +279,4 @@ Complete the following.
 
 Once this is all working, mark that you have completed the work in the Canvas assignment.
 
-🚧 As an alternative to this assignment we could have them create a template for deploying the frontend or MySQL database infrastructure.
+💡 A great creativity report would be to dig into CloudFormation and figure out how you could also automate the deployment of your RDS MySQL database or S3/CloudFront infrastructure.

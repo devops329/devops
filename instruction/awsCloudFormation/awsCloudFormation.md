@@ -1,4 +1,11 @@
-# AWS Cloud Formation
+# AWS CloudFormation
+
+🔑 **Key points**
+
+- CloudFormation enables IaC.
+- Deploy an S3 bucket using CloudFormation.
+
+---
 
 📖 **Deeper dive reading**: [CloudFormation getting started](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.html)
 
@@ -6,7 +13,7 @@
 
 ## CloudFormation
 
-CloudFormation is AWS's primary automation tool. With CloudFormation you can create a parameterized JSON file, called a **CloudFormation Template**, that describes each AWS resource that you want to create. You then use the template to create a CloudFormation stack. A stack represents the instantiation of all the resources defined by the template. You can also delete all the resources represented by the stack with a single button press.
+CloudFormation is AWS's primary IaC and automation tool. With CloudFormation you can create a parameterized JSON file, called a **CloudFormation Template**, that describes each AWS resource that you want to create. You then use the template to create a CloudFormation stack. A stack represents the instantiation of all the resources defined by the template. You can also delete all the resources represented by the stack with a single button press.
 
 - **Resource**: An AWS object such as a S3 Bucket or EC2 instance.
 - **Template**: A JSON script that defines resources to deploy.
