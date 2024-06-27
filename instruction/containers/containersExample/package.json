@@ -1,0 +1,6 @@
+{
+  "name": "container-example",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

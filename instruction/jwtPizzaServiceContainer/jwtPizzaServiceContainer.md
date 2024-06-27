@@ -1,5 +1,11 @@
 # JWT Pizza Service Container
 
+🔑 **Key points**
+
+- Build a container for the JWT Pizza Service.
+
+---
+
 Now that you know how Docker containers work, you need to create a jwt-pizza-service Docker container image from the Pizza Service source code. Here are the steps to take.
 
 1. In your development environment, open your command console and navigate to the directory containing your fork of `jwt-pizza-service`.

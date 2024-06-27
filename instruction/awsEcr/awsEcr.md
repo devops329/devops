@@ -1,8 +1,16 @@
 # AWS Elastic Container Registry (ECR)
 
+🔑 **Key points**
+
+- Deploy the JWT Pizza Service container image to ECR.
+
+---
+
 AWS Elastic Container Register (ECR) is an [Open Container Initiative](https://opencontainers.org/) compliant container registry. You can store up to 500 MB of container images in a private repository without charge. Using ECR is a convenient and secure way to upload your jwt-pizza-service container images and then deploy them using AWS Elastic Container Services (ECS). Here is the long term architecture that we are working towards:
 
 ![Pizza service deployment](pizzaServiceDeployment.png)
+
+Using ECR is similar to what you did with Docker Hub in a previous instruction topic. The steps are to create a repository and then push an image to that repository.
 
 ## Setting up ECR
 
