@@ -7,7 +7,7 @@
 
 ---
 
-An application is considered elastic if it can increase and decrease in capacity according to demand. This is critical for two reasons. First, it **prevents failing** when there are not enough resources to satisfy demand, and second, **reduces cost** when there are the system is over provisioned.
+An application is considered elastic if it can increase and decrease in capacity according to demand. This is critical for two reasons. First, it **prevents failing** when there are not enough resources to satisfy demand, and second, **reduces cost** when the system is over provisioned.
 
 ## An example
 
@@ -15,7 +15,7 @@ It is very common for an application to have periods of high and low demand. Con
 
 ![alt text](pizzaOrders.png)
 
-This creates a significant problem for the management of the application. If you run your own data center then you have to purchase servers based on estimates of what your peak demand will be. Usually there was a buffer of maybe 30%. That means that most of the time you have as much as 50% of the servers sitting idle, during off hours you would have 80% idle, and when the Superbowl happens, your customers experience significant latency of minutes in the best case or complete system failure in the worst case.
+This creates a significant problem for the management of the application. If you run your own data center then you have to purchase servers based on estimates of what your peak demand will be. Usually there is a buffer of maybe 30%. That means that most of the time you have as much as 50% of the servers sitting idle, during off hours you would have 80% idle, and when the Superbowl happens, your customers experience significant latency of minutes in the best case or complete system failure in the worst case.
 
 Neither one of these scenarios are good for the business and this is why the idea of leasing resources by the hour in a cloud hosting environment becomes so attractive. The cloud provider can amortize the use of the servers across a diverse population of application types and geographical locations. What is crunch time for one application will be go time for another application. You may need to pay a small premium for an hourly lease, but you benefit from being able to scale up your application when needed and reduce the servers when the demand drops. Overall there are significant cost savings and no more outages just when business is getting good.
 
@@ -31,4 +31,4 @@ Almost every AWS service is built with elasticity in mind. This is important bec
 | ALB        |    yes    | per GB & connection   | Automatic bandwidth management.                                               |
 | CloudFront |    yes    | per GB & request      | Automatic distribution and bandwidth management.                              |
 
-This is all good news for small DevOps teams that are budget or size constrained. Once an architecture is defined and deployed, the automatic elasticity of the system mostly takes care of itself. What would have taken a team of a dozen engineers to deploy and manage can now be done by a single part time DevOps engineer.
+This is all good news for small DevOps teams that are budget or size constrained. Once an architecture is defined and deployed, the automatic elasticity of the system mostly takes care of itself. What would have taken a team of a dozen engineers to deploy and manage can now be done by a single part-time DevOps engineer.
