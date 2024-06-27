@@ -1,6 +1,18 @@
-# ECS
+# Elastic Container Services (ECS)
+
+🔑 **Key points**
+
+- What is ECS?
+- Manually deploying containers with ECS Fargate.
+- Exposing containers with an EC2 load balancer.
+- Assigning DNS to point to ECS.
+- Deploying JWT Pizza Service to ECS.
+
+---
 
 📖 **Deeper dive reading**: [What is ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html)
+
+---
 
 The Elastic Container Service (ECS) provides the functionality necessary to deploy your Docker container image. After you have uploaded your image to [ECR](../awsEcr/awsEcr.md), you can create an ECS cluster and service to load your container onto either EC2 instances or AWS Fargate.
 
