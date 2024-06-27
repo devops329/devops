@@ -130,14 +130,12 @@ Take the following steps to deploy with an Application Load Balancer.
       1. Provide `jwt-pizza-service` as the `Load balancer name`.
       1. Create a new listener on port 443 using HTTPS.
       1. Select the wildcard certificate for the hostname that you created previously.
-         🚧 they never actually created a wildcard certificate
    1. Create a new target group.
       1. Provide the name `jwt-pizza-service`.
       1. Set the Protocol to HTTP.
       1. Set the Health check path to `/api/docs`.
    1. Press `Create`.
 
-🚧 You put port 80 for https in this image, your target group uses https, not http and the health check path is `/`.
 ![Load balancer config](loadBalancerConfig.png)
 
 ### Testing the load balancer
