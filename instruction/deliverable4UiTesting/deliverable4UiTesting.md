@@ -20,7 +20,7 @@ You previously created a fork of `jwt-pizza`. Now you need to add Playwright and
 
 1. Install Playwright. You can choose if you want to use JavaScript or TypeScript.
    ```sh
-   npm playwright test
+   npm init playwright@latest
    ```
 1. Add the `test` script to `package.json`.
    ```json
@@ -67,7 +67,7 @@ You previously created a fork of `jwt-pizza`. Now you need to add Playwright and
    npm install -D nyc vite-plugin-istanbul playwright-test-coverage
    ```
 
-1. Modify `.gitignore` to excluded `.nyc_output`.
+1. Modify `.gitignore` to exclude `.nyc_output`.
 1. Add the configuration files
 
    **.nycrc.json**
@@ -352,8 +352,6 @@ This should be enough to get you started. Your goal is to get at least 80% line 
 ## Testing CI
 
 With your automated tests in place you can now update the GitHub Actions script the you created previously to include the execution of the tests. You also want to report your coverage publicly and create a version number.
-
-To create a version number based on the current date, we just need to generate it before we bundle.
 
 ```yml
 - name: Build
