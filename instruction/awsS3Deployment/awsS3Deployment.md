@@ -138,7 +138,7 @@ Go ahead and create the following secrets.
      push:
        branches:
          - main
-
+     workflow_dispatch:
    permissions:
      id-token: write
 

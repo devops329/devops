@@ -23,7 +23,7 @@ on:
   push:
     branches:
       - main
-
+  workflow_dispatch:
 jobs:
   validate:
     name: Test and analyze backend
@@ -188,7 +188,7 @@ on:
   push:
     branches:
       - main
-
+  workflow_dispatch:
 jobs:
   validate:
     name: Test and analyze
