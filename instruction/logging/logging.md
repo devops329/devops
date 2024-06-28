@@ -13,13 +13,13 @@ A good logging system gives you a record of individual events that are tagged wi
 
 ![Grafana log explorer](grafanaLogExplorer.png)
 
-Many of the topics that are important when considering what makes a good logging system were already covered in the [Observability](../observability/observability.md) topic and include the following: centralized aggregation, immutability, remove of credentials and personally identifiable information, and a performant search system. These should all be considered when deciding on how you acquire and persist your logs.
+Many of the topics that are important when considering what makes a good logging system were already covered in the [Observability](../observability/observability.md) topic and include the following: centralized aggregation, immutability, removal of credentials and personally identifiable information, and a performant search system. These should all be considered when deciding on how you acquire and persist your logs.
 
 ## The impact of logging design
 
 One topic that we haven't discussed is the actual mechanism for capturing, normalizing, and transmitting logs in a way that doesn't overly impact the actual processing of the application without creating serious lag in the reporting of events.
 
-As you will soon discover, you will use a very simple system for reporting log events to the observability system. Basically every time a log event is triggered, the generation and transmission of the log record happens synchronously with the triggered event. For example, when an HTTP request is received the log event will be sent to the logging system over the network as part of the processing of the HTTP request. To be fair, the log event is actually sent asynchronously, but there is still a every real possibility that the act of logging will detrimentally impact the latency of customer requests.
+You will soon use a very simple system for reporting log events to the observability system. Basically every time a log event is triggered, the generation and transmission of the log record happens synchronously with the triggered event. For example, when an HTTP request is received the log event will be sent to the logging system over the network as part of the processing of the HTTP request. To be fair, the log event is actually sent asynchronously, but there is still a every real possibility that the act of logging will detrimentally impact the latency of customer requests.
 
 There are lots of things that we can do to remedy this situation. One possibility is to cache multiple log events in memory and send them in bulk at periodic intervals. For example, you could have a 500 KB buffer that sends when it gets full or when 15 seconds have passed. This reduces the overhead of communication a single log event at a time and gains efficiency because the bulk delivery can be compressed more efficiently and thereby decreasing the cost of transmission significantly.
 
@@ -31,7 +31,7 @@ This leads to an additional strategy that you might consider for your logging, o
 
 ## Additional considerations
 
-Here is a list of things additional things that you should consider in your logging design.
+Here is a list of additional things that you should consider in your logging design.
 
 - How often?
 - How much?
