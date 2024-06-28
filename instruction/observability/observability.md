@@ -2,7 +2,7 @@
 
 🔑 **Key points**
 
-- Logging, metrics, and traces are standard observability tools.
+- Metrics, logging, and traces are standard observability tools.
 - Key metrics include latency, traffic, errors, and saturation.
 - There are many important observability characteristics to consider.
 
@@ -20,8 +20,8 @@ Without being able to observe what is happening inside the box, you are left to 
 
 There are three types of tools that are usually associated with increasing the observability of a software system.
 
-1. **Logging**: Records key information as it passes through the system. This includes fields such as request IP addresses, SQL queries, and authentication requests.
 1. **Metrics**: Provides raw numbers, such as requests rates and CPU percentages, that can be aggregated together to quickly analyze the health of a system. They can also provide a historical record of system performance.
+1. **Logging**: Records key information as it passes through the system. This includes fields such as request IP addresses, SQL queries, and authentication requests.
 1. **Tracing**: Allows you to debug a distributed system in a similar way you would use an IDE to walk through each line of code. With tracing you can follow the path of a request that started on a customer's device, through the backend service, and into a database.
 
 ## Vital observability characteristics
