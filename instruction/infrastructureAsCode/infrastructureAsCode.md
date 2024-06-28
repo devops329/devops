@@ -11,9 +11,13 @@
 
 ---
 
-## Why is infrastructure as code important?
+## What is infrastructure as code?
 
-We have been doing a lot of manual manipulation of AWS in order to setup our automated CI pipeline. As we have stressed previously, manual work, or toil, is the enemy of DevOps. It is easy to justify the work you did to set up your JWT Pizza cloud hosting environment as a one time effort. Furthermore, setting up automation takes effort. You are basically writing, or scripting, a program to allow for the automatic execution of your CI pipeline. However, there are some very good reasons to reduce toil and automate as much as you can.
+Infrastructure as code (IaC) is the practice of treating your application infrastructure creation and management as just another part of your application code. This means that you use the same tools that you use to manage your application code to manage your infrastructure. This is a powerful concept because it allows you to automate the creation of your infrastructure.
+
+## Why is IaC important?
+
+As we have stressed previously, manual work, or toil, is the enemy of DevOps. We have been doing a lot of manual manipulation of AWS in order to setup our automated CI pipeline. It is easy to justify the work you did to set up your JWT Pizza cloud hosting environment as a one time effort. Furthermore, setting up automation takes effort. You are basically writing, or scripting, a program to allow for the automatic execution of your CI pipeline. However, there are some very good reasons to reduce toil and automate as much as you can.
 
 1. **Disaster recovery**: There is always the possibility of a significant system failure. Extreme weather can knock out data centers, human error can bring down networks for hours, and hardware simply degrades and eventually stops working. Having code that you can execute to immediately restore your critical infrastructure is one of the characteristics that differentiates world class organizations from failing start ups.
 1. **Creating new environments**: If you have automation that can rebuild your production environment, then it is an easy extension to use that automation to build new environments for things like staging, external auditing, penetration testing, or market testing. This makes your company more agile and responsive to market demands.
@@ -21,6 +25,6 @@ We have been doing a lot of manual manipulation of AWS in order to setup our aut
 
 ## How to do IaC
 
-Proper Iac begins with an automation mindset. Whenever you set up a system or process, you immediately start thinking about how you can automate that work. It is only if you do it manually to begin with, but take careful notes about the steps that you took. Then turn those steps into an automation script, workflow, or simply a program that you code up in your favorite languages.
+Proper Iac begins with an automation mindset. Whenever you set up a system or process, immediately start thinking about how you can automate that work. This is usually only possible if you do it manually to begin with, but take careful notes about the steps that you take. Then turn those steps into an automation script, workflow, or simply a program that you code up in your favorite language.
 
-After you have code that can build your infrastructure you need to test it. That means that you run it an build a parallel system to the one that your crafted manually. You can then compare the two and make sure they are equivalent. Once that all checks out you teardown the twin and store your IaC along with the documentation for the system so that it is readily available at a moments notice.
+After you have code that can build your infrastructure, you need to test it. That means that you run it and build a parallel system to the one that your crafted manually. You can then compare the two and make sure they are equivalent. Once that all checks out, you teardown the twin and store your IaC along with the documentation for the system so that it is readily available at a moment's notice.
