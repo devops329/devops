@@ -8,13 +8,13 @@
 
 ---
 
-When you run an application in your development environment you know that you are the only user and you can debug your usage with console output or breakpoints. Things get significantly more complex when you deploy an application to a remote production environment and have millions of active customers. When you add the complexity of multiple components all working in a distributed architecture, including some that are running on the customer's device and others that run in 3rd party servers, it can be incredibly difficult to know where things are going wrong.
+When you run an application in your development environment, you know that you are the only user and you can debug your usage with console output or breakpoints. Things get significantly more complex when you deploy an application to a remote production environment and have millions of active customers. When you add the complexity of multiple components in a distributed architecture, including some that are running on the customer's device and others that run in 3rd party servers, it can be incredibly difficult to know where things are going wrong.
 
 ![High level components](highLevelComponents.png)
 
-Has the database run out of memory, is an old version being deployed for the frontend, has the backend service lost network connectivity, is the 3rd party pizza factory experiencing a slowdown, or is there just some small bug in the code for any of those components?
+Has the database run out of memory? Is an old version being deployed for the frontend? Has the backend service lost network connectivity? Is the 3rd party pizza factory experiencing a slowdown, or is there just some small bug in the code for any of those components?
 
-Without being able to observe what is happening inside the box, you are left to guess what the problem is based entirely on external observations. That usually means that a frustrated customer is reporting a problem in very vague terms, or worse no one is reporting the problem and your customers are just walking away to your competitor.
+Without being able to observe what is happening inside the box, you are left to guess what the problem is based entirely on external observations. That usually means that a frustrated customer is reporting a problem in very vague terms, or worse, no one is reporting the problem and your customers are just walking away to your competitor, Session Cookies and Milk™.
 
 ## Observability tools
 
@@ -26,7 +26,7 @@ There are three types of tools that are usually associated with increasing the o
 
 ## Vital observability characteristics
 
-There are a number of vital characteristics that make an observability tool valuable. These characteristic define the value and cost of the monitoring. Simple systems that only retain a couple of hours of data, and are located on difficult to access storage are not as valuable as realtime dashboards that all for complex queries with years of history. However, the realtime system are complex to build and maintain and therefore significantly more expensive. In the end, the characteristics that you choose should be aligned with the value of the system you are observing.
+There are a number of vital characteristics that make an observability tool valuable. These characteristic define the value and cost of the monitoring. Simple systems that only retain a couple of hours of data and are located on difficult to access storage are not as valuable as realtime dashboards that allow for complex queries with years of history. However, the realtime systems are complex to build and maintain and therefore significantly more expensive. In the end, the characteristics that you choose should be aligned with the value of the system you are observing.
 
 ### Golden Signals
 
@@ -37,23 +37,23 @@ As described in the [Google SRE Handbook](https://sre.google/sre-book/monitoring
 - **Errors**: How many failures are happening.
 - **Saturation**: How much capacity is left in the system.
 
-Each of the signals contributes a different aspect of overall healthiness of the system. For example, you could be responding quickly to requests, but also generating lots of errors, or reaching saturation of the network bandwidth. Errors may be high, but they are low in relation to the percentage of traffic.
+Each of the signals indicates a different aspect of overall healthiness of the system. For example, you could be responding quickly to requests, but also generating lots of errors, or reaching saturation of the network bandwidth. Errors may be high in number, but low in relation to the percentage of traffic.
 
 ### Correct interpretation
 
-It is also important to get the correct calculation of each signal. Often times percentages are more important than raw values as was demonstrated with the previous mention of high error rates. Other times raw numbers are more important than percentages. For example, you may only have .0001% of authentication requests failing, but when 10,000 of those are from the same IP address you had better pay attention.
+It is also important to get the correct calculation of each signal. Often times percentages are more important than raw values as was demonstrated with the previous mention of high error rates. At other times, raw numbers are more important than percentages. For example, you may only have .0001% of authentication requests failing, but when 10,000 of those are from the same IP address you had better pay attention.
 
-Latency numbers can be especially misleading. An average latency of 10 ms looks good, but if the 99th percentile is 30000 my you may have a serious problem.
+Latency numbers can be especially misleading. An average latency of 10 ms looks good, but if the 99th percentile is 30000 ms you may have a serious problem.
 
 ### Immutability
 
-The record an observability tools creates must be immutable, or in other words, it cannot be altered or deleted. This is critical both for security and auditing reasons. If an attacker can cover their tracks by simply altering the logs they will remain undetected in the system.
+The record an observability tool creates must be immutable, or in other words, it cannot be altered or deleted. This is critical both for security and auditing reasons. If an attacker can cover their tracks by simply altering the logs, they will remain undetected in the system.
 
 ### Performance
 
 It is important that there is not a significant lag between when an event happens and when it is recorded by an observability tool. A few seconds is fine, but if that turns into minutes or hours then the value of the tool is greatly diminished.
 
-Consider the situation where your website latency has significantly increased. If you don't know about it until an hour later, your customers are not going to be happy. Likewise after you have triaged the problem and deployed a solution, you would need to wait an hour before you know what the impact of the modification was.
+Consider the situation where your website latency has significantly increased. If you don't know about it until an hour later, your customers are not going to be happy. Likewise, after you have discovered the problem and deployed a solution, you would need to wait an hour before you know what the impact of the modification was.
 
 ### Elasticity
 
@@ -63,11 +63,11 @@ All of the desirable characteristics that you want for your application also app
 
 In the early days of logging, each server had a cache of logs. If there was a problem, you had to SSH into the server and manually examine the log files until you found where the problem occurred. If the failure was triggered across multiple requests that were logged on different servers, then you were in a world of hurt to try and figure out what happened.
 
-Instead you want to transfer observability data as quickly as possible to a central location where it can be aggregated and accessed from anywhere you might need.
+Instead, you want to transfer observability data as quickly as possible to a central location where it can be aggregated and accessed from anywhere you might need.
 
 ### Visualization
 
-An insightful visualization dashboard allows you to find and diagnose problems faster. When one metric spikes it is often helpful to be able to correlate it with other metrics that rule out false positives and help you focus in on real problems.
+An insightful visualization dashboard allows you to find and diagnose problems faster. When one metric spikes, it is often helpful to be able to correlate it with other metrics that rule out false positives and help you focus in on real problems.
 
 ![alt text](visualizationDashboard.png)
 
@@ -77,11 +77,11 @@ Make sure your dashboard properly uses color, font size, and scale. Being able t
 
 Valuable logs and metrics are expensive to acquire, persist, and query. However, the cost of not providing observability to your system can be even higher when the system crashes or there is a security breach.
 
-The key is to balance the costs with the return on those investments. More than likely you will receive significant benefits from investing in observability. Even it if only means that your engineering staff sleeps better at night.
+The key is to balance the costs with the return on those investments. More than likely you will receive significant benefits from investing in observability, even it if only means that your engineering staff sleeps better at night.
 
 ## Incident response
 
-In the early days of system monitoring humans watched metric dashboards looking for anomalies. It was common for a Network Operations Center (NOC) to be staffed 24 hours a day 7 days a week in order to respond to critical system failures.
+In the early days of system monitoring, humans watched metric dashboards looking for anomalies. It was common for a Network Operations Center (NOC) to be staffed 24 hours a day 7 days a week in order to respond to critical system failures.
 
 This quickly evolved into the adoption of triggered alerts that would fire when certain thresholds were exceeded. That made it possible to drastically reduce the operations staff, or eliminate it entirely, with _on call_ staff who could be woken in the middle of the night.
 
@@ -97,9 +97,9 @@ When a staff member was notified of the incident they would first examine the me
 
 ### Self healing
 
-With the automation mindset of DevOps, response systems started to change from human involvement to automated corrections. If a container was not responding, it could be automatically replaced. If the number of users was exceeding the capacity of the system, more containers could be deployed to handle the load. If the data center in one region failed due to catastrophic weather event, then traffic could be automatically routed to a different region.
+With the automation mindset of DevOps, response systems started to change from human involvement to automated corrections. If a container was not responding, it could be automatically replaced. If the number of users was exceeding the capacity of the system, more containers could be deployed to handle the load. If the data center in one region failed due to a catastrophic weather event, traffic could be automatically routed to a different region.
 
-At very least the human responders would have an array of automated responses that they could employ to rapidly resolve the incident. This further increased the value of the DevOps team and the importance of automation. It became increasingly rare for a human to drive to a data center to switch out a hard drive, restore the data from a backup, and reboot the router so that the website would come back up. Instead, an automation script is executed and moments later the entire system was normal.
+At the very least, the human responders would have an array of automated responses that they could employ to rapidly resolve the incident. This further increased the value of the DevOps team and the importance of automation. It became increasingly rare for a human to drive to a data center to switch out a hard drive, restore the data from a backup, and reboot the router so that the website would come back up. Instead, an automation script was executed and moments later the entire system was normal.
 
 ### Use of AI
 

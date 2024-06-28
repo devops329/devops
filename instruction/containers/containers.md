@@ -15,25 +15,25 @@
 
 ---
 
-Your main tool for working with containers is the Docker CLI. It allows you to run commands to build images, push and pull containers to and from a registry, run, stop, and delete containers and images.
+Your main tool for working with containers is the Docker CLI. It allows you to run commands to build images, push and pull images to and from a registry, run, stop, and delete containers and images.
 
-The following image depicts the standard container flow. You setup an application in your development environment and build an image. You then push that image to a container registry. The container is then pulled down to some environment and ran.
+The following image depicts the standard container flow. You setup an application in your development environment and build an image. You then push that image to a container registry. The container is then pulled down to some environment and run.
 
 ![Container flow](containerFlow.png)
 
 ## Run a standard Linux container
 
-In order to give you experience with containers, let's start by pulling down a standard Linux container form Docker Hub and running it. You can do this all with one command.
+In order to give you experience with containers, let's start by pulling down a standard Linux container from Docker Hub and running it. You can do this all with one command.
 
 ```sh
 docker run -it --rm alpine sh
 ```
 
-This command will attempt to execute the container named `alpine`. You probably won't have that image in your local registry and so it will attempt to pull it from Docker Hub by default. Once it is pulled into your local registry, it will load the image. The provided parameters indicate the following:
+This command will attempt to execute the container named `alpine`. You probably won't have that image in your local registry, so it will attempt to pull it from Docker Hub by default. Once it is pulled into your local registry, it will load the image. The provided parameters indicate the following:
 
 - `-i` tells the Docker daemon to run in interactive mode. This keeps STDIN open so that you can type commands that the container will receive.
 - `-t` opens a pseudo terminal so that you can see what the container is outputting.
-- `-rm` instructs the Docker daemon to remove the container when the root process terminates.
+- `--rm` instructs the Docker daemon to remove the container when the root process terminates.
 
 When you run the command you should see something similar to the following.
 
@@ -46,7 +46,7 @@ Status: Downloaded newer image for alpine:latest
 / #
 ```
 
-You can then execute shell command that are isolated to the container runtime environment. This is a great way to learn Linux since an mistakes you make will get thrown away once the container completes. Go ahead and try the following commands.
+You can then execute shell commands that are isolated to the container runtime environment. This is a great way to learn Linux since any mistakes you make will get thrown away once the container completes. Go ahead and try the following commands.
 
 ```sh
 ls -la
@@ -68,7 +68,6 @@ Now let's build an image that runs a simple Node.js web server. Make a directory
 
 ```sh
 mkdir containerExample && cd containerExample
-docker init
 ```
 
 Now, you can create your web server by creating both the `app.js` and `package.json` files.
@@ -115,7 +114,7 @@ Now you can build the container image with the `image build` command. The `-t` p
 docker image build -t webserver .
 ```
 
-This should execute ever command in the `Dockerfile` and result in a brand new container image. You can verify that the image was created by querying your local registry with the `images` command.
+This should execute every command in the `Dockerfile` and result in a brand new container image. You can verify that the image was created by querying your local registry with the `images` command.
 
 ```sh
 docker images -a
@@ -188,7 +187,7 @@ docker tag webserver:latest byucsstudent/webserver:latest
 docker push byucsstudent/webserver:latest
 ```
 
-Assuming that command was successful, you can toggle back over to Docker Hub you should see your container image listed in your webserver repository.
+Assuming that command was successful, you can toggle back over to Docker Hub and you should see your container image listed in your webserver repository.
 
 ![List repository](listRepository.png)
 
@@ -207,7 +206,7 @@ Now you should be back to a clean environment where your webserver is running.
 
 ## Debugging
 
-Sometimes things do start up right in your containers, or it fails later on for some unknown reason. One thing you can do is start the container interactively using the `-it` parameter. You can also request the logs for the container.
+Sometimes things do start up right in your containers, or it fails later on for some unknown reason. One thing you can do is start the container interactively using the `-it` parameter, allowing you to see the output of the container. You can also request the logs for the container.
 
 ```sh
 docker logs <container ID>

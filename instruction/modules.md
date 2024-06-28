@@ -66,7 +66,7 @@
 - 🟢 [Elasticity](elasticity/elasticity.md)
 - ☑ 🟠 [AWS RDS MySQL](awsRdsMysql/awsRdsMysql.md)
 - 🟢 [Docker](docker/docker.md)
-- 🔵 [Containers](containers/containers.md)
+- 🟢 [Containers](containers/containers.md)
 - ☑ 🟠 [JWT Pizza Service container](jwtPizzaServiceContainer/jwtPizzaServiceContainer.md)
 - ☑ 🟠 [AWS ECR](awsEcr/awsEcr.md)
 - ☑ 🟠 [AWS ECS](awsEcs/awsEcs.md)
@@ -86,7 +86,7 @@
 
 ## Observability
 
-- 🔵 [Observability](observability/observability.md)
+- 🟢 [Observability](observability/observability.md)
 - 🔵 [Metrics](metrics/metrics.md)
 - ☑ 🟠 [Grafana](grafana/grafana.md)
 - ☑ 🟠 [Grafana metrics](grafanaMetrics/grafanaMetrics.md)
@@ -117,14 +117,14 @@
 - 🚧 SLO, RTO, RPO
 - 🟠 [Chaos testing](chaosTesting/chaosTesting.md)
 - 🟠 [Incident report](incidentReport/incidentReport.md)
-- ☑ 🟠 [⓫ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
+- ☑ 🟠 [⑪ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
 
 ## Penetration testing
 
 - 🟠 [OWASP top 10](owaspTop10/owaspTop10.md)
 - 🟢 [Penetration testing](penetrationTesting/penetrationTesting.md)
 - ☑ 🟠 [Burp Suite](burpSuite/burpSuite.md)
-- ☑ 🟠 [⓬ Penetration testing: JWT Pizza](deliverable12PenetrationTesting/deliverable12PenetrationTesting.md)
+- ☑ 🟠 [⑫ Penetration testing: JWT Pizza](deliverable12PenetrationTesting/deliverable12PenetrationTesting.md)
 
 ## Conclusion
 
