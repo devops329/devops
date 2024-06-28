@@ -1,5 +1,11 @@
 # Deliverable ⓾ Load testing: JWT Pizza Service
 
+🔑 **Key points**
+
+- Create a load test for JWT Pizza Service.
+
+---
+
 ![course overview](../sharedImages/courseOverview.png)
 
 In order to demonstrate your mastery of load testing you will now create and execute your own load tests using K6.

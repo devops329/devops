@@ -1,5 +1,12 @@
 # Synthetic testing
 
+🔑 **Key points**
+
+- Grafana supports synthetic testing from multiple global locations.
+- Create a synthetic test for JWT Pizza.
+
+---
+
 Synthetic testing, sometimes called _end user testing_, exercises the application from the user's perspective. It serves as a valuable smoke test that helps you discover problems before your customers notice and report them. This is important because anytime a customer discovers a problem, it erodes their confidence and encourages them to look elsewhere for a more stable solution.
 
 In one sense, synthetic testing is the most authentic testing because it uses the actual environment that your customers are using. If your synthetic tests fail, then it probably means that your users are currently experiencing problems.

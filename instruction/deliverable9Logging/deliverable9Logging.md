@@ -1,5 +1,14 @@
 # ⓼ Logging: JWT Pizza Service
 
+🔑 **Key points**
+
+- Add logging to JWT Pizza Service.
+- Modify the CI pipeline to provide Grafana credentials that authorize logging.
+- Create a Grafana visualization that displays the logs.
+- Simulate traffic in order to validate that the logs are working.
+
+---
+
 ![course overview](../sharedImages/courseOverview.png)
 
 It is time to add logging observability to the jwt-pizza-service code. In your fork of the code, use what you learned about [Grafana logging](../grafanaLogging/grafanaLogging.md) to create a log of all the following:

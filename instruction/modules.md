@@ -93,7 +93,7 @@
 - 🟠 [Visualizing metrics](visualizingMetrics/visualizingMetrics.md)
 - 🟠 [Simulating traffic](simulatingTraffic/simulatingTraffic.md)
 - ☑ 🟠 [⓼ Metrics: JWT Pizza Service](deliverable8Metrics/deliverable8Metrics.md)
-- 🚧 [Logging](logging/logging.md)
+- 🔵 [Logging](logging/logging.md)
 - ☑ 🟠 [Grafana logging](grafanaLogging/grafanaLogging.md)
 - ☑ 🟠 [⓽ Logging: JWT Pizza Service](deliverable9Logging/deliverable9Logging.md)
 - 🟠 [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)

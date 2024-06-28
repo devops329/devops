@@ -1,5 +1,11 @@
 # Visualizing metrics
 
+🔑 **Key points**
+
+- Experiment with creating visualizations based on generated data.
+
+---
+
 Inserting and visualizing metrics can take some time to get comfortable with, so let's carefully walk through a demonstration in order to understand the basic concepts you are going to need in order to build your JWT Pizza dashboard.
 
 ## Demo data

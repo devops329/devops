@@ -1,14 +1,18 @@
 # Grafana metrics
 
+🔑 **Key points**
+
+- You can report metrics easily using HTTP requests.
+- Grafana allows you to easily create visualizations.
+- Report metrics for a simple service and create a Grafana dashboard.
+
+---
+
 ![Prometheus Logo](prometheusLogo.png)
 
 In previous instruction we used the TestData data source to display randomly generated metrics on a Grafana dashboard. Now we want to demonstrate how to actually to actually supply data for visualization.
 
 Grafana has dozens of predefined data sources for all kinds of data services. This includes services such as MySQL, AWS CloudWatch, Caddy Server, CSV files, ElasticSearch, GitHub, and so on. Each of these data sources define how to connect to the service and what data they expose for visualization in a dashboard panel.
-
-## Metrics demonstration
-
-🚧 Add a discussion about using the Grafana Pizza demonstration dashboard
 
 ## Inserting metrics using HTTP
 

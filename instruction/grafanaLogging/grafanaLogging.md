@@ -1,5 +1,14 @@
 # Grafana logging
 
+🔑 **Key points**
+
+- You can generate logs using Curl or code with HTTP requests.
+- The Grafana Explorer provides the ability to review and search logs.
+- Create a simple service that logs requests.
+- Simulate requests that generate logs with Curl.
+
+---
+
 ![Loki logo](lokiLogo.png)
 
 Grafana Cloud provides a service called Loki that makes it easy to harness the full power of logging.

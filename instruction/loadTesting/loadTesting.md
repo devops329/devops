@@ -1,5 +1,11 @@
 # Load Testing
 
+🔑 **Key points**
+
+- Load testing is a critical protection against system failure.
+
+---
+
 Load testing is the process of placing demands on an application in order to determine its performance, scalability, and elasticity. Load testing can identify performance bottlenecks in your application. If we are expecting 1,000 customers to be using our server at the same time, but our server can only handle 100 concurrent requests, it's helpful to know this before we make it available to our customers. We don't want to wait until we have success to realize our system can't handle success.
 
 By deploying to AWS, we have taken steps to create a scalable application that allows us to automatically allocate more resources as demand increases. However, there is always some latency involved in deploying extra resources. We need to know how the application reacts when a new advertizing promotion for JWT Pizza is wildly successful, and the number of customers spikes exponentially. Will the application scale up in time to handle the increased number of requests, or will customers be staring impatiently at their screen, waiting for their pizza to be delivered? Similarly, how well can the application handle a large number of requests over an extended period of time?

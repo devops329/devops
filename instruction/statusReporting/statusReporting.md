@@ -1,5 +1,12 @@
 # Status reporting
 
+🔑 **Key points**
+
+- Status pages for applications are standard practice.
+- Review status page examples in order to get familiar with what they provide.
+
+---
+
 When your customers have the perspective that your application is unstable or that your company doesn't care about stability, they will quickly find an alternative in your competitors' offering. As a software engineer who cares about quality, you can take several different approaches to maintain customer trust:
 
 1. **Reduce the likelihood of bugs**: Focus on good software design principles. Isolate or remove problematic functionality. Keep the system simple.

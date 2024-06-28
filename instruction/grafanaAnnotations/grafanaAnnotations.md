@@ -1,5 +1,13 @@
 # Grafana annotations
 
+🔑 **Key points**
+
+- Grafana supports annotated visualizations.
+- Experiment creating annotations with Curl.
+- Modify the CI pipeline so that an annotation is created on release events.
+
+---
+
 When you are reviewing your dashboards to figure out where things went wrong it is often helpful if key events, such as a deployment, are annotated on the visualization.
 
 ![Annotation example](annotationExample.png)

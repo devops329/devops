@@ -1,5 +1,14 @@
 # ⓻ Metrics: JWT Pizza Service
 
+🔑 **Key points**
+
+- Modify your CI pipeline to provide access to Grafana from the JWT Pizza Service.
+- Record specific metrics from the service.
+- Create a dashboard to visualize the metrics.
+- Use Curl to simulate real traffic.
+
+---
+
 ![course overview](../sharedImages/courseOverview.png)
 
 It is time to add metrics observability to the jwt-pizza-service code. In your fork of the Pizza Service code use what you learned about [Grafana metrics](../grafanaMetrics/grafanaMetrics.md) to create visualizations that demonstrate the following:

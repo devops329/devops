@@ -1,5 +1,13 @@
 # K6
 
+🔑 **Key points**
+
+- Grafana has significant support for load testing with K6.
+- Create a K6 load test by recording browser requests.
+- Analyze the results of the load test.
+
+---
+
 ![K6 logo](k6Logo.png)
 
 K6 automates load testing by playing back requests you make from a browser or writing HTTP request commands using JavaScript. K6 executes the HTTP requests concurrently with the number of simulated users that you define. Given enough computation power and network bandwidth you can simulate realistic customer load so that you can gain confidence that the system won't fail when handling real traffic.

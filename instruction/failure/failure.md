@@ -1,5 +1,13 @@
 # Failure
 
+🔑 **Key points**
+
+- Failure is inevitable, you can only plan for it and try to mitigate it.
+- There are many different types of failure.
+- There are common strategies for dealing with failure.
+
+---
+
 Failure happens. There is no way to avoid it. You can only anticipate and prepare for contingencies to mitigate the impact of the failure, so that the customer impact is minimal or even non-existent.
 
 You can either be **proactive** or **reactive** to your failure management:
