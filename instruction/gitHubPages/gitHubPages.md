@@ -21,6 +21,8 @@ One easy way to do this is to use a service from `GitHub` called `GitHub Pages`.
 
 Once you have completed these steps you can access your static deployment from anywhere in the world by either the default URL, `youraccountname.github.io/yourrepositoryname`, or from the custom domain name that you provide.
 
+In the following instruction you will use GitHub Pages to deploy the JWT Pizza frontend code.
+
 ## GitHub Pages at the account level
 
 In addition to hosting a static deployment for a repository you can also do this for your entire account. However, in this case, instead of using a special branch, you create a special repository named `youraccountnamehere.github.io`. In the example below, we created an account level static deployment for the account named `byucsstudent` by creating the `byucsstudent.github.io` repository and populating it with a simple `index.html` file.
