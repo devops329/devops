@@ -3,7 +3,7 @@
 🔑 **Key points**
 
 - You must design and validate a recovery strategy.
-- RTO and RPO are commons metrics that define your recovery strategy.
+- RTO and RPO are common metrics that define your recovery strategy.
 - Frequent database backups help reduce your RPO.
 - Hot and warm standbys help reduce your RTO.
 
@@ -21,7 +21,7 @@ No matter the resolution, you want to deploy an **immediate** fix to recover fro
 
 ## RTO & RPO
 
-There are two main metrics that help guide your backup and recovery design. This includes the RTO (Recovery Time Objective) and RPO (Recovery Point Objective). The process of defining these objectives indicates that they are been tested and therefore your organization and customers can reasonably expect that the objectives will be met as part of the failure resolution.
+There are two main metrics that help guide your backup and recovery design: RTO (Recovery Time Objective) and RPO (Recovery Point Objective). The process of defining these objectives indicates that they have been tested and therefore your organization and customers can reasonably expect that the objectives will be met as part of the failure resolution.
 
 ### Recovery Time Objective (RTO)
 
@@ -39,11 +39,11 @@ RPO helps determine the frequency of backups or data replication needed to ensur
 
 #### Example
 
-An RPO of 5 minutes means that a failure with cause no more than 5 minutes of lost data. With JWT Pizza that might mean that any pizza that was ordered during that time might not get delivered, recorded, or billed.
+An RPO of 5 minutes means that a failure will cause no more than 5 minutes of lost data. With JWT Pizza, that might mean that any pizza that was ordered during that time might not get delivered, recorded, or billed.
 
 ## Customer Data
 
-When failure occurs there are is alway the probability of data corruption or loss. When this happens, the common solution is to restore it from a previous copy. This presents several interesting questions.
+When failure occurs, data corruption or loss is probable. When this happens, the common solution is to restore it from a previous copy. This presents several interesting questions.
 
 1. Do you have a backup copy of the customer's data?
 1. How recent is the backup?
@@ -56,21 +56,21 @@ A successful data recovery plan will have considered each of these questions bef
 
 ## Database backup and Recovery
 
-When you create a database using AWS RDS it automatically has a backup policy. By default, a backup is created once a day and the backup is kept for one day. That means your RPO is 1 day.
+When you create a database using AWS RDS, it automatically has a backup policy. By default, a backup is created once a day and the backup is kept for one day. That means your RPO is 1 day.
 
 ![Database backup](databaseBackup.png)
 
-Depending on the size of the data contained in your database it can take anywhere from a few minutes or several hours to restore your database from a backup. The time it takes to restore the database determines your RTO.
+Depending on the size of the data contained in your database, it can take anywhere from a few minutes or several hours to restore your database from a backup. The time it takes to restore the database determines your RTO.
 
 RDS backups show up in the `Snapshots` view of the RDS service.
 
 ![Snapshots](snapshots.png)
 
-When you click on the snapshot you can see all of the details and select the option to `Restore snapshot`.
+When you click on the snapshot, you can see all of the details and select the option to `Restore snapshot`.
 
 ![Restore snapshot](restoreSnapshot.png)
 
-Note that this will create a new database instance with the restored data. Without automation you will have to manually reconfigure you computing infrastructure to reference the restored database. This may further increase your RTO. That is why automation is so important. Every minute counts during a failure. When you make the decision to restore a backup you want it to happen as quickly as possible. That usually means that you have something like a CloudFormation template that will deploy the recovery for you.
+Note that this will create a new database instance with the restored data. Without automation, you will have to manually reconfigure your computing infrastructure to reference the restored database. This may further increase your RTO. That is why automation is so important. Every minute counts during a failure. When you make the decision to restore a backup, you want it to happen as quickly as possible. That usually means that you have something like a CloudFormation template that will deploy the recovery for you.
 
 ## Alternatives to backup restoration
 
@@ -78,12 +78,12 @@ If need a smaller RTO then you can employ one of many alternative solutions. For
 
 ![Read replica](readReplica.png)
 
-When your primary database fails you simply redirect the write requests from the primary to the replica and promote the replica to be the primary. This only takes a few seconds and has a very small window where data loss due to failed write attempts may occur. That means that your RTO and your RPO are both are around 30 seconds
+When your primary database fails you simply redirect the write requests from the primary to the replica and promote the replica to be the primary. This only takes a few seconds and has a very small window where data loss due to failed write attempts may occur. That means that your RTO and your RPO are both around 30 seconds.
 
 You can also create multi-availability zone deployments where you can create a cluster of databases that are either hot or **warm standby** by in different data centers. A warm standby does not take active requests, but is available to quickly replace the primary.
 
 ![Availability and durability](availabilityAndDurability.png)
 
-Other RDS database types such as Aurora, automatically create multiple copies of your database data in multiple regions that are kept in sync with each other. This greatly reduces the need to ever restore your database. With Aurora you can also create multiple read compute instances that increase that load that your cluster can handle and also provide automatic failover when the write head becomes unresponsive.
+Other RDS database types, such as Aurora, automatically create multiple copies of your database data in multiple regions that are kept in sync with each other. This greatly reduces the need to ever restore your database. With Aurora, you can also create multiple read compute instances that increase the load that your cluster can handle and also provide automatic failover when the write head becomes unresponsive.
 
 There is a cost for all of this redundancy, but the cost of failure can be much higher.

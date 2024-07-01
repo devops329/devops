@@ -4,9 +4,9 @@ Failure recovery playbooks serve as essential guides for organizations to effici
 
 A good playbook will include the following.
 
-- **Playbook objective**: What systems and types of failures does the playbook cover. RTO and RPO metrics are defined.
-- **Roles and responsibilities**: Who are the key teams and personal that are responsible to respond to the failure.
-- **Communication plan**: How will the team communicate and where can you find the teams contact information.
+- **Playbook objective**: What systems and types of failures does the playbook cover? RTO and RPO metrics are defined.
+- **Roles and responsibilities**: Who are the key teams and personnel that are responsible to respond to the failure?
+- **Communication plan**: How will the team communicate, and where can you find the team's contact information?
 - **Incident detection and notification**: Defines the pertinent observability metrics, altering thresholds, and escalation paths.
 - **Diagnostic process**: Detailed instructions for diagnosing the failure, along with the tools and resources that can assist in the process.
 - **Recovery procedures**: Detailed instructions for resolving the failure.This includes variations for temporal-recovery, reboot, and replacement strategies. processes for manual intervention, initiation of automation, or self-healing automation are defined. Data recovery and rollback processes are detailed.
