@@ -141,6 +141,5 @@ https://pizza.yourdomainname.click
 
 | Percent | Item                                                                                        |
 | ------- | ------------------------------------------------------------------------------------------- |
-| 20%     | Strong GitHub commit history that documents your work in your fork of `jwt-pizza`           |
-| 50%     | Successful manual deployment of JWT Pizza to GitHub Pages using a `gh-pages` branch         |
+| 70%     | Successful manual deployment of JWT Pizza to GitHub Pages using a `gh-pages` branch         |
 | 30%     | Completely functional JWT Pizza deployed with GitHub Pages accessible on custom domain name |
