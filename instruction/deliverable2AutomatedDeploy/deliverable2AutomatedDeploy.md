@@ -23,13 +23,13 @@ So now it is time to take the next step. You are going to use `GitHub Actions` t
 Here are the steps to make the automation magic happen.
 
 1. Open your fork of `jwt-pizza`.
-1. Change the GitHub Pages option for the _Build and deployment/Source_ to `GitHub Actions`. This causes GitHub to add an environment called `github-pages`
+1. Change the GitHub Pages option for the _Build and deployment/Source_ to `GitHub Actions`. This causes GitHub to add an environment called `github-pages`. This environment is used to specify deployment rules and secrets that are specific to GitHub action deployments. You will reference this environment in you CI pipeline.
 
    > ![GitHub Pages Source Actions](gitHubPagesSourceAction.png)
 
-   This turns off the monitoring of the `gh-pages` branch so that it will no longer trigger a deployment.
+   Changing the option turns off the monitoring of the `gh-pages` branch so that it will no longer trigger a deployment.
 
-1. Create a file named `.github/workflows/ci.yml`. This file is the automation script that GitHub actions will execute whenever you make a commit to the `main` branch.
+1. Modify the `.github/workflows/ci.yml` you created in the previous assignment. This file is the automation script that GitHub actions will execute whenever you make a commit to the `main` branch.
 1. Insert the following into the newly created file
 
    ```yml

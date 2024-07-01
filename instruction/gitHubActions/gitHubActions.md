@@ -138,3 +138,33 @@ In order to help you see the value the comes from GitHub Actions, let's consider
 Now you want to allow external contributors to fork your repository and create pull results for new features or bug fixes. When an external contributor creates a pull request the **verify** workflow is triggered and the code is automatically analyzed to make sure the changes honor all of the linting and security policies. If successful then the **approval** workflow is triggered and a team member is notified to conduct a code review. If the reviewer approves the changes then she confirms her approval and the workflow commits the changes to the main branch. The commit triggers the original **deploy** workflow and a production release is created.
 
 Note that you can use this same pattern with forks instead of branches. Branches are generally used for internal reviews, while forks are used with open source project external contributors.
+
+## ☑ Assignment
+
+Create a GitHub Action CI pipeline in your fork of the `jwt-pizza` repository by doing the following:
+
+1. Create a file named `.github/workflows/ci.yml`. This file is the automation script that GitHub actions will execute whenever you make a commit to the `main` branch.
+1. Insert the following into the newly created file
+
+   ```yml
+   name: CI Pipeline
+
+   on:
+     push:
+       branches:
+         - main
+   jobs:
+     test:
+       runs-on: ubuntu-latest
+       steps:
+         - run: echo "Hello GitHub Actions"
+   ```
+
+1. Commit and push.
+1. Open The Actions tab of your fork of `jwt-pizza` on GitHub.
+1. Click on the **CI Pipeline** and the latest workflow run.
+1. Click on the **test** job and expand the **Run** step. This should the workflow and display **Hello GitHub Actions** in the workflow output.
+
+Once you are done, go over to Canvas and submit a screenshot of the workflow output This should look something like this:
+
+![Test CI](testCI.png)
