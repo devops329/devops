@@ -58,7 +58,7 @@ Now we can write a test. We will name the test file `fibonacci.test.js` so that 
 Our first test will make sure that the base case for calculating fibonacci at position zero works correctly.
 
 ```js
-import { fibonacci } from './fibonacci';
+const fibonacci = require('./fibonacci.js')
 
 test('fibonacci zero', () => {
   expect(fibonacci(0)).toBe(0);
