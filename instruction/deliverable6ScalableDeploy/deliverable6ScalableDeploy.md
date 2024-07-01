@@ -56,7 +56,6 @@ Next you need to enhance the `github-ci` user rights so that they can push to EC
 1. Click on the `jwt-pizza-ci-deployment` policy.
 1. Select `JSON` and press `Edit`.
 1. Add the following statement in order to allow the use of ECR and ECS.
-   🚧 This is not right. We restricted ECR access to the least required privilege.
 
    ```json
    {

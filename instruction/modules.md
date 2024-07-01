@@ -6,11 +6,9 @@
 - ☑ Contains assignment
 - ⓵ Milestone deliverable
 - 💡 Curiosity report ideas
-- 🚧 Lots of work to do
 - 🟢 Stephen has reviewed
 - 🔵 Stephen to review
 - 🟠 Needs final review
-- ❌ We are probably going to drop this
 
 ## Getting started
 
@@ -113,7 +111,7 @@
 - 🟠 [Alerts](alerting/alerting.md)
 - ☑ 🟠 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
 - 🔵 [Playbooks](playbooks/playbooks.md)
-- 🚧 [Self healing](selfHealing/selfHealing.md)
+- 🔵 [Self healing](selfHealing/selfHealing.md)
 - 🟠 [Chaos testing](chaosTesting/chaosTesting.md)
 - 🟠 [Incident report](incidentReport/incidentReport.md)
 - ☑ 🟠 [⑪ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
