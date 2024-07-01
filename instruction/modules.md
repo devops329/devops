@@ -109,12 +109,11 @@
 ## Failure management
 
 - 🟠 [Failure](failure/failure.md)
-- 🚧 Backup/Restore
+- 🔵 [Backup and Recovery](recovery/recovery.md)
 - 🟠 [Alerts](alerting/alerting.md)
 - ☑ 🟠 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
 - 🚧 Playbooks
 - 🚧 [Self healing](selfHealing/selfHealing.md)
-- 🚧 SLO, RTO, RPO
 - 🟠 [Chaos testing](chaosTesting/chaosTesting.md)
 - 🟠 [Incident report](incidentReport/incidentReport.md)
 - ☑ 🟠 [⑪ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
