@@ -25,15 +25,17 @@ We often think of computer science as coding functions and implementing algorith
 
 As the benefits of AI driving coding continues to increase, it will be system architect skills that will grow in high demand. This course will teach you to start thinking at the system level and give you experience creating tool chains that combine to produce amazing value.
 
-## Your work in the course
+## Outcomes
 
-The class will follows a cycle like this:
+By the end of the course you can expect the following outcomes in your personal development.
 
-1. A _third party_ development team will complete a phase of their application development and commit the results to GitHub.
-1. _You_ will act as the QA team to create the tests and analyze the code in order to assure its **quality**.
-1. _You_ will act as the DevOps team to create the continuous integration (CI) pipeline to **deploy** the application, **monitor** its use, and **resolve** incidents as they occur.
-
-![workflow](workflow.png)
+- **Quality**: Implement comprehensive automated testing strategies, including unit, UI, E2E, performance, and load testing.
+- **Deployment**: Deploy various automated CI/CD pipeline strategies to reliably deliver software that is resilient, scalable, and secure.
+- **Management**: Monitor, detect anomalies, alter, and automatically correct system behavior.
+- **Curious**: Characterize and address gaps in understanding related to DevOps techniques and principles.
+- **Creative**: Discuss and generate alternate DevOps designs.
+- **Collaborative**: Work as a team to discover DevOps design weaknesses.
+- **Christlike**: Strive for gratitude for, inspiration in, and the ability to apply capabilities to, celestial pursuits.
 
 ## Your deliverables
 
@@ -60,17 +62,46 @@ You will also create three reports as part of your work.
 1. **Curiosity report** - Independent research on a QA/DevOps topic
 1. **Christlike introspection** - Introspection into your relationship with the divine.
 
-## Outcomes
+## Technologies
 
-By the end of the course you can expect the following outcomes in your personal development.
+The course covers a full spectrum of devOps technologies.
 
-- **Quality**: Implement comprehensive automated testing strategies, including unit, UI, E2E, performance, and load testing.
-- **Deployment**: Deploy various automated CI/CD pipeline strategies to reliably deliver software that is resilient, scalable, and secure.
-- **Management**: Monitor, detect anomalies, alter, and automatically correct system behavior.
-- **Curious**: Characterize and address gaps in understanding related to DevOps techniques and principles.
-- **Creative**: Discuss and generate alternate DevOps designs.
-- **Collaborative**: Work as a team to discover DevOps design weaknesses.
-- **Christlike**: Strive for gratitude for, inspiration in, and the ability to apply capabilities to, celestial pursuits.
+- **Testing**
+
+  - Unit, integration, end to end, coverage (Jest),
+  - UI (Playwright)
+  - Synthetic (Grafana)
+  - Load (K6)
+  - Chaos
+  - Penetration (Burp suite)
+
+- **Deployment**
+
+  - Software version control (GitHub)
+  - Static deployment (GitHub Pages)
+  - Continuous integration/continuous delivery (GitHub Actions)
+  - CDN, load balancers, and containers (AWS EC2, CloudFront, ECR, ECS, Fargate)
+  - Infrastructure as code (CloudFormation)
+  - Elasticity (ECS, CloudFront)
+  - Versioning (N-1)
+  - Strategies (Blue/green, rolling, replacement)
+
+- **Management**
+  - Logging, Metrics (Grafana)
+  - Alerts (Grafana OnCall)
+  - Recovery, RTO, RPO, playbooks (AWS RDS)
+  - Self healing (AWS EC2)
+  - Failure reporting
+
+## Your work in the course
+
+The class will follows a cycle like this:
+
+1. A _third party_ development team provides you with their application development that you will fork using GitHub.
+1. _You_ will act as the QA team to create the tests and analyze the code in order to assure its **quality**.
+1. _You_ will act as the DevOps team to create the continuous integration (CI) pipeline to **deploy** the application, **monitor** its use, and **resolve** incidents as they occur.
+
+![workflow](workflow.png)
 
 ## Well rounded software engineers
 
