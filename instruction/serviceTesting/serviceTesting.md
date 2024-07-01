@@ -245,7 +245,7 @@ test('login', async () => {
 
 The authorization token is returned in the body of the response. Even though our simple service code always returns the same authorization token we want to make our test more general than that and so we use a regular expression match to validate that the authorization token matches the pattern we expect.
 
-When we run the tests again we see that we are up to **73.68%**. So close that I can taste it. Just one more endpoint to test.
+When we run the tests again we see that we are up to **66.66%**. So close that I can taste it. Just one more endpoint to test.
 
 ### Add city
 
