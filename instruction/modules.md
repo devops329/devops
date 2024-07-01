@@ -112,7 +112,7 @@
 - 🔵 [Backup and Recovery](recovery/recovery.md)
 - 🟠 [Alerts](alerting/alerting.md)
 - ☑ 🟠 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
-- 🚧 Playbooks
+- 🔵 [Playbooks](playbooks/playbooks.md)
 - 🚧 [Self healing](selfHealing/selfHealing.md)
 - 🟠 [Chaos testing](chaosTesting/chaosTesting.md)
 - 🟠 [Incident report](incidentReport/incidentReport.md)

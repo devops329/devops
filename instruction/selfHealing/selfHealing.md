@@ -1,50 +1,29 @@
 # Self healing
 
-Fargate automatic replacement and multiple data centers.
+The ultimate goal of DevOps engineers is to automate themselves out of a job. The capstone of that automation is a system that automatically detects a problem, deploys a correction, and records the modification in an audit log.
 
-ALB automatically redirects traffic
+Consider a system where you have hooked up your Grafana observability alerts to call an AWS Lambda function that automatically corrects the problem and then simply notify the DevOps team that the correction has taken place.
 
-Route 53 has health checks with automatic redirection of DNS records
+![alt text](image.png)
 
-S3 has massive redundancy. You can also deploy and mirror to multiple regions.
+This could work well for things like auto scaling. When the CPU on your computing infrastructure reaches saturation the Lambda function would scale the available resources up. You can also do the reverse and scale down the resources when they are below a utilization threshold.
 
-CloudFront is global and provides regional redundancy
+## AWS self healing
 
-You can also deploy to multiple data centers and even regions.
+Many AWS services come with automated self healing built right into the service. For example, RDS can monitory your database and automatically redirect write and read requests away from unhealthy replicas.
 
-Redundancy / fallbacks?
+![alt text](image-1.png)
 
-Availability zone scaling
-Regional scaling
+Likewise, ECS and EC2 work together to monitor the health of Fargate containers. If the ALB notices that a container is unhealthy it will automatically move traffic to other containers. When ECS detects unhealthy containers, it replaces them and changes the ALB configuration.
 
-I was just reading the line in the status reporting instruction about 'circuit breakers', or fallbacks. What would fallbacks / redundancy look like in the context of JWT Pizza?
+ECS also monitors the load on the containers and automatically scales the number of containers up or down.
 
-Professor Jensen — Today at 11:13 AM
-For example, the factory pizza order might fail. The pizza service would then store the order in a database for later processing and report to the customer that they will be notified when the order is complete (with a coupon or discount), or give them a chance to cancel the order altogether.
+![alt text](image-2.png)
 
-Redundancy would mean that you have a secondary factory, perhaps in a different region, that might not be able to process the order as quickly, but will get the job done while the primary factory is not responding.
+All of this happens without any human involvement.
 
-Feel free to add content like this if you think it will help.
-The idea is to never say something like:
+## The reality and future
 
-Error (500): looks like we are lame
+In reality it is difficult to achieve complete self healing. However, if you can automate the self healing, or even just delay the impact, of common problems, you allow your DevOps teams to get a good a good night sleep and create even better automation designs.
 
-Stephen Amos — Today at 11:15 AM
-Haha yeah makes sense. So we won't actively build fallbacks into our app, but it would be good to discuss with them
-
-Professor Jensen — Today at 11:16 AM
-I don't think I built any.
-
-Stephen Amos — Today at 11:16 AM
-Would that maybe be in self healing?
-
-Professor Jensen — Today at 11:17 AM
-Self healing would actually automatically fix the nonresponsive factory service. For example, the metric might trigger an automated action that spins up a new factory service and replace it.
-
-We actually do this for the pizza service. The ALB monitors the health of the container. If it fails, it will spin up a new container.
-
-Stephen Amos — Today at 11:18 AM
-Ok. I'm just not sure where we would talk about redundancy.
-Also should the status instruction be in the failure management section, instead of load testing section?
-
-- We need a discussion on scalability, bottlenecks, and auto adjustment. This should tie into SLO.
+The introduction of AI systems can help to further resolve issues that would have previously required human involvement. The reality is that detecting anomalies and deploying playbook actions are things that AI can do really well. This is especially true given the large body of training data that is available.
