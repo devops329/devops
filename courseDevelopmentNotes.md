@@ -339,6 +339,14 @@ The learner the calls that url and the problem goes away. In the factory I track
 }
 ```
 
+## Creating a Pizza Factory vendor
+
+```sh
+curl -X POST https://pizza-factory.cs329.click/api/admin/vendor -H 'authorization: Bearer 9s32@352.kfdi(l4;' -H 'Content-Type:application/json' -d '{"id":"byucsstudent", "name":"BYU student"}'
+
+{"apiKey":"b819cdd10d3f8d6fe49358e2c77e393e","vendor":{"id":"byucsstudent","name":"BYU student","created":"2024-07-01T19:12:45.187Z","validUntil":"2025-01-01T19:12:45.187Z"}}
+```
+
 ### Three chaos injections
 
 1. Fail responses

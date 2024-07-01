@@ -2,7 +2,8 @@
 
 🔑 **Key points**
 
-- Computer science is full of acronyms. Learn to speak like a pro.
+- Computer science is full of acronyms.
+- Learn to speak like a pro.
 
 ---
 

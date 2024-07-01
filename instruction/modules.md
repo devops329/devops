@@ -14,24 +14,24 @@
 
 - ☑ [Overview](overview/overview.md)
 - [History](history/history.md)
-- 🟢 [Terminology](terminology/terminology.md)
+- [Terminology](terminology/terminology.md)
 - [JWT Pizza](jwtPizza/jwtPizza.md)
-- ☑ 🟠 [AWS Account](awsAccount/awsAccount.md)
-- 🟠 [GitHub](gitHub/gitHub.md)
-- ☑ 🟠 [Christlike learning](christlikeLearning/christlikeLearning.md)
-- ☑ 🟠 [Curiosity report](curiosityReport/curiosityReport.md)
+- ☑ [AWS Account](awsAccount/awsAccount.md)
+- [GitHub](gitHub/gitHub.md)
+- ☑ [Christlike learning](christlikeLearning/christlikeLearning.md)
+- ☑ [Curiosity report](curiosityReport/curiosityReport.md)
 
 ## Static deployment
 
-- ☑ 🟠 [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
-- 🟠 [Merge conflicts](mergeConflicts/mergeConflicts.md)
-- 🟠 [Static deployment](staticDeployment/staticDeployment.md)
-- 🟠 [GitHub Pages](gitHubPages/gitHubPages.md)
-- ☑ 🟠 [⓵ Manual deployment: JWT Pizza](deliverable1ManualDeploy/deliverable1ManualDeploy.md)
-- 🟢 [Automation](automation/automation.md)
-- 🟢 [Continuous integration (CI)](continuousIntegration/continuousIntegration.md)
-- 🟢 [GitHub Actions](gitHubActions/gitHubActions.md)
-- ☑ 🟠 [⓶ Automated deployment: JWT Pizza](deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)
+- ☑ [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
+- [Merge conflicts](mergeConflicts/mergeConflicts.md)
+- [Static deployment](staticDeployment/staticDeployment.md)
+- ☑ [GitHub Pages](gitHubPages/gitHubPages.md)
+- ☑ [⓵ Manual deployment: JWT Pizza](deliverable1ManualDeploy/deliverable1ManualDeploy.md)
+- [Automation](automation/automation.md)
+- [Continuous integration (CI)](continuousIntegration/continuousIntegration.md)
+- ☑ [GitHub Actions](gitHubActions/gitHubActions.md)
+- ☑ [⓶ Automated deployment: JWT Pizza](deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)
 
 ## Quality assurance
 

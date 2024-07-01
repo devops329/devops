@@ -39,7 +39,7 @@ Here are the steps to take:
 1. Create the fork by pressing the `Create fork` button. For the AutoGrader to find your repo, leave the name of the repository `jwt-pizza`.
    > ![createFork](createFork.png)
 1. Invite `byucs329ta` to be a collaborator on your repository by navigating to `Settings -> Collaborators -> Add People` and searching `byucs329ta`.
-   > ![collab](../gitHub/collab.png)
+   > ![collab](../gitHub/addCollaborator.png)
 1. Copy the URL for your fork of the repository.
    > ![cloneUrl](cloneUrl.png)
 1. Use the URL to clone the repository from your account to your development environment.
