@@ -1,6 +1,6 @@
 ![BYU logo](https://github.com/devops329/devops/blob/main/byuLogo.png?raw=true)
 
-# BYU **DevOps** `cs329`
+# BYU `CS 329`: **QA** and **DevOps**
 
 ![DevOps Cover](https://github.com/devops329/devops/blob/main/devopscover.jpg?raw=true)
 
@@ -12,7 +12,9 @@ This course provides you with the experience and skills necessary to deploy, man
 
 The content for this course is represented by the following parts.
 
-- [Schedule](https://github.com/devops329/devops/blob/main/schedule/schedule.md)
-- [Instruction](https://github.com/devops329/devops/blob/main/instruction/modules.md#readme)
-- [JWT Pizza](https://pizza.cs329.click) - Demonstration project
-- Assignments and tests submitted through [Canvas](https://byu.instructure.com)
+- [Overview](https://github.com/devops329/devops/blob/main/instruction/overview/overview.md)
+- [📅 Schedule](https://github.com/devops329/devops/blob/main/schedule/schedule.md) - Lecture and assignment due dates
+- [📒 Instruction](https://github.com/devops329/devops/blob/main/instruction/modules.md#readme) - Modules and topics
+- [🍕 JWT Pizza](https://pizza.cs329.click) - QA and DevOps mastery target
+
+Assignments and deliverables are submitted through [Canvas](https://byu.instructure.com)
