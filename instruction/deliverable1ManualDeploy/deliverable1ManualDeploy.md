@@ -34,7 +34,7 @@ Next you need to associate our new branch with GitHub Pages for the jwt-pizza re
 1. Select the `Pages` option from the left hand navigation.
 1. Select the `Source` option and verify that `Deploy from a branch` is selected
    > ![GitHub Pages settings](gitHubPagesSettings.png)
-1. In the `Brach` section select `gh-pages` as the branch, and press `Save`.
+1. In the `Branch` section select `gh-pages` as the branch, and press `Save`.
    > ![gh-pages branch selection](ghPagesBranchSelection.png)
 
 This will make the branch available from a URL that references your repository. The GitHub Pages settings view will display the name of the URL, but it should be something like:
