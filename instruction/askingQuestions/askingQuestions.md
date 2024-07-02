@@ -19,8 +19,8 @@
 
 You have a lot of resources to help you find answers. Here is the order that you should use them.
 
-1. **Yourself** - You will learn more and find great satisfaction in answering your own question. When you feel like you need help with a question the first thing you should do is stop, take a breath, and think. Can you think of a way that you can answer this yourself? Can you break apart the problem into smaller pieces and find the answer by solving just a part of the question? Can you simplify the problem by ruling everything out except one variable and then answering that? You will be surprised how often, and quickly, you will find the answer.
-1. **The Oracle** - Google is your friend. Think like a web page and use search terms that are unique to the web page you are hoping to find. Avoid terms that are common or used by different industries. With web programming, especially the technologies in this instruction, it will be very rare that you cannot find your answer with Google. The trick will be to make sure that the answer is credible, and that it is relevant. Answers for older, or newer, versions of a technology will send you down a rabbit hole.
+1. **Yourself** - You will learn more and find great satisfaction in answering your own question. When you feel like you need help with a question the first thing you should do is stop, take a breath, and think. How can I answer this question myself? Can you break apart the problem into smaller pieces and find the answer by solving just a part of the question? Can you simplify the problem by ruling everything out except one variable and then answering that? You will be surprised how often, and quickly, you will find the answer.
+1. **The Oracle** - ChatGPT and Google are your friends. Think like a webpage and use search terms that are unique to the webpage you are hoping to find. Avoid terms that are common or used by different industries. With technical questions, especially the technologies in this instruction, it will be very rare that you cannot find your answer with searching. The trick will be to make sure that the answer is credible, and that it is relevant. Answers for older, or newer, versions of a technology, or blindly trusting AI hallucinations, will send you down a rabbit hole.
 1. **Peers** - You have a whole class full of friends. We are all in this together. Get on Discord or talk to someone in class. More than likely there is someone with the same question as you. However, you should also **assume** that the question has already been asked. Use the search functionality of Discord. Make sure you are in the right channel. Look up at the previous discussions to see if the answer is already there. If all that fails, then ask the question.
 1. **TA** - These are smart people who have been where you are and want to help you succeed. Check the TA hours and contact them on Discord or in person. Respect their time by researching the question and come prepared to ask a clear question.
 1. **Instructor** - The instructor is there for **you**. Asking for help in class, after class, or during office hours has a good chance of helping you find an answer. This is especially true if you have already tried the other methods. If the instructor can't help you, then at least you will get to know each other better.
@@ -45,3 +45,11 @@ Here is a good template to follow when asking a question:
 ## Pay it forward
 
 Always remember how it felt to receive help. Actively look for opportunities to help others in a kind respectful way. After all, that is the Gospel of Jesus Christ at its core. We are a team. We are better together.
+
+## ☑ Assignment
+
+Get on the Discord server and review each of the channels and the TA area. Review the previous instruction on asking question. Give some thought about proper forum etiquette.
+
+Figure out who your assigned TA is by reviewing the [TA schedule](https://docs.google.com/spreadsheets/d/1n0Z6sARR29lZRwoGzTYxqSiGV6s1vPSa4ddFE0Jh9j8). TAs are assigned by an alphabetical range. Find the range that contains the first letter of your last name. Using their Discord ID, open Discord to send them a direct message (DM) to introduce yourself.
+
+Once you are done, go over to Canvas and submit that you have completed this.
