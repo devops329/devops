@@ -125,5 +125,5 @@
 
 ## Conclusion
 
-- ☑ 🟠 [Christlike introspection conclusion](christlikeLearningConclusion/christlikeLearningConclusion.md)
+- ☑ 🟠 [Christlike learning conclusion](christlikeLearningConclusion/christlikeLearningConclusion.md)
 - ☑ 🟠 [Wrap up](wrapUp/wrapUp.md)
