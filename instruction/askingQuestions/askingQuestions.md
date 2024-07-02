@@ -4,10 +4,10 @@
 
 ## Contact information
 
-- Instructions on how to use [Discord](../discord/discord.md)
+- Use this link to join the course's [Discord](https://discord.gg/xMhk3Csmrm) server
 - Consult this [document](https://docs.google.com/spreadsheets/d/1n0Z6sARR29lZRwoGzTYxqSiGV6s1vPSa4ddFE0Jh9j8) to view the TA schedule
-- In-person TAs are located: 🚧 Get location
-- Professor Jensen's office: 2264 TMCB, use [Calendly](https://calendly.com/lee-cs/30min) to make an appointment
+- In-person TAs are located: 🚧 A yet to be disclosed location
+- Professor Jensen's office: 2264 TMCB. use [Calendly](https://calendly.com/lee-cs/30min) to make an appointment.
 
 | Who        | How                 | Where                  | When                            |
 | ---------- | ------------------- | ---------------------- | ------------------------------- |
