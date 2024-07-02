@@ -61,7 +61,7 @@ Now you can copy the branch to your development environment, set up some files, 
 1. Delete all of the code in the branch. Remember that this branch is just to host a static deployment on GitHub Pages. You should never merge it back into `main`.
    ```sh
    rm -r * .env* .vscode
-   print "hello GitHub pages" > index.html
+   echo "hello GitHub pages" > index.html
    git add .
    git commit -m "initial(pages)"
    git push
