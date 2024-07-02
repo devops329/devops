@@ -6,6 +6,7 @@
 - ☑ Contains assignment
 - ⓵ Milestone deliverable
 - 💡 Curiosity report ideas
+- ✏️ Quiz
 - 🟢 Stephen has reviewed
 - 🔵 Stephen to review
 - 🟠 Needs final review
@@ -14,13 +15,13 @@
 
 - ☑ [Overview](overview/overview.md)
 - [History](history/history.md)
-- [Asking Questions](askingQuestions/askingQuestions.md)
 - [Terminology](terminology/terminology.md)
 - [JWT Pizza](jwtPizza/jwtPizza.md)
 - ☑ [AWS Account](awsAccount/awsAccount.md)
 - [GitHub](gitHub/gitHub.md)
 - ☑ [Christlike learning](christlikeLearning/christlikeLearning.md)
 - ☑ [Curiosity report](curiosityReport/curiosityReport.md)
+- ☑ [Asking Questions](askingQuestions/askingQuestions.md)
 
 ## Static deployment
 
