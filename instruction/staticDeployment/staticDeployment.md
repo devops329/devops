@@ -31,11 +31,11 @@ graph LR;
     end
 ```
 
-Static deployments are desirable because the are simple, inexpensive, and easily scalable.
+Static deployments are desirable because they are simple, inexpensive, and easily scalable.
 
 ## Calling non-static services
 
-You can only get so far building applications that only execute on a customer's device. For example, if your application requires authentication then you need to store those credentials somewhere. However, that doesn't mean that you need to necessarily provide the dynamic part of the application.
+You can only get so far building applications that only execute on a customer's device. For example, if your application requires authentication, you need to store those credentials somewhere. However, that doesn't mean that you need to provide the dynamic part of the application.
 
 An application can still be considered a static deployment even if it calls backend computational services, as long as **you** are not providing those services. The idea here is that your part of the application is static, while some other party is supporting the dynamic part of the application.
 
