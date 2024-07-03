@@ -135,21 +135,21 @@ This isn't very exciting since the default test doesn't actually execute any of 
 ```js
 import { test, expect } from 'playwright-test-coverage';
 
-test('login/profile/logout', async ({ page }) => {
+test('home page', async ({ page }) => {
   await page.goto('/');
 
   expect(await page.title()).toBe('JWT Pizza');
-}
+});
 ```
 
-Now when we run the test we get **14.75%** coverage. Just for loading the home page!
+Now when we run the test we get **20.49%** coverage. Just for loading the home page!
 
 ```sh
 ➜  npm run test:coverage
 -------------------------|---------|----------|---------|---------|-------------------
 File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
 -------------------------|---------|----------|---------|---------|-------------------
-All files                |   14.69 |    13.66 |      17 |   14.75 |
+All files                |   20.49 |    23.45 |   23.07 |   19.93 |
 ```
 
 ## Recording a test
@@ -167,7 +167,7 @@ Put your cursor in the body of the test function, open the `Test Explorer` tab a
 After all that is done you should end up with a test that looks something like the following.
 
 ```js
-test('login/profile/logout', async ({ page }) => {
+test('buy pizza with login', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   await page.getByRole('button', { name: 'Order now' }).click();
   await expect(page.locator('h2')).toContainText('Awesome is a click away');
@@ -196,15 +196,15 @@ ERROR: Coverage for lines (35.12%) does not meet global threshold (80%)
 -------------------------|---------|----------|---------|---------|-----------------------------
 File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
 -------------------------|---------|----------|---------|---------|-----------------------------
-All files                |   34.74 |    35.25 |    35.5 |   35.12 |
+All files                |   49.37 |    61.72 |   46.15 |   48.41 |
 -------------------------|---------|----------|---------|---------|-----------------------------
 ```
 
-That takes us to **35%** line coverage. This seems really promising and if we keep going down this path it feels like will have 80% coverage in no time. However, there is a demon waiting in the wings. Currently the `.env.development` configuration file has you using the JWT Headquarters deployment Pizza service. That is nice from the integration testing standpoint, but the data hosted on that service is going to change constantly and that will make it hard to write tests that are consistent.
+That takes us to **49%** line coverage. This seems really promising and if we keep going down this path it feels like will have 80% coverage in no time. However, there is a demon waiting in the wings. Currently the `.env.development` configuration file has you using the JWT Headquarters deployment Pizza service. That is nice from the integration testing standpoint, but the data hosted on that service is going to change constantly and that will make it hard to write tests that are consistent.
 
-To solve this you could start your own JWT service in your dev environment and run against that. However, we eventually want to run our test with GitHub Actions and so that strategy will be difficult.
+To solve this you could start your own JWT service in your dev environment and run against that. However, we eventually want to run our tests with GitHub Actions and so that strategy will be difficult.
 
-A different option is to mock out the JWT service. That way the we are only testing the frontend. This will make the tests more stable and even make they run faster, but it has the disadvantage of insulating us from bugs that might get introduced when the protocol between the front and backend changes. Still, this seems like the right option. So let's look at converting the test we just created over to using a mocked out service.
+A different option is to mock out the JWT service. That way, we are only testing the frontend. This will make the tests more stable and even make them run faster, but it has the disadvantage of insulating us from bugs that might get introduced when the protocol between the front and backend changes. Still, this seems like the right option. So let's look at converting the test we just created over to using a mocked out service.
 
 ## Mocking JWT Pizza Service
 
