@@ -85,6 +85,7 @@ You previously created a fork of `jwt-pizza`. Now you need to add Playwright and
    **vite.config.js**
 
    ```js
+   import { defineConfig } from 'vite';
    import istanbul from 'vite-plugin-istanbul';
 
    export default defineConfig({
