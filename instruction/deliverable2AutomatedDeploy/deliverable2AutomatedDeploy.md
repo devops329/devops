@@ -182,17 +182,12 @@ We only showed a simple basic example of what you can do with GitHub Actions, bu
 
 Complete the steps outlined above by creating a GitHub Actions workflow to deploy the JWT Pizza frontend whenever a change is pushed to the main branch.
 
-Once JWT Pizza is live on your domain, go over to Canvas and submit the URL. This should look something like this:
-
-```txt
-https://pizza.yourdomainname.click
-```
+Once JWT Pizza is live on your domain, go to the [AutoGrader](https://cs329.cs.byu.edu) and submit your work for the deliverable.
 
 ### Rubric
 
 | Percent | Item                                                                                        |
 | ------- | ------------------------------------------------------------------------------------------- |
-| 20%     | Strong GitHub commit history that documents your work in your fork of `jwt-pizza`           |
-| 50%     | Successful execution of GitHub Actions to deploy JWT Pizza to GitHub Pages on push          |
-| 25%     | Completely functional JWT Pizza deployed with GitHub Pages accessible on custom domain name |
+| 60%     | Successful execution of GitHub Actions to deploy JWT Pizza to GitHub Pages on push          |
+| 35%     | Completely functional JWT Pizza deployed with GitHub Pages accessible on custom domain name |
 | 5%      | Pipeline status badge display on your JWT Pizza **README.md** home page                     |

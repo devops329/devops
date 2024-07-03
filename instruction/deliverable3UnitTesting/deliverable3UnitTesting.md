@@ -270,11 +270,7 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Add the reporting of the coverage to the workflow by creating a coverage badge in the README.md file.
 1. Add the creation of a version file named `src/version.json`.
 
-Once this is all working, submit the URL of your fork of the `jwt-pizza-service` repository to the Canvas assignment. This should look something like this:
-
-```txt
-https://github.com/youraccountnamehere/jwt-pizza-service
-```
+Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and submit your work for the deliverable.
 
 ### Rubric
 

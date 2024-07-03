@@ -26,7 +26,7 @@ Follow the steps described in the [Grafana K6](../grafanaK6/grafanaK6.md) instru
 1. Execute the test and analyze the results.
 1. Save a copy of your load test script to your fork of the `jwt-pizza` repository under the name `loadTests/loginAndOrder.js`.
 
-Once this is all working, submit an image of your scripted results to the Canvas assignment. This should look something like this:
+Once this is all working, submit an image of your script results to the Canvas assignment. This should look something like this:
 
 ![alt text](image.png)
 

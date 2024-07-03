@@ -131,11 +131,7 @@ That should do it. You can verify that it all worked by opening your browser to 
 
 Complete the steps outlined above with your own fork of the jwt-pizza repository and your custom domain name.
 
-Once JWT Pizza is live on your domain, go over to Canvas and submit the URL. This should look something like this:
-
-```txt
-https://pizza.yourdomainname.click
-```
+Once JWT Pizza is live on your domain, go to the [AutoGrader](https://cs329.cs.byu.edu) and submit your work for the deliverable.
 
 ### Rubric
 

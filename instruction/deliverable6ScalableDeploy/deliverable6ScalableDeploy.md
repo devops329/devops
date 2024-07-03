@@ -256,11 +256,7 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Alter your DNS record in Route 53 to point to the application load balancer distribution.
 1. Modify and deploy your frontend so that it calls your backend service.
 
-Once this is all working, submit JWT Pizza Service URL of your fork of the `jwt-pizza` repository to the Canvas assignment. This should look something like this:
-
-```txt
-https://pizza.cs329.click
-```
+Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and submit your work for the deliverable.
 
 ### Rubric
 

@@ -277,6 +277,10 @@ Complete the following.
 1. Fix your JWT Pizza Service DNS entry to point to the new ALB URL.
 1. Trigger your `jwt-pizza-service` CI deployment pipeline and verify that the new service is deployed.
 
-Once this is all working, mark that you have completed the work in the Canvas assignment.
+Once this is all working, submit the GitHub URL to the CloudFormation template file to the Canvas assignment. This should look something like this:
+
+```
+https://github.com/youraccountnamehere/jwt-pizza-service/blob/main/cloudFormation/jwt-pizza-service.json
+```
 
 💡 A great creativity report would be to dig into CloudFormation and figure out how you could also automate the deployment of your RDS MySQL database or S3/CloudFront infrastructure.
