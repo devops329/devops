@@ -36,5 +36,5 @@ By the end of the course you must do the following:
 Once you are done, go over to Canvas and submit the URL of your markdown file. This should look something like this:
 
 ```
-https://github.com/youraccountnamehere/jwt-pizza/curiosityReport.md
+https://github.com/byucsstudent/jwt-pizza/blob/main/curiosityReport.md
 ```

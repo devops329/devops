@@ -14,6 +14,15 @@
 
 With the UI testing skills you have learned you are now ready to test the JWT Pizza frontend. As part of these tests you will mock out the backend service so that you don't have to worry about the problems that come with integration testing.
 
+## Development environment
+
+You may want to change your `.env.development` file so that it references your local JWT Pizza Service instead of the headquarter's service. This will make it so that you can add users and play with the data in a controlled environment.
+
+```sh
+VITE_PIZZA_SERVICE_URL=http://localhost:3000
+VITE_PIZZA_FACTORY_URL=https://pizza-factory.cs329.click
+```
+
 ## Configuring Playwright
 
 You previously created a fork of `jwt-pizza`. Now you need to add Playwright and the coverage functionality. The first step is to install the required packages and set up the project using the [Playwright instruction](../playwright/playwright.md) that you studied earlier. This includes the following:
@@ -29,7 +38,7 @@ You previously created a fork of `jwt-pizza`. Now you need to add Playwright and
     },
    ```
 1. Install the Playwright Chromium testing browser.
-1. Cleanup the `playwright.config.js` file and add the ability to launch the jwt-pizza-service using Vite.
+1. Cleanup the `playwright.config.js` file and add the ability to launch the JWT Pizza frontend using Vite so that the tests can call it.
 
    ```js
    import { defineConfig, devices } from '@playwright/test';
