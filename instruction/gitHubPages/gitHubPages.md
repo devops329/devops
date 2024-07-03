@@ -38,6 +38,10 @@ Create an account level static deployment using GitHub Pages by doing the follow
 1. Create a repository that follows the pattern: `youraccountnamehere.github.io`.
 1. Adding an `index.html` to the root of the repository.
 
-Once you are done, go over to Canvas and submit a screenshot of your account static website deployment. This should look something like this:
+Once you are done, go over to Canvas and submit the URL of your account static website deployment. This should look something like this:
+
+```
+https://byucsstudent.github.io/
+```
 
 ![Sample GitHub Pages site](sampleGitHubPagesSite.png)
