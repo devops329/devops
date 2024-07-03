@@ -29,7 +29,7 @@ You previously created a fork of `jwt-pizza`. Now you need to add Playwright and
     },
    ```
 1. Install the Playwright Chromium testing browser.
-1. Cleanup the `playwright.config.js` file and add the ability to launch the jwt-pizza-service using Vite.
+1. Cleanup the `playwright.config.js` file and add the ability to launch the JWT Pizza frontend using Vite so that the tests can call it.
 
    ```js
    import { defineConfig, devices } from '@playwright/test';
