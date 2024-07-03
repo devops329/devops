@@ -87,7 +87,7 @@ Click on the `View dashboard` link to see the details of the test.
 
 Running tests is only as valuable as your ability to react to the results. In the case of synthetic testing, you need to define an alert that will contact the responsible parties when results need attention.
 
-In a later section you will define the rules for triggering alerts and the methods for contacting the responsible parties.
+In a later section you will learn how to define the rules for triggering alerts and the methods for contacting the responsible parties. You can then write a rule that triggers an alert when an anomaly is detected.
 
 ## Reducing cost
 

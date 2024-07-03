@@ -78,7 +78,7 @@
 ## Deployment strategies
 
 - 🟢 [Versioning](versioning/versioning.md)
-- ☑ 🟢 [GitHub Releases](gitHubReleases/gitHubReleases.md)
+- ☑ 🟢 [GitHub releases](gitHubReleases/gitHubReleases.md)
 - 🟢 [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
 - ☑ 🟢 [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
 - 🟢 [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
@@ -103,7 +103,7 @@
 
 - 🟠 [Load testing](loadTesting/loadTesting.md)
 - 🟢 [Grafana K6](grafanaK6/grafanaK6.md)
-- 🟢 [⓾ Load testing: JWT Pizza Service](deliverable10LoadTesting/deliverable10LoadTesting.md)
+- ☑ 🟢 [⓾ Load testing: JWT Pizza Service](deliverable10LoadTesting/deliverable10LoadTesting.md)
 - 🟠 [Status](statusReporting/statusReporting.md)
 
 ## Failure management
