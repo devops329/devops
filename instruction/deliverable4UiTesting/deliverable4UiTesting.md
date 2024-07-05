@@ -371,7 +371,7 @@ Running the test requires that you first install the desired Playwright browser 
     npm run test:coverage
 ```
 
-You can then parse the coverage output to build a new coverage badge that is displayed in the README.md for your repository.
+You can then create a new version number in `src/version.json`, which will be referenced and displayed by the JWT Pizza footer. Parse the coverage output to build a new coverage badge that is displayed in the README.md for your repository.
 
 ```yml
 - name: Update coverage and version
@@ -412,5 +412,5 @@ Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and s
 | ------- | ---------------------------------------------------------------------------------- |
 | 20%     | Strong GitHub commit history that documents your work in your fork of `jwt-pizza`  |
 | 10%     | Successful execution of GitHub Actions to run test on commit                       |
-| 5%      | Version updated with each build and visible on /about page                         |
+| 5%      | Version updated with each build and visible in app footer.                         |
 | 65%     | At least 80% code coverage as documented by workflow execution and README.md badge |
