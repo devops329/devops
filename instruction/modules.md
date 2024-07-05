@@ -19,6 +19,7 @@
 - [JWT Pizza](jwtPizza/jwtPizza.md)
 - ☑ [AWS Account](awsAccount/awsAccount.md)
 - [GitHub](gitHub/gitHub.md)
+- [Commit History](github/commitHistory.md)
 - ☑ [Christlike learning](christlikeLearning/christlikeLearning.md)
 - ☑ [Curiosity report](curiosityReport/curiosityReport.md)
 - ☑ [Asking Questions](askingQuestions/askingQuestions.md)

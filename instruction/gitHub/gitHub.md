@@ -130,9 +130,3 @@ GitHub allows you to create a fork of any repository on GitHub. You just push th
 ## Contributing to the course instruction
 
 In this class, if you notice something in the instruction that needs to be enhanced, feel free to fork the [instruction repo](https://github.com/devops329/devops), and make a pull request. This will give you experience with forking and improve the instruction for others at the same time, plus your name will be included as a contributor. How cool is that!
-
-## Commit often
-
-You are required to have a significant number of meaningful commits for each course deliverable in order to get full credit. Commonly, this will be an initial commit that contains some initial design or code placeholders, followed by commits at each functional milestone, and then a final commit for the working deliverable. Committing your code often is an important practice for you to develop. It protects you from losing your work, allows access from anywhere, makes it so you can quickly share changes, reduces conflicts with your peers, and enables you to efficiently explore different possibilities. This also enables others to review the progression of your development efforts in order to prove the originality of your work.
-
-Remember to make meaningful commit messages that describe the **what** and **why** of the changes made. Here is a [good post](https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/) on how to make meaningful commit messages.
