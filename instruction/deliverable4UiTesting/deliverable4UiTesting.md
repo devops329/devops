@@ -361,14 +361,7 @@ This should be enough to get you started. Your goal is to get at least 80% line 
 
 ## Testing CI
 
-With your automated tests in place you can now update the GitHub Actions script the you created previously to include the execution of the tests. You also want to report your coverage publicly and create a version number.
-
-```yml
-- name: Build
-  run: |
-    npm ci && npm run build
-```
-
+With your automated tests in place, you can now update the GitHub Actions script that you created previously to include the execution of the tests.
 Running the test requires that you first install the desired Playwright browser driver, and then execute the test command.
 
 ```yml
