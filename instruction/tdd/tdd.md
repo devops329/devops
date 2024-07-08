@@ -58,7 +58,7 @@ Now we can write a test. We will name the test file `fibonacci.test.js` so that 
 Our first test will make sure that the base case for calculating fibonacci at position zero works correctly.
 
 ```js
-const fibonacci = require('./fibonacci.js')
+const fibonacci = require('./fibonacci.js');
 
 test('fibonacci zero', () => {
   expect(fibonacci(0)).toBe(0);
@@ -319,9 +319,9 @@ function fibonacci(pos) {
 
 ## Final thoughts
 
-Hopefully you have seen how TDD allows you to discover problems you would not have otherwise found, speed up your development, and generate confidence that your code still works when you make changes.
+Hopefully you have seen how TDD allows you to discover problems you would not have otherwise found, speed up your development, and generate confidence that your code still works when you make future changes.
 
-When your tests pass it is also a good place to commit your changes to your version repository since you know you are in a stable state.
+Whenever a test passes, it is also a good place to commit your changes to your version repository since you know you are in a stable state.
 
 ## ☑ Assignment
 
