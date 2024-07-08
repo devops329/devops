@@ -51,7 +51,7 @@ You can go ahead and experiment with this now if you would like. In future instr
 
 ## GitHub Pages at the account level
 
-In addition to hosting a static deployment for a **repository** you can also do this for your **entire account**. However, in this case, instead of using a special branch, you create a special repository that follows the pattern: `youraccountnamehere.github.io`. In the example below, we created an account level static deployment for the account named `byucsstudent` by creating the `byucsstudent.github.io` repository and populating it with a simple [index.html](gitHubPagesExample/index.html) file.
+In addition to hosting a static deployment for a **repository** you can also do this for your **entire GitHub account**. However, in this case, instead of using a special branch, you create a special repository that follows the pattern: `youraccountnamehere.github.io`. In the example below, we created an account level static deployment for the account named `byucsstudent` by creating the `byucsstudent.github.io` repository and populating it with a simple [index.html](gitHubPagesExample/index.html) file.
 
 ![Create account GitHub pages](createAccountGitHubPages.png)
 
