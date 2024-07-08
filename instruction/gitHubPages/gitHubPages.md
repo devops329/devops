@@ -14,14 +14,40 @@ Now that you know how static deployment works, you can take the next step of sel
 
 One easy way to do this is to use a service from `GitHub` called `GitHub Pages`. At a basic level, GitHub Pages is a simple HTTP file server that publishes a set of files under a GitHub URL. To use GitHub pages you do the following:
 
+1. Create a repository to test out GitHub pages with. Name the repository `static`. Make it public, and give it README.md file so that it populates the repo with some initial content.
+
+   ![Create Pages Repository](createRepository.png)
+
+1. Using your command console, clone the repository locally.
 1. Create a branch on your GitHub repository. This branch is commonly called `gh-pages`.
-1. Push your static deployment files to the branch.
-1. Modify the repository settings to indicate that you want to statically host the newly created branch with the GitHub Pages HTTP file server.
-1. (_Optionally_) Associate a DNS domain name to reference your static deployment.
 
-Once you have completed these steps you can access your static deployment from anywhere in the world by either the default URL, `youraccountname.github.io/yourrepositoryname`, or from the custom domain name that you provide.
+   ```sh
+   git checkout -b gh-pages && cd gh-pages
+   ```
 
-In future instruction you will use GitHub Pages to deploy the JWT Pizza frontend code.
+1. Create an `index.html` file containing the following.
+   ```html
+   <h1>Hello GitHub Pages</h1>
+   ```
+1. Commit the change to the branch.
+
+   ```sh
+   git add . && git commit -am "add(homepage)"
+   ```
+
+1. Push your static deployment files to the branch. The following will set the upstream for the branch and create the branch on GitHub.
+   ```sh
+   git push --set-upstream origin gh-pages
+   ```
+1. Verify that the repository settings indicate that GitHub Pages is loading the `gh-pages` branch as a static deployment. You do this by accessing the `static` repository's settings page and selecting `Pages`. It should show that that it is deploying from a branch named `gh-pages`.
+
+![GitHub settings configuration](gitHubPagesSettings.png)
+
+Once you have completed these steps you can access your static deployment from anywhere in the world using a URL like: `youraccountname.github.io/static`.
+
+![Browser display of static deployment](browserDisplay.png)
+
+You can go ahead and experiment with this now if you would like. In future instruction you will use GitHub Pages to deploy the JWT Pizza frontend code.
 
 ## GitHub Pages at the account level
 
