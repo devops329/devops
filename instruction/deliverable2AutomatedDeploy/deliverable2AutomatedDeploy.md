@@ -22,7 +22,7 @@ So now it is time to take the next step. You are going to use `GitHub Actions` t
 
 Here are the steps to make the automation magic happen.
 
-1. Open your fork of `jwt-pizza`.
+1. Open your fork of `jwt-pizza` on GitHub.com.
 1. Change the GitHub Pages option for the _Build and deployment/Source_ to `GitHub Actions`. This causes GitHub to add an environment called `github-pages`. This environment is used to specify deployment rules and secrets that are specific to GitHub action deployments. You will reference this environment in you CI pipeline.
 
    > ![GitHub Pages Source Actions](gitHubPagesSourceAction.png)
