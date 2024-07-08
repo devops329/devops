@@ -21,8 +21,8 @@ test('get', async () => {
   const factPromise = catFact.add();
   expect(factPromise).toBeInstanceOf(Promise);
   expect(await factPromise).toBe('fact1');
-  expect(factMock).toBeCalledTimes(1);
-  expect(fetchMock).toBeCalledWith('https://meowfacts.herokuapp.com/');
+  expect(factMock).toHaveBeenCalledTimes(1);
+  expect(fetchMock).toHaveBeenCalledWith('https://meowfacts.herokuapp.com/');
 });
 
 test('get fails', async () => {
@@ -45,8 +45,8 @@ test('history', async () => {
   await catFact.add();
   await catFact.add();
   await catFact.add();
-  expect(factMock).toBeCalledTimes(3);
-  expect(fetchMock).toBeCalledTimes(3);
+  expect(factMock).toHaveBeenCalledTimes(3);
+  expect(fetchMock).toHaveBeenCalledTimes(3);
 
   const history = await catFact.history();
   expect(history).toEqual(expectedFacts);
@@ -63,12 +63,12 @@ test('callback', async () => {
   catFact.call(1000, timerMock);
 
   await jest.advanceTimersByTimeAsync(1000);
-  expect(timerMock).toBeCalledTimes(1);
-  expect(fetchMock).toBeCalledTimes(1);
+  expect(timerMock).toHaveBeenCalledTimes(1);
+  expect(fetchMock).toHaveBeenCalledTimes(1);
 
   await jest.advanceTimersByTimeAsync(2000);
-  expect(timerMock).toBeCalledTimes(3);
-  expect(fetchMock).toBeCalledTimes(3);
+  expect(timerMock).toHaveBeenCalledTimes(3);
+  expect(fetchMock).toHaveBeenCalledTimes(3);
   expect(factMock.mock.results.length).toBe(3);
 
   const history = await catFact.history();
