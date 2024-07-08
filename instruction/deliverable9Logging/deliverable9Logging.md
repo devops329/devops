@@ -134,10 +134,9 @@ https://youraccounthere.grafana.net/public-dashboards/29305se9fsacc66a21fa91899b
 
 ### Rubric
 
-| Percent | Item                                                                                      |
-| ------- | ----------------------------------------------------------------------------------------- |
-| 10%     | Strong GitHub commit history that documents your work in your fork of `jwt-pizza-service` |
-| 60%     | Storing all required log events in Grafana Cloud Loki data store                          |
-| 30%     | Visualizing all required log fields in Grafana Cloud dashboard                            |
+| Percent | Item                                                             |
+| ------- | ---------------------------------------------------------------- |
+| 70%     | Storing all required log events in Grafana Cloud Loki data store |
+| 30%     | Visualizing all required log fields in Grafana Cloud dashboard   |
 
 **Congratulations!** You have provided significant observability for your JWT Pizza Service. Time to go celebrate. I'm thinking bananas sound nice 🍌.

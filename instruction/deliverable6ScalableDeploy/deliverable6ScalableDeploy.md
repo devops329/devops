@@ -260,13 +260,12 @@ Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and s
 
 ### Rubric
 
-| Percent | Item                                                                                      |
-| ------- | ----------------------------------------------------------------------------------------- |
-| 10%     | Strong GitHub commit history that documents your work in your fork of `jwt-pizza-service` |
-| 20%     | Secure Fargate deployment based on ECR and ECS                                            |
-| 20%     | AWS Load balancer used to access Fargate                                                  |
-| 20%     | MySQL database deployed for backend data persistence                                      |
-| 20%     | Updated GitHub Action workflow deploying to ECR and ECS                                   |
-| 10%     | Your backend called for all frontend requests                                             |
+| Percent | Item                                                    |
+| ------- | ------------------------------------------------------- |
+| 20%     | Secure Fargate deployment based on ECR and ECS          |
+| 20%     | AWS Load balancer used to access Fargate                |
+| 20%     | MySQL database deployed for backend data persistence    |
+| 30%     | Updated GitHub Action workflow deploying to ECR and ECS |
+| 10%     | Your backend called for all frontend requests           |
 
 **Congratulations!** You have completed the process of using RDS, IAM, ECR, ECS, and Route 53 to deploy your backend service. Time to go celebrate. I'm thinking ice cream 🍦.

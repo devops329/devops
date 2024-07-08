@@ -437,12 +437,11 @@ Go to the [AutoGrader](https://cs329.cs.byu.edu) and submit your work for the **
 
 ### Rubric
 
-| Percent | Item                                                                              |
-| ------- | --------------------------------------------------------------------------------- |
-| 10%     | Strong GitHub commit history that documents your work in your fork of `jwt-pizza` |
-| 20%     | Versions archived in S3                                                           |
-| 10%     | GitHub version records created for both staging and production                    |
-| 30%     | Continuous deployment to your staging environment                                 |
-| 30%     | Triggered continuous delivery to your production environment                      |
+| Percent | Item                                                           |
+| ------- | -------------------------------------------------------------- |
+| 20%     | Versions archived in S3                                        |
+| 20%     | GitHub version records created for both staging and production |
+| 30%     | Continuous deployment to your staging environment              |
+| 30%     | Triggered continuous delivery to your production environment   |
 
 **Congratulations!** You have applied continuous delivery patterns to, and created different deployment environments for, your JWT Pizza application. Time to go celebrate. I'm thinking waffles 🧇.

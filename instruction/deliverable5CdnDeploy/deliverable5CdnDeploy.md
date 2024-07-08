@@ -62,9 +62,8 @@ Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and s
 
 ### Rubric
 
-| Percent | Item                                                                              |
-| ------- | --------------------------------------------------------------------------------- |
-| 10%     | Strong GitHub commit history that documents your work in your fork of `jwt-pizza` |
-| 48%     | Secure CloudFront deployment based on S3 bucket                                   |
-| 2%      | Properly handles browser refresh React DOM Routing                                |
-| 40%     | Updated GitHub Action workflow deploying to S3 bucket                             |
+| Percent | Item                                                  |
+| ------- | ----------------------------------------------------- |
+| 45%     | Secure CloudFront deployment based on S3 bucket       |
+| 10%     | Properly handles browser refresh React DOM Routing    |
+| 45%     | Updated GitHub Action workflow deploying to S3 bucket |

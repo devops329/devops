@@ -274,12 +274,11 @@ Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and s
 
 ### Rubric
 
-| Percent | Item                                                                                      |
-| ------- | ----------------------------------------------------------------------------------------- |
-| 20%     | Strong GitHub commit history that documents your work in your fork of `jwt-pizza-service` |
-| 10%     | Successful execution of GitHub Actions to run lint on commit                              |
-| 10%     | Successful execution of GitHub Actions to run tests on commit                             |
-| 5%      | Version updated with each build                                                           |
-| 55%     | At least 80% code coverage as documented by workflow execution and README.md badge        |
+| Percent | Item                                                                               |
+| ------- | ---------------------------------------------------------------------------------- |
+| 10%     | Successful execution of GitHub Actions to run lint on commit                       |
+| 20%     | Successful execution of GitHub Actions to run tests on commit                      |
+| 5%      | Version updated with each build                                                    |
+| 65%     | At least 80% code coverage as documented by workflow execution and README.md badge |
 
 Time to go and celebrate. How about cake 🍰?

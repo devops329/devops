@@ -410,7 +410,6 @@ Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and s
 
 | Percent | Item                                                                               |
 | ------- | ---------------------------------------------------------------------------------- |
-| 20%     | Strong GitHub commit history that documents your work in your fork of `jwt-pizza`  |
-| 10%     | Successful execution of GitHub Actions to run test on commit                       |
-| 5%      | Version updated with each build and visible in app footer.                         |
-| 65%     | At least 80% code coverage as documented by workflow execution and README.md badge |
+| 20%     | Successful execution of GitHub Actions to run test on commit                       |
+| 10%     | Version updated with each build and visible in app footer.                         |
+| 70%     | At least 80% code coverage as documented by workflow execution and README.md badge |

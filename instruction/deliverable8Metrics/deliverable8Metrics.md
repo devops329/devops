@@ -149,10 +149,9 @@ https://youraccounthere.grafana.net/public-dashboards/29305se9fsacc66a21fa91899b
 
 ### Rubric
 
-| Percent | Item                                                                                      |
-| ------- | ----------------------------------------------------------------------------------------- |
-| 10%     | Strong GitHub commit history that documents your work in your fork of `jwt-pizza-service` |
-| 30%     | Storing all required metrics in Grafana Cloud Prometheus data store                       |
-| 60%     | Visualizing all required metrics in Grafana Cloud dashboard                               |
+| Percent | Item                                                                |
+| ------- | ------------------------------------------------------------------- |
+| 30%     | Storing all required metrics in Grafana Cloud Prometheus data store |
+| 70%     | Visualizing all required metrics in Grafana Cloud dashboard         |
 
 **Congratulations!** You have provided significant observability for your JWT Pizza Service. Time to go celebrate. I'm thinking tacos 🌮.
