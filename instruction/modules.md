@@ -38,10 +38,10 @@
 
 ## Quality assurance
 
-- 🟠 [Testing](testing/testing.md)
-- 🟢 [Testing variations](testingCategories/testingCategories.md)
-- 🟠 [Coverage](coverage/coverage.md)
-- 🟠 [Jest Basics](jestBasics/jestBasics.md)
+- [Testing](testing/testing.md)
+- [Testing variations](testingCategories/testingCategories.md)
+- [Coverage](coverage/coverage.md)
+- [Jest Basics](jestBasics/jestBasics.md)
 - ☑ 🟠 [Jest Advanced](jestAdvanced/jestAdvanced.md)
 - ☑ 🟠 [Test driven development (TDD)](tdd/tdd.md)
 - ☑ 🟠 [Service testing](serviceTesting/serviceTesting.md)

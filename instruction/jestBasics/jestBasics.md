@@ -16,7 +16,7 @@ Jest is the most common framework for testing JavaScript. It was created back in
 
 ## Installing Jest
 
-In order to use Jest a your unit testing framework you need to first create an NPM project and install Jest package. Note that then installing we use the `-D` parameter to tell NPM that Jest is only used during development and it shouldn't be included in any production deployment.
+In order to use Jest as your unit testing framework you need to first create an NPM project and install the Jest package. Note that when installing, we use the `-D` parameter to tell NPM that Jest is only used during development and it shouldn't be included in any production deployment.
 
 ```sh
 mkdir jestExample && cd jestExample
@@ -28,7 +28,7 @@ Then change the package.json script so that the `test` command runs Jest.
 
 ```json
 {
-  "name": "jestExample",
+  "name": "jestexample",
   "main": "index.js",
   "scripts": {
     "test": "jest"
@@ -79,7 +79,7 @@ module.exports = { add };
 You can then rewrite the test to import and create a couple tests for our new `add` function.
 
 ```js
-const add = require('./add');
+const { add } = require('./add');
 
 test('add two numbers', () => {
   expect(add(1, 1)).toBe(2);

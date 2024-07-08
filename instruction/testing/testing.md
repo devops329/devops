@@ -73,6 +73,7 @@ test('history', async () => {
 - Design your production code so that testing is naturally supported
 - Make the tests readable
 - Test can run in any order
+- Test can run concurrently
 
 ## Gamification of testing
 
