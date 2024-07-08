@@ -67,10 +67,10 @@ Now you can copy the branch to your development environment, set up some files, 
    git push
    ```
 
-You can now point your browser to the GitHub pages site for your repository and see the index.html page you just created.
+You can now point your browser to the GitHub pages site for your repository and see the index.html page you just created. Note that sometimes you need to wait a couple minutes before GitHub will refresh its internal cache before you will see your change.
 
 ```sh
-curl https://youaccountnamehere.github.io/jwt-pizza/
+curl https://youaccountnamehere.github.io/jwt-pizza
 
 Hello GitHub Pages
 ```
@@ -93,8 +93,16 @@ Using your domain name take the following steps in order to associate it to your
 1. Open the GitHub Pages settings for the fork of your jwt-pizza repository.
 1. Put your subdomain name in the `Custom domain` edit box and press `Save`.
    > ![Custom domain entry](customDomain.png)
-1. Check the box to `Enforce HTTPS`.
+1. Check the box to `Enforce HTTPS`. It is interesting to consider how GitHub is able to generate a certificate for your domain.
 1. After the check completes you can navigate your browser to your subdomain and verify that "Hello GitHub Pages" is still being displayed.
+
+   ```sh
+   curl https://pizza.youdomainhere
+
+   Hello GitHub Pages
+   ```
+
+   The previous `youraccountnamehere.github.io/jwt-pages` URL should now redirect you with an HTTP `301` response to your new domain.
 
 ## Deploying JWT Pizza
 
