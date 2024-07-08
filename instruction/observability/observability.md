@@ -69,7 +69,7 @@ Instead, you want to transfer observability data as quickly as possible to a cen
 
 An insightful visualization dashboard allows you to find and diagnose problems faster. When one metric spikes, it is often helpful to be able to correlate it with other metrics that rule out false positives and help you focus in on real problems.
 
-![alt text](visualizationDashboard.png)
+![Visualization dashboard](visualizationDashboard.png)
 
 Make sure your dashboard properly uses color, font size, and scale. Being able to easily change the time frame represented by the visualizations is also critical. A dashboard that only shows the last hour won't be of much use when you are trying to figure out if a measurement is an anomaly, or the same thing that happens every year at this time.
 

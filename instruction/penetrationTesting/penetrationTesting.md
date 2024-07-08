@@ -59,7 +59,7 @@ You should also attempt to provide overloaded parameters, exclude parameters, an
 
 Focus your efforts on the common areas of failure defined by the [OWASP top 10](../owaspTop10/owaspTop10.md).
 
-![alt text](penetrationTesting.png)
+![Penetration testing](penetrationTesting.png)
 
 ### Weaponization
 

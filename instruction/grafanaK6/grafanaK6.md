@@ -130,7 +130,7 @@ Once the test is completed you will see all of the resulting metrics.
 
 Notice that this test recorded a few failures with the **login** (8 of 41) and **order** (8 of 41) requests. If you click on the request line it will expand to show where the errors occurred.
 
-![alt text](errorGraph.png)
+![Error graph](errorGraph.png)
 
 The login requests return 500, while the order requests returned 401. That makes sense because if you didn't authenticate then you won't be able to order a pizza. We can fix that in a minute, but let's continue looking at the results.
 

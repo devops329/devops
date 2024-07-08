@@ -4,7 +4,7 @@ The ultimate goal of DevOps engineers is to automate themselves out of a job. Th
 
 Consider a system where you have hooked up your Grafana observability alerts to call an AWS Lambda function. The function automatically corrects the problem then simply notifies the DevOps team that the correction has taken place.
 
-![alt text](image.png)
+![Self healing](selfHealing.png)
 
 This could work well for things like auto scaling. When the CPU on your computing infrastructure reaches a saturation threshold, the Lambda function would scale the available resources up. You can also do the reverse and scale down the resources when they are below a utilization threshold.
 
@@ -12,13 +12,13 @@ This could work well for things like auto scaling. When the CPU on your computin
 
 Many AWS services come with automated self healing built right into the service. For example, RDS can monitor your database and automatically redirect write and read requests away from unhealthy replicas.
 
-![alt text](image-1.png)
+![Database self healing](databaseSelfHealing.png)
 
 Likewise, ECS and EC2 work together to monitor the health of Fargate containers. If the ALB notices that a container is unhealthy it will automatically move traffic to other containers. When ECS detects unhealthy containers, it replaces them and changes the ALB configuration.
 
 ECS also monitors the load on the containers and automatically scales the number of containers up or down.
 
-![alt text](image-2.png)
+![EC2 self healing](ec2SelfHealing.png)
 
 All of this happens without any human involvement.
 

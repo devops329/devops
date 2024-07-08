@@ -10,7 +10,7 @@ Now that you know all about versions, releases, environments, and different depl
 
 A manual trigger of a GitHub Actions workflow then deploys any desired version to your **production** environment.
 
-![alt text](environmentOverview.png)
+![Environment overview](environmentOverview.png)
 
 This gives you continuous deployment to your staging environment for internal validation of the latest code, while still protecting your customers so that they are only exposed to fully vetted versions.
 
@@ -90,7 +90,7 @@ You already have a production environment both in GitHub and CloudFront. You jus
    1. Change the `description`, found at the bottom of the settings, to be **JWT Pizza Production**.
    1. Save the changes.
 
-      ![alt text](productionDistributionSettings.png)
+      ![Production distribution settings](productionDistributionSettings.png)
 
 1. Set the production distribution origin path to point to the s3 version subdirectory that you created in the previous step. To change the origin path take these steps:
 
@@ -99,7 +99,7 @@ You already have a production environment both in GitHub and CloudFront. You jus
    1. Select the origin that was created when you setup CloudFront and press the `Edit` button.
    1. Set `Origin path` to be the version number that you created in the previous step. This should look something like the following. Make sure you include the forward slash prefix.
 
-      ![alt text](distributionOriginPath.png)
+      ![Distribution origin path](distributionOriginPath.png)
 
 1. Press the `Save changes` button.
 1. Wait for the distribution to deploy.
@@ -127,13 +127,13 @@ To create a staging environment you need to repeat the process you went through 
    1. Set the origin path to be the same version that you used for the production environment.
    1. Save the changes.
 
-      ![alt text](stagingDistributionSettings.png)
+      ![Staging distribution settings](stagingDistributionSettings.png)
 
 1. Assign a DNS record to point to staging.
 
    1. Create Route 53 CNAME record that points stage-pizza.YOURDOMAINNAME to your staging CloudFront distribution.
 
-      ![alt text](pizzaDnsRecords.png)
+      ![Pizza DNS records](pizzaDnsRecords.png)
 
 Verify that you can see the staging environment using the staging URL from your browser or Curl.
 
@@ -395,7 +395,7 @@ If you save, commit, and push the changes the above changes to your CI pipelines
 1. Build a release version and put it in a subdirectory of your S3 bucket.
 1. Update your staging environment to point to the new release.
 1. Create a GitHub release entry for the staging release.
-   ![alt text](image.png)
+   ![Release version](releaseVersion.png)
 1. Wait until the workflow has completed and view the result by visiting the URL for your JWT Pizza staging environment.
 
 You can then grab the version ID from the release record and use it to manually do a production release.

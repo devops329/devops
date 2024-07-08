@@ -14,19 +14,19 @@ The first observability tool to consider is metrics. They allow you to determine
 
 Consider the following metrics for log events and pizza making latency. There is a spike on the left side of each visualization that is happening between 9:30 and 10:00. Is this a problem?
 
-![alt text](initialMetrics.png)
+![Inital metrics](initialMetrics.png)
 
 The graph horizontal axis don't quite match up, but if we drill in we can see more clearly what is going on. The spike in log events happens around 9:37 while the spike in latency happens almost exactly at 9:50. They could still correlate if the log spike happened after the latency spike since you would back up on log entries due to an increase in latency, but it is not likely to happen the other way around.
 
-![alt text](drillInMetrics.png)
+![Drill in metrics](drillInMetrics.png)
 
 This still leaves the questions. Why did latency jump from 10 ms to 18 ms at 10:5?. Now I'm starting to feel like a detective hot on the trail of a crime. If we drill in to a five minute window we notice that the active users metric has an annotation that an alert was triggered around this time.
 
-![alt text](activeUserAlertsMetrics.png)
+![Active user alert metrics](activeUserAlertsMetrics.png)
 
 The log event graph also shows a slight spike in log warnings just before the latency spike. Checking the log warnings at this time shows that they are failed authentication requests.
 
-![alt text](logWarningEntries.png)
+![Log warning entries](logWarningEntries.png)
 
 When I check the alerting system I see that the alert was a false alarm triggered by an improperly set threshold on active user counts and is not related to either the invalid authorization requests or the increased latency. One final check of the CPU shows that it was well below saturation. In the end everything checks out as normal. Even the invalid authorization attempts seem to historically be happening at about the same rate. This is attributed to people mistyping their passwords.
 

@@ -20,7 +20,7 @@ For this course we are using GitHub Actions as the execution engine for the JWT 
 
 The workflow is comprised of one or more **jobs** which are in turn, comprised of one or more **steps**. A step will execute an individual task such as building the code, running tests, or copying files. When workflows triggers based upon some event such as a push, issue creation, or timer, a **runner** loads and executes the workflow. It is common for there to be some sort of output for a workflow such as a release artifact or a binary that is pushed into production.
 
-![alt text](gitHubActionWorkflow.png)
+![GitHub action workflow](gitHubActionWorkflow.png)
 
 ## A simple example
 

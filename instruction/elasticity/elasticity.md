@@ -13,7 +13,7 @@ An application is considered elastic if it can increase and decrease in capacity
 
 It is very common for an application to have periods of high and low demand. Consider the JWT Pizza application. People want pizza at lunch and dinner time. Then from late evening until the next lunch time there is very little demand for the application. Things get really crazy during the Superbowl when everyone wants a pizza and demand goes through the roof. The next day everyone is looking to eat salad and recover from their indulgence and so there are very few pizza orders.
 
-![alt text](pizzaOrders.png)
+![Pizza orders](pizzaOrders.png)
 
 This creates a significant problem for the management of the application. If you run your own data center then you have to purchase servers based on estimates of what your peak demand will be. Usually there is a buffer of maybe 30%. That means that most of the time you have as much as 50% of the servers sitting idle, during off hours you would have 80% idle, and when the Superbowl happens, your customers experience significant latency of minutes in the best case or complete system failure in the worst case.
 

@@ -28,7 +28,7 @@ Follow the steps described in the [Grafana K6](../grafanaK6/grafanaK6.md) instru
 
 Once this is all working, submit an image of your script results to the Canvas assignment. This should look something like this:
 
-![alt text](image.png)
+![Load run example](loadRunExample.png)
 
 ### Rubric
 

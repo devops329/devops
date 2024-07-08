@@ -49,7 +49,7 @@ Understanding how Git branches work is a critical skill for DevOps engineers. Ma
 
 In order to understand how branching works, it helps to remember that the **main**, or master, branch is simply a branch that started with a commit that has no parent. A commit is represented by a SHA hash code that serves as the unique ID for the commit and is created from the changes the commit represents. As additional commits are made to the main branch, they create a linear chain where each commit contains only the changes that the commit contributes to the chain.
 
-![alt text](mainBranch.png)
+![Main branch](mainBranch.png)
 
 You can obtain the current state of the repository code by starting at the root commit and replaying the changes until you reach the last node in the branch. The last node has a special reference, or pointer, that designates it as the end of a branch. That special reference is the branch name. There is also a `HEAD` reference that indicates the commit that you are currently working on. The above diagram shows the main branch with four different commits. You can see that the **master** branch and **HEAD** reference are both pointing to the last node in the commit chain.
 
@@ -61,11 +61,11 @@ git checkout -b new-feature-branch
 
 The following image shows that you have two branches, **master** and **new-feature-branch**, with **HEAD** also pointing to the same commit.
 
-![alt text](newBranch.png)
+![New branch](newBranch.png)
 
 However, if you now create a couple new commits, the **new-feature-branch** and **HEAD** references will move to the new commits, and leave the **master** branch reference behind.
 
-![alt text](newBranchCommits.png)
+![New branch commits](newBranchCommits.png)
 
 If we change back to the master branch using the `git checkout` command we will move our HEAD reference back to that branch.
 
@@ -73,11 +73,11 @@ If we change back to the master branch using the `git checkout` command we will 
 git checkout master
 ```
 
-![alt text](checkoutMaster.png)
+![Checkout master](checkoutMaster.png)
 
 Now we can add a couple more commits and they will **branch** of from the **new-feature-branch** making a distinct departure from all the changes on that branch.
 
-![alt text](commitMaster.png)
+![Commit master](commitMaster.png)
 
 You can merge two branches together again using the `git merge` command. To create a merge you check out the branch that you want to merge into and request that the other branch is merged into it.
 
@@ -85,7 +85,7 @@ You can merge two branches together again using the `git merge` command. To crea
 git merge new-feature-branch
 ```
 
-![alt text](mergeBranch.png)
+![Merge branch](mergeBranch.png)
 
 Now all the changes that were created on the **new-feature-branch** are also included in the **master** branch. If there is a conflicting change in either branch then an additional commit is created that resolves the conflict.
 
