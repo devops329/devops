@@ -58,12 +58,12 @@
 
 ## Cloud deployment
 
-- 🟠 [Cloud deployment](cloudDeployment/cloudDeployment.md)
-- 🟢 [Security](security/security.md)
-- ☑ 🟢 [AWS S3](awsS3/awsS3.md)
-- 🟠 [AWS CloudFront](awsCloudFront/awsCloudFront.md)
-- 🟠 [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
-- ☑ 🟠 [⓹ CDN deployment: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
+- [Cloud deployment](cloudDeployment/cloudDeployment.md)
+- [Security](security/security.md)
+- ☑ [AWS S3](awsS3/awsS3.md)
+- [AWS CloudFront](awsCloudFront/awsCloudFront.md)
+- [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
+- ☑ [⓹ CDN deployment: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
 - 🟢 [Elasticity](elasticity/elasticity.md)
 - ☑ 🟠 [AWS RDS MySQL](awsRdsMysql/awsRdsMysql.md)
 - 🟢 [Docker](docker/docker.md)

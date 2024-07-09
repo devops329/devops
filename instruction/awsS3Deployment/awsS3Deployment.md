@@ -24,13 +24,17 @@ First you need to set up AWS to use GitHub as an OIDC provider.
 1. Choose `Identity providers`
 1. Press `Add provider`
 1. Choose the provider type of `OpenID Connect`
+
    ![Create OIDC Provider](createOidcProvider.png)
+
 1. Give the GitHub URL for the provider URL, and allow AWS Security Token Service as the audience.
    1. **provider URL**: https://token.actions.githubusercontent.com
    1. **Audience**: sts.amazonaws.com
 1. Press `Add provider`
 1. Click on the newly create identity provider to display its properties.
+
    ![OIDC properties](identityProperties.png)
+
 1. Copy the provider's ARN. You will use this later when defining your GitHub Action workflow.
 
 ### Create the IAM policy
@@ -72,7 +76,9 @@ We want to be careful which AWS services and resources we expose through the cre
 1. Replace `BUCKET_NAME_HERE` with the name of the S3 bucket you created.
 1. Replace `AWS_ACCOUNT` with your AWS account number.
 1. Replace `DISTRIBUTION_HERE` with the CloudFront distribution ID.
+
    ![Create policy](createPolicy.png)
+
 1. Press `Next`.
 1. Name the policy `jwt-pizza-ci-deployment`.
 1. Press `Create policy`.
