@@ -14,15 +14,6 @@
 
 With the UI testing skills you have learned you are now ready to test the JWT Pizza frontend. As part of these tests you will mock out the backend service so that you don't have to worry about the problems that come with integration testing.
 
-## Development environment
-
-You may want to change your `.env.development` file so that it references your local JWT Pizza Service instead of the headquarter's service. This will make it so that you can add users and play with the data in a controlled environment.
-
-```sh
-VITE_PIZZA_SERVICE_URL=http://localhost:3000
-VITE_PIZZA_FACTORY_URL=https://pizza-factory.cs329.click
-```
-
 ## Configuring Playwright
 
 You previously created a fork of `jwt-pizza`. Now you need to add Playwright and the coverage functionality. The first step is to install the required packages and set up the project using the [Playwright instruction](../playwright/playwright.md) that you studied earlier. This includes the following:
@@ -211,11 +202,18 @@ All files                |   49.37 |    61.72 |   46.15 |   48.41 |
 
 That takes us to **49%** line coverage. This seems really promising and if we keep going down this path it feels like will have 80% coverage in no time. However, there is a demon waiting in the wings. Currently the `.env.development` configuration file has you using the JWT Headquarters deployment Pizza service. That is nice from the integration testing standpoint, but the data hosted on that service is going to change constantly and that will make it hard to write tests that are consistent.
 
-To solve this you could start your own JWT service in your dev environment and run against that. However, we eventually want to run our tests with GitHub Actions and so that strategy will be difficult.
+To solve this, you can start your own JWT service and change your `.env.development` file so that it references your local JWT Pizza Service instead of the headquarter's service. This will make it so that you can add users and play with the data in a controlled environment.
 
-A different option is to mock out the JWT service. That way, we are only testing the frontend. This will make the tests more stable and even make them run faster, but it has the disadvantage of insulating us from bugs that might get introduced when the protocol between the front and backend changes. Still, this seems like the right option. So let's look at converting the test we just created over to using a mocked out service.
+```sh
+VITE_PIZZA_SERVICE_URL=http://localhost:3000
+VITE_PIZZA_FACTORY_URL=https://pizza-factory.cs329.click
+```
+
+However, we eventually want to run our tests with GitHub Actions and we don't want that do be dependent on any external environment that can change.
 
 ## Mocking JWT Pizza Service
+
+A different option is to mock out the JWT service. That way, we are only testing the frontend. This will make the tests more stable and even make them run faster, but it has the disadvantage of insulating us from bugs that might get introduced when the protocol between the front and backend changes. Still, this seems like the right option. So let's look at converting the test we just created over to using a mocked out service.
 
 First we need to figure out which endpoints the test uses. To accomplish this, we can use the Playwright Trace Viewer. This will show us all of the network requests that were made at each step of the test. We can then use the Playwright `route` method to create mocks for each network request.
 
