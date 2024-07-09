@@ -1,6 +1,6 @@
 # Wrap up
 
-We hope that you have enjoyed learning how to assure the quality of an application, deploy it to a production environment, and monitor its state.The concepts you have mastered from this instruction are the same ones that professional software engineers use on a daily basis.
+We hope that you have enjoyed learning how to assure the quality of an application, deploy it to a production environment, and monitor its state. The concepts you have mastered from this instruction are the same ones that professional software engineers use on a daily basis.
 
 Always remember to continually invest in your capabilities, collaboration, curiosity, creativity, and Christlike skills as you make the world a better place.
 
@@ -27,4 +27,4 @@ _Meme credit: [Reddit](https://www.reddit.com/r/ProgrammerHumor/comments/qbx03g/
 
 Please take the time to provide us with honest feedback by responding to the university student ratings survey.
 
-If you complete the student ratings survey you will receive 5 bonus points towards your midterm/final grade. In order to receive the bonus, you must release your name as part of the survey so that I can see that you completed the survey. Note that releasing your name does not allow me to associate your response with your name. It only informs me that you completed the survey. Thanks in advance for helping to make the course better.
+If you complete the student ratings survey you will receive 5 bonus points towards your final grade. In order to receive the bonus, you must release your name as part of the survey so that I can see that you completed the survey. Note that releasing your name does not allow me to associate your response with your name. It only informs me that you completed the survey. Thanks in advance for helping to make the course better.
