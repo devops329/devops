@@ -3,13 +3,10 @@
 **Legend**
 
 - ⚠️ Learner should take note
-- ☑ Contains assignment
+- ☑ Assignment
 - ⓵ Milestone deliverable
 - 💡 Curiosity report ideas
 - ✏️ Quiz
-- 🟢 Stephen has reviewed
-- 🔵 Stephen to review
-- 🟠 Needs final review
 
 ## Getting started
 
@@ -64,69 +61,69 @@
 - [AWS CloudFront](awsCloudFront/awsCloudFront.md)
 - [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
 - ☑ [⓹ CDN deployment: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
-- 🟢 [Elasticity](elasticity/elasticity.md)
-- ☑ 🟠 [AWS RDS MySQL](awsRdsMysql/awsRdsMysql.md)
-- 🟢 [Docker](docker/docker.md)
-- 🟢 [Containers](containers/containers.md)
-- ☑ 🟠 [JWT Pizza Service container](jwtPizzaServiceContainer/jwtPizzaServiceContainer.md)
-- ☑ 🟠 [AWS ECR](awsEcr/awsEcr.md)
-- ☑ 🟠 [AWS ECS](awsEcs/awsEcs.md)
-- ☑ 🟠 [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
-- 🟢 [Infrastructure as code](infrastructureAsCode/infrastructureAsCode.md)
-- 🟠 [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
-- ☑ 🟠 [JWT Pizza Service infrastructure automation](jwtPizzaServiceInfrastructureAutomation/jwtPizzaServiceInfrastructureAutomation.md)
+- [Elasticity](elasticity/elasticity.md)
+- ☑ [AWS RDS MySQL](awsRdsMysql/awsRdsMysql.md)
+- [Docker](docker/docker.md)
+- [Containers](containers/containers.md)
+- ☑ [JWT Pizza Service container](jwtPizzaServiceContainer/jwtPizzaServiceContainer.md)
+- ☑ [AWS ECR](awsEcr/awsEcr.md)
+- ☑ [AWS ECS](awsEcs/awsEcs.md)
+- ☑ [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
+- [Infrastructure as code](infrastructureAsCode/infrastructureAsCode.md)
+- [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
+- ☑ [JWT Pizza Service infrastructure automation](jwtPizzaServiceInfrastructureAutomation/jwtPizzaServiceInfrastructureAutomation.md)
 
 ## Deployment strategies
 
-- 🟢 [Versioning](versioning/versioning.md)
-- ☑ 🟢 [GitHub releases](gitHubReleases/gitHubReleases.md)
-- 🟢 [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
-- ☑ 🟢 [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
-- 🟢 [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
-- ☑ 🟢 [⓻ Environments: JWT Pizza](deliverable7Environments/deliverable7Environments.md)
+- [Versioning](versioning/versioning.md)
+- ☑ [GitHub releases](gitHubReleases/gitHubReleases.md)
+- [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
+- ☑ [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
+- [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
+- ☑ [⓻ Environments: JWT Pizza](deliverable7Environments/deliverable7Environments.md)
 
 ## Observability
 
-- 🟢 [Observability](observability/observability.md)
-- 🟢 [Metrics](metrics/metrics.md)
-- ☑ 🟠 [Grafana](grafana/grafana.md)
-- ☑ 🟠 [Grafana metrics](grafanaMetrics/grafanaMetrics.md)
-- 🟠 [Visualizing metrics](visualizingMetrics/visualizingMetrics.md)
-- 🟠 [Simulating traffic](simulatingTraffic/simulatingTraffic.md)
-- ☑ 🟠 [⓼ Metrics: JWT Pizza Service](deliverable8Metrics/deliverable8Metrics.md)
-- 🟢 [Logging](logging/logging.md)
-- ☑ 🟠 [Grafana logging](grafanaLogging/grafanaLogging.md)
-- ☑ 🟠 [⓽ Logging: JWT Pizza Service](deliverable9Logging/deliverable9Logging.md)
-- 🟠 [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
-- ☑ 🟠 [Synthetic testing](syntheticTesting/syntheticTesting.md)
+- [Observability](observability/observability.md)
+- [Metrics](metrics/metrics.md)
+- ☑ [Grafana](grafana/grafana.md)
+- ☑ [Grafana metrics](grafanaMetrics/grafanaMetrics.md)
+- [Visualizing metrics](visualizingMetrics/visualizingMetrics.md)
+- [Simulating traffic](simulatingTraffic/simulatingTraffic.md)
+- ☑ [⓼ Metrics: JWT Pizza Service](deliverable8Metrics/deliverable8Metrics.md)
+- [Logging](logging/logging.md)
+- ☑ [Grafana logging](grafanaLogging/grafanaLogging.md)
+- ☑ [⓽ Logging: JWT Pizza Service](deliverable9Logging/deliverable9Logging.md)
+- [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
+- ☑ [Synthetic testing](syntheticTesting/syntheticTesting.md)
 
 ## Load testing
 
-- 🟠 [Load testing](loadTesting/loadTesting.md)
-- 🟢 [Grafana K6](grafanaK6/grafanaK6.md)
-- ☑ 🟢 [⓾ Load testing: JWT Pizza Service](deliverable10LoadTesting/deliverable10LoadTesting.md)
-- 🟠 [Status](statusReporting/statusReporting.md)
+- [Load testing](loadTesting/loadTesting.md)
+- [Grafana K6](grafanaK6/grafanaK6.md)
+- ☑ [⓾ Load testing: JWT Pizza Service](deliverable10LoadTesting/deliverable10LoadTesting.md)
+- [Status](statusReporting/statusReporting.md)
 
 ## Failure management
 
-- 🟠 [Failure](failure/failure.md)
-- 🟢 [Backup and Recovery](recovery/recovery.md)
-- 🟠 [Alerts](alerting/alerting.md)
-- ☑ 🟠 [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
-- 🟢 [Playbooks](playbooks/playbooks.md)
-- 🟢 [Self healing](selfHealing/selfHealing.md)
-- 🟠 [Chaos testing](chaosTesting/chaosTesting.md)
-- 🟠 [Incident report](incidentReport/incidentReport.md)
-- ☑ 🟠 [⑪ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
+- [Failure](failure/failure.md)
+- [Backup and Recovery](recovery/recovery.md)
+- [Alerts](alerting/alerting.md)
+- ☑ [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
+- [Playbooks](playbooks/playbooks.md)
+- [Self healing](selfHealing/selfHealing.md)
+- [Chaos testing](chaosTesting/chaosTesting.md)
+- [Incident report](incidentReport/incidentReport.md)
+- ☑ [⑪ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
 
 ## Penetration testing
 
-- 🟠 [OWASP top 10](owaspTop10/owaspTop10.md)
-- 🟢 [Penetration testing](penetrationTesting/penetrationTesting.md)
-- ☑ 🟠 [Burp Suite](burpSuite/burpSuite.md)
-- ☑ 🟠 [⑫ Penetration testing: JWT Pizza](deliverable12PenetrationTesting/deliverable12PenetrationTesting.md)
+- [OWASP top 10](owaspTop10/owaspTop10.md)
+- [Penetration testing](penetrationTesting/penetrationTesting.md)
+- ☑ [Burp Suite](burpSuite/burpSuite.md)
+- ☑ [⑫ Penetration testing: JWT Pizza](deliverable12PenetrationTesting/deliverable12PenetrationTesting.md)
 
 ## Conclusion
 
-- ☑ 🟠 [Christlike learning conclusion](christlikeLearningConclusion/christlikeLearningConclusion.md)
-- ☑ 🟠 [Wrap up](wrapUp/wrapUp.md)
+- ☑ [Christlike learning conclusion](christlikeLearningConclusion/christlikeLearningConclusion.md)
+- ☑ [Wrap up](wrapUp/wrapUp.md)
