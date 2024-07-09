@@ -45,7 +45,7 @@ In order to have something that we can use to demonstrate how to use Playwright,
        "test": "playwright test"
      },
    ```
-1. Create a very simple `index.html` home page
+1. Create a very simple `index.html` home page in the root of the project.
 
    ```html
    <!DOCTYPE html>
@@ -61,12 +61,12 @@ In order to have something that we can use to demonstrate how to use Playwright,
      </head>
      <body>
        <div id="root"></div>
-       <script type="module" src="/index.tsx"></script>
+       <script type="module" src="/src/index.tsx"></script>
      </body>
    </html>
    ```
 
-1. Create a simple `index.tsx` React application
+1. Create a `src` directory and then add a file named `index.tsx` that contains the following.
 
    ```jsx
    import React from 'react';
@@ -292,7 +292,7 @@ When you are done, press the stop button and view the resulting test case.
 
 ### Examining the test
 
-The test we recorded demonstrates all the interactions we recorded.
+Here is the test that resulted from the recording.
 
 ```js
 test('test', async ({ page }) => {
@@ -315,12 +315,12 @@ Using the `expect` function we can assert that the desired changes happened in r
 
 ```sh
   await expect(page.getByText('🍕🍕🍕')).toBeVisible();
-  await expect(page.getByRole('list')).toContainText('Veggie-A garden of delight');
+  await expect(page.getByRole('list')).toContainText('Veggie - A garden of delight');
 ```
 
 ### Modifying the test
 
-Let's change the test up a bit to add some validation.
+Let's improve the test a bit.
 
 ```js
 test('test', async ({ page }) => {
@@ -334,7 +334,7 @@ test('test', async ({ page }) => {
 
   await expect(page.getByRole('button', { name: 'Menu' })).toBeEnabled();
   await page.getByRole('button', { name: 'Menu' }).click();
-  await expect(page.getByRole('list')).toContainText('Veggie-A garden of delight');
+  await expect(page.getByRole('list')).toContainText('Veggie - A garden of delight');
   await expect(page.getByRole('button', { name: 'Menu' })).toBeDisabled();
 });
 ```
@@ -408,7 +408,7 @@ test('test', async ({ page }) => {
 
   await expect(page.getByRole('button', { name: 'Menu' })).toBeEnabled();
   await page.getByRole('button', { name: 'Menu' }).click();
-  await expect(page.getByRole('list')).toContainText('Veggie-A garden of delight');
+  await expect(page.getByRole('list')).toContainText('Veggie - A garden of delight');
   await expect(page.getByRole('button', { name: 'Menu' })).toBeDisabled();
 });
 ```
@@ -654,16 +654,16 @@ function App() {
     <div>
       <h1>Pizza</h1>
       <p>{'🍕'.repeat(count) || '👨‍🍳'}</p>
-      <label htmlFor="order">Pizza:</label>
+      <label htmlFor='order'>Pizza:</label>
       <div>
-        <input type="text" id="pizza-type" value={pizzaType} placeholder="type" onChange={(e) => setPizzaType(e.target.value)} />
+        <input type='text' id='pizza-type' value={pizzaType} placeholder='type' onChange={(e) => setPizzaType(e.target.value)} />
         &nbsp;<button onClick={() => setCount(count + 1)}>+1</button>
         &nbsp;
         <button disabled={!count || !pizzaType} onClick={handleOrder}>
           Order
         </button>
       </div>
-      <div id="orderValue">
+      <div id='orderValue'>
         <i>{order}</i>
       </div>
       <button disabled={!!menu.length} onClick={getMenu}>

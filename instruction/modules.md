@@ -53,7 +53,7 @@
 - [Unit testing: JWT Pizza Service](unitTestingJwtPizzaService/unitTestingJwtPizzaService.md)
 - ☑ [⓷ Unit testing CI: JWT Pizza Service](deliverable3UnitTesting/deliverable3UnitTesting.md)
 - [UI testing](uiTesting/uiTesting.md)
-- ☑ 🟠 [Playwright](playwright/playwright.md)
+- ☑ [Playwright](playwright/playwright.md)
 - ☑ 🟠 [⓸ User interface testing: JWT Pizza](deliverable4UiTesting/deliverable4UiTesting.md)
 
 ## Cloud deployment
