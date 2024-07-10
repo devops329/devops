@@ -25,7 +25,7 @@ First you need to set up AWS to use GitHub as an OIDC provider.
 1. Press `Add provider`
 1. Choose the provider type of `OpenID Connect`
 
-   ![Create OIDC Provider](createOidcProvider.png)
+   ![Create OIDC Provider](createOIDCProvider.png)
 
 1. Give the GitHub URL for the provider URL, and allow AWS Security Token Service as the audience.
    1. **provider URL**: https://token.actions.githubusercontent.com
