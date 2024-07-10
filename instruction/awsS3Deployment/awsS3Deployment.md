@@ -134,8 +134,8 @@ Go ahead and create the following secrets.
 
 #### Steps
 
-1. In the repository that you specified when you created your identity provider, create a GitHub Actions workflow file named `ci.yml` in your project's `.github/workflows` directory. This will contain the workflow to copy files to your S3 bucket.
-1. Paste the following template into the `ci.yml` file.
+1. In the repository that you specified when you created your identity provider, create a GitHub Actions workflow file named `testS3Deploy.yml` in your project's `.github/workflows` directory. This will contain the workflow to copy files to your S3 bucket.
+1. Paste the following template into the `testS3Deploy.yml` file.
 
    ```yml
    name: Deploy
@@ -191,3 +191,5 @@ aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID
 After following the above steps you should see the resulting `index.html` page when you view your website.
 
 ![Final result](finalResult.png)
+
+Once you are done, you can disable this workflow on the GitHub Actions page, or simply delete it since you we repeat what you have done here with the JWT Pizza frontend code in a future assignment and you don't want this to run every time you commit your code.
