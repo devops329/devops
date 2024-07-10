@@ -38,11 +38,11 @@ A container image is then uploaded to a container registry where in can be downl
 
 ## Comparison to Virtual Machines
 
-The technology that Docker upset is called virtual machines (VM). The idea with a virtual machine is that you take a physical server and run a hypervisor layer that hides the actual characteristics of the underlying hardware from a copy of an operating system running in the virtual machine. This effectively isolates every virtual machine from each other. It also creates significant overhead since operating systems consume significant amounts of overhead. The OS also takes a long time to boot up which creates a significant start up cost when you are attempting to deploy applications quickly.
+The technology that Docker upset is called virtual machines (VM). The idea with a virtual machine is that you take a physical server and run a hypervisor layer that hides the actual characteristics of the underlying hardware from a copy of an operating system running in the virtual machine. This effectively isolates every virtual machine from each other. It also creates significant overhead since operating systems consume significant resources. The OS also takes a long time to boot up which creates a significant start up cost when you are attempting to deploy applications quickly.
 
 ![Virtual machine overview](virtualMachineOverview.png)
 
-Containers, by contrast, run directly on the existing operation system and create isolation using the operating system's native infrastructure (namespaces and cgroups). That means a container can spin up in a few seconds, where a virtual machine might take minutes.
+Containers, by contrast, run directly on the existing operating system and create isolation using the operating system's native infrastructure (namespaces and cgroups). That means a container can spin up in a few seconds, where a virtual machine might take minutes.
 
 ![Docker overview](dockerOverview.png)
 
