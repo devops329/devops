@@ -63,7 +63,7 @@
 - ☑ [⓹ CDN deployment: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
 - [Elasticity](elasticity/elasticity.md)
 - ☑ [AWS RDS MySQL](awsRdsMysql/awsRdsMysql.md)
-- [Docker](docker/docker.md)
+- ☑ [Docker](docker/docker.md)
 - [Containers](containers/containers.md)
 - ☑ [JWT Pizza Service container](jwtPizzaServiceContainer/jwtPizzaServiceContainer.md)
 - ☑ [AWS ECR](awsEcr/awsEcr.md)
