@@ -42,12 +42,12 @@ steps:
 
   - name: Build
     run: |
-      printf '{"version": "%s" }' ${{steps.set_version.outputs.version}} > public/version.json
+      printf '{"version": "%s" }' ${{steps.set_version.outputs.version}} > src/version.json
 
   # ...
 ```
 
-Next, you want to create a job the triggers when both the build and deploy jobs complete. This job will use the third party `ncipollo/release-action` to call the GitHub API and automatically create the tag and release based upon information found in the commit.
+Next, you want to create a job that triggers when both the build and deploy jobs complete. This job will use the third party `ncipollo/release-action` to call the GitHub API and automatically create the tag and release based upon information found in the commit.
 
 ```yml
 release:
@@ -80,6 +80,6 @@ Do the following:
 1. Modify your GitHub Action workflow for `jwt-pizza` so that it creates and uses a version number.
 1. Modify your GitHub Action workflow for `jwt-pizza` so that it automatically creates a tag and version that represents the production release.
 
-Go to the associated Canvas assignment and submit a screenshot of resulting release. This should look something like this:
+Go to the associated Canvas assignment and submit a screenshot of the resulting release. This should look something like this:
 
 ![Automatic release](automaticRelease.png)
