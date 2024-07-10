@@ -78,7 +78,7 @@ Now that you know how Docker containers work, you need to create a jwt-pizza-ser
 
 1. Stop and delete the container
    ```sh
-   docker rm -fv 0af
+   docker rm -fv jwt-pizza-service
    ```
 
 ## ☑ Assignment
