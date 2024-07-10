@@ -145,7 +145,7 @@ Before you run your new workflow let's add one more thing. We want to be able to
 
 We also generate a version file that contains the latest version ID based upon the time that the code was committed.
 
-Here is the step to add these to pieces.
+Here is the step to add these two pieces.
 
 ```yml
 - name: Update coverage and version
@@ -160,6 +160,13 @@ Here is the step to add these to pieces.
     git add .
     git commit -m "generated"
     git push
+```
+
+⚠️ Note that the `printf` statement is modifying the contents of the repository. Without a `permissions` section (as used in the `deploy` job), it assumes automatically that the step can do this. If you later add a permissions block to the `build` job, you will need to give explicit permission for the workflow to modify repository contents.
+
+```yml
+permissions:
+  contents: write
 ```
 
 Now when you commit and push these changes to GitHub it should automatically do the following:
