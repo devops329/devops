@@ -94,7 +94,7 @@
 - [Logging](logging/logging.md)
 - ☑ [Grafana logging](grafanaLogging/grafanaLogging.md)
 - ☑ [⓽ Logging: JWT Pizza Service](deliverable9Logging/deliverable9Logging.md)
-- [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
+- ☑ [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
 - ☑ [Synthetic testing](syntheticTesting/syntheticTesting.md)
 
 ## Load testing
@@ -110,9 +110,9 @@
 - [Backup and Recovery](recovery/recovery.md)
 - [Alerts](alerting/alerting.md)
 - ☑ [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
-- [Playbooks](playbooks/playbooks.md)
+- ☑ [Playbooks](playbooks/playbooks.md)
 - [Self healing](selfHealing/selfHealing.md)
-- [Chaos testing](chaosTesting/chaosTesting.md)
+- ☑ [Chaos testing](chaosTesting/chaosTesting.md)
 - [Incident report](incidentReport/incidentReport.md)
 - ☑ [⑪ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
 
