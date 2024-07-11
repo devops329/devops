@@ -64,7 +64,7 @@
 - [Elasticity](elasticity/elasticity.md)
 - ☑ [AWS RDS MySQL](awsRdsMysql/awsRdsMysql.md)
 - ☑ [Docker](docker/docker.md)
-- [Containers](containers/containers.md)
+- ☑ [Containers](containers/containers.md)
 - ☑ [JWT Pizza Service container](jwtPizzaServiceContainer/jwtPizzaServiceContainer.md)
 - ☑ [AWS ECR](awsEcr/awsEcr.md)
 - ☑ [AWS ECS](awsEcs/awsEcs.md)
