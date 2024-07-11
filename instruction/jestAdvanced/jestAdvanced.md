@@ -16,7 +16,7 @@ Now that you understand the basics of Jest, it is time to learn some of the more
 
 Mocking parameters and return results enables you to create unit tests without having to worry about integrating with the rest of the code base. This is especially important when you need to isolate fetch or database requests.
 
-Jests support mocking in two major ways. The first way is by creating a mocking function that tracks the calls that are made to function, and mock out the return values. The second way is to mock an entire module so that you can replace or alter how the module interacts with the code you are trying to test.
+Jest supports mocking in two major ways. The first way is by creating a mocking function that tracks the calls that are made to the function, and mock out the return values. The second way is to mock an entire module so that you can replace or alter how the module interacts with the code you are trying to test.
 
 ### Mocking functions
 

@@ -14,7 +14,7 @@ Now that you know how static deployment works, you can take the next step of sel
 
 One easy way to do this is to use a service from `GitHub` called `GitHub Pages`. At a basic level, GitHub Pages is a simple HTTP file server that publishes a set of files under a GitHub URL. To use GitHub pages you do the following:
 
-1. Create a repository to test out GitHub pages with. Name the repository `static`. Make it public, and give it README.md file so that it populates the repo with some initial content.
+1. Create a repository to test out GitHub pages with. Name the repository `static`. Make it public, and give it a README.md file so that it populates the repo with some initial content.
 
    ![Create Pages Repository](createRepository.png)
 
@@ -22,7 +22,7 @@ One easy way to do this is to use a service from `GitHub` called `GitHub Pages`.
 1. Create a branch on your GitHub repository. This branch is commonly called `gh-pages`.
 
    ```sh
-   git checkout -b gh-pages && cd gh-pages
+   cd static && git checkout -b gh-pages
    ```
 
 1. Create an `index.html` file containing the following.
