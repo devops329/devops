@@ -143,7 +143,7 @@ The `-D` flag tells NPM to install these packages as a development dependency th
 
 ## Setup service for testing
 
-Now we can create our first test by creating a file named `service.test.js`. The name of the file is significant because Jest will look for files with `.test.` in the name.
+Now we can create our first test by creating a file named `service.test.js`.
 
 **service.test.js**
 
@@ -160,7 +160,7 @@ This contains a single test that just demonstrates that all the parts for creati
 
 ## Configuring for coverage
 
-We want to see how much of our service code is covered by our test. We do this by added the Jest config `jest.config.json` file and setting `collectCoverage` to true.
+We want to see how much of our service code is covered by our test. We do this by adding the Jest config `jest.config.json` file and setting `collectCoverage` to true.
 
 ```json
 {
@@ -188,7 +188,7 @@ Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 ```
 
-This shows that our `hello world` test passed and we even have **57.89%** coverage without even writing a meaningful test. This happened because we imported `service.js` in our test file. That caused all of the initialization code to execute even though no endpoints were called.
+This shows that our `hello world` test passed and we have **57.89%** coverage without even writing a meaningful test. This happened because we imported `service.js` in our test file. That caused all of the initialization code to execute even though no endpoints were called.
 
 ## Testing the endpoints
 
@@ -229,9 +229,9 @@ Tests:       1 passed, 1 total
 
 ### Login
 
-Next on our list is to test the `[POST] /login` endpoint. We need to do this first because it is necessary to login before we can call our last endpoint.
+Next on our list is to test the `[POST] /login` endpoint. We need to do this because it is necessary to login before we can call our last endpoint.
 
-This test is a little more complex because we have to deal with the authorization token. However, other than the authorization header and the change from a `get` request to a `post` request it is pretty similar to the previous test.
+This test is a little more complex because we have to deal with the authorization token. However, other than the authorization header and the change from a `get` request to a `post` request, it is pretty similar to the previous test.
 
 ```js
 test('login', async () => {
@@ -243,13 +243,13 @@ test('login', async () => {
 });
 ```
 
-The authorization token is returned in the body of the response. Even though our simple service code always returns the same authorization token we want to make our test more general than that and so we use a regular expression match to validate that the authorization token matches the pattern we expect.
+The authorization token is returned in the body of the response. Even though our simple service code always returns the same authorization token, we want to make our test more general than that, so we use a regular expression match to validate that the authorization token matches the pattern we expect.
 
 When we run the tests again we see that we are up to **66.66%**. So close that I can taste it. Just one more endpoint to test.
 
 ### Add city
 
-The `[POST] /cities` endpoint requires that we have previously logged in and so we need to combine this test with the action of logging in. We don't want to repeat the code for logging in for every endpoint that requires authorization and so we are going to decompose the problem and reuse the login functionality in order to create our last test.
+The `[POST] /cities` endpoint requires that we have previously logged in, so we need to combine this test with the action of logging in. We don't want to repeat the code for logging in for every endpoint that requires authorization, so we are going to decompose the problem and reuse the login functionality in order to create our last test.
 
 Here is what the resulting tests look like.
 
@@ -293,7 +293,7 @@ The `add cities` test gets the authorization token from the login request and pa
 
 ## Diagnosing missing coverage
 
-With the above tests implemented we are now up to **94.73%** coverage. Where is the remaining 5.27%? If we turn on coverage display using the VS Code Jest extension we can visually see that the remaining code is the failure case where an invalid or missing token is provided when calling to get the cities.
+With the above tests implemented we are now up to **94.73%** coverage. Where is the remaining 5.27%? If we turn on coverage display using the VS Code Jest extension, we can visually see that the remaining code is the failure case where an invalid or missing token is provided when calling to get the cities.
 
 ![Missing coverage](missingCoverage.png)
 
@@ -311,7 +311,7 @@ Now we have 💯 coverage with 46 lines of testing code used to assure the quali
 
 ## ☑ Assignment
 
-Create a node.js project named serviceTestingExample. Reproduce the steps given above in order to solidify your understand of the concepts.
+Create a node.js project named serviceTestingExample. Reproduce the steps given above in order to solidify your understanding of the concepts.
 
 Once you are done, go over to Canvas and submit a screenshot showing that you have 100% coverage. It should look similar to the image shown below.
 

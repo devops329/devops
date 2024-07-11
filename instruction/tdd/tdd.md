@@ -12,10 +12,10 @@ Test driven development inverts the development process by focusing first on wha
 1. You can isolate your testing to the specific objects you are currently implementing.
 1. Development environments make it more efficient to run the tests than just manually building, executing, and interacting with the code.
 1. Creating the tests first make you focus on the implementation from the user's perspective.
-1. You can run the tests again whenever you make a change to the code to make sure we don't unintentionally break the functionality. This is called regression testing.
+1. You can run the tests again whenever you make a change to the code to make sure you don't unintentionally break the functionality. This is called regression testing.
 1. You can refactor the code to make it cleaner or more efficient and still feel confident that the implementation is correct by rerunning the tests.
 
-When writing testing you want to try and comply with the following principles.
+When writing tests you want to try and comply with the following principles.
 
 1. **Don't repeat yourself** - If one test covers the case then don't keep writing tests that do the same thing.
 1. **Only test one thing** - Don't put a bunch of related tests into the same test. This is makes it harder to debug a test when only part of the test is failing.
