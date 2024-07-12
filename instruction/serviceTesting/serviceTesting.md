@@ -86,7 +86,7 @@ We will call the service endpoints from both HTTP requests and from our automate
 
 ![Endpoint requests](endpointRequests.png)
 
-The hosting of our endpoints over HTTP is accomplished by listing on a network port with the function `app.listen(port)` as defined in a file that we created named `index.js`.
+The hosting of our endpoints over HTTP is accomplished by listening on a network port with the function `app.listen(port)` as defined in a file that we create named `index.js`.
 
 **index.js**
 
@@ -132,7 +132,7 @@ We are now ready to setup Jest and create some automated tests. Get started by i
 npm install -D jest supertest
 ```
 
-The `-D` flag tells NPM to install these packages as a development dependency that will not be included in a production release. Here are the changes the occur in `package.json`.
+The `-D` flag tells NPM to install these packages as a development dependency that will not be included in a production release. Here are the changes that occur in `package.json`.
 
 ```json
   "devDependencies": {
@@ -181,14 +181,14 @@ We can now finally run our initial test and see what the coverage is. Open up a 
 ------------|---------|----------|---------|---------|-------------------
 File        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
 ------------|---------|----------|---------|---------|-------------------
-All files   |   57.89 |        0 |       0 |   57.89 |
- service.js |   57.89 |        0 |       0 |   57.89 | 12-13,17,21-26
+All files   |   56.25 |        0 |       0 |   56.25 |
+ service.js |   56.25 |        0 |       0 |   56.25 | 10,14,18-23
 ------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 ```
 
-This shows that our `hello world` test passed and we have **57.89%** coverage without even writing a meaningful test. This happened because we imported `service.js` in our test file. That caused all of the initialization code to execute even though no endpoints were called.
+This shows that our `hello world` test passed and we have **56.25%** coverage without even writing a meaningful test. This happened because we imported `service.js` in our test file. That caused all of the initialization code to execute even though no endpoints were called.
 
 ## Testing the endpoints
 
@@ -209,19 +209,19 @@ test('get cities', async () => {
 
 This calls the `[GET] /cities` endpoint using the SuperTest `request(app)` function. The result of the asynchronous call is an object that has all of the information about the response. This includes the status, headers, and body. We can then use the Jest expectation object and matchers to validate the response.
 
-When we run the test, everything is green, and we jump to **63%** coverage.
+When we run the test, everything is green, and we jump to **62.5%** coverage.
 
 ```sh
 ➜  npm test
 
  PASS  ./service.test.js
-  ✓ get cities (14 ms)
+  ✓ get cities (11 ms)
 
 ------------|---------|----------|---------|---------|-------------------
 File        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
 ------------|---------|----------|---------|---------|-------------------
-All files   |   63.15 |        0 |   33.33 |   63.15 |
- service.js |   63.15 |        0 |   33.33 |   63.15 | 12-13,21-26
+All files   |    62.5 |        0 |   33.33 |    62.5 |
+ service.js |    62.5 |        0 |   33.33 |    62.5 | 10,18-23
 ------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
@@ -229,7 +229,7 @@ Tests:       1 passed, 1 total
 
 ### Login
 
-Next on our list is to test the `[POST] /login` endpoint. We need to do this because it is necessary to login before we can call our last endpoint.
+Next on our list is to test the `[POST] /login` endpoint. We need to do this now because it is necessary to login before we can call our last endpoint.
 
 This test is a little more complex because we have to deal with the authorization token. However, other than the authorization header and the change from a `get` request to a `post` request, it is pretty similar to the previous test.
 
@@ -245,7 +245,7 @@ test('login', async () => {
 
 The authorization token is returned in the body of the response. Even though our simple service code always returns the same authorization token, we want to make our test more general than that, so we use a regular expression match to validate that the authorization token matches the pattern we expect.
 
-When we run the tests again we see that we are up to **66.66%**. So close that I can taste it. Just one more endpoint to test.
+When we run the tests again we see that we are up to **68.75%**. So close that I can taste it. Just one more endpoint to test.
 
 ### Add city
 
@@ -293,7 +293,7 @@ The `add cities` test gets the authorization token from the login request and pa
 
 ## Diagnosing missing coverage
 
-With the above tests implemented we are now up to **94.73%** coverage. Where is the remaining 5.27%? If we turn on coverage display using the VS Code Jest extension, we can visually see that the remaining code is the failure case where an invalid or missing token is provided when calling to get the cities.
+With the above tests implemented we are now up to **93.75%** coverage. Where is the remaining 6.25%? If we turn on coverage display using the VS Code Jest extension, we can visually see that the remaining code is the failure case where an invalid or missing token is provided when calling to get the cities.
 
 ![Missing coverage](missingCoverage.png)
 

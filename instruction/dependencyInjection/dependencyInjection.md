@@ -116,13 +116,13 @@ class Printer {
 new Printer().print('Hello, World!', formatter, console);
 ```
 
-The only question that remains is how do you determine which dependencies are injected into the printer. In the examples above, you just allocated the dependencies before you made the call. However, what you really want is to abstract that coupling to a higher level so that you delay the decision until the last possible moment. This is where dependency injection comes in.
+The only question that remains is how you determine which dependencies are injected into the printer. In the examples above, you just allocated the dependencies before you made the call. However, what you really want is to abstract that coupling to a higher level so that you delay the decision until the last possible moment. This is where dependency injection comes in.
 
 ## Dependency injection
 
 Dependency injection requires passing (or injecting) dependencies to a class, rather than having the class manage these dependencies itself. It can take many forms. You can create a `service locator` object that defines a global singleton or context parameter that resolves the concrete implementation for the desired object. You can also utilize a dependency injection framework that instruments the parameterization of the components to the top level of the application.
 
-in order to make this work we need to change our printer to receive its configuration when the class is created instead of as parameters to the function. This generates the same result as before, but it moves the coupling to when the object is allocated instead of when its method is invoked.
+In order to make this work we need to change our printer to receive its configuration when the class is created instead of as parameters to the function. This generates the same result as before, but it moves the coupling to when the object is allocated instead of when its method is invoked.
 
 ```js
 class Printer {
