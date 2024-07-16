@@ -91,7 +91,7 @@ Modern testing automation naturally creates a game-like environment. It can take
 - Can I keep them green as I start adding new stuff?
 - Can I decrease the amount of time it takes for the tests to run?
 - Am I missing some tests? Can I improve my score by adding more?
-- What is your high score? Am I on top fo the scoreboard?
+- What is your high score? Am I on top of the scoreboard?
 - I'm not going to be able to sleep tonight until that last test is green!
 
 This is part of an actual phenomenon called [Green Bar Addiction](https://wiki.c2.com/?GreenBarAddiction).
@@ -136,11 +136,11 @@ It is common to fake, or mock, inputs and outputs for a testing subject. When th
 
 ### Testing creep
 
-Sometimes we alter the production code so that you can better support testing. This is fine if it actually improves the production code so that it actually creates a better consumer interface, increases abstraction, and decreases coupling. However, when it actually leaks abstraction (I'm talking about you _C++ friends_), or adds a bunch of "test only" branches to the production code, you have probably gone too far.
+Sometimes we alter the production code to better support testing. This is fine if it actually improves the production code so that it actually creates a better consumer interface, increases abstraction, and decreases coupling. However, when it actually leaks abstraction (I'm talking about you _C++ friends_), or adds a bunch of "test only" branches to the production code, you have probably gone too far.
 
 ### Infallible green
 
-Tests should increase confidence, but just like any other code, you should never assume they are correct until they have reached a certain level of battle worn hardening. It is very common to write a test, see that it is green on the first run, and immediately move on. Only to find out later that the test was actually not testing what you assumed and when corrected is no longer green. Consider the following test. It only checks to see that it returns a response. Never mind that the status code is 500.
+Tests should increase confidence, but just like any other code, you should never assume they are correct until they have reached a certain level of battle worn hardening. It is very common to write a test, see that it is green on the first run, and immediately move on, only to find out later that the test was actually not testing what you assumed and when corrected is no longer green. Consider the following test. It only checks to see that it returns a response. Never mind that the status code is 500.
 
 ```js
 test('get menu', async () => {

@@ -39,7 +39,7 @@ Once again, it should be clear that all of these problems are due to writing slo
 
 There are times when mocking might be necessary. This includes cases where a third party service is involved. This is especially true when calling the service creates a monetary impact. You don't want to write a test for a real estate application that will actually buy a house every time you run it.
 
-There also might be the case were the initialization cost of the test is so high that it discourages you from running test. Usually this only happens with extremely large, complex, applications. However, this usually happens at the application level, not the component, or integration, level.
+There also might be the case were the initialization cost of the test is so high that it discourages you from running tests. Usually this only happens with extremely large, complex, applications. However, this usually happens at the application level, not the component, or integration, level.
 
 ## JWT Pizza integration testing
 
