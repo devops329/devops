@@ -129,6 +129,15 @@ To create a staging environment you need to repeat the process you went through 
 
       ![Staging distribution settings](stagingDistributionSettings.png)
 
+1. Update the s3 bucket policy to include the staging distribution.
+
+   ```json
+   "AWS:SourceArn": [
+     "arn:aws:cloudfront::AWS_ACCOUNT_HERE:distribution/PRODUCTION_DISTRIBUTION_ID_HERE",
+     "arn:aws:cloudfront::AWS_ACCOUNT_HERE:distribution/STAGING_DISTRIBUTION_ID_HERE"
+   ]
+   ```
+
 1. Assign a DNS record to point to staging.
 
    1. Create Route 53 CNAME record that points stage-pizza.YOURDOMAINNAME to your staging CloudFront distribution.
@@ -152,7 +161,7 @@ That actually works pretty well, as it will switch to any version within just a 
 
 ### Make staging your CI workflow target environment
 
-Currently your CI workflow is using the GitHub production environment. Instead you want to create and use a staging environment. Go ahead a create a GitHub staging environment just [like you did for your production environment](../gitHubEnvironments/gitHubEnvironments.md) with the following differences:
+Currently your CI workflow is using the GitHub production environment. Instead, you want to create and use a staging environment. Go ahead and create a GitHub staging environment just [like you did for your production environment](../gitHubEnvironments/gitHubEnvironments.md) with the following differences:
 
 1. Name the GitHub environment **staging**.
 1. Do not include any protection rules because we want staging changes to always be available internally as soon as a change is made.
