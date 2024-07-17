@@ -74,7 +74,7 @@ deploy:
     - name: Push to AWS S3
       # Append the version to the path
       run: |
-        aws s3 cp dist s3://${{ secrets.APP_BUCKET }}/$version --recursive
+        aws s3 cp dist s3://${{ secrets.APP_BUCKET }}/${{ env.version }} --recursive
 ```
 
 When you commit and push this change, it should copy the version files to the version directory. Examine your S3 bucket to make sure this is happening.
