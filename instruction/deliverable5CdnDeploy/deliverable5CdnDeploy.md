@@ -28,6 +28,16 @@ d3pl23dqq9jlpy.cloudfront.net.
 
 Alter your GitHub Actions deployment process using the [AWS S3 Deployment](../awsS3Deployment/awsS3Deployment.md) instruction such that it updates S3 when files are pushed to your fork of `jwt-pizza`. Your GitHub CI pipeline deploys your frontend code through a secure connection that is authenticated using OIDC that follows the principle of least privilege, by exposing only the necessary access.
 
+In the `deploy` job of your workflow, attempting to copy the contents of `dist` to s3 when the `deploy` and `build` jobs are separate will produce an error along the lines of `No such directory: dist`. You need to first download the pages artifact that you uploaded in the `build` job.
+
+```yaml
+- name: Download pages artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: package
+          path: dist/
+```
+
 ### 404 page
 
 You need to remove the creation of the `404.hml` that GitHub Pages used to handle when a user refreshes the browser. You can do that by deleting the creation of the file from your workflow.

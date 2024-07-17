@@ -179,13 +179,13 @@ environment:
 
 ### Modify the CloudFront origin path
 
-Before you created the version subdirectories in your S3 bucket the CloudFront distribution always represented the latest files because that what was in the root of the bucket. Now, because you create a new subdirectory you need to modify the CloudFront distribution to point to a new **origin path** every time you build.
+Before you created the version subdirectories in your S3 bucket, the CloudFront distribution always represented the latest files because that was what was in the root of the bucket. Now, because you create a new subdirectory you need to modify the CloudFront distribution to point to a new **origin path** every time you build.
 
 You can automate the changing of CloudFront origin path by adding a new step to the CI workflow (`.github/workflows/ci.yml`), and adding the permissions to your AWS IAM CI Role that will allow it to automatically update the distributions
 
 #### Modify IAM rights
 
-To add the IAM permissions to your IAM `github-ci` role, open the AWS browser console and navigate to the IAM service. Select the `github-ci` role and modify the permissions policy to include all the following CloudFront rights and also act on any distribution resource.
+To add the IAM permissions to your IAM `github-ci` role, open the AWS browser console and navigate to the IAM service. Select the `github-ci` role and modify the `jwt-pizza-ci-deployment` permissions policy to include all the following CloudFront rights and also act on any distribution resource.
 
 ```json
 		{
