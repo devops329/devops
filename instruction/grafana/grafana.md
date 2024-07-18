@@ -57,7 +57,7 @@ In order to get started with Grafana Cloud you need to create a free account.
    ![Create account](createAccount.png)
 
 1. Provide your credentials either with any of the SSO options or with your email address.
-1. After you confirm your credentials Grafana Cloud will assign you a grafana.com subdomain for your account. This will look something like `yourusername.grafana.dev`. Remember that URL for future use. It provides access to all of your data source configuration, data storage, and visualization dashboards.
+1. After you confirm your credentials Grafana Cloud will assign you a grafana.com subdomain for your account. This will look something like `yourusername.grafana.net`. Remember that URL for future use. It provides access to all of your data source configuration, data storage, and visualization dashboards.
 
    > ![Setup account](setupAccount.png)
 

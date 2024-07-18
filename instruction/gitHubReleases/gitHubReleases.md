@@ -42,7 +42,7 @@ steps:
 
   - name: Build
     run: |
-      printf '{"version": "%s" }' ${{steps.set_version.outputs.version}} > src/version.json
+      printf '{"version": "%s" }' ${{steps.set_version.outputs.version}} > public/version.json
 
   # ...
 ```
