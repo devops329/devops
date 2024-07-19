@@ -123,7 +123,7 @@ To create a staging environment you need to repeat the process you went through 
 1. Create a new CloudFront distribution using the [same instructions](../deliverable5CdnDeploy/deliverable5CdnDeploy.md) that you used to originally set up CloudFront, but with the following differences.
 
    1. Change the description to be **JWT Pizza Staging**.
-   1. Set the `Alternate domain name` to be stage-pizza.YOURDOMAINNAME.
+   1. Set the `Alternate domain name` to be stage-pizza.YOURDOMAINNAME. It is imprtant your follow this format so the AutoGrader can access your staging site.
    1. Set the origin path to be the same version that you used for the production environment.
    1. Save the changes.
 
