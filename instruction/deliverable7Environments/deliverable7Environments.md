@@ -16,7 +16,7 @@ This gives you continuous deployment to your staging environment for internal va
 
 Here are the steps you need to take.
 
-1. **Store each release candidate on S3**. This makes it so that you can easily host different versions in different environments and rollback to a previous version in case of a failure.
+1. **Store each release candidate on S3**. This makes it so that you can easily host different versions in different environments and roll back to a previous version in case of a failure.
 1. **Create a `production` environment**: Officially make your existing CloudFront distribution into your CloudFront production environment.
 1. **Create a `staging` environment**: Copy the work done to create the production environment in order to create a staging environment.
 1. **Automatically deploy to staging**: Always deploy a new version directly to the staging environment so that we can see the latest changes.
@@ -24,7 +24,7 @@ Here are the steps you need to take.
 
 ## Storing release candidates on S3
 
-Currently your CI workflow for JWT Pizza writes a new version over the top of the files found in the root of the S3 bucket that the CloudFront distribution hosts. Since we want to have multiple environments, we need more control over what version is deployed in each environment. To accomplish this you need to modify your JWT Pizza `.github/workflows/ci.yml` GitHub Action workflow file to target a **version** subdirectory of your S3 deployment bucket instead of the root.
+Currently, your CI workflow for JWT Pizza writes a new version over the top of the files found in the root of the S3 bucket that the CloudFront distribution hosts. Since we want to have multiple environments, we need more control over what version is deployed in each environment. To accomplish this you need to modify your JWT Pizza `.github/workflows/ci.yml` GitHub Action workflow file to target a **version** subdirectory of your S3 deployment bucket instead of the root.
 
 So instead of the root of your bucket containing the latest build.
 
@@ -54,7 +54,7 @@ It will contain a subdirectory for each version you build
 └── 20240623.103266
 ```
 
-Go ahead and open up the `ci.yml` file for your fork of jwt-pizza. The first change you need to use the version ID when you copy the package to S3. To do this, make sure you pass the version ID from the **build** job to the **deploy** job, and then append the version ID as to the bucket path.
+Go ahead and open up the `ci.yml` file for your fork of `jwt-pizza`. The first change you need to use the version ID when you copy the package to S3. To do this, make sure you pass the version ID from the **build** job to the **deploy** job, and then append the version ID as to the bucket path.
 
 ```yml
 deploy:
@@ -107,7 +107,7 @@ You already have a production environment both in GitHub and CloudFront. You jus
    1. Press the `Create invalidation` button.
    1. Enter `/*` for the object paths and press `Create invalidation`.
 
-At this point you should you should be able to open up your browser, or use Curl to observe that it is the correct version.
+At this point you should be able to open up your browser, or use Curl to observe that it is the correct version.
 
 ```sh
 ➜  curl https://pizza.byucsstudent.click/version.json
@@ -151,7 +151,7 @@ Verify that you can see the staging environment using the staging URL from your 
 {"version": "20240621.221254" }
 ```
 
-Now that both your staging and your production environments are using a version subdirectory in your S3 bucket, you can delete the application files out of the S3 bucket root directory.
+Now that both your staging and production environments are using a version subdirectory in your S3 bucket, you can delete the application files out of the S3 bucket root directory.
 
 ## Automatically deploying to staging
 
@@ -161,7 +161,7 @@ That actually works pretty well, as it will switch to any version within just a 
 
 ### Make staging your CI workflow target environment
 
-Currently your CI workflow is using the GitHub production environment. Instead, you want to create and use a staging environment. Go ahead and create a GitHub staging environment just [like you did for your production environment](../gitHubEnvironments/gitHubEnvironments.md) with the following differences:
+Currently, your CI workflow is using the GitHub production environment. Instead, you want to create and use a staging environment. Go ahead and create a GitHub staging environment just [like you did for your production environment](../gitHubEnvironments/gitHubEnvironments.md) with the following differences:
 
 1. Name the GitHub environment **staging**.
 1. Do not include any protection rules because we want staging changes to always be available internally as soon as a change is made.
@@ -295,7 +295,7 @@ This runs some complex commands that you need to take the time to understand. Le
 
 ### Final CI workflow
 
-When you are done with all of these changes, you JWT Pizza CI workflow should look similar to the [file found here](ci.yml). At this point you should be very familiar with each step in this workflow. If you don't feel confident with anything then take some time to dig into them deeper and ask for some help if there are things that still seem confusing.
+When you are done with all of these changes, your JWT Pizza CI workflow should look similar to the [file found here](ci.yml). At this point you should be very familiar with each step in this workflow. If you don't feel confident with anything then take some time to dig into them deeper and ask for some help if there are things that still seem confusing.
 
 ## Manually deploying to production
 
@@ -343,7 +343,7 @@ Take the following steps in order to create your production release workflow.
          version: ${{ github.event.inputs.version }}
    ```
 
-1. Set that this job runs under the **production** GitHub environment definition. This makes it so the environment secrets are used and therefore it will deploy to your production CloudFront distribution instead of your staging one.
+1. Set that this job runs under the **production** GitHub environment definition. This makes it so the environment secrets are used, and therefore it will deploy to your production CloudFront distribution instead of your staging one.
 
    ```yml
    environment:
@@ -418,7 +418,7 @@ You can then grab the version ID from the release record and use it to manually 
 1. Press the `Run workflow` button.
 1. Wait until the workflow has completed and view the result by visiting the URL for your JWT Pizza production environment.
 
-If you want to rollback to a different version then you can simply repeat the process with a different version ID.
+If you want to roll back to a different version then you can simply repeat the process with a different version ID.
 
 That is it! You have created a full continuous deployment pipeline for your staging environment, and a continuous delivery pipeline, with a manual trigger, for your production environment.
 

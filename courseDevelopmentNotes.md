@@ -218,7 +218,7 @@ graph LR;
 - connection to canvas to adjust grades
 - Simple UI to trigger grading
 - Admin triggers for chaos injection
-- TA Github account that the students must let be admin on their repo
+- TA GitHub account that the students must let be admin on their repo
 - Late day calculation
 
 ```mermaid

@@ -9,7 +9,7 @@ A good playbook will include the following.
 - **Communication plan**: How will the team communicate, and where can you find the team's contact information?
 - **Incident detection and notification**: Defines the pertinent observability metrics, altering thresholds, and escalation paths.
 - **Diagnostic process**: Detailed instructions for diagnosing the failure, along with the tools and resources that can assist in the process.
-- **Recovery procedures**: Detailed instructions for resolving the failure.This includes variations for temporal-recovery, reboot, and replacement strategies. processes for manual intervention, initiation of automation, or self-healing automation are defined. Data recovery and rollback processes are detailed.
+- **Recovery procedures**: Detailed instructions for resolving the failure.This includes variations for temporal-recovery, reboot, and replacement strategies. processes for manual intervention, initiation of automation, or self-healing automation are defined. Data recovery and roll back processes are detailed.
 - **Post-recovery actions**: Steps for verifying the recovery, documenting its impact, and defining prevention tasks.
 
 ## Example playbook

@@ -3,7 +3,7 @@
 🔑 **Key points**
 
 - Version identification is a critical piece of any deployment architecture.
-- There are many different schemes that you can use for representing versions.
+- There are many schemes that you can use for representing versions.
 
 ---
 
@@ -38,7 +38,7 @@ There are lots of different thoughts about how to represent everything that went
 
 ### Incremental versioning
 
-One simple scheme for version IDs is to simply increment a number each time a candidate production package is built. The version ID only conveys a sequential relationship between versions. This has the nice characteristic of being easy to understand and is representable in almost any context. The downside of this approach is that it doesn't convey much information itself. You must alway correlate the number to some other table in order to gain any meaning other than if it is newer than some other version.
+One simple scheme for version IDs is to simply increment a number each time a candidate production package is built. The version ID only conveys a sequential relationship between versions. This has the nice characteristic of being easy to understand and is representable in almost any context. The downside of this approach is that it doesn't convey much information itself. You must always correlate the number to some other table in order to gain any meaning other than if it is newer than some other version.
 
 ### Semantic versioning
 
@@ -78,7 +78,7 @@ Apple uses a semantic versioning ID for their OS versions as described above, wi
 
 #### Google Chrome
 
-[Chrome](https://www.chromium.org/developers/version-numbers/) uses a semantic versioning ID that has four parts. Beyond the standard major, minor, patch parts there is an additional part that represents a sequential build number. The patch number represents a release candidate, rather than a bug fix. The following version indicates that this is the 6422 build of Chrome, with 142 candidate releases. The sequential patch number is what is usually referenced when people talk about chrome releases.
+[Chrome](https://www.chromium.org/developers/version-numbers/) uses a semantic versioning ID that has four parts. Beyond the standard major, minor, patch parts there is an additional part that represents a sequential build number. The patch number represents a release candidate, rather than a bug fix. The following version indicates that this is the 6422 build of Chrome, with 142 candidate releases. The sequential patch number is what is usually referenced when people talk about Chrome releases.
 
 Notice the supplemental information (i.e. official build, architecture) that is not represented in the release number, but is included in the display.
 
@@ -129,6 +129,6 @@ For example, in your Actions workflow, if you have a step that uploads an artifa
     path: dist/
 ```
 
-Note however, that GitHub will only store the artifact for as long as your repository defines. By default this is 90 days. This setting is found in your repository `Settings > Actions > General` view.
+Note however, that GitHub will only store the artifact for as long as your repository defines. By default, this is 90 days. This setting is found in your repository `Settings > Actions > General` view.
 
 ![Artifact retention](artifactRetention.png)

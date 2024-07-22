@@ -2,7 +2,7 @@
 
 🔑 **Key points**
 
-- GitHub environment allow you to isolate your secrets and tag workflows.
+- GitHub environments allow you to isolate your secrets and tag workflows.
 - Convert your CI workflow to use GitHub environments.
 
 ---
@@ -11,7 +11,7 @@ GitHub supports the concept of `environments` that allow you to isolate your sec
 
 ## Creating an environment
 
-Create an environment by going to your `jwt-pizza` repository's settings in Github and selecting the **Environments** view from the left hand navigation. Then press the `New environment` button and give it the name `production`. Once you have created the environment you can specify if it must be reviewed before a GitHub Action workflow can execute, that it can only execute from a given branch of the code, and also what secrets should be used with the CI pipeline.
+Create an environment by going to your `jwt-pizza` repository's settings in GitHub and selecting the **Environments** view from the left-hand navigation. Then press the `New environment` button and give it the name `production`. Once you have created the environment you can specify if it must be reviewed before a GitHub Action workflow can execute, that it can only execute from a given branch of the code, and also what secrets should be used with the CI pipeline.
 
 This makes it so you can have a human gate in your deployment pipeline, as well as secrets that are different for your production environment, where customer data is kept, as opposed to your staging environment that can be more lax in security.
 
@@ -19,7 +19,7 @@ The following image shows the production that requires the following:
 
 - The user `byucsstudent` must review the code before a workflow can execute
 - The code must be deployed from the `main` branch
-- There are several secrets that are specific to the production environment. Specifically, there is a different CloudFront distribution ID for the production environment. That helps to decrease the risk of deploying an non-production release to your production environment.
+- There are several secrets that are specific to the production environment. Specifically, there is a different CloudFront distribution ID for the production environment. That helps to decrease the risk of deploying a non-production release to your production environment.
 
 ![Configure environment](configureEnvironment.png)
 
@@ -27,7 +27,7 @@ Make yourself the reviewer and add the same [secrets](../awsS3Deployment/awsS3De
 
 ## Configuring access
 
-In order for your CI workflow to still have access using the AWS IAM CI rule that you created previously, you must now modify it so that it is accessible when your workflow runs under this environment. In the AWS Console, open up the IAM dashboard, and modify the `Trust relationship` for the `github-ci` role that you created previously. In the `Condition` object modify it so that it allows access for the **production** environment on your `jwt-pizza` repository.
+In order for your CI workflow to still have access using the AWS IAM CI rule that you created previously, you must now modify it so that it is accessible when your workflow runs under this environment. In the AWS Console, open up the IAM dashboard, and modify the `Trust relationship` for the `github-ci` role that you created previously. In the `Condition` object, modify it so that it allows access for the **production** environment on your `jwt-pizza` repository.
 
 ```json
 {

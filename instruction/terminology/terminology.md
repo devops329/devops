@@ -17,7 +17,7 @@ As with any branch of computer science, we like to throw around a lot of technic
 | IaC       | Infrastructure as Code                       | Treating your application infrastructure creation and management as just another part of your application code.               |
 | SRE       | Site Reliability Engineering                 | The implementation of DevOps principles in order to keep a website up and running.                                            |
 | CF        | Continuous Feedback                          | Automating metrics and logs such that there is real time observability of the application.                                    |
-| VCS       | Version Control System                       | Historical tracking of application changes that allows for branching, rollback, and annotation.                               |
+| VCS       | Version Control System                       | Historical tracking of application changes that allows for branching, roll back, and annotation.                              |
 | VM        | Virtual Machine                              | A software program that simulates a physical machine environment. Multiple isolated VMs can run on a single physical machine. |
 | Container | Container                                    | A lightweight virtualization of a operating system environment that is easily deployable from an small image.                 |
 | OCI       | Open Container Initiative                    | The official standard for creating and hosting containers.                                                                    |

@@ -2,7 +2,7 @@
 
 🔑 **Key points**
 
-- GitHub support representing releases as part of its core functionality.
+- GitHub supports representing releases as part of its core functionality.
 - Add GitHub releases to your CI pipeline.
 
 ---
@@ -13,7 +13,7 @@ GitHub supports the ability to associate a release with a version and commit. Yo
 
 Type your version ID into the version box. This will automatically create a Git tag with this name and apply it to the latest commit. You can also select an existing Git tag if you already have one.
 
-You can then give your release a name and provide a description using markdown. Press the `Publish release` button to create the release.
+You can then give your release a name and provide a description using Markdown. Press the `Publish release` button to create the release.
 
 ![Create release](createRelease.png)
 
@@ -27,7 +27,7 @@ This is a really nice way to visualize when a commit was deployed as a productio
 
 Since we are DevOps engineers, reading the human-dependent steps above should immediately make us uncomfortable. So let's change your `jwt-pizza` CI pipeline so that it creates the release instead of depending on a manually executed step.
 
-First of all you need to create a version ID that can be used through out the GitHub action workflow. You can do this by outputting the version from your **build** job. You can reuse the version output to create the version.json file that is deployed to the production environment. That ensures that your version number is consistent across the deployment.
+First, you need to create a version ID that can be used throughout the GitHub action workflow. You can do this by outputting the version from your **build** job. You can reuse the version output to create the version.json file that is deployed to the production environment. That ensures that your version number is consistent across the deployment.
 
 ```yml
 outputs:
