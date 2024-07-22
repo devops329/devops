@@ -3,7 +3,7 @@
 🔑 **Key points**
 
 - QA and DevOps have revolutionized software development over the last decade.
-- Cloud services have increase the effectiveness of QA and DevOps teams.
+- Cloud services have increased the effectiveness of QA and DevOps teams.
 
 ---
 
@@ -17,7 +17,7 @@ In the 1960s and 70s, computing solutions became cheaper and so customers starte
 
 Oftentimes the consultant would discover bugs that only occurred in the customer's environment and report them back to the vendor. In a way, this began the practice of releasing buggy software to the customer and letting them test the code.
 
-When the internet boomed in the late 1990s, the hosting of software moved back to the vendor's data center, and the customer provided their data over the internet. All of the vendor's consultants then got new jobs as data center operational staff. The operations staff managed the data center hardware and controlled how and when an application was delivered to the computers running in the data center.
+When the internet boomed in the late 1990s, the hosting of software moved back to the vendor's data center, and the customer provided their data over the internet. All the vendor's consultants then got new jobs as data center operational staff. The operations staff managed the data center hardware and controlled how and when an application was delivered to the computers running in the data center.
 
 ![Cloud hosting](vendorDataCenterHosting.png)
 
@@ -44,7 +44,7 @@ The key to the success of QA and DevOps focuses on the **automation** and accele
 1. **Deployment** - Deploying and reversing deployment.
 1. **Management** - Monitoring and controlling all operational aspects of the system.
 
-In order to accomplish these goals, a successful team focuses on _drastically removing human involvement_ (**Toil**), and replacing it with _automated processes_ (**Infrastructure as Code**). By solving the software delivery problem with automation, we remove the slow, error prone, human involvement and replace it with processes that run continuously, quickly, and predictably. We also enable the ability to immediately reverse deployments that fail and therefore reduce the impact on the customer. Even the detection of failure is turned over to automated processes, removing the need for constant human monitoring of the application.
+In order to accomplish these goals, a successful team focuses on _drastically removing human involvement_ (**Toil**), and replacing it with _automated processes_ (**Infrastructure as Code**). By solving the software delivery problem with automation, we remove the slow, error-prone, human involvement and replace it with processes that run continuously, quickly, and predictably. We also enable the ability to immediately reverse deployments that fail and therefore reduce the impact on the customer. Even the detection of failure is turned over to automated processes, removing the need for constant human monitoring of the application.
 
 From one perspective, you can look at the DevOps and QA teams as building internal applications that enable an external customer to successfully use the company's product.
 
@@ -56,7 +56,7 @@ The next revolution came in the early 2000s when cloud services such as Amazon W
 
 ![Cloud hosting](cloudHosting.png)
 
-In many small companies this removed the role of an operations and testing department from the software delivery management process. No longer did a company need to build and manage a costly data center, along with the manually deployment of software and hardware. A small team of software engineers could piece together an automated process that would remove the human element from the process and greatly increase the velocity of application development, deployment, customer satisfaction, and profits.
+In many small companies this removed the role of an operations and testing department from the software delivery management process. No longer did a company need to build and manage a costly data center, along with the manual deployment of software and hardware. A small team of software engineers could piece together an automated process that would remove the human element from the process and greatly increase the velocity of application development, deployment, customer satisfaction, and profits.
 
 ## Site reliability engineering
 
@@ -77,4 +77,4 @@ Application, DevOps, site reliability, and platform engineers all share the same
 1. **Satisfaction** - Optimize customer satisfaction, velocity, scalability, and cost.
 1. **Automate** - Treat testing, deployment, and management as a programming problem by minimizing human involvement.
 
-The purpose of this course is to teach you the techniques and the tools that are necessary to master their implementation. Understanding how we got to were we are, along with the reoccurring themes and innovations that have happened, can give you a deeper appreciation of the shoulders that you are standing on.
+The purpose of this course is to teach you the techniques and the tools that are necessary to master their implementation. Understanding how we got to where we are, along with the reoccurring themes and innovations that have happened, can give you a deeper appreciation of the shoulders that you are standing on.

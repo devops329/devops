@@ -7,7 +7,7 @@
 
 ---
 
-As with any branch of computer science, we like to throw around a lot of technical sounding terms that are wrapped up in cryptic acronyms. This is certainly true of Quality Assurance (QA) and DevOps. DevOps itself is a obfuscation of the term developer operations, which is a combination of software development skills and application management operations. You don't need to know the details of each of these terms, but you should be familiar with all of them. It is highly likely that you will encounter them in a professional setting.
+As with any branch of computer science, we like to throw around a lot of technical sounding terms that are wrapped up in cryptic acronyms. This is certainly true of Quality Assurance (QA) and DevOps. DevOps itself is an obfuscation of the term developer operations, which is a combination of software development skills and application management operations. You don't need to know the details of each of these terms, but you should be familiar with all of them. It is highly likely that you will encounter them in a professional setting.
 
 | Acronym   | Term                                         | Description                                                                                                                   |
 | --------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -25,7 +25,7 @@ As with any branch of computer science, we like to throw around a lot of technic
 | IAM       | Identity and Access Management               | The rigorous definition of who, or what, can access what, when, and from where.                                               |
 | DDoS      | Distributed Denial of Service                | Overwhelming a website with requests such that it can no longer properly operate.                                             |
 | DNS       | Domain Name System                           | Mapping website hostnames to server IP addresses.                                                                             |
-| HTTP      | Hypertext Transfer Protocol                  | The protocol for communicating on the world wide web.                                                                         |
+| HTTP      | Hypertext Transfer Protocol                  | The protocol for communicating on the World Wide Web.                                                                         |
 | HTTPS     | Hypertext Transfer Protocol Secure           | Encrypted version of HTTP.                                                                                                    |
 | TDD       | Test-Driven Development                      | Using the creation of automated tests to enhance and expedite code development.                                               |
 | SLA       | Service Level Agreement                      | A public contractual that specifies requirements for metrics like uptime and latency.                                         |

@@ -12,7 +12,7 @@
 
 ## Formatting your commit messages
 
-When grading the deliverable, the autograder will **only** look for commits that follow a specific format. At the start of each commit message, put a hashtag `#` followed by `d` and the deliverable number. For example, if you were committing for deliverable 3, your commit message would look like this:
+When grading the deliverable, the AutoGrader will **only** look for commits that follow a specific format. At the start of each commit message, put a hashtag `#` followed by `d` and the deliverable number. For example, if you were committing for deliverable 3, your commit message would look like this:
 
 ```bash
 git commit -m "#d3 Your message here"
@@ -22,9 +22,9 @@ git commit -m "#d3 Your message here"
 
 ## Commit often
 
-Make sure that have have a significant number of meaningful commits. Committing your code often is an important practice for you to develop. It protects you from losing your work, allows access from anywhere, makes it so you can quickly share changes, reduces conflicts with your peers, and enables you to efficiently explore different possibilities. This also enables others to review the progression of your development efforts in order to prove the originality of your work.
+Make sure that you have a significant number of meaningful commits. Committing your code often is an important practice for you to develop. It protects you from losing your work, allows access from anywhere, makes it possible to quickly share changes, reduces conflicts with your peers, and enables you to efficiently explore different possibilities. This also enables others to review the progression of your development efforts in order to prove the originality of your work.
 
-I typical git history for the development of a single feature will look something like the following:
+A typical git history for the development of a single feature will look something like the following:
 
 1. init(featurename) added placeholder code
 1. test(featurename) added test
@@ -39,4 +39,4 @@ Remember to make meaningful commit messages that describe the **what** and **why
 
 ## Complete work early
 
-Your commit history should show that you completed the work well before the deadline. Some of the deliverables can be completed in a few hours, but waiting until the deadline to start working on a project is not a habit that your employer will appreciate. Start early and commit as you go. Any significant change (writing a test, adding a step to a workflow, changing a config file, etc.) should be committed.
+Your commit history should show that you completed the work well before the deadline. Some deliverables can be completed in a few hours, but waiting until the deadline to start working on a project is not a habit that your employer will appreciate. Start early and commit as you go. Any significant change (writing a test, adding a step to a workflow, changing a config file, etc.) should be committed.

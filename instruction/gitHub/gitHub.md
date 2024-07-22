@@ -21,11 +21,11 @@
 
 ---
 
-You should already be familiar with the basics of Git and GitHub. If you do not feel comfortable with using Git or GitHub then you should spend sometime learning about and experimenting with the functionality that they provide.
+You should already be familiar with the basics of Git and GitHub. If you do not feel comfortable using Git or GitHub then you should spend sometime learning about and experimenting with the functionality that they provide.
 
 For this course we will be using GitHub for the following purposes:
 
-1. Hosting all of the course instruction
+1. Hosting all the course instruction
 1. Forking the application code
 1. Deploying to GitHub pages
 1. Deploying using GitHub actions
@@ -47,7 +47,7 @@ Understanding how Git branches work is a critical skill for DevOps engineers. Ma
 
 ### Branching commands
 
-In order to understand how branching works, it helps to remember that the **main**, or master, branch is simply a branch that started with a commit that has no parent. A commit is represented by a SHA hash code that serves as the unique ID for the commit and is created from the changes the commit represents. As additional commits are made to the main branch, they create a linear chain where each commit contains only the changes that the commit contributes to the chain.
+In order to understand how branching works, it helps to remember that the **main**, or master, branch is simply a branch that started with a commit that has no parent. A commit is represented by an SHA hash code that serves as the unique ID for the commit and is created from the changes the commit represents. As additional commits are made to the main branch, they create a linear chain where each commit contains only the changes that the commit contributes to the chain.
 
 ![Main branch](mainBranch.png)
 
@@ -75,7 +75,7 @@ git checkout master
 
 ![Checkout master](checkoutMaster.png)
 
-Now we can add a couple more commits and they will **branch** of from the **new-feature-branch** making a distinct departure from all the changes on that branch.
+Now we can add a couple more commits, and they will **branch** of from the **new-feature-branch** making a distinct departure from all the changes on that branch.
 
 ![Commit master](commitMaster.png)
 

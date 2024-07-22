@@ -7,7 +7,7 @@
 - Use this link to join the course's [Discord](https://discord.gg/xMhk3Csmrm) server
 - Consult this [document](https://docs.google.com/spreadsheets/d/1n0Z6sARR29lZRwoGzTYxqSiGV6s1vPSa4ddFE0Jh9j8) to view the TA schedule
 - In-person TAs are located: 🚧 A yet to be disclosed location
-- Professor Jensen's office: 2264 TMCB. use [Calendly](https://calendly.com/lee-cs/30min) to make an appointment.
+- Professor Jensen's office: 2264 TMCB. Use [Calendly](https://calendly.com/lee-cs/30min) to make an appointment.
 
 | Who        | How                 | Where                  | When                            |
 | ---------- | ------------------- | ---------------------- | ------------------------------- |
@@ -31,7 +31,7 @@ Learning how to ask questions might be the most important thing you learn. The b
 
 1. Clearly define and phrase your question. Sometimes this alone will give you an answer.
 1. Use the clearly defined question to research for more information.
-1. Give ample background. Assume the person you are asking is not looking at your computer, doesn't know what you are working on, and doesn't know what you know. Because they don't. Saying "It doesn't work" provides no value. It isn't even a question. Instead give the background in as much detail as possible. Explain what you tried already and what the result was.
+1. Give ample background. Assume the person you are asking is not looking at your computer, doesn't know what you are working on, and doesn't know what you know. Because they don't. Saying "It doesn't work" provides no value. It isn't even a question. Instead, give the background in as much detail as possible. Explain what you tried already and what the result was.
 1. Screenshots and captured output is helpful.
 1. Give a reproduction path.
 1. Use proper grammar and proofread your question.
