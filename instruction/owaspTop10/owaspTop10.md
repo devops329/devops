@@ -5,7 +5,7 @@
 - [OWASP Top Ten](https://owasp.org/www-project-top-ten/)
 - [MITRE CWE Top 25](https://cwe.mitre.org/top25/index.html)
 
-The Open worldwide application security project (OWASP) compiles a list of the top ten security concerns for the software application industry. This list serves as an excellent educational tool to help software engineers understand and prevent the most common software development security failures. Here is a summery of the current list.
+The Open worldwide application security project (OWASP) compiles a list of the top ten security concerns for the software application industry. This list serves as an excellent educational tool to help software engineers understand and prevent the most common software development security failures. Here is a summary of the current list.
 
 | Position | Name                                       | Description                                                              | Examples                                                                                                                                                                     |
 | -------- | ------------------------------------------ | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -24,7 +24,7 @@ Notice that most of the top ten concerns fall directly in the sphere of DevOps. 
 
 If you are not security minded in the design and deployment of your deployment and monitoring systems, it is likely that your code will be the focus of successful attacks. Take some time to carefully review and be familiar with each the top 10. Consider the following in the context of the JWT Pizza application.
 
-1. Could any of the of the OWASP top ten be used to exploit the application?
+1. Could any of the OWASP top ten be used to exploit the application?
 1. How can I evaluate the application's exposure to the exploit?
 1. What would be the impact of the exploit?
 1. Can I reproduce the exploit?

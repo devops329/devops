@@ -18,7 +18,7 @@ _Meme credit: [Reddit](https://www.reddit.com/r/ProgrammerHumor/comments/qbx03g/
 - Terminate your ECS cluster
 - Delete your ECR registry
 - Delete your CloudFormation stack
-- Make sure you do not have auto renew set for your domain name
+- Make sure you do not have auto-renew set for your domain name
 - Delete the Route 53 hosted zone for your domain name
 - Clean up your security group and key pair
 - Check your bill to make sure you haven't missed anything

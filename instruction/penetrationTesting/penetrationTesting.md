@@ -21,9 +21,9 @@ Taking security seriously means taking penetration testing seriously. Don't let 
 
 ## Putting on your white hat
 
-An attacker with evil designs is ofter characterized as wearing a **black hat**. Alternatively, security researchers who think like an attacker, but mitigate resulting vulnerabilities instead of exploiting them, are characterized as wearing a **white hat**.
+An attacker with evil designs is often characterized as wearing a **black hat**. Alternatively, security researchers who think like an attacker, but mitigate resulting vulnerabilities instead of exploiting them, are characterized as wearing a **white hat**.
 
-Successful penetration testing requires you to think like an attacker. It is almost the opposite of your normal operational design approach. Instead of asking the question: "What parameters does this component need to get a desired result", you ask: "What parameters can I abuse, exclude, or overload to get a result that the component was not designed to provide?"
+Successful penetration testing requires you to think like an attacker. It is almost the opposite of your normal operational design approach. Instead of asking: "What parameters does this component need to get a desired result", you ask: "What parameters can I abuse, exclude, or overload to get a result that the component was not designed to provide?"
 
 It often helps to make a game out of it. If it is an application that you wrote, then you are playing a game of chess with yourself. Otherwise, you need to get into the head of the application author and figure out where the blind spots are.
 
@@ -41,15 +41,15 @@ The following are the suggested phases that you should execute in order to succe
 
 Get to know everything about the application. The more you know about the application the easier it will be to discover exploits.
 
-| Area                                                               | JWT Example                                                                                                                                                                                    |
-| ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Document all application user roles                                | Diner, franchisee, and an administrator.                                                                                                                                                       |
-| Know how the application is designed to works                      | Build a sitemap that shows the interaction between pages.                                                                                                                                      |
-| Know all the public endpoints                                      | Both JWT Pizza Service and JWT Pizza Factory.                                                                                                                                                  |
-| Read any available documentation                                   | In addition to public documentation, there are often developer blogs and technical whitepapers that provide interesting insights. For JWT this includes the /api/docs endpoint and /docs view. |
-| Know what OS, programming language, and 3rd party software is used | Linux ARM, JavaScript, Express, and UUID.                                                                                                                                                      |
-| Know what services the application uses                            | AWS CloudFront and ECS.                                                                                                                                                                        |
-| Know how the application is deployed                               | GitHub Actions.                                                                                                                                                                                |
+| Area                                                               | JWT Example                                                                                                                                                                                     |
+| ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Document all application user roles                                | Diner, franchisee, and an administrator.                                                                                                                                                        |
+| Know how the application is designed to works                      | Build a sitemap that shows the interaction between pages.                                                                                                                                       |
+| Know all the public endpoints                                      | Both JWT Pizza Service and JWT Pizza Factory.                                                                                                                                                   |
+| Read any available documentation                                   | In addition to public documentation, there are often developer blogs and technical white papers that provide interesting insights. For JWT this includes the /api/docs endpoint and /docs view. |
+| Know what OS, programming language, and 3rd party software is used | Linux ARM, JavaScript, Express, and UUID.                                                                                                                                                       |
+| Know what services the application uses                            | AWS CloudFront and ECS.                                                                                                                                                                         |
+| Know how the application is deployed                               | GitHub Actions.                                                                                                                                                                                 |
 
 ### Probing
 
@@ -63,7 +63,7 @@ Focus your efforts on the common areas of failure defined by the [OWASP top 10](
 
 ### Weaponization
 
-Once you have discovered an exploit you need to weaponize it. This usually usually consists of creating a parameterized payload that allows you to deliver and execute the exploit. Make sure you give it a cool name like `pepperonikiller`, `crustydb`, or `jwtsucker`.
+Once you have discovered an exploit you need to weaponize it. This usually consists of creating a parameterized payload that allows you to deliver and execute the exploit. Make sure you give it a cool name like `pepperonikiller`, `crustydb`, or `jwtsucker`.
 
 You also need to consider how persistent the threat is. Can you keep it hidden and derive long term value from it? Does it stay hidden until a desired triggered action? Is the attack simply meant to disrupt the application?
 

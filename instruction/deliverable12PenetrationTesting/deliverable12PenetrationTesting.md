@@ -2,7 +2,7 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
-In order to demonstrate your mastery of the concepts for this deliverable, you will conduct two penetration tests of JWT Pizza. First you will attack your own JWT Pizza production deployment and then you will attack the production deployment of an assigned peers. Together with your peer, you will then create a penetration test report.
+In order to demonstrate your mastery of the concepts for this deliverable, you will conduct two penetration tests of JWT Pizza. First you will attack your own JWT Pizza production deployment, and then you will attack the production deployment of an assigned peer. Together with your peer, you will then create a penetration test report.
 
 ### Attack record
 
@@ -46,7 +46,7 @@ Take the following steps to execute a penetration test on your JWT Pizza applica
 
 Take the following steps to execute a penetration test on a peer's JWT Pizza application.
 
-1. Go to the autograder and click on this deliverable to obtain the contact information for your assigned peer. This includes both their email address and JWT Pizza URL.
+1. Go to the AutoGrader and click on this deliverable to obtain the contact information for your assigned peer. This includes both their email address and JWT Pizza URL.
 1. Communicate with your peer and decide on a date when you will conduct your penetration testing.
 1. On the decided date, attempt to penetrate your peer's JWT Pizza deployment. Take careful notes about the preparation, actions, and results for the penetration test.
 

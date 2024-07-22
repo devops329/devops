@@ -31,7 +31,7 @@ To get started, you need to [install](https://portswigger.net/burp/communitydown
 
 ![Open project dialog](openProjectDialog.png)
 
-Next you will see the default workspace with all the tools listed across the top of the application. We will walk through some of the tools beginning with the **Proxy** tool.
+Next you will see the default workspace with all the tools listed across the top of the application. We will walk through some tools beginning with the **Proxy** tool.
 
 ## Proxy and Target
 
@@ -55,15 +55,15 @@ Take some time and play around with all the data that is collected there.
 
 ## Intruder
 
-The Intruder tool makes it easy to automate variations of a requests in order to explore responses and execute brute force attacks. For example, we can use the Intruder tool to brute force a password discovery attack.
+The Intruder tool makes it easy to automate variations of a request in order to explore responses and execute brute force attacks. For example, we can use the Intruder tool to brute force a password discovery attack.
 
-You can populate an intruder request by selecting one of the requests from the Target or Proxy views. For example, from the Target view right click on the login (_PUT /api/auth_) request and select the option to `Send to Intruder`.
+You can populate an intruder request by selecting one of the requests from the Target or Proxy views. For example, from the Target view right-click on the login (_PUT /api/auth_) request and select the option to `Send to Intruder`.
 
 ![Send to intruder](sendToIntruder.png)
 
 This will create an entry on the `Intruder` tab that you can parameterize in order to generate modified versions of the request.
 
-In order to automate to brute force attack of the authentication request with a bunch different passwords, we select the password displayed in the `Payload positions` input and press the `Add §` button. This will put the `§` characters around the portion of the request and make it an automation parameter.
+In order to automate to brute force attack of the authentication request with a bunch of different passwords, we select the password displayed in the `Payload positions` input and press the `Add §` button. This will put the `§` characters around the portion of the request and make it an automation parameter.
 
 ![Payload positions](payloadPositions.png)
 
@@ -83,7 +83,7 @@ The intruder tool provides for complex combinations of injections including mult
 
 The Sequencer tool executes the same request multiple times and automatically analyzes the randomness of the results. For example, we can determine the randomness of the authorization token to see if there is a pattern that we can exploit to generate our own authentication tokens.
 
-You can populate an sequencer request by right clicking on any request in the Target or Proxy view and selecting the `Send to Sequencer` option. If we select a login (_PUT /api/auth_) into the Sequencer, we can then press the `Custom location` configure button and select the portion of the request that we want the sequencer to analyze. This will generate an expression that uses regular expressions to select the desired token.
+You can populate a sequencer request by right-clicking on any request in the Target or Proxy view and selecting the `Send to Sequencer` option. If we select a login (_PUT /api/auth_) into the Sequencer, we can then press the `Custom location` configure button and select the portion of the request that we want the sequencer to analyze. This will generate an expression that uses regular expressions to select the desired token.
 
 Next, we press the `Start live capture` button. This will begin the process of executing thousands of requests.
 
@@ -101,9 +101,9 @@ The following CloudWatch metrics show the JWT Pizza Service container CPU jumpin
 
 ## Decoder
 
-The decoder tool allows you to interactively decode and encode text from many different formats.
+The decoder tool allows you to interactively decode and encode text from different formats.
 
-It supports many different formats including URL, HTML, Base64, Hex, and Gzip. You can also apply most of the major hash code operations.
+It supports many formats including URL, HTML, Base64, Hex, and Gzip. You can also apply most of the major hash code operations.
 
 ![Comparer tool](comparerTool.gif)
 
@@ -113,7 +113,7 @@ The Comparer tool allows you to add a number of requests or responses and then q
 
 ![Comparer response](comparerResponse.png)
 
-To use the comparer you can right click on any request and select the `Save to Comparer` option. Then in the comparer tool you click on the two items you want to compare and the difference is displayed.
+To use the comparer you can right-click on any request and select the `Save to Comparer` option. Then in the comparer tool, you click on the two items you want to compare, and the difference is displayed.
 
 ## Extensions
 
@@ -127,7 +127,7 @@ If you sort by **Popularity** you should get a good feel for what people are usi
 
 One extension that you might experiment with is the `Turbo Intruder`. Since the community edition of Burp Suite throttles its ability to execute intrusions, you can get around this with the Turbo Intruder extension. Go ahead and install the extension from the BApp Store and try it out.
 
-You add a request to the Turbo Intruder by right clicking on it and selecting the `Extensions >  Turbo Intruder > Send to turbo intruder` option.
+You add a request to the Turbo Intruder by right-clicking on it and selecting the `Extensions >  Turbo Intruder > Send to turbo intruder` option.
 
 ![Use turbo intruder](useTurboIntruder.png)
 
@@ -225,7 +225,7 @@ This report looks pretty clean. There are a few warnings about CORS being too ge
 
 ## ☑ Assignment
 
-Install Burp Suite and execute a brute force attack against your JWT Pizza website. See what you can discover about the website. Capture a screenshot of the your Intruder execution result.
+Install Burp Suite and execute a brute force attack against your JWT Pizza website. See what you can discover about the website. Capture a screenshot of your Intruder execution result.
 
 When you are done, submit the screenshot to the Canvas assignment. This should look something like the following.
 
