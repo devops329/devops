@@ -28,13 +28,13 @@ You can see the breakdown of metrics for each endpoint. This includes how many r
 
 ![K6 example test metrics](k6ExampleTestMetrics.png)
 
-When looking at latency metrics the important values are often found in the upper percentiles. This include the top 1% or even the top 0.1% of slow requests. Here we see that even though login usually only takes 108 ms, 1% (P99) of the requests took 143 ms with a standard deviation of 17 ms. That isn't too bad, but sometime you will have results where the average in something like 10 ms, but the p99 is 3000 ms. On the surface this might not feel like a big deal since only 1 in 100 customers will have to wait 3 seconds to login, but with complex applications there tends to be a layering effect where the login request will make a dozen or so endpoint requests in series. If each of those 12 requests have a 1% chance of taking 3 seconds you may end up with 10% of your customers always waiting multiple seconds. Now a small fraction becomes a noticeable delay that drives down retention and impacts the business.
+When looking at latency metrics the important values are often found in the upper percentiles. These include the top 1% or even the top 0.1% of slow requests. Here we see that even though login usually only takes 108 ms, 1% (P99) of the requests took 143 ms with a standard deviation of 17 ms. That isn't too bad, but sometime you will have results where the average in something like 10 ms, but the p99 is 3000 ms. On the surface this might not feel like a big deal since only 1 in 100 customers will have to wait 3 seconds to log in, but with complex applications there tends to be a layering effect where the login request will make a dozen or so endpoint requests in series. If each of those 12 requests have a 1% chance of taking 3 seconds you may end up with 10% of your customers always waiting multiple seconds. Now a small fraction becomes a noticeable delay that drives down retention and impacts the business.
 
 By simulating load and experimenting with changes in the architecture, you can quickly remove bottlenecks that otherwise would have had significant impact.
 
 ## Setting up a K6 test
 
-You will create your first K6 load against your JWT Pizza production deployment. Normally you would not load test a production system. Instead you would spin up an environment specifically for load testing using your CloudFormation automation template, but since spinning up hardware costs money and you don't have any customers hitting your production environment yet, you will use production for now. Take the following steps.
+You will create your first K6 load against your JWT Pizza production deployment. Normally you would not load test a production system. Instead, you would spin up an environment specifically for load testing using your CloudFormation automation template, but since spinning up hardware costs money, and you don't have any customers hitting your production environment yet, you will use production for now. Take the following steps.
 
 ### Creating the project and test
 
@@ -53,14 +53,14 @@ You will create your first K6 load against your JWT Pizza production deployment.
    1. write a JavaScript testing script in the Grafana Cloud K6 **Script Editor**
    1. or use the Grafana Cloud K6 **Test Builder**.
 
-   Using the Test Builder is the fastest way to get up and running and so we will use that.
+   Using the Test Builder is the fastest way to get up and running, so we will use that.
 
 1. Press the `Start Building` button.
 1. This will display the **Test Builder** interface.
 
    ![Test builder](testBuilder.png)
 
-   If you use the `RECORD A SCENARIO` button you will need to install a Chrome extension that will create a script based upon your actions in Google Chrome. Feel free to do this if you would like. However, I like to keep the things I install in my development environment to a minimum. Instead we will record and upload a HTTP Archive (HAR) file that Chrome can easily build for you.
+   If you use the `RECORD A SCENARIO` button you will need to install a Chrome extension that will create a script based upon your actions in Google Chrome. Feel free to do this if you would like. However, I like to keep the things I install in my development environment to a minimum. Instead, we will record and upload a HTTP Archive (HAR) file that Chrome can easily build for you.
 
 1. Rename the test from the default to `Login and order pizza`.
 
@@ -77,7 +77,7 @@ You can use the Google Chrome developer tools to easily record and export a HTTP
 1. Refresh the browser so that the first request for JWT Pizza is recorded. Go through the process of logging in, selecting a pizza from the menu, buying the pizza, and then verifying that the pizza is valid.
 1. Save the HAR file representing all the displayed requests on the Network tab by pressing the download icon. Name the file `buyPizza`. This will save the HAR file to your computer.
 
-💡 If your curiosity sense is tingling then go ahead an examine the contents of the HAR file and take some time to read about HAR files. This would make a great Curiosity project.
+💡 If your curiosity sense is tingling then go ahead and examine the contents of the HAR file and take some time to read about HAR files. This would make a great Curiosity project.
 
 ### Initializing the test with the HAR file
 
@@ -98,7 +98,7 @@ Take some time and examine each step in the test. You can give a name to each HT
 
 ![Test steps](testSteps.png)
 
-Now you need to define how the test will execute. On the left hand menu, click the `SCENARIO_1 -> Options` navigation. This will display how the test scenario will execute. By default it will gradually ramp up from 0 to 20 virtual users over a 1 minute period. These users will make the requests represented by the requests you just defined over and over again. For the next 3 and a half minutes the 20 users will keep making the requests. Then over a period of 1 minute the users will trickle down until there are none left.
+Now you need to define how the test will execute. On the left-hand menu, click the `SCENARIO_1 -> Options` navigation. This will display how the test scenario will execute. By default, it will gradually ramp up from 0 to 20 virtual users over a 1-minute period. These users will make the requests represented by the requests you just defined over and over again. For the next 3 and a half minutes the 20 users will keep making the requests. Then over a period of 1 minute the users will trickle down until there are none left.
 
 ![Default scenario](defaultScenario.png)
 
@@ -189,7 +189,7 @@ Now you can press the `Create` button you will see that you have two tests. One 
 
 ![Script run results](scriptRunResults.png)
 
-If you look at the logs tab for the execution you will see that the return body for when the request was 500 shows that there is a problem with the same user trying to login concurrently. That means there is no problem with the test, but there is an issue with the JWT Pizza Service that needs to be resolved.
+If you look at the logs tab for the execution you will see that the return body for when the request was 500 shows that there is a problem with the same user trying to log in concurrently. That means there is no problem with the test, but there is an issue with the JWT Pizza Service that needs to be resolved.
 
 ```json
 {

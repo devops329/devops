@@ -7,7 +7,7 @@
 
 ---
 
-When your customers have the perspective that your application is unstable or that your company doesn't care about stability, they will quickly find an alternative in your competitors' offering. As a software engineer who cares about quality, you can take several different approaches to maintain customer trust:
+When your customers have the perspective that your application is unstable or that your company doesn't care about stability, they will quickly find an alternative in your competitors' offering. As a software engineer who cares about quality, you can take several approaches to maintain customer trust:
 
 1. **Reduce the likelihood of bugs**: Focus on good software design principles. Isolate or remove problematic functionality. Keep the system simple.
 1. **Handle failure gracefully**: Create circuit breakers that fallback on dependable functionality. Provide redundancy.
@@ -41,7 +41,7 @@ Notice that the banner has a link that takes you to their status page where the 
 
 ## Creating your status page
 
-There are several ways to create a status page for your application. Usually you don't want to have it actually hosted as part of your application because that is kind of self defeating. Instead you need to build a completely different stack, hopefully hosted in a completely different environment from your application.
+There are several ways to create a status page for your application. Usually you don't want to have it actually hosted as part of your application because that is kind of self-defeating. Instead, you need to build a completely different stack, hopefully hosted in a completely different environment from your application.
 
 As an alternative to building your own status page, you can use one of the many cloud services that are available. You can also use one of the many open source projects.
 
