@@ -25,14 +25,14 @@ The basic pieces that ECS provides are as follows.
 - **Task definitions**: A task description defines the container image to execute, the amount of memory and vCPU to provide, and how to determine the health of the container. You can actually define multiple containers to run as a task. This is usually done when a single container is highly coupled with another container.
 - **Task**: A task represents the instantiation of a task definition. A running task is equivalent to running a Docker container, but it also has other characteristics that describe if the container is healthy.
 - **Scheduler**: Controlled by EC2 to handle the launching, scaling, and deleting of tasks.
-- **Service**: A service is a grouping of 1 or more tasks. For example, a blog service might have tasks representing containers for a web service, a business logic service, a memory cache, and a database. The service controls how many copies of a task are executing and replaces nonresponsive tasks.
+- **Service**: A service is a grouping of 1 or more tasks. For example, a blog service might have tasks representing containers for a web service, a business logic service, a memory cache, and a database. The service controls how many copies of a task are executing and replaces non-responsive tasks.
 - **Cluster**: A cluster is a collection of EC2 instances or Fargate controller. Clusters can span availability zones in order to make the application resilient to local failures.
 
 ## Required roles and rights
 
 Before you can configure Docker containers to run under ECS you need to authorize how the container executes. There are two roles that control the rights of an ECS task:
 
-1. **Task execution role** - This defines the rights necessary to deploy a task. This includes things like the ability to start up a getting a ECR image and setting up CloudWatch logging.
+1. **Task execution role** - This defines the rights necessary to deploy a task. This includes things like the ability to start up a getting an ECR image and setting up CloudWatch logging.
 1. **Task role** - This defines what rights the task has. This includes things like database access rights or read from S3.
 
 We will not define a **Task role** at this time, but you will do this later as you add rights for the task to connect to your MySQL instance without providing explicit credentials.
@@ -104,14 +104,14 @@ The service contains one or more associated tasks. The tasks work together in or
    1. Select `jwt-pizza-service` from the `Family` dropdown. This select the task definition that you created earlier.
    1. Provide **jwt-pizza-service** as the `Service name`.
 1. Under `Networking`
-   1. Remove the selection for the `default` security group. This provides no value and we don't want to accidentally inherit a security rule that we are not expecting.
+   1. Remove the selection for the `default` security group. This provides no value, and we don't want to accidentally inherit a security rule that we are not expecting.
    1. Select the `jwt-pizza-service` security group that you created previously. This allows the container to accept incoming HTTP requests.
    1. Select the option to auto assign a `Public IP` address. We will need this so you can test the running task by making HTTP requests from the internet.
 1. Press `Create`.
 
 ## Verifying the container deployment
 
-Once you have launched the container it should only take a couple of seconds for it to be available for use. Navigate to the service and select the `Tasks` tab. Then select the currently running task and use the networking bindings to see the IP address that is being used. Navigate your browser to that location and you should see the `jwt-pizza-service`.
+Once you have launched the container it should only take a couple of seconds for it to be available for use. Navigate to the service and select the `Tasks` tab. Then select the currently running task and use the networking bindings to see the IP address that is being used. Navigate your browser to that location, and you should see the `jwt-pizza-service`.
 
 ![ECS Container Launched](ecsContainerLaunched.gif)
 
@@ -119,7 +119,7 @@ Use the public IP address for the task to verify that your ECS deployment of the
 
 ## Create an ECS service with a load balancer
 
-Using the task's public IP address to communicate with the container only works if you don't plan to scale the number of deployed containers to meet an increase in customer requests, or ever deploy a new container whenever the code changes. That is not going to work for JWT Pizza. Instead we want to expose the container through a load balancer that can balance HTTP requests across multiple copies of your ECS task and route traffic to the new versions of the task as they become available.
+Using the task's public IP address to communicate with the container only works if you don't plan to scale the number of deployed containers to meet an increase in customer requests, or ever deploy a new container whenever the code changes. That is not going to work for JWT Pizza. Instead, we want to expose the container through a load balancer that can balance HTTP requests across multiple copies of your ECS task and route traffic to the new versions of the task as they become available.
 
 Before you can create a service that is associated with a load balancer, you need to delete the service that you created previously.
 
@@ -152,7 +152,7 @@ Take the following steps to deploy with an Application Load Balancer.
 
 ### Testing the load balancer
 
-Launching the service that is configured with a load balancer will automatically launch an EC2 Application load balancer that is configured to work with your ECS cluster. This takes several minutes to complete, but once it is done you should be able to make an http request to your Docker container using the load balancer's public hostname.
+Launching the service that is configured with a load balancer will automatically launch an EC2 Application load balancer that is configured to work with your ECS cluster. This takes several minutes to complete, but once it is done you should be able to make an HTTP request to your Docker container using the load balancer's public hostname.
 
 You can find the load balancer's public hostname by taking the following steps.
 
@@ -178,7 +178,7 @@ The last step for configuring the scalable deployment of your backend, is to cre
 1. Select the hosted zone for your hostname.
 1. Create a new record.
 1. Give the name `pizza-service` for the subdomain.
-1. Set the record type to an `CNAME` record.
+1. Set the record type to a `CNAME` record.
 1. Set the value of the record to the DNS name for the application load balancer.
 1. Press the `Create records` button.
 

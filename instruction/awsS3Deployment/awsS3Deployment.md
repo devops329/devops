@@ -2,7 +2,7 @@
 
 🔑 **Key points**
 
-- You must authorized GitHub to have access to your AWS account.
+- You must authorize GitHub to have access to your AWS account.
 - You can use a GitHub Action workflow to execute AWS CLI commands.
 - You will create a workflow that upload a file to your S3 bucket.
 
@@ -39,7 +39,7 @@ First you need to set up AWS to use GitHub as an OIDC provider.
 
 ### Create the IAM policy
 
-We want to be careful which AWS services and resources we expose through the credentials we are creating and so we need to create an AWS IAM policy that only provides what is necessary to update your S3 deployment bucket and invalidate the files that the CloudFront distribution is hosting.
+We want to be careful which AWS services and resources we expose through the credentials we are creating, so we need to create an AWS IAM policy that only provides what is necessary to update your S3 deployment bucket and invalidate the files that the CloudFront distribution is hosting.
 
 1. Open the AWS IAM service console.
 1. Choose `Policies`.
@@ -192,4 +192,4 @@ After following the above steps you should see the resulting `index.html` page w
 
 ![Final result](finalResult.png)
 
-Once you are done, you can disable this workflow on the GitHub Actions page, or simply delete it since you we repeat what you have done here with the JWT Pizza frontend code in a future assignment and you don't want this to run every time you commit your code.
+Once you are done, you can disable this workflow on the GitHub Actions page, or simply delete it since you repeat what you have done here with the JWT Pizza frontend code in a future assignment, and you don't want this to run every time you commit your code.

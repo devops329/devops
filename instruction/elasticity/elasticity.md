@@ -11,7 +11,7 @@ An application is considered elastic if it can increase and decrease in capacity
 
 ## An example
 
-It is very common for an application to have periods of high and low demand. Consider the JWT Pizza application. People want pizza at lunch and dinner time. Then from late evening until the next lunch time there is very little demand for the application. Things get really crazy during the Superbowl when everyone wants a pizza and demand goes through the roof. The next day everyone is looking to eat salad and recover from their indulgence and so there are very few pizza orders.
+It is very common for an application to have periods of high and low demand. Consider the JWT Pizza application. People want pizza at lunch and dinner time. Then from late evening until the next lunchtime there is very little demand for the application. Things get really crazy during the Superbowl when everyone wants a pizza and demand goes through the roof. The next day everyone is looking to eat salad and recover from their indulgence and so there are very few pizza orders.
 
 ![Pizza orders](pizzaOrders.png)
 

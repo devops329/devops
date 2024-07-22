@@ -3,7 +3,7 @@
 🔑 **Key points**
 
 - AWS S3 is a high performance, scalable, object store.
-- S3 is structured with a a bucket that contains objects.
+- S3 is structured with a bucket that contains objects.
 - There is a powerful permission model that controls access to a bucket.
 - You can use the AWS CLI or browser interface to manipulate a bucket.
 
@@ -15,17 +15,17 @@ S3 provides high durability and availability, security features such as encrypti
 
 ![S3 bucket](s3Bucket.png)
 
-At a basic level S3 is just a global list of bucket names that each contain a potentially very large number of named objects. There is no directory structure like you might expect in a file system. However, S3 honors a naming convention that mimics much of the structure you would expect. For example if you name an object:
+At a basic level S3 is just a global list of bucket names that each contain a potentially very large number of named objects. There is no directory structure like you might expect in a file system. However, S3 honors a naming convention that mimics much of the structure you would expect. For example, if you name an object:
 
 ```txt
 20240623.002941/assets/index-BwtN1-bI.css
 ```
 
-it doesn't actually have a directory structure or path, but objects with the same prefix will appear to be associated together. Additionally, the `/` character is treated as special by many tools. This allows they to display and navigate them as directories, when in reality it is just another character in the name.
+It doesn't actually have a directory structure or path, but objects with the same prefix will appear to be associated. Additionally, the `/` character is treated as special by many tools. This allows them to display and navigate them as directories, when in reality it is just another character in the name.
 
 ## Accessing S3 files
 
-You can experiment with S3 by using the AWS Browser console interface, or with the AWS CLI from your command console. For example, you can list all the AWS S3 buckets that are owned by your account with the `ls` command. Make sure you have the AWS CLI installed in your development environment with an associated access key. Otherwise you can use the [AWS CloudShell service](https://aws.amazon.com/cloudshell/) from the AWS Browser Console to experiment with these commands.
+You can experiment with S3 by using the AWS Browser console interface, or with the AWS CLI from your command console. For example, you can list all the AWS S3 buckets that are owned by your account with the `ls` command. Make sure you have the AWS CLI installed in your development environment with an associated access key. Otherwise, you can use the [AWS CloudShell service](https://aws.amazon.com/cloudshell/) from the AWS Browser Console to experiment with these commands.
 
 ```sh
 aws s3 ls
@@ -58,7 +58,7 @@ download: s3://pizza.byucsstudent.click/assets/index-CRT3bSBQ.css to assets/inde
 download: s3://pizza.byucsstudent.click/assets/index-S42wtqrP.js to assets/index-S42wtqrP.js
 ```
 
-You can delete one or more files using the `rm` command. This command might seem more complex than what you are use to, but that is mainly because there is no directory structure and so you have to provide parameters for what would have been assumed from the structure itself.
+You can delete one or more files using the `rm` command. This command might seem more complex than what you are used to, but that is mainly because there is no directory structure and so you have to provide parameters for what would have been assumed from the structure itself.
 
 ```sh
 aws s3 rm s3://pizza.byucsstudent.click --recursive --exclude "*" --include "assets*"
@@ -70,7 +70,7 @@ delete: s3://pizza.byucsstudent.click/assets/index-CRT3bSBQ.css
 
 ## S3 access
 
-By default all S3 buckets are private and the objects they contain can only be accessed by entities that you give permission. This can be done by creating an AWS IAM Role that has a policy giving it permission to the bucket.
+By default, all S3 buckets are private and the objects they contain can only be accessed by entities that you give permission. This can be done by creating an AWS IAM Role that has a policy giving it permission to the bucket.
 
 ```json
 {

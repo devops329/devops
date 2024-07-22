@@ -42,6 +42,6 @@ You will build this by taking the following steps:
    1. Manually setup ECR, ECS, ALB, and Fargate.
    1. Do a manual deployment to ECR and trigger deployment with ECS.
    1. Modify your backend deployment GitHub Actions workflow to push to ECR and trigger deployment with ECS.
-1. Create CloudFormation scripts to build and teardown your frontend and backend services from scratch.
+1. Create CloudFormation scripts to build and tear down your frontend and backend services from scratch.
 
 This will create a completely automated cloud scale architecture that should enable any level of growth that JWT Pizza achieves.

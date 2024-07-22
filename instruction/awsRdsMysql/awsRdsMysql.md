@@ -15,9 +15,9 @@ AWS RDS manages configuration, backup, monitoring, and restoration for you. Addi
 
 ## Creating the VPC security groups
 
-Before you create your database instance, you need to define the security groups that will allow network access to your database. You will first define the jwt-pizza-service security group that anyone can talk to, and then the database security group that only allows the jwt-pizza-service to talk to it.
+Before you create your database instance, you need to define the security groups that will allow network access to your database. You will first define the **jwt-pizza-service** security group that anyone can talk to, and then the database security group that only allows the **jwt-pizza-service** to talk to it.
 
-Eventually you will change the jwt-pizza-service security group so that only the load balancer can talk to it, but you can't do that until you actually deploy a load balancer.
+Eventually you will change the **jwt-pizza-service** security group so that only the load balancer can talk to it, but you can't do that until you actually deploy a load balancer.
 
 ![Security groups](securityGroups.png)
 
@@ -77,7 +77,7 @@ After a few minutes your database will display that it has been created. Note th
 
 With the database deployed, it would be great if you could immediately use it. However, you have two problems. You need to safely provide the credentials to the JWT Pizza Service, and you have to access the database over a private network.
 
-Security is often a trade off between ease of use and strong protections. Note that DevOps automation can often help alleviate the burden of the security overhead by removing the manual hoops to that you otherwise have to jump through.
+Security is often a trade-off between ease of use and strong protections. Note that DevOps automation can often help alleviate the burden of the security overhead by removing the manual hoops to that you otherwise have to jump through.
 
 ### Private network access
 
@@ -89,7 +89,7 @@ Keeping the database on a private network is a good security practice since the 
 
 To solve the database credential problem, you will store the information necessary to access the database in your `jwt-pizza-service` GitHub Actions secrets. The CI workflow will inject the credentials into the service's configuration when it is deployed. At a later point, you will remove the credentials and just use AWS IAM assumed roles to provide authentication to the database.
 
-For now you can go ahead and update the GitHub Actions secrets with the values you just used to configure the database. This includes the hostname, username (admin), and password.
+For now, you can go ahead and update the GitHub Actions secrets with the values you just used to configure the database. This includes the hostname, username (admin), and password.
 
 | Secret      | Description                                         | Example                                               |
 | ----------- | --------------------------------------------------- | ----------------------------------------------------- |

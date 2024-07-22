@@ -17,7 +17,7 @@
 
 Your main tool for working with containers is the Docker CLI. It allows you to run commands to build images, push and pull images to and from a registry, run, stop, and delete containers and images.
 
-The following image depicts the standard container flow. You setup an application in your development environment and build an image. You then push that image to a container registry. The container is then pulled down to some environment and run.
+The following image depicts the standard container flow. You set up an application in your development environment and build an image. You then push that image to a container registry. The container is then pulled down to some environment and run.
 
 ![Container flow](containerFlow.png)
 
@@ -114,7 +114,7 @@ Now you can build the container image with the `image build` command. The `-t` p
 docker image build -t webserver .
 ```
 
-This should execute every command in the `Dockerfile` and result in a brand new container image. You can verify that the image was created by querying your local registry with the `images` command.
+This should execute every command in the `Dockerfile` and result in a brand-new container image. You can verify that the image was created by querying your local registry with the `images` command.
 
 ```sh
 docker images -a
@@ -171,7 +171,7 @@ After you have created your account, use the Docker Hub web interface to create 
 
 ![Create repository](createRepository.png)
 
-Back in your command console, you can login using the `login` command and providing your user name and then your password. (Replace byucsstudent with your account username.)
+Back in your command console, you can log in using the `login` command and providing your username and then your password. (Replace byucsstudent with your account username.)
 
 ```sh
 docker login -u byucsstudent

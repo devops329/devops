@@ -36,7 +36,7 @@ No system is completely immune to a persistent, dedicated, well funded team of a
 1. Only authorized devices can access the server over the network.
 1. Authorized devices can only make requests using an encrypted protocol.
 1. The authorized devices' credentials are rotated hourly.
-1. The types of SQL queries that the device can make are restricted and can only return the amount of data that is required for their role.
+1. The types of SQL query that the device can make are restricted and can only return the amount of data that is required for their role.
 1. All authentication and queries to the database is immutably logged. Anomalies trigger an alert.
 1. Request metrics are tracked. Anomalies trigger an alert.
 1. A honeypot database exists on the network with similar protections, but will immediately trigger an alert for any unexpected requests.
@@ -45,13 +45,13 @@ Are all these layers enough to stop an attacker? Probably not, but it will proba
 
 ### Encryption
 
-Public networks are insecure by definition and you should never send unencrypted data across them. Even internal private networks should be considered suspicious since they can be penetrated. If you are sending unencrypted data across any network it can be a rich source that allows an attacker to grab passwords and other credentials.
+Public networks are insecure by definition; you should never send unencrypted data across them. Even internal private networks should be considered suspicious since they can be penetrated. If you are sending unencrypted data across any network it can be a rich source that allows an attacker to grab passwords and other credentials.
 
 The same is true for data that is stored on disk, or in other words, at rest. Once an attacker penetrates the operating system's security, unencrypted files on disk become a treasure trove of information. High value targets include log files, password files, configuration files, and command histories. It is best if each file has its own encryption and that the entire storage device is encrypted.
 
 ### Network security
 
-Beyond encrypting the data that is transmitted over the network, you want to take advantage of the the protections provided by web application firewalls, load balancers, private networks, firewalls (called security groups in AWS), and network access control lists (ACLs). These protections create perimeter barriers that help to keep out, or slow down an attack. The goal is to reduce the surface area of the attack to the smallest possible.
+Beyond encrypting the data that is transmitted over the network, you want to take advantage of the protections provided by web application firewalls, load balancers, private networks, firewalls (called security groups in AWS), and network access control lists (ACLs). These protections create perimeter barriers that help to keep out, or slow down an attack. The goal is to reduce the surface area of the attack to the smallest possible.
 
 ![Network security layers](networkSecurityLayers.png)
 
@@ -63,7 +63,7 @@ Credentials allow access to protected resources and data. You never want any cre
 
 Several occurrences of passwords showing up in log files have happened at even major companies such as [X](https://www.digitalguardian.com/blog/twitter-urges-all-users-change-password-following-internal-bug) and [GitHub](https://www.bleepingcomputer.com/news/security/github-accidentally-recorded-some-plaintext-passwords-in-its-internal-logs/). While the presence of a password in a log file doesn't necessary trigger a breach it does provide an opportunity for internal abuse and makes an attractive target for attackers.
 
-The JWT Pizza Service attempts to keep passwords out of log files with code such as the following. However, these simplistic attempts are not full proof and it is probably best to come up with something that is more reliable.
+The JWT Pizza Service attempts to keep passwords out of log files with code such as the following. However, these simplistic attempts are not foolproof, and it is probably best to come up with something that is more reliable.
 
 ```js
   sanitize(logData) {
@@ -85,7 +85,7 @@ The JWT Pizza Service is currently defined to store the database password in a l
 
 ### Hardening
 
-Consider a device that allows the entire world to make an unauthenticated SSH connection on any network port, and then gives them root access to the device. This is an obvious security violation, but an only slightly less egregious example includes letting anyone access to port 22, but requiring a textual password for the root user. What you really want is to only allow only network access from an approved list, a white list, of IP addresses, where a user is authenticated by a named account using a cryptographically secure private key. The user is then restricted to only have access to the storage, memory, and applications necessary for them to accomplish their job.
+Consider a device that allows the entire world to make an unauthenticated SSH connection on any network port, and then gives them root access to the device. This is an obvious security violation, but an only slightly less egregious example includes letting anyone access to port 22, but requiring a textual password for the root user. What you really want is to only allow network access from an approved list, a white list, of IP addresses, where a user is authenticated by a named account using a cryptographically secure private key. The user is then restricted to only have access to the storage, memory, and applications necessary for them to accomplish their job.
 
 This process of going from being extremely open to allowing only the very smallest window necessary to accomplish a task is called hardening. When developing a system it is often necessary to be liberal with access until you can figure out what exact access is required. However, you must make sure that you restrict that access once the system definition has matured.
 
@@ -123,7 +123,7 @@ It is common for cloud services to require or provide credentials in order to us
 
 Instead of storing credentials it is much better to create a trust relationship between providers using standards such as OAuth to create temporary access. That is the process that you will use to give GitHub Actions the authorization to execute commands for your AWS account.
 
-On the other hand, the JWT Pizza Factory will issue you an API Token that you will use to make pizzas. If your token becomes compromised then an attacker will be able to make pizzas on your behalf and you will be responsible for the cost of those pizzas.
+On the other hand, the JWT Pizza Factory will issue you an API Token that you will use to make pizzas. If your token becomes compromised then an attacker will be able to make pizzas on your behalf, and you will be responsible for the cost of those pizzas.
 
 ### Roles
 
@@ -151,7 +151,7 @@ const Role = {
 };
 ```
 
-This helps to formalize the definition of the possible roles. all the secure endpoints then use the express middleware `setAuthUser` and `authenticateToken` to validate that a user is authenticated.
+This helps to formalize the definition of the possible roles. All the secure endpoints then use the express middleware `setAuthUser` and `authenticateToken` to validate that a user is authenticated.
 
 ```js
 async function setAuthUser(req, res, next) {
@@ -278,7 +278,7 @@ Your logs and metrics are a foundational piece of your security architecture. Th
 
 ## Common attacks
 
-There many creative ways to exploit a software system. Each has their own specific target, attack vector, and clever name. Take some time to become familiar with each of these exploits.
+There are many creative ways to exploit a software system. Each has their own specific target, attack vector, and clever name. Take some time to become familiar with each of these exploits.
 
 - **Phishing**: Attempting to acquire sensitive information such as usernames, passwords, and credit card details by masquerading as a trustworthy entity in electronic communications.
 - **Malware**: Malicious software designed to harm, exploit, or otherwise compromise computer systems. Types of malware include viruses, worms, Trojans, ransomware, and spyware.
@@ -310,6 +310,6 @@ In many ways these attacks are the most dangerous because they exploit your syst
 
 ## Parting thoughts
 
-Security is a massive topic that deserves your serious consideration. Gone are the days when a programmer could just focus on an algorithm without having to consider how that code could be exploited to steal someone's life. The more valuable your code, the more likely it is that you will be a high value target that will attract attention from all sorts of ill intended individuals, gangs, terrorists, Gadianton robbers, and state sponsored criminals. The better you are educated and engaged, the less chance the trust your customers place in you will be violated.
+Security is a massive topic that deserves your serious consideration. Gone are the days when a programmer could just focus on an algorithm without having to consider how that code could be exploited to steal someone's life. The more valuable your code, the more likely it is that you will be a high value target that will attract attention from all sorts of ill-intentioned individuals, gangs, terrorists, Gadianton robbers, and state-sponsored criminals. The better you are educated and engaged, the less chance the trust your customers place in you will be violated.
 
 💡 Hopefully the security topics covered in this instruction have set your curiosity senses tingling. There are many subjects that you can dig into as part of your curiosity report.

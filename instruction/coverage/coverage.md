@@ -51,7 +51,7 @@ Obviously this is a problem if you want to make sure that the `remove` operation
 
 However, in complex applications there is often significant code for supporting error and edge cases that only exist in very extreme situations. These edge cases are usually the most difficult to test for the following reasons:
 
-- **Complexity**: They require complex setup and teardown of infrastructure
+- **Complexity**: They require complex setup and tear down of infrastructure
 - **Dependencies**: They only happen when dependent systems catastrophically fail
 - **Timing**: They required special timing or sequences of events.
 

@@ -14,7 +14,7 @@
 
 ![Docker icon](dockerIcon.png)
 
-As the world went global, the shipping industry came up with an idea the revolutionized everything. They created a [internationally recognized specification](https://cdn.standards.iteh.ai/samples/76912/7354663676144f8ab1a7b57cb573b0a6/ISO-668-2020.pdf) that defined a shipping container as 7.8ft in width, 7.9ft in height, and either 20ft or 40ft long. The impact of this standard was profound. It standardized the width and lengths of truck beds, barges, and sea going cargo ships. Factories changed the quantity of goods that they shipped in a batch and retailers modified their stores to allow the containers to fit into their delivery bays. All of this was caused by the simple standardization of a box's dimensions.
+As the world went global, the shipping industry came up with an idea the revolutionized everything. They created an [internationally recognized specification](https://cdn.standards.iteh.ai/samples/76912/7354663676144f8ab1a7b57cb573b0a6/ISO-668-2020.pdf) that defined a shipping container as 7.8ft in width, 7.9ft in height, and either 20ft or 40ft long. The impact of this standard was profound. It standardized the width and lengths of truck beds, barges, and sea going cargo ships. Factories changed the quantity of goods that they shipped in a batch and retailers modified their stores to allow the containers to fit into their delivery bays. All of this was caused by the simple standardization of a box's dimensions.
 
 ![Shipping container](shippingContainer.png)
 
@@ -22,15 +22,15 @@ As the world went global, the shipping industry came up with an idea the revolut
 
 During the Y Combinator Summer 2010 startup incubator, Kamel Founadi, Solomon Hykes, and Sebastien Pahl came up with the idea to change the world of delivering applications in the same way that containers changed the world of delivering physical goods. This became the original of what is now known as Docker Inc.
 
-In 2015 the Open Container Initiative (OCI) was established to standardized the definition of container formats and runtimes. This was a key step that ensured global compatibility among software vendors seeking to capture the container market.
+In 2015 the Open Container Initiative (OCI) was established to standardize the definition of container formats and runtimes. This was a key step that ensured global compatibility among software vendors seeking to capture the container market.
 
 Today the major players in the container space are Docker Inc, the original proponent of container technology, and Kubernetes, an offshoot of Google that made major contributions that brought containers to the enterprise. Each of the major cloud vendors, AWS, Google, and Microsoft, also provide significant services and support for containers.
 
 ### Docker technology
 
-The core technology for Docker containers came from existing Linux technology, primarily LinuX Containers (LXC). Linux `namespaces` isolate the docker application's view of the operating systems environment. This includes process trees, network, user IDs, and the file system. The kernel's `cgroups` limit the available memory and CPU.
+The core technology for Docker containers came from existing Linux technology, primarily Linux Containers (LXC). Linux `namespaces` isolate the docker application's view of the operating system's environment. This includes process trees, network, user IDs, and the file system. The kernel's `cgroups` limit the available memory and CPU.
 
-Once a container is executing in a hosted environment, a `container image` can be captured that consists only of the changes that were added to the parent container. This use a delta based filesystem called OverlayFS and makes the resulting size of the container image much smaller because it doesn't have all the files represented by the entire operating system.
+Once a container is executing in a hosted environment, a `container image` can be captured that consists only of the changes that were added to the parent container. This use a delta based file system called OverlayFS and makes the resulting size of the container image much smaller because it doesn't have all the files represented by the entire operating system.
 
 A container image is then uploaded to a container registry where in can be downloaded and run in any environment that supports the container execution standard. Generally this works most efficiently on Linux systems executing a runC (Docker) or CRI-O (Kubernetes) runtime. Although, other runtimes and OS specific adaptations exist to make containers work on operating systems such as Windows and OSX.
 
@@ -52,7 +52,7 @@ Docker is made up of three major components. The runtime, objects, and registrie
 
 ### Software
 
-The Docker software is comprised mainly of the the Docker daemon, called dockerd, that manages Docker containers and handles container objects, and the Docker CLI, called docker, that provides a command-line interface used to interact with Docker daemons.
+The Docker software is composed mainly of the Docker daemon, called dockerd, that manages Docker containers and handles container objects, and the Docker CLI, called docker, that provides a command-line interface used to interact with Docker daemons.
 
 ### Objects
 
@@ -62,7 +62,7 @@ The Docker software is comprised mainly of the the Docker daemon, called dockerd
 
 ### Registries
 
-A Docker registry is a repository for Docker images. You can push container images to a register and then pull them down at a later time. Registries can be public or private. Docker Inc. provides the most used public registry, named Docker Hub. There are also other well used registries available from vendors such as AWS (ECR), Google (GCR), Microsoft (ACR), and GitHub.
+A Docker registry is a repository for Docker images. You can push container images to a register and then pull them down at a later time. Registries can be public or private. Docker Inc. provides the most used public registry, named Docker Hub. There are other well-used registries available from vendors such as AWS (ECR), Google (GCR), Microsoft (ACR), and GitHub.
 
 ## Installation
 

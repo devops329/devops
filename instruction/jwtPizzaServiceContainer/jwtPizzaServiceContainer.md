@@ -6,7 +6,7 @@
 
 ---
 
-Now that you know how Docker containers work, you need to create a jwt-pizza-service Docker container image from the Pizza Service source code. Here are the steps to take.
+Now that you know how Docker containers work, you need to create a **jwt-pizza-service** Docker container image from the Pizza Service source code. Here are the steps to take.
 
 1. In your development environment, open your command console and navigate to the directory containing your fork of `jwt-pizza-service`.
 1. Create a file named `Dockerfile` in the project directory with the following content.
@@ -22,7 +22,7 @@ Now that you know how Docker containers work, you need to create a jwt-pizza-ser
    CMD ["node", "index.js", "80"]
    ```
 
-1. Modify/Create the `config.js` file. Set the database host field so that it looks outside of the container for the MySQL server by specifying the value of `host.docker.internal`. Make sure you include the `config.js` file in your `.gitignore` file so that you do not accidentally push it to your repository. Set the parameters, such as the jwtSecret and factory.apiKey, according to your environment.
+1. Modify/Create the `config.js` file. Set the database host field so that it looks outside the container for the MySQL server by specifying the value of `host.docker.internal`. Make sure you include the `config.js` file in your `.gitignore` file so that you do not accidentally push it to your repository. Set the parameters, such as the jwtSecret and factory.apiKey, according to your environment.
    ```sh
    module.exports = {
     jwtSecret: 'yourRandomJWTGenerationSecretForAuth',

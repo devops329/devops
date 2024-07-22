@@ -46,7 +46,7 @@ You need to remove the creation of the `404.hml` that GitHub Pages used to handl
 cp dist/index.html dist/404.html
 ```
 
-Instead you need to configure CloudFront to return the `index.html` file whenever a 404 or 403 error is encountered. You can do this by going to `Error Pages` in the CloudFront distribution and adding a custom error response.
+Instead, you need to configure CloudFront to return the `index.html` file whenever a 404 or 403 error is encountered. You can do this by going to `Error Pages` in the CloudFront distribution and adding a custom error response.
 
 ![Handle 404](handle404.png)
 

@@ -11,7 +11,7 @@
 Previously we deployed the JWT Pizza static frontend content over the content delivery network (CDN) that GitHub Pages provides. However, GitHub Pages has some significant limitations that disqualify it for large scale production usage. These [limitations](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#limits-on-use-of-github-pages) include the following:
 
 - Published GitHub Pages sites may be no larger than 1 GB.
-- GitHub Pages deployments will timeout if they take longer than 10 minutes.
+- GitHub Pages deployments will time out if they take longer than 10 minutes.
 - GitHub Pages sites have a soft bandwidth limit of 100 GB per month.
 - GitHub Pages sites have a soft limit of 10 builds per hour.
 
@@ -30,7 +30,7 @@ In order to fully utilize CloudFront as a CDN we need to configure several AWS s
 
 ## S3 static content bucket
 
-The first step we need to take is to create an S3 bucket to host the static files associated with the JWT Pizza frontend. Follow these steps to setup your S3 bucket.
+The first step we need to take is to create an S3 bucket to host the static files associated with the JWT Pizza frontend. Follow these steps to set up your S3 bucket.
 
 1. Open the AWS browser console and navigate to the S3 service.
 1. Click on the `Create bucket` button.
@@ -56,7 +56,7 @@ You want your static content to be securely hosted. AWS offers a free service fo
 
 1. Click on `Request a certificate`.
 1. Select `Request a public certificate` and press `Next`.
-1. Enter a wildcard subdomain for your the fully qualified domain name and use `DNS validation`. Your domain name should look like:
+1. Enter a wildcard subdomain for your fully qualified domain name and use `DNS validation`. Your domain name should look like:
 
    ```txt
    *.yourdomainnamehere
@@ -135,7 +135,7 @@ The last step for configuring the CDN, is to create a DNS record so that you can
 
 Alternatively, you can create a CNAME record from your domain to the CloudFront distribution. If you are using an alternate domain name provider you will need to do this.
 
-After a short while the DNS record should propagate and you should be able to see the record pointing to CloudFront instead of GitHub with a console command like `dig` or `nslookup`. At that point your browser should also show the `Hello World` page.
+After a short while the DNS record should propagate, and you should be able to see the record pointing to CloudFront instead of GitHub with a console command like `dig` or `nslookup`. At that point your browser should also show the `Hello World` page.
 
 ## Final result
 

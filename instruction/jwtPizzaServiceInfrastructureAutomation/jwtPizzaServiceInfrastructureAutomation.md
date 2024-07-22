@@ -12,11 +12,11 @@ For the last step in your backend DevOps automation, you will create a CloudForm
 
 Before you do that you need to delete all the existing AWS infrastructure that you created previously. You can then rebuild the infrastructure using CloudFormation stack automation.
 
-To delete the backend infrastructure you can simply delete the ECS jwt-pizza-service cluster. This should cause the ECS jwt-pizza-service service and EC2 ALB load balancer to also be deleted.
+To delete the backend infrastructure you can simply delete the ECS `jwt-pizza-service` cluster. This should cause the ECS `jwt-pizza-service` service and EC2 ALB load balancer to also be deleted.
 
 ## Cutting your AWS bill
 
-Using CloudFormation to automate the creation and teardown of your backend JWT Pizza Service infrastructure will provide some significant cost savings. Instead of paying for keeping your backend service running throughout the month, or going through the pain of manually recreating it when needed, you can tear it down and start it up in a matter of minutes.
+Using CloudFormation to automate the creation and tear down of your backend JWT Pizza Service infrastructure will provide some significant cost savings. Instead of paying for keeping your backend service running throughout the month, or going through the pain of manually recreating it when needed, you can tear it down and start it up in a matter of minutes.
 
 ## Creating a JWT Pizza Service backend CloudFront template
 
@@ -251,7 +251,7 @@ Once you have updated the DNS record you should be able to connect to your backe
 As part of this automation, we did not automate the deployment of the MySQL database. There are three things you can do to manage your DB.
 
 1. **Leave it running**: You can leave your database continually running. This will cost you about $15/month, but has the advantage of not having to worry about changing anything. The disadvantage is that you will not gain any experience from managing the database.
-1. **Manual management**: You can manually teardown and deploy the database as desired.
+1. **Manual management**: You can manually tear down and deploy the database as desired.
 1. **Automate**: You can create a CloudFormation template in order to automate the creation and destruction of the database. As part of the automation you can also create and restore a snapshot of the database's data.
 1. **Temporary stop**: RDS allows you to temporarily stop the database by selecting the database actions in the RDS service console and pressing `Stop temporarily`.
 
