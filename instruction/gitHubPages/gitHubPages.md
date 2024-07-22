@@ -39,7 +39,7 @@ One easy way to do this is to use a service from `GitHub` called `GitHub Pages`.
    ```sh
    git push --set-upstream origin gh-pages
    ```
-1. Verify that the repository settings indicate that GitHub Pages is loading the `gh-pages` branch as a static deployment. You do this by accessing the `static` repository's settings page and selecting `Pages`. It should show that that it is deploying from a branch named `gh-pages`.
+1. Verify that the repository settings indicate that GitHub Pages is loading the `gh-pages` branch as a static deployment. You do this by accessing the `static` repository's settings page and selecting `Pages`. It should show that it is deploying from a branch named `gh-pages`.
 
 ![GitHub settings configuration](gitHubPagesSettings.png)
 

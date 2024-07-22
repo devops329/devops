@@ -31,7 +31,7 @@ To configure GitHub Pages to host a static deployment you need to first create a
 Next you need to associate our new branch with GitHub Pages for the jwt-pizza repository.
 
 1. Select the `Setting` option from the main navigation.
-1. Select the `Pages` option from the left hand navigation.
+1. Select the `Pages` option from the left-hand navigation.
 1. Select the `Source` option and verify that `Deploy from a branch` is selected
    > ![GitHub Pages settings](gitHubPagesSettings.png)
 1. In the `Branch` section select `gh-pages` as the branch, and press `Save`.
@@ -56,9 +56,9 @@ Now you can copy the branch to your development environment, set up some files, 
    git checkout -b gh-pages origin/gh-pages
    ```
 
-   This branch should contain all of the files for the jwt-pizza frontend. However, you don't want to deploy the project code, instead you want to deploy the distribution bundle that Vite creates. Before you do that, let's deploy a simple Hello World page to make sure things are working.
+   This branch should contain all the files for the jwt-pizza frontend. However, you don't want to deploy the project code, instead you want to deploy the distribution bundle that Vite creates. Before you do that, let's deploy a simple Hello World page to make sure things are working.
 
-1. Delete all of the code in the branch. Remember that this branch is just to host a static deployment on GitHub Pages. You should never merge it back into `main`.
+1. Delete all the code in the branch. Remember that this branch is just to host a static deployment on GitHub Pages. You should never merge it back into `main`.
    ```sh
    rm -r * .env* .vscode
    echo "hello GitHub pages" > index.html
@@ -67,7 +67,7 @@ Now you can copy the branch to your development environment, set up some files, 
    git push
    ```
 
-You can now point your browser to the GitHub pages site for your repository and see the index.html page you just created. Note that sometimes you need to wait a couple minutes before GitHub will refresh its internal cache before you will see your change.
+You can now point your browser to the GitHub pages site for your repository and see the index.html page you just created. Note that sometimes you need to wait a couple of minutes before GitHub will refresh its internal cache before you will see your change.
 
 ```sh
 curl https://youaccountnamehere.github.io/jwt-pizza
@@ -77,7 +77,7 @@ Hello GitHub Pages
 
 ## Assigning a custom domain
 
-The JWT Pizza frontend doesn't work correctly unless it is hosted on the root path of the domain. By default GitHub Pages hosts the static deployment on a path called `jwt-pizza`. To get around this you must associate a custom domain with your GitHub Pages deployment.
+The JWT Pizza frontend doesn't work correctly unless it is hosted on the root path of the domain. By default, GitHub Pages hosts the static deployment on a path called `jwt-pizza`. To get around this you must associate a custom domain with your GitHub Pages deployment.
 
 ⚠️ **Note**: If you do not already own a DNS hostname, you will need to go lease one now. You will use your hostname for all of your DevOps deployment tasks. You can lease a domain from AWS using Route53 or use a different provider such as [namecheap.com](namecheap.com).
 

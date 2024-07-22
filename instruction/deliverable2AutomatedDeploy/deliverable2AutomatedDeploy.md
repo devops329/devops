@@ -2,7 +2,7 @@
 
 🔑 **Key points**
 
-- Deploy JWT Pizza using an continuous integration pipeline
+- Deploy JWT Pizza using a continuous integration pipeline
 
 ---
 
@@ -11,14 +11,14 @@
 In your last deliverable you manually built the JWT Pizza frontend, copied it into a branch, and pushed it to GitHub pages. While this process works, it has several problems.
 
 1. **Slow**: It requires a human to execute a series of steps. That slows down your ability to move quickly.
-1. **Error prone**: If a step is skipped or a parameter is misplaced it could cause the deployment to fail, or worse, take down the website entirely.
+1. **Error-prone**: If a step is skipped or a parameter is misplaced it could cause the deployment to fail, or worse, take down the website entirely.
 1. **Non-reproducible**: You have no way of knowing which steps were followed, or who executed them.
 
 Basically, manual processes violate the prime directive of DevOps, that everything should be automated.
 
 So now it is time to take the next step. You are going to use `GitHub Actions` to deploy your static deployment each time a commit is pushed to your fork of the jwt-pizza repository.
 
-## Create the GitHubAction workflow
+## Create the GitHub Action workflow
 
 Here are the steps to make the automation magic happen.
 
@@ -122,7 +122,7 @@ Next it builds the distribution bundle by installing all the dependencies, runni
     cp dist/index.html dist/404.html
 ```
 
-Finally it packages up the `dist` directory and stores it as an artifact for the next job to deploy to GitHub Pages.
+Finally, it packages up the `dist` directory and stores it as an artifact for the next job to deploy to GitHub Pages.
 
 ```yml
 - name: Update pages artifact
@@ -162,7 +162,7 @@ The final step deploys the contents of the artifact that was created in the prev
 
 GitHub Actions will automatically create an image that shows the state of an Action workflow. You can reference the badge in the `README.md` file found in the root of your fork of `jwt-pizza`.
 
-All you need to do copy the following markdown, paste it in the readme file, replace the account name with your GitHub account name, and commit.
+All you need to do copy the following Markdown, paste it in the README file, replace the account name with your GitHub account name, and commit.
 
 ```md
 [![CI Pipeline](https://github.com/YOURACCOUNTNAMEHERE/jwt-pizza/actions/workflows/ci.yml/badge.svg)](https://github.com/YOURACCOUNTNAMEHERE/jwt-pizza/actions/workflows/ci.yml)

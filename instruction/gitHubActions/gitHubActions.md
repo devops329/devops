@@ -18,13 +18,13 @@
 
 For this course we are using GitHub Actions as the execution engine for the JWT Pizza CI pipelines. GitHub Actions represent a CI pipeline with a YAML formatted **workflow** file. Workflows are stored in the `.github/workflows` directory in a repository. Any `.yml` files located in that directory will automatically be loaded and executed. A repository can have multiple workflows, each of which can perform a different set of tasks. For example, you can have one workflow to build and test pull requests and another workflow to deploy your application every time a release is created.
 
-The workflow is comprised of one or more **jobs** which are in turn, comprised of one or more **steps**. A step will execute an individual task such as building the code, running tests, or copying files. When workflows triggers based upon some event such as a push, issue creation, or timer, a **runner** loads and executes the workflow. It is common for there to be some sort of output for a workflow such as a release artifact or a binary that is pushed into production.
+The workflow is composed of one or more **jobs** which are in turn, comprised of one or more **steps**. A step will execute an individual task such as building the code, running tests, or copying files. When workflows triggers based upon some event such as a push, issue creation, or timer, a **runner** loads and executes the workflow. It is common for there to be some sort of output for a workflow such as a release artifact or a binary that is pushed into production.
 
 ![GitHub action workflow](gitHubActionWorkflow.png)
 
 ## A simple example
 
-In the following example, the name of the workflow is **basic** and it is triggered by a **workflow_dispatch**, meaning when someone presses a button or makes an api call to trigger the workflow. This runs the **greeter** job in a container running the latest version of ubuntu. The job executes two steps. One echos _hello_ and one echos _goodbye_ to the console.
+In the following example, the name of the workflow is **basic**, and it is triggered by a **workflow_dispatch**, meaning when someone presses a button or makes an api call to trigger the workflow. This runs the **greeter** job in a container running the latest version of ubuntu. The job executes two steps. One echos _hello_ and one echos _goodbye_ to the console.
 
 ```yml
 name: basic
@@ -80,7 +80,7 @@ A job consists of steps in a workflow executed on the same runner. Each step can
 
 Jobs can be configured with dependencies on other jobs, though by default, they run in parallel. When a job depends on another, it waits for the dependent job to complete. For instance, multiple build jobs for different architectures can run in parallel, followed by a packaging job that depends on the successful completion of all build jobs.
 
-Workflow jobs run concurrently, but they can be dependent on each other by specifying what a job **needs** before it can execute. In the following example, the workflow defines build, analyze, and deploy jobs. The analyze job requires the build job to complete before it runs. The deploy job requires both the build and analyze to complete.
+Workflow jobs run concurrently, but they can be dependent on each other by specifying what a job **needs** before it can execute. In the following example, the workflow defines `build`, `analyze`, and `deploy` jobs. The `analyze` job requires the `build` job to complete before it runs. The `deploy` job requires both the build and analyze to complete.
 
 ```yml
 jobs:
@@ -131,11 +131,11 @@ jobs:
 
 ## An example: Pull request deployment
 
-In order to help you see the value the comes from GitHub Actions, let's consider a real world example. You have created a popular open source repository. You already created a **deploy** workflow that triggers whenever a change is made to the main branch of your repo. The deploy workflow builds your code and hosts the resulting binary on AWS.
+In order to help you see the value the comes from GitHub Actions, let's consider a real world example. You have created a popular open source repository. You already created a `deploy` workflow that triggers whenever a change is made to the main branch of your repo. The `deploy` workflow builds your code and hosts the resulting binary on AWS.
 
 ![pull request deployment](pullRequestDeployment.png)
 
-Now you want to allow external contributors to fork your repository and create pull results for new features or bug fixes. When an external contributor creates a pull request the **verify** workflow is triggered and the code is automatically analyzed to make sure the changes honor all of the linting and security policies. If successful then the **approval** workflow is triggered and a team member is notified to conduct a code review. If the reviewer approves the changes then she confirms her approval and the workflow commits the changes to the main branch. The commit triggers the original **deploy** workflow and a production release is created.
+Now you want to allow external contributors to fork your repository and create pull results for new features or bug fixes. When an external contributor creates a pull request, the `verify` workflow is triggered, and the code is automatically analyzed to make sure the changes honor all the linting and security policies. If successful, the `approval` workflow is triggered and a team member is notified to conduct a code review. If the reviewer approves the changes, then she confirms her approval, and the workflow commits the changes to the main branch. The commit triggers the original `deploy` workflow and a production release is created.
 
 Note that you can use this same pattern with forks instead of branches. Branches are generally used for internal reviews, while forks are used with open source project external contributors.
 

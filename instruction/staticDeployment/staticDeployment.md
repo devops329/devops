@@ -39,7 +39,7 @@ You can only get so far building applications that only execute on a customer's 
 
 An application can still be considered a static deployment even if it calls backend computational services, as long as **you** are not providing those services. The idea here is that your part of the application is static, while some other party is supporting the dynamic part of the application.
 
-Consider a case where you build a React application that uses [Google Firebase](https://firebase.google.com/) to handle authentication, notifications, and simple data storage. In this case you are still only deploying a static application and Google is handling all of the harder issues related to scalability, reliability, and resilience.
+Consider a case where you build a React application that uses [Google Firebase](https://firebase.google.com/) to handle authentication, notifications, and simple data storage. In this case you are still only deploying a static application, and Google is handling all the harder issues related to scalability, reliability, and resilience.
 
 ```mermaid
 graph LR;
@@ -53,7 +53,7 @@ graph LR;
 
 ## JWT Pizza
 
-Another example is the JWT Pizza application. Initially, you will deploy only the JWT Pizza frontend and it will call infrastructure provided by JWT Headquarters.
+Another example is the JWT Pizza application. Initially, you will deploy only the JWT Pizza frontend, and it will call infrastructure provided by JWT Headquarters.
 
 ```mermaid
 graph LR;

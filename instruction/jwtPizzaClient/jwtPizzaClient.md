@@ -62,7 +62,7 @@ As the application team makes changes to the frontend code you will need to sync
 
 To sync your fork, navigate to your account's fork of the `jwt-pizza` repository. It will display if your fork is out of date. Press the `Sync fork` button and confirm the action.
 
-⚠️ **Note**: Do not press the `Discard commits` button if it is available or you will lose any code that you have added to your fork such as tests you have written.
+⚠️ **Note**: Do not press the `Discard commits` button if it is available, or you will lose any code that you have added to your fork such as tests you have written.
 
 ![sync fork](syncFork.png)
 

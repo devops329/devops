@@ -2,7 +2,7 @@
 
 🔑 **Key points**
 
-- Automation is a the core tenant of DevOps.
+- Automation is the core tenant of DevOps.
 - Automation enables speed, safety, and reproducibility.
 - Learn to prioritize what you will automate.
 
@@ -16,9 +16,9 @@ Automation is _the_ core tenet of DevOps. The idea that you can write code that 
 
 Every system begins with the manual processes that explore what needs to happen in order to make advancements. However, as the system matures, the concept of automating repetitive tasks naturally drives progress.
 
-Gone are the days when corporate stocks were traded by physically visiting a stock broker, having them wander onto a trading floor, finding a broker who is interested in a similar transaction, exchanging written certificates or currency, hand writing the transaction in a physical book, and then delivering the certificate to the sponsoring parties. Now, an automated process that produces both the desired outcome and the appropriate audit trail is done in milliseconds.
+Gone are the days when corporate stocks were traded by physically visiting a stockbroker, having them wander onto a trading floor, finding a broker who is interested in a similar transaction, exchanging written certificates or currency, hand writing the transaction in a physical book, and then delivering the certificate to the sponsoring parties. Now, an automated process that produces both the desired outcome and the appropriate audit trail is done in milliseconds.
 
-In a similar way, no one uses parchment and a quill to hand write a novel. Word processing software augments the creative process and makes it easy to not only create the document, but track revisions, collaborate with others, and produce the resulting document as a PDF, printed copy, or online representation.
+Similarly, no one uses parchment and a quill to write a novel. Word processing software augments the creative process and makes it easy to not only create the document, but track revisions, collaborate with others, and produce the resulting document as a PDF, printed copy, or online representation.
 
 It seems obvious to us that stock trading and document creation tasks should be automated as much as possible in order to remove the toil for parts of the task that are not central to the task itself. However, the benefits are often only fully realized once the toil is removed and the automation has occurred. Basic automation often clears the path for deeper and more meaningful automation. When word processors were first created the vision of what automation would eventually do for that task was completely unrealized. However, as layers of automation were added, we were able to take ourselves all the way from typewriters, to decentralized collaborative Google Docs, to AI writing the novel for us.
 
@@ -32,7 +32,7 @@ Automation is fast. When a system is down, the last thing you want to be doing i
 
 #### 🚸 Safety
 
-Automation removes the possibility of human error. Some of the most expensive system failures have been caused because a step was skipped or a parameter was misplaced.
+Automation removes the possibility of human error. Some of the most expensive system failures have been caused because a step was skipped, or a parameter was misplaced.
 
 #### 📑 Reproducibility
 
@@ -42,7 +42,7 @@ Automation creates documentation and a historical trail. When humans alter a sys
 
 The whole point of computers and software is to generalize tasks into repeatable instructions in order to quickly and reproducibly complete a task. We should not constrain our vision of what automation can do. If we are willing to reduce the toil of computing the digits of Pi or a Fibonacci sequence, then why not automate the deployment of where the software is used? Why not automate the recording of failures and the collection of performance metrics? These likewise are coding tasks, and the benefits of automating them are just as real as any other coding problem.
 
-When we are narrow minded in what we consider to be **coding tasks**, we significantly decrease the effectiveness of our hard earned skills. Basically anything that we do more than once, or anything that is complex enough that we need to document how it was done even once, should be turned into a coding task.
+When we are narrow-minded in what we consider to be **coding tasks**, we significantly decrease the effectiveness of our hard-earned skills. Basically anything that we do more than once, or anything that is complex enough that we need to document how it was done even once, should be turned into a coding task.
 
 Just remember this. It is all code. Code that monitors a human typing a novel on a keyboard is just as interesting as code that monitors the code for the word processing application. It is actually very fulfilling to replace any manual task with an automated one.
 
@@ -60,7 +60,7 @@ When specifically considering automation in regard to DevOps, we want to automat
 
 For example, what if the servers running the automation pipeline go offline? This is actually a fairly common problem and occurs for an obvious reason. The application software and the automation software are usually executed in the same physical location. If a flood wipes out the data center then your automation process is also gone and rebuilding the automation pipeline at a different data center is going to take manual toil. That is assuming that you even can reproduce the steps to rebuild the pipeline. Most likely rebuilding the automation pipeline, that cannot be rebuilt using automation, will feel like starting again from scratch.
 
-Instead you want code that is safely stored independently from the location where the automation system executes, just like you don't only store the source code for your application with the application itself. That way if you need to rebuild the automation pipeline, you simply run the code that builds it.
+Instead, you want code that is safely stored independently of the location where the automation system executes, just like you don't only store the source code for your application with the application itself. That way if you need to rebuild the automation pipeline, you simply run the code that builds it.
 
 ## Tools of automation
 
@@ -69,7 +69,7 @@ Any programming language can be used to create automation. However, you should c
 - What is the competency level of my DevOps team? Do they know how to code? Is it better to buy automation tools than to build your own?
 - Can I leverage existing skill sets? If the team only knows one language, should I write all the tools in that language?
 - Am I using the right tools for the right job, or am I using tools for purposes it wasn't created for?
-- Are my tools battle-tested and well supported, or am I using them simply because they seem cool?
+- Are my tools battle-tested and well-supported, or am I using them simply because they seem cool?
 
 There are some tools that should be in the toolkit of every DevOps engineer. These include shell scripting, Git, SQL, Curl, Docker, an orchestration tool such as Terraform or CloudFormation, and a CI pipeline scripting tool like GitHub Actions or CircleCI.
 
@@ -85,7 +85,7 @@ As a DevOps engineer, you can never really automate everything and so it is impo
 impact = (monthly frequency * duration) * value
 ```
 
-The next part of the puzzle is to give the task a **complexity** score that is based on how difficult the task is to automate. If you can automate it with a single line of shell script then give it a complexity score of 1. If it requires entirely service providers or the development of a whole new code base then give it a score of 8. If it is also difficult to deploy and initiate then give it a score of 10.
+The next part of the puzzle is to give the task a **complexity** score that is based on how difficult the task is to automate. If you can automate it with a single line of shell script then give it a complexity score of 1. If it requires entirely new service providers or the development of a whole new code base then give it a score of 8. If it is also difficult to deploy and initiate, then give it a score of 10.
 
 ```
 priority = impact/complexity
@@ -118,7 +118,7 @@ The most valuable testing automation is code that simulates real users in both n
 
 #### Automating deployment
 
-Deployment automation does remove significate toil, but its real value is with reproducibility and the creation of an audit trail. Here is an example of a deployment to AWS S3 of the latest frontend application code using GitHub Actions.
+Deployment automation does remove significant toil, but its real value is with reproducibility and the creation of an audit trail. Here is an example of a deployment to AWS S3 of the latest frontend application code using GitHub Actions.
 
 ```yml
 deploy-s3:
