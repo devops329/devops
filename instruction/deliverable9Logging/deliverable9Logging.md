@@ -11,7 +11,7 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
-It is time to add logging observability to the jwt-pizza-service code. In your fork of the code, use what you learned about [Grafana logging](../grafanaLogging/grafanaLogging.md) to create a log of all the following:
+It is time to add logging observability to the `jwt-pizza-service `code. In your fork of the code, use what you learned about [Grafana logging](../grafanaLogging/grafanaLogging.md) to create a log of all the following:
 
 1. HTTP requests
    1. HTTP method, path, status code
@@ -32,7 +32,7 @@ Try to use design patterns and principles such as middleware and modularity to i
 
 ## Getting started
 
-This assignment should feel similar to the exercises you have already completed. However, there are a lot of different log events that are required and it will take some time to figure out how to instrument the code and provide the log events necessary to provide a useful logging search experience.
+This assignment should feel similar to the exercises you have already completed. However, there are a lot of different log events that are required, and it will take some time to figure out how to instrument the code and provide the log events necessary to provide a useful logging search experience.
 
 ### Add Grafana credentials to config.js
 

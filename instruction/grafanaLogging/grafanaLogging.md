@@ -44,7 +44,7 @@ In order to send logs over HTTP you will need an API key.
 
 The HTTP body of the logging request follows the [HTTP Loki log syntax](https://grafana.com/docs/loki/latest/reference/loki-http-api/#ingest-logs), and is what you will use when you generate log messages.
 
-Each message is comprised of one or more streams. Each **stream** contains the labels (e.g. tags) for the log messages represented by the stream. This is followed by one or more **values** that represent that actual log message. You can also include an option **metadata** object that defines one or more metadata values. Note that labels are indexed and searchable, while metadata is not index but can still be used for filtering log messages. You should not include labels that have high cardinality, or lots of different values. That will cause Loki queries to perform poorly.
+Each message is composed of one or more streams. Each **stream** contains the labels (e.g. tags) for the log messages represented by the stream. This is followed by one or more **values** that represent that actual log message. You can also include an option **metadata** object that defines one or more metadata values. Note that labels are indexed and searchable, while metadata is not index but can still be used for filtering log messages. You should not include labels that have high cardinality, or lots of different values. That will cause Loki queries to perform poorly.
 
 The general syntax looks like this:
 
@@ -78,7 +78,7 @@ If you were going to create a log message that described a login HTTP request, y
 
 ### Using Curl to insert logs
 
-Using the example command and your newly minted API key, you can now insert data into Loki. Make sure you replace the Grafana account number and API key represented in the authorization token with your account number and API key. Ensure the Loki url matches that given in the curl example Grafana gave you; your subdomain may differ from `logs-prod-006`.
+Using the example command and your newly minted API key, you can now insert data into Loki. Make sure you replace the Grafana account number and API key represented in the authorization token with your account number and API key. Ensure the Loki URL matches that given in the curl example Grafana gave you; your subdomain may differ from `logs-prod-006`.
 
 ```sh
 curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer 111111:glc_xxxxxxx" -d '{"streams": [{"stream": {"component":"jwt-pizza-service", "level": "info", "type":"http-req"},"values": [["'"$(($(date +%s)*1000000000))"'","{\"name\":\"hacker\", \"email\":\"d@jwt.com\", \"password\":\"****\"}",{"user_id": "44","traceID": "9bc86924d069e9f8ccf09192763f1120"}]]}]}' -H "Content-Type:application/json" https://logs-prod-006.grafana.net/loki/api/v1/push
@@ -124,7 +124,7 @@ This will display the log messages for the past 30 minutes. You can adjust the t
 
 ![log events](logEvents.png)
 
-Because you chose the Json parser, the log message was automatically parsed into fields and it is visually differentiating based on the **level** field.
+Because you chose the JSON parser, the log message was automatically parsed into fields, and it is visually differentiating based on the **level** field.
 
 By default, there will be a column for Time and Line. You can select which columns you want to see by manipulating the selected fields displayed on the left. Here is the same data with different fields displayed in the graph.
 

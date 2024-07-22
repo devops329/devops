@@ -75,7 +75,7 @@ To create a Grafana synthetic test do the following:
 
 ## Viewing the results
 
-It will take a few seconds for the results of your test to start recording. Once they do you will see the summary displayed.
+It will take a few seconds for the results of your test to start recording. Once they do, you will see the summary displayed.
 
 ![Check summary](checkSummary.png)
 

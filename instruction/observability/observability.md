@@ -8,7 +8,7 @@
 
 ---
 
-When you run an application in your development environment, you know that you are the only user and you can debug your usage with console output or breakpoints. Things get significantly more complex when you deploy an application to a remote production environment and have millions of active customers. When you add the complexity of multiple components in a distributed architecture, including some that are running on the customer's device and others that run in 3rd party servers, it can be incredibly difficult to know where things are going wrong.
+When you run an application in your development environment, you know that you are the only user, and you can debug your usage with console output or breakpoints. Things get significantly more complex when you deploy an application to a remote production environment and have millions of active customers. When you add the complexity of multiple components in a distributed architecture, including some that are running on the customer's device and others that run in 3rd party servers, it can be incredibly difficult to know where things are going wrong.
 
 ![High level components](highLevelComponents.png)
 
@@ -22,22 +22,22 @@ There are three types of tools that are usually associated with increasing the o
 
 1. **Metrics**: Provides raw numbers, such as requests rates and CPU percentages, that can be aggregated together to quickly analyze the health of a system. They can also provide a historical record of system performance.
 1. **Logging**: Records key information as it passes through the system. This includes fields such as request IP addresses, SQL queries, and authentication requests.
-1. **Tracing**: Allows you to debug a distributed system in a similar way you would use an IDE to walk through each line of code. With tracing you can follow the path of a request that started on a customer's device, through the backend service, and into a database.
+1. **Tracing**: Allows you to debug a distributed system similarly to how you would use an IDE to walk through each line of code. With tracing, you can follow the path of a request that started on a customer's device, through the backend service, and into a database.
 
 ## Vital observability characteristics
 
-There are a number of vital characteristics that make an observability tool valuable. These characteristic define the value and cost of the monitoring. Simple systems that only retain a couple of hours of data and are located on difficult to access storage are not as valuable as realtime dashboards that allow for complex queries with years of history. However, the realtime systems are complex to build and maintain and therefore significantly more expensive. In the end, the characteristics that you choose should be aligned with the value of the system you are observing.
+There are a number of vital characteristics that make an observability tool valuable. These characteristic define the value and cost of the monitoring. Simple systems that only retain a couple of hours of data and are located on difficult to access storage are not as valuable as real-time dashboards that allow for complex queries with years of history. However, the real-time systems are complex to build and maintain and therefore significantly more expensive. In the end, the characteristics that you choose should be aligned with the value of the system you are observing.
 
 ### Golden Signals
 
-As described in the [Google SRE Handbook](https://sre.google/sre-book/monitoring-distributed-systems/), there are four metrics, or signals, that you need to observe closely. This include the following.
+As described in the [Google SRE Handbook](https://sre.google/sre-book/monitoring-distributed-systems/), there are four metrics, or signals, that you need to observe closely:
 
 - **Latency**: The time it takes to service a request.
 - **Traffic**: How many requests are happening concurrently.
 - **Errors**: How many failures are happening.
 - **Saturation**: How much capacity is left in the system.
 
-Each of the signals indicates a different aspect of overall healthiness of the system. For example, you could be responding quickly to requests, but also generating lots of errors, or reaching saturation of the network bandwidth. Errors may be high in number, but low in relation to the percentage of traffic.
+Each of the signals indicates a different aspect of overall healthiness of the system. For example, you could be responding quickly to requests, but also generating lots of errors, or reaching saturation of the network bandwidth. Errors may be high in number, but form a low percentage of traffic.
 
 ### Correct interpretation
 
@@ -57,7 +57,7 @@ Consider the situation where your website latency has significantly increased. I
 
 ### Elasticity
 
-all the desirable characteristics that you want for your application also apply to your observability system. This includes elasticity. You want to handle a spike in log requests without having to manually adjust your system. Without this, your observability will lag, or worse, fail entirely exactly at the moment when you need it most.
+All the desirable characteristics that you want for your application also apply to your observability system. This includes elasticity. You want to handle a spike in log requests without having to manually adjust your system. Without this, your observability will lag, or worse, fail entirely exactly at the moment when you need it most.
 
 ### Aggregation and accessibility
 
@@ -105,4 +105,4 @@ At the very least, the human responders would have an array of automated respons
 
 With decades of collected metrics and response data, the area of incident response became fertile ground for replacement by an artificial intelligence system. Today, it is common for all but the most critical failures to be handled automatically by AI. After resolution, the AI system creates a postmortem report that is reviewed by the team. This allows for long term alterations to the system that provide even greater stability.
 
-💡 Writing a curiosity report on how AI can be used to sift through metrics and logs to find anomalies and generate appropriate alerts or execute self healing would be very interesting.
+💡 Writing a curiosity report on how AI can be used to sift through metrics and logs to find anomalies and generate appropriate alerts or execute self-healing would be very interesting.

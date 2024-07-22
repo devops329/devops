@@ -19,7 +19,7 @@ Many of the topics that are important when considering what makes a good logging
 
 One topic that we haven't discussed is the actual mechanism for capturing, normalizing, and transmitting logs in a way that doesn't overly impact the actual processing of the application without creating serious lag in the reporting of events.
 
-You will soon use a very simple system for reporting log events to the observability system. Basically every time a log event is triggered, the generation and transmission of the log record happens synchronously with the triggered event. For example, when an HTTP request is received the log event will be sent to the logging system over the network as part of the processing of the HTTP request. To be fair, the log event is actually sent asynchronously, but there is still a every real possibility that the act of logging will detrimentally impact the latency of customer requests.
+You will soon use a very simple system for reporting log events to the observability system. Basically every time a log event is triggered, the generation and transmission of the log record happens synchronously with the triggered event. For example, when an HTTP request is received the log event will be sent to the logging system over the network as part of the processing of the HTTP request. To be fair, the log event is actually sent asynchronously, but there is still a very real possibility that the act of logging will detrimentally impact the latency of customer requests.
 
 There are lots of things that we can do to remedy this situation. One possibility is to cache multiple log events in memory and send them in bulk at periodic intervals. For example, you could have a 500 KB buffer that sends when it gets full or when 15 seconds have passed. This reduces the overhead of communication a single log event at a time and gains efficiency because the bulk delivery can be compressed more efficiently and thereby decreasing the cost of transmission significantly.
 
@@ -38,7 +38,7 @@ Here is a list of additional things that you should consider in your logging des
 - In bulk?
 - Synchronously or asynchronously?
 - As part of your application, or as part of an out of process daemon?
-- Can you transformations or normalize the data to reduce overhead while still providing value?
+- Can you transform or normalize the data to reduce overhead while still providing value?
 - What format do you use?
 - Are you transmitting redundant information that could be assumed or derived?
 

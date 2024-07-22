@@ -84,7 +84,7 @@ Go grab an apple 🍏 while you let this run for 15 minutes or so. This will giv
 
 Now you can open up your Grafana Cloud dashboard and create a new visualization. Make sure the `Data source` is set to your **grafanacloud-\*-prom** data source. Set the time window to be the **Last 5 minutes**.
 
-Create two queries, with `demo_accumulator_total` for the first query, and `demo_instant` for the second query. Switch the input mode from `Builder` to `Code` so that we can just supply PromQL queries. However, if you prefer the `Builder` input mode better then you can stick with that and adapt the following instruction. You can also input PromQL queries before switching to `Builder` to view a breakdown of how they are constructed.
+Create two queries, with `demo_accumulator_total` for the first query, and `demo_instant` for the second query. Switch the input mode from `Builder` to `Code` so that we can just supply PromQL queries. However, if you prefer the `Builder` input mode better, you can stick with that and adapt the following instruction. You can also input PromQL queries before switching to `Builder` to view a breakdown of how they are constructed.
 
 ![Initial queries](initalQueries.png)
 
@@ -92,7 +92,7 @@ Press `Run queries`. This should display the data with the default **Time series
 
 ![Initial visualization](initalVisualization.png)
 
-Depending how long it has been since you started generating data you should see the **instant** value hovering around 0 and the **count** value in the tens of thousands.
+Depending on how long it has been since you started generating data you should see the **instant** value hovering around 0 and the **count** value in the tens of thousands.
 
 ### Computing average metrics from totals
 
@@ -118,7 +118,7 @@ rate(demo_accumulator_total[1m])
 
 ### Computing totals from instant metrics
 
-You can also reverse the process of averaging metrics from a total, and compute a total from a metric that is reported as instant values. Currently the **instant** metric is reporting something like CPU % at this moment, current active users, or revenue for the past data collection. So assuming that **instant** represents revenue for the past data collection, you can figure out the total revenue for the past day by using the`sum_over_time` function.
+You can also reverse the process of averaging metrics from a total, and compute a total from a metric that is reported as instant values. Currently, the **instant** metric is reporting something like CPU % at this moment, current active users, or revenue for the past data collection. So assuming that **instant** represents revenue for the past data collection, you can figure out the total revenue for the past day by using the`sum_over_time` function.
 
 ```sh
 sum_over_time(demo_instant[24h])

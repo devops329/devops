@@ -61,7 +61,7 @@ In order to get started with Grafana Cloud you need to create a free account.
 
    > ![Setup account](setupAccount.png)
 
-1. Continue with the sign up process. This takes a few minutes as they spin up resources for you in their cloud hosting environment. Once it is done you will see the setup options. Press the `Skip setup` option in the top right corner and select `I'm already familiar with Grafana`.
+1. Continue with the sign-up process. This takes a few minutes as they spin up resources for you in their cloud hosting environment. Once it is done you will see the setup options. Press the `Skip setup` option in the top right corner and select `I'm already familiar with Grafana`.
 1. Click on the hamburger menu in the top left corner and wander around the functionality that is available there.
 
 ### Grafana architecture
@@ -103,7 +103,7 @@ Now you can create a visualization from the data source.
 1. This will display the settings for a new panel that you are adding to the dashboard. Notice the following:
 
    1. The `Data source` is set to **awesome-data**. You can change the data source of a visualization at any time.
-   1. The `Scenario` has **Random Walk** selected. This means the you are pulling random data from the data source. There are lots of other types of data that the data source exposes for use with different types of visualizations.
+   1. The `Scenario` has **Random Walk** selected. This means you are pulling random data from the data source. There are lots of other types of data that the data source exposes for use with different types of visualizations.
    1. The `Visualization` is set to **Time series**. This is a good choice for your random walk data.
 
       ![Time series visualization](timeSeriesVisualization.png)

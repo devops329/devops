@@ -10,7 +10,7 @@
 
 ![Prometheus Logo](prometheusLogo.png)
 
-In previous instruction we used the TestData data source to display randomly generated metrics on a Grafana dashboard. Now we want to demonstrate how to actually to actually supply data for visualization.
+In previous instruction we used the TestData data source to display randomly generated metrics on a Grafana dashboard. Now we want to demonstrate how to actually supply data for visualization.
 
 Grafana has dozens of predefined data sources for all kinds of data services. This includes services such as MySQL, AWS CloudWatch, Caddy Server, CSV files, ElasticSearch, GitHub, and so on. Each of these data sources define how to connect to the service and what data they expose for visualization in a dashboard panel.
 
@@ -48,7 +48,7 @@ In order to send metrics over HTTP you will need an API key.
 
 ### InfluxDB line protocol syntax
 
-The metric string uses uses the [InfluxDB line protocol syntax](https://docs.influxdata.com/influxdb/cloud/reference/syntax/line-protocol/). This has the following general syntax.
+The metric string uses the [InfluxDB line protocol syntax](https://docs.influxdata.com/influxdb/cloud/reference/syntax/line-protocol/). This has the following general syntax.
 
 ```sh
 <measurement>[,<tag_key>=<tag_value>]* [<field_key>=<field_value>]*
@@ -88,7 +88,7 @@ Using the example command and your newly minted API key you can now insert data 
 ## Create a visualization
 
 1. Open up your Grafana Cloud dashboard.
-1. Open the Home menu, click on Dashboards, and then select **Pizza Dashboard** that you previous created.
+1. Open the Home menu, click on Dashboards, and then select **Pizza Dashboard** that you previously created.
 1. Click the `Add` button on the top menu and create a new visualization.
 1. For the `Data source` specify **grafanacloud-youraccountnamehere-prom**.
 1. Toggle the query editor to `Builder` mode.
@@ -108,7 +108,7 @@ If you insert enough metrics you will see the total request count going up and u
 
 1. Edit the panel.
 1. Toggle the query editor to `Code` mode.
-1. Replace the query that is there with one that computes the per-second average rate of increase over a one minute period.
+1. Replace the query that is there with one that computes the per-second average rate of increase over a one-minute period.
    ```
    rate(request_total{source="jwt-pizza-service"}[1m])
    ```
@@ -150,7 +150,7 @@ Create a simple Express app by doing the following.
    }
    ```
 
-1. Create a `metrics.js` file that basically does the same thing that the curl command was doing. The difference is that the total request count only increments every time `incrementRequests` is called. Note that `unref` is called on the timer so that node.js will shutdown even though the timer is still running.
+1. Create a `metrics.js` file that basically does the same thing that the curl command was doing. The difference is that the total request count only increments every time `incrementRequests` is called. Note that `unref` is called on the timer so that node.js will shut down even though the timer is still running.
 
    ```js
    const config = require('./config.json');

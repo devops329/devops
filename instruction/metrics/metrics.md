@@ -8,7 +8,7 @@
 
 ---
 
-The first observability tool to consider is metrics. They allow you to determine the health of a system at a glance. They serve as evidence that the application is over provisioned, behaving as designed, is approaching saturation, or is completely compromised. Good metrics will allow you to start at a high level aggregation and then drill into specific details. They will also allow you to drill in temporarily from a view of trends over a week period to a detailed five minute window.
+The first observability tool to consider is metrics. They allow you to determine the health of a system at a glance. They serve as evidence that the application is over provisioned, behaving as designed, is approaching saturation, or is completely compromised. Good metrics will allow you to start at a high level aggregation and then drill into specific details. They will also allow you to drill in temporarily from a view of trends over a week period to a detailed five-minute window.
 
 ## Using metrics to diagnose system health
 
@@ -16,11 +16,11 @@ Consider the following metrics for log events and pizza making latency. There is
 
 ![Inital metrics](initialMetrics.png)
 
-The graph horizontal axis don't quite match up, but if we drill in we can see more clearly what is going on. The spike in log events happens around 9:37 while the spike in latency happens almost exactly at 9:50. They could still correlate if the log spike happened after the latency spike since you would back up on log entries due to an increase in latency, but it is not likely to happen the other way around.
+The graphs' horizontal axes don't quite match up, but if we drill in we can see more clearly what is going on. The spike in log events happens around 9:37 while the spike in latency happens almost exactly at 9:50. They could still correlate if the log spike happened after the latency spike since you would back up on log entries due to an increase in latency, but it is not likely to happen the other way around.
 
 ![Drill in metrics](drillInMetrics.png)
 
-This still leaves the questions. Why did latency jump from 10 ms to 18 ms at 10:5?. Now I'm starting to feel like a detective hot on the trail of a crime. If we drill in to a five minute window we notice that the active users metric has an annotation that an alert was triggered around this time.
+This still leaves the questions. Why did latency jump from 10 ms to 18 ms at 10:5?. Now I'm starting to feel like a detective hot on the trail of a crime. If we drill in to a five-minute window we notice that the active users metric has an annotation that an alert was triggered around this time.
 
 ![Active user alert metrics](activeUserAlertsMetrics.png)
 
@@ -38,6 +38,6 @@ Another valuable contribution that you can derive from metrics is their aid to r
 
 # The cost of metrics
 
-Keeping detailed metrics at the per second level is expensive. In a system that tracks 1000 metrics every second, you will accumulate _86 million_ values every day. 1000 metrics seems like a lot, but if you have 10 servers each reporting system values (easily 20 metrics), individual endpoint counts (another 50), and other service values such as purchases, authentication attempts, errors, and http status codes (another 30), you will easily get to 100 metrics per server. Not to press the point, but for a large scale system 10 servers is a very small number.
+Keeping detailed metrics at the per second level is expensive. In a system that tracks 1000 metrics every second, you will accumulate _86 million_ values every day. 1000 metrics seems like a lot, but if you have 10 servers each reporting system values (easily 20 metrics), individual endpoint counts (another 50), and other service values such as purchases, authentication attempts, errors, and HTTP status codes (another 30), you will easily get to 100 metrics per server. Not to press the point, but for a large scale system 10 servers is a very small number.
 
-When you throw the costs of storing metrics on top of that, things can get expensive really quickly. One way to deal with this expense is to decrease the granularity of the stored metrics as time goes on. For example, keeping the metrics at one second as they are reported for the last 15 days, and then sampling down the metrics that are stored to one minute for the last 6 months, and then finally sampling down to to 15 minutes for metrics that are stored for the past 10 years. This gives you the greatest granularity for the period that you are likely to need it, without incurring significant cost when you are more interested in broad historical trends.
+When you throw the costs of storing metrics on top of that, things can get expensive really quickly. One way to deal with this expense is to decrease the granularity of the stored metrics as time goes on. For example, keeping the metrics at one second as they are reported for the last 15 days, and then sampling down the metrics that are stored to one minute for the last 6 months, and then finally sampling down to 15 minutes for metrics that are stored for the past 10 years. This gives you the greatest granularity for the period that you are likely to need it, without incurring significant cost when you are more interested in broad historical trends.

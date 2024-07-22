@@ -11,7 +11,7 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
-It is time to add metrics observability to the jwt-pizza-service code. In your fork of the Pizza Service code use what you learned about [Grafana metrics](../grafanaMetrics/grafanaMetrics.md) to create visualizations that demonstrate the following:
+It is time to add metrics observability to the `jwt-pizza-service` code. In your fork of the Pizza Service code use what you learned about [Grafana metrics](../grafanaMetrics/grafanaMetrics.md) to create visualizations that demonstrate the following:
 
 1. HTTP requests by method/minute
 1. Active users
@@ -34,7 +34,7 @@ Try to use design patterns and principles such as middleware and modularity to i
 
 ## Getting started
 
-This assignment should feel similar to the exercises you have already completed. However, there are a lot of different metrics that are required and it will take some time to figure out how to gather the metrics, instrument the code, and finally create the visualizations. Here are some suggestions about how to get started.
+This assignment should feel similar to the exercises you have already completed. However, there are a lot of different metrics that are required, and it will take some time to figure out how to gather the metrics, instrument the code, and finally create the visualizations. Here are some suggestions about how to get started.
 
 ### Add Grafana credentials to config.js
 
@@ -51,7 +51,7 @@ Modify your config.js file to contain the Grafana credentials. You can then refe
 
 ### Modify CI pipeline
 
-Because you are added new configuration to the JWT Service, you will need to also enhance your GitHub Actions workflow to have the new metrics configuration fields. You must also add secrets for the metrics METRICS_USER_ID, METRICS_URL, and METRICS_API_KEY.
+Because you are added new configuration to the JWT Service, you will need to also enhance your GitHub Actions workflow to have the new metrics configuration fields. You must also add secrets for the METRICS_USER_ID, METRICS_URL, and METRICS_API_KEY.
 
 Without this your CI pipeline will fail because of missing references from your new metrics code when your tests run.
 
@@ -85,7 +85,7 @@ Without this your CI pipeline will fail because of missing references from your 
 
 ### Create metrics.js
 
-Create a file named `metrics.js`. Use this file to for all the code necessary to interact with Grafana. This may be somewhat similar to what you created in the [Grafana Metrics instruction](../grafanaMetrics/grafanaMetrics.md). However, it will need to be more complex than what was presented in the instruction because it will have to supply metrics for more than just http requests.
+Create a file named `metrics.js`. Use this file to for all the code necessary to interact with Grafana. This may be somewhat similar to what you created in the [Grafana Metrics instruction](../grafanaMetrics/grafanaMetrics.md). However, it will need to be more complex than what was presented in the instruction because it will have to supply metrics for more than just HTTP requests.
 
 ### Add request metrics code
 
