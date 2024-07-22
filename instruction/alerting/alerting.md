@@ -20,7 +20,7 @@ Keep a prioritized list of metrics that you believe have a direct impact on the 
 
 ### Common critical alerts
 
-- **Security**: Increased authentication attempts, abnormal traffic from an individual user, access from concurrent geo-locations, common vulnerability requests, and traffic increases during off hours.
+- **Security**: Increased authentication attempts, abnormal traffic from an individual user, access from concurrent geolocations, common vulnerability requests, and traffic increases during off hours.
 - **Resource exhaustion**: CPU, storage, memory, bandwidth capacity is nearing critical levels.
 - **Request latency**: Slow response times for customer requests.
 - **Excessive load**: Usage increases that exceed the elastic properties of the system.
@@ -31,7 +31,7 @@ For each critical metric that you define, you need to define the threshold at wh
 
 ![Alert thresholds](alertThresholds.png)
 
-With some metrics, such as request latency, you need to carefully consider outliers. If your request latency averages at 50ms you might consider that as successful. However, if you inspect the 99.9th percentile you might discover that those requests are taking 30,000ms. That means that 1 in 1000 requests are prohibitively expensive. Even then you might not consider this a problem until you realize that in order to render a web page you must make dozens of endpoint requests. If one in ten page renderings hit the slow endpoint then that means 10% of your customers are having an extremely poor experience.
+With some metrics, such as request latency, you need to carefully consider outliers. If your request latency averages at 50ms you might consider that as successful. However, if you inspect the 99.9th percentile you might discover that those requests are taking 30,000ms. That means that 1 in 1000 requests are prohibitively expensive. Even then you might not consider this a problem until you realize that in order to render a web page you must make dozens of endpoint requests. If one in ten page renderings hit the slow endpoint, that means 10% of your customers are having an extremely poor experience.
 
 ## Alert Rules
 
@@ -55,17 +55,17 @@ Within this category, we can have alerts triggered by state conditions or metric
 
 These are alerts that are triggered based on the contents of logs. For example, if the logs contain the word "error" more than 10 times in a minute, then an alert is triggered.
 
-The following show an attacker attempting to probe our Pizza Service for known security holes. They have bypassed the DNS name of the service and have obtained the public IP address directly. In this cause you might trigger an information alert if the probe traffic exceeds an certain level, or if the same source IP address is later used in a legitimate request.
+The following show an attacker attempting to probe our Pizza Service for known security holes. They have bypassed the DNS name of the service and have obtained the public IP address directly. In this case you might trigger an information alert if the probe traffic exceeds a certain level, or if the same source IP address is later used in a legitimate request.
 
 ![Security violation logs](securityViolationLogs.png)
 
 ## Handling alerts
 
-When a alert is triggered the appropriate response must be initiated. The [Google SRE handbook](https://sre.google/sre-book/practical-alerting/) gives a basic structure for handling alerts.
+When an alert is triggered the appropriate response must be initiated. The [Google SRE handbook](https://sre.google/sre-book/practical-alerting/) gives a basic structure for handling alerts.
 
 - **Critical** alerts are sent to the On-Call team, a team who is scheduled to be available for immediately response. This team has the access and capabilities required to resolve or escalate the incident.
 - **Sub-critical** alerts are inserted into a ticketing system for team members to handle during normal working hours.
-- **Informational** alerts are retained for review when convenient. This is commonly reviewed as a aggregated digest in a monthly operational meeting.
+- **Informational** alerts are retained for review when convenient. This is commonly reviewed as an aggregated digest in a monthly operational meeting.
 
 Once an alert has triggered and the appropriate party notified, the alerting system will require an acknowledgement. If no acknowledgement is given then the system will escalate the alert to additional parties until an acknowledgement is received.
 

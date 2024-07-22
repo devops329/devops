@@ -74,7 +74,7 @@ Note that this will create a new database instance with the restored data. Witho
 
 ## Alternatives to backup restoration
 
-If need a smaller RTO then you can employ one of many alternative solutions. For example, you can create a read replica of your database. This creates what is called a **hot standby** that is actively taking read requests and can replace the primary when a failure occurs. RDS will automatically write data to both your primary database and your read replica. You can also use both copies to handle read requests from your application, which has the benefit of doubling your ability to handle read requests.
+If you need a smaller RTO then you can employ one of many alternative solutions. For example, you can create a read replica of your database. This creates what is called a **hot standby** that is actively taking read requests and can replace the primary when a failure occurs. RDS will automatically write data to both your primary database and your read replica. You can also use both copies to handle read requests from your application, which has the benefit of doubling your ability to handle read requests.
 
 ![Read replica](readReplica.png)
 

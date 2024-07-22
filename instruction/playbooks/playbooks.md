@@ -9,7 +9,7 @@ A good playbook will include the following.
 - **Communication plan**: How will the team communicate, and where can you find the team's contact information?
 - **Incident detection and notification**: Defines the pertinent observability metrics, altering thresholds, and escalation paths.
 - **Diagnostic process**: Detailed instructions for diagnosing the failure, along with the tools and resources that can assist in the process.
-- **Recovery procedures**: Detailed instructions for resolving the failure.This includes variations for temporal-recovery, reboot, and replacement strategies. processes for manual intervention, initiation of automation, or self-healing automation are defined. Data recovery and roll back processes are detailed.
+- **Recovery procedures**: Detailed instructions for resolving the failure. This includes variations for temporal-recovery, reboot, and replacement strategies. Processes for manual intervention, initiation of automation, or self-healing automation are defined. Data recovery and roll back processes are detailed.
 - **Post-recovery actions**: Steps for verifying the recovery, documenting its impact, and defining prevention tasks.
 
 ## Example playbook
@@ -82,7 +82,7 @@ This playbook provides a structured approach for managing and recovering from da
    - Provision a new database server from snapshot: Use AWS RDS console or CLI
    - Update application configuration to point to the new server
 4. **Data Recovery**:
-   - Find latest snapshot
+   - Find the latest snapshot
    - Restore data:
      ```
      aws rds restore-db-instance-from-db-snapshot
@@ -112,7 +112,7 @@ This playbook provides a structured approach for managing and recovering from da
 
 Create a playbook for the JWT Pizza that covers what to do when the JWT Pizza Factory endpoints fail to respond or are experiencing high levels of latency.
 
-Put your playbook in a file named `playbooks/jwtFactory.md` and commit it to your fork of the `jwt-pizza` repository. When you are done submit the URL of your playbook to the Canvas assignment. The structure of your playbook should looks something like the following:
+Put your playbook in a file named `playbooks/jwtFactory.md` and commit it to your fork of the `jwt-pizza` repository. When you are done submit the URL of your playbook to the Canvas assignment. The structure of your playbook should look something like the following:
 
 ```
 https://github.com/byucsstudent/jwt-pizza/blob/main/playbooks/jwtFactory.md

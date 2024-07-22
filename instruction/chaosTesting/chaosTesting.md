@@ -2,10 +2,10 @@
 
 📖 **Deeper dive reading**: [Netflix's original post on Chaos testing](https://netflixtechblog.com/the-netflix-simian-army-16e57fbab116)
 
-The idea of intentionally injecting failure into an environment, including the production environment, was popularized by Netflix. The logic is that you never want to have a single point of failure, and you can never be sure that your system won't fail unless you test it to failure. The motivation for Netflix to explore paradigms of testing came in 2010 when they moved their monolithic application out of their data center to a micro-service architecture hosted in AWS. AWS was an attractive prospect because they pioneered the idea of significant layers of redundancy for all critical resources, all within an on demand, or elastic, cloud environment. This included some of the following:
+The idea of intentionally injecting failure into an environment, including the production environment, was popularized by Netflix. The logic is that you never want to have a single point of failure, and you can never be sure that your system won't fail unless you test it to failure. The motivation for Netflix to explore paradigms of testing came in 2010 when they moved their monolithic application out of their data center to a microservice architecture hosted in AWS. AWS was an attractive prospect because they pioneered the idea of significant layers of redundancy for all critical resources, all within an on demand, or elastic, cloud environment. This included some of the following:
 
 1. **Data center**: Multiple availability zones in every region, with multiple regions on every continent.
-1. **Network**: Route 53 geo-location routing, different availability zone subnets, regional network failover, and load balancers.
+1. **Network**: Route 53 geolocation routing, different availability zone subnets, regional network failover, and load balancers.
 1. **Compute**: Scale groups to automatically respond to changes in load. Efficient vertical (size of device) and horizontal (number of devices) scaling.
 1. **Database**: Automatic backups, efficient restores, and scalability.
 1. **Storage**: Massive scale and redundancy with efficient failover for writers and readers.
@@ -23,8 +23,8 @@ As Netflix moved their application to AWS they took advantage of all this redund
 1. **Deploy metrics and logging**: Once you have a candidate for chaos testing, you need to document your assumptions for how the system will respond and ensure that you have metrics and logs that will immediately visualize and validate your assumptions. If you do not have the necessary observability, then you need to instrument the code before you continue.
 1. **Ensure minimal customer impact**: The idea with chaos testing is to test the production system without harming the customer. If during the hypothesis phase there was any question that a customer would be reasonably impacted, then you need to first alter your code so that there is an automated mitigation for the impact.
 1. **Inject chaos**: With the metrics and plan in place, you unleash the chaos. Initial tests should be done when the team is on duty and ready to response. Later tests can be done without preparation to validate any assumptions concerning manual interaction.
-1. **Monitor the response**: Validate that the chaos was immediately observed and the automated response was completed as expected.
-1. **Take evasive action or celebrate**: If things are not handled as expected then you must move quickly to correct the problem and reduce significant customer impact. Then you need to return to the drawing board, check where your assumptions went wrong, deploy new failure handling automation, and increase your observability. Otherwise, if the chaos was handled as expected then you can celebrate and repeat the cycle with the next prioritized point of failure on your list.
+1. **Monitor the response**: Validate that the chaos was immediately observed, and the automated response was completed as expected.
+1. **Take evasive action or celebrate**: If things are not handled as expected, then you must move quickly to correct the problem and reduce significant customer impact. Then you need to return to the drawing board, check where your assumptions went wrong, deploy new failure handling automation, and increase your observability. Otherwise, if the chaos was handled as expected, then you can celebrate and repeat the cycle with the next prioritized point of failure on your list.
 
 ## Chaos Monkey
 

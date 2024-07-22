@@ -8,7 +8,7 @@ Grafana can generate alerts based on metric thresholds that we define as part of
 
 ## Simple Grafana alerts
 
-Let's first take a look at the simple alerting system. There are two steps involved. First we define a contact point and then we associate the contact with an alert definition. When the alert triggers it sends the notification to whatever the contact point is defined to use.
+Let's first take a look at the simple alerting system. There are two steps involved. First we define a contact point, then we associate the contact with an alert definition. When the alert triggers it sends the notification to whatever the contact point is defined to use.
 
 ![Simple alerts](simpleAlerts.png)
 
@@ -58,7 +58,7 @@ Once the alert triggers it should initiate the notification to the contact point
 
 ![Alert email notification](alertEmailNotification.png)
 
-Normally we would investigate the problem and figure out what is causing the notification. In this case we can solve the problem by setting our trigger threshold to be higher. To do this we edit the rule by pressing the pencil icon and changing the threshold to be **100**. Press the `Preview` button and it should display that the alert is back to **Normal**.
+Normally we would investigate the problem and figure out what is causing the notification. In this case we can solve the problem by setting our trigger threshold to be higher. To do this we edit the rule by pressing the pencil icon and changing the threshold to be **100**. Press the `Preview` button, and it should display that the alert is back to **Normal**.
 
 ![Threshold preview](thresholdPreview.png)
 
@@ -76,7 +76,7 @@ Here is a list of the functionality that OnCall provides above the simple notifi
 - **Teams**: Any number of specialized teams can be created and associated with escalation chains or alerts.
 - **Scheduling**: Individuals or teams can be scheduled for being _on call_. When an event is triggered, the escalation chain attempts to notify the scheduled team members first.
 - **Alert groups**: Associate related alerts and serve as a history for responses and resolutions.
-- **Incident management**: Provides long running tracking, managing, and reporting of an incident that results from an alert.
+- **Incident management**: Provides long-running tracking, managing, and reporting of an incident that results from an alert.
 - **Notifications**: Convenient email, text message, and push notification.
 - **Mobile application integration**: A full mobile app for team members that allows them to adjust their schedule, respond to alerts, and define their desired notification chain.
 
@@ -110,7 +110,7 @@ Install the OnCall Mobile app using the steps found on the `Mobile App Connectio
 
 You can also associate your Slack account or integrate your Google Calendar if you desire.
 
-Setup your `Default Notifications` so that you receive notifications both for the **Default** and **Important** levels of events. You can specify to notify you with SMS, email, phone calls, or mobile push notifications. Intersperse the notifications with appropriate wait periods as you desire.
+Set up your `Default Notifications` so that you receive notifications both for the **Default** and **Important** levels of events. You can specify to notify you with SMS, email, phone calls, or mobile push notifications. Intersperse the notifications with appropriate wait periods as you desire.
 
 The different steps in the notifications will each successively trigger until you finally acknowledge that you have received the notification. The idea is that you want things to get gradually louder and more annoying until you finally respond.
 
@@ -173,13 +173,13 @@ The escalation chain should look something like the following when you are done.
 
 Now we need to define the contact and integration that will connect the escalation chain to a Grafana alert.
 
-To create an contact point, use the Grafana Cloud main navigation menu for `Alerts & IRM > Alerting > Contact points`. Press the `Add contact point` button and supply the name **JWT Pizza DevOps**. Select the `Grafana OnCall` integration, select **New OnCall integration** with the value of `Grafana Alerting`, and provide `jwt-pizza` as the new integration name. Press `Save contact point`.
+To create a contact point, use the Grafana Cloud main navigation menu for `Alerts & IRM > Alerting > Contact points`. Press the `Add contact point` button and supply the name **JWT Pizza DevOps**. Select the `Grafana OnCall` integration, select **New OnCall integration** with the value of `Grafana Alerting`, and provide `jwt-pizza` as the new integration name. Press `Save contact point`.
 
 ![Contact point](contactPoint.png)
 
-This will create both the contact point and the integration, but you need to associate your team with the integration and so we need to go and end the integration.
+This will create both the contact point and the integration, but you need to associate your team with the integration, so we need to edit the integration.
 
-To edit an escalation chain, use the Grafana Cloud main navigation menu for `Alerts & IRM > OnCall > Integrations`. Edit the `jwt-pizza` integration by pushing the triple dot button and selecting `Integration settings`. Specify **JWT Pizza DevOps** as the team and press `Update integration`.
+To edit an integration, use the Grafana Cloud main navigation menu for `Alerts & IRM > OnCall > Integrations`. Edit the `jwt-pizza` integration by pushing the triple dot button and selecting `Integration settings`. Specify **JWT Pizza DevOps** as the team and press `Update integration`.
 
 ![Edit integration](editIntegration.png)
 
@@ -191,15 +191,15 @@ Click on the default route and specify the `JWT Pizza, JWT Pizza DevOps` escalat
 
 Like we said earlier, that is a lot of configuration to perform. However, with all of that in place, you can now easily add alerts that will utilize an extensive escalation and notification system for an entire DevOps team.
 
-## Testing onCall
+## Testing OnCall
 
 With all the configuration in place you are ready to test it out. Back on the integration configuration page for `jwt-pizza` there is a `Send demo alert` button in the top right corner. Press the button.
 
 If you configured everything correctly, an event is created and your escalation chain is executed as defined by your on-call schedule and team definition.
 
-After a minute you should get a SMS message on your phone. Don't respond to it. Wait another minute and you should get a mobile push notification. If you continue to wait you should get several other notifications.
+After a minute you should get an SMS message on your phone. Don't respond to it. Wait another minute and you should get a mobile push notification. If you continue to wait you should get several other notifications.
 
-When the mobile push notification arrives, you can click on it and it will display the OnCall application with the event information.
+When the mobile push notification arrives, you can click on it, and it will display the OnCall application with the event information.
 
 ![Mobile alert detail](mobileAlertDetails.png)
 

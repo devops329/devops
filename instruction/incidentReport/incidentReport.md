@@ -1,10 +1,10 @@
 # Incident report
 
-When a failure occurs, the entire team needs to be focused on recovering from the failure. Usually this will require some sort of manual or automated intervention. Once the panic of mitigating the failure has decreased, it is vital that you take steps to understand what happened, what the impact was, and how the system can be improved to avoid a repeated failure of the same type. An indispensible tool for formalizing this discussion is the `incident report`.
+When a failure occurs, the entire team needs to be focused on recovering from the failure. Usually this will require some sort of manual or automated intervention. Once the panic of mitigating the failure has decreased, it is vital that you take steps to understand what happened, what the impact was, and how the system can be improved to avoid a repeated failure of the same type. An indispensable tool for formalizing this discussion is the `incident report`.
 
 ## It is not about blame.
 
-Successful incident reports focus not on assigning blame, but in understanding the conditions that allowed the failure and preventing them in the future. If there is a culture of fear that results from failures, team members will instinctively hide important information and seek to minimize any risk that could potentially reflect poorly on them. This actually increases the chance of failure and decreases the teams ability to provide value.
+Successful incident reports focus not on assigning blame, but in understanding the conditions that allowed the failure and preventing them in the future. If there is a culture of fear that results from failures, team members will instinctively hide important information and seek to minimize any risk that could potentially reflect poorly on them. This actually increases the chance of failure and decreases the team's ability to provide value.
 
 ## Timeliness
 
@@ -37,7 +37,7 @@ This can be as simple as an automated report placed on your status page by your 
 
 For major incidents such as security incidents related to personally identifiable information or monetary funds, or for major service outages, you will want to create a more extensive report that details why the incident occurred, and most importantly, why it will not happen again. Here is an example of AWS's report on the [2017 S3 outage](https://aws.amazon.com/message/41926/). Notice the clear reference to the alteration of the practices related to how humans interact with the system.
 
-> an authorized S3 team member using an established playbook executed a command which was intended to remove a small number of servers for one of the S3 subsystems. Unfortunately, one of the inputs to the command was entered incorrectly and a larger set of servers was removed than intended.
+> An authorized S3 team member using an established playbook executed a command which was intended to remove a few servers for one of the S3 subsystems. Unfortunately, one of the inputs to the command was entered incorrectly and a larger set of servers was removed than intended.
 >
 > We are making several changes as a result of this operational event. This will prevent an incorrect input from triggering a similar event in the future. We are also auditing our other operational tools to ensure we have similar safety checks.
 
