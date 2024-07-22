@@ -23,7 +23,7 @@ Additionally, if you want to rollback to a previous version of the application, 
 
 Finally there is the problem that there is only one environment that hosts your entire application stack. You have a development environment where individual developers can create and experiment. You have a CI environment where a version is built, tested, and analyzed. But there is no place that you can go to see how the application actually works without doing that in the same place as your customers.
 
-What you really need is a central repository of all of the candidate versions that can be quickly deployed to different environments that each serve a specific purpose.
+What you really need is a central repository of all the candidate versions that can be quickly deployed to different environments that each serve a specific purpose.
 
 ![Environments](environments.png)
 

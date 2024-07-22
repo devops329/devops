@@ -7,7 +7,7 @@
 
 ---
 
-Test driven development inverts the development process by focusing first on what the code is supposed to do, and then implementing the code until all of the tests pass.
+Test driven development inverts the development process by focusing first on what the code is supposed to do, and then implementing the code until all the tests pass.
 
 1. You can isolate your testing to the specific objects you are currently implementing.
 1. Development environments make it more efficient to run the tests than just manually building, executing, and interacting with the code.
@@ -18,14 +18,14 @@ Test driven development inverts the development process by focusing first on wha
 When writing tests you want to try and comply with the following principles.
 
 1. **Don't repeat yourself** - If one test covers the case then don't keep writing tests that do the same thing.
-1. **Only test one thing** - Don't put a bunch of related tests into the same test. This is makes it harder to debug a test when only part of the test is failing.
+1. **Only test one thing** - Don't put a bunch of related tests into the same test. This makes it harder to debug a test when only part of the test is failing.
 1. **Include boundaries** - There are often natural boundaries to a test. Make sure you include them in your tests.
 
 We will demonstrate the use of TDD by implementing Fibonacci.
 
 ## Writing tests first
 
-We start by creating an stub version of the function that simply returns zero and place it in a file named `fibonacci.js`.
+We start by creating a stub version of the function that simply returns zero and place it in a file named `fibonacci.js`.
 
 ```js
 function fibonacci(pos) {
@@ -41,7 +41,7 @@ Next we install Jest and modify the package.json to tell NPM to use Jest. We ins
 npm install -D jest
 ```
 
-We also modify the scripts section of the `package.json` file to specify that we want to use Jest when we run tests.
+We also modify the `scripts` section of the `package.json` file to specify that we want to use Jest when we run tests.
 
 **package.json**
 
@@ -55,7 +55,7 @@ We also modify the scripts section of the `package.json` file to specify that we
 
 Now we can write a test. We will name the test file `fibonacci.test.js` so that we can easily associate the test with the implementation found in `fibonacci.js`.
 
-Our first test will make sure that the base case for calculating fibonacci at position zero works correctly.
+Our first test will make sure that the base case for calculating the Fibonacci value at position zero works correctly.
 
 ```js
 const fibonacci = require('./fibonacci.js');
@@ -77,7 +77,7 @@ Test Suites: 1 passed, 1 total
 Tests: 1 passed, 1 total
 ```
 
-Strangely our test passes, but that is only because we threw in a default value of zero for our stub implementation and that is the correct response for the fibonacci position zero. This is a good reminder that you shouldn't assume the code is correct just because a test passes. Usually you want to see your test fail first and then correct the code to make it pass. That way you know it isn't a bug in the test that is hiding a bug in your code.
+Strangely our test passes, but that is only because we threw in a default value of zero for our stub implementation and that is the correct response for the Fibonacci position zero. This is a good reminder that you shouldn't assume the code is correct just because a test passes. Usually you want to see your test fail first and then correct the code to make it pass. That way you know it isn't a bug in the test that is hiding a bug in your code.
 
 We will leave that test there to serve as a base case and to make sure we don't break anything as we implement the actual code.
 
@@ -118,7 +118,7 @@ Tests:       1 failed, 1 passed, 2 total
 
 ## Covering the basic functionality
 
-Now that we are confident that the tests are working correctly, let's another test that covers multiple calls to our fibonacci implementation. By running through a list of positions we will save ourselves from write a single test for each position. this be considered as violating the **Only test one thing** principle, but the clarity and simplicity that it provides seems to justify the exception.
+Now that we are confident that the tests are working correctly, let's create another test that covers multiple calls to our Fibonacci implementation. By running through a list of positions, we will save ourselves from writing a single test for each position. This could be considered as violating the **Only test one thing** principle, but the clarity and simplicity that it provides seems to justify the exception.
 
 ```js
 test('fibonacci sequence', () => {
@@ -163,7 +163,7 @@ Ran all test suites.
 
 ## Boundary cases and bug discovery
 
-That looks great. Now let's add a boundary test case where we provide a negative number. Since fibonacci doesn't define what to do with a negative position we will assume it should be zero.
+That looks great. Now let's add a boundary test case where we provide a negative number. Since Fibonacci doesn't define what to do with a negative position, we will assume it should be zero.
 
 ```js
 test('fibonacci negative', () => {
@@ -201,7 +201,7 @@ function fibonacci(pos) {
 }
 ```
 
-Let's add one more boundary test that represents a large fibonacci position.
+Let's add one more boundary test that represents a large Fibonacci position.
 
 ```js
 test('fibonacci position large', () => {
@@ -270,7 +270,7 @@ module.exports = fibonacci;
 
 **fibonacci.test.js**
 
-```sh
+```js
 const fibonacci = require('./fibonacci');
 
 test('fibonacci position 0', () => {

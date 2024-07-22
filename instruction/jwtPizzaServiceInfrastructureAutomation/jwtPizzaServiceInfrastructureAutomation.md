@@ -10,7 +10,7 @@ For the last step in your backend DevOps automation, you will create a CloudForm
 
 ## Delete the manual deployment
 
-Before you do that you need to delete all of the existing AWS infrastructure that you created previously. You can then rebuild the infrastructure using CloudFormation stack automation.
+Before you do that you need to delete all the existing AWS infrastructure that you created previously. You can then rebuild the infrastructure using CloudFormation stack automation.
 
 To delete the backend infrastructure you can simply delete the ECS jwt-pizza-service cluster. This should cause the ECS jwt-pizza-service service and EC2 ALB load balancer to also be deleted.
 

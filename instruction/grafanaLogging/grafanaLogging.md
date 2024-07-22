@@ -248,7 +248,7 @@ In order to demonstrate how to generate logs from you code we need a simple Expr
    module.exports = new Logger();
    ```
 
-1. Create an `index.js` that contains your simple demonstration service. Most of the code in the service provides example endpoints. The interesting part if the use of the `logger.httpLogger` middleware that handles all of the HTTP logging. This keeps the main code clean while still providing significant value.
+1. Create an `index.js` that contains your simple demonstration service. Most of the code in the service provides example endpoints. The interesting part if the use of the `logger.httpLogger` middleware that handles all the HTTP logging. This keeps the main code clean while still providing significant value.
 
    ```js
    const express = require('express');

@@ -25,7 +25,7 @@ it doesn't actually have a directory structure or path, but objects with the sam
 
 ## Accessing S3 files
 
-You can experiment with S3 by using the AWS Browser console interface, or with the AWS CLI from your command console. For example, you can list all of the AWS S3 buckets that are owned by your account with the `ls` command. Make sure you have the AWS CLI installed in your development environment with an associated access key. Otherwise you can use the [AWS CloudShell service](https://aws.amazon.com/cloudshell/) from the AWS Browser Console to experiment with these commands.
+You can experiment with S3 by using the AWS Browser console interface, or with the AWS CLI from your command console. For example, you can list all the AWS S3 buckets that are owned by your account with the `ls` command. Make sure you have the AWS CLI installed in your development environment with an associated access key. Otherwise you can use the [AWS CloudShell service](https://aws.amazon.com/cloudshell/) from the AWS Browser Console to experiment with these commands.
 
 ```sh
 aws s3 ls

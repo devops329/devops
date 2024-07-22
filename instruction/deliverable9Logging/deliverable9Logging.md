@@ -103,7 +103,7 @@ app.use(logger.httpLogger);
 
 If you are using the code provided in the previous example, you should be able to call the `logger.log` method from a central place in the `database.js` file. Try to centralize the logging as much as possible so that you don't have logging code scattered all over the place.
 
-Consider modifying the `DB.query` function to handle all of the database logging.
+Consider modifying the `DB.query` function to handle all the database logging.
 
 ### Simulating traffic
 
@@ -114,7 +114,7 @@ You will need some traffic to your website in order to demonstrate that the logg
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
 1. Modify your fork of the `jwt-pizza-service` to generate the required logs and store them in your Grafana Cloud account.
-1. Create a log visualization on your Grafana Cloud `Pizza Dashboard` to display all of the required log fields.
+1. Create a log visualization on your Grafana Cloud `Pizza Dashboard` to display all the required log fields.
 1. Export a copy of your dashboard and save it to your fork of the `jwt-pizza-service` repository in a directory named `grafana`.
    1. On the Grafana Cloud console, navigate to your dashboard.
    1. Press the `Share` button.

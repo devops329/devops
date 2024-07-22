@@ -8,13 +8,13 @@
 
 ---
 
-Linting your code is the process of analyzing your code for little bits of fluff that should be removed. This includes things like unused variables, variables that should be marked as constant, and missing semicolons. Often times these problems are benign, but sometimes they expose real problems and it is well worth the trouble to install and listen to a linter.
+Linting your code is the process of analyzing your code for little bits of fluff that should be removed. This includes things like unused variables, variables that should be marked as constant, and missing semicolons. Often times these problems are benign, but sometimes they expose real problems, and it is well worth the trouble to install and listen to a linter.
 
 One of the most popular linting tools for JavaScript is [eslint](https://eslint.org/docs/latest/). Let's walk through the process of using eslint for a simple node.js project.
 
 ## Project creation
 
-Create a node.js project and install eslint
+Create a node.js project and install eslint.
 
 ```sh
 mkdir eslintExample && cd eslintExample

@@ -11,7 +11,7 @@
 
 The _JWT Pizza application_ team has finally finished their work on the backend JWT service and has given you access to the backend service code so that you can start testing and deploying it.
 
-Now that you have the service code, you will test and deploy the full application stack. This includes the frontend (_jwt-pizza_), backend (_jwt-pizza-service_), and the database. The only piece that you do not actually manage is the service provided by JWT Headquarters that creates the JWT tokens that represent a completed pizza order. Instead your deployment of the JWT service will simply call the factory service that the JWT Headquarters provides.
+Now that you have the service code, you will test and deploy the full application stack. This includes the frontend (_jwt-pizza_), backend (_jwt-pizza-service_), and the database. The only piece that you do not actually manage is the service provided by JWT Headquarters that creates the JWT tokens representing a completed pizza order. Instead, your deployment of the JWT service will simply call the factory service that the JWT Headquarters provides.
 
 ```mermaid
 graph LR;
@@ -54,7 +54,7 @@ Here are the steps to take:
 1. Obtain a JWT Pizza Factory API Key. You can get this key from the [AutoGrader](https://autograder.cs329.click) application.
 1. Create a `config.js` file in the `src` directory and insert your database credentials, jwtSecret, and API Key. The factory should point to the URL provided by JWT Headquarters. The following is an example `config.js` file.
 
-   ⚠️ **Note**: Note that you must replace `jwtSecret`, `connection.password`, and `factory.apiKey` with a values that you generate. `jwtSecret` is used to sign authorization tokens and can be any random string. `connection.password` is the password for your MySQL database. `factory.apiKey` allows you to fulfill orders from the JWT Headquarters factory.
+   ⚠️ **Note**: Note that you must replace `jwtSecret`, `connection.password`, and `factory.apiKey` with values that you generate. `jwtSecret` is used to sign authorization tokens and can be any random string. `connection.password` is the password for your MySQL database. `factory.apiKey` allows you to fulfill orders from the JWT Headquarters factory.
 
    ```sh
    module.exports =  {
@@ -86,7 +86,7 @@ Here are the steps to take:
 
 To sync your fork, navigate to your account's fork of the `jwt-pizza-service` repository. It will display if your fork is out of date. Press the `Sync fork` button and confirm the action.
 
-⚠️ **Note**: Do not press the `Discard commits` button if it is available or you will lose any code that you have added to your fork such as tests you have written.
+⚠️ **Note**: Do not press the `Discard commits` button if it is available, or you will lose any code that you have added to your fork such as tests you have written.
 
 ![Sync fork](syncFork.png)
 

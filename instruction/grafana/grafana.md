@@ -14,7 +14,7 @@ In 2014, Grafana started as an open source metric visualization tool based on th
 
 The model allowed for a wide variety of data sources to be plugged into a set of stunning collections of data visualizations.
 
-The Grafana team, lead by Torkel Ödegaard, continued to enhance the application to include alerting, logging, stack tracing support, and even load testing. With a full suite of observability tools, Grafana created a SaaS offering named Grafana Cloud that handles and manages all of the metrics, logging, and tracing needs for an application.
+The Grafana team, lead by Torkel Ödegaard, continued to enhance the application to include alerting, logging, stack tracing support, and even load testing. With a full suite of observability tools, Grafana created a SaaS offering named Grafana Cloud that handles and manages all the metrics, logging, and tracing needs for an application.
 
 ### Torkel Ödegaard
 
@@ -79,7 +79,7 @@ At a high level, Grafana Cloud consists of three major parts.
 To get started we are going to configure a `TestData` data source. This data source is simply a random number generator that we will use to demonstrate how things work.
 
 1. From the `Home` menu select `Connections` and pick `Add new connection`.
-1. This will display all of the different data sources that you can make a connection to.
+1. This will display all the different data sources that you can make a connection to.
 1. Type `TestData` into the search box and click on the resulting data source.
 
    ![New data source](newDataSource.png)

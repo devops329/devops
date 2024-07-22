@@ -141,7 +141,7 @@ Now review the playwright configuration file: `playwright.config.ts`. In there y
     },
 ```
 
-For simplicity sake, we will only run tests with `chromium`, so delete the other entries. Once you have modified the file you can install the `chromium` driver.
+For simplicity's sake, we will only run tests with `chromium`, so delete the other entries. Once you have modified the file you can install the `chromium` driver.
 
 ```sh
 npx playwright install --with-deps chromium
@@ -201,7 +201,7 @@ You can also run the test using the Playwright UI mode.
 npx playwright test --ui
 ```
 
-This opens up a window that shows all the tests found in the `tests` directory and allows you to interactively execute them and review the results. This includes a time lapse overview of what the browser was doing while it executed and the ability to see the state of the browser during each step of the test.
+This opens up a window that shows all the tests found in the `tests` directory and allows you to interactively execute them and review the results. This includes a time-lapse overview of what the browser was doing while it executed and the ability to see the state of the browser during each step of the test.
 
 > ![Playwright UI](playwrightUi.gif)
 
@@ -260,7 +260,7 @@ The [VS Code extension for Playwright](https://marketplace.visualstudio.com/item
 
 Just like the Jest VS Code extension, the Playwright extension will detect that you have Playwright tests and allow you to run them from the `flask` menu of the sidebar.
 
-Some of the cool features include:
+Some cool features include:
 
 - Installing other browsers
 - In context error messages
@@ -305,7 +305,7 @@ test('test', async ({ page }) => {
 });
 ```
 
-You can see how Playwright tries to abstract away as much of the locating of page elements as possible. Instead of using a CSS selector to find an element, it tries to find things by roles that have some distinguishing characteristic. For example, the different buttons are located by finding a role of button with with a `+` or `Menu` in their text.
+You can see how Playwright tries to abstract away as much of the locating of page elements as possible. Instead of using a CSS selector to find an element, it tries to find things by roles that have some distinguishing characteristic. For example, the different buttons are located by finding a role of button with a `+` or `Menu` in their text.
 
 ```sh
   await page.getByRole('button', { name: '+' }).click();
@@ -339,7 +339,7 @@ test('test', async ({ page }) => {
 });
 ```
 
-We add some validation of preconditions such that a pizza is already displayed at the start and that menu button goes from enabled to disabled.
+We add some validation of preconditions such that a pizza is already displayed at the start and that menu button goes from **enabled** to **disabled**.
 
 We also use data driven JavaScript to control how many times we push the pizza button and then to assert that the right number of pizzas occur, and we change the locator to find an exact text value rather than some possible substring.
 
@@ -445,7 +445,7 @@ Experiment with the different locators until you feel comfortable with the uniqu
 
 ### Actions
 
-Actions allow you to interact with a element in order to simulate a user. Here are the most commonly used locators.
+Actions allow you to interact with an element in order to simulate a user. Here are the most commonly used locators.
 
 | Action                  | Description                     |
 | ----------------------- | ------------------------------- |
@@ -457,7 +457,7 @@ Actions allow you to interact with a element in order to simulate a user. Here a
 | locator.focus()         | Focus the element               |
 | locator.press()         | Press single key                |
 | locator.setInputFiles() | Pick files to upload            |
-| locator.selectOption()  | Select option in the drop down  |
+| locator.selectOption()  | Select option in the drop-down  |
 
 Here is an example of clicking on a button.
 
@@ -467,7 +467,7 @@ await page.getByRole('button').click();
 
 ### Expect
 
-The expect method provides the validation that your assertions are correct. Playwright provides a large number of assertions.
+The expect method provides the validation that your assertions are correct. Playwright provides many assertions.
 
 | Assertion                         | Description                       |
 | --------------------------------- | --------------------------------- |
@@ -491,7 +491,7 @@ await expect(page.getByTestId('generated-copy').not.toBe('Lorem ipsum');
 
 ## Coverage
 
-In order to add coverage reporting we have to install the coverage utilities and instrument the code. Unlike Jest, where they have coverage built into the application, Playwright requires you to install the coverage utility of your choice. This gives you freedom to customize things as you would like, but it is a bit painful to setup.
+In order to add coverage reporting we have to install the coverage utilities and instrument the code. Unlike Jest, where they have coverage built into the application, Playwright requires you to install the coverage utility of your choice. This gives you freedom to customize things as you would like, but it is a bit painful to set up.
 
 The coverage tools we are going to use are called Istanbul and NYC.
 
@@ -501,7 +501,7 @@ The coverage tools we are going to use are called Istanbul and NYC.
 
 ### Install the coverage packages
 
-First we need to install all of the packages required for generating coverage. In addition to NYC we include `vite-plugin-istanbul` and `playwright-test-coverage` to have Vite execute istanbul in order to instrument the code for coverage gathering.
+First we need to install all the packages required for generating coverage. In addition to NYC we include `vite-plugin-istanbul` and `playwright-test-coverage` to have Vite execute istanbul in order to instrument the code for coverage gathering.
 
 ```sh
 npm install -D nyc vite-plugin-istanbul playwright-test-coverage
@@ -521,7 +521,7 @@ We create a `.nycrc.json` file in order to specify the required coverage thresho
 }
 ```
 
-NYC will output coverage information to a directory named `.nyc_output`. We definitely don't want push that to GitHub and so we add it to our growing list of coverage files found in `.gitignore`
+NYC will output coverage information to a directory named `.nyc_output`. We definitely don't want push that to GitHub, so we add it to our growing list of coverage files found in `.gitignore`
 
 ```txt
 coverage
@@ -533,7 +533,7 @@ node_modules
 .nyc_output
 ```
 
-Vite needs to know to include Istanbul as a plugin when bundling and so we create/modify `vite.config.js` to include instructions on which files you want to have Istanbul analyze.
+Vite needs to know to include Istanbul as a plugin when bundling, so we create/modify `vite.config.js` to include instructions on which files you want to have Istanbul analyze.
 
 ```js
 import { defineConfig } from 'vite';
@@ -551,7 +551,7 @@ export default defineConfig({
 });
 ```
 
-Finally we add another `package.json` script so that NYC runs the Playwright tests and reports the coverage results. We tell NYC to use two reporters: one that will save a high level JSON file, and another one that prints the details to the console.
+Finally, we add another `package.json` script so that NYC runs the Playwright tests and reports the coverage results. We tell NYC to use two reporters: one that will save a high level JSON file, and another one that prints the details to the console.
 
 ```json
 "scripts": {
@@ -654,16 +654,16 @@ function App() {
     <div>
       <h1>Pizza</h1>
       <p>{'🍕'.repeat(count) || '👨‍🍳'}</p>
-      <label htmlFor='order'>Pizza:</label>
+      <label htmlFor="order">Pizza:</label>
       <div>
-        <input type='text' id='pizza-type' value={pizzaType} placeholder='type' onChange={(e) => setPizzaType(e.target.value)} />
+        <input type="text" id="pizza-type" value={pizzaType} placeholder="type" onChange={(e) => setPizzaType(e.target.value)} />
         &nbsp;<button onClick={() => setCount(count + 1)}>+1</button>
         &nbsp;
         <button disabled={!count || !pizzaType} onClick={handleOrder}>
           Order
         </button>
       </div>
-      <div id='orderValue'>
+      <div id="orderValue">
         <i>{order}</i>
       </div>
       <button disabled={!!menu.length} onClick={getMenu}>

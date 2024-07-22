@@ -21,7 +21,7 @@ You shouldn't assume that the external development engineers have done a perfect
 The 10,000-foot overview of the JWT Pizza application consists of the following pieces:
 
 - **jwtPizza** - React frontend representing the website. Customers can order pizzas, review purchases. Administrators create and manage franchises. Franchisees can add stores and review profits.
-- **jwtPizzaService** - Express backend that provides all of the endpoints necessary to manage users, franchises, and pizza orders.
+- **jwtPizzaService** - Express backend that provides all the endpoints necessary to manage users, franchises, and pizza orders.
 - **jwtPizzaFactory** - External headquarters service that generates and validates JWTs representing a pizza order.
 - **database** - The database persistently stores information about users, menus, franchises, and orders.
 

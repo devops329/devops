@@ -151,7 +151,7 @@ const Role = {
 };
 ```
 
-This helps to formalize the definition of the possible roles. All of the secure endpoints then use the express middleware `setAuthUser` and `authenticateToken` to validate that a user is authenticated.
+This helps to formalize the definition of the possible roles. all the secure endpoints then use the express middleware `setAuthUser` and `authenticateToken` to validate that a user is authenticated.
 
 ```js
 async function setAuthUser(req, res, next) {
@@ -181,7 +181,7 @@ if (!req.user.isRole(Role.Admin)) {
 }
 ```
 
-While this makes it flexible for the endpoint to granularly provide access, it tends to sprinkle the enforcement throughout the code. It would be much better if an endpoint declaration contained the required role. That way it would be easy to audit all of the endpoints in one place and less likely that a programmer would forget a single `if` or `else` statement.
+While this makes it flexible for the endpoint to granularly provide access, it tends to sprinkle the enforcement throughout the code. It would be much better if an endpoint declaration contained the required role. That way it would be easy to audit all the endpoints in one place and less likely that a programmer would forget a single `if` or `else` statement.
 
 You want to carefully study the role security model for JWT Pizza so that you can properly exploit it when you do your penetration testing.
 

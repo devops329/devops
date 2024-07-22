@@ -37,7 +37,7 @@ test('mocking functions', () => {
 });
 ```
 
-This might seem like we are just creating and calling a normal JavaScript function, but the magic happens in the tracking of all the calls to the mocked function. By referencing the `calls` and `results` properties you can see what happened with each invocation of the function. The `calls` property provides an array with each entry representing an array containing all the parameters for that call. In this example, there were two calls and so there are two array values in the calls property. Likewise the `results` property contains an array for each call's return value. This tracking enables you to assert that your code is flowing as expected.
+This might seem like we are just creating and calling a normal JavaScript function, but the magic happens in the tracking of all the calls to the mocked function. By referencing the `calls` and `results` properties you can see what happened with each invocation of the function. The `calls` property provides an array with each entry representing an array containing all the parameters for that call. In this example, there were two calls and so there are two array values in the `calls` property. Likewise, the `results` property contains an array for each call's return value. This tracking enables you to assert that your code is flowing as expected.
 
 #### Expect mocking helper methods
 
@@ -57,7 +57,7 @@ test('mocking function matchers', () => {
 
 #### Setting return values
 
-If you don't need to write a function to return values based on the inputs, you can simply set a default return value from your mocked function with `mockReturnValue`. If you need to override the default for the next few calls you can supply the return value with `mockReturnValueOnce`. These can be changed together to supply a series of needed return values. As demonstrated by the following code, once all the specific values have been used up it it will return to the default.
+If you don't need to write a function to return values based on the inputs, you can simply set a default return value from your mocked function with `mockReturnValue`. If you need to override the default for the next few calls you can supply the return value with `mockReturnValueOnce`. These can be changed together to supply a series of needed return values. As demonstrated by the following code, once all the specific values have been used up, it will return to the default.
 
 ```js
 test('mocking function multiple calls', () => {
@@ -170,7 +170,7 @@ test('mocking modules', () => {
 });
 ```
 
-## Dealing with asynchronicity
+## Dealing with asynchrony
 
 Jest also has the ability to mock promises. This is necessary for testing any code that expects to work with a promise.
 
@@ -187,7 +187,7 @@ test('mocking promises', async () => {
 
 If your code functionality is based on dates, time, or timeouts then Jest provides you with the ability to override the runtime execute of those functions. The Jest fake times put you in control of when time moves forward.
 
-To use the the fake times call `jest.useFakeTimers` and set any of the various [options](https://jestjs.io/docs/jest-object#jestusefaketimersfaketimersconfig).
+To use the fake times call `jest.useFakeTimers` and set any of the various [options](https://jestjs.io/docs/jest-object#jestusefaketimersfaketimersconfig).
 
 Make sure you reset the timers back to a real implementation when you are done by calling `jest.useRealTimers`.
 
@@ -216,7 +216,7 @@ test('fake timers', async () => {
 });
 ```
 
-When incrementing the runtime of asynchronous code, you can adapt the jest timer functions to also be async, for example `jest.advanceTimersByTimeAsync(1000)`
+When incrementing the runtime of asynchronous code, you can adapt the jest timer functions to also be asynchronous, for example `jest.advanceTimersByTimeAsync(1000)`
 
 ## Mocking fetch requests
 

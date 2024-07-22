@@ -12,7 +12,7 @@ Now that you have the JWT Pizza Service in your hands you can start to assure it
 
 If you haven't already done so, make sure you fork the [jwt-pizza-service](../jwtPizzaService/jwtPizzaService.md) repository and clone it to your development environment.
 
-Within your fork of the jwt-pizza-service repository, follow the previous instruction and install the [Jest](../jest/jest.md) testing framework.
+Within your fork of the `jwt-pizza-service` repository, follow the previous instruction and install the [Jest](../jest/jest.md) testing framework.
 
 ```sh
 npm install -D jest supertest
@@ -59,7 +59,7 @@ Add the `test` script to `package.json` so that it knows to use Jest for testing
 
 ## Creating a simple test
 
-Now that you have set up jwt-pizza-service to be tested with Jest, you can make sure it is all working right by writing a simple test. Create a file named `authRouter.test.js` in the `src/routes` directory and place the following `hello world` test in file.
+Now that you have set up `jwt-pizza-service` to be tested with Jest, you can make sure it is all working right by writing a simple test. Create a file named `authRouter.test.js` in the `src/routes` directory and place the following `hello world` test in file.
 
 ```sh
 test('hello world', () => {
@@ -92,12 +92,12 @@ Make sure you commit and push your code at this important milestone.
 
 Before we can write a test that actually uses the functionality of the JWT Pizza Service we need to think about the service's dependencies. In this case it is the MySQL database. We have a choice here:
 
-1. **Unit test**: Mock out the the database dependency such that the service doesn't actually call the database.
+1. **Unit test**: Mock out the database dependency such that the service doesn't actually call the database.
 1. **Component test**: Let the service call the MySQL database so that we can actually test that our SQL syntax is correct.
 
 The downside of component testing is that it complicates the test setup and potentially increases the time the test takes to execute. The downside of a pure unit test is that it doesn't actually test a core part of what the code is doing. You don't actually have any assurance that service can persist data correctly.
 
-For the JWT Pizza Service you will setup a MySQL database that your service code calls and use component testing to validate the interaction between the service and the database.
+For the JWT Pizza Service you will set up a MySQL database that your service code calls and use component testing to validate the interaction between the service and the database.
 
 ## Write a real test
 
@@ -181,7 +181,7 @@ function randomName() {
 
 ### Creating an admin user
 
-At some point in your testing you will need to have an administrator user in order to do things like create a franchise. You don't want to hardcode a user that you have created in your database because you shouldn't assume any preexisting data when creating a unit test. However, the JWT Pizza Service doesn't have an obvious way to bootstrap an admin user. You can overcome this by calling directly into the DB.addUser function. The DB.addUser function has no constraints and will let you create any user that you would like, including a user with a role of Admin.
+At some point in your testing you will need to have an administrator user in order to do things like create a franchise. You don't want to hard-code a user that you have created in your database because you shouldn't assume any preexisting data when creating a unit test. However, the JWT Pizza Service doesn't have an obvious way to bootstrap an admin user. You can overcome this by calling directly into the DB.addUser function. The DB.addUser function has no constraints and will let you create any user that you would like, including a user with a role of Admin.
 
 ```js
 const { DB } = require('./database/database.js');
@@ -198,7 +198,7 @@ async function createAdminUser() {
 
 ### Increasing the VS Code Jest debugging timeout
 
-The default timeout for a Jest test is just a few seconds. That means it will timeout on you as you are debugging through the tests with VS Code. You can increase the timeout by setting a high value with the `jest.setTimeout` function. You can also wrap the timer increase in a check that only triggers if you are debugging with VS Code.
+The default timeout for a Jest test is just a few seconds. That means it will time out on you as you are debugging through the tests with VS Code. You can increase the timeout by setting a high value with the `jest.setTimeout` function. You can also wrap the timer increase in a check that only triggers if you are debugging with VS Code.
 
 ```js
 if (process.env.VSCODE_INSPECTOR_OPTIONS) {

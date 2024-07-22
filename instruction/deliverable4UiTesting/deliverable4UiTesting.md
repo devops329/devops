@@ -200,22 +200,22 @@ All files                |   49.37 |    61.72 |   46.15 |   48.41 |
 -------------------------|---------|----------|---------|---------|-----------------------------
 ```
 
-That takes us to **49%** line coverage. This seems really promising and if we keep going down this path it feels like will have 80% coverage in no time. However, there is a demon waiting in the wings. Currently the `.env.development` configuration file has you using the JWT Headquarters deployment Pizza service. That is nice from the integration testing standpoint, but the data hosted on that service is going to change constantly and that will make it hard to write tests that are consistent.
+That takes us to **49%** line coverage. This seems really promising and if we keep going down this path it feels like will have 80% coverage in no time. However, there is a demon waiting in the wings. Currently, the `.env.development` configuration file has you using the JWT Headquarters deployment Pizza service. That is nice from the integration testing standpoint, but the data hosted on that service is going to change constantly and that will make it hard to write tests that are consistent.
 
-To solve this, you can start your own JWT service and change your `.env.development` file so that it references your local JWT Pizza Service instead of the headquarter's service. This will make it so that you can add users and play with the data in a controlled environment.
+To solve this, you can start your own JWT service and change your `.env.development` file so that it references your local JWT Pizza Service instead of the headquarters' service. This will make it so that you can add users and play with the data in a controlled environment.
 
 ```sh
 VITE_PIZZA_SERVICE_URL=http://localhost:3000
 VITE_PIZZA_FACTORY_URL=https://pizza-factory.cs329.click
 ```
 
-However, we eventually want to run our tests with GitHub Actions and we don't want that do be dependent on any external environment that can change.
+However, we eventually want to run our tests with GitHub Actions, and we don't want that to be dependent on any external environment that can change.
 
 ## Mocking JWT Pizza Service
 
 A different option is to mock out the JWT service. That way, we are only testing the frontend. This will make the tests more stable and even make them run faster, but it has the disadvantage of insulating us from bugs that might get introduced when the protocol between the front and backend changes. Still, this seems like the right option. So let's look at converting the test we just created over to using a mocked out service.
 
-First we need to figure out which endpoints the test uses. To accomplish this, we can use the Playwright Trace Viewer. This will show us all of the network requests that were made at each step of the test. We can then use the Playwright `route` method to create mocks for each network request.
+First we need to figure out which endpoints the test uses. To accomplish this, we can use the Playwright Trace Viewer. This will show us all the network requests that were made at each step of the test. We can then use the Playwright `route` method to create mocks for each network request.
 
 ### Recording endpoint requests
 
@@ -224,9 +224,9 @@ Follow these steps to use Trace Viewer to get the network requests.
 1. Open up the Test Explorer in VS Code.
 1. Select `Show trace viewer` from the Playwright pane located under the list of tests.
 1. Run the test that we recorded earlier.
-1. Trace Viewer should open at this point and execute all of the test steps.
-1. In the tools pane at the bottom of the browser, select the `Network` tab.
-1. Sort by 'Content Type'. This should move all of the fetch requests to the top of the list.
+1. Trace Viewer should open at this point and execute all the test steps.
+1. In the **tools** pane at the bottom of the browser, select the `Network` tab.
+1. Sort by 'Content Type'. This should move all the fetch requests to the top of the list.
 1. Examine the requests to see what URL, HTTP method, request and response bodies were used for each request.
 
 ![TraceViewer](traceViewer.gif)
@@ -260,7 +260,7 @@ await page.route('*/**/api/auth', async (route) => {
 
 We repeat this process by looking at each of the expected endpoint calls and creating a a route to verify and respond to them.
 
-The final version of the test, with all of the mocks, looks like this. Note that there are a few things that were altered from the original recording to clean things up a bit.
+The final version of the test, with all the mocks, looks like this. Note that there are a few things that were altered from the original recording to clean things up a bit.
 
 ```js
 test('purchase with login', async ({ page }) => {

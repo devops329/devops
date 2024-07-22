@@ -9,7 +9,7 @@
 
 We can now apply what we have learned about unit testing by creating a simple HTTP service and driving our testing of the service with [Jest](https://jestjs.io/) and a service testing helper package called [SuperTest](https://www.testim.io/blog/supertest-how-to-test-apis-like-a-pro/).
 
-The example HTTP service is a simple Express based service called `City`, that provides the following endpoints.
+The example HTTP service is a simple Express-based service called `City`, that provides the following endpoints.
 
 - **Login**: Sets an authorization token
 - **List cities**: Returns a list of city names and their populations
@@ -46,7 +46,7 @@ coverage
 
 ### Providing the service endpoints
 
-Next, create a file named `service.js` that initializes Express and defines all of the endpoints. Note that it does not start the service listening on an HTTP port. It only exports the service from the module. We will put the service, represented by the `app` variable, to work in the next step.
+Next, create a file named `service.js` that initializes Express and defines all the endpoints. Note that it does not start the service listening on an HTTP port. It only exports the service from the module. We will put the service, represented by the `app` variable, to work in the next step.
 
 **service.js**
 
@@ -126,7 +126,7 @@ curl -X POST localhost:3000/cities -H 'Content-Type: application/json' -H 'Autho
 
 ## Add Jest and Supertest
 
-We are now ready to setup Jest and create some automated tests. Get started by installing both Jest and SuperTest. SuperTest provides the ability to easily make endpoint requests without having to actually making HTTP network requests.
+We are now ready to set up Jest and create some automated tests. Get started by installing both Jest and SuperTest. SuperTest provides the ability to easily make endpoint requests without having to actually making HTTP network requests.
 
 ```sh
 npm install -D jest supertest
@@ -188,7 +188,7 @@ Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 ```
 
-This shows that our `hello world` test passed and we have **56.25%** coverage without even writing a meaningful test. This happened because we imported `service.js` in our test file. That caused all of the initialization code to execute even though no endpoints were called.
+This shows that our `hello world` test passed, and we have **56.25%** coverage without even writing a meaningful test. This happened because we imported `service.js` in our test file. That caused all the initialization code to execute even though no endpoints were called.
 
 ## Testing the endpoints
 
@@ -207,7 +207,7 @@ test('get cities', async () => {
 });
 ```
 
-This calls the `[GET] /cities` endpoint using the SuperTest `request(app)` function. The result of the asynchronous call is an object that has all of the information about the response. This includes the status, headers, and body. We can then use the Jest expectation object and matchers to validate the response.
+This calls the `[GET] /cities` endpoint using the SuperTest `request(app)` function. The result of the asynchronous call is an object that has all the information about the response. This includes the status, headers, and body. We can then use the Jest expectation object and matchers to validate the response.
 
 When we run the test, everything is green, and we jump to **62.5%** coverage.
 

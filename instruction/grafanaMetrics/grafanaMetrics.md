@@ -116,7 +116,7 @@ If you insert enough metrics you will see the total request count going up and u
 
    ![Rate query](rateQuery.png)
 
-If you switch the visualization editor back to `Builder` mode then you can experiment with all of the query operations that Prometheus provides. Take some time to play with these and see what you can do.
+If you switch the visualization editor back to `Builder` mode then you can experiment with all the query operations that Prometheus provides. Take some time to play with these and see what you can do.
 
 ![Query builder](queryBuilder.png)
 
@@ -237,7 +237,7 @@ At this point you should have a pretty good idea how to create a Grafana dashboa
    1. Provides a POST endpoint that sets the greeting.
    1. Provides a DELETE endpoint that resets the greeting back to the default.
    1. Sends metrics that count the total for each HTTP method.
-1. Create Curl commands that call all of the service's endpoints.
+1. Create Curl commands that call all the service's endpoints.
 1. Change the visualization so that it shows multiple series with the counts for each type of HTTP method.
 
 When you are done, you should have a dashboard that looks something like this:

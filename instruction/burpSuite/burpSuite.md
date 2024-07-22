@@ -12,7 +12,7 @@ Burp Suite is an incredibly powerful tool and is a foundational piece for most p
 
 ## Functionality
 
-Much of what you need to conduct penetration testing can be accomplished using programs such as your browser's dev tools, Curl, Postman, or some custom code. However, Burp Suite brings all of the functionality of these tools into a single place and is optimized for automation.
+Much of what you need to conduct penetration testing can be accomplished using programs such as your browser's dev tools, Curl, Postman, or some custom code. However, Burp Suite brings all the functionality of these tools into a single place and is optimized for automation.
 
 The following is a list of the penetration tools provided with Burp Suite.
 
@@ -31,7 +31,7 @@ To get started, you need to [install](https://portswigger.net/burp/communitydown
 
 ![Open project dialog](openProjectDialog.png)
 
-Next you will see the default workspace with all of the tools listed across the top of the application. We will walk through some of the tools beginning with the **Proxy** tool.
+Next you will see the default workspace with all the tools listed across the top of the application. We will walk through some of the tools beginning with the **Proxy** tool.
 
 ## Proxy and Target
 
@@ -41,7 +41,7 @@ Click on the **Proxy** tool from the top menu you will see the option to `Open b
 
 ![Proxy tab](proxyTab.png)
 
-This will open a Chromium browser window. Type in the URL of your JWT Pizza website. This will create a secure connection to your website that is proxied through Burp Suite so that it can capture all of the network traffic.
+This will open a Chromium browser window. Type in the URL of your JWT Pizza website. This will create a secure connection to your website that is proxied through Burp Suite so that it can capture all the network traffic.
 
 Toggle back to Burp Suite and click on the `HTTP history` tab under the `Proxy` tab of the main menu. This will show the requests that were made to render JWT Pizza. If you click on one of the requests you will see the HTTP request and response object.
 

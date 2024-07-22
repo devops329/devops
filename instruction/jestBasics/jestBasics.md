@@ -3,8 +3,8 @@
 🔑 **Key points**
 
 - Jest is a commonly used, richly featured, unit testing framework.
-- Jest is easy to install and well supported in Visual Studio code.
-- Jest has all of the primitives you need to successfully write unit tests.
+- Jest is easy to install and well-supported in Visual Studio Code.
+- Jest has all the primitives you need to successfully write unit tests.
 
 ---
 
@@ -12,11 +12,11 @@
 
 [Official Jest website](https://jestjs.io/)
 
-Jest is the most common framework for testing JavaScript. It was created back in 2011 when Facebook’s chat feature was rewritten in JavaScript. After extensive internal use, Facebook release Jest as open source in 2014. In 2022 they transferred ownership of Jest to [OpenJS](https://openjsf.org/). We owe much thanks to Facebook for investing in and openly sharing such a valuable piece of code.
+Jest is the most common framework for testing JavaScript. It was created back in 2011 when Facebook’s chat feature was rewritten in JavaScript. After extensive internal use, Facebook release Jest as open source in 2014. In 2022, they transferred ownership of Jest to [OpenJS](https://openjsf.org/). We owe many thanks to Facebook for investing in and openly sharing such a valuable piece of code.
 
 ## Installing Jest
 
-In order to use Jest as your unit testing framework you need to first create an NPM project and install the Jest package. Note that when installing, we use the `-D` parameter to tell NPM that Jest is only used during development and it shouldn't be included in any production deployment.
+In order to use Jest as your unit testing framework you need to first create an NPM project and install the Jest package. Note that when installing, we use the `-D` parameter to tell NPM that Jest is only used during development, and it shouldn't be included in any production deployment.
 
 ```sh
 mkdir jestExample && cd jestExample
@@ -120,11 +120,11 @@ The first test works great, but the second test fails. This is because the test 
 
 [Jest configuration docs](https://jestjs.io/docs/configuration)
 
-You may have noticed that you didn't have to import the Jest dependencies or specify where your test files were in order for the tests to run. That is because when Jest runs it analyzes all of the project paths and looks for files that match a regex pattern of `**/?(*.)+(spec|test).[tj]s?(x)`. When it finds those files, it runs them in an environment where the Jest code is already loaded.
+You may have noticed that you didn't have to import the Jest dependencies or specify where your test files were in order for the tests to run. That is because when Jest runs it analyzes all the project paths and looks for files that match a regex pattern of `**/?(*.)+(spec|test).[tj]s?(x)`. When it finds those files, it runs them in an environment where the Jest code is already loaded.
 
 You can override the default configuration for Jest by adding a `jest.config.json` file to your project. In that file you can specify options such as a different regex pattern for matching tests, making the output verbose, collecting coverage, and automatically generating mocks.
 
-Here is a configuration file that tests jest to collect coverage information and output verbose information. Everything looks great. All the tests are passing and you have 100% coverage.
+Here is a configuration file that tests jest to collect coverage information and output verbose information. Everything looks great. All the tests are passing, and you have 100% coverage.
 
 ```json
 {
@@ -163,7 +163,7 @@ Jest has multiple types of reports that it can generate. Modify `jest.config.jso
 }
 ```
 
-There are many different reporters that you can use. Here are the most common ones.
+There are many reporters that you can use. Here are the most common ones.
 
 | Reporter         | Description                                                                                                                                                      |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -242,9 +242,9 @@ Turning on the coverage will display the coverage statistics at the top of each 
 
 ### Debugging
 
-Using the VS Code extension makes it easier to debug your tests. You can set whatever breakpoint you would like, right click on the test icon and select the option to debug.
+Using the VS Code extension makes it easier to debug your tests. You can set whatever breakpoint you would like, right-click on the test icon and select the option to debug.
 
-By default Jest will timeout a test if it takes longer than 5 seconds without any activity. You can override this while you are debugging by adding the following to your test code. Note that this only works if you are using VS Code to debug your tests.
+By default, Jest will time out a test if it takes longer than 5 seconds without any activity. You can override this while you are debugging by adding the following to your test code. Note that this only works if you are using VS Code to debug your tests.
 
 ```js
 if (process.env.VSCODE_INSPECTOR_OPTIONS) {
@@ -256,7 +256,7 @@ if (process.env.VSCODE_INSPECTOR_OPTIONS) {
 
 [Jest Expect](https://jestjs.io/docs/expect)
 
-When you create assertions with Jest, you use the `expect` method to generate an expectation object. The expectation object has numerous matcher operations that assert the state of the expectation. You will want to be come familiar with all of the matchers, but we will give you a taste of the most common ones here.
+When you create assertions with Jest, you use the `expect` method to generate an expectation object. The expectation object has numerous matcher operations that assert the state of the expectation. You will want to become familiar with all the matchers, but we will give you a taste of the most common ones here.
 
 ### Equality
 

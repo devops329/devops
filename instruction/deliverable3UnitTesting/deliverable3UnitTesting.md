@@ -46,7 +46,7 @@ jobs:
 
 This workflow is fairly simple. It checks out the code, installs the NPM dependencies, and runs the linter.
 
-When you commit and push this change, you can view the workflow executing on the GitHub Actions view of your repository. Assuming that you have cleaned up all of the linting errors, you should see something similar to the following.
+When you commit and push this change, you can view the workflow executing on the GitHub Actions view of your repository. Assuming that you have cleaned up all the linting errors, you should see something similar to the following.
 
 ![action result](actionResult.png)
 
@@ -56,7 +56,7 @@ If you go and introduce a linting error to your code by doing something like dec
 
 ## Executing tests in the workflow
 
-Running the linter is fine, but what we really want to do is run our tests. This is complicated by the fact that we didn't mock out the database calls, and therefore your tests need a database to run against. You could go back and mock out the database calls. Doing so would make your tests faster, but would also remove a crucial integration test that represents a significant piece of what the service is doing. Additionally, creating a mock of the database would create a lot of testing code to maintain.
+Running the linter is fine, but what we really want to do is run our tests. This is complicated by the fact that we didn't mock out the database calls, and therefore your tests need a database to run against. You could go back and mock out the database calls. Doing so would make your tests faster, but would also remove a crucial integration test that represents a significant piece of what the service is doing. Additionally, mocking the database would create a lot of testing code to maintain.
 
 So instead let's have GitHub Actions run with an instance of MySQL already running on it.
 
@@ -68,7 +68,7 @@ Using the GitHub Repository dashboard for your fork of `jwt-pizza-service`, sele
 
 ![Create repo secret](createRepoSecret.png)
 
-Enter the name `FACTORY_API_KEY` and then enter the value you received for making calls to the factory. Press `Save key` and then it is ready to be used in your workflow with the template placeholder of `${{ secrets.FACTORY_API_KEY }}`.
+Enter the name `FACTORY_API_KEY` and then enter the value you received for making calls to the factory. Press `Save key`, and then it is ready to be used in your workflow with the template placeholder of `${{ secrets.FACTORY_API_KEY }}`.
 
 ![Factory secret](factorySecret.png)
 
@@ -162,7 +162,7 @@ Here is the step to add these two pieces.
     git push
 ```
 
-⚠️ Note that the `printf` statement is modifying the contents of the repository. Without a `permissions` section (as used in the `deploy` job), it assumes automatically that the step can do this. If you later add a permissions block to the `build` job, you will need to give explicit permission for the workflow to modify repository contents.
+⚠️ Note that the `printf` statement is modifying the contents of the repository. Without a `permissions` section (as used in the `deploy` job), it assumes automatically that the step can do this. If you later add a `permissions` block to the `build` job, you will need to give explicit permission for the workflow to modify repository contents.
 
 ```yml
 permissions:

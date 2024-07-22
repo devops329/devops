@@ -16,7 +16,7 @@ Dependency injection is a programming pattern that seeks to abstract coupling of
 
 The principle of dependency inversion states that high-level modules should not depend on low-level modules. In practice, that means that you should use abstractions to represent a component's dependencies. This allows for greater flexibility as the code is less coupled with the details of a particular implementation.
 
-Consider the situation where you want to create a printer that adds some formatting to the content being printed. You could write the printer with the formatting hardcoded into the print function.
+Consider the situation where you want to create a printer that adds some formatting to the content being printed. You could write the printer with the formatting hard-coded into the print function.
 
 ```js
 class HardcodedPrinter {
@@ -52,7 +52,7 @@ Perhaps you are starting to see the problem with this approach. Every time you w
 
 ### Inverting the dependency
 
-Instead you can extend the information that is already being passed to the print function in the form of a **style** enumeration to be an abstraction of the formatter. Now the printer code looks like the following and all of the unnecessary lower-level module dependencies are removed.
+Instead, you can extend the information that is already being passed to the print function in the form of a **style** enumeration to be an abstraction of the formatter. Now the printer code looks like the following and all the unnecessary lower-level module dependencies are removed.
 
 ```js
 class Printer {
@@ -137,7 +137,7 @@ class Printer {
 }
 ```
 
-Now you can create a dependency injection context that allocates all of the necessary dependencies with the desired concrete implementations when the application is loaded.
+Now you can create a dependency injection context that allocates all the necessary dependencies with the desired concrete implementations when the application is loaded.
 
 ```js
 class Context {
@@ -187,7 +187,7 @@ Most common languages have multiple open source dependency frameworks written th
 
 These frameworks commonly use formats such as XML to describe the objects that their context contains. Some frameworks even instrument the code so that the injection context is completely hidden.
 
-All of this makes your code more modular and easier to test, but it comes at a cost. It can introduce complexity and increase the learning curve for developers. This often happens when the abstractions are, well abstract, and it becomes difficult to see what the code is doing. In order to actually follow what concrete implementation are being injected, you need to either carefully review all of the configuration files, or debug the code and examine the variables.
+All of this makes your code more modular and easier to test, but it comes at a cost. It can introduce complexity and increase the learning curve for developers. This often happens when the abstractions are, well abstract, and it becomes difficult to see what the code is doing. In order to actually follow what concrete implementation are being injected, you need to either carefully review all the configuration files, or debug the code and examine the variables.
 
 This can serve as a common warning that sometimes turning up the dial on a good idea can create new unintended complexities and problems.
 

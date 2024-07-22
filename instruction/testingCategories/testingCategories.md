@@ -7,7 +7,7 @@
 
 ---
 
-While the general idea of testing is to simply verify that code is doing what it is supposed to do, it is often helpful to classify testing into different categories. Each category has different tools, limits, and expectations. It also gets a bit fuzzy where the boundaries of each type cross; in general, there is a lot of overlap. The thing to keep in mind is the focus of the category and the value it brings. It is not so important how much you are blurring the lines between catagories as long as you are not overly duplicating your tests.
+While the general idea of testing is to simply verify that code is doing what it is supposed to do, it is often helpful to classify testing into different categories. Each category has different tools, limits, and expectations. It also gets a bit fuzzy where the boundaries of each type cross; in general, there is a lot of overlap. The thing to keep in mind is the focus of the category and the value it brings. It is not so important how much you are blurring the lines between categories as long as you are not overly duplicating your tests.
 
 ![Testing categories](testingCategories.png)
 
@@ -38,7 +38,7 @@ A unit test tries to only cover the vital parts of the test without being tied d
 
 ### Component
 
-Component testing takes unit testing to the next level. With component testing you want to remove some of the mocks and make sure that the component works as a whole. With our endpoint example, you would want to make sure that everything in the class/component works well together. This usually involves calling multiple endpoints on a component or class and making sure that any state shared by the component is properly updated. For example, a unit test would make sure that the login endpoint works correctly. A component test would make sure that everything dealing with authorization (login, register, logout, and delete user) works correctly.
+Component testing takes unit testing to the next level. With component testing you want to remove some mocks and make sure that the component works as a whole. With our endpoint example, you would want to make sure that everything in the class/component works well together. This usually involves calling multiple endpoints on a component or class and making sure that any state shared by the component is properly updated. For example, a unit test would make sure that the login endpoint works correctly. A component test would make sure that everything dealing with authorization (login, register, logout, and delete user) works correctly.
 
 ![Component testing](componentTesting.png)
 
@@ -58,19 +58,19 @@ Before the software industry learned to automate our testing, it was common prac
 
 Automated regression testing is actually fairly easy to achieve. You just need to write appropriate component and integration tests and then run those tests whenever any related code changes. Knowing that you have a full suite of regression tests to protect you will increase your confidence that you didn't inadvertently break anything. You might even find that you no longer need to have an independent QA team to help debug your code.
 
-### End to end
+### End-to-end
 
-End to end testing exercises every part of the application from the highest level. This includes how services interact with each other as well as any dependent third party services and all devices such as databases, caches, and search systems.
+End-to-end testing exercises every part of the application from the highest level. This includes how services interact with each other as well as any dependent third party services and all devices such as databases, caches, and search systems.
 
-Once you get to this level of testing you are approaching what a real user does and the tests become more authentic with very few pieces being mocked out. The difficultly with end to end testing is that is hard to use with test driven development since it is at a much higher level than you are usually working on when implementing a specific feature. It also reproduces many of the tests that happen at the integration, component, or unit levels. That creates significant maintenance overhead.
+Once you get to this level of testing you are approaching what a real user does and the tests become more authentic with very few pieces being mocked out. The difficulty with end-to-end testing is that is hard to use with test driven development, since it is at a much higher level than you are usually working on when implementing a specific feature. It also reproduces many of the tests that happen at the integration, component, or unit levels. That creates significant maintenance overhead.
 
-However, without end to end testing you really can't be confident that the application is actually working in any realistic way.
+However, without end-to-end testing you really can't be confident that the application is actually working in any realistic way.
 
 ### Synthetic
 
-Synthetic testing is similar to end to end testing, but it only tries to simulate what a normal user would do. This is useful for driving load testing where realistic use is important. Often times synthetic testing is done as part of a larger testing strategy such as load or smoke testing.
+Synthetic testing is similar to end-to-end testing, but it only tries to simulate what a normal user would do. This is useful for driving load testing where realistic use is important. Often times synthetic testing is done as part of a larger testing strategy such as load or smoke testing.
 
-When you are conducting synthetic testing, it is important to cover all of the common paths of the application. That requires your testing tool to be able to impersonate a user during authentication and then do things like make purchases, change roles, acquire reputation points, or whatever your application provides. If you are not synthetically simulating real customer behavior then you are going to be reliant on your customers reporting when their behavior does not receive the expected response.
+When you are conducting synthetic testing, it is important to cover all the common paths of the application. That requires your testing tool to be able to impersonate a user during authentication and then do things like make purchases, change roles, acquire reputation points, or whatever your application provides. If you are not synthetically simulating real customer behavior then you are going to be reliant on your customers reporting when their behavior does not receive the expected response.
 
 One way to generate good synthetic tests is to review your application logs and then play back the requests that real users make in the sequence that they originally made them.
 
@@ -92,7 +92,7 @@ Later in the course you will experience an entire module on this topic.
 
 ### Smoke
 
-A smoke test is a quick synthetic test that gives you reasonable confidence that the application is working at a nominal level. Usually, you run a smoke test after deploying a production release. Once the smoke clears, you can tear down resources that were allocated for the deployment since you are pretty sure that you won't need to rollback.
+A smoke test is a quick synthetic test that gives you reasonable confidence that the application is working at a nominal level. Usually, you run a smoke test after deploying a production release. Once the smoke clears, you can tear down resources that were allocated for the deployment since you are pretty sure that you won't need to roll back.
 
 ### User acceptance
 
@@ -124,7 +124,7 @@ You can also test your accessibility using Google Chrome's Lighthouse utility. O
 
 ![Generate Lighthouse report](generateLighthouseReport.png)
 
-After a brief moment it will report a score for your home page. It looks like JWT Pizza is doing alright with a score of 82, but there a couple of simple things that can be done to easily bump it up to a perfect 100.
+After a brief moment it will report a score for your home page. It looks like JWT Pizza is doing alright with a score of 82, but there are a couple of simple things that can be done to easily bump it up to a perfect 100.
 
 ![Lighthouse report](lighthouseReport.png)
 
@@ -132,7 +132,7 @@ After a brief moment it will report a score for your home page. It looks like JW
 
 ### Localization
 
-We live in a global world where applications can be accessed from anywhere on the planet. Making sure that your application conforms to local expectations as well as providing current, datetime, and language support, needs to be part of your testing plan. Here is an example of a website that supports right to left languages such as Arabic.
+We live in a global world where applications can be accessed from anywhere on the planet. Making sure that your application conforms to local expectations as well as providing current datetime and language support, needs to be part of your testing plan. Here is an example of a website that supports right to left languages such as Arabic.
 
 ![Arabic website](arabicStage1.png)
 
@@ -144,15 +144,15 @@ Supporting localization requires significant testing resources, not just to ensu
 
 ### Beta
 
-Beta testing is when you give a select audience of customers access to your application before the general public. The idea is that the beta testers will put up with partially completed functionality in order to get early access to a desirable product.
+Beta testing is when you give a select audience of customers access to your application before the public. The idea is that the beta testers will put up with partially completed functionality in order to get early access to a desirable product.
 
-In order for beta testing to be valuable, you must collect logs and metrics that properly represent the experience of the customer. Additionally you can survey your beta testers to get first person feedback concerning their experience.
+In order for beta testing to be valuable, you must collect logs and metrics that properly represent the experience of the customer. Additionally, you can survey your beta testers to get first person feedback concerning their experience.
 
 There is also **alpha** testing where you give your customers access to an application that contains only the barest functionality, or that is barely usable. The popularity of alpha testing has greatly decreased as development teams have embraced the concept of creating minimal viable products that actually provide significant stability and value even at the earliest stages of development.
 
 ### Black and white box
 
-Black box testing refers to the quality assurance team only having access to the publicly available documentation and interfaces of the application. White box testing refers to when the team can peer into the box and access all of the source code and internal services of the application.
+Black box testing refers to the quality assurance team only having access to the publicly available documentation and interfaces of the application. White box testing refers to when the team can peer into the box and access all the source code and internal services of the application.
 
 Usually white box testing allows for the discovery of bugs that normally wouldn't have been considered without reviewing the source code. However, it is also more expensive since it requires a greater investment of time and abilities.
 

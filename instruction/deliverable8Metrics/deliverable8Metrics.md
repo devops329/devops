@@ -129,7 +129,7 @@ You will need some traffic to your website in order to demonstrate that the visu
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
 1. Modify your fork of the `jwt-pizza-service` to generate the required metrics and store them in your Grafana Cloud account.
-1. Create visualizations on your Grafana Cloud `Pizza Dashboard` to display all of the required metrics.
+1. Create visualizations on your Grafana Cloud `Pizza Dashboard` to display all the required metrics.
 1. Export a copy of your dashboard and save it to your fork of the `jwt-pizza-service` repository in a directory named `grafana`.
    1. On the Grafana Cloud console, navigate to your dashboard.
    1. Press the `Share` button.

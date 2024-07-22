@@ -4,13 +4,13 @@
 
 - Code coverage is a common metric to determine if an application is properly tested.
 - Code coverage percentages can hide serious issues in testing.
-- Make sure you coverage percentage is meaningful.
+- Make sure your coverage percentage is meaningful.
 
 ---
 
 Code coverage is a metric that helps measure the percentage of a program code that was executed when testing. A high percentage of code coverage suggests that the code has been more thoroughly tested and has a lower chance of containing undetected software bugs.
 
-Here is an example of a code coverage report that represents several different coverage metrics for the files in a simple application. The color coding of the percentages help you focus on the areas that are the most problematic.
+Here is an example of a code coverage report that represents several coverage metrics for the files in a simple application. The color coding of the percentages help you focus on the areas that are the most problematic.
 
 ![code coverage report](codeCoverageReport.png)
 
@@ -57,7 +57,7 @@ However, in complex applications there is often significant code for supporting 
 
 This means you have to make extensive investments in testing code and inject special code into your production system to cover these cases.
 
-You many find that for those extreme cases, it is better to actually manually test them instead of doing back flips to automate the testing. You can also take the somewhat questionable strategy of waiting until an actual bug is reported for these edge cases before you make an extreme investment.
+You many find that for those extreme cases, it is better to actually manually test them instead of doing backflips to automate the testing. You can also take the somewhat questionable strategy of waiting until an actual bug is reported for these edge cases before you make an extreme investment.
 
 You should also realize what 100% coverage actually means. It does not mean 100% verification. There are infinite possibilities for different parameters, paths, timings, and configurations to a complex software package. Hitting every line of code **does not** mean that you have hit every permutation that your code can execute.
 

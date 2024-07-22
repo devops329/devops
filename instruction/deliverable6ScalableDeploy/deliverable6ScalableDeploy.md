@@ -107,7 +107,7 @@ Next you need to enhance the `github-ci` user rights so that they can push to EC
 
 Previously the workflow stopped after the tests were done and the coverage badge was updated. Now you need to add the following steps:
 
-1. Create a distribution folder that will become our Docker container. This copies all of the source code files and the newly created Dockerfile. We also replace the temporary database credentials that were used during testing with the ones needed by the production environment.
+1. Create a distribution folder that will become our Docker container. This copies all the source code files and the newly created Dockerfile. We also replace the temporary database credentials that were used during testing with the ones needed by the production environment.
    ```yml
    - name: Create dist
      run: |

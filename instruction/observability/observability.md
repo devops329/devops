@@ -57,7 +57,7 @@ Consider the situation where your website latency has significantly increased. I
 
 ### Elasticity
 
-All of the desirable characteristics that you want for your application also apply to your observability system. This includes elasticity. You want to handle a spike in log requests without having to manually adjust your system. Without this, your observability will lag, or worse, fail entirely exactly at the moment when you need it most.
+all the desirable characteristics that you want for your application also apply to your observability system. This includes elasticity. You want to handle a spike in log requests without having to manually adjust your system. Without this, your observability will lag, or worse, fail entirely exactly at the moment when you need it most.
 
 ### Aggregation and accessibility
 

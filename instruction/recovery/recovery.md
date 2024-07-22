@@ -66,7 +66,7 @@ RDS backups show up in the `Snapshots` view of the RDS service.
 
 ![Snapshots](snapshots.png)
 
-When you click on the snapshot, you can see all of the details and select the option to `Restore snapshot`.
+When you click on the snapshot, you can see all the details and select the option to `Restore snapshot`.
 
 ![Restore snapshot](restoreSnapshot.png)
 

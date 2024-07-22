@@ -25,7 +25,7 @@ This gives us some unexpected benefits.
 - Prevents breakage of existing functionality because it is cheap to test everything that was done before
 - The tests provide a working example of the product that documents how the product works
 
-Combined together, these benefits result in a better design, in a shorter amount of time, with a reduced number of defects. This all leads to greater customer and developer satisfaction.
+Combined, these benefits result in a better design, in a shorter amount of time, with a reduced number of defects. This all leads to greater customer and developer satisfaction.
 
 ## More than just testing
 
@@ -37,7 +37,7 @@ This is most clearly seen in the impact that automated testing has on the design
 
 ### Better design
 
-First of all, testing forces you to consider the design of the code from the consumers perspective before you write the first line of code. It encourages questions such as:
+First, testing forces you to consider the design of the code from the consumer's perspective before you write the first line of code. It encourages questions such as:
 
 - How is this going to work with other code?
 - Will its interface be obvious and intuitive?
@@ -52,7 +52,7 @@ First of all, testing forces you to consider the design of the code from the con
 
 Second, there is no better documentation than the code itself. Unfortunately, code can take a long time to read. However, an example of how to use the code is often the exact concise documentation that we are looking for. Well written, clearly named, tests can provide just that.
 
-Consider the following test for a `Catalog` object. We can see from the test that we can `add` items and then get them all back with the `history`. Items can be of different type. It is also obvious that both the add and history methods are asynchronous. No long winded narratives are necessary; I can experiment with this example, and I can use it to start my code.
+Consider the following test for a `Catalog` object. We can see from the test that we can `add` items and then get them all back with the `history`. Items can be of different type. It is also obvious that both the add and history methods are asynchronous. No long-winded narratives are necessary; I can experiment with this example, and I can use it to start my code.
 
 ```js
 test('history', async () => {
@@ -104,7 +104,7 @@ When testing is done correctly it gives major payback. Conversely, if unit testi
 
 There is a temptation to duplicate portions of the production code in the testing code, possibly multiple times. This is often done so that you can test isolated portions of the code, or because the code is too tightly coupled that it is impossible to create a test. Duplicating production code requires you to change things in multiple places whenever you need to make a change.
 
-Consider the case where you have a suite of tests that validate the endpoints for working with pizza franchises. You write a test to create a franchise and then you duplicate that same franchise creation and testing code when you create a franchise store, purchase a pizza from the franchise, add an admin to the franchise, delete a store, and so forth.
+Consider the case where you have a suite of tests that validate the endpoints for working with pizza franchises. You write a test to create a franchise, and then you duplicate that same franchise creation and testing code when you create a franchise store, purchase a pizza from the franchise, add an admin to the franchise, delete a store, and so forth.
 
 ```js
 test('create franchise', async () => {
