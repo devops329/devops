@@ -187,9 +187,42 @@ Most common languages have multiple open source dependency frameworks written th
 
 These frameworks commonly use formats such as XML to describe the objects that their context contains. Some frameworks even instrument the code so that the injection context is completely hidden.
 
-All of this makes your code more modular and easier to test, but it comes at a cost. It can introduce complexity and increase the learning curve for developers. This often happens when the abstractions are, well abstract, and it becomes difficult to see what the code is doing. In order to actually follow what concrete implementation are being injected, you need to either carefully review all the configuration files, or debug the code and examine the variables.
+## Abusing dependency injection
 
-This can serve as a common warning that sometimes turning up the dial on a good idea can create new unintended complexities and problems.
+Dependency injection makes your code more modular and easier to test, but it comes at a cost. It can introduce complexity and increase the learning curve for developers. This often happens because abstractions are by definition _abstract_, and it becomes difficult to see what the code is doing. In order to actually follow what concrete implementations are being injected, you need to either carefully review all the configuration files, or debug the code and examine the variables. This is an example of how testing can actually decrease the maintainability of your code and become a source for failures instead of helping to prevent them.
+
+```js
+class Service {
+  constructor(dependency) {
+    this.dependency = dependency;
+  }
+  exec(param) {
+    return this.dependency.exec(param);
+}
+
+class Injector {
+  constructor(config, ctx) {
+    this.bindings = config.loadBindings(ctx);
+    this.inject();
+  }
+  get(identifier, ...params) {
+    const implementation = this.bindings.get(identifier, params);
+    if (!implementation) {
+      throw new Error(`Identifier ${identifier} not bound`);
+    }
+    return implementation;
+  }
+}
+
+const di = new Injector(config, ctx);
+
+const service = new Service(di.get('serviceDependency'));
+service.exec(di.get('serviceParam', 'a', 9));
+```
+
+It is also common to see testing code that has gone too far with dependency injection. The inputs are injected with a mocked out implementation, the results from dependencies are injected with a hard coded responses, and the response from the test target is hard coded. This results in a test that only tests that the compiler works with no actual significant exercise of the application itself. We saw this in the code above where the **service** is a simple pass through between injected parameters and injected dependencies.
+
+Sometimes turning up the dial on a good idea can create new unintended complexities and problems. Be careful with extremes or treating a single tool as a solution for every problem.
 
 ## Dependency injection in JWT Pizza
 

@@ -77,6 +77,12 @@ Here are the steps to take:
    ```
 
    1. Start the service using `node index.js` or debugging it from within your IDE.
+      ```sh
+      ➜ cd src
+      ➜  node index.js
+      Server started on port 3000
+      Database exists
+      ```
    1. Test that the service is running properly
       ```sh
       curl http://localhost:3000/api/docs
