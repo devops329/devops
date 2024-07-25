@@ -168,7 +168,7 @@ All you need to do copy the following Markdown, paste it in the README file, rep
 [![CI Pipeline](https://github.com/YOURACCOUNTNAMEHERE/jwt-pizza/actions/workflows/ci.yml/badge.svg)](https://github.com/YOURACCOUNTNAMEHERE/jwt-pizza/actions/workflows/ci.yml)
 ```
 
-Now whenever you pipeline runs you will be able to see the status in your repos home page on GitHub.
+Now whenever you pipeline runs you will be able to see the status in your repos home page on GitHub. Don't worry about the coverage reporting 0%. You will correct that in a future assignment.
 
 ![Pipeline status](pipelineStatus.png)
 
