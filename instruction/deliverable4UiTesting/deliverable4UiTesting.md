@@ -251,7 +251,7 @@ Then we assert that the HTTP method was `PUT` and that we got the expected reque
 ```js
 await page.route('*/**/api/auth', async (route) => {
   const loginReq = { email: 'd@jwt.com', password: 'a' };
-  const loginRes = { id: 3, name: 'Kai Chen', email: 'd@jwt.com', roles: [{ role: 'diner' }] };
+  const loginRes = { user: { id: 3, name: 'Kai Chen', email: 'd@jwt.com', roles: [{ role: 'diner' }] }, token: 'abcdef' };
   expect(route.request().method()).toBe('PUT');
   expect(route.request().postDataJSON()).toMatchObject(loginReq);
   await route.fulfill({ json: loginRes });
@@ -293,7 +293,7 @@ test('purchase with login', async ({ page }) => {
 
   await page.route('*/**/api/auth', async (route) => {
     const loginReq = { email: 'd@jwt.com', password: 'a' };
-    const loginRes = { id: 3, name: 'Kai Chen', email: 'd@jwt.com', roles: [{ role: 'diner' }] };
+    const loginRes = { user: { id: 3, name: 'Kai Chen', email: 'd@jwt.com', roles: [{ role: 'diner' }] }, token: 'abcdef' };
     expect(route.request().method()).toBe('PUT');
     expect(route.request().postDataJSON()).toMatchObject(loginReq);
     await route.fulfill({ json: loginRes });
