@@ -27,8 +27,8 @@ Eventually you will change the **jwt-pizza-service** security group so that only
 1. Select `Security groups` from the left panel navigation.
 1. Press `Create security group`.
 1. Name the group `jwt-pizza-service`.
-1. Give a simple description like `Security group for the JWT Pizza Service`.
-1. Press the `Add rule` for inbound rules.
+1. Give a simple description like `JWT Pizza Service`.
+1. Press the `Add rule` for **inbound rules**.
    1. Select the `type` of **HTTPS**. This should populate the `Port range` with 443. Set the `Source` to **Anywhere-IPv4**.
    1. Add a second rule. Select the `type` of **HTTP**. This should populate the `Port range` with 80. Set the `Source` to **Anywhere-IPv4**.
 1. Press the `Create security group` button.
@@ -38,8 +38,8 @@ Eventually you will change the **jwt-pizza-service** security group so that only
 1. Navigate to `Security groups` in the VPC service.
 1. Press `Create security group`.
 1. Name the security group `jwt-pizza-db`.
-1. Give a simple description.
-1. Press the `Add rule` for inbound rules.
+1. Give a simple description like `JWT Pizza Service Database`.
+1. Press the `Add rule` for **inbound rules**.
    1. Select the `type` of `MYSQL/Aurora`. This should populate the `Port range` with 3306. Set the `Source` to be the **jwt-pizza-service** security group that you just created.
 
 ## Creating a MySQL instance
@@ -65,7 +65,7 @@ With the network security deployed, you can now create the MySQL server instance
    1. Select **Choose existing** for the `VPC security group`.
       1. Select the `jwt-pizza-db` security group you created earlier.
       1. Unselect the `default` security group.
-   1. Select **us-east-1b** for the `Availablity zone`.
+   1. Select one of the available availability zones for the `Availablity zone`.
 1. Under **Database authentication** select `Password and IAM database authentication`.
 1. Press `Create database`.
 
@@ -87,9 +87,9 @@ Keeping the database on a private network is a good security practice since the 
 
 ### DB credentials
 
-To solve the database credential problem, you will store the information necessary to access the database in your `jwt-pizza-service` GitHub Actions secrets. The CI workflow will inject the credentials into the service's configuration when it is deployed. At a later point, you will remove the credentials and just use AWS IAM assumed roles to provide authentication to the database.
+To solve the database credential problem, you will store the information necessary to access the database in your `jwt-pizza-service` GitHub Actions secrets. The CI workflow will inject the credentials into the service's configuration when it is deployed.
 
-For now, you can go ahead and update the GitHub Actions secrets with the values you just used to configure the database. This includes the hostname, username (admin), and password.
+Go ahead and update the GitHub Actions secrets with the values you just used to configure the database. This includes the hostname, username (admin), and password.
 
 | Secret      | Description                                         | Example                                               |
 | ----------- | --------------------------------------------------- | ----------------------------------------------------- |
