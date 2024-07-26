@@ -78,3 +78,9 @@ Application, DevOps, site reliability, and platform engineers all share the same
 1. **Automate** - Treat testing, deployment, and management as a programming problem by minimizing human involvement.
 
 The purpose of this course is to teach you the techniques and the tools that are necessary to master their implementation. Understanding how we got to where we are, along with the reoccurring themes and innovations that have happened, can give you a deeper appreciation of the shoulders that you are standing on.
+
+## A bit of fun
+
+![XKCD Old days 2](xkcdOldDays2.png)
+
+> _source: [XKCD](https://xkcd.com/2324/)_

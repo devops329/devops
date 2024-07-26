@@ -40,3 +40,9 @@ Remember to make meaningful commit messages that describe the **what** and **why
 ## Complete work early
 
 Your commit history should show that you completed the work well before the deadline. Some deliverables can be completed in a few hours, but waiting until the deadline to start working on a project is not a habit that your employer will appreciate. Start early and commit as you go. Any significant change (writing a test, adding a step to a workflow, changing a config file, etc.) should be committed.
+
+## A bit of fun
+
+![XKCD Git Commit](xkcdGitCommit.png)
+
+> _source: [XKCD](https://xkcd.com/1296/)_

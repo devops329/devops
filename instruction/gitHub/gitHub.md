@@ -130,3 +130,9 @@ GitHub allows you to create a fork of any repository on GitHub. You just push th
 ## Contributing to the course instruction
 
 In this class, if you notice something in the instruction that needs to be enhanced, feel free to fork the [instruction repo](https://github.com/devops329/devops), and make a pull request. This will give you experience with forking and improve the instruction for others at the same time, plus your name will be included as a contributor. How cool is that!
+
+## A bit of fun
+
+![XKCD Git](xkcdGit.png)
+
+> _source: [XKCD](https://xkcd.com/1597/)_

@@ -108,6 +108,12 @@ This playbook provides a structured approach for managing and recovering from da
    - Identify root cause and implement preventive measures
    - Update this playbook with lessons learned and improvements
 
+## A bit of fun
+
+![XKCD override](xkcdOverride.png)
+
+> _source: [XKCD](https://xkcd.com/912/)_
+
 ## ☑ Assignment
 
 Create a playbook for the JWT Pizza that covers what to do when the JWT Pizza Factory endpoints fail to respond or are experiencing high levels of latency.

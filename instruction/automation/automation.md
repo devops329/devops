@@ -196,3 +196,9 @@ With this script you don't have to log into the AWS Browser Console, navigate to
 ```
 aws cloudformation create-stack --stack-name load-balancer --template-body file://create-load-balancer.json
 ```
+
+## A bit of fun
+
+![XKCD Automation](xkcdAutomation.png)
+
+> _source: [XKCD](https://xkcd.com/1319/)_

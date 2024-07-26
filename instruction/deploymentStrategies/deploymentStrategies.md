@@ -90,3 +90,9 @@ The JWT Pizza backend uses an **Immutable** strategy that is managed by ECS and 
 The JWT Pizza frontend currently uses an **In Situ** strategy that is executed by your CI workflow. As soon as the S3 copy command is executed the new version files are available. Because the copy is not atomic, and the resource is never taken out of service, there may be situations where only some application files are present. However, CloudFront does cache files for a period of time and so only customers who experience a cache timeout during the deployment are likely to see a partially deployed application.
 
 For a production system, the situation for the JWT Pizza frontend is not really acceptable. Not only that, but it is difficult to roll back since it requires a new build and deployment of the files. That is something that could take 10 minutes or more, during which the application could be down. For this reason, we will move the frontend deployment to a strategy where the files are deployed atomically and can be quickly rolled back.
+
+## A bit of fun
+
+![XKCD Will It Work](xkcdWillItWork.png)
+
+> _source: [XKCD](https://xkcd.com/1742/)_
