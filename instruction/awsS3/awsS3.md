@@ -97,7 +97,9 @@ Create an S3 bucket and copy a file into the bucket.
 1. Open the AWS browser console and navigate to the S3 service.
 1. Click on the `Create bucket` button.
 1. Select the `General configuration` option and name it something unique. Remember that the bucket namespace is global, and so you cannot use a name that already is in use.
+
    ![Create bucket](createBucket.png)
+
 1. Leave all the other settings with their default, including _Block all public access_. Press the `Create bucket` button.
 1. Click on the newly created bucket to open it up.
 1. Drag a file from your development environment and drop it on the `Upload` target.
@@ -106,3 +108,5 @@ Create an S3 bucket and copy a file into the bucket.
 Take a screenshot of the bucket with your file in it and submit it to the Canvas assignment. Your screenshot should look something like the following.
 
 ![Bucket with file](bucketWithFile.png)
+
+Once you are done you can go ahead and delete all the files in the bucket and then delete the bucket itself.
