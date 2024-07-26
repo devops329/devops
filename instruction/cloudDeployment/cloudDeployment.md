@@ -9,13 +9,13 @@
 
 Hosting on GitHub is fine for simple static websites that don't have to worry about significant scale. However, if you want to reach a large global audience with an architecture that is resilient and elastic, you are going to need to deploy to a cloud environment that can meet those demands. To take things to the next level we are going to move to Amazon Web Service (AWS).
 
-Specifically, you will deploy the `jwt-pizza` frontend end using S3 and the `jwt-pizza-service` backend using Fargate. The following diagram shows all the AWS services involved in supporting this architecture.
+Specifically, you will deploy the `jwt-pizza` frontend end to use AWS S3 and the `jwt-pizza-service` backend to use AWS Fargate. The following diagram shows all the AWS services involved in supporting this architecture.
 
 ![Cloud deployment](cloudDeployment.png)
 
 ## Architecture pieces
 
-We are going to go into detail on each of the services in the above architecture. This will include what they each do, how to set them up, and how to connect them to each other. In the meantime, the following table gives you a general feel for what each of the services do.
+Eventually we will look at the details of each of the services in the above architecture diagram. This will include what they each do, how to set them up, and how to connect them to each other. In the meantime, the following table gives you a general feel for what each of the services do.
 
 | Service             | Description                                                                                                                |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------- |
