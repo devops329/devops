@@ -28,17 +28,69 @@ d3pl23dqq9jlpy.cloudfront.net.
 
 Alter your GitHub Actions deployment process using the [AWS S3 Deployment](../awsS3Deployment/awsS3Deployment.md) instruction such that it updates S3 when files are pushed to your fork of `jwt-pizza`. Your GitHub CI pipeline deploys your frontend code through a secure connection that is authenticated using OIDC that follows the principle of least privilege, by exposing only the necessary access.
 
-In the `deploy` job of your workflow, attempting to copy the contents of `dist` to s3 when the `deploy` and `build` jobs are separate will produce an error along the lines of `No such directory: dist`. You need to first download the pages artifact that you uploaded in the `build` job.
+Your existing `deploy` job that you created to deploy to GitHub Pages should currently look like the following.
 
-```yaml
-- name: Download pages artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: package
-          path: dist/
+```yml
+build:
+  //...build and test steps
+    - name: Update pages artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: dist/
+deploy:
+  needs: build
+  permissions:
+    pages: write
+    id-token: write
+  environment:
+    name: github-pages
+    url: ${{ steps.deployment.outputs.page_url }}
+  runs-on: ubuntu-latest
+  steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
 ```
 
-### 404 page
+This uses the artifact uploaded in the **build** job using actions that are specific to deploying to GitHub Pages. Instead you need to replace the `upload-pages-artifact` action to use the more generic `upload-artifact` action.
+
+```yml
+- name: Update dist artifact
+  uses: actions/upload-artifact@v4
+  with:
+    name: package
+    path: dist/
+```
+
+You can then create the OIDC authorization, download the artifact, push to S3, and invalidate the CloudFront distribution cache in the **deploy** job. This should look something like the following.
+
+```yml
+deploy:
+  needs: build
+  permissions:
+    id-token: write
+  runs-on: ubuntu-latest
+  steps:
+    - name: Create OIDC token to AWS
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        audience: sts.amazonaws.com
+        aws-region: us-east-1
+        role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT }}:role/${{ secrets.CI_IAM_ROLE }}
+
+    - name: Download dist artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: package
+        path: dist/
+
+    - name: Push to AWS S3
+      run: |
+        aws s3 cp dist s3://${{ secrets.APP_BUCKET }} --recursive
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
+```
+
+### React routing on browser refresh
 
 You need to remove the creation of the `404.hml` that GitHub Pages used to handle when a user refreshes the browser. You can do that by deleting the creation of the file from your workflow.
 
@@ -46,7 +98,7 @@ You need to remove the creation of the `404.hml` that GitHub Pages used to handl
 cp dist/index.html dist/404.html
 ```
 
-Instead, you need to configure CloudFront to return the `index.html` file whenever a 404 or 403 error is encountered. You can do this by going to `Error Pages` in the CloudFront distribution and adding a custom error response.
+Instead, you need to configure CloudFront to return the `index.html` file whenever a **404** or **403** error is encountered. You can do this by going to `Error Pages` in the CloudFront distribution and adding a custom error response for both 404 and 403.
 
 ![Handle 404](handle404.png)
 
