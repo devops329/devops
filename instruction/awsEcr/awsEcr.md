@@ -37,6 +37,9 @@ Using the process that you executed in the previous instruction about how to bui
    ```
 1. Open the AWS browser console and navigate to the Elastic Container Registry (ECR) service.
 1. Open the repository you created in the earlier step.
+
+   ![View repository](viewRepository.png)
+
 1. Click on `View push commands`. This should display a series of steps to push a Docker image from your local registry to ECR. Use these commands in the next steps. If you use the examples below, make sure you replace the example AWS account ID (1234567890) with your account ID.
    1. **Obtaining an Auth Token**: This uses the AWS CLI to generate a temporary authorization token and then logs you into Docker using the token for the given registry.
       ```sh
