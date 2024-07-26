@@ -34,7 +34,7 @@ The first step we need to take is to create an S3 bucket to host the static file
 
 1. Open the AWS browser console and navigate to the S3 service.
 1. Click on the `Create bucket` button.
-1. Select the `General configuration` option and name it the name of your JWT Pizza website. For the purposes of this instruction we will use the hostname `pizza.csbyustudent.click`.
+1. Select the `General configuration` option and name it the name of your JWT Pizza website. For the purposes of this instruction we will use the hostname `pizza.csbyustudent.click`. If you are following along with this instruction than you should use a unique bucket name such as your DNS hostname with a pizza prefix (e.g. pizza.yourhostname).
 1. Leave all the other settings with their default, including _Block all public access_. Press the `Create bucket` button.
 1. Create a file named `index.html` in VS Code and insert a basic _Hello World_ page.
    ```html
