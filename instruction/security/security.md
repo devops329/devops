@@ -37,8 +37,8 @@ No system is completely immune to a persistent, dedicated, well funded team of a
 1. Authorized devices can only make requests using an encrypted protocol.
 1. The authorized devices' credentials are rotated hourly.
 1. The types of SQL query that the device can make are restricted and can only return the amount of data that is required for their role.
-1. All authentication and queries to the database is immutably logged. Anomalies trigger an alert.
-1. Request metrics are tracked. Anomalies trigger an alert.
+1. All authentication and query requests to the database are immutably logged. Anomalies trigger an alert.
+1. Database metrics are immutably tracked. Anomalies trigger an alert.
 1. A honeypot database exists on the network with similar protections, but will immediately trigger an alert for any unexpected requests.
 
 Are all these layers enough to stop an attacker? Probably not, but it will probably slow them down enough for you to notice the intrusion and take direct action.
@@ -249,7 +249,7 @@ const logger = getLokiLogger({
 await logger.info({ message: 'Hello World!' });
 ```
 
-The average software engineer would grab the package and start logging without a second thought. A Google software engineer would not have the option to do such a thing. What are you going to do?
+The average software engineer would grab the package and start logging without a second thought. A security minded software engineer never consider such a thing. What are you going to do?
 
 I would hope that you would pull the source code and start walking through it. What you will find is that the code boils down to a single function that has any value.
 
