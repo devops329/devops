@@ -73,12 +73,9 @@ We want to be careful which AWS services and resources we expose through the cre
 }
 ```
 
-1. Replace `BUCKET_NAME_HERE` with the name of the S3 bucket you created.
-1. Replace `AWS_ACCOUNT` with your AWS account number.
-1. Replace `DISTRIBUTION_HERE` with the CloudFront distribution ID.
-
-   ![Create policy](createPolicy.png)
-
+1. Replace `BUCKET_NAME_HERE` with the name of the S3 bucket you created (e.g. pizza.youhostname).
+1. Replace `AWS_ACCOUNT` with your AWS account number (e.g. 882352824274).
+1. Replace `DISTRIBUTION_HERE` with the CloudFront distribution ID (e.g. F3A3ZL6IF7XCE1).
 1. Press `Next`.
 1. Name the policy `jwt-pizza-ci-deployment`.
 1. Press `Create policy`.
@@ -96,14 +93,14 @@ Now we can create the AWS IAM role that allows access to S3.
    ![Create role](createRole.png)
 
 1. Add the `Audience` to be sts.amazonaws.com from the dropdown.
-1. Add the `GitHub organization` to be you GitHub account name.
+1. Add the `GitHub organization` to be your GitHub account name.
 1. Add the `GitHub repository` for your fork of the `jwt-pizza` repository.
 1. Add the `GitHub branch` to be main.
 
    ![Web identity](webIdentity.png)
 
 1. Press `Next`.
-1. Add permissions by entering the name of the policy you created. (e.g. `jwt-pizza-ci-deployment`).
+1. Add permissions by entering the name of the policy you created (e.g. `jwt-pizza-ci-deployment`).
 
    ![Policy permissions](policyPermissions.png)
 
