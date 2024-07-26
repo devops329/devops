@@ -119,7 +119,7 @@ https://d38ifnrzczg9k1.cloudfront.net
 
 ## Route 53
 
-The last step for configuring the CDN, is to create a DNS record so that you can access the CDN using your domain name rather than the generated one for the distribution.
+The last step for configuring the CDN, is to create a DNS record so that you can access the CDN using your domain name rather than the generated one for the distribution. This instruction assumes you are using Route 53 to host you domain name. If you are using a different DNS service, such as namecheap, then consult the documentation for that service.
 
 1. Open the AWS browser console and navigate to the Route 53 service.
 1. Select the hosted zone for your hostname.
