@@ -9,7 +9,7 @@
 Now that you know how Docker containers work, you need to create a **jwt-pizza-service** Docker container image from the Pizza Service source code. Here are the steps to take.
 
 1. In your development environment, open your command console and navigate to the directory containing your fork of `jwt-pizza-service`.
-1. Create a file named `Dockerfile` in the project directory with the following content.
+1. Create a file named `Dockerfile` in the project directory with the following content. Make sure you match the case of the filename.
 
    ```dockerfile
    ARG NODE_VERSION=20.12.2
@@ -22,7 +22,7 @@ Now that you know how Docker containers work, you need to create a **jwt-pizza-s
    CMD ["node", "index.js", "80"]
    ```
 
-1. Modify/Create the `config.js` file. Set the database host field so that it looks outside the container for the MySQL server by specifying the value of `host.docker.internal`. Make sure you include the `config.js` file in your `.gitignore` file so that you do not accidentally push it to your repository. Set the parameters, such as the jwtSecret and factory.apiKey, according to your environment.
+1. Modify/Create the `config.js` file. Set the database host field so that it looks outside the container for the MySQL server by specifying the value of `host.docker.internal`. Make sure you include the `config.js` file in your `.gitignore` file so that you do not accidentally push it to your repository. Set the parameters, such as the user, password, jwtSecret and factory.apiKey, according to your environment.
    ```sh
    module.exports = {
     jwtSecret: 'yourRandomJWTGenerationSecretForAuth',
@@ -60,7 +60,7 @@ Now that you know how Docker containers work, you need to create a **jwt-pizza-s
 1. Verify that the container exists.
 
    ```sh
-   ➜  docker images -a
+   docker images -a
 
    REPOSITORY         TAG      IMAGE ID       CREATED         SIZE
    jwt-pizza-service  latest   9689e2852c3a   2 seconds ago   132MB
@@ -76,7 +76,7 @@ Now that you know how Docker containers work, you need to create a **jwt-pizza-s
 
    This should return the service welcome response if the container is successfully running.
 
-1. Stop and delete the container
+1. Stop and delete the container using the container ID. You can use `docker ps -a` to find the value.
    ```sh
    docker rm -fv 0af3
    ```
