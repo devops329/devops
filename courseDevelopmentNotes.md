@@ -81,7 +81,7 @@ Change instruction for when they fork, add ta as collaborator ✅
 
   - Run workflow
   - check for ecr and ecs in actions workflow
-  - DNS on jwt-pizza-service URL (jwt-pizza-service-1608398899.us-east-2.elb.amazonaws.com.)
+  - DNS on jwt-pizza-service URL (jwt-pizza-service-123456789.us-east-1.elb.amazonaws.com.)
   - check that .env.production contains their service url (VITE_PIZZA_SERVICE_URL=https://pizza-service.byucsstudent.click)
   - Use curl to create a user and then login in as the user
 

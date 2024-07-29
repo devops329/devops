@@ -17,7 +17,7 @@ Now that you have added linting and created unit tests for the **jwt-pizza-servi
 In your fork of the **jwt-pizza-service** create the file `.github/workflows/ci.yml` and add the following.
 
 ```yml
-name: Test
+name: CI Pipeline
 
 on:
   push:

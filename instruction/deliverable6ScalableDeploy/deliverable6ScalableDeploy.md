@@ -55,7 +55,7 @@ Next you need to enhance the `github-ci` user rights so that they can push to EC
 1. Select the `Permissions` tab.
 1. Click on the `jwt-pizza-ci-deployment` policy.
 1. Select `JSON` and press `Edit`.
-1. Add the following statement in order to allow the use of ECR and ECS.
+1. Add the following statements in order to allow the use of ECR and ECS.
 
    ```json
    {
@@ -105,6 +105,13 @@ Next you need to enhance the `github-ci` user rights so that they can push to EC
 
 ### Modify the CI workflow script for image upload
 
+Before you can modify the CI workflow for the JWT Pizza Service you need to add the following secrets to your fork of the `jwt-pizza-service` repository.
+
+| Secret      | Description                                         | Example   |
+| ----------- | --------------------------------------------------- | --------- |
+| AWS_ACCOUNT | Your AWS account number                             | 343243424 |
+| CI_IAM_ROLE | The IAM user with rights to deploy your application | github-ci |
+
 Previously the workflow stopped after the tests were done and the coverage badge was updated. Now you need to add the following steps:
 
 1. Create a distribution folder that will become our Docker container. This copies all the source code files and the newly created Dockerfile. We also replace the temporary database credentials that were used during testing with the ones needed by the production environment.
@@ -119,15 +126,44 @@ Previously the workflow stopped after the tests were done and the coverage badge
        sed -i "s/tempdbpassword/${{ secrets.DB_PASSWORD }}/g" dist/config.js
        sed -i "s/127.0.0.1/${{ secrets.DB_HOSTNAME }}/g" dist/config.js
    ```
+1. Create a CI pipeline artifact from the resulting distribution build.
+
+   ```yml
+   - name: Update distribution artifact
+     uses: actions/upload-artifact@v4
+     with:
+       name: package
+       path: dist/
+   ```
+
+1. Create a new GitHub Actions Job underneath the `validate` job and name it `deploy`. Give it permissions to access the CI pipeline token so that it can authenticate with OIDC. As the first step, download the distribution artifact created by the last job.
+
+   ```yml
+   deploy:
+   runs-on: ubuntu-latest
+   permissions:
+      id-token: write
+   needs: validate
+   steps:
+      - name: Download distribution artifact
+         uses: actions/download-artifact@v4
+         with:
+            name: package
+   ```
+
 1. Authenticate to AWS using OIDC. This is the same authentication step that we took with the frontend deployment. Using OIDC makes it so we don't have to store any credentials to our AWS account.
+
+   ⚠️ Make sure the AWS region matches the region you are using.
+
    ```yml
    - name: Create OIDC token to AWS
      uses: aws-actions/configure-aws-credentials@v4
      with:
        audience: sts.amazonaws.com
-       aws-region: us-east-2
+       aws-region: us-east-1
        role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT }}:role/${{ secrets.CI_IAM_ROLE }}
    ```
+
 1. Login to AWS ECR. We need to provide credentials to Docker so that it can push container images into the register. This [action](https://github.com/aws-actions/amazon-ecr-login) gets a temporary password from ECR using the OIDC credential we previously obtained.
 
    ```yml
@@ -154,9 +190,6 @@ Previously the workflow stopped after the tests were done and the coverage badge
        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
        ECR_REPOSITORY: 'jwt-pizza-service'
      run: |
-       docker --version
-       cd dist
-       ls -la
        docker build --platform=linux/arm64 -t $ECR_REGISTRY/$ECR_REPOSITORY --push .
        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:latest"
    ```
@@ -181,7 +214,7 @@ You will do this by adding three new steps to the workflow.
    ```yml
    - name: Download task definition
    run: |
-      aws ecs describe-task-definition --region us-east-2 --task-definition jwt-pizza-service --query taskDefinition > task-definition.json
+      aws ecs describe-task-definition --region us-east-1 --task-definition jwt-pizza-service --query taskDefinition > task-definition.json
       echo $(cat task-definition.json | jq 'del(.taskDefinitionArn, .requiresAttributes, .compatibilities, .revision, .status, .registeredAt, .registeredBy)') > task-definition.json
    ```
 1. Modify the task definition so that it contains the name of the new container image that you just created.
