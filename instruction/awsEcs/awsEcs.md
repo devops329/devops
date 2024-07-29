@@ -157,7 +157,11 @@ Take the following steps to deploy with an Application Load Balancer.
       1. Set the Health check path to `/api/docs`.
    1. Press `Create`.
 
-![Load balancer config](loadBalancerConfig.png)
+      ![Load balancer config](loadBalancerConfig.png)
+
+This will take a few minutes for the service and associated load balancer to deploy. You can view the progress either on the CloudFormation or EC2 service.
+
+![CloudFormation progress](cloudFormationProgress.png)
 
 ### Testing the load balancer
 
@@ -194,6 +198,15 @@ The last step for configuring the scalable deployment of your backend, is to cre
 ![Create load balancer DNS record](createLoadBalancerDnsRecord.png)
 
 ### Testing the DNS record
+
+You can use `dig` to see when your DNS record finishes propagating.
+
+```sh
+dig pizza-service.yourdomannamehere +noall +answer
+
+jwt-pizza-service-123456789.us-east-1.elb.amazonaws.com. 60 IN A 54.80.64.164
+jwt-pizza-service-123456789.us-east-1.elb.amazonaws.com. 60 IN A 3.221.165.37
+```
 
 Once the DNS record propagates you can open up your browser and hit your JWT Pizza Service by making an HTTPS request.
 
