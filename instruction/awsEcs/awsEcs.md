@@ -14,9 +14,11 @@
 
 ---
 
+![Fargate logo](fargateLogo.png)
+
 The Elastic Container Service (ECS) provides the functionality necessary to deploy your Docker container image. After you have uploaded your image to [ECR](../awsEcr/awsEcr.md), you can create an ECS cluster and service to load your container onto either EC2 instances or AWS Fargate.
 
-If you configure ECS to deploy to EC2 instances then you must launch, scale, and manage those EC2 instances. Alternatively, if you use AWS Fargate, Fargate will automatically handle the launching, scaling, and management of the containers. For our work in the course we will use AWS Fargate.
+If you configure ECS to deploy to EC2 instances then you must launch, scale, and manage those EC2 instances. Alternatively, if you use **AWS Fargate**, Fargate will automatically handle the launching, scaling, and management of the containers. For our work in the course we will use AWS Fargate.
 
 The basic pieces that ECS provides are as follows.
 
@@ -35,7 +37,7 @@ Before you can configure Docker containers to run under ECS you need to authoriz
 1. **Task execution role** - This defines the rights necessary to deploy a task. This includes things like the ability to start up a getting an ECR image and setting up CloudWatch logging.
 1. **Task role** - This defines what rights the task has. This includes things like database access rights or read from S3.
 
-We will not define a **Task role** at this time, but you will do this later as you add rights for the task to connect to your MySQL instance without providing explicit credentials.
+We will not define a **Task role** at this time, but you will do this later if you add rights for the task to connect to your MySQL instance without providing explicit credentials.
 
 ### Create an ECS task execution role
 
@@ -44,6 +46,7 @@ Before you can create an ECS task, you must authorize AWS to let the ECS service
 1. Open the AWS browser console and navigate to the Identity Management (IAM) service.
 1. Press `Roles` from the left side navigation panel.
 1. Press `Create role`.
+1. Select `AWS service` as the **Trusted entity type**.
 1. Under `Use case` select **Elastic Container Service** and then select **Elastic Container Service Task**.
 
    ![ECS use case](ecsUseCase.png)
@@ -51,6 +54,9 @@ Before you can create an ECS task, you must authorize AWS to let the ECS service
 1. Press `Next`
 1. Select the `AmazonECSTaskExecutionRolePolicy`. This policy authorizes ECS to run a task on your behalf. Press `Next`.
 1. Provide the `Role name` of **jwt-pizza-ecs**.
+
+   ![Create task execution role](createTaskExecutionRole.png)
+
 1. Press `Create role`
 
 ## Create an ECS task definition
@@ -70,9 +76,9 @@ Now you are ready to define the task that will execute your JWT Pizza backend. T
 1. Under `Container - 1`.
    1. Provide the name `jwt-pizza-service`.
    1. Set the `Image URI` to the URI that was generated when you uploaded the container image to ECR. You can find this under ECR properties for your uploaded image. This should be something like:
-   ```sh
-   1234567890.dkr.ecr.us-east-1.amazonaws.com/jwt-pizza-service:latest
-   ```
+      ```sh
+      1234567890.dkr.ecr.us-east-1.amazonaws.com/jwt-pizza-service:latest
+      ```
    1. Assign the `Container port` to 80 for the HTTP App protocol.
 1. Press `Create`.
 
@@ -87,9 +93,11 @@ A cluster represents a complete application where multiple services work in conc
 1. Under `Infrastructure` choose **AWS Fargate**.
 1. Press `Create`.
 
+Wait until the cluster finishes creating before you continue.
+
 ## Create an ECS service
 
-The service contains one or more associated tasks. The tasks work together in order to provide a specific functional piece such as authorization, content management, or media processing. The service also controls deployment, monitoring, and failure management. Take the following steps to create a service. As soon as you create a service, it will immediately deploy any tasks associated with the service.
+The service contains one or more associated tasks. The tasks work together in order to provide a specific functional piece such as authorization, content management, or media processing. The service also controls deployment, monitoring, and failure management. Take the following steps to create a service. Note that as soon as you create a service, it will immediately deploy any tasks associated with the service. That means you will start paying for the allocated resources.
 
 1. Open the AWS browser console and navigate to the Elastic Container Service (ECS) service.
 1. Press `Clusters` from the left side navigation panel.
@@ -101,7 +109,7 @@ The service contains one or more associated tasks. The tasks work together in or
 1. Under `Environment` select `Launch type` since we don't want to utilize a capacity strategy at this point. A capacity strategy defines how the service should scale in order to meet customer demand.
 1. Under `Deployment configuration`
    1. Select `Service` since we want the JWT Pizza Service to continually run, as opposed to a short running task.
-   1. Select `jwt-pizza-service` from the `Family` dropdown. This select the task definition that you created earlier.
+   1. Select `jwt-pizza-service` from the `Family` dropdown. This selects the task definition that you created earlier.
    1. Provide **jwt-pizza-service** as the `Service name`.
 1. Under `Networking`
    1. Remove the selection for the `default` security group. This provides no value, and we don't want to accidentally inherit a security rule that we are not expecting.
@@ -111,7 +119,7 @@ The service contains one or more associated tasks. The tasks work together in or
 
 ## Verifying the container deployment
 
-Once you have launched the container it should only take a couple of seconds for it to be available for use. Navigate to the service and select the `Tasks` tab. Then select the currently running task and use the networking bindings to see the IP address that is being used. Navigate your browser to that location, and you should see the `jwt-pizza-service`.
+Once you have launched the container it should only take a couple of seconds for it to be available for use. Navigate to the service and select the `Tasks` tab. Then select the currently running task and use the networking bindings to see the IP address that is being used. Navigate your browser to that location, and you should see the `jwt-pizza-service`. The video below shows the service running on port 3000. Your service will be running on port 80.
 
 ![ECS Container Launched](ecsContainerLaunched.gif)
 
