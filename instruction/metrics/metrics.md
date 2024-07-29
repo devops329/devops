@@ -14,7 +14,7 @@ The first observability tool to consider is metrics. They allow you to determine
 
 Consider the following metrics for log events and pizza making latency. There is a spike on the left side of each visualization that is happening between 9:30 and 10:00. Is this a problem?
 
-![Inital metrics](initialMetrics.png)
+![Initial metrics](initialMetrics.png)
 
 The graphs' horizontal axes don't quite match up, but if we drill in we can see more clearly what is going on. The spike in log events happens around 9:37 while the spike in latency happens almost exactly at 9:50. They could still correlate if the log spike happened after the latency spike since you would back up on log entries due to an increase in latency, but it is not likely to happen the other way around.
 
