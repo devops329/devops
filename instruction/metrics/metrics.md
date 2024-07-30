@@ -20,7 +20,7 @@ The graphs' horizontal axes don't quite match up, but if we drill in we can see 
 
 ![Drill in metrics](drillInMetrics.png)
 
-This still leaves the questions. Why did latency jump from 10 ms to 18 ms at 10:5?. Now I'm starting to feel like a detective hot on the trail of a crime. If we drill in to a five-minute window we notice that the active users metric has an annotation that an alert was triggered around this time.
+This still leaves the question: Why did latency jump from 10 ms to 18 ms at 10:5?. Now I'm starting to feel like a detective hot on the trail of a crime. If we drill in to a five-minute window we notice that the active users metric has an annotation that an alert was triggered around this time.
 
 ![Active user alert metrics](activeUserAlertsMetrics.png)
 
