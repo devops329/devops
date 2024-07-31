@@ -10,7 +10,7 @@ Inserting and visualizing metrics can take some time to get comfortable with, so
 
 ## Demo data
 
-We start by simplifying our generation of data to be two values.
+We start by simplifying our generation of data to be three values.
 
 | Name                   | Description                                                        |
 | ---------------------- | ------------------------------------------------------------------ |
@@ -20,12 +20,12 @@ We start by simplifying our generation of data to be two values.
 
 ### Generating data
 
-We generate our data by creating a metric generation program ([metricsGenerator.js](visualizingMetricsExample/metricsGenerator.js)) that is similar to what was presented in the previous topic. Reuse the `config.js` settings that you created for your Grafana Cloud account.
+We generate our data by creating a metric generation program ([metricsGenerator.js](visualizingMetricsExample/metricsGenerator.js)) that is similar to what was presented in the previous topic. Reuse the `config.json` settings that you created for your Grafana Cloud account.
 
 This code sets a timer that triggers every second and supplies our metric values to Grafana Cloud.
 
 ```js
-const config = require('./config.js');
+const config = require('./config.json');
 
 accumulator = 0;
 count = 0;
@@ -45,13 +45,13 @@ function nowString() {
 }
 
 function sendMetricToGrafana(metricPrefix, metricName, metricValue) {
-  const metric = `${metricPrefix},source=${config.metrics.source} ${metricName}=${metricValue} ${nowString()}`;
+  const metric = `${metricPrefix},source=${config.source} ${metricName}=${metricValue} ${nowString()}`;
   console.log(metric);
 
-  fetch(`${config.metrics.url}`, {
+  fetch(`${config.url}`, {
     method: 'post',
     body: metric,
-    headers: { Authorization: `Bearer ${config.metrics.userId}:${config.metrics.apiKey}` },
+    headers: { Authorization: `Bearer ${config.userId}:${config.apiKey}` },
   }).catch((error) => {
     console.error('Error pushing metrics:', error);
   });
