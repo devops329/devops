@@ -120,7 +120,7 @@ Then execute each of the endpoints using Curl.
 ➜  curl localhost:3000/cities
 [{"name":"Provo","population":116618}]
 
-curl -X POST localhost:3000/cities -H 'Content-Type: application/json' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp9' -d '{ "name":"Lehi", "population": 33435}'
+➜  curl -X POST localhost:3000/cities -H 'Content-Type: application/json' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp9' -d '{ "name":"Lehi", "population": 33435}'
 [{"name":"Provo","population":116618},{"name":"Lehi","population":33435}]
 ```
 

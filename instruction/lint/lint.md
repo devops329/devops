@@ -43,10 +43,10 @@ This will add eslint as a dev dependency and create a file name `eslint.config.m
 Alter `package.json` to contain a script to run eslint.
 
 ```json
-  "scripts": {
-    "start": "node index.js",
-    "lint": "eslint ."
-  }
+"scripts": {
+  "start": "node index.js",
+  "lint": "eslint ."
+}
 ```
 
 ## Create some JavaScript that we can lint
