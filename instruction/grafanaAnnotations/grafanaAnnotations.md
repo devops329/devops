@@ -42,7 +42,7 @@ With your newly minted service account token, you can create an annotation by us
 You need to know the ID of the dashboard and panel that you want to create the annotation on. You can get the IDs by opening up the desired dashboard in your browser and viewing a specific panel. The URL displayed in the browser contains the IDs that you want.
 
 ```txt
-https://byu.grafana.net/d/xyz123/jwt-pizza?orgId=1&viewPanel=14
+https://byu.grafana.net/d/xyz123/jwt-pizza?orgId=1&viewPanel=panel-14
 ```
 
 In the above example the Dashboard ID is `xyz123` and the panel ID is `14`.
