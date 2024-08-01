@@ -1,4 +1,4 @@
-# Curiosity report
+# 💡 Curiosity report
 
 🔑 **Key points**
 

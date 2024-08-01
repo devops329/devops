@@ -167,7 +167,7 @@ graph LR;
     end
 ```
 
-#### Automating the automation
+#### Automating the infrastructure
 
 It is critical that you also code the ability to set up your application from scratch. This includes things like spinning up a database server and restoring its content from a snapshot, to rebuilding a CDN for global frontend code deployment.
 

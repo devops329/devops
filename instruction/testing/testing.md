@@ -4,7 +4,7 @@
 
 - Testing leads to better developer and customer experiences.
 - Understand the right and wrong way to do testing.
-- Find the right balance when testing in your code.
+- Find the right balance when testing your code.
 
 ---
 
@@ -55,7 +55,7 @@ Second, there is no better documentation than the code itself. Unfortunately, co
 Consider the following test for a `Catalog` object. We can see from the test that we can `add` items and then get them all back with the `history`. Items can be of different type. It is also obvious that both the add and history methods are asynchronous. No long-winded narratives are necessary; I can experiment with this example, and I can use it to start my code.
 
 ```js
-test('history', async () => {
+test('catalog history', async () => {
   const expectedItems = ['item', 2, {id:9}];
 
   const catalog = new Catalog();
@@ -66,12 +66,12 @@ test('history', async () => {
 });
 ```
 
-## Principles of good tests
+## Characteristics of good tests
 
 - Test only one thing
 - Don't repeat tests that are already covered elsewhere
-- Design your production code so that testing is naturally supported
-- Make the tests readable
+- Naturally supported by the application code
+- Tests are readable
 - Test can run in any order
 - Test can run concurrently
 

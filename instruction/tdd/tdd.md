@@ -7,19 +7,13 @@
 
 ---
 
-Test driven development inverts the development process by focusing first on what the code is supposed to do, and then implementing the code until all the tests pass.
+Test driven development ([TDD](https://en.wikipedia.org/wiki/Test-driven_development)) was popularized in the 1990s as part of the [extreme programming](https://en.wikipedia.org/wiki/Extreme_programming) wave. The idea is that you begin writing software by creating tests that represent the consumer of your software. You then use the tests to drive the development of your code. When the tests pass you know that your code is complete.
 
-1. You can isolate your testing to the specific objects you are currently implementing.
-1. Development environments make it more efficient to run the tests than just manually building, executing, and interacting with the code.
-1. Creating the tests first make you focus on the implementation from the user's perspective.
-1. You can run the tests again whenever you make a change to the code to make sure you don't unintentionally break the functionality. This is called regression testing.
-1. You can refactor the code to make it cleaner or more efficient and still feel confident that the implementation is correct by rerunning the tests.
+TDD has been proven to add about 15% to your initial development time, but it results in better abstractions and accurate domain models, provides documentation and examples for your code, results in less bugs, makes your code more maintainable, and prevents against the introduction of future bugs.
 
-When writing tests you want to try and comply with the following principles.
+TDD enhances the application development process by including the development of the tests while you write the application code. This helps enhance your development, by focusing first on what the code is supposed to do instead of focusing on how you are going to do it. You also know that when all the tests pass you are done with the implementation. Usually TDD works best when you develop the code and the tests at the same time. This turns the creation of the application into a _conversation_ between the implementation and the testing. You stub out parts of the implementation, write parts of the test, code part of the implementation, validate the tests pass, and repeat. This helps you think about how the code is going to be used, assures you that the implementation provides the desired result, and keeps you from breaking code that was previously working.
 
-1. **Don't repeat yourself** - If one test covers the case then don't keep writing tests that do the same thing.
-1. **Only test one thing** - Don't put a bunch of related tests into the same test. This makes it harder to debug a test when only part of the test is failing.
-1. **Include boundaries** - There are often natural boundaries to a test. Make sure you include them in your tests.
+Today, TDD is a common industry practice that you will be expected to use on a daily basis. However, it takes effort to learn how to write tests that are effective and efficient. Making this a standard part of your development process will give you a significant advantage as you progress in your professional career.
 
 We will demonstrate the use of TDD by implementing Fibonacci.
 

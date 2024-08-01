@@ -67,13 +67,14 @@ test('fake timers', async () => {
 
   // Still 1000 even after waiting
   const timeoutMock = jest.fn();
-  await setTimeout(() => {
+  setTimeout(() => {
     timeoutMock();
   }, 1000);
   expect(timeoutMock).not.toHaveBeenCalled();
   expect(Date.now()).toBe(1000);
 
   jest.advanceTimersByTime(2000);
+  expect(timeoutMock).toHaveBeenCalled();
   expect(Date.now()).toBe(3000);
 
   jest.useRealTimers();
