@@ -19,7 +19,7 @@ Your application sends log events over HTTP to the Loki service which stores the
 
 ## Inserting logs using HTTP
 
-For this exercise you will use the `HTTP Metrics` connector to insert data into a Prometheus data service hosted on Grafana Cloud and exposed using the `grafana-youraccountnamehere-prom` data source that Grafana created by default when you set up your account.
+For this exercise you will use the `Logs HTTP` connector to insert data into a data service hosted on Grafana Cloud and exposed using the `grafana-youraccountnamehere-logs` data source that Grafana created by default when you set up your account.
 
 In order to send logs over HTTP you will need an API key.
 
@@ -44,7 +44,7 @@ In order to send logs over HTTP you will need an API key.
 
 The HTTP body of the logging request follows the [HTTP Loki log syntax](https://grafana.com/docs/loki/latest/reference/loki-http-api/#ingest-logs), and is what you will use when you generate log messages.
 
-Each message is composed of one or more streams. Each **stream** contains the labels (e.g. tags) for the log messages represented by the stream. This is followed by one or more **values** that represent that actual log message. You can also include an option **metadata** object that defines one or more metadata values. Note that labels are indexed and searchable, while metadata is not index but can still be used for filtering log messages. You should not include labels that have high cardinality, or lots of different values. That will cause Loki queries to perform poorly.
+Each message is composed of one or more streams. Each **stream** contains the labels (e.g. tags) for the log messages represented by the stream. This is followed by one or more **values** that represent that actual log message. You can also include an option **metadata** object that defines one or more metadata values. Note that labels are indexed and searchable, while metadata is not indexed but can still be used for filtering log messages. You should not include labels that have high cardinality, or lots of different values. That will cause Loki queries to perform poorly.
 
 The general syntax looks like this:
 
@@ -78,10 +78,14 @@ If you were going to create a log message that described a login HTTP request, y
 
 ### Using Curl to insert logs
 
-Using the example command and your newly minted API key, you can now insert data into Loki. Make sure you replace the Grafana account number and API key represented in the authorization token with your account number and API key. Ensure the Loki URL matches that given in the curl example Grafana gave you; your subdomain may differ from `logs-prod-006`.
+Using the example command and your newly minted API key, you can now insert data into Loki. Make sure you replace the Grafana account number and API key with your account number and API key. Ensure the Loki URL matches that given in the curl example Grafana gave you; your subdomain may differ from `logs-prod-006`.
 
 ```sh
-curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer 111111:glc_xxxxxxx" -d '{"streams": [{"stream": {"component":"jwt-pizza-service", "level": "info", "type":"http-req"},"values": [["'"$(($(date +%s)*1000000000))"'","{\"name\":\"hacker\", \"email\":\"d@jwt.com\", \"password\":\"****\"}",{"user_id": "44","traceID": "9bc86924d069e9f8ccf09192763f1120"}]]}]}' -H "Content-Type:application/json" https://logs-prod-006.grafana.net/loki/api/v1/push
+account_id=111111
+api_key=glc_xxxxxx
+log_url=https://logs-prod-006.grafana.net/loki/api/v1/push
+
+curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $account_id:$api_key" -d '{"streams": [{"stream": {"component":"jwt-pizza-service", "level": "info", "type":"http-req"},"values": [["'"$(($(date +%s)*1000000000))"'","{\"name\":\"hacker\", \"email\":\"d@jwt.com\", \"password\":\"****\"}",{"user_id": "44","traceID": "9bc86924d069e9f8ccf09192763f1120"}]]}]}' -H "Content-Type:application/json" $log_url
 ```
 
 When you execute this command it will log a JSON body as the log event. Notice a few interesting things that are going on with the log event.
@@ -100,7 +104,7 @@ Go ahead and wrap the curl command in a for loop that randomly sets the message 
 for i in {1..100}; do
   if (( RANDOM % 2 )); then level="warn" else level="info" fi;
 
-  curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer 111111:glc_xxxxxxx" -d '{"streams": [{"stream": {"component":"jwt-pizza-service", "level": "'"$level"'", "type":"http-req"},"values": [["'"$(($(date +%s)*1000000000))"'","{\"name\":\"hacker\", \"email\":\"d@jwt.com\", \"password\":\"****\"}",{"user_id": "44","traceID": "9bc86924d069e9f8ccf09192763f1120"}]]}]}' -H "Content-Type:application/json" 'https://logs-prod-006.grafana.net/loki/api/v1/push' ;
+  curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $account_id:$api_key" -d '{"streams": [{"stream": {"component":"jwt-pizza-service", "level": "'"$level"'", "type":"http-req"},"values": [["'"$(($(date +%s)*1000000000))"'","{\"name\":\"hacker\", \"email\":\"d@jwt.com\", \"password\":\"****\"}",{"user_id": "44","traceID": "9bc86924d069e9f8ccf09192763f1120"}]]}]}' -H "Content-Type:application/json" $log_url ;
 
   sleep 3;
 done
@@ -148,11 +152,11 @@ Change the option to add to an **Existing dashboard** and then select your **Piz
 
 This should create a new panel on your dashboard. Configure the panel as you would like and then save the dashboard.
 
-You can stop your curl command from generated logs by directly calling the Grafana logging endpoint because you are now going generate them with code.
+You can stop your curl command from generating logs by directly calling the Grafana logging endpoint, because you are now going to generate them with code.
 
 ## Sending logs from code
 
-In order to demonstrate how to generate logs from you code we need a simple Express service. Create the service by doing the following.
+In order to demonstrate how to generate logs from your code, we need a simple Express service. Create the service by doing the following.
 
 1. Open your command console.
 1. Execute the commends:
@@ -248,7 +252,7 @@ In order to demonstrate how to generate logs from you code we need a simple Expr
    module.exports = new Logger();
    ```
 
-1. Create an `index.js` that contains your simple demonstration service. Most of the code in the service provides example endpoints. The interesting part if the use of the `logger.httpLogger` middleware that handles all the HTTP logging. This keeps the main code clean while still providing significant value.
+1. Create an `index.js` that contains your simple demonstration service. Most of the code in the service provides example endpoints. The interesting part is the use of the `logger.httpLogger` middleware that handles all the HTTP logging. This keeps the main code clean while still providing significant value.
 
    ```js
    const express = require('express');

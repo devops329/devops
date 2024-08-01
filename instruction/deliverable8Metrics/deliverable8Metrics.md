@@ -38,7 +38,7 @@ This assignment should feel similar to the exercises you have already completed.
 
 ### Add Grafana credentials to config.js
 
-Modify your config.js file to contain the Grafana credentials. You can then reference these configuration settings just like the application uses the database settings.
+Modify your service's config.js file to contain the Grafana credentials. You can then reference these configuration settings just like the application uses the database settings.
 
 ```js
   metrics: {
@@ -51,7 +51,7 @@ Modify your config.js file to contain the Grafana credentials. You can then refe
 
 ### Modify CI pipeline
 
-Because you are added new configuration to the JWT Service, you will need to also enhance your GitHub Actions workflow to have the new metrics configuration fields. You must also add secrets for the METRICS_USER_ID, METRICS_URL, and METRICS_API_KEY.
+Because you added new configuration to the JWT Service, you will need to also enhance your GitHub Actions workflow to have the new metrics configuration fields. You must also add secrets for the METRICS_USER_ID, METRICS_URL, and METRICS_API_KEY.
 
 Without this your CI pipeline will fail because of missing references from your new metrics code when your tests run.
 

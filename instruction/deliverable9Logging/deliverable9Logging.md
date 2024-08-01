@@ -36,7 +36,7 @@ This assignment should feel similar to the exercises you have already completed.
 
 ### Add Grafana credentials to config.js
 
-Modify your config.js file to contain the Grafana logging credentials. You can then reference these configuration settings just like the application uses the database settings.
+Modify your service's config.js file to contain the Grafana logging credentials. You can then reference these configuration settings just like the application uses the database settings.
 
 ```js
   logging: {
