@@ -111,9 +111,7 @@ JWT Pizza uses a date version scheme with the day in the first position and the 
 
 ![JWT Pizza](jwtPizzaVersion.png)
 
-The use of a date makes it cumbersome to tie the version to a Git commit, but the CI process does annotate the observability metrics and also makes it easy to find the CI execution that created the deployment at that time. From that information you can get the Git SHA and also see the impact of the release using Grafana.
-
-![Log events](logEvents.png)
+The use of a date makes it cumbersome to tie the version to a Git commit, but using the date represented by the version it is easy to find the CI execution that created the version and then get the Git SHA for the version.
 
 ### Package archive
 
