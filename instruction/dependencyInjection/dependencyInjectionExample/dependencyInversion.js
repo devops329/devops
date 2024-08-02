@@ -33,25 +33,24 @@ class PurePrinter {
 
 class HardcodedPrinter {
   print(content) {
-    content = content.toUpperCase();
-    console.log(content);
+    const formatter = new UppercaseFormatter();
+    const formattedContent = formatter.format(content);
+    console.log(formattedContent);
   }
 }
 
 class SwitchedPrinter {
   print(content, style) {
+    let formattedContent = content;
     switch (style) {
       case 'uppercase':
-        content = content.toUpperCase();
-        console.log(content);
+        formattedContent = new UppercaseFormatter().format(content);
         break;
       case 'bold':
-        content = `**${content}**`;
-        console.log(content);
+        formattedContent = new BoldFormatter().format(content);
         break;
-      default:
-        console.log(content);
     }
+    console.log(formattedContent);
   }
 }
 

@@ -21,8 +21,9 @@ Consider the situation where you want to create a printer that adds some formatt
 ```js
 class HardcodedPrinter {
   print(content) {
-    content = content.toUpperCase();
-    console.log(content);
+    const formatter = new UppercaseFormatter();
+    const formattedContent = formatter.format(content);
+    console.log(formattedContent);
   }
 }
 ```
@@ -32,18 +33,16 @@ Then when you come up with other formatting styles you could just add them to a 
 ```js
 class SwitchedPrinter {
   print(content, style) {
+    let formattedContent = content;
     switch (style) {
       case 'uppercase':
-        content = content.toUpperCase();
-        console.log(content);
+        formattedContent = new UppercaseFormatter().format(content);
         break;
       case 'bold':
-        content = `**${content}**`;
-        console.log(content);
+        formattedContent = new BoldFormatter().format(content);
         break;
-      default:
-        console.log(content);
     }
+    console.log(formattedContent);
   }
 }
 ```
@@ -55,10 +54,10 @@ Perhaps you are starting to see the problem with this approach. Every time you w
 Instead, you can extend the information that is already being passed to the print function in the form of a **style** enumeration to be an abstraction of the formatter. Now the printer code looks like the following and all the unnecessary lower-level module dependencies are removed.
 
 ```js
-class Printer {
-  print(content, formatter) {
+class PurePrinter {
+  print(content, formatter, writer) {
     content = formatter.format(content);
-    console.log(content);
+    writer.log(content);
   }
 }
 
@@ -73,6 +72,9 @@ class boldFormatter {
     return `**${content}**`;
   }
 }
+
+const formatter = new UppercaseFormatter();
+new PurePrinter().print('Hello, World!', formatter, console);
 ```
 
 ## Mocking through dependency inversion
