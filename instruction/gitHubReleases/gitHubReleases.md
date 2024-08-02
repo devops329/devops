@@ -17,7 +17,11 @@ You can then give your release a name and provide a description using Markdown. 
 
 ![Create release](createRelease.png)
 
-This will create the release and also associate it with any artifacts that exist on the commit that was tagged as well as display the release on the repository's main page.
+This will create the release and also associate it with any artifacts that exist on the commit that was tagged. You can access the newly created release from the repository's main page.
+
+![Release access](releaseAccess.png)
+
+If you click on the release it will show you all the details.
 
 ![Manual release creation](manualReleaseCreation.png)
 
@@ -47,7 +51,7 @@ steps:
   # ...
 ```
 
-Next, you want to create a job that triggers when both the build and deploy jobs complete. This job will use the third party `ncipollo/release-action` to call the GitHub API and automatically create the tag and release based upon information found in the commit.
+Next, you want to create a job that triggers when both the build and deploy jobs complete. This job will use the third party `ncipollo/release-action` to call the GitHub API and automatically create the tag and release based upon information found in the commit. Create a new job named **release** at the end of your `ci.yml` file and add the following.
 
 ```yml
 release:
