@@ -11,11 +11,15 @@ GitHub supports the concept of `environments` that allow you to isolate your sec
 
 ## Creating an environment
 
-Create an environment by going to your `jwt-pizza` repository's settings in GitHub and selecting the **Environments** view from the left-hand navigation. Then press the `New environment` button and give it the name `production`. Once you have created the environment you can specify if it must be reviewed before a GitHub Action workflow can execute, that it can only execute from a given branch of the code, and also what secrets should be used with the CI pipeline.
+Create an environment by going to your `jwt-pizza` repository's settings in GitHub and selecting the **Environments** view from the left-hand navigation. Then press the `New environment` button.
+
+![Create environment](createEnvironment.png)
+
+Give the new environment the name `production`. Once you have created the environment you can specify if it must be reviewed before a GitHub Action workflow can execute, that it can only execute from a given branch of the code, and also what secrets should be used with the CI pipeline.
 
 This makes it so you can have a human gate in your deployment pipeline, as well as secrets that are different for your production environment, where customer data is kept, as opposed to your staging environment that can be more lax in security.
 
-The following image shows the production that requires the following:
+The following image shows that the production environment requires the following:
 
 - The user `byucsstudent` must review the code before a workflow can execute
 - The code must be deployed from the `main` branch

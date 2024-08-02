@@ -15,7 +15,7 @@ To this point you have been deploying your code directly to your production envi
     aws s3 cp dist s3://pizza.byucsstudent.click/$version --recursive
 ```
 
-This has several problems. First, it just copies the deployment package files directly into the S3 location that CloudFront hosts to the world using your application URL. That means that old files that are no longer used by the application (and therefore will not be overwritten by copying) are still available for public access. This creates a security, as well as a maintenance, problem.
+This has several problems. First, it just copies the deployment package files directly into the S3 location that CloudFront hosts to the world using your application URL. That means that old files that are no longer used by the application (and therefore will not be overwritten by copying) are still available for public access. This creates a security, as well as a maintenance problem.
 
 If you delete the old version before you copy up the new version, then this introduces the possibility of the customer getting a 404 error if they try to load the application between the deletion and the copying up of the new files.
 
