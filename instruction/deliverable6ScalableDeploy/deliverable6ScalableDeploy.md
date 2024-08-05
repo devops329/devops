@@ -191,7 +191,7 @@ Previously the workflow stopped after the tests were done and the coverage badge
        ECR_REPOSITORY: 'jwt-pizza-service'
      run: |
        docker build --platform=linux/arm64 -t $ECR_REGISTRY/$ECR_REPOSITORY --push .
-       echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:latest"
+       echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:latest" >>  $GITHUB_OUTPUT
    ```
 
 ### Test the image push
