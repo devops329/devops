@@ -42,10 +42,10 @@ Modify your service's config.js file to contain the Grafana credentials. Note th
 
 ```js
   metrics: {
-     "source": "jwt-pizza-service",
-     "userId": 2222222,
-     "url": "https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write",
-     "apiKey": "glc_111111111111111111111111111111111111111111="
+     source: 'jwt-pizza-service',
+     userId: 2222222,
+     url: 'https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write',
+     apiKey: 'glc_111111111111111111111111111111111111111111='
    }
 ```
 

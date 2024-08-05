@@ -40,10 +40,10 @@ Modify your service's config.js file to contain the Grafana logging credentials.
 
 ```js
   logging: {
-     "source": "jwt-pizza-service",
-     "userId": 2222222,
-     "url": "https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write",
-     "apiKey": "glc_111111111111111111111111111111111111111111="
+     source: 'jwt-pizza-service',
+     userId: 2222222,
+     url: 'https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write',
+     apiKey: 'glc_111111111111111111111111111111111111111111='
    }
 ```
 
@@ -79,7 +79,7 @@ Without this your CI pipeline will fail because of missing references from your 
         apiKey: '${{ secrets.METRICS_API_KEY }}',
       },
       logging:    {
-        source: "jwt-pizza-service",
+        source: 'jwt-pizza-service',
         userId: ${{ secrets.LOGGING_USER_ID }},
         url: '${{ secrets.LOGGING_URL }}',
         apiKey: '${{ secrets.LOGGING_API_KEY }}',
