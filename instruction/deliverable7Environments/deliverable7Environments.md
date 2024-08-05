@@ -123,7 +123,7 @@ To create a staging environment you need to repeat the process you went through 
 1. Create a new CloudFront distribution using the [same instructions](../deliverable5CdnDeploy/deliverable5CdnDeploy.md) that you used to originally set up CloudFront, but with the following differences.
 
    1. Change the description to be **JWT Pizza Staging**.
-   1. Set the `Alternate domain name` to be stage-pizza.YOURDOMAINNAME. It is imprtant your follow this format so the AutoGrader can access your staging site.
+   1. Set the `Alternate domain name` to be **stage-pizza.YOURDOMAINNAME**. It is important your follow this format so the AutoGrader can access your staging site.
    1. Set the origin path to be the same version that you used for the production environment.
    1. Save the changes.
 
@@ -348,7 +348,7 @@ Take the following steps in order to create your production release workflow.
    ```yml
    environment:
      name: production
-     url: https://pizza.byucsstudent.click
+     url: https://pizza.YOUDOMAINNAME
    ```
 
 1. Now you are ready to specify your steps. These are very similar to the deployment steps found in the `ci.yml` workflow. The first step sets up access to AWS. The next step updates the CloudFront origin path to point to the desired release, and the final step creates a GitHub release entry to documents that you pushed a new deployment to production. If you need to review what each of these steps are doing, then refer back to the [GitHub Releases](../gitHubReleases/) instruction and the instruction given above on modifying the CloudFront distribution origin path.
@@ -428,7 +428,7 @@ Go ahead and makes some changes to your `jwt-pizza` source code and watch the au
 
 This type of automation is at the heart of what a DevOps engineer does. Sometimes we think of coding only in regard to writing some algorithmic computation. However, the code found in your CI pipeline is just as valuable as any other lines of your application code. Furthermore, the application code that automates the calculation of Fibonacci would be pointless without the DevOps automation code that makes Fibonacci available to a customer.
 
-It is also pretty cool to write a couple dozen lines of automation code and see it build, test, archive, and deploy an application to multiple data centers around the world all with elastic, resilient hardware and services. After that writing Fibonacci code feels kinda boring.
+It is also pretty cool to write a couple dozen lines of automation code and see it build, test, archive, and deploy an application to multiple data centers around the world all with elastic, resilient hardware and services. After that, writing Fibonacci code feels kinda boring.
 
 ## ☑ Assignment
 

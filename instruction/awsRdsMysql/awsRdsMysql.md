@@ -51,9 +51,13 @@ With the network security deployed, you can now create the MySQL server instance
 1. Select `MySQL`.
 1. Under **Templates** choose `Free tier`.
 1. Under **Settings**
+
    1. Name your DB instance: `jwt-pizza-service-db`
    1. Leave the username as: `admin`
-   1. Specify your password
+   1. Specify your password.
+
+      ⚠️ Make sure you don't use anything complicated in your password. The password is communicated as a URL connection string and so many punctuation mark characters will cause the connection to fail. It is best to stick to alphanumeric passwords.
+
 1. Under **Instance configuration**
 
    1. Select `db.t4g.micro` as the DB instance class

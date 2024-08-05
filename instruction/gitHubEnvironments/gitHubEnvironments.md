@@ -21,7 +21,7 @@ This makes it so you can have a human gate in your deployment pipeline, as well 
 
 The following image shows that the production environment requires the following:
 
-- The user `byucsstudent` must review the code before a workflow can execute
+- The user `byucsstudent` must review the code before a workflow can execute. For your environment you will want to set this to be your GitHub user.
 - The code must be deployed from the `main` branch
 - There are several secrets that are specific to the production environment. Specifically, there is a different CloudFront distribution ID for the production environment. That helps to decrease the risk of deploying a non-production release to your production environment.
 

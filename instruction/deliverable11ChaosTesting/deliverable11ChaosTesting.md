@@ -6,7 +6,7 @@ The JWT Pizza application has the ability built into it to inject Chaos into the
 
 ## Useful logs and metrics
 
-In order to be successful with this deliverable you must have logs and metrics are not only reporting nominal information, but also surfacing when there is a problem.
+In order to be successful with this deliverable you must have logs and metrics that are not only reporting nominal information, but also surfacing when there is a problem.
 
 This means that you need to know when resources are maxed out, requests are failing, or latency is too high. The following example dashboard shows that there is a problem making pizzas and that the logs are filled with errors.
 

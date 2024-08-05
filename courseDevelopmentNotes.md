@@ -373,7 +373,7 @@ They have 24 hours to correct. Every hour after the first 24 hours deducts 5%.
   curl -X PUT $host/api/auth/4 -d '{"email":"f@jwt.com'\'' WHERE id=3333; select 1+1; -- "}' -H 'Content-Type: application/json' -H "Authorization: bearer $token" | jq '.'
   ```
 
-## Known security vulnerabilities
+## Known security violations
 
 1. Inject on order description
 1. Escalation on add user with a given role
@@ -385,3 +385,117 @@ They have 24 hours to correct. Every hour after the first 24 hours deducts 5%.
 1. The default jwtSecret is not changed in their `config.js` file.
 1. Deployment will log db credentials when a connection failure happens.
 1. There is a default admin user with an email and password displayed in the docs
+
+GitHub Copilot: - **ClassDiscord**: Course provides Discord server for communication and collaboration among students and instructors.
+
+- **Canvas**: Course utilizes Canvas as the learning management system for delivering course materials, assignments, and grades.
+- **Course Repos**: Course requires students to create and maintain individual repositories for their assignments and projects.
+- **Setup Discord Server**: Lee is responsible for setting up the Discord server for the course, ensuring proper channels, roles, and permissions are configured.
+- **Instruction**: Lee is responsible for creating instructional materials, including lecture slides, code examples, and step-by-step guides.
+- **Videos**: Lee is responsible for creating video tutorials and demonstrations to supplement the course content.
+- **Canvas Creation**: Lee is responsible for setting up the course on Canvas, creating modules, assignments, and quizzes.
+- **Course Repo Complete**: Lee ensures that all course repositories are properly set up and organized, with clear documentation and instructions for students.
+- **AutoGrader Complete**: Stephen is responsible for developing and maintaining the AutoGrader tool, which automates the grading process for assignments and provides feedback to students.
+- **Go Live**: All team members collaborate to ensure a successful launch of the course, including testing all components, resolving any issues, and making necessary adjustments.
+- **K6, Grafana for Logging and Metrics**: Stephen is responsible for implementing K6 and Grafana to monitor and analyze the performance and behavior of the Pizza Shop application.
+- **Student Solutions for All Assignments**: Stephen ensures that all student assignments are properly submitted, graded, and recorded in the AutoGrader system.
+- **Fix all of Professor Jensen's Logic, Grammar, and Spelling Errors**: Stephen reviews and corrects any logic, grammar, and spelling errors in Professor Jensen's course materials, ensuring clarity and accuracy.
+- **Set up JWT Generation Service (ClassJWT)**: Lee sets up the JWT generation service, which provides authentication and authorization for the Pizza Shop application.
+- **Set up Chaos Injection**: Lee is responsible for implementing chaos injection techniques to test the resilience and fault tolerance of the Pizza Shop application.
+- **Videos Created**: Lee creates instructional videos to supplement the course materials, providing visual explanations and demonstrations of key concepts and techniques.
+- **Canvas Complete**: Lee ensures that all course materials, assignments, and grades are properly organized and accessible on the Canvas platform.
+- **AutoGrader**: Stephen develops and maintains the AutoGrader tool, which automates the grading process for assignments and provides feedback to students.
+- **Set up Course Version of Backend Server (ClassBE)**: Lee sets up the course version of the backend server, which serves as the foundation for the Pizza Shop application.
+- **Student Example Phase 1 - UI Testing, Deploy to GitHub Pages, with and without actions**: Lee provides a student example demonstrating UI testing and deployment of the Pizza Shop application to GitHub Pages, both with and without GitHub Actions.
+- **Student Example Phase 2 - Cloudfront Deploy with Version Increment**: Lee provides a student example demonstrating the deployment of the Pizza Shop application to CloudFront with version incrementation.
+- **Student Example Phase 3 - Backend Testing**: Lee provides a student example demonstrating backend testing techniques for the Pizza Shop application.
+- **Student Example Phase 4 - Container Lambda Deployment, Aurora Setup**: Lee provides a student example demonstrating the deployment of the Pizza Shop application using containerized Lambda functions and setting up Aurora database.
+- **Student Example Phase 5 - Deployment Strategies**: Lee provides a student example demonstrating different deployment strategies for the Pizza Shop application, such as blue-green deployment and canary deployment.
+- **Student Example Phase 6 - Logging, Metrics, and Load Repo Complete**: Stephen ensures that the student example for logging, metrics, and load repository is complete, providing students with hands-on experience in monitoring and optimizing the Pizza Shop application.
+- **Student Example Phase 7 - Load Repo Complete**: Stephen ensures that the student example for the load repository is complete, allowing students to simulate and analyze the performance of the Pizza Shop application under different load conditions.
+- **Student Example Phase 8 - Chaos Injection**: Lee provides a student example demonstrating chaos injection techniques to test the resilience and fault tolerance of the Pizza Shop application.
+- **Student Example Phase 9 - Pen Testing**: Lee provides a student example demonstrating penetration testing techniques to identify and address security vulnerabilities in the Pizza Shop application.
+- **Instruction Written**: Lee completes the writing of instructional materials, including lecture notes, code explanations, and step-by-step guides.
+- **Slides Written**: Lee creates and finalizes the lecture slides for the course, ensuring they are clear, concise, and visually appealing.
+- **Videos Created**: Lee records and edits video tutorials and demonstrations to supplement the course content, providing additional learning resources for students.
+- **AutoGrader Complete**: Stephen finishes the development and testing of the AutoGrader tool, ensuring it is fully functional and ready for use in grading student assignments.
+- **Go Live**: All team members collaborate to ensure a smooth and successful launch of the course, addressing any last-minute issues and providing support to students as needed.- **ClassDiscord**: Course provides Discord server for communication and collaboration among students and instructors.
+- **Canvas**: Course utilizes Canvas as the learning management system for delivering course materials, assignments, and grades.
+- **Course Repos**: Course requires students to create and maintain individual repositories for their assignments and projects.
+- **Setup Discord Server**: Lee is responsible for setting up the Discord server for the course, ensuring proper channels, roles, and permissions are configured.
+- **Instruction**: Lee is responsible for creating instructional materials, including lecture slides, code examples, and step-by-step guides.
+- **Videos**: Lee is responsible for creating video tutorials and demonstrations to supplement the course content.
+- **Canvas Creation**: Lee is responsible for setting up the course on Canvas, creating modules, assignments, and quizzes.
+- **Course Repo Complete**: Lee ensures that all course repositories are properly set up and organized, with clear documentation and instructions for students.
+- **AutoGrader Complete**: Stephen is responsible for developing and maintaining the AutoGrader tool, which automates the grading process for assignments and provides feedback to students.
+- **Go Live**: All team members collaborate to ensure a successful launch of the course, including testing all components, resolving any issues, and making necessary adjustments.
+- **K6, Grafana for Logging and Metrics**: Stephen is responsible for implementing K6 and Grafana to monitor and analyze the performance and behavior of the Pizza Shop application.
+- **Student Solutions for All Assignments**: Stephen ensures that all student assignments are properly submitted, graded, and recorded in the AutoGrader system.
+- **Fix all of Professor Jensen's Logic, Grammar, and Spelling Errors**: Stephen reviews and corrects any logic, grammar, and spelling errors in Professor Jensen's course materials, ensuring clarity and accuracy.
+- **Set up JWT Generation Service (ClassJWT)**: Lee sets up the JWT generation service, which provides authentication and authorization for the Pizza Shop application.
+- **Set up Chaos Injection**: Lee is responsible for implementing chaos injection techniques to test the resilience and fault tolerance of the Pizza Shop application.
+- **Videos Created**: Lee creates instructional videos to supplement the course materials, providing visual explanations and demonstrations of key concepts and techniques.
+- **Canvas Complete**: Lee ensures that all course materials, assignments, and grades are properly organized and accessible on the Canvas platform.
+- **AutoGrader**: Stephen develops and maintains the AutoGrader tool, which automates the grading process for assignments and provides feedback to students.
+- **Set up Course Version of Backend Server (ClassBE)**: Lee sets up the course version of the backend server, which serves as the foundation for the Pizza Shop application.
+- **Student Example Phase 1 - UI Testing, Deploy to GitHub Pages, with and without actions**: Lee provides a student example demonstrating UI testing and deployment of the Pizza Shop application to GitHub Pages, both with and without GitHub Actions.
+- **Student Example Phase 2 - Cloudfront Deploy with Version Increment**: Lee provides a student example demonstrating the deployment of the Pizza Shop application to CloudFront with version incrementation.
+- **Student Example Phase 3 - Backend Testing**: Lee provides a student example demonstrating backend testing techniques for the Pizza Shop application.
+- **Student Example Phase 4 - Container Lambda Deployment, Aurora Setup**: Lee provides a student example demonstrating the deployment of the Pizza Shop application using containerized Lambda functions and setting up Aurora database.
+- **Student Example Phase 5 - Deployment Strategies**: Lee provides a student example demonstrating different deployment strategies for the Pizza Shop application, such as blue-green deployment and canary deployment.
+- **Student Example Phase 6 - Logging, Metrics, and Load Repo Complete**: Stephen ensures that the student example for logging, metrics, and load repository is complete, providing students with hands-on experience in monitoring and optimizing the Pizza Shop application.
+- **Student Example Phase 7 - Load Repo Complete**: Stephen ensures that the student example for the load repository is complete, allowing students to simulate and analyze the performance of the Pizza Shop application under different load conditions.
+- **Student Example Phase 8 - Chaos Injection**: Lee provides a student example demonstrating chaos injection techniques to test the resilience and fault tolerance of the Pizza Shop application.
+- **Student Example Phase 9 - Pen Testing**: Lee provides a student example demonstrating penetration testing techniques to identify and address security vulnerabilities in the Pizza Shop application.
+- **Instruction Written**: Lee completes the writing of instructional materials, including lecture notes, code explanations, and step-by-step guides.
+- **Slides Written**: Lee creates and finalizes the lecture slides for the course, ensuring they are clear, concise, and visually appealing.
+- **Videos Created**: Lee records and edits video tutorials and demonstrations to supplement the course content, providing additional learning resources for students.
+- **AutoGrader Complete**: Stephen finishes the development and testing of the AutoGrader tool, ensuring it is fully functional and ready for use in grading student assignments.
+- **Go Live**: All team members collaborate to ensure a smooth and successful launch of the course, addressing any last-minute issues and providing support to students as needed.
+
+leesjensen: insert some more markdown content that complements the existing content
+
+- **Lee's Core Responsibilities**
+
+- [ ] Set up Chaos injection
+- [ ] Instruction
+- [ ] Videos
+- [ ] Canvas
+- [ ] Course repos
+- [ ] Setup discord server
+
+## Chaos Injection
+
+- Implement chaos injection strategies to test the resilience and fault tolerance of the PizzaShop application.
+- Use tools like Chaos Monkey or Gremlin to simulate various failure scenarios such as network failures, service disruptions, and resource exhaustion.
+- Document the results of the chaos injection experiments and provide recommendations for improving the system's resilience.
+
+## Instruction
+
+- Develop clear and concise instructions for the students on how to complete each phase of the project.
+- Include step-by-step guides, code snippets, and explanations to help students understand the concepts and tasks involved.
+- Provide examples and best practices to guide students in implementing the required functionality.
+
+## Videos
+
+- Create instructional videos that walk students through the different phases of the project.
+- Demonstrate the expected outcomes, explain the code implementation, and provide tips and tricks for troubleshooting and debugging.
+- Make the videos engaging and interactive to enhance the learning experience.
+
+## Canvas
+
+- Set up a Canvas course to manage the course materials, assignments, and grades.
+- Create modules and organize the content in a logical and structured manner.
+- Upload the instructional videos, written instructions, and other relevant resources to the Canvas course.
+
+## Course Repos
+
+- Create separate repositories for each phase of the project to allow students to work on their assignments.
+- Set up the necessary branches, permissions, and collaboration settings to facilitate the development process.
+- Provide clear guidelines on how to clone, commit, and push changes to the course repositories.
+
+## Setup Discord Server
+
+- Create a Discord server for the course to facilitate communication and collaboration among students and instructors.
+- Set up different channels for general discussions, Q&A sessions, and project-specific discussions.
+- Encourage students to join the Discord server and actively participate in the community.
