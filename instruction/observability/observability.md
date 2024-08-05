@@ -14,7 +14,7 @@ When you run an application in your development environment, you know that you a
 
 Has the database run out of memory? Is an old version being deployed for the frontend? Has the backend service lost network connectivity? Is the 3rd party pizza factory experiencing a slowdown, or is there just some small bug in the code for any of those components?
 
-Without being able to observe what is happening inside the box, you are left to guess what the problem is based entirely on external observations. That usually means that a frustrated customer is reporting a problem in very vague terms, or worse, no one is reporting the problem and your customers start ordering from your competitor, OAuth Pizza.
+Without being able to observe what is happening inside the box, you are left guessing what the problem is based entirely on external observations. That usually means that a frustrated customer is reporting a problem in very vague terms, or more likely, no one is reporting the problem and your customers start ordering from your competitor, OAuth Pizza.
 
 ![OAuth Pizza](oauthPizza.png)
 
