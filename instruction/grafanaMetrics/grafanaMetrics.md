@@ -140,7 +140,7 @@ Create a simple Express app by doing the following.
        "start": "node index.js"
      },
    ```
-1. Create a `config.json` file to include your Grafana credentials. Replace the values with the ones that were supplied when you created the data source connection. So if the credentials your received when you created your HTTP Metrics connection looked like this:
+1. Create a `config.json` file to include your Grafana credentials. Replace the values with the ones that were supplied when you created the data source connection. Note that the API_KEY provided by Grafana actually contains both the User ID and the API key. Split those values up when you convert them into your configuration file. So if the credentials your received when you created your HTTP Metrics connection looked like this:
 
    ```txt
    API_KEY="2222222:glc_111111111111111111111111111111111111111111="

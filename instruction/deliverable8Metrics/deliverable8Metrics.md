@@ -38,7 +38,7 @@ This assignment should feel similar to the exercises you have already completed.
 
 ### Add Grafana credentials to config.js
 
-Modify your service's config.js file to contain the Grafana credentials. This should look something like what is given below. You can then reference these configuration settings from your code just like you did for the database settings.
+Modify your service's config.js file to contain the Grafana credentials. Note that the API_KEY provided by Grafana actually contains both the User ID and the API key. Split those values up when you convert them into your configuration file. This should look something like what is given below. You can then reference these configuration settings from your code just like you did for the database settings.
 
 ```js
   metrics: {

@@ -36,15 +36,15 @@ This assignment should feel similar to the exercises you have already completed.
 
 ### Add Grafana credentials to config.js
 
-Modify your service's config.js file to contain the Grafana logging credentials. You can then reference these configuration settings just like the application uses the database settings.
+Modify your service's config.js file to contain the Grafana logging credentials. Note that the API_KEY provided by Grafana actually contains both the User ID and the API key. Split those values up when you convert them into your configuration file. This should look something like what is given below. You can then reference these configuration settings from your code just like you did for the database settings.
 
 ```js
   logging: {
-    source: 'jwt-pizza-service',
-    userId: 1,
-    url: '',
-    apiKey: '',
-  }
+     "source": "jwt-pizza-service",
+     "userId": 2222222,
+     "url": "https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write",
+     "apiKey": "glc_111111111111111111111111111111111111111111="
+   }
 ```
 
 ### Modify CI pipeline
@@ -89,7 +89,7 @@ Without this your CI pipeline will fail because of missing references from your 
 
 ### Create logger.js
 
-Create a file named `logger.js`. Use this file to for all the code necessary to interact with Grafana. This may be somewhat similar to what you created in the [Grafana Logging instruction](../grafanaLogging/grafanaLogging.md). However, it may need to be more complex than what was presented in the instruction so that you can supply all the required logs.
+Create a file named `logger.js` in the `src` directory. Use this file to for all the code necessary to interact with Grafana. This may be somewhat similar to what you created in the [Grafana Logging instruction](../grafanaLogging/grafanaLogging.md). However, it may need to be more complex than what was presented in the instruction so that you can supply all the required logs.
 
 ### Add HTTP logging code
 
