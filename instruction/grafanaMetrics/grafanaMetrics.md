@@ -38,7 +38,7 @@ In order to send metrics over HTTP you will need an API key.
 1. Copy the example for Curl. It will look something like the following:
 
    ```sh
-   API_KEY="1111111:glc_111111111111111111111111111111111111111111="
+   API_KEY="222222:glc_111111111111111111111111111111111111111111="
    URL="https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write"
 
    curl -X  POST -H  "Authorization: Bearer $API_KEY" -H  "Content-Type: text/plain" "$URL" -d "test,bar_label=abc,source=grafana_cloud_docs metric=35.2"
@@ -81,9 +81,10 @@ Using the example command and your newly minted API key you can now insert data 
    This should execute without any error and put your first metric into the Prometheus database.
 1. Now modify the shell command so that it inserts a new metric every few seconds.
    ```sh
-   total=0; while true; do total=$((total+1000)); curl -X POST -H "Authorization: Bearer $API_KEY" -H "Content-Type: text/plain" "$URL" -d "request,source=jwt-pizza-service total=$total"; sleep 10; done;
+   total=0; while true; do total=$((total+(100 + RANDOM % 901))); curl -X POST -H
+   "Authorization: Bearer $API_KEY" -H "Content-Type: text/plain" "$URL" -d "request,source=jwt-pizza-service total=$total"; sleep 10; done;
    ```
-   This should simulate about 100 requests per second. That should be enough data to make things interesting. Keep this running while you create your visualization.
+   This should simulate about 6 requests per minute. That should be enough data to make things interesting. Keep this running while you create your visualization.
 
 ## Create a visualization
 
@@ -139,16 +140,25 @@ Create a simple Express app by doing the following.
        "start": "node index.js"
      },
    ```
-1. Create a `config.json` file to include your Grafana credentials. Replace the values with the ones that were supplied when you created the data source connection. The `userId` can be found by going to any of the other code snippets where you got the curl commands. Make sure you include this in your `.gitignore` file if you push this code to GitHub so that you don't publicly post your Grafana API key.
+1. Create a `config.json` file to include your Grafana credentials. Replace the values with the ones that were supplied when you created the data source connection. So if the credentials your received when you created your HTTP Metrics connection looked like this:
+
+   ```txt
+   API_KEY="2222222:glc_111111111111111111111111111111111111111111="
+   URL="https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write"
+   ```
+
+   Your `config.json` would look like this:
 
    ```json
    {
      "source": "jwt-pizza-service",
-     "userId": 1,
-     "url": "",
-     "apiKey": ""
+     "userId": 2222222,
+     "url": "https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write",
+     "apiKey": "glc_111111111111111111111111111111111111111111="
    }
    ```
+
+   Make sure you include `config.json` in your `.gitignore` file so that you don't publicly post your Grafana API key.
 
 1. Create a `metrics.js` file that basically does the same thing that the curl command was doing. The difference is that the total request count only increments every time `incrementRequests` is called. Note that `unref` is called on the timer so that node.js will shut down even though the timer is still running.
 
