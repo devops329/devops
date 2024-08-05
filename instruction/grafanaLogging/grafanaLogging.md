@@ -35,10 +35,8 @@ In order to send logs over HTTP you will need an API key.
 1. Examine the example for Curl. It will look something like the following:
 
    ```sh
-   curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer 111111:glc_111111111111111111=" -d '{"streams": [{"stream": {"Language": "Curl", "source": "Shell"},"values": [["'"$(($(date +%s)*1000000000))"'", "This is my log line"]]}]}' https://https://logs-prod-006.grafana.net/loki/api/v1/push
+   curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer 111111:glc_111111111111111111=" -d '{"streams": [{"stream": {"Language": "Curl", "source": "Shell"},"values": [["'"$(($(date +%s)*1000000000))"'", "This is my log line"]]}]}' https://logs-prod-006.grafana.net/loki/api/v1/push
    ```
-
-   ⚠️ **Note** that as of when this instruction was written there is a bug in the URL. It has the protocol listed twice. Remove the duplicate `https://` if you use this example.
 
 ### Loki JSON log syntax
 
@@ -92,7 +90,7 @@ When you execute this command it will log a JSON body as the log event. Notice a
 
 1. Labels are provided for component, level, and type. This allows you to efficiently search and filter based on these labels.
 1. JSON is used for the body of the log event. Grafana Loki can automatically parse the JSON fields for display and filtering.
-1. The data is automatically inserted using the `date` shell command.
+1. The date is automatically inserted using the `date` shell command.
    ```sh
    '"$(($(date +%s)*1000000000))"'
    ```
@@ -119,7 +117,7 @@ Grafana comes with a data explorer tool that allows you to examine a data source
 1. Open up your Grafana Cloud dashboard.
 1. Open the Home menu, click on Explore. This will display the empty explore interface where you can enter a query.
 1. Select the data source to be your Grafana Cloud log data source. This should follow the pattern **grafanacloud-youraccountnamehere-logs**.
-1. The `Label filters` enter **component** and **jwt-pizza-service** as the value.
+1. For `Label filters`, enter **component** and **jwt-pizza-service** as the value.
    ![Specifying a query](specifyingQuery.png)
 1. Click on the hint to `add json parser`.
 1. Press the blue `Run Query` button to see the results.
