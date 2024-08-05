@@ -61,21 +61,21 @@ function sendMetricToGrafana(metricPrefix, metricName, metricValue) {
 When you run the code you will see it dumping out the metrics that it is sending to Grafana.
 
 ```sh
-demo,source=jwt_pizza_service instant=22
-demo,source=jwt_pizza_service accumulator_total=73
-demo,source=jwt_pizza_service accumulator_count=1
-demo,source=jwt_pizza_service instant=32
-demo,source=jwt_pizza_service accumulator_total=182
-demo,source=jwt_pizza_service accumulator_count=2
-demo,source=jwt_pizza_service instant=65
-demo,source=jwt_pizza_service accumulator_total=191
-demo,source=jwt_pizza_service accumulator_count=3
-demo,source=jwt_pizza_service instant=3
-demo,source=jwt_pizza_service accumulator_total=278
-demo,source=jwt_pizza_service accumulator_count=4
-demo,source=jwt_pizza_service instant=70
-demo,source=jwt_pizza_service accumulator_total=368
-demo,source=jwt_pizza_service accumulator_count=5
+demo,source=jwt-pizza-service instant=22
+demo,source=jwt-pizza-service accumulator_total=73
+demo,source=jwt-pizza-service accumulator_count=1
+demo,source=jwt-pizza-service instant=32
+demo,source=jwt-pizza-service accumulator_total=182
+demo,source=jwt-pizza-service accumulator_count=2
+demo,source=jwt-pizza-service instant=65
+demo,source=jwt-pizza-service accumulator_total=191
+demo,source=jwt-pizza-service accumulator_count=3
+demo,source=jwt-pizza-service instant=3
+demo,source=jwt-pizza-service accumulator_total=278
+demo,source=jwt-pizza-service accumulator_count=4
+demo,source=jwt-pizza-service instant=70
+demo,source=jwt-pizza-service accumulator_total=368
+demo,source=jwt-pizza-service accumulator_count=5
 ```
 
 Go grab an apple 🍏 while you let this run for 15 minutes or so. This will give you some meaningful data to play with.

@@ -73,7 +73,7 @@ Without this your CI pipeline will fail because of missing references from your 
         apiKey: '${{ secrets.FACTORY_API_KEY }}',
       },
       metrics: {
-        source: 'jwt_pizza_service',
+        source: 'jwt-pizza-service',
         userId: ${{ secrets.METRICS_USER_ID }},
         url: '${{ secrets.METRICS_URL }}',
         apiKey: '${{ secrets.METRICS_API_KEY }}',
