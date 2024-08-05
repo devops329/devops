@@ -38,22 +38,22 @@ This assignment should feel similar to the exercises you have already completed.
 
 ### Add Grafana credentials to config.js
 
-Modify your service's config.js file to contain the Grafana credentials. You can then reference these configuration settings just like the application uses the database settings.
+Modify your service's config.js file to contain the Grafana credentials. This should look something like what is given below. You can then reference these configuration settings from your code just like you did for the database settings.
 
 ```js
   metrics: {
-    source: 'jwt-pizza-service',
-    userId: 1,
-    url: '',
-    apiKey: '',
-  }
+     "source": "jwt-pizza-service",
+     "userId": 2222222,
+     "url": "https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write",
+     "apiKey": "glc_111111111111111111111111111111111111111111="
+   }
 ```
 
 ### Modify CI pipeline
 
 Because you added new configuration to the JWT Service, you will need to also enhance your GitHub Actions workflow to have the new metrics configuration fields. You must also add secrets for the METRICS_USER_ID, METRICS_URL, and METRICS_API_KEY.
 
-Without this your CI pipeline will fail because of missing references from your new metrics code when your tests run.
+Without this, your CI pipeline will fail due to missing references from your new metrics code when your tests run.
 
 ```yml
 - name: Write config file
@@ -85,7 +85,7 @@ Without this your CI pipeline will fail because of missing references from your 
 
 ### Create metrics.js
 
-Create a file named `metrics.js`. Use this file to for all the code necessary to interact with Grafana. This may be somewhat similar to what you created in the [Grafana Metrics instruction](../grafanaMetrics/grafanaMetrics.md). However, it will need to be more complex than what was presented in the instruction because it will have to supply metrics for more than just HTTP requests.
+Create a file named `metrics.js` in the `src` directory. Use this file to for all the code necessary to interact with Grafana. This may be somewhat similar to what you created in the [Grafana Metrics instruction](../grafanaMetrics/grafanaMetrics.md). However, it will need to be more complex than what was presented in the instruction because it will have to supply metrics for more than just HTTP requests.
 
 ### Add request metrics code
 
@@ -119,6 +119,30 @@ function getMemoryUsagePercentage() {
 ### Add purchase metrics code
 
 The metrics that track your purchases will require that you calculate information whenever a purchase is made. This includes how long it took for the Pizza Factory to respond to the request to make a pizza, how many were made, how much it cost, and if it was successful.
+
+### Periodic reporting
+
+You can use the JavaScript `setInterval` function to collect and report the request, auth, user, system, and purchase metrics to Grafana. This could look something like the following, but do whatever fits the design of your code.
+
+```js
+function sendMetricsPeriodically(period) {
+  const timer = setInterval(() => {
+    try {
+      const buf = new MetricBuilder();
+      httpMetrics(buf);
+      systemMetrics(buf);
+      userMetrics(buf);
+      purchaseMetrics(buf);
+      authMetrics(buf);
+
+      const metrics = buf.toString('\n');
+      this.sendMetricToGrafana(metrics);
+    } catch (error) {
+      console.log('Error sending metrics', error);
+    }
+  }, period);
+}
+```
 
 ### Simulating traffic
 

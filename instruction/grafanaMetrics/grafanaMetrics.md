@@ -265,6 +265,10 @@ In order to complete the assignment you need to make your dashboard public so th
    ![Make public dashboard](makePublicDashboard.png)
 
 1. Press the `Generate public URL` button.
-1. Copy the generated dashboard URL.
+1. You must enable the ability for the TA to change the range of the dashboard and also view annotations.
+
+   ![Enable time range](enableTimeRange.png)
+
+1. Press the **Copy** button for the generated dashboard URL.
 
 Go to the associated Canvas assignment and submit the dashboard URL.
