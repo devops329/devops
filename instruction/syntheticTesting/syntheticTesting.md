@@ -35,9 +35,12 @@ This includes graphs that show the latency of requests, locations that requests 
 To create a Grafana synthetic test do the following:
 
 1. Open the Grafana Cloud Dashboard.
-1. Open the home menu and click on `Testing & synthetics` and then `Synthetics`.
-1. Click on `Add new check`.
-1. Select the check type. These represent the network request times that you can make. Select `HTTP` in order to make a single request that assures that your application resource is available.
+1. Open the home menu and click on `Testing & synthetics` > `Synthetics` > `Checks`.
+1. Click on `New check`.
+1. Select the check type. These represent the types of network requests that you can make. Select `Create API Endpoint check` in order to make a single request that assures that your application resource is available.
+
+   ![Check type](checkType.png)
+
 1. Define the check.
 
    1. Provide `jwt-pizza` as the **Job name**.
@@ -45,27 +48,21 @@ To create a Grafana synthetic test do the following:
 
       ⚠️ **Note**: This will require that your application is currently running. If it is not, then go and deploy it now.
 
-   1. Check `Enabled` so that metrics for the tests will be stored in you Grafana data source (i.e. `grafanacloud-*-prom`) under metrics that begin with `probe_`. This is useful if you want to create your own visualizations.
-
    ![Define check](defineCheck.png)
 
-1. Click the `→ Probes` button to define the frequency and location where request originate.
-
-   1. Choose the `Probe locations` as **London**, **Seoul**, and **Atlanta**.
-   1. Set the `Frequency` to one minute.
-   1. Set the `Timeout` to 3 seconds.
-
-   ![Probe step](probeStep.png)
-
-1. Click `→ HTTP settings` and review the options. This allows you to make any type of HTTP request. We will not set any of these at this time.
-1. Click `→ TLS config` and review the options. This allows you to specify the expected web certificate information. We will not set any of these at this time.
-1. Click `→ Authentication` and review the options. This allows you to provide authentication tokens that the application requires. We will not set any of these at this time.
-1. Click `→ Validation` and review the options. This allows you to define what response is expected from the HTTP request.
+1. Click `→ Define uptime` from the left side menu. This allows you to define what response is expected from the HTTP request.
 
    1. Choose **200** as the `Valid status code`.
    1. Choose **Probe fails if SSL is not present** as the `SSL options`.
 
-   ![Validation step](validationStep.png)
+   ![alt text](defineUptimeStep.png)
+
+1. Click the `→ Execution` from the left side menu to define the frequency and location where request originate.
+
+   1. Choose the `Probe locations` as **London**, **Seoul**, and **Atlanta**.
+   1. Set the `Frequency` to one minute.
+
+   ![Execution step](executionStep.png)
 
 1. Press the `Test` button. After a few seconds this should return a successful response.
 
@@ -93,7 +90,7 @@ In a later section you will learn how to define the rules for triggering alerts 
 
 Grafana Cloud provides you with a limited number of free synthetic testing checks. Once you have experimented with this functionality, you want to reduce the number of checks that you make so that it falls within their free tier.
 
-To reduce the number of checks, edit the check that you just created and navigate to the `Probe options` view. Change the frequency to 60 minutes and press `Save`.
+To reduce the number of checks, edit the check that you just created and navigate to the `Execution` view. Change the frequency to 60 minutes and press `Save`.
 
 ## ☑ Assignment
 
