@@ -28,31 +28,16 @@ d3pl23dqq9jlpy.cloudfront.net.
 
 Alter your GitHub Actions deployment process using the [AWS S3 Deployment](../awsS3Deployment/awsS3Deployment.md) instruction such that it updates S3 when files are pushed to your fork of `jwt-pizza`. Your GitHub CI pipeline deploys your frontend code through a secure connection that is authenticated using OIDC that follows the principle of least privilege, by exposing only the necessary access.
 
-Your existing `deploy` job that you created to deploy to GitHub Pages should currently look like the following.
+First off, you need to modify the **build** job to use the generic `upload-artifact` action instead of the GitHub Pages specific `upload-pages-artifact` action. To do this replace what is currently there:
 
 ```yml
-build:
-  //...build and test steps
-    - name: Update pages artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: dist/
-deploy:
-  needs: build
-  permissions:
-    pages: write
-    id-token: write
-  environment:
-    name: github-pages
-    url: ${{ steps.deployment.outputs.page_url }}
-  runs-on: ubuntu-latest
-  steps:
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
+- name: Update pages artifact
+  uses: actions/upload-pages-artifact@v3
+  with:
+    path: dist/
 ```
 
-This uses the artifact uploaded in the **build** job using actions that are specific to deploying to GitHub Pages. Instead you need to replace the `upload-pages-artifact` action to use the more generic `upload-artifact` action.
+with this action:
 
 ```yml
 - name: Update dist artifact
@@ -62,7 +47,9 @@ This uses the artifact uploaded in the **build** job using actions that are spec
     path: dist/
 ```
 
-You can then create the OIDC authorization, download the artifact, push to S3, and invalidate the CloudFront distribution cache in the **deploy** job. This should look something like the following.
+Now you can modify the **deploy** job so that uploads to S3 instead of pushing to GitHub Pages. Replace the **deploy** job with the following
+
+Your existing `deploy` job that you created to deploy to GitHub Pages should currently look like the following.
 
 ```yml
 deploy:
@@ -70,6 +57,8 @@ deploy:
   permissions:
     id-token: write
   runs-on: ubuntu-latest
+  env:
+    version: ${{needs.build.outputs.version}}
   steps:
     - name: Create OIDC token to AWS
       uses: aws-actions/configure-aws-credentials@v4
@@ -86,9 +75,12 @@ deploy:
 
     - name: Push to AWS S3
       run: |
+        echo Deploying $version
         aws s3 cp dist s3://${{ secrets.APP_BUCKET }} --recursive
         aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
 ```
+
+This job gets the version from the previous build step, creates the OIDC authorization, download the build artifact, push to S3, and invalidate the CloudFront distribution cache.
 
 ### React routing on browser refresh
 

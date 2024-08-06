@@ -54,27 +54,15 @@ It will contain a subdirectory for each version you build
 └── 20240623.103266
 ```
 
-Go ahead and open up the `ci.yml` file for your fork of `jwt-pizza`. The first change you need to use the version ID when you copy the package to S3. To do this, make sure you pass the version ID from the **build** job to the **deploy** job, and then append the version ID as to the bucket path.
+Go ahead and open up the `ci.yml` file for your fork of `jwt-pizza`. The first change you need to use the version ID when you copy the package to S3. To do this you just need to the version ID as to the bucket path in the **deploy** job. You can also delete the line that does the CloudFront cache invalidation since you will need to do a version specific invalidation after the distribution for the release has been distributed.
 
 ```yml
-deploy:
-  needs: build
-  permissions:
-    id-token: write
-  runs-on: ubuntu-latest
-  env:
-    # Set the version to the location defined in the build job
-    version: ${{needs.build.outputs.version}}
-
-  # ...
-
-  steps:
-    # ...
-
-    - name: Push to AWS S3
-      # Append the version to the path
-      run: |
-        aws s3 cp dist s3://${{ secrets.APP_BUCKET }}/$version --recursive
+- name: Push to AWS S3
+  # Append the version to the path
+  run: |
+    echo Deploying $version
+    aws s3 cp dist s3://${{ secrets.APP_BUCKET }}/$version --recursive
+    # Remove this line -> aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
 ```
 
 When you commit and push this change, it should copy the version files to the version directory. Examine your S3 bucket to make sure this is happening.
@@ -297,7 +285,7 @@ This runs some complex commands that you need to take the time to understand. Le
 
 When you are done with all of these changes, your JWT Pizza CI workflow should look similar to the [file found here](ci.yml). At this point you should be very familiar with each step in this workflow. If you don't feel confident with anything then take some time to dig into them deeper and ask for some help if there are things that still seem confusing.
 
-## Manually deploying to production
+## Manually triggering a production deployment
 
 Since you moved your CI pipeline to deploy to your staging environment, you now need a way to deploy to your production environment.
 

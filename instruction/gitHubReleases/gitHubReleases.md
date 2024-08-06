@@ -29,29 +29,11 @@ This is a really nice way to visualize when a commit was deployed as a productio
 
 ## Automating releases
 
-Since we are DevOps engineers, reading the human-dependent steps above should immediately make us uncomfortable. So let's change your `jwt-pizza` CI pipeline so that it creates the release instead of depending on a manually executed step.
+Since we are DevOps engineers, reading the human-dependent steps above should immediately make us uncomfortable. So let's change your `jwt-pizza` CI pipeline so that it creates the GitHub Release instead of depending on a manually executed step.
 
-First, you need to create a version ID that can be used throughout the GitHub action workflow. You can do this by outputting the version from your **build** job. You can reuse the version output to create the version.json file that is deployed to the production environment. That ensures that your version number is consistent across the deployment.
+You do this by creating a new workflow job named **release** that triggers when both the build and deploy jobs complete. This job will use the third party `ncipollo/release-action` to call the GitHub API and automatically create the tag and release based upon information found in the execution trigger and the version ID created in the **build** job. You can reference the version variable from the build job with the `needs.build.outputs.version` variable.
 
-```yml
-outputs:
-  version: ${{ steps.set_version.outputs.version }}
-steps:
-  # ...
-
-  - name: set version
-    id: set_version
-    run: |
-      echo "version=$(date +'%Y%m%d.%H%M%S')" >> "$GITHUB_OUTPUT"
-
-  - name: Build
-    run: |
-      printf '{"version": "%s" }' ${{steps.set_version.outputs.version}} > public/version.json
-
-  # ...
-```
-
-Next, you want to create a job that triggers when both the build and deploy jobs complete. This job will use the third party `ncipollo/release-action` to call the GitHub API and automatically create the tag and release based upon information found in the commit. Create a new job named **release** at the end of your `ci.yml` file and add the following.
+Add the following to your `ci.yml` pipeline.
 
 ```yml
 release:

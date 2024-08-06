@@ -361,16 +361,7 @@ This should be enough to get you started. Your goal is to get at least 80% line 
 
 ## Testing CI
 
-With your automated tests in place, you can now update the GitHub Actions script that you created previously to include the execution of the tests. You also want to report your coverage publicly and create a version number.
-
-To create a version number based on the current date, we just need to generate it before we bundle.
-
-```yml
-- name: Build
-  run: |
-    printf '{"version": "%s" }' $(date +'%Y%m%d.%H%M%S') > public/version.json
-    npm ci && npm run build
-```
+With your automated tests in place, you can now update the GitHub Actions script that you created previously to include the execution of the tests and to publicly report your coverage.
 
 Running the test requires that you first install the desired Playwright browser driver, and then execute the test command.
 
@@ -419,6 +410,5 @@ Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and s
 
 | Percent | Item                                                                               |
 | ------- | ---------------------------------------------------------------------------------- |
-| 20%     | Successful execution of GitHub Actions to run test on commit                       |
-| 10%     | Version updated with each build and visible in app footer.                         |
+| 30%     | Successful execution of GitHub Actions to run test on commit                       |
 | 70%     | At least 80% code coverage as documented by workflow execution and README.md badge |

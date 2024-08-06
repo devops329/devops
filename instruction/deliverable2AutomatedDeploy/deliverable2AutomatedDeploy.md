@@ -42,8 +42,10 @@ Here are the steps to make the automation magic happen.
      workflow_dispatch:
    jobs:
      build:
-       name: Build frontend
+       name: Build
        runs-on: ubuntu-latest
+       outputs:
+         version: ${{ steps.set_version.outputs.version }}
        steps:
          - name: Checkout repo
            uses: actions/checkout@v4
@@ -52,6 +54,13 @@ Here are the steps to make the automation magic happen.
            uses: actions/setup-node@v4
            with:
              node-version: '20.x'
+
+         - name: set version
+           id: set_version
+           run: |
+             version=$(date +'%Y%m%d.%H%M%S')
+             echo "version=$version" >> "$GITHUB_OUTPUT"
+             printf '{"version": "%s" }' "$version" > public/version.json
 
          - name: Build
            run: |
@@ -83,7 +92,7 @@ Here are the steps to make the automation magic happen.
 
 Let's look at each of the steps in the GitHub Actions workflow.
 
-First off we tell GitHub actions that we want to trigger this workflow whenever a commit is pushed into the main branch. We also add a trigger for when a workflow dispatch event is created, which will allow the AutoGrader to trigger your workflow via an API call.
+First off we tell GitHub actions that we want to trigger this workflow whenever a commit is pushed into the main branch. We also add a trigger for when a **workflow dispatch** event is created, which will allow the AutoGrader to trigger your workflow manually or via an API call.
 
 ```yml
 on:
@@ -91,17 +100,29 @@ on:
     branches:
       - main
   workflow_dispatch:
+jobs:
 ```
 
 Next we define the jobs we want to run.
 
 ### Build job
 
-The `build` job first does a checkout of the repository.
+Our first job is named **build**. We specify that it will use the Linux operating system and that the job build is expected to output the version of the build.
 
 ```yml
-- name: Checkout repo
-  uses: actions/checkout@v4
+build:
+  name: Build
+  runs-on: ubuntu-latest
+  outputs:
+    version: ${{ steps.set_version.outputs.version }}
+```
+
+The first step in the **build** job does a checkout of the repository.
+
+```yml
+steps:
+  - name: Checkout repo
+    uses: actions/checkout@v4
 ```
 
 Then it installs Node.js version 20.
@@ -111,6 +132,17 @@ Then it installs Node.js version 20.
   uses: actions/setup-node@v4
   with:
     node-version: '20.x'
+```
+
+We then create our version number, set it in a GitHub Action output variable that will make it available to other jobs, and persistently store it in a file named `version.json`.
+
+```yml
+- name: set version
+  id: set_version
+  run: |
+    version=$(date +'%Y%m%d.%H%M%S')
+    echo "version=$version" >> "$GITHUB_OUTPUT"
+    printf '{"version": "%s" }' "$version" > public/version.json
 ```
 
 Next it builds the distribution bundle by installing all the dependencies, running Vite to do the bundling, and then copying over our 404 handler file fix that we introduced in the last deliverable.
@@ -189,5 +221,6 @@ Once JWT Pizza is live on your domain, go to the [AutoGrader](https://cs329.cs.b
 | Percent | Item                                                                                        |
 | ------- | ------------------------------------------------------------------------------------------- |
 | 60%     | Successful execution of GitHub Actions to deploy JWT Pizza to GitHub Pages on push          |
+| 10%     | Version updated with each build and visible in app footer.                                  |
 | 35%     | Completely functional JWT Pizza deployed with GitHub Pages accessible on custom domain name |
 | 5%      | Pipeline status badge display on your JWT Pizza **README.md** home page                     |

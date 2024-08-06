@@ -136,14 +136,21 @@ Previously the workflow stopped after the tests were done and the coverage badge
        path: dist/
    ```
 
-1. Create a new GitHub Actions Job underneath the `validate` job and name it `deploy`. Give it permissions to access the CI pipeline token so that it can authenticate with OIDC. As the first step, download the distribution artifact created by the last job.
+1. Create a new GitHub Actions Job underneath the `build` job and name it `deploy`. Give it permissions to access the CI pipeline token so that it can authenticate with OIDC. Add the version ID created in the build step to the job environment.
 
    ```yml
    deploy:
    runs-on: ubuntu-latest
    permissions:
-      id-token: write
-   needs: validate
+     id-token: write
+   needs: build
+   env:
+     version: ${{needs.build.outputs.version}}
+   ```
+
+1. As the first step, download the distribution artifact created by the last job.
+
+   ```yml
    steps:
       - name: Download distribution artifact
          uses: actions/download-artifact@v4

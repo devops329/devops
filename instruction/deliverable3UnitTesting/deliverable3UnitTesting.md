@@ -25,9 +25,11 @@ on:
       - main
   workflow_dispatch:
 jobs:
-  validate:
-    name: Test and analyze backend
+  build:
+    name: Build
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.set_version.outputs.version }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -44,7 +46,7 @@ jobs:
         run: npm run lint
 ```
 
-This workflow is fairly simple. It checks out the code, installs the NPM dependencies, and runs the linter.
+This workflow is fairly simple. It specifies it will output a version number, checks out the code, installs the NPM dependencies, and runs the linter.
 
 When you commit and push this change, you can view the workflow executing on the GitHub Actions view of your repository. Assuming that you have cleaned up all the linting errors, you should see something similar to the following.
 
@@ -139,18 +141,24 @@ With MySQL running and our configuration all set up, you just need to add the st
 
 That's it! Your tests are ready to run every time you commit to the repository.
 
-## Reporting coverage and adding a version number
+## Adding a version number and reporting coverage
 
-Before you run your new workflow let's add one more thing. We want to be able to report our coverage publicly. One easy way to do that is to update the `coverageBadge.svg` file that is displayed in the README.md file with the latest coverage percentage. We do this with the help of an image generator found at `img.shields.io`.
+Before you run your new workflow you need to add a version number and report on the code coverage. The version is stored in a file named `version.json` and is represented with the current date and time.
 
-We also generate a version file that contains the latest version ID based upon the time that the code was committed.
+You can report your coverage publicly by updating the `coverageBadge.svg` file that is displayed in the README.md file with the latest coverage percentage. We do this with the help of an image generator found at `img.shields.io`.
 
-Here is the step to add these two pieces.
+Here are the steps to add these two pieces.
 
 ```yml
-- name: Update coverage and version
+- name: set version
+  id: set_version
   run: |
-    printf '{"version": "%s" }' $(date +'%Y%m%d.%H%M%S') > src/version.json
+    version=$(date +'%Y%m%d.%H%M%S')
+    echo "version=$version" >> "$GITHUB_OUTPUT"
+    printf '{"version": "%s" }' "$version" > src/version.json
+
+- name: Update coverage
+  run: |
     coverage_pct=$(grep -o '"pct":[0-9.]*' coverage/coverage-summary.json | head -n 1 | cut -d ':' -f 2)
     color=$(echo "$coverage_pct < 80" | bc -l | awk '{if ($1) print "yellow"; else print "green"}')
     sed -i "s/^Coverage: .*/Coverage: $coverage_pct %/" README.md
@@ -197,9 +205,11 @@ on:
       - main
   workflow_dispatch:
 jobs:
-  validate:
-    name: Test and analyze
+  build:
+    name: Build
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.set_version.outputs.version }}
     services:
       mysql:
         image: mysql:8.0.29
@@ -252,9 +262,15 @@ jobs:
       - name: Tests
         run: npm test
 
-      - name: Update coverage and version
+      - name: set version
+        id: set_version
         run: |
-          printf '{"version": "%s" }' $(date +'%Y%m%d.%H%M%S') > src/version.json
+          version=$(date +'%Y%m%d.%H%M%S')
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          printf '{"version": "%s" }' "$version" > src/version.json
+
+      - name: Update coverage
+        run: |
           coverage_pct=$(grep -o '"pct":[0-9.]*' coverage/coverage-summary.json | head -n 1 | cut -d ':' -f 2)
           color=$(echo "$coverage_pct < 80" | bc -l | awk '{if ($1) print "yellow"; else print "green"}')
           sed -i "s/^Coverage: .*/Coverage: $coverage_pct %/" README.md
