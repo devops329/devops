@@ -84,7 +84,7 @@ Do the following:
 1. Make sure you have metrics that will display the chaos.
 1. Create an OnCall alert that will trigger based on chaos.
 1. Deploy your JWT Pizza Service to production.
-1. Simulate traffic to the service. (See the _Curl commands_ found [Logging deliverable](../deliverable8Logging/deliverable8Logging.md) for examples of how to do this.)
+1. Simulate traffic to the service. (See the _Curl commands_ found in the [simulating traffic](simulatingTraffic/simulatingTraffic.md) instruction for examples of how to do this.)
 1. Trigger the chaos.
 1. Wait for, acknowledge, and resolve the alert.
 
