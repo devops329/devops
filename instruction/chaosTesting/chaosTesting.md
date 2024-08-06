@@ -57,10 +57,23 @@ At a minimum you should be conducting chaos testing in your staging and other no
 
 Do the following:
 
-1. Figure out way to inject chaos into your application. You can do this by creating:
-   1. An endpoint on your fork of the `jwt-pizza-service` code that can enable and disable chaos by causing one of your endpoints to always fail. Only allow an admin to execute the chaos endpoint.
-   1. Creating a separate program that injects chaos.
-   1. Manually disrupting your application infrastructure with something like tweaking a security group or stopping your database. (Although this might seem easier, it will introduce testing toil into your environment.)
+1. Add endpoint on your fork of the `jwt-pizza-service` code that can enable and disable chaos by causing one of your endpoints to randomly fail. Only allow an admin to execute the chaos endpoint. For example:
+
+   ```js
+   authRouter.put(
+     '/chaos/:state',
+     authRouter.authenticateToken,
+     asyncHandler(async (req, res) => {
+       if (!req.user.isRole(Role.Admin)) {
+         throw new StatusCodeError('unknown endpoint', 404);
+       }
+
+       enableChaos = req.params.state === 'true';
+       res.json({ chaos: enableChaos });
+     })
+   );
+   ```
+
 1. Make sure you have metrics that will display the chaos.
 1. Create an OnCall alert that will trigger based on chaos.
 1. Deploy your JWT Pizza Service to production.
