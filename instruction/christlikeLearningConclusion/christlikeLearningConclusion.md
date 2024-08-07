@@ -1,5 +1,12 @@
 # Christlike learning conclusion
 
+🔑 **Key points**
+
+- Gratitude, inspiration, and action are divine traits of successful software engineers.
+- Apply these principles as part of your future employment.
+
+---
+
 At the beginning of the course, you recorded your thoughts about how you can utilize gratitude, divine inspiration, and righteous action to both learn and apply your learning in a Christlike way. Take a moment to consider how being deliberate about combining the eternal into your everyday life changed your experience with the content of this course.
 
 ## ☑ Assignment

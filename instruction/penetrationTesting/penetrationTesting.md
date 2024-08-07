@@ -1,5 +1,12 @@
 # Penetration Testing
 
+🔑 **Key points**
+
+- Penetration testing helps you find vulnerabilities before an attacker does.
+- CVE and CVSS provide a common format for reporting vulnerabilities.
+
+---
+
 📖 **Deeper dive reading**: [PortSwigger Academy](https://portswigger.net/web-security/all-topics)
 
 Penetration testing focuses on preventing any action that would:

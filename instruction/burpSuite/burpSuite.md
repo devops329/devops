@@ -1,5 +1,12 @@
 # Burp Suite
 
+🔑 **Key points**
+
+- Burp Suite automates penetration testing.
+- Execute a brute force password attack against JWT Pizza.
+
+---
+
 ![Burp Suite logo](burpSuiteLogo.png)
 
 Burp Suite is a software security application, created by Port Swigger, that accelerates and automates penetration testing.

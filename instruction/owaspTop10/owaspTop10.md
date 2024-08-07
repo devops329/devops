@@ -1,5 +1,11 @@
 ## The OWASP Top Ten
 
+🔑 **Key points**
+
+- Knowing the top ten exploit vectors helps you prevent them.
+
+---
+
 📖 **Deeper dive reading**:
 
 - [OWASP Top Ten](https://owasp.org/www-project-top-ten/)

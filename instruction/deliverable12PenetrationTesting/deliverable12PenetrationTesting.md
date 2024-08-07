@@ -1,5 +1,13 @@
 # ⓬ Penetration testing: JWT Pizza
 
+🔑 **Key points**
+
+- Execute a penetration test against a peer.
+- Prevent your JWT Pizza from being penetrated.
+- Create an incident report.
+
+---
+
 ![course overview](../sharedImages/courseOverview.png)
 
 In order to demonstrate your mastery of the concepts for this deliverable, you will conduct two penetration tests of JWT Pizza. First you will attack your own JWT Pizza production deployment, and then you will attack the production deployment of an assigned peer. Together with your peer, you will then create a penetration test report.
