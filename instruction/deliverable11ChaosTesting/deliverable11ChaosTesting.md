@@ -1,5 +1,11 @@
 # ⓫ Chaos testing: JWT Pizza
 
+🔑 **Key points**
+
+- Validate your metrics and alerts by responding to a chaos test.
+
+---
+
 ![course overview](../sharedImages/courseOverview.png)
 
 The JWT Pizza application has the ability built into it to inject Chaos into the system. It is an important part of your role as a DevOps engineer to know how to expediently, and efficiently, respond to critical events. This deliverable will give you significant experience with that process.

@@ -1,5 +1,13 @@
 # Grafana OnCall
 
+🔑 **Key points**
+
+- Grafana provides significant alerting infrastructure.
+- Infrastructure includes metrics, triggers, and on call scheduling.
+- You must create and trigger an alert.
+
+---
+
 ![OnCall icon](onCallIcon.png)
 
 📖 **Deeper dive reading**: [Grafana OnCall](https://grafana.com/docs/oncall)

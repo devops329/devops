@@ -1,5 +1,11 @@
 # Self-healing
 
+🔑 **Key points**
+
+- Self healing systems are the holy grail of DevOps automation
+
+---
+
 The ultimate goal of DevOps engineers is to automate themselves out of a job. The capstone of that automation is a system that automatically detects a problem, deploys a correction, and records the modification in an audit log.
 
 Consider a system where you have hooked up your Grafana observability alerts to call an AWS Lambda function. The function automatically corrects the problem then simply notifies the DevOps team that the correction has taken place.

@@ -1,4 +1,4 @@
-# Recovery
+# Backup and Recovery
 
 🔑 **Key points**
 
@@ -17,29 +17,31 @@ When failure happens there are three types of recovery that can happen.
 
 If the triggering event was an anomaly, caused by a hardware failure for example, then you may not see the failure again for an undetermined period. If the triggering event is periodic, Black Friday shopping for example, then you can expect a similar situation to occur again.
 
-No matter the resolution, you want to deploy an **immediate** fix to recover from the failure, and a **long** term solution to keep the failure from repeating.
+No matter the resolution, you usually want to deploy an **immediate** fix to recover from the failure, and also develop a **long** term solution to keep the failure from repeating.
 
 ## RTO & RPO
 
-There are two main metrics that help guide your backup and recovery design: RTO (Recovery Time Objective) and RPO (Recovery Point Objective). The process of defining these objectives indicates that they have been tested and therefore your organization and customers can reasonably expect that the objectives will be met as part of the failure resolution.
-
-### Recovery Time Objective (RTO)
-
-RTO is the published maximum time that can elapse before a system is restored to functional health.
-
-#### Example
-
-If JWT Pizza has an RTO of 15 minutes, it means that after a failure or disaster, the website must be back online within 15 minutes to prevent significant impact on the customer.
+There are two main metrics that help guide your backup and recovery design: RTO (Recovery Time Objective) and RPO (Recovery Point Objective). By publicly releasing your objectives, you indicate that they have been tested and therefore your organization and customers can reasonably expect that the objectives will be met as part of the failure resolution.
 
 ### Recovery Point Objective (RPO)
 
-RPO is the maximum acceptable amount of data loss measured in time. It represents the point in time to which data must be recovered after a failure or disaster to resume acceptable customer interactions.
+RPO is the maximum acceptable amount of data loss measured in time. It represents the point in time to which data must be recovered after a failure to resume acceptable customer interactions.
 
 RPO helps determine the frequency of backups or data replication needed to ensure that data loss is within acceptable limits.
 
 #### Example
 
 An RPO of 5 minutes means that a failure will cause no more than 5 minutes of lost data. With JWT Pizza, that might mean that any pizza that was ordered during that time might not get delivered, recorded, or billed.
+
+### Recovery Time Objective (RTO)
+
+RTO is the published maximum time that can elapse before a system is restored to functional health. This does not necessarily mean that all of the customer's data will be accessible. That is covered by the RPO.
+
+RTO helps determine the amount of architectural redundancy necessary to replace failing components in the desired amount of time.
+
+#### Example
+
+If JWT Pizza has an RTO of 15 minutes, it means that after a failure, the website must be back online within 15 minutes.
 
 ## Customer Data
 
@@ -74,13 +76,13 @@ Note that this will create a new database instance with the restored data. Witho
 
 ## Alternatives to backup restoration
 
-If you need a smaller RTO then you can employ one of many alternative solutions. For example, you can create a read replica of your database. This creates what is called a **hot standby** that is actively taking read requests and can replace the primary when a failure occurs. RDS will automatically write data to both your primary database and your read replica. You can also use both copies to handle read requests from your application, which has the benefit of doubling your ability to handle read requests.
+If you need a smaller RTO then you can employ one of many alternative solutions. For example, you can create a read replica of your database. This creates what is called a **hot standby** that is actively taking read requests and can replace the primary database when a failure occurs. RDS will automatically write data to both your primary database and your read replica. You can also use both copies to handle read requests from your application, which has the benefit of doubling your read throughput.
 
 ![Read replica](readReplica.png)
 
 When your primary database fails you simply redirect the write requests from the primary to the replica and promote the replica to be the primary. This only takes a few seconds and has a very small window where data loss due to failed write attempts may occur. That means that your RTO and your RPO are both around 30 seconds.
 
-You can also create multi-availability zone deployments where you can create a cluster of databases that are either hot or **warm standby** by in different data centers. A warm standby does not take active requests, but is available to quickly replace the primary.
+You can also create multi-availability zone deployments where you can create a cluster of databases that are either hot or **warm standby** in different data centers. A warm standby does not take active requests, but is available to quickly replace the primary.
 
 ![Availability and durability](availabilityAndDurability.png)
 

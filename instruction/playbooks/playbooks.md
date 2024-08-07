@@ -1,5 +1,13 @@
 # Playbooks
 
+🔑 **Key points**
+
+- Playbooks are an essential piece of your disaster recovery plan.
+- To be useful they must be exercised.
+- Create a playbook for JWT Pizza.
+
+---
+
 Failure recovery playbooks serve as essential guides for organizations to efficiently respond to and manage unexpected system failures or disruptions. These playbooks provide detailed, step-by-step procedures and protocols that outline the necessary actions to be taken when a failure occurs, ensuring a swift and effective response. They help mitigate the impact of outages by detailing roles and responsibilities, communication plans, and escalation paths. By having well-defined recovery processes, organizations can minimize downtime, reduce data loss, and maintain service continuity. Additionally, these playbooks are crucial for training staff, standardizing recovery efforts, and ensuring compliance with industry regulations and best practices, ultimately enhancing the overall resilience and reliability of the organization’s infrastructure.
 
 A good playbook will include the following.
@@ -107,6 +115,12 @@ This playbook provides a structured approach for managing and recovering from da
    - Conduct a post-mortem meeting within 48 hours
    - Identify root cause and implement preventive measures
    - Update this playbook with lessons learned and improvements
+
+## Exercising your playbook
+
+A common mistake for DevOps teams is to create a playbook and then put it on the shelf. In order for a playbook to justify its usefulness it must be exercised under a real or simulated failure. A playbook that has never been exercised runs the real risk of actually slowing down a response because it might lead the team down a path that makes the problem worse.
+
+The common DevOps phrase is to "test your system to failure". This should be coupled with "test your system to recovery".
 
 ## A bit of fun
 

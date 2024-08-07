@@ -1,5 +1,12 @@
 # Incident report
 
+🔑 **Key points**
+
+- The incident report is a critical tool for improving failure response.
+- Creating a public facing incident report restores trust.
+
+---
+
 When a failure occurs, the entire team needs to be focused on recovering from the failure. Usually this will require some sort of manual or automated intervention. Once the panic of mitigating the failure has decreased, it is vital that you take steps to understand what happened, what the impact was, and how the system can be improved to avoid a repeated failure of the same type. An indispensable tool for formalizing this discussion is the `incident report`.
 
 ## It is not about blame.
