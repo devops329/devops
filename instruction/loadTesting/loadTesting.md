@@ -24,13 +24,13 @@ Or does it go exponential and completely collapse at a certain level of usage?
 
 ![Exponential scaling](exponentialScaling.png)
 
-The key value of load testing is that you can know how your application will perform before your company's reputation is destroyed.
+The key value of load testing is that you can know how your application will perform before your company's reputation comes into question.
 
 ## Comparison to other types of testing
 
 Load testing is similar to integration or end-to-end testing in that you can test how well the application works as a whole. The main difference is that load testing measures the performance of these systems by simulating large numbers of customers. For example, in the JWT Pizza application, an important load test would simulate ordering hundreds of pizzas at the same time.
 
-## Types of testing
+## Types of load testing
 
 There are several varieties of load testing that focus on different load characteristics.
 

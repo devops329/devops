@@ -43,7 +43,7 @@ Notice that the banner has a link that takes you to their status page where the 
 
 There are several ways to create a status page for your application. Usually you don't want to have it actually hosted as part of your application because that is kind of self-defeating. Instead, you need to build a completely different stack, hopefully hosted in a completely different environment from your application.
 
-As an alternative to building your own status page, you can use one of the many cloud services that are available. You can also use one of the many open source projects.
+As an alternative to building your own status page, you can use one of the many cloud services that are available. There are also lots of [open source projects](https://github.com/ivbeg/awesome-status-pages) that make it easy to deploy a status page.
 
 ### Upptime
 
@@ -51,4 +51,4 @@ One that I haven't tried, but that looks interesting is [upptime](https://github
 
 > ![Upptime](upptime.png)
 
-If you are looking for a discovery project, this might be a good one to try. I would love to hear about your experience.
+💡 If you are looking for a curiosity project, this might be a good one to try. I would love to hear about your experience.

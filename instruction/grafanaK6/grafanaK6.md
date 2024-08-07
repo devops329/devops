@@ -10,7 +10,7 @@
 
 ![K6 logo](k6Logo.png)
 
-K6 automates load testing by playing back requests you make from a browser or writing HTTP request commands using JavaScript. K6 executes the HTTP requests concurrently with the number of simulated users that you define. Given enough computation power and network bandwidth you can simulate realistic customer load so that you can gain confidence that the system won't fail when handling real traffic.
+K6 automates load testing by playing back requests you make from a browser or writing HTTP request commands using JavaScript. K6 executes the HTTP requests concurrently with the number of simulated users that you define. Given enough computational power and network bandwidth you can simulate realistic customer load so that you can gain confidence that the system won't fail when handling real traffic.
 
 ### History
 
@@ -38,31 +38,36 @@ You will create your first K6 load against your JWT Pizza production deployment.
 
 ### Creating the project and test
 
-1. Open up your Grafana Cloud dashboard.
-1. Open the Home menu, click `Testing & synthetics > Performance > Projects`. This will display the default project that was created along with your account. You can create a new project if you desire, but for now the default will do.
+1.  Open up your Grafana Cloud dashboard.
+1.  Open the Home menu, click `Testing & synthetics > Performance > Projects`.
+1.  Click the button to `Start testing`.
 
-   ![Default K6 project](defaultProject.png)
+    ![Start testing](image.png)
 
-1. Click on the `Default project` name in order to create a new test. This might display some tutorial documentation that you can read or dismiss. You should then see a `Create new test` button. _(Note that the creators of K6 actually had a pet alligator in the office, and thus the alligator theme.)_
+    This will display the default project that was created along with your account. You can create a new project if you desire, but for now the default will do.
 
-   ![Create test button](createTestButton.png)
+    ![Default K6 project](defaultProject.png)
 
-1. Press the `Create new test` button. This will display the new test and give you different options for how you can create it. There are three options.
+1.  Click on the `Default project` name in order to create a new test. This might display some tutorial documentation that you can read or dismiss. You should then see a `Create new test` button. _(Note that the creators of K6 actually had a pet alligator in the office, and thus the alligator theme.)_
 
-   1. Download and use the **K6 CLI** to build a test in your development environment
-   1. write a JavaScript testing script in the Grafana Cloud K6 **Script Editor**
-   1. or use the Grafana Cloud K6 **Test Builder**.
+    ![Create test button](createTestButton.png)
 
-   Using the Test Builder is the fastest way to get up and running, so we will use that.
+1.  Press the `Create new test` button. This will display the new test and give you different options for how you can create it. There are three options.
 
-1. Press the `Start Building` button.
-1. This will display the **Test Builder** interface.
+    1. Download and use the **K6 CLI** to build a test in your development environment
+    1. write a JavaScript testing script in the Grafana Cloud K6 **Script Editor**
+    1. or use the Grafana Cloud K6 **Test Builder**.
 
-   ![Test builder](testBuilder.png)
+    Using the Test Builder is the fastest way to get up and running, so we will use that.
 
-   If you use the `RECORD A SCENARIO` button you will need to install a Chrome extension that will create a script based upon your actions in Google Chrome. Feel free to do this if you would like. However, I like to keep the things I install in my development environment to a minimum. Instead, we will record and upload a HTTP Archive (HAR) file that Chrome can easily build for you.
+1.  Press the `Start Building` button.
+1.  This will display the **Test Builder** interface.
 
-1. Rename the test from the default to `Login and order pizza`.
+    ![Test builder](testBuilder.png)
+
+    If you use the `RECORD A SCENARIO` button you will need to install a Chrome extension that will create a script based upon your actions in Google Chrome. Feel free to do this if you would like. However, I like to keep the things I install in my development environment to a minimum. Instead, we will record and upload a HTTP Archive (HAR) file that Chrome can easily build for you.
+
+1.  Rename the test from the default to `Login and order pizza`.
 
 ### Recording a HAR file
 
@@ -197,3 +202,7 @@ If you look at the logs tab for the execution you will see that the return body 
   "stack": "Error: Duplicate entry 'qAjm-F_SYmJczs82ToQUJbvNE5VoauNxIGA9O3u7KpI' for key 'auth.PRIMARY'\n    at DB.query (/home/ubuntu/services/jwt-pizza-service/database/database.js:288:40)\n    at DB.loginUser (/home/ubuntu/services/jwt-pizza-service/database/database.js:103:18)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async setAuth (/home/ubuntu/services/jwt-pizza-service/routes/authRouter.js:120:3)\n    at async /home/ubuntu/services/jwt-pizza-service/routes/authRouter.js:86:18"
 }
 ```
+
+## Wrap up
+
+Congratulations! You have created your first load test. That is a big step in your DevOps mastery. K6 is a great example how the need for automation drives the creation of powerful tools that benefit everyone.
