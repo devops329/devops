@@ -32,25 +32,27 @@ You will probably need to simulate traffic in order for most failures to trigger
 
 Your job is to do the following:
 
-1. Make sure the application is up and running correctly during the testing period. This will be announced previous to it beginning.
+1. Make sure the application is up and running correctly during the testing period.
 1. Have all the [metrics](../grafanaMetrics/grafanaMetrics.md) and [logging](../grafanaLogging/grafanaLogging.md) reporting in place necessary for you to be able to observe and diagnose the failure.
 1. Have an appropriate [alerting system](../grafanaOnCall/grafanaOnCall.md) in place so that you are effectively on call during the entire testing period.
+1. Go to the [AutoGrader](https://cs329.cs.byu.edu), select Deliverable Eleven and select `I'm ready for some chaos!`
+1. The incident will occur between 8am and 2pm the next day.
 1. Respond to the incident in a timely manner.
-1. Properly diagnose the root cause of the failure.
-1. Propose and deploy a remedy.
+1. Properly diagnose and remedy the root cause of the failure.
 1. Produce an [incident report](../incidentReport/incidentReport.md) using the template found in the `jwt-pizza` repository under the [incidentReports](https://github.com/devops329/jwt-pizza/tree/main/incidentReports) folder.
 
-⚠️ **Note**: that multiple incidents may occur during the testing period. You will need to respond immediately to all of them. If you are unable to be on call during the defined testing period you have the responsibility to notify the instructor and negotiate an alternative schedule.
+⚠️ **Note**: If you are unable to be on call during the defined testing period you have the responsibility to notify the instructor and negotiate an alternative schedule.
 
-As you resolve the incidents and generate your report you must commit the report to your fork of the `jwt-pizza` repository in a folder named `incidentReports`. The report filename should follow the convention `incident-YYYY-MM-DD-#.md`. For example:
+The AutoGrader will know when you have resolved the issue and give you a score for that portion of the assignment as described in the rubric below.
+
+When you generate your report you must commit the report to your fork of the `jwt-pizza` repository in a folder named `incidentReports`. The report filename should follow the convention `incident-YYYY-MM-DD-#.md`. For example:
 
 ```txt
 incidentReports/
 ├── incident-2025-03-01-1.md
-└── incident-2025-03-01-2.md
 ```
 
-After the testing period has ended, submit the URL for the location of where the incident reports are found in your fork of the `jwt-pizza` repository to the Canvas assignment. This should look something like this:
+Submit the URL for the location of where the incident reports are found in your fork of the `jwt-pizza` repository to the Canvas assignment. This should look something like this:
 
 ```txt
 https://github.com/youraccountname/jwt-pizza/tree/main/incidentReports
@@ -58,7 +60,7 @@ https://github.com/youraccountname/jwt-pizza/tree/main/incidentReports
 
 ### Rubric
 
-| Percent | Item                                                                                                                             |
-| ------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| 80%     | Timely response and correction to chaos incidents. After first 12 hours, 5% is deducted for each hour that the failure persists. |
-| 20%     | Accurate and informative incident reports                                                                                        |
+| Percent | Item                                                                                                                                                     |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 80%     | Timely response and correction of chaos incident. After 6 hours have passed since the incident, 10% is deducted for each hour that the failure persists. |
+| 20%     | Accurate and informative incident report committed to your fork of the `jwt-pizza` repository.                                                           |
