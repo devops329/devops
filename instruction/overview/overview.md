@@ -23,7 +23,7 @@ Your efforts will focus on playing the role of both a QA and DevOps engineer. Yo
 
 We often think of computer science as coding functions and implementing algorithms, but that is only one part of the picture. Unless you can create a symphony of tools that successfully deploy and manage an application as a whole, your algorithmic coding abilities will have decreasing value.
 
-As the benefits of AI driving coding continues to increase, it will be system architect skills that will grow in high demand. This course will teach you to start thinking at the system level and give you experience creating tool chains that combine to produce amazing value.
+As the benefits of AI coding continues to increase, it will be the system level architectural and management skills that will grow in high demand. This course will teach you to start thinking at the system level and give you experience creating tool chains that combine to produce amazing value.
 
 ## Outcomes
 
@@ -43,18 +43,20 @@ Multiple phases of development releases and changes to the devOps pipeline will 
 
 ![overview](../sharedImages/courseOverview.png)
 
-1. **Manual deploy** - Deploy frontend to GitHub Pages manually
-1. **Automated deploy** - Deploy frontend to GitHub Pages using GitHub Actions
-1. **Unit test** - Backend unit testing and analysis using Jest and GitHub Actions automation
-1. **UI test** - User interface unit testing using Playwright and GitHub Actions automation
-1. **CDN deploy** - Deploy frontend to AWS CloudFront
-1. **Scalable deploy** - Deploy backend to AWS Fargate and RDS MySQL
-1. **Environments** - Deploy to staging and production environments
-1. **Metric** - Provide metrics with Grafana Prometheus
-1. **Log** - Provide logging with Grafana Loki
-1. **Load test** - Execute end to end load testing with K6
-1. **Chaos test** - Chaos testing
-1. **Penetration test** - Penetration testing using Burp Suite
+| Deliverable                                                                                 | Description                                                                |
+| ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| [⓵ Manual deploy](../deliverable1ManualDeploy/deliverable1ManualDeploy.md)                  | Deploy frontend to GitHub Pages manually                                   |
+| [⓶ Automated deploy](../deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)         | Deploy frontend to GitHub Pages using GitHub Actions                       |
+| [⓷ Unit test](../deliverable3UnitTesting/deliverable3UnitTesting.md)                        | Backend unit testing and analysis using Jest and GitHub Actions automation |
+| [⓸ UI test](../deliverable4UiTesting/deliverable4UiTesting.md)                              | User interface unit testing using Playwright and GitHub Actions automation |
+| [⓹ CDN deploy](../deliverable5CdnDeploy/deliverable5CdnDeploy.md)                           | Deploy frontend to AWS CloudFront                                          |
+| [⓺ Scalable deploy](../deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)            | Deploy backend to AWS Fargate and RDS MySQL                                |
+| [⓻ Environments](../deliverable7Environments/deliverable7Environments.md)                   | Deploy to staging and production environments                              |
+| [⓼ Metric](../deliverable8Metrics/deliverable8Metrics.md)                                   | Provide metrics with Grafana Prometheus                                    |
+| [⓽ Log](../deliverable9Logging/deliverable9Logging.md)                                      | Provide logging with Grafana Loki                                          |
+| [⓾ Load test](../deliverable10LoadTesting/deliverable10LoadTesting.md)                      | Execute end to end load testing with K6                                    |
+| [⑪ Chaos test](../deliverable11ChaosTesting/deliverable11ChaosTesting.md)                   | Chaos testing                                                              |
+| [⑫ Penetration test](../deliverable12PenetrationTesting/deliverable12PenetrationTesting.md) | Penetration testing using Burp Suite                                       |
 
 You will also create three reports as part of your work.
 
@@ -90,16 +92,17 @@ The course covers a full spectrum of devOps technologies.
   - Logging, Metrics (Grafana)
   - Alerts (Grafana OnCall)
   - Recovery, RTO, RPO, playbooks (AWS RDS)
-  - Self healing (AWS EC2)
+  - Self healing (AWS ECS)
   - Failure reporting
 
 ## Your work in the course
 
-The class will follows a cycle like this:
+This course follows the path that a real world software company would follow.
 
-1. A _third party_ development team provides you with their application development that you will fork using GitHub.
+1. The _development team_ provides you access to their application code. You fork the code using GitHub.
 1. _You_ will act as the QA team to create the tests and analyze the code in order to assure its **quality**.
-1. _You_ will act as the DevOps team to create the continuous integration (CI) pipeline to **deploy** the application, **monitor** its use, and **resolve** incidents as they occur.
+1. _You_ will act as the DevOps team to create the continuous integration (CI) pipeline to **deploy** the application.
+1. _you_ will **monitor** its use and **resolve** incidents as they occur.
 
 ![workflow](workflow.png)
 
@@ -122,10 +125,11 @@ The key to learning how to be an exceptional software engineer rests in your abi
 
 By developing and utilizing software engineering skills you can have a significant impact for good. However, you can take this to a whole new level by learning additional principles.
 
-1. **Divine Inspiration** - Seeking for divine help and direction in your efforts, enables you to avoid paths that would otherwise diminish your impact, and instead create results that otherwise would have been beyond your abilities.
-1. **Eternal Perspective** - If you look beyond a project due date, problem to solve, diploma, employer, career, or even this mortal existence, you will find your focus gravitating towards a purpose that is guided by the eternal rather than the moment.
+1. **Gratitude** - Understanding where you came from and who you have to thank for the position you are in is a foundational mindset for growth.
+1. **Divine inspiration** - Seeking for divine help and direction in your efforts, enables you to avoid paths that would otherwise diminish your impact, and instead create results that otherwise would have been beyond your abilities.
+1. **Eternal action** - If you look beyond a project due date, problem to solve, diploma, employer, career, or even this mortal existence, you will find your focus gravitating towards a purpose that is guided by the eternal rather than the moment. This will guide you to apply your talents to causes that have eternal significance.
 
-As you learn to tap into these two principles, you will find greater motivation and enjoyment in your efforts to acquire and apply your skills as a software engineer. Make sure you emphasize being `Christlike` when making your journey through life.
+As you learn to tap into these principles, you will find greater motivation and enjoyment in your efforts to acquire and apply your skills as a software engineer. Make sure you emphasize being `Christlike` when making your journey through life.
 
 > “The temple is a place of revelation. There you are shown how to progress toward a celestial life. There you are drawn closer to the Savior and given greater access to His power. There you are guided in solving the problems in your life, even your most perplexing problems.”
 >
@@ -141,7 +145,7 @@ Whenever you approach something new, approach it with the attitude that you will
 >
 > — Plutarch
 
-## Welcome to `QA and DevOps 329`!
+## Energy!
 
 The class should have the energy of a startup. We are on the cutting edge of technology. With the skills you learn to build entire systems, you will change the world. I will do my best to bring all my energy to our time together, and hope you will do likewise. Together, as a team, we are going to have a lot of fun.
 

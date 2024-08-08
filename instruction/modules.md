@@ -13,7 +13,7 @@
 - ☑ [Overview](overview/overview.md)
 - [History](history/history.md)
 - [Terminology](terminology/terminology.md)
-- [JWT Pizza](jwtPizza/jwtPizza.md)
+- [🍕 JWT Pizza](jwtPizza/jwtPizza.md)
 - ☑ [AWS Account](awsAccount/awsAccount.md)
 - [GitHub](gitHub/gitHub.md)
 - [Commit History](github/commitHistory.md)
