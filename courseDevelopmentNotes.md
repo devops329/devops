@@ -359,6 +359,7 @@ They have 24 hours to correct. Every hour after the first 24 hours deducts 5%.
 
 - Identification and Authentication Failures
   - Weak passwords
+  - You can register the same user multiple times. Only the first one's password is used.
 - Broken Access Control
   - URL bypass (docs) (robots.txt)
   - delete franchise
