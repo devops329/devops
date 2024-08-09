@@ -52,8 +52,8 @@ Multiple phases of development releases and changes to the devOps pipeline will 
 | [⓹ CDN deploy](../deliverable5CdnDeploy/deliverable5CdnDeploy.md)                           | Deploy frontend to AWS CloudFront                                          |
 | [⓺ Scalable deploy](../deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)            | Deploy backend to AWS Fargate and RDS MySQL                                |
 | [⓻ Environments](../deliverable7Environments/deliverable7Environments.md)                   | Deploy to staging and production environments                              |
-| [⓼ Metric](../deliverable8Metrics/deliverable8Metrics.md)                                   | Provide metrics with Grafana Prometheus                                    |
-| [⓽ Log](../deliverable9Logging/deliverable9Logging.md)                                      | Provide logging with Grafana Loki                                          |
+| [⓼ Metrics](../deliverable8Metrics/deliverable8Metrics.md)                                  | Provide metrics with Grafana Prometheus                                    |
+| [⓽ Logging](../deliverable9Logging/deliverable9Logging.md)                                  | Provide logging with Grafana Loki                                          |
 | [⓾ Load test](../deliverable10LoadTesting/deliverable10LoadTesting.md)                      | Execute end to end load testing with K6                                    |
 | [⑪ Chaos test](../deliverable11ChaosTesting/deliverable11ChaosTesting.md)                   | Chaos testing                                                              |
 | [⑫ Penetration test](../deliverable12PenetrationTesting/deliverable12PenetrationTesting.md) | Penetration testing using Burp Suite                                       |
