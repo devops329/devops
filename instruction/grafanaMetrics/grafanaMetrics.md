@@ -86,6 +86,8 @@ Using the example command and your newly minted API key you can now insert data 
    ```
    This should simulate about 6 requests per minute. That should be enough data to make things interesting. Keep this running while you create your visualization.
 
+If you are generating a metric that accumulates values you want to put a suffix of total, sum, count, or bucket on the metric name. This lets Grafana know that the metric will add new values as a total instead of an instantaneous value.
+
 ## Create a visualization
 
 1. Open up your Grafana Cloud dashboard.
