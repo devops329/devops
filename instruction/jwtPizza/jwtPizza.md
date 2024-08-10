@@ -6,7 +6,7 @@
 
 ---
 
-![jwt pizza logo](jwt-pizza-logo.png)
+[![jwt pizza logo](jwt-pizza-logo.png)](https://pizza.cs329.click)
 
 In order for us to master the concepts of Quality Assurance and Developer Operations, we will work on a simple web application named JWT Pizza (pronounced Jot Pizza).
 
