@@ -170,13 +170,6 @@ Here are the steps to add these two pieces.
     git push
 ```
 
-⚠️ Note that the `printf` statement is modifying the contents of the repository. Without a `permissions` section (as used in the `deploy` job), it assumes automatically that the step can do this. If you later add a `permissions` block to the `build` job, you will need to give explicit permission for the workflow to modify repository contents.
-
-```yml
-permissions:
-  contents: write
-```
-
 Now when you commit and push these changes to GitHub it should automatically do the following:
 
 1. Analyze for lint
