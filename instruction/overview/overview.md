@@ -6,7 +6,7 @@ This course covers everything necessary to successfully take an application from
 
 ![DevOps Cycle](devopsCycle.png)
 
-> _Source: [hubspot.com](https://blog.hubspot.com/website/what-is-devops)_
+> _Source: [wikimedia.org](https://commons.wikimedia.org/wiki/File:Devops-toolchain.svg)_
 
 Beyond the work necessary to build the actual application, there are two additional roles that are required to deliver the application to a customer.
 
