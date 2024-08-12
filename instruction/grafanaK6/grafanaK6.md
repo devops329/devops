@@ -95,6 +95,10 @@ Now you are ready to use the HAR file to create your K6 load test.
 
    As part of the import process you want to _Correlate the request an response_ data, **not** include _Static assets_ (Unless you want to know how long it takes to download things like images), and automatically generate sleep. Inserting the sleep steps is important because you want to simulate what a real customer would do. The sleep times that are inserted reflect the actual pauses between requests when the network requests were recorded.
 
+   When you upload the HAR file you will need to disable the filtering on `pizza-factory.cs239.click` so that your pizza validation request is included in the test script.
+
+   ![Import HAR options](importHarOptions.png)
+
 This results in a series of test steps. You can click on each one to see what they do. It should show you everything about the requests. That includes the path, headers, and query commands. The recording will contain several HTTP OPTION requests. These are important for simulating real traffic, but for now you can remove them in order to simplify the test. Click on each one and press the trash can icon.
 
 ### Finalizing the test
