@@ -60,7 +60,7 @@ To create a Grafana synthetic test do the following:
 1. Click the `→ Execution` from the left side menu to define the frequency and location where request originate.
 
    1. Choose the `Probe locations` as **London**, **Seoul**, and **Atlanta**.
-   1. Set the `Frequency` to one minute.
+   1. Set the `Frequency` to two minutes.
 
    ![Execution step](executionStep.png)
 
@@ -68,7 +68,7 @@ To create a Grafana synthetic test do the following:
 
    ![Test run](testRun.png)
 
-1. Press the `Save` button.
+1. Press the `Submit` button.
 
 ## Viewing the results
 
