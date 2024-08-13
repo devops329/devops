@@ -21,12 +21,13 @@ For several assignments, you will use the AWS CLI. Follow [the instructions here
 1. Select `Users` from the left hand menu and select your user.
 1. Click on the `Security Credentials` tab.
 1. Scroll down to the `Access Keys` section and click `Create access key`.
-1. Select `Command Line Interface` as the use case and click `Next`.
-1. Give a description like `jwt-pizza`.
+1. Select `Command Line Interface` as the use case
+1. Confirm you understand the recommendation and click `Next`.
+1. Set the description tag to be `jwt-pizza`.
 1. View the access key and secret access key.
 1. In the AWS CLI, run the command `aws configure`.
 1. Supply the access key, secret access key, region and output format as prompted.
-   1. Set the output format as `json`.
+   1. Set the region to be `us-east-1` and the output format to be `json`.
 
 ## Lease a DNS domain
 
