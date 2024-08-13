@@ -3,6 +3,7 @@
 🔑 **Key points**
 
 - You are required to have an AWS account.
+- Set up the AWS CLI.
 - You are required to lease a DNS hostname.
 - Make sure you are acquainted with your AWS bill.
 
@@ -11,6 +12,21 @@
 Before we get started with anything else, you need to create an account with Amazon Web Services (AWS). Do this as soon as possible as you will need it for much of the work in this course, and it might take some time to authorize your account.
 
 There are lots of other great vendors out there, but AWS is by far the leader in the space, so it is good for you to get experience with them. Follow these instructions on how to [create an account with AWS](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/). When you create your account make sure you remember your account ID so that you can use it when you log in to the AWS browser console.
+
+## Set up the AWS Command Line Interface
+
+For several assignments, you will use the AWS CLI. Follow [the instructions here](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) to install the CLI. To configure your AWS credentials, follow these steps:
+
+1. Navigate to the Identity and Access Management (IAM) service.
+1. Select `Users` from the left hand menu and select your user.
+1. Click on the `Security Credentials` tab.
+1. Scroll down to the `Access Keys` section and click `Create access key`.
+1. Select `Command Line Interface` as the use case and click `Next`.
+1. Give a description like `jwt-pizza`.
+1. View the access key and secret access key.
+1. In the AWS CLI, run the command `aws configure`.
+1. Supply the access key, secret access key, region and output format as prompted.
+   1. Set the output format as `json`.
 
 ## Lease a DNS domain
 
