@@ -26,7 +26,7 @@ With the proper metrics in place you can then trigger alerts to resolve the inci
 
 ## Simulate traffic
 
-You will probably need to simulate traffic in order for most failures to trigger. Consider using the [simulating traffic](../simulatingTraffic/simulatingTraffic.md) Curl commands that were described previously.
+You will probably need to simulate traffic in order for most failures to trigger. Consider using the [simulating traffic](../simulatingTraffic/simulatingTraffic.md) Curl commands that were described previously. It is also helpful to your the chaos endpoint from the [chaos testing assignment](https://github.com/devops329/devops/blob/main/instruction/chaosTesting/chaosTesting.md#-assignment) to make sure your alerts are working correctly.
 
 ## ☑ Assignment
 
