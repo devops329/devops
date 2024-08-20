@@ -28,6 +28,8 @@ With the proper metrics in place you can then trigger alerts to resolve the inci
 
 You will probably need to simulate traffic in order for most failures to trigger. Consider using the [simulating traffic](../simulatingTraffic/simulatingTraffic.md) Curl commands that were described previously. It is also helpful to your the chaos endpoint from the [chaos testing assignment](https://github.com/devops329/devops/blob/main/instruction/chaosTesting/chaosTesting.md#-assignment) to make sure your alerts are working correctly.
 
+You can also generate significant latency and failure from the Pizza Factory by ordering twenty or more pizzas in a single order.
+
 ## ☑ Assignment
 
 Your job is to do the following:
