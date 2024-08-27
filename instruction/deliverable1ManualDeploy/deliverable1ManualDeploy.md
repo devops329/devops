@@ -70,7 +70,7 @@ Now you can copy the branch to your development environment, set up some files, 
 You can now point your browser to the GitHub pages site for your repository and see the index.html page you just created. Note that sometimes you need to wait a couple of minutes before GitHub will refresh its internal cache before you will see your change.
 
 ```sh
-curl https://youaccountnamehere.github.io/jwt-pizza
+curl https://youaccountnamehere.github.io/jwt-pizza/
 
 Hello GitHub Pages
 ```
