@@ -16,6 +16,7 @@
 - [🍕 JWT Pizza](jwtPizza/jwtPizza.md)
 - ☑ [AWS Account](awsAccount/awsAccount.md)
 - [GitHub](gitHub/gitHub.md)
+- [AutoGrader](autoGrader/autoGrader.md)
 - [Commit History](github/commitHistory.md)
 - ☑ [Christlike learning](christlikeLearning/christlikeLearning.md)
 - ☑ [Curiosity report](curiosityReport/curiosityReport.md)
