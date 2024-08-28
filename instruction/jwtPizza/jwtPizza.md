@@ -22,20 +22,20 @@ You shouldn't assume that the external development engineers have done a perfect
 
 Each of the follow deliverables will take JWT Pizza from a simple program code to an enterprise deployed, resilient, secure application that you can have confidence in.
 
-| 🍕 Deliverable                                                                              | Description                                                                |
-| ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| [⓵ Manual deploy](../deliverable1ManualDeploy/deliverable1ManualDeploy.md)                  | Deploy frontend to GitHub Pages manually                                   |
-| [⓶ Automated deploy](../deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)         | Deploy frontend to GitHub Pages using GitHub Actions                       |
-| [⓷ Unit test](../deliverable3UnitTesting/deliverable3UnitTesting.md)                        | Backend unit testing and analysis using Jest and GitHub Actions automation |
-| [⓸ UI test](../deliverable4UiTesting/deliverable4UiTesting.md)                              | User interface unit testing using Playwright and GitHub Actions automation |
-| [⓹ CDN deploy](../deliverable5CdnDeploy/deliverable5CdnDeploy.md)                           | Deploy frontend to AWS CloudFront                                          |
-| [⓺ Scalable deploy](../deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)            | Deploy backend to AWS Fargate and RDS MySQL                                |
-| [⓻ Environments](../deliverable7Environments/deliverable7Environments.md)                   | Deploy to staging and production environments                              |
-| [⓼ Metrics](../deliverable8Metrics/deliverable8Metrics.md)                                  | Provide metrics with Grafana Prometheus                                    |
-| [⓽ Logging](../deliverable9Logging/deliverable9Logging.md)                                  | Provide logging with Grafana Loki                                          |
-| [⓾ Load test](../deliverable10LoadTesting/deliverable10LoadTesting.md)                      | Execute end to end load testing with K6                                    |
-| [⑪ Chaos test](../deliverable11ChaosTesting/deliverable11ChaosTesting.md)                   | Chaos testing                                                              |
-| [⑫ Penetration test](../deliverable12PenetrationTesting/deliverable12PenetrationTesting.md) | Penetration testing using Burp Suite                                       |
+| 🍕 Deliverable                                                                              |Video |Description                                                                |
+| ------------------------------------------------------------------------------------------- |- |-------------------------------------------------------------------------- |
+| [⓵ Manual deploy](../deliverable1ManualDeploy/deliverable1ManualDeploy.md)                  |[🎥](https://youtu.be/oKXmatAJRyU) |Deploy frontend to GitHub Pages manually                                   |
+| [⓶ Automated deploy](../deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)         | |Deploy frontend to GitHub Pages using GitHub Actions                       |
+| [⓷ Unit test](../deliverable3UnitTesting/deliverable3UnitTesting.md)                        | |Backend unit testing and analysis using Jest and GitHub Actions automation |
+| [⓸ UI test](../deliverable4UiTesting/deliverable4UiTesting.md)                              | |User interface unit testing using Playwright and GitHub Actions automation |
+| [⓹ CDN deploy](../deliverable5CdnDeploy/deliverable5CdnDeploy.md)                           | |Deploy frontend to AWS CloudFront                                          |
+| [⓺ Scalable deploy](../deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)            | |Deploy backend to AWS Fargate and RDS MySQL                                |
+| [⓻ Environments](../deliverable7Environments/deliverable7Environments.md)                   | |Deploy to staging and production environments                              |
+| [⓼ Metrics](../deliverable8Metrics/deliverable8Metrics.md)                                  | |Provide metrics with Grafana Prometheus                                    |
+| [⓽ Logging](../deliverable9Logging/deliverable9Logging.md)                                  | |Provide logging with Grafana Loki                                          |
+| [⓾ Load test](../deliverable10LoadTesting/deliverable10LoadTesting.md)                      | |Execute end to end load testing with K6                                    |
+| [⑪ Chaos test](../deliverable11ChaosTesting/deliverable11ChaosTesting.md)                   | |Chaos testing                                                              |
+| [⑫ Penetration test](../deliverable12PenetrationTesting/deliverable12PenetrationTesting.md) | |Penetration testing using Burp Suite                                       |
 
 ## JWT Pizza architecture
 
