@@ -190,7 +190,7 @@ The README.md file should also display the current coverage and there should be 
 Here is the final workflow. Make sure you completely understand everything in this file. Having a solid understanding of this file will help you as we add more complexity to our CI pipelines in later deliverables.
 
 ```yml
-name: Test
+name: CI Pipeline
 
 on:
   push:
