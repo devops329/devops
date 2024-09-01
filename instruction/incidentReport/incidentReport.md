@@ -51,3 +51,9 @@ For major incidents such as security incidents related to personally identifiabl
 ## Your incident report
 
 Later on in the instruction you will have the opportunity to create your own incident report. Take the time to consider what you would include in your report in order to decrease the possibility of a repeated failure.
+
+## A bit of fun
+
+![XKCD Automation](xkcdExistentialBugReports.png)
+
+> _source: [XKCD](https://xkcd.com/1822/)_
