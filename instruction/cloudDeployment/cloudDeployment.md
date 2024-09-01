@@ -45,3 +45,9 @@ You will build this by taking the following steps:
 1. Create CloudFormation scripts to build and tear down your frontend and backend services from scratch.
 
 This will create a completely automated cloud scale architecture that should enable any level of growth that JWT Pizza achieves.
+
+## A bit of fun
+
+![XKCD Automation](xkcdDatacenterScale.png)
+
+> _source: [XKCD](https://xkcd.com/1737/)_
