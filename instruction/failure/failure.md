@@ -61,3 +61,9 @@ Make sure you prevent against security failures with some of these best practice
 1. **Observability**: You cannot prevent security failure, but you can instrument the system such that it is discovered quickly. This includes automatic notifications and automated responses to detected intrusions or unusual behavior. You must also make sure that your observability data is immutable. This keeps an attacker from hiding their tracks.
 1. **Testing**: Regular component penetration testing is a vital part of preventing security failure. You cannot be confident in your security until you know that earnest attempts have failed.
 1. **Audits**: Automated audits of network access control, open ports, credential management, encryption, components, and configuration are essential to keeping your system in compliance. It is common to manually audit your system once a year, only to discover that security holes have developed since the last audit. It is much better to automate the checks and disallow bad security practices from being deployed in the first place.
+
+## A bit of fun
+
+![XKCD Automation](xkcdFixingProblems.png)
+
+> _source: [XKCD](https://xkcd.com/1739/)_
