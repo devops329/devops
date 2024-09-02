@@ -401,7 +401,6 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Create a GitHub Actions workflow that executes the tests.
 1. Add the configuration necessary so that the workflow fails if there is not 80% coverage.
 1. Add the reporting of the coverage to the workflow by creating a coverage badge in the README.md file.
-1. Add the creation of a version file named `public/version.json`.
 
 Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and submit your work for the deliverable.
 
