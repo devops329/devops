@@ -3,7 +3,7 @@
 🔑 **Key points**
 
 - You need to fork the [jwt-pizza](https://github.com/devops329/jwt-pizza) repository.
-- Become intimately familiar with the JTW Pizza frontend code.
+- Become intimately familiar with the JWT Pizza frontend code.
 - Many projects revolve around your manipulating this project.
 
 ---
