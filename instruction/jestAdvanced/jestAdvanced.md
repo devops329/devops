@@ -217,7 +217,7 @@ test('fake timers', async () => {
 });
 ```
 
-When incrementing the runtime of asynchronous code, you can adapt the jest timer functions to also be asynchronous, for example `jest.advanceTimersByTimeAsync(1000)`
+When incrementing the runtime of asynchronous code, you can adapt the jest timer functions to also be asynchronous, for example `await jest.advanceTimersByTimeAsync(1000)`
 
 ## Mocking fetch requests
 
