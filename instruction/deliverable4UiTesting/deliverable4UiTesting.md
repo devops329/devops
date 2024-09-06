@@ -379,7 +379,6 @@ You can then parse the coverage output to build a new coverage badge that is dis
   run: |
     coverage_pct=$(grep -o '"pct":[0-9.]*' coverage/coverage-summary.json | head -n 1 | cut -d ':' -f 2)
     color=$(echo "$coverage_pct < 80" | bc -l | awk '{if ($1) print "yellow"; else print "green"}')
-    sed -i "s/^Coverage: .*/Coverage: $coverage_pct %/" README.md
     curl https://img.shields.io/badge/Coverage-$coverage_pct%25-$color -o coverageBadge.svg
     git config user.name github-actions
     git config user.email github-actions@github.com
@@ -402,7 +401,6 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Create a GitHub Actions workflow that executes the tests.
 1. Add the configuration necessary so that the workflow fails if there is not 80% coverage.
 1. Add the reporting of the coverage to the workflow by creating a coverage badge in the README.md file.
-1. Add the creation of a version file named `public/version.json`.
 
 Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and submit your work for the deliverable.
 

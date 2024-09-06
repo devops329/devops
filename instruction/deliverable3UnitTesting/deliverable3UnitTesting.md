@@ -37,7 +37,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: "20.x"
 
       - name: Install dependencies
         run: npm ci
@@ -93,7 +93,7 @@ services:
       MYSQL_ROOT_PASSWORD: tempdbpassword
       MYSQL_DATABASE: pizza
     ports:
-      - '3306:3306'
+      - "3306:3306"
     options: >-
       --health-cmd "mysqladmin ping -ptempdbpassword"
       --health-interval 10s
@@ -161,7 +161,6 @@ Here are the steps to add these two pieces.
   run: |
     coverage_pct=$(grep -o '"pct":[0-9.]*' coverage/coverage-summary.json | head -n 1 | cut -d ':' -f 2)
     color=$(echo "$coverage_pct < 80" | bc -l | awk '{if ($1) print "yellow"; else print "green"}')
-    sed -i "s/^Coverage: .*/Coverage: $coverage_pct %/" README.md
     curl https://img.shields.io/badge/Coverage-$coverage_pct%25-$color -o coverageBadge.svg
     git config user.name github-actions
     git config user.email github-actions@github.com
@@ -190,7 +189,7 @@ The README.md file should also display the current coverage and there should be 
 Here is the final workflow. Make sure you completely understand everything in this file. Having a solid understanding of this file will help you as we add more complexity to our CI pipelines in later deliverables.
 
 ```yml
-name: Test
+name: CI Pipeline
 
 on:
   push:
@@ -210,7 +209,7 @@ jobs:
           MYSQL_ROOT_PASSWORD: tempdbpassword
           MYSQL_DATABASE: pizza
         ports:
-          - '3306:3306'
+          - "3306:3306"
         options: >-
           --health-cmd "mysqladmin ping -ptempdbpassword"
           --health-interval 10s
@@ -224,7 +223,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: "20.x"
 
       - name: Install dependencies
         run: npm ci
@@ -266,7 +265,6 @@ jobs:
         run: |
           coverage_pct=$(grep -o '"pct":[0-9.]*' coverage/coverage-summary.json | head -n 1 | cut -d ':' -f 2)
           color=$(echo "$coverage_pct < 80" | bc -l | awk '{if ($1) print "yellow"; else print "green"}')
-          sed -i "s/^Coverage: .*/Coverage: $coverage_pct %/" README.md
           curl https://img.shields.io/badge/Coverage-$coverage_pct%25-$color -o coverageBadge.svg
           git config user.name github-actions
           git config user.email github-actions@github.com

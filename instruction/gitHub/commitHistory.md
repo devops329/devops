@@ -10,16 +10,6 @@
 
 ---
 
-## Formatting your commit messages
-
-When grading the deliverable, the AutoGrader will **only** look for commits that follow a specific format. At the start of each commit message, put a hashtag `#` followed by `d` and the deliverable number. For example, if you were committing for deliverable 3, your commit message would look like this:
-
-```bash
-git commit -m "#d3 Your message here"
-```
-
-⚠️ **Note**: If you do not follow this format, your grade may be penalized by as much as 20%.
-
 ## Commit often
 
 Make sure that you have a significant number of meaningful commits. Committing your code often is an important practice for you to develop. It protects you from losing your work, allows access from anywhere, makes it possible to quickly share changes, reduces conflicts with your peers, and enables you to efficiently explore different possibilities. This also enables others to review the progression of your development efforts in order to prove the originality of your work.

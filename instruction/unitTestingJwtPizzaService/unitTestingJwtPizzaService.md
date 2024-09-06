@@ -52,7 +52,7 @@ Add the `test` script to `package.json` so that it knows to use Jest for testing
 
 ```json
   "scripts": {
-    "run": "node index.js",
+    "run": "cd src && node index.js",
     "test": "jest"
   },
 ```

@@ -35,3 +35,9 @@ If you are not security minded in the design and deployment of your deployment a
 1. What would be the impact of the exploit?
 1. Can I reproduce the exploit?
 1. What can be done to mitigate the exploit?
+
+## A bit of fun
+
+![XKCD Automation](xkcdSecurityAdvice.png)
+
+> _source: [XKCD](https://xkcd.com/1820/)_

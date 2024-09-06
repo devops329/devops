@@ -77,3 +77,9 @@ When an alert is triggered the appropriate response must be initiated. The [Goog
 Once an alert has triggered and the appropriate party notified, the alerting system will require an acknowledgement. If no acknowledgement is given then the system will escalate the alert to additional parties until an acknowledgement is received.
 
 Once the incident is resolved the handling party will close the incident with the alerting system. This prevents the system from escalating the incident further.
+
+## A bit of fun
+
+![XKCD Automation](xkcdPhone.png)
+
+> _source: [XKCD](https://xkcd.com/1802/)_
