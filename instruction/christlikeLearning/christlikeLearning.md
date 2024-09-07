@@ -53,7 +53,7 @@ When Karl G. Maeser asked President Brigham Young how he should approach his wor
 
 [_Karl G. Maeser: A Biography_](https://www.amazon.com/Karl-G-Maeser-Biography-Reinhard/dp/B000T664LY)
 
-This suggests that as we seek to do our work, including software engineering, we must combine it with the inspiration and companionship of the Spirit. Following the pattern of President Young's advice, no algorithm should be considered or line of code written without the Spirit of God. Do this will allow us to unleash our greatest potential and fulfill our covenants to build the Kingdom of God.
+This suggests that as we seek to do our work, including software engineering, we must combine it with the inspiration and companionship of the Spirit. Following the pattern of President Young's advice, no algorithm should be considered or line of code written without the Spirit of God. Doing this will allow us to unleash our greatest potential and fulfill our covenants to build the Kingdom of God.
 
 Without the influence of the Spirit in our work we are left to the arm of the flesh. With the influence of the Spirit, the eternal and the present combine in awesome power. In my professional career there are numerous occasions where I was able to deliver significant value to my employer, and the world, by seeking for and following the spirit.
 
