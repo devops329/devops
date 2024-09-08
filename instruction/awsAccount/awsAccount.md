@@ -31,7 +31,7 @@ For several assignments, you will use the AWS CLI. Follow [the instructions here
 
 ## Lease a DNS domain
 
-If you do not own a DNS hostname you will need to go lease one. We will use this for all of your DevOps deployment tasks. You can lease a domain from AWS using Route53 or use a different provider such as [namecheap.com](namecheap.com). You will want to start this process immediately since it might take a while to complete the process.
+If you do not own a DNS hostname you will need to go lease one. We will use this for all of your DevOps deployment tasks. You can lease a domain from AWS using Route53 or use a different provider such as [namecheap.com](https://namecheap.com). You will want to start this process immediately since it might take a while to complete the process.
 
 ## What is this going to cost you?
 
