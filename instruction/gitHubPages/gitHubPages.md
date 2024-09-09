@@ -72,4 +72,4 @@ https://byucsstudent.github.io/
 
 ![Sample GitHub Pages site](sampleGitHubPagesSite.png)
 
-If you already have a static deployment on your GitHub account then just create a repository like the `static` on described above and provide the URL for that repository specific GitHub pages deployment.
+If you already have a static deployment on your GitHub account then just create a repository like the `static` one described above and provide the URL for that repository specific GitHub pages deployment.
