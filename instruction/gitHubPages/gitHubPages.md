@@ -55,21 +55,19 @@ In addition to hosting a static deployment for a **repository** you can also do 
 
 ![Create account GitHub pages](createAccountGitHubPages.png)
 
-You can see an example of this hosted on [https://byucsstudent.github.io](https://byucsstudent.github.io).
-
 ## ☑ Assignment
 
-Create an account level static deployment using GitHub Pages by doing the following:
+Create a GitHub Pages deployment in your GitHub account for a repository named `static`:
 
-1. Create a repository that follows the pattern: `youraccountnamehere.github.io`.
+1. Create a repository that follows the pattern: `youraccountnamehere.github.io/static`.
 1. Adding an `index.html` to the root of the repository.
 
-Once you are done, go over to Canvas and submit the URL of your account static website deployment. This should look something like this:
+Feel free to make the page as simple or as pretty as you would like. When you are done, it should look something like this:
 
 ```
-https://byucsstudent.github.io/
+https://byucsstudent.github.io/static
 ```
 
 ![Sample GitHub Pages site](sampleGitHubPagesSite.png)
 
-If you already have a static deployment on your GitHub account then just create a repository like the `static` on described above and provide the URL for that repository specific GitHub pages deployment.
+Once you are done, go over to Canvas and submit the URL of your account static website deployment.
