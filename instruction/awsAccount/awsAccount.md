@@ -15,7 +15,7 @@ There are lots of other great vendors out there, but AWS is by far the leader in
 
 ## Accessing your account
 
-For several assignments you need to execute commands against your AWS account resources. If you are running those commands from your development environment then you need to use the AWS Command Line Interface (CLI). Alternatively, if you just need to exectute commands independently from development environment you can open up the AWS Browser Console and create a shell session with the AWS CloudShell service.
+For several assignments you need to execute commands against your AWS account resources. If you are running those commands from your development environment then you need to use the AWS Command Line Interface (CLI) along with a IAM user secret key and access key. Alternatively, if you just need to exectute commands independently from development environment you can open up the AWS Browser Console and create a shell session with the `AWS CloudShell` service.
 
 ### Root user best practices
 
@@ -26,22 +26,30 @@ However you access your account, you want to protect it from unintended access. 
 - Establishing MFA
 - Practices for creating and managing access keys
 
-### Set up the AWS Command Line Interface (CLI)
-
-For several assignments, you will use the AWS CLI. Follow [the instructions here](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) to install the CLI. To configure your AWS credentials, follow these steps:
+### Creating an admin user and getting your access keys
 
 1. Open the AWS console in your browser.
 1. Navigate to the Identity and Access Management (IAM) service.
 1. Select `Users` from the left hand menu and select your user, or create an admin user.
+1. Attach the AdministratorAccess policy.
 1. Click on the `Security Credentials` tab.
 1. Scroll down to the `Access Keys` section and click `Create access key`.
 1. Select `Command Line Interface` as the use case.
 1. Confirm you understand the recommendation and click `Next`.
-1. Set the description tag to be `jwt-pizza`.
-1. View the access key and secret access key.
-1. In the AWS CLI, run the command `aws configure`.
-1. Supply the access key, secret access key, region and output format as prompted.
-   1. Set the region to be `us-east-1` and the output format to be `json`.
+1. View and store the access key and secret access key to a secure location in your development environment.
+
+   ⚠️ **DON'T** commit your keys to a GitHub repository
+
+![IAM user creation](iamUser.gif)
+
+### Set up the AWS Command Line Interface (CLI)
+
+For several assignments, you will use the AWS CLI. Follow [the instructions here](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) to install the CLI. To configure your AWS credentials, follow these steps:
+
+1. Open a command console window.
+1. Set your dev environment configuration using the AWS CLI command `aws configure`.
+1. Supply the access key, secret access key, region, and output format as prompted.
+1. Set the region to be `us-east-1` and the output format to be `json`.
 
 ### Using AWS CloudShell
 
