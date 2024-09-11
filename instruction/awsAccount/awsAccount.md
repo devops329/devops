@@ -41,7 +41,7 @@ For several assignments, you will use the AWS CLI. Follow [the instructions here
 1. View the access key and secret access key.
 1. In the AWS CLI, run the command `aws configure`.
 1. Supply the access key, secret access key, region and output format as prompted.
-1. Set the region to be `us-east-1` and the output format to be `json`.
+   1. Set the region to be `us-east-1` and the output format to be `json`.
 
 ### Using AWS CloudShell
 
