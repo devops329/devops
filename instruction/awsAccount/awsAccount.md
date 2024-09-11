@@ -45,7 +45,7 @@ For several assignments, you will use the AWS CLI. Follow [the instructions here
 
 ### Using AWS CloudShell
 
-THe AWS CloudShell Service provides you with a console window that runs in your AWS Virtual Privite Cloud (VPC) environment. The shell already has the CLI and other tools preinstalled so that you don't have to do any additional configuration. You can even assign rights to a shell session that allows you to do things like access your MySQL instance for administrative purposes. To use CloudShell, follow these steps.
+The AWS CloudShell Service provides you with a console window that runs in your AWS Virtual Privite Cloud (VPC) environment. The shell already has the CLI and other tools preinstalled so that you don't have to do any additional configuration. You can even assign rights to a shell session that allows you to do things like access your MySQL instance for administrative purposes. To use CloudShell, follow these steps.
 
 1. Open the AWS console in your browser.
 1. Navigate to the `CloudShell` service.
