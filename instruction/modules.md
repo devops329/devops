@@ -17,7 +17,7 @@
 - ☑ [AWS Account](awsAccount/awsAccount.md)
 - [GitHub](gitHub/gitHub.md)
 - [AutoGrader](autoGrader/autoGrader.md)
-- [Commit History](github/commitHistory.md)
+- [Commit History](gitHub/commitHistory.md)
 - ☑ [Christlike learning](christlikeLearning/christlikeLearning.md)
 - ☑ [Curiosity report](curiosityReport/curiosityReport.md)
 - ☑ [Asking Questions](askingQuestions/askingQuestions.md)
