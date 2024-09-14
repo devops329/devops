@@ -72,7 +72,7 @@ In the simple example given above, you executed the workflow using a manual trig
 
 ## Workflow pieces
 
-Now that we have a general idea of how GitHub Actions work and what can trigger a workflow, let's take a step back and example the parts of a workflow in detail.
+Now that we have a general idea of how GitHub Actions work and what can trigger a workflow, let's take a step back and examine the parts of a workflow in detail.
 
 ### Jobs
 
