@@ -57,7 +57,7 @@ This suggests that as we seek to do our work, including software engineering, we
 
 Without the influence of the Spirit in our work we are left to the arm of the flesh. With the influence of the Spirit, the eternal and the present combine in awesome power. In my professional career there are numerous occasions where I was able to deliver significant value to my employer, and the world, by seeking for and following the spirit.
 
-- Start your day by pleading to be able to do His work as receive His inspiration.
+- Start your day by pleading to be able to do His work and receive His inspiration.
 - Embrace the knowledge that there is no difference between your eternal work and your earthly work.
 - Guide every decision with the influence of your covenants and discipleship.
 
