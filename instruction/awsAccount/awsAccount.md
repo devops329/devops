@@ -15,11 +15,11 @@ There are lots of other great vendors out there, but AWS is by far the leader in
 
 ## Accessing your account
 
-For several assignments you need to execute commands against your AWS account resources. If you are running those commands from your development environment then you need to use the AWS Command Line Interface (CLI) along with a IAM user secret key and access key. Alternatively, if you just need to exectute commands independently from development environment you can open up the AWS Browser Console and create a shell session with the `AWS CloudShell` service.
+For several assignments, you need to execute commands against your AWS account resources. If you are running those commands from your development environment then you need to use the AWS Command Line Interface (CLI) along with a IAM user secret key and access key. Alternatively, if you just need to execute commands independently from the development environment you can open up the AWS Browser Console and create a shell session with the `AWS CloudShell` service.
 
 ### Root user best practices
 
-However you access your account, you want to protect it from unintended access. It is **highly** suggested that you review the AWS [Root user best practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-best-practices.html) doducmentation. This includes topics such as:
+However you access your account, you want to protect it from unintended access. It is **highly** suggested that you review the AWS [Root user best practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-best-practices.html) documentation. This includes topics such as:
 
 - Not using your root credentials for daily use
 - Using a strong root user password
@@ -53,14 +53,14 @@ For several assignments, you will use the AWS CLI. Follow [the instructions here
 
 ### Using AWS CloudShell
 
-THe AWS CloudShell Service provides you with a console window that runs in your AWS Virtual Privite Cloud (VPC) environment. The shell already has the CLI and other tools preinstalled so that you don't have to do any additional configuration. You can even assign rights to a shell session that allows you to do things like access your MySQL instance for administrative purposes. To use CloudShell, follow these steps.
+The AWS CloudShell Service provides you with a console window that runs in your AWS Virtual Privite Cloud (VPC) environment. The shell already has the CLI and other tools preinstalled so that you don't have to do any additional configuration. You can even assign rights to a shell session that allows you to do things like access your MySQL instance for administrative purposes. To use CloudShell, follow these steps.
 
 1. Open the AWS console in your browser.
 1. Navigate to the `CloudShell` service.
 
 ![CloudShell](cloudshell.png)
 
-Some services require IAM rights, network locality, or security authorization to access. You can associated your shell session with a specific VPC, subnet, and security group by creating a VPC enviornment.
+Some services require IAM rights, network locality, or security authorization to access. You can associate your shell session with a specific VPC, subnet, and security group by creating a VPC environment.
 
 1. Click on the `Actions` button and press `Create VPC environment`.
 
@@ -76,7 +76,7 @@ If you do not own a DNS hostname you will need to go lease one. We will use this
 
 ## What is this going to cost you?
 
-There is no cost to create an account with AWS; you only pay for what you use. In many cases they will give you a significant starting credit, and [some services are free](https://aws.amazon.com/free) for a short period of time or monthly usage. The services we are going to use include the following:
+There is no cost to create an account with AWS; you only pay for what you use. In many cases, they will give you a significant starting credit, and [some services are free](https://aws.amazon.com/free) for a short period of time or monthly usage. The services we are going to use include the following:
 
 | Service                 | Purpose                       | Estimated Cost (subject to change)                                                                                      |
 | ----------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
