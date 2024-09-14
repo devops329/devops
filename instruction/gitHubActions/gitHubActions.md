@@ -66,7 +66,7 @@ In the simple example given above, you executed the workflow using a manual trig
 | release             | A release is created                                                                        |
 | repository_dispatch | A GitHub API webhook is called. This lets you automate the workflow from an external system |
 | schedule            | Based on a cron job                                                                         |
-| watch               | A GitHub user starts your repository                                                        |
+| watch               | A GitHub user action such a when a user stars your repository                                                        |
 | workflow_dispatch   | A manual button press                                                                       |
 | workflow_run        | Another workflow started or completed                                                       |
 
