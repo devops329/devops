@@ -78,7 +78,7 @@ Now that you know how Docker containers work, you need to create a **jwt-pizza-s
 
 1. Stop and delete the container using the container ID. You can use `docker ps -a` to find the value.
    ```sh
-   docker rm -fv 0af3
+   docker rm -fv jwt-pizza-service
    ```
 
 ## ☑ Assignment
