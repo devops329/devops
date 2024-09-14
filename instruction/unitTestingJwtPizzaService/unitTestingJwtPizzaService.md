@@ -12,7 +12,7 @@ Now that you have the JWT Pizza Service in your hands you can start to assure it
 
 If you haven't already done so, make sure you fork the [jwt-pizza-service](../jwtPizzaService/jwtPizzaService.md) repository and clone it to your development environment.
 
-Within your fork of the `jwt-pizza-service` repository, follow the previous instruction and install the [Jest](../jest/jest.md) testing framework.
+Within your fork of the `jwt-pizza-service` repository, follow the previous instruction and install the [Jest](../jestBasics/jestBasics.md) testing framework.
 
 ```sh
 npm install -D jest supertest
@@ -103,7 +103,7 @@ For the JWT Pizza Service you will set up a MySQL database that your service cod
 
 Now you get to start writing all the tests necessary to get at least 80% coverage of the `jwt-pizza-service` code. You should review everything you learned in the following instruction topics before proceeding.
 
-- [Jest](../jest/jest.md)
+- [Jest](../jestBasics/jestBasics.md)
 - [Service Testing](../serviceTesting/serviceTesting.md)
 
 Let's write the first test together. Replace the `hello world` test found in `src/authRouter.test.js` with the following.
@@ -192,6 +192,8 @@ async function createAdminUser() {
   user.email = user.name + '@admin.com';
 
   await DB.addUser(user);
+
+  user.password = 'toomanysecrets';
   return user;
 }
 ```
