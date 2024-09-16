@@ -75,6 +75,17 @@ test('catalog history', async () => {
 - Test can run in any order
 - Test can run concurrently
 
+## Testing latency
+
+The faster your tests run the more likely they will be ran. If you have a test suite that takes minutes or hours to complete then those test cannot reasonably be part of an engineers normal workflow and they will only be used with by a long running CI pipeline. While that does provide some utility, you want to encourage the following realtime development pattern:
+
+1. Make a change
+1. Run a full test suite to give you confidence that you didn't brake anything
+1. Repeat until a reasonable milestone is achieved
+1. Commit and let more exhaustive tests execute
+
+This works best if the tests the engineer is running as part of their development workflow can execute in just a few seconds, or a minute at most. That means you have an average target test latency of around 20 ms. That way you can run 500 tests and only have to wait 10 seconds for them to complete.
+
 ## Gamification of testing
 
 > “The run of the green bar can become addictive.”
