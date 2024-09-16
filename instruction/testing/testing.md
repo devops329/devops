@@ -145,9 +145,47 @@ A more impactful example would be if you rewrote a subsystem, say like MySQL, so
 
 It is common to fake, or mock, inputs and outputs for a testing subject. When the mocked data is not actually consistent with reality, you are no longer validating the production code, you are instead validating the testing code.
 
+In the following example everything is mocked out so that the testing framework is only comparing two hard coded objects.
+
+```js
+test('get joke', () => {
+  // Request mock
+  const request = () => {
+    return {
+      get: () => {
+        return { joke: 'Chuck Norris can divide by zero.' };
+      },
+    };
+  };
+
+  const jokeRes = request(app).get('/api/joke');
+  expect(jokeRes).toEqual({ joke: 'Chuck Norris can divide by zero.' });
+});
+```
+
 ### Testing creep
 
 Sometimes we alter the production code to better support testing. This is fine if it actually improves the production code so that it actually creates a better consumer interface, increases abstraction, and decreases coupling. However, when it actually leaks abstraction (I'm talking about you _C++ friends_), or adds a bunch of "test only" branches to the production code, you have probably gone too far.
+
+In the following example you have an HTTP service that has a hardcoded joke that is returned when the service is in testing mode.
+
+```js
+const express = require('express');
+
+const app = express();
+const port = 3000;
+
+app.get('/api/joke', (req, res) => {
+  if (app.mode === 'test') {
+    return res.json({ joke: 'Chuck Norris can divide by zero.' });
+  }
+  res.json(jokeServer.getJoke());
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
+```
 
 ### Infallible green
 
@@ -156,7 +194,7 @@ Tests should increase confidence, but just like any other code, you should never
 ```js
 test('get menu', async () => {
   const getMenuRes = await request(app).get('/api/order/menu');
-  expect(getMenuRes).toDefined();
+  expect(getMenuRes).toBeDefined();
 });
 ```
 
