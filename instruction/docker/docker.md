@@ -70,7 +70,7 @@ In order to load Docker in your development environment, install Docker Desktop 
 
 After installing Docker Desktop there are some simple tutorials that you can run through. Feel free to spend some time there experimenting and having fun.
 
-## ☑ Assignment
+## Docker practice
 
 Install Docker to your development environment and the pull down the `hello-world` container image and run it.
 
@@ -94,6 +94,6 @@ All of that happened in less than a second.
 
 Take a moment and consider what you can do with a tool like this. You can containerize **any** application that you get working in your development environment. You can create an image and push it up to a repository. You can then pull that image down to any container compatible environment and have your exact same application running in seconds.
 
-Take a screenshot of the resulting output and upload it to the Canvas assignment. This should look something similar to the following.
+This should look something similar to the following.
 
 ![Running a container](runningAContainer.png)

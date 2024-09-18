@@ -120,9 +120,9 @@ jest.mock('./pipeline', () => {
 });
 
 test('mocking modules', () => {
-  const stepMock = jest.fn();
   const pipeline = new Pipeline();
 
+  const stepMock = jest.fn();
   pipeline.add(stepMock);
   pipeline.add(stepMock);
 

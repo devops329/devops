@@ -218,9 +218,9 @@ You can also run a command on a running container with the `exec` command. Somet
 docker exec <container ID> ls -la
 ```
 
-## ☑ Assignment
+## Container practice
 
-Follow the instruction given above to create a container image and uploaded it to Docker Hub. Capture an image of your container and upload it to the Canvas assignment. It should look something like the following.
+Follow the instruction given above to create a container image and uploaded it to Docker Hub. It should look something like the following.
 
 ![List repository](listRepository.png)
 
