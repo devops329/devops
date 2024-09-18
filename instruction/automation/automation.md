@@ -2,7 +2,7 @@
 
 🔑 **Key points**
 
-- Automation is the core tenant of DevOps.
+- Automation is the core tenet of DevOps.
 - Automation enables speed, safety, and reproducibility.
 - Learn to prioritize what you will automate.
 
