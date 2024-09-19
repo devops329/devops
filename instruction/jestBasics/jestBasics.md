@@ -28,13 +28,8 @@ Then change the package.json script so that the `test` command runs Jest.
 
 ```json
 {
-  "name": "jestexample",
-  "main": "index.js",
   "scripts": {
     "test": "jest"
-  },
-  "devDependencies": {
-    "jest": "^29.7.0"
   }
 }
 ```
@@ -306,12 +301,12 @@ There are numerous matchers that help with the comparison of numbers. This inclu
 ```js
 test('numbers', () => {
   expect(4).toBeGreaterThan(3);
-  expect(4).toBeGreaterThanOrEqual(3.5);
+  expect(4).toBeGreaterThanOrEqual(4);
 
   expect(4).toBeLessThan(5);
-  expect(4).toBeLessThanOrEqual(4.5);
+  expect(4).toBeLessThanOrEqual(4);
 
-  expect(0.1 + 0.2).toBeCloseTo(0.3);
+  expect(0.3000001).toBeCloseTo(0.3);
 });
 ```
 
