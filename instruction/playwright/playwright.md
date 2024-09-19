@@ -171,7 +171,7 @@ test('has title', async ({ page }) => {
 This test navigates to the Playwright website and checks to make sure the resulting page has the title `Playwright`. You can run the tests from your project directory with the following console command.
 
 ```sh
-npx playwright test
+npm playwright test
 
 Running 2 tests using 2 workers
   2 passed (1.1s)
