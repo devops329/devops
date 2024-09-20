@@ -80,6 +80,25 @@ test('fake timers', async () => {
   jest.useRealTimers();
 });
 
+// Async fake timers
+test('async fake timers', async () => {
+  jest.useFakeTimers({ now: 0 });
+
+  const timerMock = jest.fn();
+
+  setInterval(async () => {
+    timerMock(Date.now());
+  }, 1000);
+
+  await jest.advanceTimersByTimeAsync(1000);
+  expect(timerMock).toHaveBeenCalledTimes(1);
+
+  await jest.advanceTimersByTimeAsync(1000);
+  expect(timerMock).toHaveBeenCalledTimes(2);
+
+  jest.useRealTimers();
+});
+
 // Fetch mock
 test('fetches data', async () => {
   global.fetch = jest.fn((url) =>

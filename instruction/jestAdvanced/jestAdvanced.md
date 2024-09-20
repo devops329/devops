@@ -217,7 +217,27 @@ test('fake timers', async () => {
 });
 ```
 
-When incrementing the runtime of asynchronous code, you can adapt the jest timer functions to also be asynchronous, for example `await jest.advanceTimersByTimeAsync(1000)`
+When incrementing a timer that executes as part of asynchronous code, you must use the `jest.advanceTimersByTimeAsync` timer functions. As demonstrated in the code below, the use of `advanceTimersByTimeAsync` allows the `setInterval` asynchronous function to be called.
+
+```js
+test('async fake timers', async () => {
+  jest.useFakeTimers({ now: 0 });
+
+  const timerMock = jest.fn();
+
+  setInterval(async () => {
+    timerMock(Date.now());
+  }, 1000);
+
+  await jest.advanceTimersByTimeAsync(1000);
+  expect(timerMock).toHaveBeenCalledTimes(1);
+
+  await jest.advanceTimersByTimeAsync(1000);
+  expect(timerMock).toHaveBeenCalledTimes(2);
+
+  jest.useRealTimers();
+});
+```
 
 ## Mocking fetch requests
 
