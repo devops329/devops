@@ -93,7 +93,7 @@ class Pipeline {
   }
 
   run(data) {
-    return this.steps.reduce(((result, step) => step(result)), data);
+    return this.steps.reduce((result, step) => step(result), data);
   }
 }
 
