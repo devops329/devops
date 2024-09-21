@@ -113,6 +113,55 @@ test('mocking callback functions', () => {
 });
 ```
 
+For the purposes of demonstration, here is a more complete example that fully tests the `Pipeline` functionality.
+
+```js
+test('construct pipeline', () => {
+  const pipeline = new Pipeline();
+  expect(pipeline.steps).toEqual([]);
+});
+
+test('chain steps together', () => {
+  const mockStep = jest.fn();
+
+  const pipeline = new Pipeline().add(mockStep).add(mockStep);
+  expect(pipeline.steps.length).toBe(2);
+
+  pipeline.add(mockStep).add(mockStep);
+  expect(pipeline.steps.length).toBe(4);
+
+  expect(pipeline.add(mockStep)).toBe(pipeline);
+});
+
+test("pipe data through steps", () => {
+  const stepA = jest.fn(d => d + "A");
+  const stepB = jest.fn(d => d + "B");
+  const stepC = jest.fn(d => d + "C");
+  const stepH = jest.fn(_ => "Hello World!");
+
+  const pipeline = new Pipeline()
+    .add(stepA)
+    .add(stepB)
+    .add(stepC)
+    .add(stepH)
+    .add(stepA);
+
+
+  expect(stepA).not.toHaveBeenCalled();
+  expect(pipeline.run("I")).toBe("Hello World!A");
+  expect(stepA).toHaveBeenCalledTimes(2);
+  expect(stepA).toHaveBeenCalledWith("I");
+  expect(stepB).toHaveBeenCalledWith("IA");
+  expect(stepC).toHaveBeenCalledWith("IAB");
+  expect(stepH).toHaveBeenCalledWith("IABC");
+  expect(stepA).toHaveBeenCalledWith("Hello World!");
+
+  expect(pipeline.run("J")).toBe("Hello World!A");
+  expect(stepA).toHaveBeenCalledTimes(4);
+
+});
+```
+
 ### Mocking modules
 
 Mocking functions is fine if all you need to do is supply and verify callbacks, but you often need to completely or partially mock out entire classes, or even modules.
