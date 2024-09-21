@@ -72,9 +72,6 @@ class BoldFormatter {
     return `**${content}**`;
   }
 }
-
-const formatter = new UppercaseFormatter();
-new PurePrinter().print('Hello, World!', formatter, console);
 ```
 
 ## Mocking through dependency inversion
