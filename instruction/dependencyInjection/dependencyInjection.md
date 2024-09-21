@@ -114,24 +114,9 @@ The only question that remains is how you determine which dependencies are injec
 
 ## Dependency injection
 
-Dependency injection requires passing (or injecting) dependencies to a class, rather than having the class manage these dependencies itself. It can take many forms. You can create a `service locator` object that defines a global singleton or context parameter that resolves the concrete implementation for the desired object. You can also utilize a dependency injection framework that instruments the parameterization of the components to the top level of the application.
+Dependency injection requires passing (or injecting) dependencies to a class, rather than having the class manage these dependencies itself. This can take many forms. You can create a `service locator` object that defines a global singleton or you can provide a context parameter that resolves the concrete implementation for the desired object. You can also utilize a dependency injection framework that instruments the parameterization of the components to the top level of the application.
 
-In order to make this work we need to change our printer to receive its configuration when the class is created instead of as parameters to the function. This generates the same result as before, but it moves the coupling to when the object is allocated instead of when its method is invoked.
-
-```js
-class Printer {
-  constructor(formatter, writer) {
-    this.formatter = formatter;
-    this.writer = writer;
-  }
-  print(content) {
-    content = this.formatter.format(content);
-    this.writer.log(content);
-  }
-}
-```
-
-Now you can create a dependency injection context that allocates all the necessary dependencies with the desired concrete implementations when the application is loaded.
+In order to demonstrate this pattern, we create a dependency injection context that allocates all the necessary application dependencies with the desired concrete implementations when the application is loaded.
 
 ```js
 class Context {
@@ -141,23 +126,37 @@ class Context {
     this.printer = new Printer(this.formatter, this.writer);
   }
 }
+
+const ctx = new Context();
 ```
 
-And you can simply use the context to do your printing.
+When then need to change our printer to use the global context instead of as parameters to the function. This generates the same result as before, but it moves the coupling to when the object is allocated instead of when its method is invoked.
+
+```js
+class Printer {
+  print(content) {
+    content = ctx.formatter.format(content);
+    ctx.writer.log(content);
+  }
+}
+```
+
+Now the dependencies are completely inverted and abstracted away from the execution of your code.
 
 ```js
 const ctx = new Context();
-ctx.printer.print('Hello, World!');
+const printer = new Printer();
+printer.print('Hello, World!');
 ```
 
-If you want to use your code in testing then you just allocate a different context and nothing in the underlying application implementation needs to change.
+This makes mocking out functionality easier. You just allocate a different context and nothing in the underlying application implementation needs to change.
 
 ```js
 class TestContext {
   constructor() {
     this.formatter = new TestFormatter();
     this.writer = new TestWriter();
-    this.printer = new Printer(this.formatter, this.writer);
+    this.printer = new TestPrinter(this.formatter, this.writer);
   }
 }
 ```
@@ -166,7 +165,7 @@ class TestContext {
 
 Most common languages have multiple open source dependency frameworks written that hide all the dependency injection details.
 
-| Programming           | Dependency injection framework                    |
+| Language              | Dependency injection framework                    |
 | --------------------- | ------------------------------------------------- |
 | JavaScript/TypeScript | InversifyJS                                       |
 | Python                | Flask-Injector, dependency_injector               |
