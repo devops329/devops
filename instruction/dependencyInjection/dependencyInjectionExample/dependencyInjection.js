@@ -1,4 +1,8 @@
 class TestWriter {
+  constructor() {
+    this.content = '';
+  }
+
   log(content) {
     this.wasCalled = true;
     this.content += content;
@@ -38,7 +42,18 @@ class Printer {
 const formatter = new BoldFormatter();
 const printer = new Printer(formatter, console);
 
-printer.print('Hello, World!');
+printer.print('Hello World!');
+
+{
+  const formatter = new UppercaseFormatter();
+  const testWriter = new TestWriter();
+  const printer = new Printer(formatter, testWriter);
+
+  printer.print('Hello World!');
+  if (testWriter.content !== 'HELLO WORLD!') {
+    throw new Error('trouble');
+  }
+}
 
 class Context {
   constructor() {
@@ -49,7 +64,7 @@ class Context {
 }
 
 const ctx = new Context();
-ctx.printer.print('Hello, World!');
+ctx.printer.print('Hello World!');
 
 class TestContext {
   constructor() {

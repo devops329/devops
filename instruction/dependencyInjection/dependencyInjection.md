@@ -51,7 +51,7 @@ Perhaps you are starting to see the problem with this approach. Every time you w
 
 ### Inverting the dependency
 
-Instead, you can extend the information that is already being passed to the print function in the form of a **style** enumeration to be an abstraction of the formatter. Now the printer code looks like the following and all the unnecessary lower-level module dependencies are removed.
+Instead, you can extend the information that is already being passed to the print function in the form of a **style** enumeration to be an abstraction of the formatter. You can also invert the dependency on the writer so that where the printer writes to is determined by the caller. Now the printer code looks like the following and all the unnecessary lower-level module dependencies are removed.
 
 ```js
 class PurePrinter {
@@ -83,36 +83,31 @@ const printer = new Printer();
 
 const formatter = new UppercaseFormatter();
 
-printer.print('Hello, World!', formatter);
+printer.print('Hello, World!', formatter, console);
 ```
 
-Now you want to write a test to make sure your printer is actually using the correct format. Unfortunately the printer writes to the console and so it is difficult for you validate that the formatter ever got called. You can solve this by creating a mocked version of the formatter.
+Now you want to write a test to make sure your printer is actually using the correct format. Unfortunately the printer writes to the console and so it is difficult for you validate that the formatter ever got called. You can solve this by creating a mocked version of the writer.
 
 ```js
-class TestFormatter {
-  format(content) {
+class TestWriter {
+  constructor() {
+    this.content = '';
+  }
+
+  log(content) {
     this.wasCalled = true;
-    return content;
+    this.content += content;
   }
 }
 
-const testFormatter = new TestFormatter();
+const formatter = new UppercaseFormatter();
+const testWriter = new TestWriter();
+const printer = new Printer(formatter, testWriter);
 
-printer.print('Hello, World!', testFormatter);
-if (!testFormatter.wasCalled) throw new Error('trouble');
-```
-
-The use of dependency inversion makes it really easy to write tests. You could even improve this code by inverting the dependency on the output stream so that `console` is not hard coded into the printer.
-
-```js
-class Printer {
-  print(content, formatter, writer) {
-    content = formatter.format(content);
-    writer.log(content);
-  }
+printer.print('Hello World!');
+if (testWriter.content !== 'HELLO WORLD!') {
+  throw new Error('trouble');
 }
-
-new Printer().print('Hello, World!', formatter, console);
 ```
 
 The only question that remains is how you determine which dependencies are injected into the printer. In the examples above, you just allocated the dependencies before you made the call. However, what you really want is to abstract that coupling to a higher level so that you delay the decision until the last possible moment. This is where dependency injection comes in.
