@@ -93,7 +93,7 @@ class Pipeline {
   }
 
   run(data) {
-    this.steps.forEach((step) => step(data));
+    return this.steps.reduce(((result, step) => step(result)), data);
   }
 }
 
@@ -109,7 +109,7 @@ test('mocking callback functions', () => {
   new Pipeline().add(mockStep).add(mockStep).run('data');
 
   expect(mockStep).toHaveBeenCalledTimes(2);
-  expect(mockStep.mock.calls).toEqual([['data'], ['data']]);
+  expect(mockStep.mock.calls).toEqual([['data'], [undefined]]);
 });
 ```
 
