@@ -555,13 +555,16 @@ Finally, we add another `package.json` script so that NYC runs the Playwright te
 
 ```json
 "scripts": {
+
+  ...
+
   "test:coverage": "nyc --reporter=json-summary --reporter=text playwright test"
 }
 ```
 
 ### Instrument the tests
 
-The last step is to replace the Playwright `test` function with one that wraps the `test` function and generates coverage data.
+The last step is to replace the Playwright `test` function with one that wraps the `test` function and generates coverage data. You need to do this on every test file that you want to report coverage.
 
 ```js
 // import { test, expect } from '@playwright/test' <- Replace this with the line below

@@ -67,7 +67,7 @@ class UppercaseFormatter {
   }
 }
 
-class boldFormatter {
+class BoldFormatter {
   format(content) {
     return `**${content}**`;
   }
