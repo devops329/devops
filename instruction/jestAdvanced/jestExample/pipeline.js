@@ -14,7 +14,7 @@ class Pipeline {
   }
 
   run(data) {
-    this.steps.forEach((step) => step(data));
+    return this.steps.reduce((result, step) => step(result), data);
   }
 }
 
