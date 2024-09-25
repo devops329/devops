@@ -184,7 +184,7 @@ function randomName() {
 At some point in your testing you will need to have an administrator user in order to do things like create a franchise. You don't want to hardcode a user that you have created in your database because you shouldn't assume any preexisting data when creating a unit test. However, the JWT Pizza Service doesn't have an obvious way to bootstrap an admin user. You can overcome this by calling directly into the DB.addUser function. The DB.addUser function has no constraints and will let you create any user that you would like, including a user with a role of Admin.
 
 ```js
-const { DB } = require('../database/database.js');
+const { Role, DB } = require('../database/database.js');
 
 async function createAdminUser() {
   const Role = Object.freeze({
