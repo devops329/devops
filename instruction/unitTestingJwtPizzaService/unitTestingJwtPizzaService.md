@@ -187,9 +187,6 @@ At some point in your testing you will need to have an administrator user in ord
 const { Role, DB } = require('../database/database.js');
 
 async function createAdminUser() {
-  const Role = Object.freeze({
-    Admin: Symbol("Admin")
-  })
   let user = { password: 'toomanysecrets', roles: [{ role: Role.Admin }] };
   user.name = randomName();
   user.email = user.name + '@admin.com';
