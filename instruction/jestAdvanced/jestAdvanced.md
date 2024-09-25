@@ -362,7 +362,7 @@ class CatFact {
 module.exports = CatFact;
 ```
 
-Once you are done, go over to Canvas and submit a screenshot of your code with 100% coverage.
+Once you are done, go over to Canvas and submit a screenshot of your code with 100% coverage with all tests passing.
 
 The following is an example of what you should submit. Notice the coverage line at the top of the `catFact.js` file that demonstrates the complete coverage.
 
