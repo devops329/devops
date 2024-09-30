@@ -105,6 +105,28 @@ After creating your distribution this will display your newly created policy wit
 1.  Click on the bucket and then `permissions`.
 1.  For the `Bucket policy` box press `edit` and then paste the policy. This allows CloudFront to access the bucket.
 
+If you forget to copy the policy then you can use this template policy and insert the proper AWS properties.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": {
+    "Sid": "AllowCloudFrontServicePrincipalReadOnly",
+    "Effect": "Allow",
+    "Principal": {
+      "Service": "cloudfront.amazonaws.com"
+    },
+    "Action": "s3:GetObject",
+    "Resource": "arn:aws:s3:::<S3 bucket name>/*",
+    "Condition": {
+      "StringEquals": {
+        "AWS:SourceArn": "arn:aws:cloudfront::<AWS account ID>:distribution/<CloudFront distribution ID>"
+      }
+    }
+  }
+}
+```
+
 ### View the hosted content
 
 You should now be able to access the S3 files through CloudFront. Navigate back to the CloudFront console and view the distribution you just created. It will take a little while for it to deploy around the globe, but when the `deploying` state goes away, you should be able to access the placeholder index.html file using the `Distribution domain name` name found on the `General` tab of the distribution. This should be a URL with the `cloudfront.net` root domain. For example:

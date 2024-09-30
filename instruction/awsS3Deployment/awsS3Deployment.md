@@ -4,7 +4,7 @@
 
 - You must authorize GitHub to have access to your AWS account.
 - You can use a GitHub Action workflow to execute AWS CLI commands.
-- You will create a workflow that upload a file to your S3 bucket.
+- You will create a workflow that uploads a file to your S3 bucket.
 
 ---
 
@@ -114,7 +114,7 @@ The final step is to create a GitHub Actions workflow that deploys to the S3 buc
 
 #### Storing secrets
 
-Your repository is public and so you want to make sure that you keep secret anything that would give an advantage to a nefarious party. This includes your AWS Account ID, IAM roles and S3 Bucket names.
+Your repository is public and so you want to make sure that you keep secret anything that would give an advantage to a nefarious party. This includes your AWS Account ID, IAM role, S3 Bucket name, and the CloudFront distribution ID.
 
 You can hide these secrets by creating [repository secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) and then referencing the secrets in your workflow.
 
