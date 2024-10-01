@@ -119,16 +119,22 @@ beforeAll(async () => {
   testUser.email = Math.random().toString(36).substring(2, 12) + '@test.com';
   const registerRes = await request(app).post('/api/auth').send(testUser);
   testUserAuthToken = registerRes.body.token;
+  expectValidJwt(testUserAuthToken);
 });
 
 test('login', async () => {
   const loginRes = await request(app).put('/api/auth').send(testUser);
   expect(loginRes.status).toBe(200);
-  expect(loginRes.body.token).toMatch(/^[a-zA-Z0-9\-_]*\.[a-zA-Z0-9\-_]*\.[a-zA-Z0-9\-_]*$/);
+  expectValidJwt(loginRes.body.token);
 
   const { password, ...user } = { ...testUser, roles: [{ role: 'diner' }] };
   expect(loginRes.body.user).toMatchObject(user);
+  expect(password).toBeTruthy(); // `password` must not be in the `user` to match the response, but it must be used to pass the linter
 });
+
+function expectValidJwt(potentialJwt) {
+  expect(potentialJwt).toMatch(/^[a-zA-Z0-9\-_]*\.[a-zA-Z0-9\-_]*\.[a-zA-Z0-9\-_]*$/);
+}
 ```
 
 In this code the `beforeAll` function registers a random user every time the tests run. You can use the user and its associated authorization token for tests that require an existing registered user.
