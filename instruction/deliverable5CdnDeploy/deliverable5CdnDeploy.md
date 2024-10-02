@@ -107,6 +107,7 @@ Once completed, your repository's GitHub Actions workflow history should demonst
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
 1. Create a secure S3 bucket to host the frontend static files.
+1. Create a web certificate for use with your CloudFront distribution.
 1. Create a CloudFront distribution.
 1. Alter your DNS record in Route 53 to point to the CloudFront distribution.
 1. Create the IAM policies, roles, and identity provider definitions necessary to secure access for deployment.
