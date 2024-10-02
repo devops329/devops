@@ -47,9 +47,7 @@ with this action:
     path: dist/
 ```
 
-Now you can modify the **deploy** job so that uploads to S3 instead of pushing to GitHub Pages. Replace the **deploy** job with the following
-
-Your existing `deploy` job that you created to deploy to GitHub Pages should currently look like the following.
+Now you can modify the **deploy** job so that uploads to S3 instead of pushing to GitHub Pages. Replace the **deploy** job with the following.
 
 ```yml
 deploy:
