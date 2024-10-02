@@ -193,7 +193,6 @@ async function createAdminUser() {
 
   await DB.addUser(user);
 
-  user.password = 'toomanysecrets';
   return user;
 }
 ```
