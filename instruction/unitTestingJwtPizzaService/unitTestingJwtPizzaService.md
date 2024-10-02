@@ -127,9 +127,9 @@ test('login', async () => {
   expect(loginRes.status).toBe(200);
   expectValidJwt(loginRes.body.token);
 
-  const { password, ...user } = { ...testUser, roles: [{ role: 'diner' }] };
-  expect(loginRes.body.user).toMatchObject(user);
-  expect(password).toBeTruthy(); // `password` must not be in the `user` to match the response, but it must be used to pass the linter
+  const expectedUser = { ...testUser, roles: [{ role: 'diner' }] };
+  delete expectedUser.password;
+  expect(loginRes.body.user).toMatchObject(expectedUser);
 });
 
 function expectValidJwt(potentialJwt) {
