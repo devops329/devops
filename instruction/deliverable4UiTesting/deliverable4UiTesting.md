@@ -168,7 +168,7 @@ After all that is done you should end up with a test that looks something like t
 
 ```js
 test('buy pizza with login', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByRole('button', { name: 'Order now' }).click();
   await expect(page.locator('h2')).toContainText('Awesome is a click away');
   await page.getByRole('combobox').selectOption('1');
@@ -325,7 +325,7 @@ test('purchase with login', async ({ page }) => {
     await route.fulfill({ json: orderRes });
   });
 
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
 
   // Go to order page
   await page.getByRole('button', { name: 'Order now' }).click();
