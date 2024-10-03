@@ -218,7 +218,7 @@ Before we can write our own tests we need to finish configuring Playwright. Open
   },
 ```
 
-You can also remove all the comments in order to make the file easier to read. When you are done your configuration file should look like the following. Make sure you understand what all of this [configuration](https://playwright.dev/docs/test-configuration) is doing so that you can maximum the value that Playwright provides.
+You can also remove all the comments in order to make the file easier to read. When you are done your configuration file should look like the following. Make sure you understand what all of this [configuration](https://playwright.dev/docs/test-configuration) is doing so that you can maximize the value that Playwright provides.
 
 ```js
 import { defineConfig, devices } from '@playwright/test';
