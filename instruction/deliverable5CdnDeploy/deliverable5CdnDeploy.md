@@ -47,9 +47,7 @@ with this action:
     path: dist/
 ```
 
-Now you can modify the **deploy** job so that uploads to S3 instead of pushing to GitHub Pages. Replace the **deploy** job with the following
-
-Your existing `deploy` job that you created to deploy to GitHub Pages should currently look like the following.
+Now you can modify the **deploy** job so that uploads to S3 instead of pushing to GitHub Pages. Replace the **deploy** job with the following.
 
 ```yml
 deploy:
@@ -107,6 +105,7 @@ Once completed, your repository's GitHub Actions workflow history should demonst
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
 1. Create a secure S3 bucket to host the frontend static files.
+1. Create a web certificate for use with your CloudFront distribution.
 1. Create a CloudFront distribution.
 1. Alter your DNS record in Route 53 to point to the CloudFront distribution.
 1. Create the IAM policies, roles, and identity provider definitions necessary to secure access for deployment.

@@ -17,8 +17,6 @@ Previously we deployed the JWT Pizza static frontend content over the content de
 
 For these reasons we want to move to a CDN that provides the services and scale necessary for a production system. There are many great CDN services available. These include Akamai, Cloudflare, Fastly, and AWS CloudFront. We are going to use CloudFront because of the additional cloud services that they provide and also because of their generous free tier that will make it basically free for our usage.
 
-⚠️ **Note**: If you have not yet created your AWS account, you must do so now. We will be making extensive use of AWS for the rest of the course.
-
 In order to fully utilize CloudFront as a CDN we need to configure several AWS services. These include the following:
 
 - **CloudFront** - CDN to globally distribute the frontend content.
@@ -106,6 +104,28 @@ After creating your distribution this will display your newly created policy wit
 1.  Click the link to `Go to S3 bucket permissions`.
 1.  Click on the bucket and then `permissions`.
 1.  For the `Bucket policy` box press `edit` and then paste the policy. This allows CloudFront to access the bucket.
+
+If you forget to copy the policy then you can use this template policy and insert the proper AWS properties.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": {
+    "Sid": "AllowCloudFrontServicePrincipalReadOnly",
+    "Effect": "Allow",
+    "Principal": {
+      "Service": "cloudfront.amazonaws.com"
+    },
+    "Action": "s3:GetObject",
+    "Resource": "arn:aws:s3:::<S3 bucket name>/*",
+    "Condition": {
+      "StringEquals": {
+        "AWS:SourceArn": "arn:aws:cloudfront::<AWS account ID>:distribution/<CloudFront distribution ID>"
+      }
+    }
+  }
+}
+```
 
 ### View the hosted content
 
