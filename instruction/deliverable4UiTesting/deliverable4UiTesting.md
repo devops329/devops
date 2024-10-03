@@ -142,7 +142,7 @@ test('home page', async ({ page }) => {
 });
 ```
 
-Now when we run the test we get **20.49%** coverage. Just for loading the home page!
+Now when we run the test we get **19.93%** line coverage. Just for loading the home page!
 
 ```sh
 ➜  npm run test:coverage
