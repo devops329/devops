@@ -240,7 +240,7 @@ This shows us that we made four requests. After we simplify them, we have the fo
 | PUT    | /api/auth       | {"email":"d@jwt.com","password":"a"}                                                                                                               | {"id":3,"name":"Kai Chen","email":"d@jwt.com","roles":[{"role":"diner"}]}                                                                                                                                                                                                                                                                                                                                |
 | POST   | /api/order      | {"items":[{"menuId":1,"description":"Veggie","price":0.0038},{"menuId":2,"description":"Pepperoni","price":0.0042}],"storeId":"1","franchiseId":1} | {"order":{"items":[{"menuId":1,"description":"Veggie","price":0.0038},{"menuId":2,"description":"Pepperoni","price":0.0042}],"storeId":"1","franchiseId":1,"id":23},"jwt":"eyJpYXQ"}                                                                                                                                                                                                                     |
 
-⚠️ **Note**: To access endpoints that require admin credentials, you will need to change your `.env.development` file so that it references your local JWT Pizza Service, instead of the headquarters' service.
+⚠️ **Note**: To access endpoints that an require admin user, you will need to change your `.env.development` file so that it references your local JWT Pizza Service, instead of the headquarters' service. Then you can log in with the default admin credentials.
 
 ### Create the mocks
 
