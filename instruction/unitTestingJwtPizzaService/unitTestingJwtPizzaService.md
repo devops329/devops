@@ -38,11 +38,19 @@ Add the Jest config file, `jest.config.json`, so coverage is turned on.
 ```json
 {
   "collectCoverage": true,
-  "coverageReporters": ["json-summary", "text"]
+  "coverageReporters": ["json-summary", "text"],
+  "coverageThreshold": {
+    "global": {
+      "branches": 80,
+      "functions": 80,
+      "lines": 80,
+      "statements": -10
+    }
+  }
 }
 ```
 
-This requests the generation of different coverage reports. The `text` report generates a summary that is output to the console window. The `json-summary` report is created in the `coverage` directory and contains a JSON representation of the coverage information.
+This requests the generation of different coverage reports. The `text` report generates a summary that is output to the console window. The `json-summary` report is created in the `coverage` directory and contains a JSON representation of the coverage information. The `coverageThreshold` section determines the minimum coverage thresholds for the test to pass.
 
 Note that the `.gitignore` file ignores the `coverage` directory so that the resulting coverage reports don't get added to GitHub.
 
