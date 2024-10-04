@@ -207,7 +207,7 @@ This opens up a window that shows all the tests found in the `tests` directory a
 
 ## Configuring to test with Vite
 
-Before we can write our own tests we need to finish configuring Playwright. Open the `playwright.config.ts` file and modify it so that it will launch our service when ever a test needs to run. This is done by adding a `webServer` section to the config that provides the startup command for Vite and the URL that our service is running from.
+Before we can write our own tests we need to finish configuring Playwright. Open the `playwright.config.ts` file and modify it so that it will launch our service whenever a test needs to run. This is done by adding a `webServer` section to the config that provides the startup command for Vite and the URL that our service is running from.
 
 ```js
   webServer: {
@@ -218,7 +218,7 @@ Before we can write our own tests we need to finish configuring Playwright. Open
   },
 ```
 
-You can also remove all the comments in order to make the file easier to read. When you are done your configuration file should look like the following. Make sure you understand what all of this [configuration](https://playwright.dev/docs/test-configuration) is doing so that you can maximum the value that Playwright provides.
+You can also remove all the comments in order to make the file easier to read. When you are done your configuration file should look like the following. Make sure you understand what all of this [configuration](https://playwright.dev/docs/test-configuration) is doing so that you can get the maximum value that Playwright provides.
 
 ```js
 import { defineConfig, devices } from '@playwright/test';
