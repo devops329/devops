@@ -28,7 +28,7 @@ You previously created a fork of `jwt-pizza`. Now you need to add Playwright and
       "test": "playwright test"
     },
    ```
-1. Install the Playwright Chromium testing browser.
+1. Install the Playwright Chromium testing browser. This may be done already from initially completing the [Playwright Test Browser Installation](../playwright/playwright.md#install-a-testing-browser) instructions.
 1. Cleanup the `playwright.config.js` file and add the ability to launch the JWT Pizza frontend using Vite so that the tests can call it.
 
    ```js
@@ -142,7 +142,7 @@ test('home page', async ({ page }) => {
 });
 ```
 
-Now when we run the test we get **20.49%** coverage. Just for loading the home page!
+Now when we run the test we get **19.93%** line coverage. Just for loading the home page!
 
 ```sh
 ➜  npm run test:coverage
@@ -168,7 +168,7 @@ After all that is done you should end up with a test that looks something like t
 
 ```js
 test('buy pizza with login', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByRole('button', { name: 'Order now' }).click();
   await expect(page.locator('h2')).toContainText('Awesome is a click away');
   await page.getByRole('combobox').selectOption('1');
@@ -327,7 +327,7 @@ test('purchase with login', async ({ page }) => {
     await route.fulfill({ json: orderRes });
   });
 
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
 
   // Go to order page
   await page.getByRole('button', { name: 'Order now' }).click();
