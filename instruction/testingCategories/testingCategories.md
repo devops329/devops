@@ -86,7 +86,7 @@ Later in the course you will experience an entire module on this topic.
 
 Penetration testing is the exact opposite of synthetic testing. With synthetic testing, you try to emulate a normal customer; with penetration testing, you try abuse the application in ways that a normal customer never would. The whole idea is to get the application to behave in a way that exploits authentication, authorization, commerce, or private data for nefarious purposes. Penetration testing can also try to disable the application so that it no longer functions properly. This could be by deleting or encrypting the database, or by overwhelming the network or computing capacity.
 
-The whole idea with penetration testing is to discover and correct vulnerabilities in your application before an attacker does. Failure to properly protect your users can result it the complete collapse of any company.
+The whole idea with penetration testing is to discover and correct vulnerabilities in your application before an attacker does. Failure to properly protect your users can result in the complete collapse of any company.
 
 Later in the course you will experience an entire module on this topic.
 
