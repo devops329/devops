@@ -274,7 +274,7 @@ Now that have both your frontend and your backend running on AWS you need to cha
 
 From your fork of the `jwt-pizza` repository open the `.env.production` and modify it so that the `VITE_PIZZA_SERVICE_URL` is pointing to your URL for your newly deployed backend.
 
-```json
+```sh
 VITE_PIZZA_SERVICE_URL=https://pizza-service.YOURHOSTNAMEHERE
 VITE_PIZZA_FACTORY_URL=https://pizza-factory.cs329.click
 ```
