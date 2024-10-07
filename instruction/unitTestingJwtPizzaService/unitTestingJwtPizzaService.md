@@ -205,9 +205,8 @@ async function createAdminUser() {
   user.name = randomName();
   user.email = user.name + '@admin.com';
 
-  await DB.addUser(user);
-
-  return user;
+  user = await DB.addUser(user);
+  return { ...user, password: 'toomanysecrets' };
 }
 ```
 
