@@ -1,5 +1,9 @@
 # Notes
 
+## Boundary Permission
+
+In the BYU AWS account you have to give permissions boundary to any role you create if it is going to assume other roles. Add: `iamRolePermissionBoundary`
+
 ## Testing user
 
 - byucsstudent (CS email)
