@@ -304,7 +304,7 @@ In addition to securing your software application, it is important that your org
 - **Insider threats**: Insufficient hiring practices, periodic reviews of internal staff, automated auditing controls, restriction of access to least privilege, or consensus access controls (where multiple independent parties are required to provide credentials for access).
 - **Physical security**: Insufficient physical controls to sensitive infrastructure or workspaces.
 - **Improper data management**: Allowing confidential data to be accessed without authorization or to be transported outside the security parameter.
-- **Insecure network typography**: Allowing non-authorized, or insecure devices, within the security parameter.
+- **Insecure network topology**: Allowing non-authorized, or insecure devices, within the security parameter.
 
 In many ways these attacks are the most dangerous because they exploit your system behind your wall of trust. Having a hardened, secure, architecture is pointless if one of your team members gives out the administrative password to someone who contacts them from the "operations team" with a desperate need to correct a "critical emergency" that is threatening to take the company down in the next few minutes.
 
