@@ -27,6 +27,12 @@ At a basic level S3 is just a global list of bucket names that each contain a po
 
 It doesn't actually have a directory structure or path, but objects with the same prefix will appear to be associated. Additionally, the `/` character is treated as special by many tools. This allows them to display and navigate them as directories, when in reality it is just another character in the name.
 
+## Creating S3 Buckets
+Help!
+[... I've never created AWS resources before. Now that I understand the concept of AWS S3, I still don't have any instances in my account. I pulled up the cloudshell console and typed `aws s3 ls`, but it just spun forever and never resolved. I expect that I need to create a bucket first, but I don't know which of AWS's bajillion pages to use to do so.]
+
+TODO: Provide instructions, or references to instructions here about orienting myself with AWS.
+
 ## Accessing S3 files
 
 You can experiment with S3 by using the AWS Browser console interface, or with the AWS CLI from your command console. For example, you can list all the AWS S3 buckets that are owned by your account with the `ls` command. Make sure you have the AWS CLI installed in your development environment with an associated access key. Otherwise, you can use the [AWS CloudShell service](https://aws.amazon.com/cloudshell/) from the AWS Browser Console to experiment with these commands.
