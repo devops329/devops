@@ -298,7 +298,7 @@ There are many creative ways to exploit a software system. Each has their own sp
 
 ## Non-software security concerns
 
-In addition to securing your software application, it is important that your organization if familiar with non-software associated attacks. This includes:
+In addition to securing your software application, it is important that your organization is familiar with non-software associated attacks. This includes:
 
 - **Social engineering attacks**: Human subversion of security controls and practices based on emotional appeal.
 - **Insider threats**: Insufficient hiring practices, periodic reviews of internal staff, automated auditing controls, restriction of access to least privilege, or consensus access controls (where multiple independent parties are required to provide credentials for access).
