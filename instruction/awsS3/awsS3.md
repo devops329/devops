@@ -115,8 +115,8 @@ Create an S3 bucket and copy a file into the bucket.
 1. Drag a file from your development environment and drop it on the `Upload` target.
 1. Press the `Upload` button and then press the `Close` button to return to the bucket view.
 
-Take a screenshot of the bucket with your file in it and submit it to the Canvas assignment. Your screenshot should look something like the following.
+1. Take a screenshot of the bucket with your file in it and submit it to the Canvas assignment. Your screenshot should look something like the following.
 
-![Bucket with file](bucketWithFile.png)
+   ![Bucket with file](bucketWithFile.png)
 
-Once you are done you can go ahead and delete all the files in the bucket and then delete the bucket itself.
+1. Once you are done you can go ahead and delete all the files in the bucket and then delete the bucket itself. Deleting the bucket can be done from the [S3 bucket page](https://console.aws.amazon.com/s3/buckets) (the parent page).
