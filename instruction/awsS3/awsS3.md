@@ -104,7 +104,7 @@ You are going to use S3 to statically host the JWT Pizza static frontend code th
 
 Create an S3 bucket and copy a file into the bucket.
 
-1. Open the AWS browser console and navigate to the S3 service.
+1. Open the AWS browser console and navigate to the [S3 service](https://console.aws.amazon.com/s3/buckets).
 1. Click on the `Create bucket` button.
 1. Select the `General configuration` option and name it something unique. Remember that the bucket namespace is global, and so you cannot use a name that already is in use.
 
