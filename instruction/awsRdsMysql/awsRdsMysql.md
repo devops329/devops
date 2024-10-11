@@ -69,7 +69,7 @@ With the network security deployed, you can now create the MySQL server instance
    1. Select **Choose existing** for the `VPC security group`.
       1. Select the `jwt-pizza-db` security group you created earlier.
       1. Unselect the `default` security group.
-   1. Select one of the available availability zones for the `Availablity zone`.
+   1. Select one of the available availability zones for the `Availability zone`.
 1. Under **Database authentication** select `Password and IAM database authentication`.
 1. Press `Create database`.
 
