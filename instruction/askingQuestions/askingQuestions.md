@@ -25,6 +25,12 @@ You have a lot of resources to help you find answers. Here is the order that you
 1. **TA** - These are smart people who have been where you are and want to help you succeed. Check the TA hours and contact them on Discord or in person. Respect their time by researching the question and come prepared to ask a clear question.
 1. **Instructor** - The instructor is there for **you**. Asking for help in class, after class, or during office hours has a good chance of helping you find an answer. This is especially true if you have already tried the other methods. If the instructor can't help you, then at least you will get to know each other better.
 
+🚧 Warning: Deviating from the Course Path — Proceed at Your Own Risk 🚧
+
+When meeting with a TA, they will assume you are following the course instructions as outlined. This includes having installed all the required plugins, packages, and programs.
+
+If you choose to deviate from the course instructions, be aware that TAs are not obligated to help resolve any issues that arise from your divergence. These matters fall outside the scope of what they are required to know or support.
+
 ## How to ask questions
 
 Learning how to ask questions might be the most important thing you learn. The better your question, the better your answer will be. Otherwise, you end up with an answer like 42, and you do not even know what you were asking.
