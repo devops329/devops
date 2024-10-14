@@ -42,6 +42,12 @@ Here is a good template to follow when asking a question:
 
 > When working on assignment `A`, I was successfully able to do `1`, `2`, and `3`, but then I did `B`, as instructed by `C`, and got the result `D`, with an error of `E`. I was expecting `F`. I thought maybe `G` or `H` might be the problem, but I saw that `J` already tried that without success as discussed here on `K`. Any help is greatly appreciated.
 
+## Deviating from the course tools
+
+🚧 Warning: Proceed at Your Own Risk 🚧
+
+When asking questions, the TA, professor, and your peers will assume you are using the course tools as defined by the course. This includes having installed all the required plugins, packages, and programs. If you choose to deviate from that path, you are on your own to resolve any issues that arise from your divergence.
+
 ## Pay it forward
 
 Always remember how it felt to receive help. Actively look for opportunities to help others in a kind respectful way. After all, that is the Gospel of Jesus Christ at its core. We are a team. We are better together.
