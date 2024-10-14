@@ -9,7 +9,11 @@
 
 📖 **Deeper dive reading**: [Managing GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
 
-GitHub supports the ability to associate a release with a version and commit. You can do this manually by going to the home page for a repository and selecting controls on the `Releases` section on the right of the view. From there you can press the `Draft a new release` button.
+GitHub supports the ability to associate a release with a version and commit. When you combine GitHub's release tracking with updates to project issues and pushes to your production environment, you can create an complete automated CI pipleline that manages your entire release infrastructure from a GitHub action workflow.
+
+![Release workflow](releaseWorkflow.png)
+
+You can do this manually by going to the home page for a repository and selecting controls on the `Releases` section on the right of the view. From there you can press the `Draft a new release` button.
 
 Type your version ID into the version box. This will automatically create a Git tag with this name and apply it to the latest commit. You can also select an existing Git tag if you already have one.
 
@@ -63,7 +67,7 @@ With this job in your pipeline, it will automatically create the version the nex
 
 Do the following:
 
-1. Modify your GitHub Action workflow for `jwt-pizza` so that it creates and uses a version number.
+1. Review your GitHub Action workflow for `jwt-pizza` to see how it creates and uses a version number.
 1. Modify your GitHub Action workflow for `jwt-pizza` so that it automatically creates a tag and version that represents the production release.
 
 Go to the associated Canvas assignment and submit a screenshot of the resulting release. This should look something like this:
