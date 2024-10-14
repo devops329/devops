@@ -32,6 +32,8 @@ Putting everything you would like to know into a single version ID is an impossi
 - The accessibility of the version (e.g. public, internal, specific parties).
 - Metrics associated with the testing of the version.
 
+![Supplemental info](suplementalInformation.png)
+
 ## Version schemes
 
 There are lots of different thoughts about how to represent everything that went into the creation of a software deliverable with a simple concise version ID. The following describe some of the most commonly used methods.
