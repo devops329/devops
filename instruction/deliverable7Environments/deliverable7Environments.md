@@ -423,12 +423,15 @@ It is also pretty cool to write a couple dozen lines of automation code and see 
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
 1. Archive each version build in your JWT Pizza S3 bucket.
-1. Create a GitHub staging environment.
-1. Convert your CloudFront distribution to be a staging distribution.
-1. Create a staging DNS record.
-1. Modify your GitHub Action workflow (`ci.yml`) to automatically update your **staging** CloudFront distribution.
-1. Create a GitHub version record for each build.
-1. Create a GitHub Action workflow (`release.yml`) that deploys to your **production** CloudFront distribution.
+1. **Production**
+   1. Convert your CloudFront distribution to be a production distribution.
+   1. Create a GitHub Action workflow (`release.yml`) that deploys to your **production** CloudFront
+   1. Create a GitHub version record for each build.
+1. **Staging**
+   1. Create a CloudFront staging distribution.
+   1. Create a GitHub staging environment.
+   1. Create a staging DNS record.
+   1. Modify your GitHub Action workflow (`ci.yml`) to automatically update your **staging** CloudFront distribution.
 
 Go to the [AutoGrader](https://cs329.cs.byu.edu) and submit your work for the **Environments** deliverable.
 
