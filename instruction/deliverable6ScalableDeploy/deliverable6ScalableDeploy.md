@@ -140,12 +140,12 @@ Previously the workflow stopped after the tests were done and the coverage badge
 
    ```yml
    deploy:
-   runs-on: ubuntu-latest
-   permissions:
-     id-token: write
-   needs: build
-   env:
-     version: ${{needs.build.outputs.version}}
+     runs-on: ubuntu-latest
+     permissions:
+       id-token: write
+     needs: build
+     env:
+       version: ${{needs.build.outputs.version}}
    ```
 
 1. As the first step, download the distribution artifact created by the last job.
