@@ -12,7 +12,7 @@ Now that you have experience with creating, registering, and deploying the JWT P
 
 Your work on this deliverable consists of four parts:
 
-1. **ECR configuration**: Set up ECR to keep track of the different versions of your `jwt-pizza-service` Docker container images.
+1. **ECR configuration**: Set up ECR to store your `jwt-pizza-service` Docker container images.
 1. **Image registration CI**: Modify the CI pipeline to automatically build and deploy a new container image to ECR.
 1. **ECS configuration**: Setup ECS to deploy a container to Fargate and expose it publicly using the application load balancer.
 1. **Image deployment CI**: Modify the CI pipeline to automatically deploy a new container image to ECS.
@@ -55,7 +55,7 @@ Next you need to enhance the `github-ci` user rights so that they can push to EC
 1. Select the `Permissions` tab.
 1. Click on the `jwt-pizza-ci-deployment` policy.
 1. Select `JSON` and press `Edit`.
-1. Add the following statements in order to allow the use of ECR and ECS.
+1. Add the following statements in order to allow the use of ECR and ECS. Make sure you replace `YOURACCOUNTIDHERE` with your actual AWS account ID.
 
    ```json
    {
@@ -152,10 +152,10 @@ Previously the workflow stopped after the tests were done and the coverage badge
 
    ```yml
    steps:
-      - name: Download distribution artifact
-         uses: actions/download-artifact@v4
-         with:
-            name: package
+     - name: Download distribution artifact
+       uses: actions/download-artifact@v4
+       with:
+         name: package
    ```
 
 1. Authenticate to AWS using OIDC. This is the same authentication step that we took with the frontend deployment. Using OIDC makes it so we don't have to store any credentials to our AWS account.
