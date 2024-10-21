@@ -4,6 +4,8 @@
 
 - Deploy JWT Pizza Service to scalable services using CI.
 
+[🎥 Video overview](https://youtu.be/mhFmGVfFA8c)
+
 ---
 
 ![course overview](../sharedImages/courseOverview.png)

@@ -8,6 +8,8 @@
 - Mock out the JWT Pizza Service
 - Update the CI pipeline to run the tests
 
+[🎥 Video overview](https://youtu.be/qvf1kaT_wr0)
+
 ---
 
 ![course overview](../sharedImages/courseOverview.png)
