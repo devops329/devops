@@ -29,6 +29,10 @@ It doesn't actually have a directory structure or path, but objects with the sam
 
 ## Accessing S3 files
 
+> [!TIP]
+> Read the introductory information before attempting to follow along.\
+> Detailed instructions are included at the end as part of the [assignment](#assignment).
+
 You can experiment with S3 by using the AWS Browser console interface, or with the AWS CLI from your command console. For example, you can list all the AWS S3 buckets that are owned by your account with the `ls` command. Make sure you have the AWS CLI installed in your development environment with an associated access key. Otherwise, you can use the [AWS CloudShell service](https://aws.amazon.com/cloudshell/) from the AWS Browser Console to experiment with these commands.
 
 ```sh
@@ -94,11 +98,11 @@ You are going to use S3 to statically host the JWT Pizza static frontend code th
 
 ![CloudFront access](cloudFrontAccess.png)
 
-## ☑ Assignment
+## <a name="assignment"></a> ☑ Assignment
 
 Create an S3 bucket and copy a file into the bucket.
 
-1. Open the AWS browser console and navigate to the S3 service.
+1. Open the AWS browser console and navigate to the [S3 service](https://console.aws.amazon.com/s3/buckets).
 1. Click on the `Create bucket` button.
 1. Select the `General configuration` option and name it something unique. Remember that the bucket namespace is global, and so you cannot use a name that already is in use.
 
@@ -109,8 +113,8 @@ Create an S3 bucket and copy a file into the bucket.
 1. Drag a file from your development environment and drop it on the `Upload` target.
 1. Press the `Upload` button and then press the `Close` button to return to the bucket view.
 
-Take a screenshot of the bucket with your file in it and submit it to the Canvas assignment. Your screenshot should look something like the following.
+1. Take a screenshot of the bucket with your file in it and submit it to the Canvas assignment. Your screenshot should look something like the following.
 
-![Bucket with file](bucketWithFile.png)
+   ![Bucket with file](bucketWithFile.png)
 
-Once you are done you can go ahead and delete all the files in the bucket and then delete the bucket itself.
+1. Once you are done you can go ahead and delete all the files in the bucket and then delete the bucket itself. Deleting the bucket can be done from the [S3 bucket page](https://console.aws.amazon.com/s3/buckets) (the parent page).
