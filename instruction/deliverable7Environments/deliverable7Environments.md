@@ -26,6 +26,8 @@ Here are the steps you need to take.
 
 Currently, your CI workflow for JWT Pizza writes a new version over the top of the files found in the root of the S3 bucket that the CloudFront distribution hosts. Since we want to have multiple environments, we need more control over what version is deployed in each environment. To accomplish this you need to modify your JWT Pizza `.github/workflows/ci.yml` GitHub Action workflow file to target a **version** subdirectory of your S3 deployment bucket instead of the root.
 
+![S3 version](s3Version.png)
+
 So instead of the root of your bucket containing the latest build.
 
 ```sh
@@ -70,6 +72,8 @@ When you commit and push this change, it should copy the version files to the ve
 ## Create a production environment
 
 You already have a production environment both in GitHub and CloudFront. You just need to officially mark your CloudFront distribution as production. To do this you need to make two changes to your CloudFront distribution.
+
+![environmentHosting](environmentHosting.png)
 
 1. Rename the distribution to be `production`. To rename the distribution, take these steps:
 
@@ -146,6 +150,8 @@ Now that both your staging and production environments are using a version subdi
 You could always manually deploy any version you would like to either your production or staging environment by simply changing the distribution's origin path to the desired S3 path, wait for the distribution to deploy, and invalidate the cache.
 
 That actually works pretty well, as it will switch to any version within just a few moments. However, what you really want is for the staging environment to always get updated whenever new code is committed to your fork of `jwt-pizza`.
+
+![Full environment deployment](fullEnvironmentDeployment.png)
 
 ### Make staging your CI workflow target environment
 

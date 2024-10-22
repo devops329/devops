@@ -62,7 +62,7 @@ Take the time to completely review the template and become familiar with what it
     "VpcID": {
       "Type": "String",
       "Description": "The ID of the VPC for the ALB",
-      "Default": "vpc-192e8e70",
+      "Default": "",
       "AllowedPattern": "^(?:vpc-[0-9a-f]{8,17}|)$",
       "ConstraintDescription": "VPC ID must begin with 'vpc-' and have a valid uuid"
     }
@@ -80,7 +80,10 @@ Take the time to completely review the template and become familiar with what it
         "Cluster": { "Ref": "ECSCluster" },
         "CapacityProviderStrategy": [{ "CapacityProvider": "FARGATE", "Base": 0, "Weight": 1 }],
         "TaskDefinition": {
-          "Fn::Join": [":", ["arn:aws:ecs", { "Ref": "AWS::Region" }, { "Ref": "AWS::AccountId" }, "task-definition/jwt-pizza-service", { "Ref": "TaskVersion" }]]
+          "Fn::Join": [
+            ":",
+            ["arn:aws:ecs", { "Ref": "AWS::Region" }, { "Ref": "AWS::AccountId" }, "task-definition/jwt-pizza-service", { "Ref": "TaskVersion" }]
+          ]
         },
         "ServiceName": "jwt-pizza-service",
         "SchedulingStrategy": "REPLICA",
