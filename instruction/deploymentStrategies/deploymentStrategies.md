@@ -33,6 +33,14 @@ Once you have deployed the new version, the next version can remove the shims be
 
 The danger with this strategy is that if you discover a problem after you have rolled multiple versions ahead, you will not simply be able to roll back to the stable version since that may introduce data corruption. However, assuming that your release cycles are something around a week apart, the likelihood of multi-version roll back becomes small.
 
+### Forward and backward compatibility
+
+| version | data                   | code                                                                                                                  |
+| ------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| v1      | {name}                 | `use name`</br>ignores email                                                                                          |
+| v2      | {name, email:optional} | `use name`</br>require >= v2 users provide email</br>ask < v2 users provide email</br>`use email` or default fallback |
+| v3      | {name, email}          | require < v3 users provide email</br>`use name`</br>`use email`                                                       |
+
 ## Deployment resources
 
 An important consideration of application deployment is the required resources. Common strategies include:
