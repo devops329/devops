@@ -65,10 +65,8 @@ If you were going to create a log message that described a login HTTP request, y
 {
   "streams": [
     {
-      "stream": {"component":"jwt-pizza-service", "level": "info", "type":"http-req"},
-      "values": [
-        ["1717627004763", "{"name":"pizza diner", "email":"d@jwt.com", "password":"****"}", { "userID":"32", "traceID": "0242ac120002"}]
-      ]
+      "stream": { "component": "jwt-pizza-service", "level": "info", "type": "http-req" },
+      "values": [["1717627004763", "{\"name\":\"pizza diner\", \"email\":\"d@jwt.com\", \"password\":\"****\"}", { "userID": "32", "traceID": "0242ac120002" }]]
     }
   ]
 }
