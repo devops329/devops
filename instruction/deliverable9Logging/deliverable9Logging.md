@@ -91,10 +91,10 @@ Without this your CI pipeline will fail because of missing references from your 
 
 Create a file named `logger.js` in the `src` directory. Use this file for all the code necessary to interact with Grafana. This may be somewhat similar to what you created in the [Grafana Logging instruction](../grafanaLogging/grafanaLogging.md). However, it may need to be more complex than what was presented in the instruction so that you can supply all the required logs.
 
-You can write the code yourself, or a 3rd-party NPM package `logger-cs329` may meet your needs here. Follow these instructions to use the package:
+You can write the code yourself, or a 3rd-party NPM package `pizza-logger` may meet your needs here. Follow these instructions to use the package:
 
-1. Install the package with `npm install logger-cs329`
-1. Import the package with `const Logger = require('logger-cs329');`
+1. Install the package with `npm install pizza-logger`
+1. Import the package with `const Logger = require('pizza-logger');`
 1. Create a new Logger object, passing your config object to the constrcutor: `const logger = new Logger(config);`
 1. The package includes several functions, `httpLogger`, `dbLogger`, `factoryLogger` and `unhandledErrorLogger` which may be useful. It also includes a `sanitize` function.
 
