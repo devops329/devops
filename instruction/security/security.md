@@ -119,7 +119,7 @@ Often times devices or software packages come with default configurations that a
 
 ### Store credentials with a third party
 
-It is common for cloud services to require or provide credentials in order to user their services. Historically, this took the form of API Keys that were tied to some role and would never expire. This was problematic because when the 3rd party was hacked they exposed all of their customer's credentials. This is exactly what happened to [CircleCI](https://circleci.com/blog/jan-4-2023-incident-report/).
+It is common for cloud services to require or provide credentials in order to use their services. Historically, this took the form of API Keys that were tied to some role and would never expire. This was problematic because when the 3rd party was hacked they exposed all of their customer's credentials. This is exactly what happened to [CircleCI](https://circleci.com/blog/jan-4-2023-incident-report/).
 
 Instead of storing credentials it is much better to create a trust relationship between providers using standards such as OAuth to create temporary access. That is the process that you will use to give GitHub Actions the authorization to execute commands for your AWS account.
 
