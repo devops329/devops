@@ -1,4 +1,4 @@
-# ⓼ Logging: JWT Pizza Service
+# ⓽ Logging: JWT Pizza Service
 
 🔑 **Key points**
 
