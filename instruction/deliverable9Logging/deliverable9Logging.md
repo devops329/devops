@@ -95,7 +95,7 @@ You can write the code yourself, or a 3rd-party NPM package `pizza-logger` may m
 
 1. Install the package with `npm install pizza-logger`
 1. Import the package with `const Logger = require('pizza-logger');`
-1. Create a new Logger object, passing your config object to the constrcutor: `const logger = new Logger(config);`
+1. Create a new Logger object, passing your config object to the constructor: `const logger = new Logger(config);`
 1. The package includes several functions, `httpLogger`, `dbLogger`, `factoryLogger` and `unhandledErrorLogger` which may be useful. It also includes a `sanitize` function.
 
 ### Add HTTP logging code
@@ -108,9 +108,7 @@ app.use(logger.httpLogger);
 
 ### Add DB logging
 
-If you are using the code provided in the previous example, you should be able to call the `logger.log` method from a central place in the `database.js` file. Try to centralize the logging as much as possible so that you don't have logging code scattered all over the place.
-
-Consider modifying the `DB.query` function to handle all the database logging.
+If you are using the code provided in the previous example, you should be able to call the `logger.log` method from a central place in the `database.js` file. Try to centralize the logging as much as possible so that you don't have logging code scattered all over the place. For example, consider modifying the `DB.query` function to handle all the database logging.
 
 ### Simulating traffic
 
