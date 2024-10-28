@@ -49,7 +49,7 @@ In order for the `jwt-pizza-service` CI workflow to make requests over the OIDC 
 
 ### Enhance the IAM rights
 
-Next you need to enhance the `github-ci` user rights so that they can push to ECR and initiate the deployment to ECS.
+Next you need to enhance the `github-ci` role rights so that they can push to ECR and initiate the deployment to ECS.
 
 1. Open the AWS IAM service console.
 1. Choose `Roles`.
@@ -112,7 +112,7 @@ Before you can modify the CI workflow for the JWT Pizza Service you need to add 
 | Secret      | Description                                         | Example   |
 | ----------- | --------------------------------------------------- | --------- |
 | AWS_ACCOUNT | Your AWS account number                             | 343243424 |
-| CI_IAM_ROLE | The IAM user with rights to deploy your application | github-ci |
+| CI_IAM_ROLE | The IAM role with rights to deploy your application | github-ci |
 
 Previously the workflow stopped after the tests were done and the coverage badge was updated. Now you want to modify the **build** job of the workflow so that it creates the distributions files you will use to create and deploy a JWT Pizza Service Docker container.
 
