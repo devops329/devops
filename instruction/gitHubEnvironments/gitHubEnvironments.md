@@ -27,7 +27,14 @@ The following image shows that the production environment requires the following
 
 ![Configure environment](configureEnvironment.png)
 
-Make yourself the reviewer and add the same [secrets](../awsS3Deployment/awsS3Deployment.md) that you created previously in order to generally deploy the `jwt-pizza` to deploy to AWS.
+Make yourself the reviewer and add the same [secrets](../awsS3Deployment/awsS3Deployment.md) that you created previously in order to generally deploy `jwt-pizza` to AWS. This should include the following:
+
+| Secret          | Description                                                 | Example              |
+| --------------- | ----------------------------------------------------------- | -------------------- |
+| AWS_ACCOUNT     | Your AWS account number                                     | 343243424            |
+| CI_IAM_ROLE     | The IAM user with rights to deploy your application         | github-ci            |
+| APP_BUCKET      | The S3 bucket hosting your static deployment files          | pizza.ilovebyu.click |
+| DISTRIBUTION_ID | The CloudFront Distribution ID for your frontend deployment | F3GRFXFEBQ8EEU       |
 
 ## Configuring access
 
