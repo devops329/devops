@@ -422,7 +422,7 @@ Go ahead and makes some changes to your `jwt-pizza` source code and watch the au
 
 This type of automation is at the heart of what a DevOps engineer does. Sometimes we think of coding only in regard to writing some algorithmic computation. However, the code found in your CI pipeline is just as valuable as any other lines of your application code. Furthermore, the application code that automates the calculation of Fibonacci would be pointless without the DevOps automation code that makes Fibonacci available to a customer.
 
-It is also pretty cool to write a couple dozen lines of automation code and see it build, test, archive, and deploy an application to multiple data centers around the world all with elastic, resilient hardware and services. After that, writing Fibonacci code feels kinda boring.
+It is also pretty cool to write a couple dozen lines of automation code and see it build, test, archive, and deploy an application to multiple data centers around the world all with elastic, resilient hardware and services. After that, writing web application pizza code feels kinda boring.
 
 ## ☑ Assignment
 
