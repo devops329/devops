@@ -56,7 +56,7 @@ It will contain a subdirectory for each version you build
 └── 20240623.103266
 ```
 
-Go ahead and open up the `ci.yml` file for your fork of `jwt-pizza`. The first change you need to use the version ID when you copy the package to S3. To do this you just need to the version ID as to the bucket path in the **deploy** job. You can also delete the line that does the CloudFront cache invalidation since you will need to do a version specific invalidation after the distribution for the release has been distributed.
+Go ahead and open up the `ci.yml` file for your fork of `jwt-pizza`. The first change you need to use the version ID when you copy the package to S3. To do this you just need to provide the version ID as part of the bucket path in the **deploy** job. You can also delete the line that does the CloudFront cache invalidation since you will need to do a version specific invalidation after the distribution for the release has been distributed.
 
 ```yml
 - name: Push to AWS S3
