@@ -32,7 +32,7 @@ Failure can happen at any level. Just because you work for a software company do
 
 ## Failure considerations
 
-Building the perfect system is usually not possible or desired due to cost and resource constraints. However, you should consider the impact of each possible failure along the following dimensions. Create a rating scale of 1 to 5 and come up with a formula that helps you prioritize which failures you want to address immediately, and which ones can wait until they can be mitigated appropriately.
+Building the perfect system is usually not possible or desired due to cost and resource constraints. However, you should consider the impact of each possible failure along the following dimensions.
 
 | Dimension               | Description                                                                                                                                               |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -42,6 +42,12 @@ Building the perfect system is usually not possible or desired due to cost and r
 | Performance impact      | Does the performance of the system degrade such that it becomes unusable or that observability becomes hampered?                                          |
 | Complexity              | Is the failure a part of the system that is difficult to diagnose, replace, or is so fragile that a mitigation might have a cascading effect?             |
 | Image                   | Will the failure damage the reputation for the company as technically inept, unsecure, or uncaring?                                                       |
+| Prevention cost         | How much will it cost to prevent the failure?                                                                                                             |
+| Likelihood              | How likely is the failure to happen?                                                                                                                      |
+
+You can simplify the equations down to three main factors: 1) Impact, 2) Cost, and 3) Likelihood. You can then calculate the priority of any failure case with a simple equation and then use that to determine where you should put your mitigation efforts.
+
+**Priority** = `Impact` (1-10) \* `Cost` (1-10) \* `Likelihood` (0.0 - 1.0)
 
 ## Load failure
 
