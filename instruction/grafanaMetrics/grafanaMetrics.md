@@ -81,7 +81,7 @@ Using the example command and your newly minted API key you can now insert data 
    This should execute without any error and put your first metric into the Prometheus database.
 1. Now modify the shell command so that it inserts a new metric every few seconds.
    ```sh
-   total=0; while true; do total=$((total+(100 + RANDOM % 901))); curl -X POST -H
+   total=0; while true; do total=$((total+(100 + RANDOM % 901))); curl -X POST -H \
    "Authorization: Bearer $API_KEY" -H "Content-Type: text/plain" "$URL" -d "request,source=jwt-pizza-service total=$total"; sleep 10; done;
    ```
    This should simulate about 6 requests per minute. That should be enough data to make things interesting. Keep this running while you create your visualization.
