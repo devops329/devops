@@ -127,13 +127,3 @@ The common DevOps phrase is to "test your system to failure". This should be cou
 ![XKCD override](xkcdOverride.png)
 
 > _source: [XKCD](https://xkcd.com/912/)_
-
-## ☑ Assignment
-
-Create a playbook for the JWT Pizza that covers what to do when the JWT Pizza Factory endpoints fail to respond or are experiencing high levels of latency.
-
-Put your playbook in a file named `playbooks/jwtFactory.md` and commit it to your fork of the `jwt-pizza` repository. When you are done submit the URL of your playbook to the Canvas assignment. The structure of your playbook should look something like the following:
-
-```
-https://github.com/byucsstudent/jwt-pizza/blob/main/playbooks/jwtFactory.md
-```

@@ -47,7 +47,7 @@ Building the perfect system is usually not possible or desired due to cost and r
 
 You can simplify the equations down to three main factors: 1) Impact, 2) Cost, and 3) Likelihood. You can then calculate the priority of any failure case with a simple equation and then use that to determine where you should put your mitigation efforts.
 
-**Priority** = `Impact` (1-10) \* `Cost` (1-10) \* `Likelihood` (0.0 - 1.0)
+![priority equation](priorityEquation.png)
 
 ## Load failure
 
@@ -70,6 +70,6 @@ Make sure you prevent against security failures with some of these best practice
 
 ## A bit of fun
 
-![XKCD Automation](xkcdFixingProblems.png)
+![XKCD](bugReport.png)
 
-> _source: [XKCD](https://xkcd.com/1739/)_
+> _source: [XKCD](https://xkcd.com/1822/)_
