@@ -43,6 +43,8 @@ No system is completely immune to a persistent, dedicated, well funded team of a
 
 Are all these layers enough to stop an attacker? Probably not, but it will probably slow them down enough for you to notice the intrusion and take direct action.
 
+![Security onion](securityOnion.png)
+
 ### Encryption
 
 Public networks are insecure by definition; you should never send unencrypted data across them. Even internal private networks should be considered suspicious since they can be penetrated. If you are sending unencrypted data across any network it can be a rich source that allows an attacker to grab passwords and other credentials.

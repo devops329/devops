@@ -1,7 +1,9 @@
-## The OWASP Top Ten
+# Security Community
 
 🔑 **Key points**
 
+- There is a large security community seeking to make a positive impact.
+- CWEs and CVEs help track exploits and vulnerabilities.
 - Knowing the top ten exploit vectors helps you prevent them.
 
 ---
@@ -10,6 +12,8 @@
 
 - [OWASP Top Ten](https://owasp.org/www-project-top-ten/)
 - [MITRE CWE Top 25](https://cwe.mitre.org/top25/index.html)
+
+## The OWASP Top Ten
 
 The Open worldwide application security project (OWASP) compiles a list of the top ten security concerns for the software application industry. This list serves as an excellent educational tool to help software engineers understand and prevent the most common software development security failures. Here is a summary of the current list.
 

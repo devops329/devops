@@ -64,7 +64,7 @@ Use automated tools to probe the application. This includes checking for open po
 
 You should also attempt to provide overloaded parameters, exclude parameters, and note undocumented request or response parameters.
 
-Focus your efforts on the common areas of failure defined by the [OWASP top 10](../owaspTop10/owaspTop10.md).
+Focus your efforts on the common areas of failure defined by the [OWASP top 10](../securityCommunity/securityCommunity.md).
 
 ![Penetration testing](penetrationTesting.png)
 

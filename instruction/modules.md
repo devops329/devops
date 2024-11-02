@@ -119,7 +119,7 @@
 
 ## Penetration testing
 
-- [OWASP top 10](owaspTop10/owaspTop10.md)
+- [Security Community](securityCommunity/securityCommunity.md)
 - [Penetration testing](penetrationTesting/penetrationTesting.md)
 - ☑ [Burp Suite](burpSuite/burpSuite.md)
 - ☑ [⑫ Penetration testing: JWT Pizza](deliverable12PenetrationTesting/deliverable12PenetrationTesting.md)
