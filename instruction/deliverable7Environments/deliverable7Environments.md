@@ -345,7 +345,7 @@ Take the following steps in order to create your production release workflow.
      url: https://pizza.YOUDOMAINNAME
    ```
 
-1. Now you are ready to specify your steps. These are very similar to the deployment steps found in the `ci.yml` workflow. The first step sets up access to AWS. The next step updates the CloudFront origin path to point to the desired release, and the final step creates a GitHub release entry to documents that you pushed a new deployment to production. If you need to review what each of these steps are doing, then refer back to the [GitHub Releases](../gitHubReleases/) instruction and the instruction given above on modifying the CloudFront distribution origin path.
+1. Now you are ready to specify your steps. These are very similar to the deployment steps found in the `ci.yml` workflow. The first step sets up access to AWS. The next step updates the CloudFront origin path to point to the desired release, and the final step creates a GitHub release entry to document that you pushed a new deployment to production. If you need to review what each of these steps are doing, then refer back to the [GitHub Releases](../gitHubReleases/) instruction and the instruction given above on modifying the CloudFront distribution origin path.
 
    ```yml
    steps:
