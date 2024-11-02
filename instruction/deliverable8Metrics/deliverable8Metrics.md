@@ -1,4 +1,4 @@
-# ⓻ Metrics: JWT Pizza Service
+# ⓼ Metrics: JWT Pizza Service
 
 🔑 **Key points**
 

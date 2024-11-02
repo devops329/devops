@@ -119,7 +119,7 @@ Often times devices or software packages come with default configurations that a
 
 ### Store credentials with a third party
 
-It is common for cloud services to require or provide credentials in order to user their services. Historically, this took the form of API Keys that were tied to some role and would never expire. This was problematic because when the 3rd party was hacked they exposed all of their customer's credentials. This is exactly what happened to [CircleCI](https://circleci.com/blog/jan-4-2023-incident-report/).
+It is common for cloud services to require or provide credentials in order to use their services. Historically, this took the form of API Keys that were tied to some role and would never expire. This was problematic because when the 3rd party was hacked they exposed all of their customer's credentials. This is exactly what happened to [CircleCI](https://circleci.com/blog/jan-4-2023-incident-report/).
 
 Instead of storing credentials it is much better to create a trust relationship between providers using standards such as OAuth to create temporary access. That is the process that you will use to give GitHub Actions the authorization to execute commands for your AWS account.
 
@@ -298,13 +298,13 @@ There are many creative ways to exploit a software system. Each has their own sp
 
 ## Non-software security concerns
 
-In addition to securing your software application, it is important that your organization if familiar with non-software associated attacks. This includes:
+In addition to securing your software application, it is important that your organization is familiar with non-software associated attacks. This includes:
 
 - **Social engineering attacks**: Human subversion of security controls and practices based on emotional appeal.
 - **Insider threats**: Insufficient hiring practices, periodic reviews of internal staff, automated auditing controls, restriction of access to least privilege, or consensus access controls (where multiple independent parties are required to provide credentials for access).
 - **Physical security**: Insufficient physical controls to sensitive infrastructure or workspaces.
 - **Improper data management**: Allowing confidential data to be accessed without authorization or to be transported outside the security parameter.
-- **Insecure network typography**: Allowing non-authorized, or insecure devices, within the security parameter.
+- **Insecure network topology**: Allowing non-authorized, or insecure devices, within the security parameter.
 
 In many ways these attacks are the most dangerous because they exploit your system behind your wall of trust. Having a hardened, secure, architecture is pointless if one of your team members gives out the administrative password to someone who contacts them from the "operations team" with a desperate need to correct a "critical emergency" that is threatening to take the company down in the next few minutes.
 

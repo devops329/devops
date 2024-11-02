@@ -4,6 +4,8 @@
 
 - Deploy JWT Pizza using a continuous integration pipeline
 
+[🎥 Video overview](https://youtu.be/MID8dL4gppE)
+
 ---
 
 ![course overview](../sharedImages/courseOverview.png)

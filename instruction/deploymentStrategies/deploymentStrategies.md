@@ -13,6 +13,8 @@ There are many deployment strategies you can use when deploying your application
 
 Git branches can serve as a foundational piece of your deployment strategy. It is very common for teams to use either the main branch or a production branch as the sole source for all production releases. New features and fixes are done on separate branches that are named after the feature, or as the anticipated next version number. All testing happens on the feature branch and changes are only merged to the main branch once they have been thoroughly tested.
 
+![Branches](branches.png)
+
 You can also use branches as the source for different deployment environments. For example, the `main` branch goes to production, the `next` branch goes to staging, and the `experimental` branch goes to the research team environment.
 
 ## Rollback
@@ -30,6 +32,14 @@ A common strategy is to keep N-1 compatibility. This means that the new version 
 Once you have deployed the new version, the next version can remove the shims because version N+1 does not have to be compatible with version N-1.
 
 The danger with this strategy is that if you discover a problem after you have rolled multiple versions ahead, you will not simply be able to roll back to the stable version since that may introduce data corruption. However, assuming that your release cycles are something around a week apart, the likelihood of multi-version roll back becomes small.
+
+### Forward and backward compatibility
+
+| version | data                   | code                                                                                                                  |
+| ------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| v1      | {name}                 | `use name`</br>ignores email                                                                                          |
+| v2      | {name, email:optional} | `use name`</br>require >= v2 users provide email</br>ask < v2 users provide email</br>`use email` or default fallback |
+| v3      | {name, email}          | require < v3 users provide email</br>`use name`</br>`use email`                                                       |
 
 ## Deployment resources
 

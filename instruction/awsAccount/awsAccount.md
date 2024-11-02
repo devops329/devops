@@ -72,7 +72,7 @@ Some services require IAM rights, network locality, or security authorization to
 
 ## Lease a DNS domain
 
-If you do not own a DNS hostname you will need to go lease one. We will use this for all of your DevOps deployment tasks. You can lease a domain from AWS using Route53 or use a different provider such as [namecheap.com](https://namecheap.com). You will want to start this process immediately since it might take a while to complete the process.
+If you do not own a DNS hostname you will need to go lease one. We will use this for all of your DevOps deployment tasks. You can lease a domain from AWS using Route53 or use a different provider such as namecheap.com. However, using Route 53 will make your **life much easier** when you go to create DNS records. You will want to start this process immediately since it might take a while to complete the process.
 
 ## What is this going to cost you?
 

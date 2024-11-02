@@ -4,6 +4,8 @@
 
 - Deploy JWT Pizza Service to scalable services using CI.
 
+[🎥 Video overview](https://youtu.be/mhFmGVfFA8c)
+
 ---
 
 ![course overview](../sharedImages/courseOverview.png)
@@ -12,7 +14,7 @@ Now that you have experience with creating, registering, and deploying the JWT P
 
 Your work on this deliverable consists of four parts:
 
-1. **ECR configuration**: Set up ECR to keep track of the different versions of your `jwt-pizza-service` Docker container images.
+1. **ECR configuration**: Set up ECR to store your `jwt-pizza-service` Docker container images.
 1. **Image registration CI**: Modify the CI pipeline to automatically build and deploy a new container image to ECR.
 1. **ECS configuration**: Setup ECS to deploy a container to Fargate and expose it publicly using the application load balancer.
 1. **Image deployment CI**: Modify the CI pipeline to automatically deploy a new container image to ECS.
@@ -47,7 +49,7 @@ In order for the `jwt-pizza-service` CI workflow to make requests over the OIDC 
 
 ### Enhance the IAM rights
 
-Next you need to enhance the `github-ci` user rights so that they can push to ECR and initiate the deployment to ECS.
+Next you need to enhance the `github-ci` role rights so that they can push to ECR and initiate the deployment to ECS.
 
 1. Open the AWS IAM service console.
 1. Choose `Roles`.
@@ -55,7 +57,7 @@ Next you need to enhance the `github-ci` user rights so that they can push to EC
 1. Select the `Permissions` tab.
 1. Click on the `jwt-pizza-ci-deployment` policy.
 1. Select `JSON` and press `Edit`.
-1. Add the following statements in order to allow the use of ECR and ECS.
+1. Add the following statements in order to allow the use of ECR and ECS. Make sure you replace `YOURACCOUNTIDHERE` with your actual AWS account ID.
 
    ```json
    {
@@ -110,9 +112,9 @@ Before you can modify the CI workflow for the JWT Pizza Service you need to add 
 | Secret      | Description                                         | Example   |
 | ----------- | --------------------------------------------------- | --------- |
 | AWS_ACCOUNT | Your AWS account number                             | 343243424 |
-| CI_IAM_ROLE | The IAM user with rights to deploy your application | github-ci |
+| CI_IAM_ROLE | The IAM role with rights to deploy your application | github-ci |
 
-Previously the workflow stopped after the tests were done and the coverage badge was updated. Now you need to add the following steps:
+Previously the workflow stopped after the tests were done and the coverage badge was updated. Now you want to modify the **build** job of the workflow so that it creates the distributions files you will use to create and deploy a JWT Pizza Service Docker container.
 
 1. Create a distribution folder that will become our Docker container. This copies all the source code files and the newly created Dockerfile. We also replace the temporary database credentials that were used during testing with the ones needed by the production environment.
    ```yml
@@ -136,26 +138,28 @@ Previously the workflow stopped after the tests were done and the coverage badge
        path: dist/
    ```
 
+Next, add a **deploy** job that creates the container and pushes it to ECR.
+
 1. Create a new GitHub Actions Job underneath the `build` job and name it `deploy`. Give it permissions to access the CI pipeline token so that it can authenticate with OIDC. Add the version ID created in the build step to the job environment.
 
    ```yml
    deploy:
-   runs-on: ubuntu-latest
-   permissions:
-     id-token: write
-   needs: build
-   env:
-     version: ${{needs.build.outputs.version}}
+     runs-on: ubuntu-latest
+     permissions:
+       id-token: write
+     needs: build
+     env:
+       version: ${{needs.build.outputs.version}}
    ```
 
 1. As the first step, download the distribution artifact created by the last job.
 
    ```yml
    steps:
-      - name: Download distribution artifact
-         uses: actions/download-artifact@v4
-         with:
-            name: package
+     - name: Download distribution artifact
+       uses: actions/download-artifact@v4
+       with:
+         name: package
    ```
 
 1. Authenticate to AWS using OIDC. This is the same authentication step that we took with the frontend deployment. Using OIDC makes it so we don't have to store any credentials to our AWS account.
@@ -215,41 +219,41 @@ You should have already followed the [AWS ECS instruction](../awsEcs/awsEcs.md) 
 
 With ECR configured, the CI workflow for building and pushing a container image to ECR, and ECS configured to deploy a container, you are now ready to enhance the CI workflow to automatically push the container to ECS and update the application load balancer.
 
-You will do this by adding three new steps to the workflow.
+You deploy the new container to ECS by adding three new steps to the **deploy** job of the workflow.
 
-1. Make a copy of the existing `jwt-pizza-service` task definition and save it to a file named `task-definition.json`. Here is an [example task-definition.json](task-definition.json) if you are interested in what they look like.
+1. First, add the step that makes a copy of the existing ECS `jwt-pizza-service` task definition and save it to a file named `task-definition.json`. Here is an [example task-definition.json](task-definition.json) if you are interested in what they look like.
    ```yml
    - name: Download task definition
-   run: |
-      aws ecs describe-task-definition --region us-east-1 --task-definition jwt-pizza-service --query taskDefinition > task-definition.json
-      echo $(cat task-definition.json | jq 'del(.taskDefinitionArn, .requiresAttributes, .compatibilities, .revision, .status, .registeredAt, .registeredBy)') > task-definition.json
+     run: |
+       aws ecs describe-task-definition --region us-east-1 --task-definition jwt-pizza-service --query taskDefinition > task-definition.json
+       echo $(cat task-definition.json | jq 'del(.taskDefinitionArn, .requiresAttributes, .compatibilities, .revision, .status, .registeredAt, .registeredBy)') > task-definition.json
    ```
 1. Modify the task definition so that it contains the name of the new container image that you just created.
    ```yml
    - name: Create new task definition
-   id: task-def
-   uses: aws-actions/amazon-ecs-render-task-definition@v1
-   with:
-      task-definition: task-definition.json
-      container-name: jwt-pizza-service
-      image: ${{ steps.build-image.outputs.image }}
+     id: task-def
+     uses: aws-actions/amazon-ecs-render-task-definition@v1
+     with:
+       task-definition: task-definition.json
+       container-name: jwt-pizza-service
+       image: ${{ steps.build-image.outputs.image }}
    ```
 1. Deploy the new task definition and update the ECS service. This will trigger ECS to create a rolling deployment of the new container and update the application load balancer to expose the new container.
    ```yml
    - name: Deploy new task definition
-   uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-   with:
-      task-definition: ${{ steps.task-def.outputs.task-definition }}
-      service: jwt-pizza-service
-      cluster: jwt-pizza-service
-      wait-for-service-stability: false
+     uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+     with:
+       task-definition: ${{ steps.task-def.outputs.task-definition }}
+       service: jwt-pizza-service
+       cluster: jwt-pizza-service
+       wait-for-service-stability: false
    ```
 
 ### Test the container deployment
 
-With the above changes in place you should be able to test the backend by making curl requests.
+You should now be able to commit and push the workflow script to GitHub. This will trigger the container to be pushed to ECS where it will become visible through your EC2 load balancer.
 
-Replace the assignment of the host variable with your own hostname.
+After the container has been deploy you can test the backend by making curl requests. _(Replace the assignment of the host variable with your own hostname.)_
 
 ```sh
 # Set the hostname - replace with your hostname

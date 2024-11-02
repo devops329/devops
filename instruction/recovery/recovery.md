@@ -89,3 +89,9 @@ You can also create multi-availability zone deployments where you can create a c
 Other RDS database types, such as Aurora, automatically create multiple copies of your database data in multiple regions that are kept in sync with each other. This greatly reduces the need to ever restore your database. With Aurora, you can also create multiple read compute instances that increase the load that your cluster can handle and also provide automatic failover when the write head becomes unresponsive.
 
 There is a cost for all of this redundancy, but the cost of failure can be much higher.
+
+## A bit of fun
+
+![XKCD Automation](xkcdFixingProblems.png)
+
+> _source: [XKCD](https://xkcd.com/1739/)_

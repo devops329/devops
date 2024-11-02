@@ -4,6 +4,8 @@
 
 - Deploy JWT Pizza to GitHub Pages.
 
+[🎥 Video overview](https://youtu.be/oKXmatAJRyU)
+
 ---
 
 ![course overview](../sharedImages/courseOverview.png)

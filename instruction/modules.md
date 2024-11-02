@@ -77,10 +77,10 @@
 ## Deployment strategies
 
 - [Versioning](versioning/versioning.md)
+- [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
 - ☑ [GitHub releases](gitHubReleases/gitHubReleases.md)
 - [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
 - ☑ [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
-- [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
 - ☑ [⓻ Environments: JWT Pizza](deliverable7Environments/deliverable7Environments.md)
 
 ## Observability
@@ -96,14 +96,14 @@
 - ☑ [Grafana logging](grafanaLogging/grafanaLogging.md)
 - ☑ [⓽ Logging: JWT Pizza Service](deliverable9Logging/deliverable9Logging.md)
 - ☑ [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
-- ☑ [Synthetic testing](syntheticTesting/syntheticTesting.md)
+- [Status](statusReporting/statusReporting.md)
 
 ## Load testing
 
+- ☑ [Synthetic testing](syntheticTesting/syntheticTesting.md)
 - [Load testing](loadTesting/loadTesting.md)
 - [Grafana K6](grafanaK6/grafanaK6.md)
 - ☑ [⓾ Load testing: JWT Pizza Service](deliverable10LoadTesting/deliverable10LoadTesting.md)
-- [Status](statusReporting/statusReporting.md)
 
 ## Failure management
 

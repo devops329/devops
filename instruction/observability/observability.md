@@ -14,6 +14,8 @@ When you run an application in your development environment, you know that you a
 
 Has the database run out of memory? Is an old version being deployed for the frontend? Has the backend service lost network connectivity? Is the 3rd party pizza factory experiencing a slowdown, or is there just some small bug in the code for any of those components?
 
+![Observed erros](observedErrors.png)
+
 Without being able to observe what is happening inside the box, you are left guessing what the problem is based entirely on external observations. That usually means that a frustrated customer is reporting a problem in very vague terms, or more likely, no one is reporting the problem and your customers start ordering from your competitor, OAuth Pizza.
 
 ![OAuth Pizza](oauthPizza.png)
@@ -26,11 +28,7 @@ There are three types of tools that are usually associated with increasing the o
 1. **Logging**: Records key information as it passes through the system. This includes fields such as request IP addresses, SQL queries, and authentication requests.
 1. **Tracing**: Allows you to debug a distributed system similarly to how you would use an IDE to walk through each line of code. With tracing, you can follow the path of a request that started on a customer's device, through the backend service, and into a database.
 
-## Vital observability characteristics
-
-There are a number of vital characteristics that make an observability tool valuable. These characteristic define the value and cost of the monitoring. Simple systems that only retain a couple of hours of data and are located on difficult to access storage are not as valuable as real-time dashboards that allow for complex queries with years of history. However, the real-time systems are complex to build and maintain and therefore significantly more expensive. In the end, the characteristics that you choose should be aligned with the value of the system you are observing.
-
-### Golden Signals
+## Golden signals
 
 As described in the [Google SRE Handbook](https://sre.google/sre-book/monitoring-distributed-systems/), there are four metrics, or signals, that you need to observe closely:
 
@@ -40,6 +38,10 @@ As described in the [Google SRE Handbook](https://sre.google/sre-book/monitoring
 - **Saturation**: How much capacity is left in the system.
 
 Each of the signals indicates a different aspect of overall healthiness of the system. For example, you could be responding quickly to requests, but also generating lots of errors, or reaching saturation of the network bandwidth. Errors may be high in number, but form a low percentage of traffic.
+
+## Vital observability characteristics
+
+There are a number of vital characteristics that make an observability tool valuable. These characteristic define the value and cost of the monitoring. Simple systems that only retain a couple of hours of data and are located on difficult to access storage are not as valuable as real-time dashboards that allow for complex queries with years of history. However, the real-time systems are complex to build and maintain and therefore significantly more expensive. In the end, the characteristics that you choose should be aligned with the value of the system you are observing.
 
 ### Correct interpretation
 

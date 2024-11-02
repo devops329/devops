@@ -6,6 +6,8 @@
 - Protect the confidentiality of your secrets
 - Create a version ID
 
+[🎥 Video overview](https://youtu.be/PKiRH2ZKZeM)
+
 ---
 
 ![course overview](../sharedImages/courseOverview.png)
@@ -37,7 +39,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20.x"
+          node-version: '20.x'
 
       - name: Install dependencies
         run: npm ci
@@ -93,7 +95,7 @@ services:
       MYSQL_ROOT_PASSWORD: tempdbpassword
       MYSQL_DATABASE: pizza
     ports:
-      - "3306:3306"
+      - '3306:3306'
     options: >-
       --health-cmd "mysqladmin ping -ptempdbpassword"
       --health-interval 10s
@@ -209,7 +211,7 @@ jobs:
           MYSQL_ROOT_PASSWORD: tempdbpassword
           MYSQL_DATABASE: pizza
         ports:
-          - "3306:3306"
+          - '3306:3306'
         options: >-
           --health-cmd "mysqladmin ping -ptempdbpassword"
           --health-interval 10s
@@ -223,7 +225,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20.x"
+          node-version: '20.x'
 
       - name: Install dependencies
         run: npm ci

@@ -12,7 +12,7 @@ To this point you have been deploying your code directly to your production envi
 ```yml
 - name: Push to AWS S3
   run: |
-    aws s3 cp dist s3://pizza.byucsstudent.click/$version --recursive
+    aws s3 cp dist s3://pizza.byucsstudent.click --recursive
 ```
 
 This has several problems. First, it just copies the deployment package files directly into the S3 location that CloudFront hosts to the world using your application URL. That means that old files that are no longer used by the application (and therefore will not be overwritten by copying) are still available for public access. This creates a security, as well as a maintenance problem.
