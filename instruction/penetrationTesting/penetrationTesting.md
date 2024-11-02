@@ -11,7 +11,7 @@
 
 Penetration testing focuses on preventing any action that would:
 
-1. Prevent normal execution of the application
+1. Allow abnormal execution of the application
 1. Allow unauthorized access to functionality or data
 1. Expose non-public data
 1. Reduce administrator visibility of the application
@@ -82,15 +82,7 @@ The goal here is not to actually use the weapon on the production system, but to
 
 There is great value in sharing information about best practices, vulnerabilities, and attempted and successful penetrations. Only by working together as a community can hope to protect the integrity of the global information infrastructure. The two main tools for sharing vulnerability information are the [Common Vulnerabilities and Exposures](https://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures) (CVE) report, and the [Common Vulnerability Scoring System](https://en.wikipedia.org/wiki/Common_Vulnerability_Scoring_System) (CVSS).
 
-💡 You might consider doing your curiosity report on the design of CVE and CVSS as well as its usefulness in supporting the security community.
-
-### CVE
-
-Common Vulnerabilities and Exposures provides a standard format for vulnerability reporting. A report contains a description, the authority (CNA) assigning the ID, an assigned ID, and the date of creation.
-
-For example, the CVE for the [WannaCry](https://en.wikipedia.org/wiki/WannaCry_ransomware_attack) vulnerability is assigned [CVE-2017-0144](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0144), was assigned by Microsoft, and has the following description.
-
-> The SMBv1 server in Microsoft Windows Vista SP2; Windows Server 2008 SP2 and R2 SP1; Windows 7 SP1; Windows 8.1; Windows Server 2012 Gold and R2; Windows RT 8.1; and Windows 10 Gold, 1511, and 1607; and Windows Server 2016 allows remote attackers to execute arbitrary code via crafted packets, aka "Windows SMB Remote Code Execution Vulnerability." This vulnerability is different from those described in CVE-2017-0143, CVE-2017-0145, CVE-2017-0146, and CVE-2017-0148.
+💡 You might consider doing your curiosity report on the design of CWE, CVE, and CVSS as well as its usefulness in supporting the security community.
 
 ### CVSS
 
