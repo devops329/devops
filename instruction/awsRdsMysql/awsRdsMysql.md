@@ -58,6 +58,8 @@ With the network security deployed, you can now create the MySQL server instance
 
       ⚠️ Make sure you don't use anything complicated in your password. The password is communicated as a URL connection string and so many punctuation mark characters will cause the connection to fail. It is best to stick to alphanumeric passwords.
 
+      💡 Leveraging AWS's built-in master password generation feature will help you follow best practices. Note that Amazon will only allow you to see that password **once**. You will need to save it somewhere safe so that you can use it in multiple contexts: 1) manual deployment by hand and 2) automated deployment with the GitHub actions script.
+
 1. Under **Instance configuration**
 
    1. Select `db.t4g.micro` as the DB instance class
@@ -90,6 +92,8 @@ You can solve the network problem by deploying the JWT Pizza service to AWS and 
 Keeping the database on a private network is a good security practice since the database is a high value target that contains user information and credentials.
 
 ### DB credentials
+
+Ultimately, these changed DB credentials will need to end up in your `config.js` file so that your code can communicate with the RDS database. Be prepared to manually inject the value when you manually deploy your code.
 
 To solve the database credential problem, you will store the information necessary to access the database in your `jwt-pizza-service` GitHub Actions secrets. The CI workflow will inject the credentials into the service's configuration when it is deployed.
 
