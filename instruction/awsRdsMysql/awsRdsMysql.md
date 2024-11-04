@@ -81,7 +81,7 @@ After a few minutes your database will display that it has been created. Note th
 
 With the database deployed, it would be great if you could immediately use it. However, you have two problems. You need to safely provide the credentials to the JWT Pizza Service, and you have to access the database over a private network.
 
-Security is often a trade-off between ease of use and strong protections. Note that DevOps automation can often help alleviate the burden of the security overhead by removing the manual hoops to that you otherwise have to jump through.
+Security is often a trade-off between ease of use and strong protections. Note that DevOps automation can often help alleviate the burden of the security overhead by removing the manual hoops that you otherwise have to jump through.
 
 ### Private network access
 
