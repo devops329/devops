@@ -1,10 +1,12 @@
 #!/bin/bash
 
-# Check if $host is defined
-if [ -z "$host" ]; then
-    echo "Error: The host variable is not defined."
-    exit 1
+# Check if host is provided as a command line argument
+if [ -z "$1" ]; then
+  echo "Usage: $0 <host>"
+  echo "Example: $0 http://localhost:3000"
+  exit 1
 fi
+host=$1
 
 # Function to cleanly exit
 cleanup() {
