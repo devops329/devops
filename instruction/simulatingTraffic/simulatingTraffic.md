@@ -22,7 +22,7 @@ If you are hitting your production system then you will set it to something like
 host=https://pizza-service.byucsstudent.click
 ```
 
-## Common scripts
+## Common endpoint calls
 
 The following are some examples that you can use.
 
@@ -72,4 +72,23 @@ while true
    curl -X DELETE $host/api/auth -H "Authorization: Bearer $token";
    sleep 30;
  done;
+```
+
+## Simulating traffic script
+
+You can also combine commands together into a script that runs all commands. The [generatePizzaTraffic.sh](simulatingTrafficExample/generatePizzaTraffic.sh) provides an example of doing this. The following outlines the general flow of the script.
+
+```sh
+# Exit if $host is not defined.
+
+# Provide a function that kills all of the while loops background processes on CTRL-C
+
+# Repeatedly run curl commands in while loops as background processes.
+
+# Simulate a user requesting the menu every 3 seconds
+# Simulate a user with an invalid email and password every 25 seconds
+# Simulate a franchisee logging in every 110 seconds
+# Simulate a diner ordering a pizza every 20 seconds
+
+# Wait for the background processes to complete
 ```
