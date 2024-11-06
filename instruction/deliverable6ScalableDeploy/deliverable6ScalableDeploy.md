@@ -61,14 +61,23 @@ Next you need to enhance the `github-ci` role rights so that they can push to EC
 
    ```json
    {
+      "Sid": "AuthenticateWithECR",
+      "Effect": "Allow",
+      "Action": "ecr:GetAuthorizationToken",
+      "Resource": "*"
+   },
+   {
       "Sid": "PushToECR",
       "Effect": "Allow",
       "Action": [
-            "ecr:*"
+            "ecr:BatchGetImage",
+            "ecr:BatchCheckLayerAvailability",
+            "ecr:PutImage",
+            "ecr:InitiateLayerUpload",
+            "ecr:UploadLayerPart",
+            "ecr:CompleteLayerUpload"
       ],
-      "Resource": [
-            "*"
-      ]
+      "Resource": "arn:aws:ecr:us-east-1:YOURACCOUNTIDHERE:repository/jwt-pizza-service"
    },
    {
       "Sid": "RegisterTaskDefinition",
