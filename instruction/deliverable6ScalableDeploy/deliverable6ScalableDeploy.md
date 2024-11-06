@@ -215,6 +215,9 @@ You should now be able to commit and push the workflow script to GitHub. This wi
 
 You should have already followed the [AWS ECS instruction](../awsEcs/awsEcs.md) in order to get your AWS account setup to host the JWT Pizza Service container using Fargate and an application load balancer. Additionally, you should have already set up your [RDS MySQL database](../awsRdsMysql/awsRdsMysql.md). If you have not done this yet, then do so now.
 
+> [!NOTE]
+> When you originally completed the ECS instruction, it was not required that your container correctly communicate with your database. Now that your `config.js` file has been correctly populated with values, your container will have the credentials to hit authorized endpoints!
+
 ## Step 4: Image deployment CI
 
 With ECR configured, the CI workflow for building and pushing a container image to ECR, and ECS configured to deploy a container, you are now ready to enhance the CI workflow to automatically push the container to ECS and update the application load balancer.
