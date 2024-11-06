@@ -155,9 +155,10 @@ Take the following steps to deploy with an Application Load Balancer.
       1. Provide the name `jwt-pizza-service`.
       1. Set the Protocol to HTTP.
       1. Set the Health check path to `/api/docs`.
-   1. Press `Create`.
 
       ![Load balancer config](loadBalancerConfig.png)
+
+1. Press `Create`.
 
 This will take a few minutes for the service and associated load balancer to deploy. You can view the progress either on the CloudFormation or EC2 service.
 
