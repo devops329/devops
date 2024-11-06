@@ -78,7 +78,6 @@ With the bucket in place you can now create your CloudFront distribution that wi
 1. Press the `Create distribution` button.
 1. For the `Origin domain` start typing the name of the bucket you create. The S3 bucket should appear.
    > ![Origin domain entry](originDomainEntry.png)
-1. In the name edit box, change the name so that it is just your DNS name for simplicity.
 1. Under `Origin access` change from `public`, because our S3 bucket is not public, to ~**Origin access control settings**~ (Origin Request Policy?). Create a new OAC if you don't already have one, and press `Create`. The OAC allows CloudFront to request private files from S3. This will display a message saying that you need to update the S3 bucket policy. We will do this step later.
 1. Skip down to `Default cache behavior`
    1. Under `Viewer protocol policy` specify **Redirect HTTP to HTTPS**
