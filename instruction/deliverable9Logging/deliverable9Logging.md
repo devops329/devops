@@ -40,12 +40,15 @@ Modify your service's config.js file to contain the Grafana logging credentials.
 
 ```js
   logging: {
-     source: 'jwt-pizza-service',
+     source: 'jwt-pizza-service-dev',
      userId: 2222222,
-     url: 'https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write',
+     url: 'https://logs-prod-006.grafana.net/loki/api/v1/push',
      apiKey: 'glc_111111111111111111111111111111111111111111='
    }
 ```
+
+> [!NOTE]
+> You want your development environment you should use a different `source` so that you don't mix logs from different environments. In the example shown above the `source` is set to **jwt-pizza-service-dev**.
 
 ### Modify CI pipeline
 
