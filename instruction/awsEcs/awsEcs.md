@@ -142,7 +142,7 @@ Take the following steps to deploy with an Application Load Balancer.
 1. Press `Clusters` from the left side navigation panel.
 1. Press the cluster you created earlier (`jwt-pizza-service`).
 1. Press the `Create service` button.
-1. Repeat the steps to [Create an ECS Service](#create-an-ecs-service).
+1. Repeat the earlier steps to [create an ECS Service](#create-an-ecs-service).
 1. Under `Load balancing`
 
    1. Select `Application Load Balancer`
