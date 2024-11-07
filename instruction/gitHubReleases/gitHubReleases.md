@@ -47,7 +47,7 @@ release:
   runs-on: ubuntu-latest
   steps:
     - name: Create Release
-      uses: ncipollo/release-action@v1
+      uses: ncipollo/release-action@2c591bcc8ecdcd2db72b97d6147f871fcd833ba5
       env:
         version: ${{needs.build.outputs.version}}
       with:
