@@ -142,7 +142,7 @@ Take the following steps to deploy with an Application Load Balancer.
 1. Press `Clusters` from the left side navigation panel.
 1. Press the cluster you created earlier (`jwt-pizza-service`).
 1. Press the `Create service` button.
-1. Repeat the earlier steps.
+1. Repeat the steps to [Create an ECS Service](#create-an-ecs-service).
 1. Under `Load balancing`
 
    1. Select `Application Load Balancer`
@@ -155,9 +155,10 @@ Take the following steps to deploy with an Application Load Balancer.
       1. Provide the name `jwt-pizza-service`.
       1. Set the Protocol to HTTP.
       1. Set the Health check path to `/api/docs`.
-   1. Press `Create`.
 
       ![Load balancer config](loadBalancerConfig.png)
+
+1. Press `Create`.
 
 This will take a few minutes for the service and associated load balancer to deploy. You can view the progress either on the CloudFormation or EC2 service.
 
