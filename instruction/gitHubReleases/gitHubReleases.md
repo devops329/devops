@@ -37,6 +37,8 @@ Since we are DevOps engineers, reading the human-dependent steps above should im
 
 You do this by creating a new workflow job named **release** that triggers when both the build and deploy jobs complete. This job will use the third party `ncipollo/release-action` to call the GitHub API and automatically create the tag and release based upon information found in the execution trigger and the version ID created in the **build** job. You can reference the version variable from the build job with the `needs.build.outputs.version` variable.
 
+> [!NOTE] Blindly using other people's code is a security risk. We have mitigated the risk for our purposes by manually reviewing the code, _and_ by specifying the exact commit from which the action should be used. This gives us confidence that bad actors cannot execute arbitrary code in our workflows by "updating" their source.
+
 Add the following to your `ci.yml` pipeline.
 
 ```yml
