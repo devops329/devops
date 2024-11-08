@@ -94,7 +94,8 @@ You can populate a sequencer request by right-clicking on any request in the Tar
 
 Next, we press the `Start live capture` button. This will begin the process of executing thousands of requests.
 
-⚠️ **Note**: This will execute thousands or even tens of thousands of login requests. Depending on your backend service configuration this might cause scaling or additional payment charges. So be careful what you do here.
+> [!NOTE]
+> This will execute thousands or even tens of thousands of login requests. Depending on your backend service configuration this might cause scaling or additional payment charges. So be careful what you do here.
 
 ![Sequencer token](sequencerToken.png)
 

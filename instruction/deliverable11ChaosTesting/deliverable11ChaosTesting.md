@@ -43,7 +43,8 @@ Your job is to do the following:
 1. Properly diagnose and remedy the root cause of the failure.
 1. Produce an [incident report](../incidentReport/incidentReport.md) using the template found in the `jwt-pizza` repository under the [incidentReports](https://github.com/devops329/jwt-pizza/tree/main/incidentReports) folder.
 
-⚠️ **Note**: If you are unable to be on call during the defined testing period you have the responsibility to notify the instructor and negotiate an alternative schedule.
+> [!NOTE]
+> If you are unable to be on call during the defined testing period you have the responsibility to notify the instructor and negotiate an alternative schedule.
 
 The AutoGrader will know when you have resolved the issue and give you a score for that portion of the assignment as described in the rubric below.
 

@@ -46,7 +46,8 @@ To create a Grafana synthetic test do the following:
    1. Provide `jwt-pizza` as the **Job name**.
    1. Provide the URL of your JWT Pizza application as the **Request target**.
 
-      ⚠️ **Note**: This will require that your application is currently running. If it is not, then go and deploy it now.
+      > [!NOTE]
+      > This will require that your application is currently running. If it is not, then go and deploy it now.
 
    ![Define check](defineCheck.png)
 

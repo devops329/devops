@@ -21,4 +21,5 @@ A core part of your deliverable submissions is showing proof of your work. You d
 git commit -m "#d3 Your message here"
 ```
 
-⚠️ **Note**: If you do not follow this format, your grade may be penalized by as much as 20%.
+> [!NOTE]
+> If you do not follow this format, your grade may be penalized by as much as 20%.

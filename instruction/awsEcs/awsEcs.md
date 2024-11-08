@@ -198,7 +198,8 @@ The last step for configuring the scalable deployment of your backend, is to cre
 
 ![Create load balancer DNS record](createLoadBalancerDnsRecord.png)
 
-⚠️ **Note**: The subdomain must be `pizza-service` in order for the AutoGrader to access your service.
+> [!NOTE]
+> The subdomain must be `pizza-service` in order for the AutoGrader to access your service.
 
 ### Testing the DNS record
 
