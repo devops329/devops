@@ -31,7 +31,7 @@ Using the process that you executed in the previous instruction about how to bui
 
 ⚠️ **Note**: You must have the [AWS CLI installed](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) before you execute the next steps. If you have not done that yet, then go and do it now.
 
-1. Follow the steps that you previously used to build the **jwt-pizza-service** container (including navigating to the `dist` folder before building the container). However, this time specify the target platform of (`linux/arm64`) since that is the operating system you will use when you deploy the container to AWS. Additionally, including the [`--provenance=false`](https://stackoverflow.com/a/77207574/2844859) flag avoids a behavior that appears to upload _three items_ into your AWS ECR account in subsequent steps.
+1. Follow the steps that you previously used to build the **jwt-pizza-service** container (including navigating to the `dist` folder before building the container). However, this time specify the target platform of (`linux/arm64`) since that is the operating system you will use when you deploy the container to AWS. The `--provenance=false` parameter reduces the bookkeeping information that is uploaded to the container registry.
    ```sh
    docker build --platform=linux/arm64 --provenance=false -t jwt-pizza-service .
    ```
