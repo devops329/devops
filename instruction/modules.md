@@ -14,6 +14,7 @@
 - [History](history/history.md)
 - [Terminology](terminology/terminology.md)
 - [🍕 JWT Pizza](jwtPizza/jwtPizza.md)
+- [Intro to AWS](aws/aws.md)
 - ☑ [AWS Account](awsAccount/awsAccount.md)
 - [GitHub](gitHub/gitHub.md)
 - [AutoGrader](autoGrader/autoGrader.md)
@@ -58,7 +59,6 @@
 
 - [Cloud deployment](cloudDeployment/cloudDeployment.md)
 - [Security](security/security.md)
-- [Intro to AWS](aws/aws.md)
 - ☑ [AWS S3](awsS3/awsS3.md)
 - [AWS CloudFront](awsCloudFront/awsCloudFront.md)
 - [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)

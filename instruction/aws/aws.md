@@ -6,9 +6,6 @@
 
 ---
 
-> [!NOTE]
-> If you have not yet [created your AWS account](https://aws.amazon.com/free), you must do so now. We will be making extensive use of AWS for the rest of the course.
-
 Amazon Web Services (AWS) is the dominate leader is the cloud infrastructure space. AWS pioneered cloud computing when it realized that it had a lot of advanced computing infrastructure that was being used to support the Amazon shopping site and would be very attractive to other companies that didn't want to build and manage their own data centers.
 
 ## Global reach
