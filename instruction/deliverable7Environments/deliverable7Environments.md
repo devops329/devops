@@ -370,7 +370,7 @@ Take the following steps in order to create your production release workflow.
          aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
 
      - name: Create production release
-       uses: ncipollo/release-action@v1
+       uses: ncipollo/release-action@2c591bcc8ecdcd2db72b97d6147f871fcd833ba5
        with:
          tag: production-version-${{ env.version }}
          name: Production ${{ env.version }}
