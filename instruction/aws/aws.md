@@ -15,9 +15,7 @@ When AWS first launched in 2006 it was hosted in one regional area located in th
 ![alt text](awsRegions.png)
 
 > [!IMPORTANT]
-> You must do all of your work in AWS using the US-EAST-1 (N. Virginia) region. Some services, for example CloudFront using the Certificate Manager, requires the use of US-EAST-1 and that will make your life a little easier to do everything in Virginia until you become more comfortable with AWS. To select the **N. Virginia** region, open the AWS browser console and select the region from the drop down control in the top right corner.
-
-![alt text](regionSelection.png)
+> You must do all of your work in AWS using the US-EAST-1 (N. Virginia) region. Some services, for example CloudFront using the Certificate Manager, requires the use of US-EAST-1 and that will make your life a little easier to do everything in Virginia until you become more comfortable with AWS.
 
 ## Services
 
