@@ -23,64 +23,17 @@ At a basic level S3 is just a global list of bucket names that each contain a po
 
 It doesn't actually have a directory structure or path, but objects with the same prefix will appear to be associated. Additionally, the `/` character is treated as special by many tools. This allows them to display and navigate them as directories, when in reality it is just another character in the name.
 
-## Accessing S3 files
+## Getting started with S3
 
-You can experiment with S3 by using the AWS Browser console interface, or with the AWS CLI from your command console. For example, you can list all the AWS S3 buckets that are owned by your account with the `ls` command. Make sure you have the AWS CLI installed in your development environment with an associated access key. Otherwise, you can use the [AWS CloudShell service](https://aws.amazon.com/cloudshell/) from the AWS Browser Console to experiment with these commands.
+The easiest way to get started using AWS S3 is to use the AWS browser console for the S3 service. Once you have opened the AWS browser console, use it to navigate to the [S3 service](https://console.aws.amazon.com/s3/buckets) by entering `S3` into the search bar. You then create a bucket by pressing the **Create bucket** button.
 
-```sh
-aws s3 ls
+![Create bucket button](createBucketButton.png)
 
-2024-05-28 14:52:14 myaccount-cf-templates
-2021-03-20 23:49:51 myaccount.com
-2024-05-20 22:23:43 pizza.byucsstudent.click
-```
+Buckets are identified by a globally unique name that you provide. That means you have to pick a name for your bucket that no one else has ever used. Commonly your companies name or website hostname is used a prefix for your bucket names.
 
-You can then list the files in a specific bucket with a similar command. Note the `s3://` protocol at the beginning of the object name. This helps to differentiate the location of the file so that it doesn't conflict with files that might be on your local storage device.
+![Create bucket](createBucket.png)
 
-```sh
-aws s3 ls s3://pizza.byucsstudent.click
-
-                           PRE assets/
-2024-06-21 14:35:50        516 index.html
-2024-06-21 14:35:50       8261 jwt-pizza-icon.png
-2024-06-21 14:35:50      23142 jwt-pizza-logo.png
-2024-06-21 14:35:50     119402 mamaRicci.png
-2024-06-21 14:35:50         59 robots.txt
-2024-06-21 14:35:50         31 version.json
-```
-
-In order to copy files you used the `cp` command where the first parameter is the source and the second parameter is the target. Make sure you include the `--recursive` parameter if you want to copy all the files that share the same prefix.
-
-```sh
-aws s3 cp s3://pizza.byucsstudent.click assets --recursive
-
-download: s3://pizza.byucsstudent.click/assets/index-CRT3bSBQ.css to assets/index-CRT3bSBQ.css
-download: s3://pizza.byucsstudent.click/assets/index-S42wtqrP.js to assets/index-S42wtqrP.js
-```
-
-You can delete one or more files using the `rm` command. This command might seem more complex than what you are used to, but that is mainly because there is no directory structure and so you have to provide parameters for what would have been assumed from the structure itself.
-
-```sh
-aws s3 rm s3://pizza.byucsstudent.click --recursive --exclude "*" --include "assets*"
-
-delete: s3://pizza.byucsstudent.click/assets/index-BwtN1-bI.css
-delete: s3://pizza.byucsstudent.click/assets/index-CIrFRDex.js
-delete: s3://pizza.byucsstudent.click/assets/index-CRT3bSBQ.css
-```
-
-## S3 access
-
-By default, all S3 buckets are private and the objects they contain can only be accessed by entities that you give permission. This can be done by creating an AWS IAM Role that has a policy giving it permission to the bucket.
-
-```json
-{
-  "Effect": "Allow",
-  "Action": ["s3:ListBuckets", "s3:ListObjects", "s3:GetObject"],
-  "Resource": "arn:aws:s3:::pizza.byucsstudent.click/*"
-}
-```
-
-Alternatively, you can make your bucket publicly available for read access by altering the bucket's permissions in the AWS Browser console. You should only do this if you want to host files directly from your bucket.
+By default, all S3 buckets are private and the objects they contain can only be accessed by entities that you give permission. Generally to want to keep this default restriction so that you don't accidentally allow public access to files that you meant to keep private. You can always give access to specific files, or allow other AWS services to access your bucket files later. You will do this when you publicly expose your frontend application files later in the course.
 
 ![Public bucket access](publicBucketAccess.png)
 
@@ -94,18 +47,15 @@ You are going to use S3 to statically host the JWT Pizza static frontend code th
 
 Create an S3 bucket and copy a file into the bucket.
 
-1. Open the AWS browser console and navigate to the S3 service.
+1. Open the AWS browser console and navigate to the [S3 service](https://console.aws.amazon.com/s3/buckets).
 1. Click on the `Create bucket` button.
 1. Select the `General configuration` option and name it something unique. Remember that the bucket namespace is global, and so you cannot use a name that already is in use.
-
-   ![Create bucket](createBucket.png)
-
 1. Leave all the other settings with their default, including _Block all public access_. Press the `Create bucket` button.
 1. Click on the newly created bucket to open it up.
 1. Drag a file from your development environment and drop it on the `Upload` target.
 1. Press the `Upload` button and then press the `Close` button to return to the bucket view.
 
-Take a screenshot of the bucket with your file in it and submit it to the Canvas assignment. Your screenshot should look something like the following.
+Now that you have a bucket that contains a file, take a screenshot of the bucket and submit it to the Canvas assignment. Your screenshot should look something like the following.
 
 ![Bucket with file](bucketWithFile.png)
 
