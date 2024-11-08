@@ -32,9 +32,9 @@ Using the process that you executed in the previous instruction about how to bui
 > [!NOTE]
 > You must have the [AWS CLI installed](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) before you execute the next steps. If you have not done that yet, then go and do it now.
 
-1. Follow the steps that you previously used to build the **jwt-pizza-service** container (including navigating to the `dist` folder before building the container). However, this time specify the target platform of (`linux/arm64`) since that is the operating system you will use when you deploy the container to AWS.
+1. Follow the steps that you previously used to build the **jwt-pizza-service** container (including navigating to the `dist` folder before building the container). However, this time specify the target platform of (`linux/arm64`) since that is the operating system you will use when you deploy the container to AWS. The `--provenance=false` parameter reduces the bookkeeping information that is uploaded to the container registry.
    ```sh
-   docker build  --platform=linux/arm64 -t jwt-pizza-service .
+   docker build --platform=linux/arm64 --provenance=false -t jwt-pizza-service .
    ```
 1. Open the AWS browser console and navigate to the Elastic Container Registry (ECR) service.
 1. Open the repository you created in the earlier step.
