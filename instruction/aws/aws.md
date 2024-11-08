@@ -10,6 +10,10 @@ Amazon Web Services (AWS) is the dominate leader is the cloud infrastructure spa
 
 ## Global reach
 
+When AWS first launched in 2006 it was hosted in one regional area located in the US state of Virginia. That region contained three independent data centers that were located a few miles from each other. As of 2024, AWS has 33 regional centers with an expected total of 123 data centers deployed by the end of 2026. Additionally, there are over 600 edge locations that enable accelerated network access and caching. This global coverage allows you to easily deploy an application that is available to every corner of the planet.
+
+![alt text](awsRegions.png)
+
 > [!IMPORTANT]
 > You must do all of your work in AWS using the US-EAST-1 (N. Virginia) region. Some services, for example CloudFront using the Certificate Manager, requires the use of US-EAST-1 and that will make your life a little easier to do everything in Virginia until you become more comfortable with AWS. To select the **N. Virginia** region, open the AWS browser console and select the region from the drop down control in the top right corner.
 
@@ -20,10 +24,6 @@ Amazon Web Services (AWS) is the dominate leader is the cloud infrastructure spa
 In 2006 AWS deployed with three major services: Storage (S3), Virtual compute servers (EC2), and a message queueing service (SQS). That simple initial offering has grown to over 200 service spanning compute, storage, databases, analytics, networking, AI, image processing, authentication, infrastructure management, and security.
 
 ![Services](services.png)
-
-These services were hosted in on regional area located in the US state of Virginia. That region contained three independent data centers. As of 2024, AWS has 33 regions with an expected total of 123 data centers deployed by the end of 2026. Additionally, there are over 600 edge locations that enable accelerated network access and caching. This global coverage allows you to easily deploy an application that is available to every corner of the planet.
-
-![alt text](awsRegions.png)
 
 The sheer amount of services can make AWS feel complex and imposing. The key to learning how to use AWS is to start small. For the work in this course you will only use the following services:
 
