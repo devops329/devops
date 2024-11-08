@@ -58,6 +58,7 @@
 
 - [Cloud deployment](cloudDeployment/cloudDeployment.md)
 - [Security](security/security.md)
+- [Intro to AWS](aws/aws.md)
 - ☑ [AWS S3](awsS3/awsS3.md)
 - [AWS CloudFront](awsCloudFront/awsCloudFront.md)
 - [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)

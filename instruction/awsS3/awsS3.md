@@ -9,12 +9,6 @@
 
 ---
 
-> [!NOTE]
-> If you have not yet created your AWS account, you must do so now. We will be making extensive use of AWS for the rest of the course.
-
-> [!NOTE]
-> We suggest that you do all of your work in AWS using the US-EAST-1 (Virginia) region. Some services require this and that will make your life a little easier to start here until you become more comfortable with AWS.
-
 One of the earliest services provided by Amazon Web Services was an object storage service named S3 (Simple Storage Service). S3 is a scalable, high-speed, web-based cloud storage service designed for online backup and archiving of data. S3 provides access through a web service interface, allowing users to store and retrieve any amount of data from anywhere on the web.
 
 S3 provides high durability and availability, security features such as encryption and access controls, scalability to handle large volumes of data, cost-effectiveness, and integration with a wide range of AWS services and third-party tools. All of these reasons make it a good choice for your production deployment of the JWT Pizza static frontend.
