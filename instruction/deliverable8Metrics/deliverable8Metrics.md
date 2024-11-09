@@ -189,7 +189,7 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
    1. On the Grafana Cloud console, navigate to your dashboard.
    1. Press the `Share` button.
    1. Press the `Export` tab and `Save to file`.
-   1. Name the file `grafana/deliverable7dashboard.json`
+   1. Name the file `grafana/deliverable8dashboard.json`
 1. Commit and push your changes so that they are running in your production environment.
 
 Once this is all working you should have something like this:
