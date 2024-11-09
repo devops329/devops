@@ -33,7 +33,7 @@ Buckets are identified by a globally unique name that you provide. That means yo
 
 ![Create bucket](createBucket.png)
 
-By default, all S3 buckets are private and the objects they contain can only be accessed by entities that you give permission. Generally to want to keep this default restriction so that you don't accidentally allow public access to files that you meant to keep private. You can always give access to specific files, or allow other AWS services to access your bucket files later. You will do this when you publicly expose your frontend application files later in the course.
+By default, all S3 buckets are private and the objects they contain can only be accessed by entities that you give permission. Generally you want to keep this default restriction so that you don't accidentally allow public access to files that you meant to keep private. You can always give access to specific files, or allow other AWS services to access your bucket files later. You will do this when you publicly expose your frontend application files later in the course.
 
 ![Public bucket access](publicBucketAccess.png)
 
