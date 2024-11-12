@@ -11,7 +11,7 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
-## Required log fields
+## Required log events
 
 It is time to add logging observability to the `jwt-pizza-service `code. In your fork of the code, use what you learned about [Grafana logging](../grafanaLogging/grafanaLogging.md) to create a log of all the following:
 
@@ -138,7 +138,7 @@ You will need some traffic to your website in order to demonstrate that the logg
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
 1. Modify your fork of the `jwt-pizza-service` to generate the required logs and store them in your Grafana Cloud account.
-1. Create a log visualization on your Grafana Cloud `Pizza Dashboard` to display all the [required log fields](#required-log-fields).
+1. Create a log visualization on your Grafana Cloud `Pizza Dashboard` to display all the [required log events](#required-log-events).
 1. Export a copy of your dashboard and save it to your fork of the `jwt-pizza-service` repository in a directory named `grafana`.
    1. On the Grafana Cloud console, navigate to your dashboard.
    1. Press the `Share` button.
@@ -161,6 +161,6 @@ https://youraccounthere.grafana.net/public-dashboards/29305se9fsacc66a21fa91899b
 | Percent | Item                                                             |
 | ------- | ---------------------------------------------------------------- |
 | 70%     | Storing all required log events in Grafana Cloud Loki data store |
-| 30%     | Visualizing all required log fields in Grafana Cloud dashboard   |
+| 30%     | Visualizing all required log events in Grafana Cloud dashboard   |
 
 **Congratulations!** You have provided significant observability for your JWT Pizza Service. Time to go celebrate. I'm thinking bananas sound nice 🍌.
