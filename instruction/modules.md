@@ -96,7 +96,7 @@
 - [Logging](logging/logging.md)
 - ☑ [Grafana logging](grafanaLogging/grafanaLogging.md)
 - ☑ [⓽ Logging: JWT Pizza Service](deliverable9Logging/deliverable9Logging.md)
-- ☑ [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
+- [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
 - [Status](statusReporting/statusReporting.md)
 
 ## Load testing
