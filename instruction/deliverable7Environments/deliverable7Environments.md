@@ -112,7 +112,7 @@ Way to go! You just did a manual deployment to your production environment using
 
 To create a staging environment you need to repeat the process you went through to create your original CloudFront distribution, but modify a few things to specifically represent a staging environment.
 
-1. Create a new CloudFront distribution using the [same instructions](../deliverable5CdnDeploy/deliverable5CdnDeploy.md) that you used to originally set up CloudFront, but with the following differences.
+1. Create a new CloudFront distribution using the [same instructions](../awsCloudFront/awsCloudFront.md#cloudfront-cdn-hosting) that you used to originally set up CloudFront, but with the following differences.
 
    1. Change the description to be **JWT Pizza Staging**.
    1. Set the `Alternate domain name` to be **stage-pizza.YOURDOMAINNAME**. It is important your follow this format so the AutoGrader can access your staging site.
@@ -130,7 +130,7 @@ To create a staging environment you need to repeat the process you went through 
    ]
    ```
 
-1. Assign a DNS record to point to staging.
+1. [Assign a DNS record](../awsCloudFront/awsCloudFront.md#route-53) to point to staging.
 
    1. Create Route 53 CNAME record that points stage-pizza.YOURDOMAINNAME to your staging CloudFront distribution.
 
@@ -189,7 +189,7 @@ To add the IAM permissions to your IAM `github-ci` role, open the AWS browser co
 				"cloudfront:CreateInvalidation",
 				"cloudfront:UpdateDistribution",
 				"cloudfront:GetDistribution",
-        "cloudfront:GetDistributionConfig"
+				"cloudfront:GetDistributionConfig"
 			],
 			"Resource": [
 				"arn:aws:cloudfront::YOURAWSACCOUNTID:distribution/*"
