@@ -37,6 +37,7 @@ Your job is to do the following:
 1. Make sure the application is up and running correctly during the testing period.
 1. Have all the [metrics](../grafanaMetrics/grafanaMetrics.md) and [logging](../grafanaLogging/grafanaLogging.md) reporting in place necessary for you to be able to observe and diagnose the failure.
 1. Have an appropriate [alerting system](../grafanaOnCall/grafanaOnCall.md) in place so that you are effectively on call during the entire testing period.
+1. Make sure you are [simulating traffic](../simulatingTraffic/simulatingTraffic.md) to your application. Otherwise you will not have any interesting metrics to trigger an alarm on when the chaos is injected.
 1. Go to the [AutoGrader](https://cs329.cs.byu.edu), select Deliverable Eleven and select `I'm ready for some chaos!`
 1. The incident will occur between 8am and 2pm the next day.
 1. Respond to the incident in a timely manner.
