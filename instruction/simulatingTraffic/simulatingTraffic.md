@@ -31,47 +31,44 @@ The following are some examples that you can use.
 ### Hit the menu every three seconds
 
 ```sh
-while true
- do curl -s $host/api/order/menu;
-  sleep 3;
- done;
+while true; do
+  curl -s $host/api/order/menu
+  sleep 3
+done
 ```
 
 ### Invalid login every 25 seconds
 
 ```sh
-while true
- do
-  curl -s -X PUT $host/api/auth -d '{"email":"unknown@jwt.com", "password":"bad"}' -H 'Content-Type: application/json';
-  sleep 25;
- done;
+while true; do
+  curl -s -X PUT $host/api/auth -d '{"email":"unknown@jwt.com", "password":"bad"}' -H 'Content-Type: application/json'
+  sleep 25
+done
 ```
 
 ### Login and logout two minutes later
 
 ```sh
-while true
- do
-  response=$(curl -s -X PUT $host/api/auth -d '{"email":"f@jwt.com", "password":"franchisee"}' -H 'Content-Type: application/json');
-  token=$(echo $response | jq -r '.token');
-  sleep 110;
-  curl -X DELETE $host/api/auth -H "Authorization: Bearer $token";
-  sleep 10;
- done;
+while true; do
+  response=$(curl -s -X PUT $host/api/auth -d '{"email":"f@jwt.com", "password":"franchisee"}' -H 'Content-Type: application/json')
+  token=$(echo $response | jq -r '.token')
+  sleep 110
+  curl -X DELETE $host/api/auth -H "Authorization: Bearer $token"
+  sleep 10
+done
 ```
 
 ### Login, buy a pizza, wait 20 seconds, logout, wait 30 seconds
 
 ```sh
-while true
- do
-   response=$(curl -s -X PUT $host/api/auth -d '{"email":"d@jwt.com", "password":"diner"}' -H 'Content-Type: application/json');
-   token=$(echo $response | jq -r '.token');
-   curl -s -X POST $host/api/order -H 'Content-Type: application/json' -d '{"franchiseId": 1, "storeId":1, "items":[{ "menuId": 1, "description": "Veggie", "price": 0.05 }]}'  -H "Authorization: Bearer $token";
-   sleep 20;
-   curl -X DELETE $host/api/auth -H "Authorization: Bearer $token";
-   sleep 30;
- done;
+while true; do
+  response=$(curl -s -X PUT $host/api/auth -d '{"email":"d@jwt.com", "password":"diner"}' -H 'Content-Type: application/json')
+  token=$(echo $response | jq -r '.token')
+  curl -s -X POST $host/api/order -H 'Content-Type: application/json' -d '{"franchiseId": 1, "storeId":1, "items":[{ "menuId": 1, "description": "Veggie", "price": 0.05 }]}'  -H "Authorization: Bearer $token"
+  sleep 20
+  curl -X DELETE $host/api/auth -H "Authorization: Bearer $token"
+  sleep 30
+done
 ```
 
 ## Simulating traffic script
