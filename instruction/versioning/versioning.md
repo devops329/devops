@@ -50,7 +50,7 @@ A common versioning scheme is to use an ID that has a syntax of `major.minor.pat
 - **Minor**: Incremented for backward-compatible feature changes.
 - **Patch**: Incremented for backward-compatible bug fixes.
 
-For example, 3.4.0 would represent that this is the 4th feature improvement of the 3rd incompatible release of the component. A subsequent version ID of 3.4.1 would indicate that a problem was found in the last release doesn't cause any backward compatibility issues.
+For example, 3.4.0 would represent that this is the 4th feature improvement of the 3rd incompatible release of the component. A subsequent version ID of 3.4.1 would indicate that a problem was found in the last release, and that the fix doesn't cause any backward compatibility issues.
 
 This scheme focuses on describing the order of releases and also how disruptive the release is.
 
@@ -102,7 +102,7 @@ This software website represents three related version numbers. First is a date 
 
 ## JWT Pizza versions
 
-JWT Pizza uses a date version scheme with the day in the first position and the time in the second one. UTC time must be used. The version is found in the `version.json` file accessible from the root of the application and in the footer of all views.
+JWT Pizza uses a date version scheme with the day in the first position and the time in the second one. UTC time must be used. The version is stored in the `version.json` file in the root of the application source code and can be found in the footer of all views.
 
 ```sh
 ➜  curl -s https://pizza.cs329.click/version.json | jq '.'
@@ -113,7 +113,7 @@ JWT Pizza uses a date version scheme with the day in the first position and the 
 
 ![JWT Pizza](jwtPizzaVersion.png)
 
-The use of a date makes it cumbersome to tie the version to a Git commit, but using the date represented by the version it is easy to find the CI execution that created the version and then get the Git SHA for the version.
+The use of a date makes it cumbersome to tie the version to a Git commit; however, using the date represented by the version makes it is easy to find the CI execution that created the version and then get the Git SHA for the version.
 
 ### Package archive
 
