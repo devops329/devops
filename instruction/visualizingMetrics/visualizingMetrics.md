@@ -105,7 +105,7 @@ Depending on how long it has been since you started generating data you should s
 
 ### Computing average metrics from totals
 
-The `demo_accumulator_total` metric is going to keep on growing, which is fine if you want it to represent something like the total number of pizzas sold. However, if you want to represent the number of pizzas sold per some interval, then you need to divide it by the number of times the metric has been increased. That is where the `demo_accumulator_count` metric comes into play. We can use that to figure out the average value of the accumulator at each interval represented in the visualization. You can do this by changing the query for the accumulator to be `demo_accumulator / demo_accumulator_count`. Now the visualization displays with the current value of the instant metric and the average at each interval for the accumulator metric.
+The `demo_accumulator_total` metric is going to keep on growing, which is fine if you want it to represent something like the total number of pizzas sold. However, if you want to represent the number of pizzas sold per some interval, then you need to divide it by the number of times the metric has been increased. That is where the `demo_accumulator_count` metric comes into play. We can use that to figure out the average value of the accumulator at each interval represented in the visualization. You can do this by changing the query for the accumulator to be `demo_accumulator_total / demo_accumulator_count`. Now the visualization displays with the current value of the instant metric and the average at each interval for the accumulator metric.
 
 ![Average by division](averageByDivision.png)
 
