@@ -130,17 +130,17 @@ Grafana comes with a data explorer tool that allows you to examine a data source
 
 This will display the log messages for the past 30 minutes. You can adjust the time range by either clicking and dragging over the `Logs volume` pane, or by change the time range specified on the top navigation bar next to the `Run Query` button.
 
-![log events](logEvents.png)
-
 Because you chose the JSON parser, the log message was automatically parsed into fields, and it is visually differentiating based on the **level** field.
 
-By default, there will be a column for Time and Line. You can select which columns you want to see by manipulating the selected fields displayed on the left. Here is the same data with different fields displayed in the graph.
+![Log format](logFormat.png)
+
+Switch from viewing the "logs" view to the "table" view. By default, there will be a column for Time and Line.
+
+![log events](logEvents.png)
+
+You can select which columns you want to see by manipulating the selected fields displayed on the left. Here is the same data with different fields displayed in the graph.
 
 ![Selecting fields](selectingFields.png)
-
-You can also change to display the events in log format instead of table format by pressing the button on the right.
-
-![Log format](logFormat.png)
 
 Take some time and play around with the Explorer. It has tons of functionality for transforming and filtering your data. The better you understand how to use it, the better you will be able to find trends, performance problems, and failures in your application.
 
