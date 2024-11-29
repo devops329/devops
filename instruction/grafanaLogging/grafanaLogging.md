@@ -202,7 +202,7 @@ In order to demonstrate how to generate logs from your code, we need a simple Ex
        res.send = (resBody) => {
          const logData = {
            authorized: !!req.headers.authorization,
-           path: req.path,
+           path: req.originalUrl,
            method: req.method,
            statusCode: res.statusCode,
            reqBody: JSON.stringify(req.body),
