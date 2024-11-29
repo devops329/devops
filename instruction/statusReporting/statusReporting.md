@@ -15,7 +15,7 @@ When your customers have the perspective that your application is unstable or th
 1. **Respond quickly**: Detect and correct failure as rapidly as you can.
 1. **Communicate**: Let your customer know what is going on and that you have it under control.
 
-No product is ever going to be completely free of defects. You want to do everything within reason to minimize their impact on the customer, but there comes a point where the investment is not worth the return. That is where **Communication** comes in. The worst thing you can do is let your customer find out weeks after an incident from a news, or a social media feed, that you suffered an outage, lost data, or were hacked. You want to react to a problem before you customers report it and already have a message automatically generated that conveys confidence in your ability to address the issue.
+No product is ever going to be completely free of defects. You want to do everything within reason to minimize their impact on the customer, but there comes a point where the investment is not worth the return. That is where **Communication** comes in. The worst thing you can do is let your customer find out weeks after an incident from a news, or a social media feed, that you suffered an outage, lost data, or were hacked. You want to react to a problem before your customers report it and already have a message automatically generated that conveys confidence in your ability to address the issue.
 
 ## status.mydomain.com
 
