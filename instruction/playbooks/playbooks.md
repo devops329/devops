@@ -4,7 +4,6 @@
 
 - Playbooks are an essential piece of your disaster recovery plan.
 - To be useful they must be exercised.
-- Create a playbook for JWT Pizza.
 
 ---
 
