@@ -57,7 +57,7 @@ The following is a list of common deployment strategies. There is no perfect str
 
 ### Reboot
 
-Drain, stop, delete, replace, and restart each resource. This has the advantage of being very simple and removing all possible dependencies between versions as long as requests are sticky to a specific resource. It also requires a minimum of resources since you simply reuse everything that was already deployed. However, it takes time to move through the resources one by one, it is slow to roll back, and it decreases the capacity of the application during deployment.
+Drain, stop, delete, replace, and restart each resource. This has the advantage of being very simple and removing all possible dependencies between versions as long as requests are sticky to a specific resource. It also requires a minimal amount of resources since you simply reuse everything that was already deployed. However, it takes time to move through the resources one by one, it is slow to roll back, and it decreases the capacity of the application during deployment.
 
 ![Reboot strategy](reboot.png)
 

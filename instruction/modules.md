@@ -14,6 +14,7 @@
 - [History](history/history.md)
 - [Terminology](terminology/terminology.md)
 - [🍕 JWT Pizza](jwtPizza/jwtPizza.md)
+- [Intro to AWS](aws/aws.md)
 - ☑ [AWS Account](awsAccount/awsAccount.md)
 - [GitHub](gitHub/gitHub.md)
 - [AutoGrader](autoGrader/autoGrader.md)
@@ -95,7 +96,7 @@
 - [Logging](logging/logging.md)
 - ☑ [Grafana logging](grafanaLogging/grafanaLogging.md)
 - ☑ [⓽ Logging: JWT Pizza Service](deliverable9Logging/deliverable9Logging.md)
-- ☑ [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
+- [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
 - [Status](statusReporting/statusReporting.md)
 
 ## Load testing
@@ -119,7 +120,7 @@
 
 ## Penetration testing
 
-- [OWASP top 10](owaspTop10/owaspTop10.md)
+- [Security Community](securityCommunity/securityCommunity.md)
 - [Penetration testing](penetrationTesting/penetrationTesting.md)
 - ☑ [Burp Suite](burpSuite/burpSuite.md)
 - ☑ [⑫ Penetration testing: JWT Pizza](deliverable12PenetrationTesting/deliverable12PenetrationTesting.md)

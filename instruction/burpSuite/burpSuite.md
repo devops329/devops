@@ -15,7 +15,8 @@ Burp Suite comes in a free community version and a paid enterprise edition. The 
 
 Burp Suite is an incredibly powerful tool and is a foundational piece for most penetration testing efforts. Fully covering all the features of Burp Suite is beyond the scope of this course, but we will cover the basics of its functionality.
 
-⚠️ **Note** that any of the tools that you use for penetration testing must not be executed against an application without the explicit permission of the owner of the application.
+> [!NOTE]
+> Any of the tools that you use for penetration testing must **not** be executed against an application without the explicit permission of the owner of the application.
 
 ## Functionality
 
@@ -94,7 +95,8 @@ You can populate a sequencer request by right-clicking on any request in the Tar
 
 Next, we press the `Start live capture` button. This will begin the process of executing thousands of requests.
 
-⚠️ **Note**: This will execute thousands or even tens of thousands of login requests. Depending on your backend service configuration this might cause scaling or additional payment charges. So be careful what you do here.
+> [!NOTE]
+> This will execute thousands or even tens of thousands of login requests. Depending on your backend service configuration this might cause scaling or additional payment charges. So be careful what you do here.
 
 ![Sequencer token](sequencerToken.png)
 

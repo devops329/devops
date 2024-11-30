@@ -33,7 +33,7 @@ By the end of the course you must do the following:
 1. Create a markdown file and insert it into your fork of the `jwt-pizza` repository in a file named `curiosityReport.md`.
 1. Populate the markdown file with what you learned
 
-Once you are done, go over to Canvas and submit the URL of your markdown file. This should look something like this:
+Once you are done, go over to Canvas and submit the URL of your markdown file. Your URL should look something like this:
 
 ```
 https://github.com/byucsstudent/jwt-pizza/blob/main/curiosityReport.md

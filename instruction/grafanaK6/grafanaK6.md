@@ -207,6 +207,40 @@ If you look at the logs tab for the execution you will see that the return body 
 }
 ```
 
+## Using variables
+
+Hopefully, by this point you realize that K6 is driving by code that you can manipulate. One key point for successfully manipulating your K6 script is the introduction of variables. It is likely that when you created your login script from a HAR file that K6 created a variable to represent the authentication token obtained during the authorization request so that it can be used in later requests. You can see this demonstrated in the following code snippet where `vars['token1']` is set to the token found in the response.
+
+```js
+const vars = {};
+
+// login
+response = http.put('https://pizza-service.byucsstudent.click/api/auth', '{"email":"d@jwt.com","password":"diner"}', {
+  headers: {
+    accept: '*/*',
+    origin: 'https://pizza.byucsstudent.click',
+  },
+});
+check(response, { 'status equals 200': (response) => response.status.toString() === '200' });
+
+vars['token1'] = jsonpath.query(response.json(), '$.token')[0];
+```
+
+The token variable is then used for all the following endpoint requests.
+
+```js
+// Get menu
+response = http.get('https://pizza-service.byucsstudent.click/api/order/menu', {
+  headers: {
+    accept: '*/*',
+    authorization: `Bearer ${vars['token1']}`,
+    origin: 'https://pizza.byucsstudent.click',
+  },
+});
+```
+
+You will want to exploit this pattern when you build your own load testing scripts. For example, when you acquire a pizza JWT during the purchase endpoint request and then supply it later on with the pizza verification call.
+
 ## Wrap up
 
 Congratulations! You have created your first load test. That is a big step in your DevOps mastery. K6 is a great example how the need for automation drives the creation of powerful tools that benefit everyone.

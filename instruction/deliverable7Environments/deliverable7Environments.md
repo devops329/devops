@@ -112,7 +112,7 @@ Way to go! You just did a manual deployment to your production environment using
 
 To create a staging environment you need to repeat the process you went through to create your original CloudFront distribution, but modify a few things to specifically represent a staging environment.
 
-1. Create a new CloudFront distribution using the [same instructions](../deliverable5CdnDeploy/deliverable5CdnDeploy.md) that you used to originally set up CloudFront, but with the following differences.
+1. Create a new CloudFront distribution using the [same instructions](../awsCloudFront/awsCloudFront.md#cloudfront-cdn-hosting) that you used to originally set up CloudFront, but with the following differences.
 
    1. Change the description to be **JWT Pizza Staging**.
    1. Set the `Alternate domain name` to be **stage-pizza.YOURDOMAINNAME**. It is important your follow this format so the AutoGrader can access your staging site.
@@ -130,7 +130,7 @@ To create a staging environment you need to repeat the process you went through 
    ]
    ```
 
-1. Assign a DNS record to point to staging.
+1. [Assign a DNS record](../awsCloudFront/awsCloudFront.md#route-53) to point to staging.
 
    1. Create Route 53 CNAME record that points stage-pizza.YOURDOMAINNAME to your staging CloudFront distribution.
 
@@ -189,7 +189,7 @@ To add the IAM permissions to your IAM `github-ci` role, open the AWS browser co
 				"cloudfront:CreateInvalidation",
 				"cloudfront:UpdateDistribution",
 				"cloudfront:GetDistribution",
-        "cloudfront:GetDistributionConfig"
+				"cloudfront:GetDistributionConfig"
 			],
 			"Resource": [
 				"arn:aws:cloudfront::YOURAWSACCOUNTID:distribution/*"
@@ -345,7 +345,7 @@ Take the following steps in order to create your production release workflow.
      url: https://pizza.YOUDOMAINNAME
    ```
 
-1. Now you are ready to specify your steps. These are very similar to the deployment steps found in the `ci.yml` workflow. The first step sets up access to AWS. The next step updates the CloudFront origin path to point to the desired release, and the final step creates a GitHub release entry to documents that you pushed a new deployment to production. If you need to review what each of these steps are doing, then refer back to the [GitHub Releases](../gitHubReleases/) instruction and the instruction given above on modifying the CloudFront distribution origin path.
+1. Now you are ready to specify your steps. These are very similar to the deployment steps found in the `ci.yml` workflow. The first step sets up access to AWS. The next step updates the CloudFront origin path to point to the desired release, and the final step creates a GitHub release entry to document that you pushed a new deployment to production. If you need to review what each of these steps are doing, then refer back to the [GitHub Releases](../gitHubReleases/) instruction and the instruction given above on modifying the CloudFront distribution origin path.
 
    ```yml
    steps:
@@ -370,7 +370,7 @@ Take the following steps in order to create your production release workflow.
          aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
 
      - name: Create production release
-       uses: ncipollo/release-action@v1
+       uses: ncipollo/release-action@2c591bcc8ecdcd2db72b97d6147f871fcd833ba5
        with:
          tag: production-version-${{ env.version }}
          name: Production ${{ env.version }}

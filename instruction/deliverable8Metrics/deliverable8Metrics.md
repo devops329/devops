@@ -11,20 +11,48 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
-It is time to add metrics observability to the `jwt-pizza-service` code. In your fork of the Pizza Service code use what you learned about [Grafana metrics](../grafanaMetrics/grafanaMetrics.md) to create visualizations that demonstrate the following:
+It is time to add metrics observability to the `jwt-pizza-service` code. In your fork of the Pizza Service code use what you learned about [Grafana metrics](../grafanaMetrics/grafanaMetrics.md) to create visualizations that demonstrate all of the following required metrics.
+
+## Required metrics
+
+While this list specifies all of the required metrics, the images are just examples. You should explore the full function of Granfana visualizations and come up with something that exemplifies your personality. You should also feel free to add any other metrics that will increase your confidence in the system.
 
 1. HTTP requests by method/minute
+
+   ![alt text](httpRequestMetrics.png)
+
+   1. Total requests
+   1. GET, PUT, POST, and DELETE requests
+
 1. Active users
+
+   ![alt text](activeUserMetrics.png)
+
 1. Authentication attempts/minute
+
+   ![alt text](authRequestMetrics.png)
+
    1. Successful
    1. Failed
-1. CPU usage percentage
-1. Memory usage percentage
+
+1. CPU and memory usage percentage
+
+   ![alt text](systemMetrics.png)
+
 1. Pizzas
+
+   ![alt text](pizzaMetrics.png)
+
    1. Sold/minute
-   1. Revenue/minute
-   1. Creation latency
    1. Creation failures
+   1. Revenue/minute
+
+1. Latency
+
+   ![alt text](latencyMetrics.png)
+
+   1. Service endpoint
+   1. Pizza creation
 
 ## Modifying the application code
 
@@ -42,16 +70,19 @@ Modify your service's config.js file to contain the Grafana credentials. Note th
 
 ```js
   metrics: {
-     source: 'jwt-pizza-service',
+     source: 'jwt-pizza-service-dev',
      userId: 2222222,
      url: 'https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write',
      apiKey: 'glc_111111111111111111111111111111111111111111='
    }
 ```
 
+> [!NOTE]
+> You want your development environment you should use a different `source` so that you don't mix metrics from different environments. In the example shown above the `source` is set to **jwt-pizza-service-dev**.
+
 ### Modify CI pipeline
 
-Because you added new configuration to the JWT Service, you will need to also enhance your GitHub Actions workflow to have the new metrics configuration fields. You must also add secrets for the METRICS_USER_ID, METRICS_URL, and METRICS_API_KEY.
+Because you added new configuration to the JWT Service, you will need to also enhance your GitHub Actions workflow to have the new metrics configuration fields. You must also add secrets for the METRICS_USER_ID, METRICS_URL, and METRICS_API_KEY. Note that because this configuration is being deployed to your production environment you want to set the source to something different than your development environment. In this case **jwt-pizza-service** without the **-dev** suffix.
 
 Without this, your CI pipeline will fail due to missing references from your new metrics code when your tests run.
 
@@ -152,13 +183,13 @@ You will need some traffic to your website in order to demonstrate that the visu
 
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
-1. Modify your fork of the `jwt-pizza-service` to generate the required metrics and store them in your Grafana Cloud account.
+1. Modify your fork of the `jwt-pizza-service` to generate the [required metrics](#required-metrics) and store them in your Grafana Cloud account.
 1. Create visualizations on your Grafana Cloud `Pizza Dashboard` to display all the required metrics.
 1. Export a copy of your dashboard and save it to your fork of the `jwt-pizza-service` repository in a directory named `grafana`.
    1. On the Grafana Cloud console, navigate to your dashboard.
    1. Press the `Share` button.
    1. Press the `Export` tab and `Save to file`.
-   1. Name the file `grafana/deliverable7dashboard.json`
+   1. Name the file `grafana/deliverable8dashboard.json`
 1. Commit and push your changes so that they are running in your production environment.
 
 Once this is all working you should have something like this:

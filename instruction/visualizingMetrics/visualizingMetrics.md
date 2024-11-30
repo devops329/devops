@@ -20,7 +20,16 @@ We start by simplifying our generation of data to be three values.
 
 ### Generating data
 
-We generate our data by creating a metric generation program ([metricsGenerator.js](visualizingMetricsExample/metricsGenerator.js)) that is similar to what was presented in the previous topic. Reuse the `config.json` settings that you created for your Grafana Cloud account.
+We generate our data by creating a metric generation program ([metricsGenerator.js](visualizingMetricsExample/metricsGenerator.js)) that is similar to what was presented in the previous topic. Reuse the `config.json` settings that you created for your exploration with [Grafana Metrics](https://github.com/devops329/devops/blob/main/instruction/grafanaMetrics/grafanaMetrics.md#sending-metrics-from-code). This should looks something like:
+
+```json
+{
+  "source": "jwt-pizza-service",
+  "userId": 2222222,
+  "url": "https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write",
+  "apiKey": "glc_111111111111111111111111111111111111111111="
+}
+```
 
 This code sets a timer that triggers every second and supplies our metric values to Grafana Cloud.
 
@@ -96,7 +105,7 @@ Depending on how long it has been since you started generating data you should s
 
 ### Computing average metrics from totals
 
-The `demo_accumulator_total` metric is going to keep on growing, which is fine if you want it to represent something like the total number of pizzas sold. However, if you want to represent the number of pizzas sold per some interval, then you need to divide it by the number of times the metric has been increased. That is where the `demo_accumulator_count` metric comes into play. We can use that to figure out the average value of the accumulator at each interval represented in the visualization. You can do this by changing the query for the accumulator to be `demo_accumulator / demo_accumulator_count`. Now the visualization displays with the current value of the instant metric and the average at each interval for the accumulator metric.
+The `demo_accumulator_total` metric is going to keep on growing, which is fine if you want it to represent something like the total number of pizzas sold. However, if you want to represent the number of pizzas sold per some interval, then you need to divide it by the number of times the metric has been increased. That is where the `demo_accumulator_count` metric comes into play. We can use that to figure out the average value of the accumulator at each interval represented in the visualization. You can do this by changing the query for the accumulator to be `demo_accumulator_total / demo_accumulator_count`. Now the visualization displays with the current value of the instant metric and the average at each interval for the accumulator metric.
 
 ![Average by division](averageByDivision.png)
 

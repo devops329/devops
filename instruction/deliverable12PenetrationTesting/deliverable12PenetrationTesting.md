@@ -18,7 +18,7 @@ As different attacks are conducted you will document each attack using the follo
 
 - Record the date that the attack was executed.
 - Target website
-- Classify the attack according to the [OWASP Top Ten](../owaspTop10/owaspTop10.md), or provide your own classification if the exploit does not fit those categories.
+- Classify the attack according to the [OWASP Top Ten](../securityCommunity/securityCommunity.md), or provide your own classification if the exploit does not fit those categories.
 - Severity on a scale of 1 to 4
   1. **Critical**: The application is down or unusable.
   1. **High**: Authorization was escalated to administrator level. Performance was significantly impacted. Significant data was acquired.

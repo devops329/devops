@@ -25,7 +25,8 @@ The unit of code covered by the feature often times is something along the lines
 
 Remember to make meaningful commit messages that describe the **what** and **why** of the changes made. Here is a [good post](https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/) on how to make meaningful commit messages.
 
-⚠️ **Note**: If you do not have a commit history that clearly demonstrates your authorship of the code, you may fail the class.
+> [!NOTE]
+> If you do not have a commit history that clearly demonstrates your authorship of the code, you may fail the class.
 
 ## Complete work early
 

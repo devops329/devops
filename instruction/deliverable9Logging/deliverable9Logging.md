@@ -11,6 +11,8 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
+## Required log events
+
 It is time to add logging observability to the `jwt-pizza-service `code. In your fork of the code, use what you learned about [Grafana logging](../grafanaLogging/grafanaLogging.md) to create a log of all the following:
 
 1. HTTP requests
@@ -40,12 +42,15 @@ Modify your service's config.js file to contain the Grafana logging credentials.
 
 ```js
   logging: {
-     source: 'jwt-pizza-service',
+     source: 'jwt-pizza-service-dev',
      userId: 2222222,
-     url: 'https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write',
+     url: 'https://logs-prod-006.grafana.net/loki/api/v1/push',
      apiKey: 'glc_111111111111111111111111111111111111111111='
    }
 ```
+
+> [!NOTE]
+> You want your development environment you should use a different `source` so that you don't mix logs from different environments. In the example shown above the `source` is set to **jwt-pizza-service-dev**.
 
 ### Modify CI pipeline
 
@@ -133,12 +138,12 @@ You will need some traffic to your website in order to demonstrate that the logg
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
 1. Modify your fork of the `jwt-pizza-service` to generate the required logs and store them in your Grafana Cloud account.
-1. Create a log visualization on your Grafana Cloud `Pizza Dashboard` to display all the required log fields.
+1. Create a log visualization on your Grafana Cloud `Pizza Dashboard` to display all the [required log events](#required-log-events).
 1. Export a copy of your dashboard and save it to your fork of the `jwt-pizza-service` repository in a directory named `grafana`.
    1. On the Grafana Cloud console, navigate to your dashboard.
    1. Press the `Share` button.
    1. Press the `Export` tab and `Save to file`.
-   1. Name the file `grafana/deliverable8dashboard.json`
+   1. Name the file `grafana/deliverable9dashboard.json`
 1. Commit and push your changes so that they are running in your production environment.
 
 Once this is all working you should have something like this:
@@ -156,6 +161,6 @@ https://youraccounthere.grafana.net/public-dashboards/29305se9fsacc66a21fa91899b
 | Percent | Item                                                             |
 | ------- | ---------------------------------------------------------------- |
 | 70%     | Storing all required log events in Grafana Cloud Loki data store |
-| 30%     | Visualizing all required log fields in Grafana Cloud dashboard   |
+| 30%     | Visualizing all required log events in Grafana Cloud dashboard   |
 
 **Congratulations!** You have provided significant observability for your JWT Pizza Service. Time to go celebrate. I'm thinking bananas sound nice 🍌.

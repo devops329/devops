@@ -52,7 +52,7 @@ The system that Netflix build to inject chaos into the application is called the
 
 Even if you never inject chaos into your production systems, the exercise of considering where the single points of failure are, and what the impact of those failures will be, is an important one. One of my favorite sayings is:
 
-> A system that has never been tested to failure is a system that is going to fail.
+> An untested system is a system that is going to fail.
 >
 > _Lee S Jensen, 2012_
 
