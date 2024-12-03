@@ -114,7 +114,7 @@
 - ☑ [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
 - ☑ [Playbooks](playbooks/playbooks.md)
 - [Self healing](selfHealing/selfHealing.md)
-- ☑ [Chaos testing](chaosTesting/chaosTesting.md)
+- [Chaos testing](chaosTesting/chaosTesting.md)
 - [Incident report](incidentReport/incidentReport.md)
 - ☑ [⑪ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
 
