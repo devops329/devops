@@ -209,7 +209,7 @@ If you look at the logs tab for the execution you will see that the return body 
 
 ## Using variables
 
-Hopefully, by this point you realize that K6 is executing JavaScript code that you can manipulate. One key point for successfully manipulating your K6 script is the introduction of variables. It is likely that when you created your login script from a HAR file that K6 created a variable to represent the authentication token obtained during the authorization request so that it can be used in later requests. You can see this demonstrated in the following code snippet where `vars['token1']` is set to the token found in the response.
+Hopefully, by this point you realize that K6 is executing JavaScript code that you can manipulate. One key point for successfully manipulating your K6 script is the introduction of variables. It is likely that when you created your login script from a HAR file that K6 created a variable to represent the authentication token obtained during the authorization request so that it can be used in later requests. You can see this demonstrated in the following code snippet where `vars.authToken` is set to the token found in the response.
 
 ```js
 const vars = {};
@@ -223,17 +223,17 @@ response = http.put('https://pizza-service.byucsstudent.click/api/auth', '{"emai
 });
 check(response, { 'status equals 200': (response) => response.status.toString() === '200' });
 
-vars['authToken'] = response.json().token;
+vars.authToken = response.json().token;
 ```
 
-The token variable is then used for all the following endpoint requests.
+The authToken variable is then used for all the following endpoint requests.
 
 ```js
 // Get menu
 response = http.get('https://pizza-service.byucsstudent.click/api/order/menu', {
   headers: {
     accept: '*/*',
-    authorization: `Bearer ${vars['authToken']}`,
+    authorization: `Bearer ${vars.authToken}`,
     origin: 'https://pizza.byucsstudent.click',
   },
 });
