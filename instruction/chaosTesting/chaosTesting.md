@@ -60,9 +60,9 @@ It is always better to know what your system will do, rather than hope that it w
 
 At a minimum you should be conducting chaos testing in your staging and other non-customer facing environments. Once you are confident that those systems are handling chaos correctly, you might have the confidence to apply the chaos test to your production system.
 
-## ☑ Assignment
+## Create your own chaos
 
-Do the following:
+You can experiment with chaos testing by doing the following:
 
 1. Add endpoint on your fork of the `jwt-pizza-service` code that can enable and disable chaos by causing one of your endpoints to randomly fail. Only allow an admin to execute the chaos endpoint. For example:
 
@@ -87,7 +87,5 @@ Do the following:
 1. Simulate traffic to the service. (See the _Curl commands_ found in the [simulating traffic](simulatingTraffic/simulatingTraffic.md) instruction for examples of how to do this.)
 1. Trigger the chaos.
 1. Wait for, acknowledge, and resolve the alert.
-
-Go to the associated Canvas assignment and submit a screenshot of the OnCall alert history. This should look something like this:
 
 ![Alert history](alertHistory.png)
