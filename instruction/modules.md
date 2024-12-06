@@ -3,7 +3,7 @@
 **Legend**
 
 - ☑ Exercise
-- ⭐ graded assignment
+- ⭐ Deliverable
 
 ## Getting started
 
