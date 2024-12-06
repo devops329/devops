@@ -239,7 +239,7 @@ response = http.get('https://pizza-service.byucsstudent.click/api/order/menu', {
 });
 ```
 
-You will want to exploit this pattern when you build your own load testing scripts. For example, when you acquire a pizza JWT during the purchase endpoint request and then supply it later on with the pizza verification call.
+You will want to exploit this pattern when you build your own load testing scripts. For example, when you acquire a pizza Json Web Token (JWT) during the purchase endpoint request and then supply it later on with the pizza verification call. If you don't do this then you will be verifying the pizza that was created when you created your HAR file and not the pizzas generated during the load test.
 
 ## Wrap up
 
