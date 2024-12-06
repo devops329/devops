@@ -105,13 +105,13 @@ graph TB;
 
 Make sure you spend reasonable time both playing with the interface and also exploring the code. This will be a key factor in your success for both testing and deploying the application.
 
-## ☑ Assignment
+## ☑ Exercise
 
 1. Fork the [jwt-pizza](https://github.com/devops329/jwt-pizza) repository.
 1. Clone it to your development environment.
 1. Build and explore the application code.
 
-Once you are done, go over to Canvas and submit the URL of your forked repository. This should look something like this:
+Once you are done, your frontend repo URL should look something like this:
 
 ```
 https://github.com/youraccountnamehere/jwt-pizza

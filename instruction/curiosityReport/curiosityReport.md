@@ -24,7 +24,7 @@ This could include such topics as:
 1. Studying how a company like Netflix does their DevOps
 1. Learning about Site Reliability Engineering (SRE)
 
-## ☑ Assignment
+## ⭐ Assignment
 
 By the end of the course you must do the following:
 

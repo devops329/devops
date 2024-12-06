@@ -298,7 +298,7 @@ Then push your changes to GitHub. Your CI pipeline should deploy the frontend ch
 
 ![Backend fetch](backendFetch.png)
 
-## ☑ Assignment
+## ⭐ Deliverable
 
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 

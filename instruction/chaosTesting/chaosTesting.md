@@ -60,9 +60,9 @@ It is always better to know what your system will do, rather than hope that it w
 
 At a minimum you should be conducting chaos testing in your staging and other non-customer facing environments. Once you are confident that those systems are handling chaos correctly, you might have the confidence to apply the chaos test to your production system.
 
-## Create your own chaos
+## ☑ Exercise
 
-You can experiment with chaos testing by doing the following:
+Experiment with chaos testing by doing the following:
 
 1. Add endpoint on your fork of the `jwt-pizza-service` code that can enable and disable chaos by causing one of your endpoints to randomly fail. Only allow an admin to execute the chaos endpoint. For example:
 

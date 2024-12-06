@@ -212,7 +212,7 @@ In about the same amount of code that we used to do our manual deployment we are
 
 We only showed a simple basic example of what you can do with GitHub Actions, but even that is pretty impressive. You should experiment with what the workflow is doing. It is all checked into git and so it is easy to revert whatever you mess up.
 
-## ☑ Assignment
+## ⭐ Deliverable
 
 Complete the steps outlined above by creating a GitHub Actions workflow to deploy the JWT Pizza frontend whenever a change is pushed to the main branch.
 

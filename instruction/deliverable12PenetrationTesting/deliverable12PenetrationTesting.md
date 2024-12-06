@@ -73,7 +73,7 @@ Meet with your peer and create a joint report in Markdown format. The report mus
 
 When you and your peer have completed the report, commit it to the root of your fork of the `jwt-pizza` repository in a directory named `penetrationTests` and a file name `peerTest.md`.
 
-## ☑ Assignment
+## ⭐ Deliverable
 
 Complete the penetration tests defined above and produce the penetration report with your peer.
 

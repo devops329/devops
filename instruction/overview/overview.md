@@ -149,8 +149,6 @@ Whenever you approach something new, approach it with the attitude that you will
 
 The class should have the energy of a startup. We are on the cutting edge of technology. With the skills you learn to build entire systems, you will change the world. I will do my best to bring all my energy to our time together, and hope you will do likewise. Together, as a team, we are going to have a lot of fun.
 
-## ☑ Assignment
+## ☑ Exercise
 
 We often send out critical notifications for the course using the Canvas email announcements. Log into the Canvas course and check to make sure you have the correct email address and notification setting associated with your user.
-
-Once you are done, go over to Canvas and submit that you have completed this.

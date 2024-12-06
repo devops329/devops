@@ -93,10 +93,8 @@ Grafana Cloud provides you with a limited number of free synthetic testing check
 
 To reduce the number of checks, edit the check that you just created and navigate to the `Execution` view. Change the frequency to 60 minutes and press `Save`.
 
-## ☑ Assignment
+## ☑ Exercise
 
 1. Follow the instruction given above to create a synthetic test of your JWT Pizza deployment.
 1. Observe the metrics over a reasonable period of time.
 1. Decrease the frequency of the tests to once an hour.
-
-Once you are done, submit a screenshot of your check dashboard to the Canvas assignment.

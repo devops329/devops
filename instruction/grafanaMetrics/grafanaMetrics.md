@@ -240,7 +240,7 @@ Create a simple Express app by doing the following.
 
 You should be able to now go back to your dashboard and see a request rate of about 1 per second.
 
-## ☑ Assignment
+## ☑ Exercise
 
 At this point you should have a pretty good idea how to create a Grafana dashboard that displays a simple request count metric as generated from JavaScript. Now it is time to take it to the next level. Do the following:
 
@@ -266,10 +266,11 @@ In order to complete the assignment you need to make your dashboard public so th
    ![Make public dashboard](makePublicDashboard.png)
 
 1. Press the `Generate public URL` button.
-1. You must enable the ability for the TA to change the range of the dashboard and also view annotations.
+1. **You must enable** the ability for the TA to change the range of the dashboard and also view annotations.
 
    ![Enable time range](enableTimeRange.png)
 
 1. Press the **Copy** button for the generated dashboard URL.
 
-Go to the associated Canvas assignment and submit the dashboard URL.
+> [!IMPORTANT]
+> You will provide this URL for the Metrics and Logging deliverable.

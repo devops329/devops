@@ -43,7 +43,7 @@ You are going to use S3 to statically host the JWT Pizza static frontend code th
 
 ![CloudFront access](cloudFrontAccess.png)
 
-## ☑ Assignment
+## ☑ Exercise
 
 Create an S3 bucket and copy a file into the bucket.
 
@@ -55,7 +55,7 @@ Create an S3 bucket and copy a file into the bucket.
 1. Drag a file from your development environment and drop it on the `Upload` target.
 1. Press the `Upload` button and then press the `Close` button to return to the bucket view.
 
-Now that you have a bucket that contains a file, take a screenshot of the bucket and submit it to the Canvas assignment. Your screenshot should look something like the following.
+Your bucket should look something like the following.
 
 ![Bucket with file](bucketWithFile.png)
 

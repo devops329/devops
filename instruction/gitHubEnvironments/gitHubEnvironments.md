@@ -82,7 +82,7 @@ deploy:
 
 You can also include a **url** property that will display whenever the workflow executes. Make sure you set the URL to represent your JWT Pizza hostname.
 
-## ☑ Assignment
+## ☑ Exercise
 
 Once you have completed the changes outlined above, go ahead and deploy the CI workflow change to your fork of the `jwt-pizza` code. This should trigger the review rule for the production environment. If you look at the GitHub Action dashboard you will see that the execution blocked waiting for the review.
 
@@ -98,8 +98,6 @@ After you review all the changes included in the deployment you can press the `R
 
 Pressing the approval button will allow the workflow to continue.
 
-Once you are done, take a snapshot of the GitHub action workflow summary. Make sure you include the environment URL as well as the approval. This should look something like the following.
+Once you are done, it should look something like the following.
 
 ![SuccessfulWorkflow](successfulWorkflow.png)
-
-Go over to Canvas and submit the screenshot to the assignment.

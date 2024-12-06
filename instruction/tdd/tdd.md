@@ -317,8 +317,6 @@ Hopefully you have seen how TDD allows you to discover problems you would not ha
 
 Whenever a test passes, it is also a good place to commit your changes to your version repository since you know you are in a stable state.
 
-## ☑ Assignment
+## ☑ Exercise
 
 Create a node.js project named tddExample. Reproduce the steps given above in order to solidify your understanding of the concepts.
-
-Once you are done, go over to Canvas and submit that you have completed this.

@@ -81,7 +81,7 @@ Now that you know how Docker containers work, you need to create a **jwt-pizza-s
    docker rm -fv jwt-pizza-service
    ```
 
-## ☑ Assignment
+## ☑ Exercise
 
 Create a JWT Pizza Service container using the instructions given above. This includes the following steps:
 
@@ -92,6 +92,6 @@ Create a JWT Pizza Service container using the instructions given above. This in
 1. Run the container.
 1. Shutdown the container.
 
-Once you are done, go over to Canvas and submit a screenshot of the console window showing the build, list, and run commands. This should look something like the following.
+Once you are done, your console window should show the build, list, and run commands.
 
 ![Docker successful run](dockerSuccess.png)

@@ -232,10 +232,10 @@ Installing or running Dastardly affirms your agreement to the Terms of Service h
 
 This report looks pretty clean. There are a few warnings about CORS being too general for some resources, but nothing of significant concern.
 
-## ☑ Assignment
+## ☑ Exercise
 
 Install Burp Suite and execute a brute force attack against your JWT Pizza website. See what you can discover about the website. Capture a screenshot of your Intruder execution result.
 
-When you are done, submit the screenshot to the Canvas assignment. This should look something like the following.
+When you are done, it should look something like the following.
 
 ![Intruder results](intruderResults.png)

@@ -101,12 +101,10 @@ Go ahead and update the GitHub Actions secrets with the values you just used to 
 | DB_USERNAME | The production username for the database            | admin                                                 |
 | DB_PASSWORD | The production password used to access the database | 90fnkl32sd9clza                                       |
 
-## ☑ Assignment
+## ☑ Exercise
 
 Deploy a MySQL server in your AWS account using the instructions given above. This includes the following steps:
 
 1. Create the security groups.
 1. Create the MySQL RDS instance.
 1. Add the DB connection information to your `jwt-pizza-service` GitHub Action secrets.
-
-Once you are done, go over to Canvas and submit a screenshot of the AWS RDS properties for your MySQL instance. Your image should look similar to the image given above.

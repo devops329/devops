@@ -398,7 +398,7 @@ This should trigger the workflow to execute, and if everything works properly yo
 
 ![Action result](actionResult.png)
 
-## ☑ Assignment
+## ⭐ Deliverable
 
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 

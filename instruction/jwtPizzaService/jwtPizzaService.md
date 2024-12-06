@@ -137,13 +137,13 @@ The chief architect for the Headquarters JWT Pizza Factory service defined the f
 
 You can view them using the undocumented [factory service docs](https://pizza.cs329.click/docs/factory) endpoint.
 
-## ☑ Assignment
+## ☑ Exercise
 
 1. Fork the [jwt-pizza-service](https://github.com/devops329/jwt-pizza-service) repository.
 1. Clone it to your development environment.
 1. Build and explore the application code.
 
-Once you are done, go over to Canvas and submit the URL of your forked repository. This should look something like this:
+Once you are done, your backend repo URL should look something like this:
 
 ```
 https://github.com/youraccountnamehere/jwt-pizza-service

@@ -2,11 +2,8 @@
 
 **Legend**
 
-- ⚠️ Learner should take note
-- ☑ Assignment
-- ⓵ Milestone deliverable
-- 💡 Curiosity report ideas
-- ✏️ Quiz
+- ☑ Exercise
+- ⭐ graded assignment
 
 ## Getting started
 
@@ -19,8 +16,8 @@
 - [GitHub](gitHub/gitHub.md)
 - [AutoGrader](autoGrader/autoGrader.md)
 - [Commit History](gitHub/commitHistory.md)
-- ☑ [Christlike learning](christlikeLearning/christlikeLearning.md)
-- ☑ [Curiosity report](curiosityReport/curiosityReport.md)
+- ⭐ [Christlike learning](christlikeLearning/christlikeLearning.md)
+- ⭐ [Curiosity report](curiosityReport/curiosityReport.md)
 - ☑ [Asking Questions](askingQuestions/askingQuestions.md)
 
 ## Static deployment
@@ -29,11 +26,11 @@
 - [Merge conflicts](mergeConflicts/mergeConflicts.md)
 - [Static deployment](staticDeployment/staticDeployment.md)
 - ☑ [GitHub Pages](gitHubPages/gitHubPages.md)
-- ☑ [⓵ Manual deployment: JWT Pizza](deliverable1ManualDeploy/deliverable1ManualDeploy.md)
+- ⭐ [⓵ Manual deployment: JWT Pizza](deliverable1ManualDeploy/deliverable1ManualDeploy.md)
 - [Automation](automation/automation.md)
 - [Continuous integration (CI)](continuousIntegration/continuousIntegration.md)
 - ☑ [GitHub Actions](gitHubActions/gitHubActions.md)
-- ☑ [⓶ Automated deployment: JWT Pizza](deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)
+- ⭐ [⓶ Automated deployment: JWT Pizza](deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)
 
 ## Quality assurance
 
@@ -50,10 +47,10 @@
 - ☑ [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
 - [JWT Pizza data](jwtPizzaData/jwtPizzaData.md)
 - [Unit testing: JWT Pizza Service](unitTestingJwtPizzaService/unitTestingJwtPizzaService.md)
-- ☑ [⓷ Unit testing CI: JWT Pizza Service](deliverable3UnitTesting/deliverable3UnitTesting.md)
+- ⭐ [⓷ Unit testing CI: JWT Pizza Service](deliverable3UnitTesting/deliverable3UnitTesting.md)
 - [UI testing](uiTesting/uiTesting.md)
 - ☑ [Playwright](playwright/playwright.md)
-- ☑ [⓸ User interface testing: JWT Pizza](deliverable4UiTesting/deliverable4UiTesting.md)
+- ⭐ [⓸ User interface testing: JWT Pizza](deliverable4UiTesting/deliverable4UiTesting.md)
 
 ## Cloud deployment
 
@@ -62,7 +59,7 @@
 - ☑ [AWS S3](awsS3/awsS3.md)
 - [AWS CloudFront](awsCloudFront/awsCloudFront.md)
 - [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
-- ☑ [⓹ CDN deployment: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
+- ⭐ [⓹ CDN deployment: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
 - [Elasticity](elasticity/elasticity.md)
 - ☑ [AWS RDS MySQL](awsRdsMysql/awsRdsMysql.md)
 - [Docker](docker/docker.md)
@@ -70,7 +67,7 @@
 - ☑ [JWT Pizza Service container](jwtPizzaServiceContainer/jwtPizzaServiceContainer.md)
 - ☑ [AWS ECR](awsEcr/awsEcr.md)
 - ☑ [AWS ECS](awsEcs/awsEcs.md)
-- ☑ [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
+- ⭐ [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
 - [Infrastructure as code](infrastructureAsCode/infrastructureAsCode.md)
 - [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
 - ☑ [JWT Pizza Service infrastructure automation](jwtPizzaServiceInfrastructureAutomation/jwtPizzaServiceInfrastructureAutomation.md)
@@ -82,7 +79,7 @@
 - ☑ [GitHub releases](gitHubReleases/gitHubReleases.md)
 - [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
 - ☑ [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
-- ☑ [⓻ Environments: JWT Pizza](deliverable7Environments/deliverable7Environments.md)
+- ⭐ [⓻ Environments: JWT Pizza](deliverable7Environments/deliverable7Environments.md)
 
 ## Observability
 
@@ -92,10 +89,10 @@
 - ☑ [Grafana metrics](grafanaMetrics/grafanaMetrics.md)
 - [Visualizing metrics](visualizingMetrics/visualizingMetrics.md)
 - [Simulating traffic](simulatingTraffic/simulatingTraffic.md)
-- ☑ [⓼ Metrics: JWT Pizza Service](deliverable8Metrics/deliverable8Metrics.md)
+- ⭐ [⓼ Metrics: JWT Pizza Service](deliverable8Metrics/deliverable8Metrics.md)
 - [Logging](logging/logging.md)
 - ☑ [Grafana logging](grafanaLogging/grafanaLogging.md)
-- ☑ [⓽ Logging: JWT Pizza Service](deliverable9Logging/deliverable9Logging.md)
+- ⭐ [⓽ Logging: JWT Pizza Service](deliverable9Logging/deliverable9Logging.md)
 - [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
 - [Status](statusReporting/statusReporting.md)
 
@@ -104,7 +101,7 @@
 - ☑ [Synthetic testing](syntheticTesting/syntheticTesting.md)
 - [Load testing](loadTesting/loadTesting.md)
 - [Grafana K6](grafanaK6/grafanaK6.md)
-- ☑ [⓾ Load testing: JWT Pizza Service](deliverable10LoadTesting/deliverable10LoadTesting.md)
+- ⭐ [⓾ Load testing: JWT Pizza Service](deliverable10LoadTesting/deliverable10LoadTesting.md)
 
 ## Failure management
 
@@ -114,18 +111,18 @@
 - ☑ [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
 - [Playbooks](playbooks/playbooks.md)
 - [Self healing](selfHealing/selfHealing.md)
-- [Chaos testing](chaosTesting/chaosTesting.md)
+- ☑ [Chaos testing](chaosTesting/chaosTesting.md)
 - [Incident report](incidentReport/incidentReport.md)
-- ☑ [⑪ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
+- ⭐ [⑪ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
 
 ## Penetration testing
 
 - [Security Community](securityCommunity/securityCommunity.md)
 - [Penetration testing](penetrationTesting/penetrationTesting.md)
 - ☑ [Burp Suite](burpSuite/burpSuite.md)
-- ☑ [⑫ Penetration testing: JWT Pizza](deliverable12PenetrationTesting/deliverable12PenetrationTesting.md)
+- ⭐ [⑫ Penetration testing: JWT Pizza](deliverable12PenetrationTesting/deliverable12PenetrationTesting.md)
 
 ## Conclusion
 
-- ☑ [Christlike learning conclusion](christlikeLearningConclusion/christlikeLearningConclusion.md)
-- ☑ [Wrap up](wrapUp/wrapUp.md)
+- ⭐ [Christlike learning conclusion](christlikeLearningConclusion/christlikeLearningConclusion.md)
+- ⭐ [Wrap up](wrapUp/wrapUp.md)

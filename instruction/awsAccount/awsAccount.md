@@ -95,10 +95,8 @@ Additionally, you can create your own billing alerts that will notify you for ot
 
 To learn more about billing alerts refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html) on this subject.
 
-## ☑ Assignment
+## ☑ Exercise
 
 1. Create your AWS [account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/)
 1. Create a browser bookmark for your AWS browser console page that contains your account ID. That way you will be able to access your account quickly.
 1. Lease a DNS hostname if you don't already own one.
-
-Once you are done, go over to Canvas and submit that you have completed this.

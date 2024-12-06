@@ -619,7 +619,7 @@ All files  |   44.44 |      100 |      25 |   44.44 |
 
 If you want to be able to see which lines are covered by the NYC report you can install a VS Code extension such as [Cover](https://marketplace.visualstudio.com/items?itemName=hindlemail.cover).
 
-## ☑ Assignment
+## ☑ Exercise
 
 Create a project based on the instructions provided above. Change the `App` component to be the following. Install Playwright and create tests until you get 100% code coverage with this new code.
 
@@ -678,8 +678,6 @@ function App() {
 }
 ```
 
-Once you are done, go over to Canvas and submit a screenshot of your code with 100% coverage.
-
-The following is an example of what you should submit.
+Once you are done, you should have 100% coverage. This will look something like the following.
 
 ![Playwright coverage](playwrightCoverage.png)

@@ -327,7 +327,7 @@ This results in lots of data to analyze using your newly acquired logging abilit
 
 ![Logging visualization](loggingVisualization.png)
 
-## ☑ Assignment
+## ☑ Exercise
 
 Do the following:
 
@@ -339,5 +339,3 @@ Do the following:
 Once you have completed the above tasks you should have a dashboard that looks something like the following.
 
 ![Dashboard with logging](dashboardWithLogging.png)
-
-Screenshot the dashboard and submit it to the associated Canvas assignment.

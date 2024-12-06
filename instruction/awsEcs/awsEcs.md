@@ -152,6 +152,7 @@ Take the following steps to deploy with an Application Load Balancer.
       1. Create a new listener on port 443 using HTTPS.
       1. Select the wildcard certificate for the hostname that you created previously.
    1. Create a new target group.
+
       1. Provide the name `jwt-pizza-service`.
       1. Set the Protocol to HTTP.
       1. Set the Health check path to `/api/docs`.
@@ -216,7 +217,7 @@ Once the DNS record propagates you can open up your browser and hit your JWT Piz
 
 ![Browser DNS request](browserDnsRequest.png)
 
-## ☑ Assignment
+## ☑ Exercise
 
 Create a JWT Pizza Service container using the instructions given above. This includes the following steps:
 
@@ -225,5 +226,3 @@ Create a JWT Pizza Service container using the instructions given above. This in
 1. Create the ECS cluster.
 1. Create the ECS service using a load balancer.
 1. Create the DNS record
-
-Once you are done, go over to Canvas and submit the URL of your JWT Pizza Service running on AWS.

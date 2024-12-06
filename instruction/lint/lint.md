@@ -116,14 +116,12 @@ This shows several errors. Some of them suggest serious problems. For example, t
 
 Some problems are more benign. For example, having an unreachable return value, or a conditional that is always true. However, the extra lint in your code usually creates a maintenance problem and slows down code cognition. So it is almost always a good idea to run a linter and follow its suggestions.
 
-## ☑ Assignment
+## ☑ Exercise
 
 Create an project based on the steps provided above. Run the linter and review and fix the items it reports.
 
 Review the [rules](https://eslint.org/docs/latest/rules/) that eslint is configured to report. Find a couple that look interesting and change the project code to trigger them.
 
-Once you are done, go over to Canvas and submit a screenshot of your code triggering the rule violations that you created.
-
-Your submission should look something like this:
+Once you are done, you should should see something like this:
 
 ![rule violation](ruleViolation.png)

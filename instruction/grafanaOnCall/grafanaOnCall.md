@@ -227,10 +227,10 @@ Go back to your alert rule definition for the `Active users` and change the cont
 
 Assuming that you actually have more than one active user the alert should get triggered, and after a few minutes, your phone notified. Play around with the OnCall functionality and eventually resolve the alert.
 
-## ☑ Assignment
+## ☑ Exercise
 
 Complete the above tutorial. This should generate an alert from one of your actual metrics using Grafana OnCall. Capture a screenshot of the resolved alert from the `Alerts & IRM > OnCall > Alert groups` view.
 
-Submit the screenshot to the Canvas assignment. This should look something like the following.
+Once you are done, it should look something like the following.
 
 ![Resolved alert](resolvedAlert.png)

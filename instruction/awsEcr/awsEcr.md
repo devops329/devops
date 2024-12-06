@@ -69,7 +69,7 @@ When you push a container image to ECR it will untag the previous image and leav
 
 ![Lifecycle rule](lifecycleRule.png)
 
-## ☑ Assignment
+## ☑ Exercise
 
 Deploy a container image of your JWT Pizza Service to ECR. This includes the following steps:
 
@@ -77,4 +77,4 @@ Deploy a container image of your JWT Pizza Service to ECR. This includes the fol
 1. Build the image in your development environment with the `linux/arm64` platform specified.
 1. Push the image to your ECR repository.
 
-Once you are done, go over to Canvas and submit a screenshot of the image in your repository. It should look similar to the example image given above.
+This should look similar to the example image given above.

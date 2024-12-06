@@ -23,8 +23,8 @@ _Meme credit: [Reddit](https://www.reddit.com/r/ProgrammerHumor/comments/qbx03g/
 - Clean up your security group and key pair
 - Check your bill to make sure you haven't missed anything
 
-## ☑ Assignment - Optional
+## ⭐ Assignment - Optional
 
 Please take the time to provide us with honest feedback by responding to the university student ratings survey.
 
-If you complete the student ratings survey you will receive 5 bonus points towards your final grade. In order to receive the bonus, you must release your name as part of the survey so that I can see that you completed the survey. Note that releasing your name does not allow me to associate your response with your name. It only informs me that you completed the survey. Thanks in advance for helping to make the course better.
+If you complete the student ratings survey you will receive bonus a 1% bonus towards your final grade. In order to receive the bonus, you must release your name as part of the survey so that I can see that you completed the survey. Note that releasing your name does not allow me to associate your response with your name. It only informs me that you completed the survey. Thanks in advance for helping to make the course better.

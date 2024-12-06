@@ -179,7 +179,7 @@ function sendMetricsPeriodically(period) {
 
 You will need some traffic to your website in order to demonstrate that the visualizations are working. The easiest way to do this, is to follow the [Simulating traffic](../simulatingTraffic/simulatingTraffic.md) instruction.
 
-## ☑ Assignment
+## ⭐ Deliverable
 
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
@@ -196,7 +196,7 @@ Once this is all working you should have something like this:
 
 ![Metric dashboard](metricDashboard.png)
 
-Get the public URL for your dashboard and submit it to the Canvas assignment. This should look something like this:
+Get the [public URL](../grafanaMetrics#make-your-dashboard-public) for your dashboard and submit it to the Canvas assignment. This should look something like this:
 
 ```txt
 https://youraccounthere.grafana.net/public-dashboards/29305se9fsacc66a21fa91899b75734

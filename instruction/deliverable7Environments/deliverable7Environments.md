@@ -424,7 +424,7 @@ This type of automation is at the heart of what a DevOps engineer does. Sometime
 
 It is also pretty cool to write a couple dozen lines of automation code and see it build, test, archive, and deploy an application to multiple data centers around the world all with elastic, resilient hardware and services. After that, writing web application pizza code feels kinda boring.
 
-## ☑ Assignment
+## ⭐☑ Deliverable
 
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 

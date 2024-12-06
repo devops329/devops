@@ -268,7 +268,7 @@ As part of this automation, we did not automate the deployment of the MySQL data
 
 If you do choose an option that deletes and recreates your database, either manually or with automation, then you will need to update the DB_HOSTNAME secret in your GitHub Actions workflow since a new hostname will be generated. You will also lose any data you have stored in the database unless you take a snapshot before you delete the database and then restore it after you recreated it.
 
-## ☑ Assignment
+## ☑ Exercise
 
 Complete the following.
 
@@ -280,7 +280,7 @@ Complete the following.
 1. Fix your JWT Pizza Service DNS entry to point to the new ALB URL.
 1. Trigger your `jwt-pizza-service` CI deployment pipeline and verify that the new service is deployed.
 
-Once this is all working, submit the GitHub URL to the CloudFormation template file to the Canvas assignment. This should look something like this:
+Once this is all working, your GitHub URL to the CloudFormation template file should look something like this:
 
 ```
 https://github.com/youraccountnamehere/jwt-pizza-service/blob/main/cloudFormation/jwt-pizza-service.json

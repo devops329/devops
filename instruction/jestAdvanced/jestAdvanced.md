@@ -133,32 +133,25 @@ test('chain steps together', () => {
   expect(pipeline.add(mockStep)).toBe(pipeline);
 });
 
-test("pipe data through steps", () => {
-  const stepA = jest.fn(d => d + "A");
-  const stepB = jest.fn(d => d + "B");
-  const stepC = jest.fn(d => d + "C");
-  const stepH = jest.fn(_ => "Hello World!");
+test('pipe data through steps', () => {
+  const stepA = jest.fn((d) => d + 'A');
+  const stepB = jest.fn((d) => d + 'B');
+  const stepC = jest.fn((d) => d + 'C');
+  const stepH = jest.fn((_) => 'Hello World!');
 
-  const pipeline = new Pipeline()
-    .add(stepA)
-    .add(stepB)
-    .add(stepC)
-    .add(stepH)
-    .add(stepA);
-
+  const pipeline = new Pipeline().add(stepA).add(stepB).add(stepC).add(stepH).add(stepA);
 
   expect(stepA).not.toHaveBeenCalled();
-  expect(pipeline.run("I")).toBe("Hello World!A");
+  expect(pipeline.run('I')).toBe('Hello World!A');
   expect(stepA).toHaveBeenCalledTimes(2);
-  expect(stepA).toHaveBeenCalledWith("I");
-  expect(stepB).toHaveBeenCalledWith("IA");
-  expect(stepC).toHaveBeenCalledWith("IAB");
-  expect(stepH).toHaveBeenCalledWith("IABC");
-  expect(stepA).toHaveBeenCalledWith("Hello World!");
+  expect(stepA).toHaveBeenCalledWith('I');
+  expect(stepB).toHaveBeenCalledWith('IA');
+  expect(stepC).toHaveBeenCalledWith('IAB');
+  expect(stepH).toHaveBeenCalledWith('IABC');
+  expect(stepA).toHaveBeenCalledWith('Hello World!');
 
-  expect(pipeline.run("J")).toBe("Hello World!A");
+  expect(pipeline.run('J')).toBe('Hello World!A');
   expect(stepA).toHaveBeenCalledTimes(4);
-
 });
 ```
 
@@ -320,7 +313,7 @@ test('fetches data', async () => {
 
 That is a lot of functionality, and honestly, we have only covered the basics of what Jest offers. Take some time to play with it and dive deep into understand how to use this valuable tool. We are going to use Jest to unit test the JWT Pizza service. By the time you are done you are going feel like a Jest master.
 
-## ☑ Assignment
+## ☑ Exercise
 
 Create a project based on the code provided below. Install Jest and write tests until you get 100% code coverage.
 
@@ -362,7 +355,7 @@ class CatFact {
 module.exports = CatFact;
 ```
 
-Once you are done, go over to Canvas and submit a screenshot of your code with 100% coverage with all tests passing.
+Once you are done, your code should have 100% coverage with all tests passing.
 
 The following is an example of what you should submit. Notice the coverage line at the top of the `catFact.js` file that demonstrates the complete coverage.
 

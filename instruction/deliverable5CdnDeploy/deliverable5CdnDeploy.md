@@ -100,7 +100,7 @@ Once completed, your repository's GitHub Actions workflow history should demonst
 
 ![Workflow output](workflowOutput.png)
 
-## ☑ Assignment
+## ⭐ Deliverable
 
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 

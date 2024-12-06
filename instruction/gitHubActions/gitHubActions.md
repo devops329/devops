@@ -66,7 +66,7 @@ In the simple example given above, you executed the workflow using a manual trig
 | release             | A release is created                                                                        |
 | repository_dispatch | A GitHub API webhook is called. This lets you automate the workflow from an external system |
 | schedule            | Based on a cron job                                                                         |
-| watch               | A GitHub user action such a when a user stars your repository                                                        |
+| watch               | A GitHub user action such a when a user stars your repository                               |
 | workflow_dispatch   | A manual button press                                                                       |
 | workflow_run        | Another workflow started or completed                                                       |
 
@@ -139,7 +139,7 @@ Now you want to allow external contributors to fork your repository and create p
 
 Note that you can use this same pattern with forks instead of branches. Branches are generally used for internal reviews, while forks are used with open source project external contributors.
 
-## ☑ Assignment
+## ☑ Exercise
 
 Create a GitHub Action CI pipeline in your fork of the `jwt-pizza` repository by doing the following:
 
@@ -165,6 +165,6 @@ Create a GitHub Action CI pipeline in your fork of the `jwt-pizza` repository by
 1. Click on the **CI Pipeline** and the latest workflow run.
 1. Click on the **test** job and expand the **Run** step. This should the workflow and display **Hello GitHub Actions** in the workflow output.
 
-Once you are done, go over to Canvas and submit a screenshot of the workflow output This should look something like this:
+Once you are done, it should look something like this:
 
 ![Test CI](testCI.png)

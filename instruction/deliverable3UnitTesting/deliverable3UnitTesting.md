@@ -275,7 +275,7 @@ jobs:
           git push
 ```
 
-## ☑ Assignment
+## ⭐ Deliverable
 
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 

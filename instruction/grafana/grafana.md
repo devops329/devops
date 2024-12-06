@@ -138,6 +138,6 @@ You have just created your first visualization dashboard. Way to go! Now let's a
 
 Feel free to edit the panel and experiment with both the scenario and visualizations in order to get familiar with what types of data you can render.
 
-## ☑ Assignment
+## ☑ Exercise
 
-Follow the provided instruction to set up your Grafana Cloud account and create a dashboard with at least four visualizations using the TestData data source. Once you are done, go over to Canvas and submit the screenshot of your dashboard.
+Follow the provided instruction to set up your Grafana Cloud account and create a dashboard with at least four visualizations using the TestData data source.

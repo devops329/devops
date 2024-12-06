@@ -30,7 +30,7 @@ You will need to simulate traffic in order for most failures to trigger. Conside
 
 You can also generate significant latency and failure from the Pizza Factory by ordering twenty or more pizzas in a single order.
 
-## ☑ Assignment
+## ⭐ Deliverable
 
 Your job is to do the following:
 

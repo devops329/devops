@@ -55,7 +55,7 @@ In addition to hosting a static deployment for a **repository** you can also do 
 
 ![Create account GitHub pages](createAccountGitHubPages.png)
 
-## ☑ Assignment
+## ☑ Exercise
 
 Create a GitHub Pages deployment in your GitHub account for a repository named `static`:
 
@@ -69,5 +69,3 @@ https://byucsstudent.github.io/static
 ```
 
 ![Sample GitHub Pages site](sampleGitHubPagesSite.png)
-
-Once you are done, go over to Canvas and submit the URL of your account static website deployment.

@@ -133,7 +133,7 @@ If you are using the code provided in the previous example, you should be able t
 
 You will need some traffic to your website in order to demonstrate that the logging is working. The easiest way to do this, is to follow the [Simulating traffic](../simulatingTraffic/simulatingTraffic.md) instruction.
 
-## ☑ Assignment
+## ⭐ Deliverable
 
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
@@ -150,7 +150,7 @@ Once this is all working you should have something like this:
 
 ![Logging dashboard](loggingDashboard.png)
 
-Get the public URL for your dashboard and submit it to the Canvas assignment. This should look something like this:
+Get the [public URL](../grafanaMetrics#make-your-dashboard-public) for your dashboard and submit it to the Canvas assignment. This should look something like this:
 
 ```txt
 https://youraccounthere.grafana.net/public-dashboards/29305se9fsacc66a21fa91899b75734

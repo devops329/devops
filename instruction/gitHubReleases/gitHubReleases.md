@@ -65,13 +65,13 @@ release:
 
 With this job in your pipeline, it will automatically create the version the next time you commit to your fork of the `jwt-pizza` repository.
 
-## ☑ Assignment
+## ☑ Exercise
 
 Do the following:
 
 1. Review your GitHub Action workflow for `jwt-pizza` to see how it creates and uses a version number.
 1. Modify your GitHub Action workflow for `jwt-pizza` so that it automatically creates a tag and version that represents the production release.
 
-Go to the associated Canvas assignment and submit a screenshot of the resulting release. This should look something like this:
+Once you are done, it should look something like this:
 
 ![Automatic release](automaticRelease.png)

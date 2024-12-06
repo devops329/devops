@@ -10,7 +10,7 @@
 
 In order to demonstrate your mastery of load testing you will now create and execute your own load tests using K6.
 
-## ☑ Assignment
+## ⭐ Deliverable
 
 Follow the steps described in the [Grafana K6](../grafanaK6/grafanaK6.md) instruction to do the following.
 

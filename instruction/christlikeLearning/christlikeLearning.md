@@ -61,7 +61,7 @@ Without the influence of the Spirit in our work we are left to the arm of the fl
 - Embrace the knowledge that there is no difference between your eternal work and your earthly work.
 - Guide every decision with the influence of your covenants and discipleship.
 
-## ☑ Assignment
+## ⭐ Assignment
 
 Write in your journal the answer to the following questions:
 

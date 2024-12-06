@@ -52,10 +52,8 @@ When asking questions, the TA, professor, and your peers will assume you are usi
 
 Always remember how it felt to receive help. Actively look for opportunities to help others in a kind respectful way. After all, that is the Gospel of Jesus Christ at its core. We are a team. We are better together.
 
-## ☑ Assignment
+## ☑ Exercise
 
 Get on the Discord server and review each of the channels and the TA area. Review the previous instruction on asking question. Give some thought about proper forum etiquette.
 
 Figure out who your assigned TA is by reviewing the [TA schedule](https://docs.google.com/spreadsheets/d/1n0Z6sARR29lZRwoGzTYxqSiGV6s1vPSa4ddFE0Jh9j8). TAs are assigned by an alphabetical range. Find the range that contains the first letter of your last name. Using their Discord ID, open Discord to send them a direct message (DM) to introduce yourself.
-
-Once you are done, go over to Canvas and submit that you have completed this.

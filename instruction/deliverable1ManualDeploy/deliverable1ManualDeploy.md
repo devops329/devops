@@ -138,7 +138,7 @@ That should do it. You can verify that it all worked by opening your browser to 
 
 ![JWT Pizza](../jwtPizzaClient/jwtPizzaPhone.png)
 
-## ☑ Assignment
+## ⭐ Deliverable
 
 Complete the steps outlined above with your own fork of the jwt-pizza repository and your custom domain name.
 
