@@ -86,7 +86,7 @@ There is great value in sharing information about best practices, vulnerabilitie
 
 ### CVSS
 
-The Common Vulnerability Scoring System creates a normalized score for identifying the risk presented by a vulnerability. This allows the security community can respond appropriately. A CVSS score is broken into three individual scores based on the following metrics. Each metric is given a value of Low, Medium, or High that corresponds to the contribution it makes to the composite score.
+The Common Vulnerability Scoring System creates a normalized score for identifying the risk presented by a vulnerability. This allows the security community to respond appropriately. A CVSS score is broken into three individual scores based on the following metrics. Each metric is given a value of Low, Medium, or High that corresponds to the contribution it makes to the composite score.
 
 1. **Base**: How easy the attack is and its potential impact.
    1. _Attack Vector_: How the attack is initiated.
