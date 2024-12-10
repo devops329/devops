@@ -177,7 +177,7 @@ The interesting pieces of the workflow include the request for OIDC authorizatio
     role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT }}:role/${{ secrets.CI_IAM_ROLE }}
 ```
 
-If this is successful then you can execute any AWS CLI commands that the role allows. In our case it allows the commands to copy the `dist` directory to our S3 bucket and invalidate the CloudFront distribution cache. If we didn't invalidate the cache than your new files would not show up until the cache expired 24 hours later.
+If this is successful then you can execute any AWS CLI commands that the role allows. In our case it allows the commands to copy the `dist` directory to our S3 bucket and invalidate the CloudFront distribution cache. If we didn't invalidate the cache then your new files would not show up until the cache expired 24 hours later.
 
 ```yml
 aws s3 cp dist s3://${{ secrets.APP_BUCKET }} --recursive

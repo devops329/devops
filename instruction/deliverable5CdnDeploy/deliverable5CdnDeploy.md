@@ -78,7 +78,7 @@ deploy:
         aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
 ```
 
-This job gets the version from the previous build step, creates the OIDC authorization, download the build artifact, push to S3, and invalidate the CloudFront distribution cache.
+This job gets the version from the previous build step, creates the OIDC authorization, downloads the build artifact, push to S3, and invalidate the CloudFront distribution cache.
 
 ### React routing on browser refresh
 
