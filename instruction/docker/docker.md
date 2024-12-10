@@ -14,7 +14,7 @@
 
 ![Docker icon](dockerIcon.png)
 
-As the world went global, the shipping industry came up with an idea the revolutionized everything. They created an [internationally recognized specification](https://cdn.standards.iteh.ai/samples/76912/7354663676144f8ab1a7b57cb573b0a6/ISO-668-2020.pdf) that defined a shipping container as 7.8ft in width, 7.9ft in height, and either 20ft or 40ft long. The impact of this standard was profound. It standardized the width and lengths of truck beds, barges, and sea going cargo ships. Factories changed the quantity of goods that they shipped in a batch and retailers modified their stores to allow the containers to fit into their delivery bays. All of this was caused by the simple standardization of a box's dimensions.
+As the world went global, the shipping industry came up with an idea that revolutionized everything. They created an [internationally recognized specification](https://cdn.standards.iteh.ai/samples/76912/7354663676144f8ab1a7b57cb573b0a6/ISO-668-2020.pdf) that defined a shipping container as 7.8ft in width, 7.9ft in height, and either 20ft or 40ft long. The impact of this standard was profound. It standardized the width and lengths of truck beds, barges, and seagoing cargo ships. Factories changed the quantity of goods that they shipped in a batch and retailers modified their stores to allow the containers to fit into their delivery bays. All of this was caused by the simple standardization of a box's dimensions.
 
 ![Shipping container](shippingContainer.png)
 
@@ -57,7 +57,7 @@ The Docker software is composed mainly of the Docker daemon, called dockerd, tha
 ### Objects
 
 - **Docker container**: Hosts an application in a lightweight isolated environment.
-- **Docker image**: Persists a read only copy of a container. This allows for the transportation of a container to different runtime environments.
+- **Docker image**: Persists a read-only copy of a container. This allows for the transportation of a container to different runtime environments.
 - **Docker service**: Facilitates communication between containers so that they can provide a higher level activity such as a service or application that is built from multiple containers running in concert. This is often referred to as a swarm.
 
 ### Registries
