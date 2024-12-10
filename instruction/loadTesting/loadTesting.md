@@ -10,6 +10,8 @@ Load testing is the process of placing demands on an application in order to det
 
 By deploying to AWS, we have taken steps to create a scalable application that allows us to automatically allocate more resources as demand increases. However, there is always some latency involved in deploying extra resources. We need to know how the application reacts when a new advertising promotion for JWT Pizza is wildly successful, and the number of customers spikes exponentially. Will the application scale up in time to handle the increased number of requests, or will customers be staring impatiently at their screen, waiting for their pizza to be delivered? Similarly, how well can the application handle many requests over an extended period of time?
 
+![Load testing](loadTesting.png)
+
 With load testing you should be able to answer questions such as how does your number of concurrent customers impact request latency.
 
 Is latency linear?

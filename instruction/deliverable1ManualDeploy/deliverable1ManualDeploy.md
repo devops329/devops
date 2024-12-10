@@ -4,6 +4,8 @@
 
 - Deploy JWT Pizza to GitHub Pages.
 
+[🎥 Video overview](https://youtu.be/oKXmatAJRyU)
+
 ---
 
 ![course overview](../sharedImages/courseOverview.png)
@@ -79,7 +81,8 @@ Hello GitHub Pages
 
 The JWT Pizza frontend doesn't work correctly unless it is hosted on the root path of the domain. By default, GitHub Pages hosts the static deployment on a path called `jwt-pizza`. To get around this you must associate a custom domain with your GitHub Pages deployment.
 
-⚠️ **Note**: If you do not already own a DNS hostname, you will need to go lease one now. You will use your hostname for all of your DevOps deployment tasks. You can lease a domain from AWS using Route53 or use a different provider if you are familiar with an alternative.
+> [!NOTE]
+> If you do not already own a DNS hostname, you will need to go lease one now. You will use your hostname for all of your DevOps deployment tasks. You can lease a domain from AWS using Route53 or use a different provider if you are familiar with an alternative.
 
 Using your domain name take the following steps in order to associate it to your GitHub Pages.
 

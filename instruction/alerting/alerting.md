@@ -53,14 +53,14 @@ Once you have identified the critical metrics you are ready to define your alert
 
 ### Metrics based alerts
 
-Metrics based alerts that are triggered based on the values of metrics.
+Metrics based alerts are triggered based on the values of metrics.
 Within this category, we can have alerts triggered by state conditions or metric thresholds. The state conditions are things like a container being down, or the number of instances being less than a certain number. The metric thresholds are things like the available memory being less than 5% for more than 5 minutes.
 
 ![Low memory](lowMemoryMetric.png)
 
 ### Log based alerts
 
-Log based alerts that are triggered based on the contents of logs. For example, if the logs contain the word "error" more than 10 times in a minute, then an alert is triggered.
+Log based alerts are triggered based on the contents of logs. For example, if the logs contain the word "error" more than 10 times in a minute, then an alert is triggered.
 
 The following show an attacker attempting to probe our Pizza Service for known security holes. They have bypassed the DNS name of the service and have obtained the public IP address directly. In this case you might trigger an information alert if the probe traffic exceeds a certain level, or if the same source IP address is later used in a legitimate request.
 

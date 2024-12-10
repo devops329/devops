@@ -9,7 +9,7 @@
 
 When a failure occurs, the entire team needs to be focused on recovering from the failure. Usually this will require some sort of manual or automated intervention. Once the panic of mitigating the failure has decreased, it is vital that you take steps to understand what happened, what the impact was, and how the system can be improved to avoid a repeated failure of the same type. An indispensable tool for formalizing this discussion is the `incident report`.
 
-## It is not about blame.
+## It's not about blame
 
 Successful incident reports focus not on assigning blame, but in understanding the conditions that allowed the failure and preventing them in the future. If there is a culture of fear that results from failures, team members will instinctively hide important information and seek to minimize any risk that could potentially reflect poorly on them. This actually increases the chance of failure and decreases the team's ability to provide value.
 

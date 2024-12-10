@@ -65,10 +65,8 @@ If you were going to create a log message that described a login HTTP request, y
 {
   "streams": [
     {
-      "stream": {"component":"jwt-pizza-service", "level": "info", "type":"http-req"},
-      "values": [
-        ["1717627004763", "{"name":"pizza diner", "email":"d@jwt.com", "password":"****"}", { "userID":"32", "traceID": "0242ac120002"}]
-      ]
+      "stream": { "component": "jwt-pizza-service", "level": "info", "type": "http-req" },
+      "values": [["1717627004763", "{\"name\":\"pizza diner\", \"email\":\"d@jwt.com\", \"password\":\"****\"}", { "userID": "32", "traceID": "0242ac120002" }]]
     }
   ]
 }
@@ -83,7 +81,11 @@ account_id=111111
 api_key=glc_xxxxxx
 log_url=https://logs-prod-006.grafana.net/loki/api/v1/push
 
-curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $account_id:$api_key" -d '{"streams": [{"stream": {"component":"jwt-pizza-service", "level": "info", "type":"http-req"},"values": [["'"$(($(date +%s)*1000000000))"'","{\"name\":\"hacker\", \"email\":\"d@jwt.com\", \"password\":\"****\"}",{"user_id": "44","traceID": "9bc86924d069e9f8ccf09192763f1120"}]]}]}' -H "Content-Type:application/json" $log_url
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $account_id:$api_key" \
+  -d '{"streams": [{"stream": {"component":"jwt-pizza-service", "level": "info", "type":"http-req"},"values": [["'"$(($(date +%s)*1000000000))"'","{\"name\":\"hacker\", \"email\":\"d@jwt.com\", \"password\":\"****\"}",{"user_id": "44","traceID": "9bc86924d069e9f8ccf09192763f1120"}]]}]}' \
+  $log_url
 ```
 
 When you execute this command it will log a JSON body as the log event. Notice a few interesting things that are going on with the log event.
@@ -100,11 +102,15 @@ Go ahead and wrap the curl command in a for loop that randomly sets the message 
 
 ```sh
 for i in {1..100}; do
-  if (( RANDOM % 2 )); then level="warn" else level="info" fi;
+  (( RANDOM % 2 )) && level="warn" || level="info"
 
-  curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $account_id:$api_key" -d '{"streams": [{"stream": {"component":"jwt-pizza-service", "level": "'"$level"'", "type":"http-req"},"values": [["'"$(($(date +%s)*1000000000))"'","{\"name\":\"hacker\", \"email\":\"d@jwt.com\", \"password\":\"****\"}",{"user_id": "44","traceID": "9bc86924d069e9f8ccf09192763f1120"}]]}]}' -H "Content-Type:application/json" $log_url ;
+  curl -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $account_id:$api_key" \
+    -d '{"streams": [{"stream": {"component":"jwt-pizza-service", "level": "'"$level"'", "type":"http-req"},"values": [["'"$(($(date +%s)*1000000000))"'","{\"name\":\"hacker\", \"email\":\"d@jwt.com\", \"password\":\"****\"}",{"user_id": "44","traceID": "9bc86924d069e9f8ccf09192763f1120"}]]}]}' \
+    $log_url
 
-  sleep 3;
+  sleep 3
 done
 ```
 
@@ -124,17 +130,17 @@ Grafana comes with a data explorer tool that allows you to examine a data source
 
 This will display the log messages for the past 30 minutes. You can adjust the time range by either clicking and dragging over the `Logs volume` pane, or by change the time range specified on the top navigation bar next to the `Run Query` button.
 
-![log events](logEvents.png)
-
 Because you chose the JSON parser, the log message was automatically parsed into fields, and it is visually differentiating based on the **level** field.
 
-By default, there will be a column for Time and Line. You can select which columns you want to see by manipulating the selected fields displayed on the left. Here is the same data with different fields displayed in the graph.
+![Log format](logFormat.png)
+
+Switch from viewing the "logs" view to the "table" view. By default, there will be a column for Time and Line.
+
+![log events](logEvents.png)
+
+You can select which columns you want to see by manipulating the selected fields displayed on the left. Here is the same data with different fields displayed in the graph.
 
 ![Selecting fields](selectingFields.png)
-
-You can also change to display the events in log format instead of table format by pressing the button on the right.
-
-![Log format](logFormat.png)
 
 Take some time and play around with the Explorer. It has tons of functionality for transforming and filtering your data. The better you understand how to use it, the better you will be able to find trends, performance problems, and failures in your application.
 
@@ -196,7 +202,7 @@ In order to demonstrate how to generate logs from your code, we need a simple Ex
        res.send = (resBody) => {
          const logData = {
            authorized: !!req.headers.authorization,
-           path: req.path,
+           path: req.originalUrl,
            method: req.method,
            statusCode: res.statusCode,
            reqBody: JSON.stringify(req.body),

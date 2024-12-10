@@ -1,4 +1,4 @@
-# ⓼ Logging: JWT Pizza Service
+# ⓽ Logging: JWT Pizza Service
 
 🔑 **Key points**
 
@@ -10,6 +10,8 @@
 ---
 
 ![course overview](../sharedImages/courseOverview.png)
+
+## Required log events
 
 It is time to add logging observability to the `jwt-pizza-service `code. In your fork of the code, use what you learned about [Grafana logging](../grafanaLogging/grafanaLogging.md) to create a log of all the following:
 
@@ -40,12 +42,15 @@ Modify your service's config.js file to contain the Grafana logging credentials.
 
 ```js
   logging: {
-     source: 'jwt-pizza-service',
+     source: 'jwt-pizza-service-dev',
      userId: 2222222,
-     url: 'https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write',
+     url: 'https://logs-prod-006.grafana.net/loki/api/v1/push',
      apiKey: 'glc_111111111111111111111111111111111111111111='
    }
 ```
+
+> [!NOTE]
+> You want your development environment you should use a different `source` so that you don't mix logs from different environments. In the example shown above the `source` is set to **jwt-pizza-service-dev**.
 
 ### Modify CI pipeline
 
@@ -89,14 +94,28 @@ Without this your CI pipeline will fail because of missing references from your 
 
 ### Create logger.js
 
-Create a file named `logger.js` in the `src` directory. Use this file for all the code necessary to interact with Grafana. This may be somewhat similar to what you created in the [Grafana Logging instruction](../grafanaLogging/grafanaLogging.md). However, it may need to be more complex than what was presented in the instruction so that you can supply all the required logs.
+Create a file named `logger.js` in the `src` directory. Use this file for all the code necessary to interact with Grafana. This may be somewhat similar to what you created in the [Grafana Logging instruction](../grafanaLogging/grafanaLogging.md). For example, you will need to make HTTP fetch requests to provide logging information as demonstrated by the following:
 
-You can write the code yourself, or a 3rd-party NPM package `logger-cs329` may meet your needs here. Follow these instructions to use the package:
+```js
+sendLogToGrafana(event) {
+  const body = JSON.stringify(event);
+  fetch(`${config.url}`, {
+    method: 'post',
+    body: body,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${config.userId}:${config.apiKey}`,
+    },
+  }).then((res) => {
+    if (!res.ok) console.log('Failed to send log to Grafana');
+  });
+}
+```
 
-1. Install the package with `npm install logger-cs329`
-1. Import the package with `const Logger = require('logger-cs329');`
-1. Create a new Logger object, passing your config object to the constrcutor: `const logger = new Logger(config);`
-1. The package includes several functions, `httpLogger`, `dbLogger`, `factoryLogger` and `unhandledErrorLogger` which may be useful. It also includes a `sanitize` function.
+However, your logging code for JWT Pizza will need to be more complext that what is demonstrated in the [Grafana Logging instruction](../grafanaLogging/grafanaLogging.md).
+
+> [!TIP]
+> There is a third party NPM package, named [Pizza Logger](https://www.npmjs.com/package/pizza-logger), that you can use to supply your logs to Grafana. If you wish to use this package, you can view the documentation on NPM for more information.
 
 ### Add HTTP logging code
 
@@ -108,9 +127,7 @@ app.use(logger.httpLogger);
 
 ### Add DB logging
 
-If you are using the code provided in the previous example, you should be able to call the `logger.log` method from a central place in the `database.js` file. Try to centralize the logging as much as possible so that you don't have logging code scattered all over the place.
-
-Consider modifying the `DB.query` function to handle all the database logging.
+If you are using the code provided in the previous example, you should be able to call the `logger.log` method from a central place in the `database.js` file. Try to centralize the logging as much as possible so that you don't have logging code scattered all over the place. For example, consider modifying the `DB.query` function to handle all the database logging.
 
 ### Simulating traffic
 
@@ -121,12 +138,12 @@ You will need some traffic to your website in order to demonstrate that the logg
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
 1. Modify your fork of the `jwt-pizza-service` to generate the required logs and store them in your Grafana Cloud account.
-1. Create a log visualization on your Grafana Cloud `Pizza Dashboard` to display all the required log fields.
+1. Create a log visualization on your Grafana Cloud `Pizza Dashboard` to display all the [required log events](#required-log-events).
 1. Export a copy of your dashboard and save it to your fork of the `jwt-pizza-service` repository in a directory named `grafana`.
    1. On the Grafana Cloud console, navigate to your dashboard.
    1. Press the `Share` button.
    1. Press the `Export` tab and `Save to file`.
-   1. Name the file `grafana/deliverable8dashboard.json`
+   1. Name the file `grafana/deliverable9dashboard.json`
 1. Commit and push your changes so that they are running in your production environment.
 
 Once this is all working you should have something like this:
@@ -144,6 +161,6 @@ https://youraccounthere.grafana.net/public-dashboards/29305se9fsacc66a21fa91899b
 | Percent | Item                                                             |
 | ------- | ---------------------------------------------------------------- |
 | 70%     | Storing all required log events in Grafana Cloud Loki data store |
-| 30%     | Visualizing all required log fields in Grafana Cloud dashboard   |
+| 30%     | Visualizing all required log events in Grafana Cloud dashboard   |
 
 **Congratulations!** You have provided significant observability for your JWT Pizza Service. Time to go celebrate. I'm thinking bananas sound nice 🍌.

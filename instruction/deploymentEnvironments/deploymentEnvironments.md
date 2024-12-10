@@ -12,7 +12,7 @@ To this point you have been deploying your code directly to your production envi
 ```yml
 - name: Push to AWS S3
   run: |
-    aws s3 cp dist s3://pizza.byucsstudent.click/$version --recursive
+    aws s3 cp dist s3://pizza.byucsstudent.click --recursive
 ```
 
 This has several problems. First, it just copies the deployment package files directly into the S3 location that CloudFront hosts to the world using your application URL. That means that old files that are no longer used by the application (and therefore will not be overwritten by copying) are still available for public access. This creates a security, as well as a maintenance problem.
@@ -47,4 +47,4 @@ Each environment has the same starting flow where the software is tested, analyz
 
 By adopting multiple deployment environments, you can improve the reliability, security, and overall quality of your application. You also provide for specialized uses like single tenancy or sells demos. Each environment serves a specific purpose, from ensuring smooth deployment and final testing in staging, to safeguarding against vulnerabilities in penetration testing, to providing a stable and performant user experience in production.
 
-The key is that by automating your CI/CD pipeline it is easy to spin up new environments. This keeps you flexible to explore new business models as well as prevent, and recover from system, failures.
+The key is that by automating your CI/CD pipeline it is easy to spin up new environments. This keeps you flexible to explore new business models as well as prevent, and recover from, system failures.

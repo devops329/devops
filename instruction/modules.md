@@ -14,6 +14,7 @@
 - [History](history/history.md)
 - [Terminology](terminology/terminology.md)
 - [🍕 JWT Pizza](jwtPizza/jwtPizza.md)
+- [Intro to AWS](aws/aws.md)
 - ☑ [AWS Account](awsAccount/awsAccount.md)
 - [GitHub](gitHub/gitHub.md)
 - [AutoGrader](autoGrader/autoGrader.md)
@@ -95,15 +96,15 @@
 - [Logging](logging/logging.md)
 - ☑ [Grafana logging](grafanaLogging/grafanaLogging.md)
 - ☑ [⓽ Logging: JWT Pizza Service](deliverable9Logging/deliverable9Logging.md)
-- ☑ [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
-- ☑ [Synthetic testing](syntheticTesting/syntheticTesting.md)
+- [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
+- [Status](statusReporting/statusReporting.md)
 
 ## Load testing
 
+- ☑ [Synthetic testing](syntheticTesting/syntheticTesting.md)
 - [Load testing](loadTesting/loadTesting.md)
 - [Grafana K6](grafanaK6/grafanaK6.md)
 - ☑ [⓾ Load testing: JWT Pizza Service](deliverable10LoadTesting/deliverable10LoadTesting.md)
-- [Status](statusReporting/statusReporting.md)
 
 ## Failure management
 
@@ -111,15 +112,15 @@
 - [Backup and Recovery](recovery/recovery.md)
 - [Alerts](alerting/alerting.md)
 - ☑ [Grafana OnCall](grafanaOnCall/grafanaOnCall.md)
-- ☑ [Playbooks](playbooks/playbooks.md)
+- [Playbooks](playbooks/playbooks.md)
 - [Self healing](selfHealing/selfHealing.md)
-- ☑ [Chaos testing](chaosTesting/chaosTesting.md)
+- [Chaos testing](chaosTesting/chaosTesting.md)
 - [Incident report](incidentReport/incidentReport.md)
 - ☑ [⑪ Chaos testing: JWT Pizza](deliverable11ChaosTesting/deliverable11ChaosTesting.md)
 
 ## Penetration testing
 
-- [OWASP top 10](owaspTop10/owaspTop10.md)
+- [Security Community](securityCommunity/securityCommunity.md)
 - [Penetration testing](penetrationTesting/penetrationTesting.md)
 - ☑ [Burp Suite](burpSuite/burpSuite.md)
 - ☑ [⑫ Penetration testing: JWT Pizza](deliverable12PenetrationTesting/deliverable12PenetrationTesting.md)

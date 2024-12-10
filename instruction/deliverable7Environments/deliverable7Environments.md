@@ -26,6 +26,8 @@ Here are the steps you need to take.
 
 Currently, your CI workflow for JWT Pizza writes a new version over the top of the files found in the root of the S3 bucket that the CloudFront distribution hosts. Since we want to have multiple environments, we need more control over what version is deployed in each environment. To accomplish this you need to modify your JWT Pizza `.github/workflows/ci.yml` GitHub Action workflow file to target a **version** subdirectory of your S3 deployment bucket instead of the root.
 
+![S3 version](s3Version.png)
+
 So instead of the root of your bucket containing the latest build.
 
 ```sh
@@ -54,7 +56,7 @@ It will contain a subdirectory for each version you build
 └── 20240623.103266
 ```
 
-Go ahead and open up the `ci.yml` file for your fork of `jwt-pizza`. The first change you need to use the version ID when you copy the package to S3. To do this you just need to the version ID as to the bucket path in the **deploy** job. You can also delete the line that does the CloudFront cache invalidation since you will need to do a version specific invalidation after the distribution for the release has been distributed.
+Go ahead and open up the `ci.yml` file for your fork of `jwt-pizza`. The first change you need to use the version ID when you copy the package to S3. To do this you just need to provide the version ID as part of the bucket path in the **deploy** job. You can also delete the line that does the CloudFront cache invalidation since you will need to do a version specific invalidation after the distribution for the release has been distributed.
 
 ```yml
 - name: Push to AWS S3
@@ -70,6 +72,8 @@ When you commit and push this change, it should copy the version files to the ve
 ## Create a production environment
 
 You already have a production environment both in GitHub and CloudFront. You just need to officially mark your CloudFront distribution as production. To do this you need to make two changes to your CloudFront distribution.
+
+![environmentHosting](environmentHosting.png)
 
 1. Rename the distribution to be `production`. To rename the distribution, take these steps:
 
@@ -108,7 +112,7 @@ Way to go! You just did a manual deployment to your production environment using
 
 To create a staging environment you need to repeat the process you went through to create your original CloudFront distribution, but modify a few things to specifically represent a staging environment.
 
-1. Create a new CloudFront distribution using the [same instructions](../deliverable5CdnDeploy/deliverable5CdnDeploy.md) that you used to originally set up CloudFront, but with the following differences.
+1. Create a new CloudFront distribution using the [same instructions](../awsCloudFront/awsCloudFront.md#cloudfront-cdn-hosting) that you used to originally set up CloudFront, but with the following differences.
 
    1. Change the description to be **JWT Pizza Staging**.
    1. Set the `Alternate domain name` to be **stage-pizza.YOURDOMAINNAME**. It is important your follow this format so the AutoGrader can access your staging site.
@@ -126,7 +130,7 @@ To create a staging environment you need to repeat the process you went through 
    ]
    ```
 
-1. Assign a DNS record to point to staging.
+1. [Assign a DNS record](../awsCloudFront/awsCloudFront.md#route-53) to point to staging.
 
    1. Create Route 53 CNAME record that points stage-pizza.YOURDOMAINNAME to your staging CloudFront distribution.
 
@@ -146,6 +150,8 @@ Now that both your staging and production environments are using a version subdi
 You could always manually deploy any version you would like to either your production or staging environment by simply changing the distribution's origin path to the desired S3 path, wait for the distribution to deploy, and invalidate the cache.
 
 That actually works pretty well, as it will switch to any version within just a few moments. However, what you really want is for the staging environment to always get updated whenever new code is committed to your fork of `jwt-pizza`.
+
+![Full environment deployment](fullEnvironmentDeployment.png)
 
 ### Make staging your CI workflow target environment
 
@@ -183,7 +189,7 @@ To add the IAM permissions to your IAM `github-ci` role, open the AWS browser co
 				"cloudfront:CreateInvalidation",
 				"cloudfront:UpdateDistribution",
 				"cloudfront:GetDistribution",
-        "cloudfront:GetDistributionConfig"
+				"cloudfront:GetDistributionConfig"
 			],
 			"Resource": [
 				"arn:aws:cloudfront::YOURAWSACCOUNTID:distribution/*"
@@ -339,7 +345,7 @@ Take the following steps in order to create your production release workflow.
      url: https://pizza.YOUDOMAINNAME
    ```
 
-1. Now you are ready to specify your steps. These are very similar to the deployment steps found in the `ci.yml` workflow. The first step sets up access to AWS. The next step updates the CloudFront origin path to point to the desired release, and the final step creates a GitHub release entry to documents that you pushed a new deployment to production. If you need to review what each of these steps are doing, then refer back to the [GitHub Releases](../gitHubReleases/) instruction and the instruction given above on modifying the CloudFront distribution origin path.
+1. Now you are ready to specify your steps. These are very similar to the deployment steps found in the `ci.yml` workflow. The first step sets up access to AWS. The next step updates the CloudFront origin path to point to the desired release, and the final step creates a GitHub release entry to document that you pushed a new deployment to production. If you need to review what each of these steps are doing, then refer back to the [GitHub Releases](../gitHubReleases/) instruction and the instruction given above on modifying the CloudFront distribution origin path.
 
    ```yml
    steps:
@@ -364,7 +370,7 @@ Take the following steps in order to create your production release workflow.
          aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
 
      - name: Create production release
-       uses: ncipollo/release-action@v1
+       uses: ncipollo/release-action@2c591bcc8ecdcd2db72b97d6147f871fcd833ba5
        with:
          tag: production-version-${{ env.version }}
          name: Production ${{ env.version }}
@@ -416,7 +422,7 @@ Go ahead and makes some changes to your `jwt-pizza` source code and watch the au
 
 This type of automation is at the heart of what a DevOps engineer does. Sometimes we think of coding only in regard to writing some algorithmic computation. However, the code found in your CI pipeline is just as valuable as any other lines of your application code. Furthermore, the application code that automates the calculation of Fibonacci would be pointless without the DevOps automation code that makes Fibonacci available to a customer.
 
-It is also pretty cool to write a couple dozen lines of automation code and see it build, test, archive, and deploy an application to multiple data centers around the world all with elastic, resilient hardware and services. After that, writing Fibonacci code feels kinda boring.
+It is also pretty cool to write a couple dozen lines of automation code and see it build, test, archive, and deploy an application to multiple data centers around the world all with elastic, resilient hardware and services. After that, writing web application pizza code feels kinda boring.
 
 ## ☑ Assignment
 

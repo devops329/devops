@@ -66,10 +66,10 @@ Now that you know how Docker containers work, you need to create a **jwt-pizza-s
    jwt-pizza-service  latest   9689e2852c3a   2 seconds ago   132MB
    ```
 
-1. Run the container and make sure it works. Substitute the image ID with the correct value for your newly created Docker image.
+1. Run the container and make sure it works by using curl to hit the default endpoint. The `-p` parameter specifies the port mapping. The `-d` parameter starts the container as a background process. `--name` specifies the repository name to associate with the container.
 
    ```sh
-   docker run -d --name jwt-pizza-service -p 80:80 9689e2852c3a
+   docker run -d --name jwt-pizza-service -p 80:80 jwt-pizza-service
 
    curl localhost:80
    ```

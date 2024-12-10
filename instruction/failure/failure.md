@@ -32,7 +32,7 @@ Failure can happen at any level. Just because you work for a software company do
 
 ## Failure considerations
 
-Building the perfect system is usually not possible or desired due to cost and resource constraints. However, you should consider the impact of each possible failure along the following dimensions. Create a rating scale of 1 to 5 and come up with a formula that helps you prioritize which failures you want to address immediately, and which ones can wait until they can be mitigated appropriately.
+Building the perfect system is usually not possible or desired due to cost and resource constraints. However, you should consider the impact of each possible failure along the following dimensions.
 
 | Dimension               | Description                                                                                                                                               |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -42,6 +42,12 @@ Building the perfect system is usually not possible or desired due to cost and r
 | Performance impact      | Does the performance of the system degrade such that it becomes unusable or that observability becomes hampered?                                          |
 | Complexity              | Is the failure a part of the system that is difficult to diagnose, replace, or is so fragile that a mitigation might have a cascading effect?             |
 | Image                   | Will the failure damage the reputation for the company as technically inept, unsecure, or uncaring?                                                       |
+| Prevention cost         | How much will it cost to prevent the failure?                                                                                                             |
+| Likelihood              | How likely is the failure to happen?                                                                                                                      |
+
+You can simplify the equations down to three main factors: 1) Impact, 2) Cost, and 3) Likelihood. You can then calculate the priority of any failure case with a simple equation and then use that to determine where you should put your mitigation efforts.
+
+![priority equation](priorityEquation.png)
 
 ## Load failure
 
@@ -56,7 +62,7 @@ Sometimes failure has nothing to do with any inherent internal shortcoming. Ther
 Make sure you prevent against security failures with some of these best practices:
 
 1. **Education**: Every team member must be aware that they are a potential source of failure. This includes the code they write, the features they request, or the phone calls and emails they respond to. Educating the team concerning common attacks is a foundational piece of denying attacks.
-1. **Layering**: Never relay on a single layer of security. Slow down an attacker by forcing them to penetrate multiple levels before they gain any value. This will allow you to detect the threat before it escalates out of control.
+1. **Layering**: Never rely on a single layer of security. Slow down an attacker by forcing them to penetrate multiple levels before they gain any value. This will allow you to detect the threat before it escalates out of control.
 1. **Isolation**: Put important resources in isolated environments that are accessible only to parties (hopefully automated ones) that have the need to access them. This makes it difficult to manually manage a system, but automated observability and correction should be the focus of critical systems, rather than allowing a rogue developer to SSH into any server and tweak a setting. By completely isolating your production, billing, and logging environment you gain confidence by knowing that your inability to access the system makes it more difficult for a nefarious party to gain access.
 1. **Observability**: You cannot prevent security failure, but you can instrument the system such that it is discovered quickly. This includes automatic notifications and automated responses to detected intrusions or unusual behavior. You must also make sure that your observability data is immutable. This keeps an attacker from hiding their tracks.
 1. **Testing**: Regular component penetration testing is a vital part of preventing security failure. You cannot be confident in your security until you know that earnest attempts have failed.
@@ -64,6 +70,6 @@ Make sure you prevent against security failures with some of these best practice
 
 ## A bit of fun
 
-![XKCD Automation](xkcdFixingProblems.png)
+![XKCD](bugReport.png)
 
-> _source: [XKCD](https://xkcd.com/1739/)_
+> _source: [XKCD](https://xkcd.com/1822/)_

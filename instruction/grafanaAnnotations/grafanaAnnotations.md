@@ -76,16 +76,12 @@ If you go view your dashboard you should see the annotation.
 
 ![Deployment annotation](deploymentAnnotation.png)
 
-## ☑ Assignment
+## Add to your CI workflows
 
-Now that you know how to add annotations, your assignment is to add annotation generation to your CI workflows. You will need to add a new secret to GitHub Actions that represents your Grafana service access token. Name this `GRAFANA_ACCESS_TOKEN`. Then add something similar to the following to your workflow. This assumes that you have a version number assigned to an environment variable named `version`. Replace the Grafana hostname, dashboard ID, and panel ID with your values. Also set the **tags** field as appropriate for the component and environment that you are deploying.
+Now that you know how to add annotations, go and add annotation generation to your CI workflows. You will need to add a new secret to GitHub Actions that represents your Grafana service access token. Name this `GRAFANA_ACCESS_TOKEN`. Then add something similar to the following to your workflow. This assumes that you have a version number assigned to an environment variable named `version`. Replace the Grafana hostname, dashboard ID, and panel ID with your values. Also set the **tags** field as appropriate for the component and environment that you are deploying.
 
 ```yml
 - name: Annotate deployment in Grafana
   run: |
     curl -s -X POST https://youraccountname.grafana.net/api/annotations -H "Authorization: Bearer ${{ secrets.GRAFANA_ACCESS_TOKEN }}" -H "Content-Type:application/json" -d '{"dashboardUID":"xyz123", "panelId":15, "tags":["backend","production"], "text":"Version '"$version"' deployed" }'
 ```
-
-Once you are done, go over to Canvas and submit the screenshot of your GitHub Action showing the successful creation of the annotation. This should look something like this:
-
-![Actions annotation capture](actionsAnnotationCapture.png)

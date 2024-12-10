@@ -26,34 +26,9 @@ However you access your account, you want to protect it from unintended access. 
 - Establishing MFA
 - Practices for creating and managing access keys
 
-### Creating an admin user and getting your access keys
-
-1. Open the AWS console in your browser.
-1. Navigate to the Identity and Access Management (IAM) service.
-1. Select `Users` from the left hand menu and select your user, or create an admin user.
-1. Attach the AdministratorAccess policy.
-1. Click on the `Security Credentials` tab.
-1. Scroll down to the `Access Keys` section and click `Create access key`.
-1. Select `Command Line Interface` as the use case.
-1. Confirm you understand the recommendation and click `Next`.
-1. View and store the access key and secret access key to a secure location in your development environment.
-
-   ⚠️ **DON'T** commit your keys to a GitHub repository
-
-![IAM user creation](iamUser.gif)
-
-### Set up the AWS Command Line Interface (CLI)
-
-For several assignments, you will use the AWS CLI. Follow [the instructions here](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) to install the CLI. To configure your AWS credentials, follow these steps:
-
-1. Open a command console window.
-1. Set your dev environment configuration using the AWS CLI command `aws configure`.
-1. Supply the access key, secret access key, region, and output format as prompted.
-1. Set the region to be `us-east-1` and the output format to be `json`.
-
 ### Using AWS CloudShell
 
-The AWS CloudShell Service provides you with a console window that runs in your AWS Virtual Privite Cloud (VPC) environment. The shell already has the CLI and other tools preinstalled so that you don't have to do any additional configuration. You can even assign rights to a shell session that allows you to do things like access your MySQL instance for administrative purposes. To use CloudShell, follow these steps.
+AWS has a very powerful CLI program for interacting with AWS services. If you want to use the CLI, then the easiest way to do that is to use the AWS CloudShell Service to open up a console window inside of the AWS browser console. The shell already has the CLI and other tools preinstalled so that you don't have to do any additional configuration. You can even assign rights to a shell session that allows you to do things like access your MySQL instance for administrative purposes. To use CloudShell, follow these steps.
 
 1. Open the AWS console in your browser.
 1. Navigate to the `CloudShell` service.
@@ -70,9 +45,11 @@ Some services require IAM rights, network locality, or security authorization to
 
    ![Environment properties](cloudshellEnvironment.png)
 
+You are not required to use the CLI or CloudShell for this course, but it is a very helpful tool and it is well worth the time to experiment with it.
+
 ## Lease a DNS domain
 
-If you do not own a DNS hostname you will need to go lease one. We will use this for all of your DevOps deployment tasks. You can lease a domain from AWS using Route53 or use a different provider such as [namecheap.com](https://namecheap.com). You will want to start this process immediately since it might take a while to complete the process.
+If you do not own a DNS hostname you will need to go lease one. We will use this for all of your DevOps deployment tasks. You can lease a domain from AWS using Route53 or use a different DNS provider. However, using Route 53 will make your **life much easier** when you go to create DNS records. You will want to start this process immediately since it might take a while to complete the process. If you choose to use Route53 then you want to make sure you chose a TLD that isn't expensive. For example, the `.click` domain TLD is usually only $3 a year.
 
 ## What is this going to cost you?
 

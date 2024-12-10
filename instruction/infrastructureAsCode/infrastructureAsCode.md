@@ -25,7 +25,7 @@ As we have stressed previously, manual work, or toil, is the enemy of DevOps. We
 
 ## How to do IaC
 
-Proper Iac begins with an automation mindset. Whenever you set up a system or process, immediately start thinking about how you can automate that work. This is usually only possible if you do it manually to begin with, but take careful notes about the steps that you take. Then turn those steps into an automation script, workflow, or simply a program that you code up in your favorite language.
+Proper **IaC** begins with an automation mindset. Whenever you set up a system or process, immediately start thinking about how you can automate that work. This is usually only possible if you do it manually to begin with, but take careful notes about the steps that you take. Then turn those steps into an automation script, workflow, or simply a program that you code up in your favorite language.
 
 After you have code that can build your infrastructure, you need to test it. That means that you run it and build a parallel system to the one that your crafted manually. You can then compare the two and make sure they are equivalent. Once that all checks out, you tear down the twin and store your IaC along with the documentation for the system so that it is readily available at a moment's notice.
 

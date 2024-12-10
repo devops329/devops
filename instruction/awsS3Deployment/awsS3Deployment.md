@@ -135,7 +135,7 @@ Go ahead and create the following secrets.
 1. Paste the following template into the `testS3Deploy.yml` file.
 
    ```yml
-   name: Deploy
+   name: Test S3 Deploy
 
    on:
      push:
@@ -161,6 +161,7 @@ Go ahead and create the following secrets.
              printf "<h1>CloudFront deployment with GitHub Actions</h1>" > dist/index.html
              aws s3 cp dist s3://${{ secrets.APP_BUCKET }} --recursive
              aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
+   
    ```
 
 1. Save the file, commit, and push.
