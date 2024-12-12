@@ -1,10 +1,5 @@
 # Modules
 
-**Legend**
-
-- ☑ Exercise
-- ⭐ Deliverable
-
 ## Getting started
 
 - ☑ [Overview](overview/overview.md)
@@ -126,3 +121,10 @@
 
 - ⭐ [Christlike learning conclusion](christlikeLearningConclusion/christlikeLearningConclusion.md)
 - ⭐ [Wrap up](wrapUp/wrapUp.md)
+
+---
+
+| Symbol | Meaning            |
+| ------ | ------------------ |
+| ☑      | Ungraded exercise  |
+| ⭐     | Graded deliverable |
