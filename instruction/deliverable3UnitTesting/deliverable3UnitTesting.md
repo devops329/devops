@@ -12,6 +12,28 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
+## Prerequisites
+
+Before you start work on this deliverable make sure you have read all of the proceeding instruction topics and have completed all of the dependant exercises (topics marked with a ☑). This includes:
+
+- [Testing](../testing/testing.md)
+- [Testing variations](../testingCategories/testingCategories.md)
+- [Coverage](../coverage/coverage.md)
+- [Jest Basics](../jestBasics/jestBasics.md)
+- ☑ [Jest Advanced](../jestAdvanced/jestAdvanced.md)
+- ☑ [Test driven development (TDD)](../tdd/tdd.md)
+- ☑ [Service testing](../serviceTesting/serviceTesting.md)
+- ☑ [Lint](../lint/lint.md)
+- [Dependency injection](../dependencyInjection/dependencyInjection.md)
+- [Integration testing](../integrationTesting/integrationTesting.md)
+- ☑ [JWT Pizza Service](../jwtPizzaService/jwtPizzaService.md)
+- [JWT Pizza data](../jwtPizzaData/jwtPizzaData.md)
+- [Unit testing: JWT Pizza Service](../unitTestingJwtPizzaService/unitTestingJwtPizzaService.md)
+
+Failing to do this will likely slow you down as you will not have the required knowledge to complete the deliverable.
+
+## Getting started
+
 Now that you have added linting and created unit tests for the **jwt-pizza-service**, you are ready to implement the continuous integration (CI) process that will validate the code with tests and calculate coverage on every commit. This will complete your work on this deliverable.
 
 ## Create the GitHub Action workflow

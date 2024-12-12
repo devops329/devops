@@ -8,6 +8,18 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
+## Prerequisites
+
+Before you start work on this deliverable make sure you have read all of the proceeding instruction topics and have completed all of the dependant exercises (topics marked with a ☑). This includes:
+
+- ☑ [Synthetic testing](../syntheticTesting/syntheticTesting.md)
+- [Load testing](../loadTesting/loadTesting.md)
+- [Grafana K6](../grafanaK6/grafanaK6.md)
+
+Failing to do this will likely slow you down as you will not have the required knowledge to complete the deliverable.
+
+## Getting started
+
 In order to demonstrate your mastery of load testing you will now create and execute your own load tests using K6.
 
 ## ⭐ Deliverable

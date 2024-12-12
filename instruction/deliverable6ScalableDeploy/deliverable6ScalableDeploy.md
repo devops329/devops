@@ -10,6 +10,22 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
+## Prerequisites
+
+Before you start work on this deliverable make sure you have read all of the proceeding instruction topics and have completed all of the dependant exercises (topics marked with a ☑). This includes:
+
+- [Elasticity](../elasticity/elasticity.md)
+- ☑ [AWS RDS MySQL](../awsRdsMysql/awsRdsMysql.md)
+- [Docker](../docker/docker.md)
+- [Containers](../containers/containers.md)
+- ☑ [JWT Pizza Service container](../jwtPizzaServiceContainer/jwtPizzaServiceContainer.md)
+- ☑ [AWS ECR](../awsEcr/awsEcr.md)
+- ☑ [AWS ECS](../awsEcs/awsEcs.md)
+
+Failing to do this will likely slow you down as you will not have the required knowledge to complete the deliverable.
+
+## Getting started
+
 Now that you have experience with creating, registering, and deploying the JWT Pizza Service manually, it is time to modify your CI workflow to do this automatically when you push a change to the repository. This deliverable represents the **Scalable compute** portion of our product overview diagram. It provides the hosting of the `jwt-pizza-service` in a way that can support an ever-growing customer base, all driven by an automated CI process.
 
 Your work on this deliverable consists of four parts:

@@ -10,6 +10,18 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
+## Prerequisites
+
+Before you start work on this deliverable make sure you have read all of the proceeding instruction topics and have completed all of the dependant exercises (topics marked with a ☑). This includes:
+
+- [Security Community](../securityCommunity/securityCommunity.md)
+- [Penetration testing](../penetrationTesting/penetrationTesting.md)
+- ☑ [Burp Suite](../burpSuite/burpSuite.md)
+
+Failing to do this will likely slow you down as you will not have the required knowledge to complete the deliverable.
+
+## Getting started
+
 In order to demonstrate your mastery of the concepts for this deliverable, you will conduct two penetration tests of JWT Pizza. First you will attack your own JWT Pizza production deployment, and then you will attack the production deployment of an assigned peer. Together with your peer, you will then create a penetration test report.
 
 ### Attack record

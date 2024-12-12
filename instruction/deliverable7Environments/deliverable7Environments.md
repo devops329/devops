@@ -6,6 +6,22 @@
 
 ---
 
+![course overview](../sharedImages/courseOverview.png)
+
+## Prerequisites
+
+Before you start work on this deliverable make sure you have read all of the proceeding instruction topics and have completed all of the dependant exercises (topics marked with a ☑). This includes:
+
+- [Versioning](../versioning/versioning.md)
+- [Deployment strategies](../deploymentStrategies/deploymentStrategies.md)
+- ☑ [GitHub releases](../gitHubReleases/gitHubReleases.md)
+- [Deployment environments](../deploymentEnvironments/deploymentEnvironments.md)
+- ☑ [GitHub environments](../gitHubEnvironments/gitHubEnvironments.md)
+
+Failing to do this will likely slow you down as you will not have the required knowledge to complete the deliverable.
+
+## Getting started
+
 Now that you know all about versions, releases, environments, and different deployment strategies, it is time for you to enhance your JWT Pizza frontend deployment process. What you want to end up with is a CI process that automatically creates a new version in S3 and deploys it to your **staging** environment every time a new commit is pushed to the `jwt-pizza` repository.
 
 A manual trigger of a GitHub Actions workflow then deploys any desired version to your **production** environment.

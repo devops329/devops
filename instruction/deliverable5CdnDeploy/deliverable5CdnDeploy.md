@@ -8,6 +8,20 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
+## Prerequisites
+
+Before you start work on this deliverable make sure you have read all of the proceeding instruction topics and have completed all of the dependant exercises (topics marked with a ☑). This includes:
+
+- [Security](../security/security.md)
+- [Cloud deployment](../cloudDeployment/cloudDeployment.md)
+- ☑ [AWS S3](../awsS3/awsS3.md)
+- [AWS CloudFront](../awsCloudFront/awsCloudFront.md)
+- [AWS S3 deployment](../awsS3Deployment/awsS3Deployment.md)
+
+Failing to do this will likely slow you down as you will not have the required knowledge to complete the deliverable.
+
+## Getting started
+
 Now that we know how to deploy static content using CloudFront and S3 using GitHub Actions, it is time to move our CDN hosting from GitHub Pages to AWS CloudFront.
 
 ## CDN distribution

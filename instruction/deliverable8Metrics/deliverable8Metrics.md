@@ -11,6 +11,20 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
+## Prerequisites
+
+Before you start work on this deliverable make sure you have read all of the proceeding instruction topics and have completed all of the dependant exercises (topics marked with a ☑). This includes:
+
+- [Metrics](../metrics/metrics.md)
+- ☑ [Grafana](../grafana/grafana.md)
+- ☑ [Grafana metrics](../grafanaMetrics/grafanaMetrics.md)
+- [Visualizing metrics](../visualizingMetrics/visualizingMetrics.md)
+- [Simulating traffic](../simulatingTraffic/simulatingTraffic.md)
+
+Failing to do this will likely slow you down as you will not have the required knowledge to complete the deliverable.
+
+## Getting started
+
 It is time to add metrics observability to the `jwt-pizza-service` code. In your fork of the Pizza Service code use what you learned about [Grafana metrics](../grafanaMetrics/grafanaMetrics.md) to create visualizations that demonstrate all of the following required metrics.
 
 ## Required metrics

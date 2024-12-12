@@ -8,6 +8,23 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
+## Prerequisites
+
+Before you start work on this deliverable make sure you have read all of the proceeding instruction topics and have completed all of the dependant exercises (topics marked with a ☑). This includes:
+
+- [Failure](../failure/failure.md)
+- [Backup and Recovery](../recovery/recovery.md)
+- [Alerts](../alerting/alerting.md)
+- ☑ [Grafana OnCall](../grafanaOnCall/grafanaOnCall.md)
+- [Playbooks](../playbooks/playbooks.md)
+- [Self healing](../selfHealing/selfHealing.md)
+- ☑ [Chaos testing](../chaosTesting/chaosTesting.md)
+- [Incident report](../incidentReport/incidentReport.md)
+
+Failing to do this will likely slow you down as you will not have the required knowledge to complete the deliverable.
+
+## Getting started
+
 The JWT Pizza application has the ability built into it to inject Chaos into the system. It is an important part of your role as a DevOps engineer to know how to expediently, and efficiently, respond to critical events. This deliverable will give you significant experience with that process.
 
 ## Useful logs and metrics

@@ -11,7 +11,20 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
-## Required log events
+## Prerequisites
+
+Before you start work on this deliverable make sure you have read all of the proceeding instruction topics and have completed all of the dependant exercises (topics marked with a ☑). This includes:
+
+- [Logging](../logging/logging.md)
+- ☑ [Grafana logging](../grafanaLogging/grafanaLogging.md)
+
+Failing to do this will likely slow you down as you will not have the required knowledge to complete the deliverable.
+
+## Getting started
+
+This assignment should feel similar to the exercises you have already completed. However, there are a lot of different log events that are required, and it will take some time to figure out how to instrument the code and provide the log events necessary to provide a useful logging search experience.
+
+### Required log events
 
 It is time to add logging observability to the `jwt-pizza-service `code. In your fork of the code, use what you learned about [Grafana logging](../grafanaLogging/grafanaLogging.md) to create a log of all the following:
 
@@ -26,15 +39,11 @@ It is time to add logging observability to the `jwt-pizza-service `code. In your
 1. Any unhandled exceptions
 1. Sanitize all log entries so that they do not contain any confidential information
 
-## Modifying the application code
+### Modifying the application code
 
 You are going to have to modify the `jwt-pizza-service` code in order to add logging. You want to be careful to not modify the development team's work as much as possible. If you change things too much then you are probably going to have merge problems when they update the application and you have to merge your fork.
 
 Try to use design patterns and principles such as middleware and modularity to isolate your changes as much as possible.
-
-## Getting started
-
-This assignment should feel similar to the exercises you have already completed. However, there are a lot of different log events that are required, and it will take some time to figure out how to instrument the code and provide the log events necessary to provide a useful logging search experience.
 
 ### Add Grafana credentials to config.js
 

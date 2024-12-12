@@ -10,6 +10,18 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
+## Prerequisites
+
+Before you start work on this deliverable make sure you have read all of the proceeding instruction topics and have completed all of the dependant exercises (topics marked with a ☑). This includes:
+
+- [Automation](../automation/automation.md)
+- [Continuous integration (CI)](../continuousIntegration/continuousIntegration.md)
+- ☑ [GitHub Actions](../gitHubActions/gitHubActions.md)
+
+Failing to do this will likely slow you down as you will not have the required knowledge to complete the deliverable.
+
+## Getting started
+
 In your last deliverable you manually built the JWT Pizza frontend, copied it into a branch, and pushed it to GitHub pages. While this process works, it has several problems.
 
 1. **Slow**: It requires a human to execute a series of steps. That slows down your ability to move quickly.

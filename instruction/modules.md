@@ -49,8 +49,8 @@
 
 ## Cloud deployment
 
-- [Cloud deployment](cloudDeployment/cloudDeployment.md)
 - [Security](security/security.md)
+- [Cloud deployment](cloudDeployment/cloudDeployment.md)
 - ☑ [AWS S3](awsS3/awsS3.md)
 - [AWS CloudFront](awsCloudFront/awsCloudFront.md)
 - [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
@@ -88,7 +88,7 @@
 - [Logging](logging/logging.md)
 - ☑ [Grafana logging](grafanaLogging/grafanaLogging.md)
 - ⭐ [⓽ Logging: JWT Pizza Service](deliverable9Logging/deliverable9Logging.md)
-- [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
+- ☑ [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
 - [Status](statusReporting/statusReporting.md)
 
 ## Load testing
