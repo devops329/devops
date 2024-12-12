@@ -18,3 +18,11 @@ The content for this course is represented by the following parts.
 - 🍕 [JWT Pizza](https://github.com/devops329/devops/blob/main/instruction/jwtPizza/jwtPizza.md) - QA and DevOps mastery target
 
 Assignments and deliverables are submitted through [Canvas](https://byu.instructure.com)
+
+## Acknowledgements
+
+The instruction makes extensive use of [GitHub](https://github.com), [Amazon Web Services](https://aws.amazon.com/), and [Grafana](https://grafan.com). Without these tools the course would not be possible.
+
+The authors drew considerably from content provided by [Google's Site Reliability Engineering](https://sre.google/) team, [Grafana Labs](https://grafana.com/tutorials/) tutorials, and the [AWS Developer Center](https://aws.amazon.com/developer/learning/). We express our sincere gratitude for the many hours of work to the individuals at these fine companies for their freely available efforts.
+
+We truly stand on the shoulders of giants.
