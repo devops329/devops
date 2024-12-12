@@ -11,11 +11,11 @@
 
 The _JWT Pizza application_ team has finally finished their work on the backend JWT service and has given you access to the backend service code so that you can start testing and deploying it.
 
-Now that you have the service code, you will test and deploy the full application stack. This includes the frontend (_jwt-pizza_), backend (_jwt-pizza-service_), and the database. The only piece that you do not actually manage is the service provided by JWT Headquarters that creates the JWT tokens representing a completed pizza order. Instead, your deployment of the JWT service will simply call the factory service that the JWT Headquarters provides.
+Now that you have the service code, you want to set up your development environment so that you can test the full application stack. This includes the frontend (_jwt-pizza_), backend (_jwt-pizza-service_), and the database. The only piece that you do not actually manage is the service provided by JWT Headquarters that creates the JWT tokens representing a completed pizza order. Instead, your deployment of the JWT service will simply call the factory service that the JWT Headquarters provides.
 
 ```mermaid
 graph LR;
-    subgraph  Dev environment
+    subgraph  Development environment
     jwtPizza-->jwtPizzaService
     jwtPizzaService-->database
     end
@@ -23,8 +23,6 @@ graph LR;
     jwtPizzaService-->jwtPizzaFactory
     end
 ```
-
-With this deliverable from the application team you now have all the code for the final product.
 
 ## Setting up your development environment
 
@@ -34,13 +32,17 @@ If you do not already have MySQL installed in your development environment, or w
 
 ## Forking the application team's repository
 
-To get started, you need to fork the code to your GitHub account, run it locally and study how it works. This will get you comfortable with the code so that you are ready to start putting on your QA and DevOps hat.
+To get started, you need to fork the backend code to your GitHub account, clone it in your development environment, run it, and study how it works. This will get you comfortable with the code so that you are ready to start putting on your QA and DevOps hats.
 
 Here are the steps to take:
 
-1. Navigate your browser over to the [jwt-pizza-service](https://github.com/devops329/jwt-pizza-service) repository on GitHub.
-1. Fork the repository.
-1. Invite `byucs329ta` to be a collaborator.
+1. Navigate your browser over to the Headquarters [jwt-pizza-service](https://github.com/devops329/jwt-pizza-service) repository on GitHub.
+1. Fork the repository to your GitHub account.
+1. **Invite `byucs329ta` to be a collaborator**.
+
+   > [!IMPORTANT]
+   > If you do not invite the TA to be a collaborator you will not be able to pass off your deliverables.
+
 1. Copy the URL for your fork of the repository.
 1. Use the URL to clone the repository from your account to your development environment.
    ```sh
@@ -77,17 +79,17 @@ Here are the steps to take:
    };
    ```
 
-   1. Start the service using `node index.js` or debugging it from within your IDE.
-      ```sh
-      ➜ cd src
-      ➜  node index.js
-      Server started on port 3000
-      Database exists
-      ```
-   1. Test that the service is running properly
-      ```sh
-      curl http://localhost:3000/api/docs
-      ```
+1. Start the service using `node index.js` or debugging it from within your IDE.
+   ```sh
+   ➜ cd src
+   ➜  node index.js
+   Server started on port 3000
+   Database exists
+   ```
+1. Test that the service is running properly
+   ```sh
+   curl http://localhost:3000/api/docs
+   ```
 
 ## Keeping in sync
 
