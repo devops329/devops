@@ -36,6 +36,8 @@ host=https://pizza-service.byucsstudent.click
 
 ### Login as admin
 
+This will log in as the default admin and capture the authentication token in a shell variable.
+
 ```sh
 response=$(curl -s -X PUT $host/api/auth -d '{"email":"a@jwt.com", "password":"admin"}' -H 'Content-Type: application/json')
 token=$(echo $response | jq -r '.token')
@@ -44,6 +46,8 @@ echo $response
 
 ### Add users
 
+This adds a diner and franchisee user. You will use the franchisee user again when you create a franchise and store.
+
 ```sh
 curl -X POST $host/api/auth -d '{"name":"pizza diner", "email":"d@jwt.com", "password":"diner"}' -H 'Content-Type: application/json'
 
@@ -51,6 +55,8 @@ curl -X POST $host/api/auth -d '{"name":"pizza franchisee", "email":"f@jwt.com",
 ```
 
 ### Add menu
+
+This populates the menu with a variety of pizzas.
 
 ```sh
 curl -X PUT $host/api/order/menu -H 'Content-Type: application/json' -d '{ "title":"Veggie", "description": "A garden of delight", "image":"pizza1.png", "price": 0.0038 }'  -H "Authorization: Bearer $token"
@@ -66,6 +72,8 @@ curl -X PUT $host/api/order/menu -H 'Content-Type: application/json' -d '{ "titl
 
 ### Add franchise and store
 
+This creates a franchise and a store so that you can purchase pizzas.
+
 ```sh
 curl -X POST $host/api/franchise -H 'Content-Type: application/json' -d '{"name": "pizzaPocket", "admins": [{"email": "f@jwt.com"}]}'  -H "Authorization: Bearer $token"
 
@@ -80,6 +88,7 @@ Once you are done, you should be able to use `curl` to output the menu as follow
 
 ```sh
 curl -s localhost:3000/api/order/menu | jq '.[].description'
+
 "A garden of delight"
 "Spicy treat"
 "Essential classic"
