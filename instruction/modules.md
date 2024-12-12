@@ -15,13 +15,16 @@
 - ⭐ [Curiosity report](curiosityReport/curiosityReport.md)
 - ☑ [Asking Questions](askingQuestions/askingQuestions.md)
 
-## Static deployment
+## Simple deployment
 
 - ☑ [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
+- ☑ [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
 - [Merge conflicts](mergeConflicts/mergeConflicts.md)
-- [Static deployment](staticDeployment/staticDeployment.md)
-- ☑ [GitHub Pages](gitHubPages/gitHubPages.md)
-- ⭐ [⓵ Manual deployment: JWT Pizza](deliverable1ManualDeploy/deliverable1ManualDeploy.md)
+- ☑ [JWT Pizza data](jwtPizzaData/jwtPizzaData.md)
+- xxxx Debugging the client and service
+- ⭐ [⓵ Development deployment: JWT Pizza](deliverable1ManualDeploy/deliverable1ManualDeploy.md)
+- xxxx [Static deployment](staticDeployment/staticDeployment.md)
+- xxxx ☑ [GitHub Pages](gitHubPages/gitHubPages.md)
 - [Automation](automation/automation.md)
 - [Continuous integration (CI)](continuousIntegration/continuousIntegration.md)
 - ☑ [GitHub Actions](gitHubActions/gitHubActions.md)
@@ -39,8 +42,6 @@
 - ☑ [Lint](lint/lint.md)
 - [Dependency injection](dependencyInjection/dependencyInjection.md)
 - [Integration testing](integrationTesting/integrationTesting.md)
-- ☑ [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
-- [JWT Pizza data](jwtPizzaData/jwtPizzaData.md)
 - [Unit testing: JWT Pizza Service](unitTestingJwtPizzaService/unitTestingJwtPizzaService.md)
 - ⭐ [⓷ Unit testing CI: JWT Pizza Service](deliverable3UnitTesting/deliverable3UnitTesting.md)
 - [UI testing](uiTesting/uiTesting.md)
@@ -91,7 +92,7 @@
 - ☑ [Grafana annotations](grafanaAnnotations/grafanaAnnotations.md)
 - [Status](statusReporting/statusReporting.md)
 
-## Load testing
+## E2E testing
 
 - ☑ [Synthetic testing](syntheticTesting/syntheticTesting.md)
 - [Load testing](loadTesting/loadTesting.md)

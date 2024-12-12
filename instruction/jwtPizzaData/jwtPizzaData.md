@@ -18,7 +18,7 @@ You can use these credentials to populate your database with information that ma
 
 ## Using Curl to populate the data
 
-On easy way to populate your data is to use curl commands like the following. Note that you will need a POSIX compliant command console in order to use these commands. These commands rely on a program called **`jq`** (Json Query) which can be [installed easily](https://jqlang.github.io/jq/download/) for any common machine.
+On easy way to populate your data is to use curl commands like the following. Note that you will need a POSIX compliant command console in order to use these commands. These commands rely on a program called **`jq`** (Json Query) which can be [installed](https://jqlang.github.io/jq/download/) in your development environment.
 
 ### Specifying the target host
 
@@ -28,7 +28,7 @@ First you need to assign the host that you are wanting to drive traffic against.
 host=http://localhost:3000
 ```
 
-If you are hitting your production system then you will set it to something like:
+Later, once you get your pizza server running in a production cloud deployment environment, you will set host to the host name for your production pizza service. This will be something like:
 
 ```sh
 host=https://pizza-service.byucsstudent.click
@@ -70,4 +70,19 @@ curl -X PUT $host/api/order/menu -H 'Content-Type: application/json' -d '{ "titl
 curl -X POST $host/api/franchise -H 'Content-Type: application/json' -d '{"name": "pizzaPocket", "admins": [{"email": "f@jwt.com"}]}'  -H "Authorization: Bearer $token"
 
 curl -X POST $host/api/franchise/1/store -H 'Content-Type: application/json' -d '{"franchiseId": 1, "name":"SLC"}'  -H "Authorization: Bearer $token"
+```
+
+## ☑ Exercise
+
+Once you have the JWT Pizza Service running in your development environment, execute the above commands from your console command application.
+
+Once you are done, you should be able to use `curl` to output the menu as follows:
+
+```sh
+curl -s localhost:3000/api/order/menu | jq '.[].description'
+"A garden of delight"
+"Spicy treat"
+"Essential classic"
+"A dry mouthed favorite"
+"For those with a darker side"
 ```

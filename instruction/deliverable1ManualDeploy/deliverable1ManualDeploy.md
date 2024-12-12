@@ -1,4 +1,4 @@
-# Deliverable ⓵ Manual deployment: JWT Pizza
+# Deliverable ⓵ Development deployment: JWT Pizza
 
 🔑 **Key points**
 
@@ -9,6 +9,22 @@
 ---
 
 ![course overview](../sharedImages/courseOverview.png)
+
+## Prerequisites
+
+Before you start work on this deliverable make sure you have read all of the proceeding instruction topics and have completed all of the dependant exercises (topics marked with a ☑). This includes:
+
+- ☑ [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
+- ☑ [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
+- [Merge conflicts](mergeConflicts/mergeConflicts.md)
+- ☑ [JWT Pizza data](jwtPizzaData/jwtPizzaData.md)
+- xxxx Debugging the client and service
+
+Failing to do this will likely slow you down as you will not have the required knowledge to complete the deliverable.
+
+## Getting started
+
+xxxx Move all of this over to just talking about how to deploy to your dev environment
 
 You now have everything you need to complete the first deliverable of the course. To create this deliverable you will complete the following steps:
 
