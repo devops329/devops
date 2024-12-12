@@ -17,10 +17,10 @@
 
 ## Simple deployment
 
-- ☑ [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
 - ☑ [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
-- [Merge conflicts](mergeConflicts/mergeConflicts.md)
 - ☑ [JWT Pizza data](jwtPizzaData/jwtPizzaData.md)
+- ☑ [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
+- [Merge conflicts](mergeConflicts/mergeConflicts.md)
 - xxxx Debugging the client and service
 - ⭐ [⓵ Development deployment: JWT Pizza](deliverable1ManualDeploy/deliverable1ManualDeploy.md)
 - xxxx [Static deployment](staticDeployment/staticDeployment.md)

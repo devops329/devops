@@ -12,21 +12,20 @@
 
 The _JWT Pizza application_ team has finally finished their work on the website and has given you access to the frontend application code so that you can start testing and deploying it.
 
-Initially you will only be running the code from your development environment. It will call the JWT Pizza Service and JWT Pizza Factory provided by JWT Headquarters so that it can be fully functional.
+Now that you have the frontend application you can run the full JWT Pizza stack in your development environment. This includes the frontend (_jwt-pizza_), backend (_jwt-pizza-service_), and the database. The only piece that you do not actually manage is the service provided by JWT Headquarters that creates the JWT tokens representing a completed pizza order. Instead, your deployment of the JWT service will simply call the factory service that the JWT Headquarters provides.
 
 ```mermaid
 graph LR;
-    subgraph  Dev environment
-    jwtPizza
-    end
-    subgraph JWT Headquarters
+    subgraph  Development environment
     jwtPizza-->jwtPizzaService
     jwtPizzaService-->database
+    end
+    subgraph JWT Headquarters
     jwtPizzaService-->jwtPizzaFactory
     end
 ```
 
-Later in the course you will deploy the frontend to production environments on GitHub and AWS.
+Later in the course you will deploy the full JWT Pizza stack to a production environment using AWS.
 
 ## Forking the application team's repository
 

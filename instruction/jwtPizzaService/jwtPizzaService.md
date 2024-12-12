@@ -9,14 +9,14 @@
 
 ![jwt pizza service](jwtPizzaServicePhone.png)
 
-The _JWT Pizza application_ team has finally finished their work on the backend JWT service and has given you access to the backend service code so that you can start testing and deploying it.
+The _JWT Pizza application_ team has finally finished their work on the backend JWT service and has given you access to the backend service code so that you can start testing and learning how it works.
 
-Now that you have the service code, you want to set up your development environment so that you can test the full application stack. This includes the frontend (_jwt-pizza_), backend (_jwt-pizza-service_), and the database. The only piece that you do not actually manage is the service provided by JWT Headquarters that creates the JWT tokens representing a completed pizza order. Instead, your deployment of the JWT service will simply call the factory service that the JWT Headquarters provides.
+This instruction walks you through the process of setting up the backend JWT Pizza service to run in your development environment. The service will use a MySQL server running in your development environment and call the JWT Pizza Factory running in the JWT Headquarters environment to actually create JWT pizzas.
 
 ```mermaid
 graph LR;
     subgraph  Development environment
-    jwtPizza-->jwtPizzaService
+    jwtPizzaService
     jwtPizzaService-->database
     end
     subgraph JWT Headquarters
@@ -86,7 +86,7 @@ Here are the steps to take:
    Server started on port 3000
    Database exists
    ```
-1. Test that the service is running properly
+1. Test that the service is running properly by calling the docs endpoint using curl.
    ```sh
    curl http://localhost:3000/api/docs
    ```
@@ -127,26 +127,67 @@ graph TB;
 
 Make sure you spend reasonable time both playing with the interface and also exploring the code. This will be a key factor in your success for both testing and deploying the application.
 
-### JWT Pizza Service endpoints
+### JWT Endpoints
 
-The chief architect for the JWT Pizza Service defined the service endpoints.
+The JWT application contains two services, each with their own set of endpoints. You should become very familiar with what the endpoints are and how they work.
 
-You can view them using the undocumented [service docs](https://pizza.cs329.click/docs) endpoint.
-
-### JWT Pizza Factory endpoints
-
-The chief architect for the Headquarters JWT Pizza Factory service defined the factory service endpoints. This is the service that the JWT Pizza Service calls to fulfill pizza orders. You will not deploy a pizza factory, but you will need to know how to use it when you test and deploy the JWT Pizza Service.
-
-You can view them using the undocumented [factory service docs](https://pizza.cs329.click/docs/factory) endpoint.
+| Service       | Purpose                                           | Documentation                                                  |
+| ------------- | ------------------------------------------------- | -------------------------------------------------------------- |
+| Pizza service | User authentication and application functionality | [service docs](https://pizza.cs329.click/docs)                 |
+| Pizza factory | Pizza creation and authentication                 | [factory service docs](https://pizza.cs329.click/docs/factory) |
 
 ## ☑ Exercise
 
 1. Fork the [jwt-pizza-service](https://github.com/devops329/jwt-pizza-service) repository.
 1. Clone it to your development environment.
-1. Build and explore the application code.
 
-Once you are done, your backend repo URL should look something like this:
+Once you are done, you should have the backend service code in your development environment and your backend repo URL should look something like this:
 
 ```
 https://github.com/youraccountnamehere/jwt-pizza-service
 ```
+
+Build and start up the backend pizza service in your development environment and learn the code.
+
+1. Build and explore the application code.
+   ```sh
+   cd jwt-pizza-service
+   npm install
+   ```
+1. Open the jwt-pizza-service project in VS Code.
+1. Create your `src/config.json` file with proper configuration settings.
+1. Start up the service by debugging it in VS Code
+
+Validate that you can call your service locally using curl by executing the following commands. If these all return valid responses then you have setup your service correctly in your development environment.
+
+#### Request the default endpoint
+
+```sh
+curl http://localhost:3000
+
+{"message":"welcome to JWT Pizza","version":"20240518.154317"}
+```
+
+#### View the menu
+
+This should return an empty menu since you haven't created any initial data yet.
+
+```sh
+curl http://localhost:3000/api/order/menu
+
+[]
+```
+
+#### Login as the default admin
+
+The application automatically creates a default admin user if the database didn't exist when the service was started.
+
+```sh
+curl -X PUT http://localhost:3000/api/auth -H "Content-Type:application/json" -d '{"email":"a@jwt.com","password":"admin"}'
+
+{"user":{"id":1,"name":"常用名字","email":"a@jwt.com","roles":[{"role":"admin"}]},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IuW4uOeUqOWQjeWtlyIsImVtYWlsIjoiYUBqd3QuY29tIiwicm9sZXMiOlt7InJvbGUiOiJhZG1pbiJ9XSwiaWF0IjoxNzM0MDQ1MDE2fQ.XmWeetWEryvDA21NPQFPueiTnHVuTYMwdJregFCW4p8"}
+```
+
+### Get familiar with the Pizza service
+
+After you are confident that the service is running correctly, take some time to debug and step through the code until you completely understand how it all works. The better you understand the code the easier it will be to test, deploy, and monitor the service.
