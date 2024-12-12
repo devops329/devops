@@ -1,4 +1,4 @@
-# 📅 Winter 2024 Schedule
+# 📅 Fall 2025 Schedule
 
 [BYU Academic Calendar](https://academiccalendar.byu.edu/)
 
