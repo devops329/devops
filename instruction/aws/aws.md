@@ -44,7 +44,7 @@ You should to take some time to read about, and get familiar, with what each of 
 
 Once you have created your AWS account you can access the AWS browser console. Of particular interest is the **Search** control that allows you to type the name of any service and navigate to it and the **region** control that allows you to specify where you want to deploy your services. Make sure the region is set to **N. Virginia** for all your work in this course.
 
-![alt text](image.png)
+![alt text](awsConsoleHome.png)
 
 For example, if I wanted to use the S3 service to upload my frontend files to the storage service S3, I would first make sure I was in the N. Virginia region and then search for **S3**. That will open to the console display for that service and allow me to interact with the storage buckets defined there, or create new buckets.
 
