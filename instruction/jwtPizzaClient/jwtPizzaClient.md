@@ -37,8 +37,13 @@ Here are the steps to take:
    > ![forkRepo](forkRepo.png)
 1. Create the fork by pressing the `Create fork` button. For the AutoGrader to find your repo, leave the name of the repository `jwt-pizza`.
    > ![createFork](createFork.png)
-1. Invite `byucs329ta` to be a collaborator on your repository by navigating to `Settings -> Collaborators -> Add People` and searching `byucs329ta`.
-   > ![collab](../gitHub/addCollaborator.png)
+1. Invite 329 TA to be a collaborator on your repository by navigating to `Settings -> Collaborators -> Add People` and searching for `byucs329ta`.
+
+   ![collab](../gitHub/addCollaborator.png)
+
+   > [!IMPORTANT]
+   > If you do not invite the TA to be a collaborator you will not be able to pass off your deliverables.
+
 1. Copy the URL for your fork of the repository.
    > ![cloneUrl](cloneUrl.png)
 1. Use the URL to clone the repository from your account to your development environment.
@@ -111,10 +116,31 @@ Make sure you spend reasonable time both playing with the interface and also exp
 
 1. Fork the [jwt-pizza](https://github.com/devops329/jwt-pizza) repository.
 1. Clone it to your development environment.
-1. Build and explore the application code.
 
-Once you are done, your frontend repo URL should look something like this:
+Once you are done, you should have the frontend code in your development environment and your copy of the JWT Pizza repo URL should look something like this:
 
 ```
 https://github.com/youraccountnamehere/jwt-pizza
 ```
+
+Now you can build and start up the JWT pizza frontend in your development environment and learn the code.
+
+1. Build and explore the application code.
+   ```sh
+   cd jwt-pizza
+   npm install
+   ```
+1. Open the jwt-pizza project in VS Code.
+1. Start up the service by running `npm run dev` and debugging it in using the browsers dev tools. You should be able to access the application in your browser using the URL `localhost:5173`.
+
+![alt text](jwtPizzaHomepage.png)
+
+Open the browser's dev tools, set breakpoints and begin learning the code. Make sure you do at least the following:
+
+1.  Login as the default admin (a@jwt.com with password `admin`)
+1.  Order a pizza.
+1.  Validate that the pizza JWT is valid.
+1.  Login as a franchisee (f@jwt.com with password `franchisee`)
+1.  View the franchisee menu and observe that you have received the revenue for the pervious pizza purchase.
+
+![alt text](jwtPizzaFranchise.png)
