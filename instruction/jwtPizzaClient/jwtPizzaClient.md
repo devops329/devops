@@ -46,12 +46,15 @@ Here are the steps to take:
    ```sh
    git clone https://github.com/youraccountnamehere/jwt-pizza.git
    ```
+
+## Running the frontend in your development environment
+
 1. Change directory into the newly clone repository and install the NPM package dependencies.
    ```sh
    cd jwt-pizza
    npm install
    ```
-1. Launch the frontend code in development mode using NPM. Press `o-return` to open your browser.
+1. Launch the frontend code in development mode using NPM. Press `o ⏎` to open your browser.
    ```sh
    npm run dev
    ```
