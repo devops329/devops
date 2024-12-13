@@ -30,7 +30,7 @@ After you have followed all the steps in the associated exercises you should be 
 
 ## Code review
 
-Your fork of the `jwt-pizza` repository contains a file named `notes.md`. That file contains a table that lists most of the types of activities that you can do in the application. This table is reproduced below.
+Your fork of the `jwt-pizza` repository contains a file named `notes.md`. That file contains a table that lists most of the activities that you can do in the application. This table is reproduced below.
 
 | User activity                                       | Frontend component | Backend endpoints | Database SQL |
 | --------------------------------------------------- | ------------------ | ----------------- | ------------ |
