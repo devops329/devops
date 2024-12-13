@@ -53,7 +53,7 @@ graph LR;
 
 ## JWT Pizza
 
-Another example is the JWT Pizza application. Initially, you will deploy only the JWT Pizza frontend, and it will call infrastructure provided by JWT Headquarters.
+You can deploy the JWT Pizza application by placing the frontend code on a publicly available HTTP server, and then using the JWT Pizza service and database provided by JWT Headquarters.
 
 ```mermaid
 graph LR;
@@ -69,4 +69,4 @@ graph LR;
 
 This greatly simplifies your life because you don't have to worry about deploying and managing code running on backend servers. That is left to the DevOps engineers working at JWT Headquarters. You just need to put the JWT Pizza frontend code in a location from where a browser can load the frontend code.
 
-In later instruction you will learn how to deploy the JWT Pizza Service as you host your own JWT Pizza Service and database. At that point things get significantly more complicated, but that is also where all the fun is.
+In later instruction you will learn how to deploy your own JWT Pizza Service and database. Then you will only rely on the Pizza Factory provided by JWT Headquarters. Deploying your own backend service and database makes things significantly more complicated, but it gives you control over the full stack, and that is where all the fun is.
