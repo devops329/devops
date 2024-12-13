@@ -23,11 +23,12 @@
 - [Merge conflicts](mergeConflicts/mergeConflicts.md)
 - xxxx Debugging the client and service
 - ⭐ [⓵ Development deployment: JWT Pizza](deliverable1ManualDeploy/deliverable1ManualDeploy.md)
-- xxxx [Static deployment](staticDeployment/staticDeployment.md)
-- xxxx ☑ [GitHub Pages](gitHubPages/gitHubPages.md)
 - [Automation](automation/automation.md)
 - [Continuous integration (CI)](continuousIntegration/continuousIntegration.md)
 - ☑ [GitHub Actions](gitHubActions/gitHubActions.md)
+- [Static deployment](staticDeployment/staticDeployment.md)
+- xxxx ☑ [GitHub Pages](gitHubPages/gitHubPages.md)
+  xxxx need to move the domain name setup from 1 to 2
 - ⭐ [⓶ Automated deployment: JWT Pizza](deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)
 
 ## Quality assurance

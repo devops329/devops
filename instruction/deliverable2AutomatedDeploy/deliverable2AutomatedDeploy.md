@@ -2,7 +2,7 @@
 
 🔑 **Key points**
 
-- Deploy JWT Pizza using a continuous integration pipeline
+- Deploy the JWT Pizza frontend using a continuous integration pipeline and GitHub Pages
 
 [🎥 Video overview](https://youtu.be/MID8dL4gppE)
 
@@ -17,13 +17,16 @@ Before you start work on this deliverable make sure you have read all of the pro
 - [Automation](../automation/automation.md)
 - [Continuous integration (CI)](../continuousIntegration/continuousIntegration.md)
 - ☑ [GitHub Actions](../gitHubActions/gitHubActions.md)
+- [Static deployment](../staticDeployment/staticDeployment.md)
+- ☑ [GitHub Pages](../gitHubPages/gitHubPages.md)
 
 Failing to do this will likely slow you down as you will not have the required knowledge to complete the deliverable.
 
 ## Getting started
 
-In your last deliverable you manually built the JWT Pizza frontend, copied it into a branch, and pushed it to GitHub pages. While this process works, it has several problems.
+In your last deliverable you manually built and deployed the JWT Pizza frontend in your development environment. While this manual process works, it has several problems.
 
+1. **Non-transferable**: The process only works in your development environment and cannot be reused to deploy your production system.
 1. **Slow**: It requires a human to execute a series of steps. That slows down your ability to move quickly.
 1. **Error-prone**: If a step is skipped or a parameter is misplaced it could cause the deployment to fail, or worse, take down the website entirely.
 1. **Non-reproducible**: You have no way of knowing which steps were followed, or who executed them.
@@ -36,14 +39,13 @@ So now it is time to take the next step. You are going to use `GitHub Actions` t
 
 Here are the steps to make the automation magic happen.
 
-1. Open your fork of `jwt-pizza` on GitHub.com.
-1. Change the GitHub Pages option for the _Build and deployment/Source_ to `GitHub Actions`. This causes GitHub to add an environment called `github-pages`. This environment is used to specify deployment rules and secrets that are specific to GitHub action deployments. You will reference this environment in your CI pipeline.
+1. Open your fork of `jwt-pizza` repository on GitHub.com.
+1. Navigate to the repository's `Settings/Pages` view
+1. Set the GitHub Pages option for the _Build and deployment/Source_ to `GitHub Actions`. This causes GitHub to add a deployment environment called `github-pages`. This environment is used to specify deployment rules and secrets that are specific to GitHub action deployments. You will reference this environment in your CI pipeline.
 
    > ![GitHub Pages Source Actions](gitHubPagesSourceAction.png)
 
-   Changing the option turns off the monitoring of the `gh-pages` branch so that it will no longer trigger a deployment.
-
-1. Modify the `.github/workflows/ci.yml` you created in the previous assignment. This file is the automation script that GitHub actions will execute whenever you make a commit to the `main` branch.
+1. Modify the `.github/workflows/ci.yml` you created in the previous exercise. This file is the automation script that GitHub actions will execute whenever you make a commit to the `main` branch.
 1. Insert the following into the newly created file
 
    ```yml
@@ -67,7 +69,7 @@ Here are the steps to make the automation magic happen.
          - name: Setup Node
            uses: actions/setup-node@v4
            with:
-             node-version: '20.x'
+             node-version: "20.x"
 
          - name: set version
            id: set_version
@@ -145,7 +147,7 @@ Then it installs Node.js version 20.
 - name: Setup Node
   uses: actions/setup-node@v4
   with:
-    node-version: '20.x'
+    node-version: "20.x"
 ```
 
 We then create our version number, set it in a GitHub Action output variable that will make it available to other jobs, and persistently store it in a file named `version.json`.
