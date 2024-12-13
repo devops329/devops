@@ -22,7 +22,7 @@
 - ☑ [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
 - xxxxx need a debugging topic
 - [Merge conflicts](mergeConflicts/mergeConflicts.md)
-- ⭐ [⓵ Development deployment: JWT Pizza](deliverable1ManualDeploy/deliverable1ManualDeploy.md)
+- ⭐ [⓵ Development deployment: JWT Pizza](deliverable1DevelopmentDeploy/deliverable1DevelopmentDeploy.md)
 - [Automation](automation/automation.md)
 - [Continuous integration (CI)](continuousIntegration/continuousIntegration.md)
 - ☑ [GitHub Actions](gitHubActions/gitHubActions.md)

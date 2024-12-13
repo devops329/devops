@@ -45,7 +45,7 @@ Multiple phases of development releases and changes to the devOps pipeline will 
 
 | Deliverable                                                                                 | Description                                                                |
 | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| [⓵ Manual deploy](../deliverable1ManualDeploy/deliverable1ManualDeploy.md)                  | Deploy frontend to GitHub Pages manually                                   |
+| [⓵ Development deploy](../deliverable1DevelopmentDeploy/deliverable1DevelopmentDeploy.md)   | Deploy frontend to GitHub Pages manually                                   |
 | [⓶ Automated deploy](../deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)         | Deploy frontend to GitHub Pages using GitHub Actions                       |
 | [⓷ Unit test](../deliverable3UnitTesting/deliverable3UnitTesting.md)                        | Backend unit testing and analysis using Jest and GitHub Actions automation |
 | [⓸ UI test](../deliverable4UiTesting/deliverable4UiTesting.md)                              | User interface unit testing using Playwright and GitHub Actions automation |
