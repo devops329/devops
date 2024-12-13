@@ -21,7 +21,6 @@
 - ☑ [JWT Pizza data](jwtPizzaData/jwtPizzaData.md)
 - ☑ [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
 - [Merge conflicts](mergeConflicts/mergeConflicts.md)
-- xxxx Debugging the client and service
 - ⭐ [⓵ Development deployment: JWT Pizza](deliverable1ManualDeploy/deliverable1ManualDeploy.md)
 - [Automation](automation/automation.md)
 - [Continuous integration (CI)](continuousIntegration/continuousIntegration.md)

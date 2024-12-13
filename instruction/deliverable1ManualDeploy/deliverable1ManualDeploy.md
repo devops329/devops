@@ -14,76 +14,15 @@
 
 Before you start work on this deliverable make sure you have read all of the proceeding instruction topics and have completed all of the dependant exercises (topics marked with a ☑). This includes:
 
-- ☑ [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
 - ☑ [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
-- [Merge conflicts](mergeConflicts/mergeConflicts.md)
 - ☑ [JWT Pizza data](jwtPizzaData/jwtPizzaData.md)
-- xxxx Debugging the client and service
+- ☑ [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
 
 Failing to do this will likely slow you down as you will not have the required knowledge to complete the deliverable.
 
 ## Getting started
 
-xxxx Move all of this over to just talking about how to deploy to your dev environment
-
-You now have everything you need to complete the first deliverable of the course. To create this deliverable you will complete the following steps:
-
-1.  Create a git deployment branch named `gh-pages` in your fork of the jwt-pizza repository
-1.  Associate the branch with your repo's GitHub Pages
-1.  Test that the branch deploys to the GitHub page URL by pushing a simple `index.html` file.
-1.  Associate your domain name with the GitHub Pages
-1.  Bundle the jwt-pizza code and push it into the deployment branch
-
-## Create the gh-pages branch
-
-To configure GitHub Pages to host a static deployment you need to first create a branch that has the files you want to host.
-
-1. Open **your fork** of the `jwt-pizza` repository on GitHub.com.
-1. Create a new branch of the code called `gh-pages` by navigating to the branch view by clicking on the branch navigation icon.
-   > ![branch icon](branchNavigationIcon.png)
-1. Press the `New Branch` button, supply the name `gh-pages`, and press the `Create new branch` button.
-   > ![New Branch Modal](newBranchModal.png)
-
-## Associate gh-pages branch with Pages
-
-Next you need to associate our new branch with GitHub Pages for the jwt-pizza repository.
-
-1. Select the `Setting` option from the main navigation.
-1. Select the `Pages` option from the left-hand navigation.
-1. Select the `Source` option and verify that `Deploy from a branch` is selected
-   > ![GitHub Pages settings](gitHubPagesSettings.png)
-1. In the `Branch` section select `gh-pages` as the branch, and press `Save`.
-   > ![gh-pages branch selection](ghPagesBranchSelection.png)
-
-This will make the branch available from a URL that references your repository. The GitHub Pages settings view will display the name of the URL, but it should be something like:
-
-```txt
-https://youraccountnamehere.github.io/jwt-pizza/
-```
-
-## Creating a static deployment
-
-Now you can copy the branch to your development environment, set up some files, and push it back to GitHub so that it will be statically deployed.
-
-1. Open a command console in your development environment.
-1. Navigate to your cloned copy of `jwt-pizza`.
-1. Run the following commands to copy the `gh-pages` branch locally.
-
-   ```sh
-   git fetch origin gh-pages
-   git checkout -b gh-pages origin/gh-pages
-   ```
-
-   This branch should contain all the files for the jwt-pizza frontend. However, you don't want to deploy the project code, instead you want to deploy the distribution bundle that Vite creates. Before you do that, let's deploy a simple Hello World page to make sure things are working.
-
-1. Delete all the code in the branch. Remember that this branch is just to host a static deployment on GitHub Pages. You should never merge it back into `main`.
-   ```sh
-   rm -r * .env* .vscode
-   echo "hello GitHub pages" > index.html
-   git add .
-   git commit -m "initial(pages)"
-   git push
-   ```
+You now have everything you need to complete the first deliverable of the course. In this deliverable you will demonstrate that you have spent the time necessary to completely understand the JWT Pizza application front and backend code.
 
 You can now point your browser to the GitHub pages site for your repository and see the index.html page you just created. Note that sometimes you need to wait a couple of minutes before GitHub will refresh its internal cache before you will see your change.
 
@@ -149,8 +88,7 @@ Now you are ready to actually deploy the JWT Pizza frontend. Open your developme
    git commit -m "deploy(v1)"
    git push
    ```
-
-That should do it. You can verify that it all worked by opening your browser to your pizza domain and start ordering pizzas.
+   That should do it. You can verify that it all worked by opening your browser and start ordering pizzas.
 
 ![JWT Pizza](../jwtPizzaClient/jwtPizzaPhone.png)
 
