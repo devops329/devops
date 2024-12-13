@@ -140,10 +140,7 @@ The JWT application contains two services, each with their own set of endpoints.
 
 ## ☑ Exercise
 
-1. Fork the [jwt-pizza-service](https://github.com/devops329/jwt-pizza-service) repository.
-1. Clone it to your development environment.
-
-Once you are done, you should have the backend service code in your development environment and your backend repo URL should look something like this:
+Following the above instruction you should have already forked and cloned the jwt-pizza-service repository to your development environment. Your copy of the JWT Pizza repo URL should look something like this:
 
 ```
 https://github.com/youraccountnamehere/jwt-pizza-service
@@ -158,9 +155,13 @@ Now you can build and start up the backend pizza service in your development env
    ```
 1. Open the jwt-pizza-service project in VS Code.
 1. Create your `src/config.json` file with proper configuration settings.
-1. Start up the service by debugging it in VS Code
+1. Use the VS Code debugger to start up that service.
 
-Validate that you can call your service locally using curl by executing the following commands. If these all return valid responses then you have setup your service correctly in your development environment.
+### Get familiar with the Pizza service
+
+Once you have the backend service is running correctly in your development environment, take some time to debug and step through the code until you completely understand how it all works. The better you understand the code the easier it will be to test, deploy, and monitor the service.
+
+Enable some breakpoints and step through the code that sets up the database, authenticates users, and executes endpoints. You can trigger these events using curl by executing the following commands. If these all return valid responses then you have setup your service correctly in your development environment.
 
 #### Request the default endpoint
 
@@ -189,7 +190,3 @@ curl -X PUT http://localhost:3000/api/auth -H "Content-Type:application/json" -d
 
 {"user":{"id":1,"name":"常用名字","email":"a@jwt.com","roles":[{"role":"admin"}]},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IuW4uOeUqOWQjeWtlyIsImVtYWlsIjoiYUBqd3QuY29tIiwicm9sZXMiOlt7InJvbGUiOiJhZG1pbiJ9XSwiaWF0IjoxNzM0MDQ1MDE2fQ.XmWeetWEryvDA21NPQFPueiTnHVuTYMwdJregFCW4p8"}
 ```
-
-### Get familiar with the Pizza service
-
-After you are confident that the service is running correctly, take some time to debug and step through the code until you completely understand how it all works. The better you understand the code the easier it will be to test, deploy, and monitor the service.

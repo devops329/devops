@@ -29,11 +29,11 @@ In your last deliverable you manually built and deployed the JWT Pizza frontend 
 1. **Non-transferable**: The process only works in your development environment and cannot be reused to deploy your production system.
 1. **Slow**: It requires a human to execute a series of steps. That slows down your ability to move quickly.
 1. **Error-prone**: If a step is skipped or a parameter is misplaced it could cause the deployment to fail, or worse, take down the website entirely.
-1. **Non-reproducible**: You have no way of knowing which steps were followed, or who executed them.
+1. **Non-reproducible**: You have no recorded history of which steps were followed, or who executed them.
 
 Basically, manual processes violate the prime directive of DevOps, that everything should be automated.
 
-So now it is time to take the next step. You are going to use `GitHub Actions` to deploy your static deployment each time a commit is pushed to your fork of the jwt-pizza repository.
+So now it is time to take the next step. You are going to use `GitHub Actions` to automate the static deployment of the frontend each time a commit is pushed to your fork of the jwt-pizza repository.
 
 ## Create the GitHub Action workflow
 
@@ -41,12 +41,12 @@ Here are the steps to make the automation magic happen.
 
 1. Open your fork of `jwt-pizza` repository on GitHub.com.
 1. Navigate to the repository's `Settings/Pages` view
-1. Set the GitHub Pages option for the _Build and deployment/Source_ to `GitHub Actions`. This causes GitHub to add a deployment environment called `github-pages`. This environment is used to specify deployment rules and secrets that are specific to GitHub action deployments. You will reference this environment in your CI pipeline.
+1. Set the GitHub Pages option for the _Build and deployment/Source_ to `GitHub Actions`. This causes GitHub to add a deployment environment called `github-pages`. This environment is used to specify deployment rules and secrets that are specific to GitHub Action deployments. You will reference this environment in your CI pipeline.
 
-   > ![GitHub Pages Source Actions](gitHubPagesSourceAction.png)
+   ![GitHub Pages Source Actions](gitHubPagesSourceAction.png)
 
-1. Modify the `.github/workflows/ci.yml` you created in the previous exercise. This file is the automation script that GitHub actions will execute whenever you make a commit to the `main` branch.
-1. Insert the following into the newly created file
+1. Modify the `.github/workflows/ci.yml` you created in the previous exercise. This file is the automation script that GitHub Actions will execute whenever you make a commit to the `main` branch.
+1. Insert the following into the `ci.ym` file.
 
    ```yml
    name: CI Pipeline
@@ -69,7 +69,7 @@ Here are the steps to make the automation magic happen.
          - name: Setup Node
            uses: actions/setup-node@v4
            with:
-             node-version: "20.x"
+             node-version: '20.x'
 
          - name: set version
            id: set_version
@@ -147,7 +147,7 @@ Then it installs Node.js version 20.
 - name: Setup Node
   uses: actions/setup-node@v4
   with:
-    node-version: "20.x"
+    node-version: '20.x'
 ```
 
 We then create our version number, set it in a GitHub Action output variable that will make it available to other jobs, and persistently store it in a file named `version.json`.
@@ -219,6 +219,36 @@ All you need to do copy the following Markdown, paste it in the README file, rep
 Now whenever you pipeline runs you will be able to see the status in your repos home page on GitHub. Don't worry about the coverage reporting 0%. You will correct that in a future assignment.
 
 ![Pipeline status](pipelineStatus.png)
+
+## Assigning a custom domain
+
+The JWT Pizza frontend doesn't work correctly unless it is hosted on the root path of the domain. By default, GitHub Pages hosts the static deployment on a path called `jwt-pizza`. To get around this you must associate a custom domain with your GitHub Pages deployment.
+
+> [!NOTE]
+> If you do not already own a DNS hostname, you will need to go lease one now. You will use your hostname for all of your DevOps deployment tasks. You can lease a domain from AWS using Route53 or use a different provider if you are familiar with an alternative.
+
+Using your domain name take the following steps in order to associate it to your GitHub Pages.
+
+1. Add a `CNAME` record to your domain name DNS records that points to the GitHub Pages hostname. For example, if your GitHub account name was `byucsstudent`, you owned a domain named `byucsstudent.click`, and you wanted to associate the static deployment of JWT Pizza with the subdomain of `pizza.byucsstudent.click` you would create the following DNS record.
+   ```txt
+   record name: pizza.byucsstudent.click
+   record type: CNAME
+   record value: byucsstudent.github.io
+   ```
+1. Wait for the newly created record to propagate. You can use `nslookup` or `dig` to verify that it is available.
+1. Open the GitHub Pages settings for the fork of your jwt-pizza repository.
+1. Put your subdomain name in the `Custom domain` edit box and press `Save`.
+   > ![Custom domain entry](customDomain.png)
+1. Check the box to `Enforce HTTPS`. It is interesting to consider how GitHub is able to generate a certificate for your domain.
+1. After the check completes you can navigate your browser to your subdomain and verify that "Hello GitHub Pages" is still being displayed.
+
+   ```sh
+   curl https://pizza.youdomainhere
+
+   Hello GitHub Pages
+   ```
+
+   The previous `youraccountnamehere.github.io/jwt-pages` URL should now redirect you with an HTTP `301` response to your new domain.
 
 ## Wrap up
 

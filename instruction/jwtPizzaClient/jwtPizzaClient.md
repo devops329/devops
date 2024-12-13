@@ -114,10 +114,7 @@ Make sure you spend reasonable time both playing with the interface and also exp
 
 ## ☑ Exercise
 
-1. Fork the [jwt-pizza](https://github.com/devops329/jwt-pizza) repository.
-1. Clone it to your development environment.
-
-Once you are done, you should have the frontend code in your development environment and your copy of the JWT Pizza repo URL should look something like this:
+Following the above instruction you should have already forked and cloned the jwt-pizza repository to your development environment. Your copy of the JWT Pizza repo URL should look something like this:
 
 ```
 https://github.com/youraccountnamehere/jwt-pizza
@@ -130,8 +127,8 @@ Now you can build and start up the JWT pizza frontend in your development enviro
    cd jwt-pizza
    npm install
    ```
-1. Open the jwt-pizza project in VS Code.
-1. Start up the service by running `npm run dev` and debugging it in using the browsers dev tools. You should be able to access the application in your browser using the URL `localhost:5173`.
+1. Start up the JWT Pizza backend by following the [JTW Pizza Service](../jwtPizzaService/) instruction.
+1. Start up the JWT Pizza frontend by running `npm run dev`. You should be able to access the application in your browser using the URL `localhost:5173`.
 
 ![alt text](jwtPizzaHomepage.png)
 
