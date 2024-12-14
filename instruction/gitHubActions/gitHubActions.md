@@ -16,7 +16,7 @@
 
 ---
 
-For this course we are using GitHub Actions as the execution engine for the JWT Pizza CI pipelines. GitHub Actions represent a CI pipeline with a YAML formatted **workflow** file. Workflows are stored in the `.github/workflows` directory in a repository. Any `.yml` files located in that directory will automatically be loaded and executed. A repository can have multiple workflows, each of which can perform a different set of tasks. For example, you can have one workflow to build and test pull requests and another workflow to deploy your application every time a release is created.
+For this course we are using GitHub Actions as the execution engine for the JWT Pizza CI pipelines. GitHub Actions represent a CI pipeline with a YAML formatted **workflow** file. Workflows are stored in a repositories `.github/workflows` directory. Any `.yml` files located in that directory will automatically be loaded and executed. A repository can have multiple workflows, each of which can perform a different set of tasks. For example, you can have one workflow to build and test pull requests and another workflow to deploy your application every time a release is created.
 
 The workflow is composed of one or more **jobs** which are in turn, comprised of one or more **steps**. A step will execute an individual task such as building the code, running tests, or copying files. When workflows triggers based upon some event such as a push, issue creation, or timer, a **runner** loads and executes the workflow. It is common for there to be some sort of output for a workflow such as a release artifact or a binary that is pushed into production.
 
@@ -40,7 +40,7 @@ jobs:
       - run: echo goodbye
 ```
 
-You can create and trigger this workflow by opening GitHub in your browser and opening any repository in your account. Add a new file to your repository code that is named `.github/workflows/test.yml`. Paste the above workflow into the contents of the file and then commit the change.
+You can create and trigger this workflow by opening GitHub in your browser and opening your `jwt-pizza` repository. Add a new file to your repository code that is named `.github/workflows/test.yml`. Paste the above workflow into the contents of the file and then commit the change.
 
 ![Create workflow](createWorkflow.png)
 
@@ -121,7 +121,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: "20.x"
 
       - name: Test
         run: |
@@ -160,7 +160,7 @@ Create a GitHub Action CI pipeline in your fork of the `jwt-pizza` repository by
          - run: echo "Hello GitHub Actions"
    ```
 
-1. Commit and push.
+1. Commit and push. Because this workflow is triggered by a **push** on the **main** branch it will begin executing on every push, including the one that adds this workflow.
 1. Open The Actions tab of your fork of `jwt-pizza` on GitHub.
 1. Click on the **CI Pipeline** and the latest workflow run.
 1. Click on the **test** job and expand the **Run** step. This should the workflow and display **Hello GitHub Actions** in the workflow output.
