@@ -10,46 +10,68 @@
 
 ---
 
-Now that you know how static deployment works, you can take the next step of selecting a tool that supports the static deployment model.
+Now that you know how a static deployment works, you can take the next step of selecting a tool that supports the static deployment model.
 
-One easy way to do this is to use a service from `GitHub` called `GitHub Pages`. At a basic level, GitHub Pages is a simple HTTP file server that publishes a set of files under a GitHub URL. To use GitHub pages you do the following:
+One easy way to do this is to use a service from `GitHub` called `GitHub Pages`. At a basic level, GitHub Pages is a simple HTTP file server that publishes a set of files under a GitHub URL. We will demonstrate how to do this by creating a static deployment in your `jwt-pizza` repository that displays a simple **Hello GitHub** frontend deployment. Here are the steps to make the automation magic happen.
 
-1. Create a repository to test out GitHub pages with. Name the repository `static`. Make it public, and give it a README.md file so that it populates the repo with some initial content.
+1. Open your fork of `jwt-pizza` repository on GitHub.com.
+1. Navigate to the repository's `Settings/Pages` view
+1. Set the GitHub Pages option for the _Build and deployment/Source_ to `GitHub Actions`. This causes GitHub to add a deployment environment called `github-pages`. This environment is used to specify deployment rules and secrets that are specific to GitHub Action deployments. You will reference this environment in your CI pipeline.
 
-   ![Create Pages Repository](createRepository.png)
+   ![alt text](githubPagesConfig.png)
 
-1. Using your command console, clone the repository locally.
-1. Create a branch on your GitHub repository. This branch is commonly called `gh-pages`.
+1. Modify the `.github/workflows/ci.yml` you created in the previous exercise to contain the following.
 
-   ```sh
-   cd static && git checkout -b gh-pages
+   ```yml
+   name: CI Pipeline
+
+   on:
+     push:
+       branches:
+         - main
+     workflow_dispatch:
+   jobs:
+     build:
+       name: Build
+       runs-on: ubuntu-latest
+       steps:
+         - name: create static deployment file
+           run: |
+             mkdir dist
+             echo "<h1>Hello GitHub Pages</h1>" >> dist/index.html
+
+         - name: Update pages artifact
+           uses: actions/upload-pages-artifact@v3
+           with:
+             path: dist/
+     deploy:
+       needs: build
+       permissions:
+         pages: write
+         id-token: write
+       environment:
+         name: github-pages
+         url: ${{ steps.deployment.outputs.page_url }}
+       runs-on: ubuntu-latest
+       steps:
+         - name: Deploy to GitHub Pages
+           id: deployment
+           uses: actions/deploy-pages@v4
    ```
 
-1. Create an `index.html` file containing the following.
-   ```html
-   <h1>Hello GitHub Pages</h1>
-   ```
-1. Commit the change to the branch.
+   This CI pipeline will execute a **Build** job that creates a simple `index.html` file and then use the **upload-pages-artifact** action to create an artifact that can be deploy to GitHub Pages. The **Deploy** job then deploys the artifact to the github-pages environment that using the **deploy-pages** action.
 
-   ```sh
-   git add . && git commit -am "add(homepage)"
+1. Commit and push. This will trigger the CI pipeline and once it has completed you should be able to view the static deployment by using the URL that GitHub Pages automatically creates for you. This will follow the pattern:
+
+   ```txt
+   https://YOURGITHUBACCOUNTNAME.github.io/jwt-pizza/
    ```
 
-1. Push your static deployment files to the branch. The following will set the upstream for the branch and create the branch on GitHub.
-   ```sh
-   git push --set-upstream origin gh-pages
-   ```
-1. Verify that the repository settings indicate that GitHub Pages is loading the `gh-pages` branch as a static deployment. You do this by accessing the `static` repository's settings page and selecting `Pages`. It should show that it is deploying from a branch named `gh-pages`.
+   ![Browser display of static deployment](browserDisplay.png)
 
-![GitHub settings configuration](gitHubPagesSettings.png)
+In future instruction you will use GitHub Pages to deploy the JWT Pizza frontend code.
 
-Once you have completed these steps you can access your static deployment from anywhere in the world using a URL like: `youraccountname.github.io/static`.
-
-![Browser display of static deployment](browserDisplay.png)
-
-You can go ahead and experiment with this now if you would like. In future instruction you will use GitHub Pages to deploy the JWT Pizza frontend code.
-
-## GitHub Pages at the account level
+## Bonus: GitHub Pages at the account level
 
 In addition to hosting a static deployment for a **repository** you can also do this for your **entire GitHub account**. However, in this case, instead of using a special branch, you create a special repository that follows the pattern: `youraccountnamehere.github.io`. In the example below, we created an account level static deployment for the account named `byucsstudent` by creating the `byucsstudent.github.io` repository and populating it with a simple [index.html](gitHubPagesExample/index.html) file.
 
@@ -57,15 +79,13 @@ In addition to hosting a static deployment for a **repository** you can also do 
 
 ## ☑ Exercise
 
-Create a GitHub Pages deployment in your GitHub account for a repository named `static`:
+Deploy a simple static deployment by following the instructions listed above. This includes the following major steps.
 
-1. Create a repository that follows the pattern: `youraccountnamehere.github.io/static`.
-1. Adding an `index.html` to the root of the repository.
+1. Modify your `jwt-pizza` repository settings to enable GitHub Pages.
+1. Create a simple static deployment by modifying your `ci.yml` workflow.
 
-Feel free to make the page as simple or as pretty as you would like. When you are done, it should look something like this:
+when you are done you should be able to view your simple Hello GitHub Pages website using a URL similar to the following:
 
 ```
-https://byucsstudent.github.io/static
+https://YOURGITHUBACCOUNTNAME.github.io/jwt-pizza/
 ```
-
-![Sample GitHub Pages site](sampleGitHubPagesSite.png)
