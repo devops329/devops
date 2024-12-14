@@ -4,7 +4,7 @@
 
 - Deploy JWT Pizza to GitHub Pages.
 
-[🎥 Video overview](https://youtu.be/oKXmatAJRyU)
+[🎥 Video overview](https://youtu.be/oKXmatAJRyU) - A bit outdated, but perhaps still useful
 
 ---
 
@@ -68,7 +68,7 @@ Once you have completed the review of the code and completely filled out the **U
 
 ### Rubric
 
-| Percent | Item                                                                                                                                                                                        |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 30%     | Successfully forked the JWT Pizza repositories and added the TA as a collaborator.                                                                                                          |
-| 70%     | Manually deployed JWT Pizza to your development environment. Debug both the front and backend and complete the **User Activity** table found in the `notes.md` file of your jwt-pizza repo. |
+| Percent | Item                                                                                                                                                                                                                         |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 30%     | Successfully forked the JWT Pizza repositories and added the TA as a collaborator.                                                                                                                                           |
+| 70%     | Manually deployed JWT Pizza to your development environment. Used the debuggers to step through both the front and backend while completing the **User Activity** table found in the `notes.md` file of your jwt-pizza repo. |
