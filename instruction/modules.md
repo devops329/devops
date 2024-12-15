@@ -20,7 +20,7 @@
 - ☑ [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
 - ☑ [JWT Pizza data](jwtPizzaData/jwtPizzaData.md)
 - ☑ [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
-- xxxxx need a debugging topic
+- [Full stack debugging](fullStackDebugging/fullStackDebugging.md)
 - [Merge conflicts](mergeConflicts/mergeConflicts.md)
 - ⭐ [⓵ Development deployment: JWT Pizza](deliverable1DevelopmentDeploy/deliverable1DevelopmentDeploy.md)
 - [Automation](automation/automation.md)
