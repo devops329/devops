@@ -2,7 +2,7 @@
 
 🔑 **Key points**
 
-- Fork JWT Pizza.
+- Fork JWT Pizza
 - Run and explore JWT Pizza locally
 
 [🎥 Video overview](https://youtu.be/oKXmatAJRyU) - A bit outdated, but perhaps still useful
