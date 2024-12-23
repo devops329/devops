@@ -25,13 +25,13 @@ Failing to do this will likely slow you down as you will not have the required k
 
 ## Getting started
 
-The JWT Pizza application has the ability built into it to inject Chaos into the system. It is an important part of your role as a DevOps engineer to know how to expediently, and efficiently, respond to critical events. This deliverable will give you significant experience with that process.
+The JWT Pizza application has the ability built into it to inject chaos into the system. It is an important part of your role as a DevOps engineer to know how to expediently, and efficiently, respond to critical events. This deliverable will give you significant experience with that process.
 
 ## Useful logs and metrics
 
 In order to be successful with this deliverable you must have logs and metrics that are not only reporting nominal information, but also surfacing when there is a problem.
 
-This means that you need to know when resources are maxed out, requests are failing, or latency is too high. The following example dashboard shows that there is a problem making pizzas and that the logs are filled with errors.
+This means that you need to know when **resources are maxed out**, **requests are failing**, or **latency is too high**. The following example dashboard shows that there is a problem making pizzas and that the logs are filled with errors.
 
 ![Error state dashboard](errorStateDashboard.png)
 
@@ -59,6 +59,8 @@ Your job is to do the following:
 1. The incident will occur between 8am and 2pm the next day.
 1. Respond to the incident in a timely manner.
 1. Properly diagnose and remedy the root cause of the failure.
+   1. If you debug carefully, it will be obvious what action to take to resolve the chaos.
+   1. You will _not_ need to change the JWT Pizza code.
 1. Produce an [incident report](../incidentReport/incidentReport.md) using the template found in the `jwt-pizza` repository under the [incidentReports](https://github.com/devops329/jwt-pizza/tree/main/incidentReports) folder.
 
 > [!NOTE]
@@ -83,5 +85,5 @@ https://github.com/youraccountname/jwt-pizza/tree/main/incidentReports
 
 | Percent | Item                                                                                                                                                     |
 | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 80%     | Timely response and correction of chaos incident. After 6 hours have passed since the incident, 10% is deducted for each hour that the failure persists. |
+| 80%     | Timely response and correction of chaos incident. After 4 hours have passed since the incident, 10% is deducted for each hour that the failure persists. |
 | 20%     | Accurate and informative incident report committed to your fork of the `jwt-pizza` repository.                                                           |
