@@ -2,7 +2,8 @@
 
 🔑 **Key points**
 
-- Deploy JWT Pizza to GitHub Pages.
+- Fork JWT Pizza.
+- Run and explore JWT Pizza locally
 
 [🎥 Video overview](https://youtu.be/oKXmatAJRyU) - A bit outdated, but perhaps still useful
 
@@ -53,7 +54,7 @@ Your fork of the `jwt-pizza` repository contains a file named `notes.md`. That f
 | Create a franchise for t@jwt.com                    |                    |                   |              |
 | Close the franchise for t@jwt.com                   |                    |                   |              |
 
-Put breakpoints in both the front and backend code and start doing each of the user activities defined above. During your review fill out the **Fronted component**, **Backend endpoints**, and **Database SQL** that was used in the activity. This will help you understand and document how the application works.
+Put breakpoints in both the front and backend code and start doing each of the user activities defined above. During your review, fill out the **Frontend component**, **Backend endpoints**, and **Database SQL** that were used in the activity. This will help you understand and document how the application works.
 
 To get you started, we give you an example of what you need to supply for the first couple activities:
 
