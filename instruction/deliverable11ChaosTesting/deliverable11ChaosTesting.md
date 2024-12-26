@@ -62,6 +62,8 @@ Your job is to do the following:
    1. If you debug carefully, it will be obvious what action to take to resolve the chaos.
    1. You will _not_ need to change the JWT Pizza code.
 1. Produce an [incident report](../incidentReport/incidentReport.md) using the template found in the `jwt-pizza` repository under the [incidentReports](https://github.com/devops329/jwt-pizza/tree/main/incidentReports) folder.
+   1. If your alerts were not triggered by the chaos, update your alert rules so they can catch future failure.
+   1. Include a section in your report documenting any changes you made.
 
 > [!NOTE]
 > If you are unable to be on call during the defined testing period you have the responsibility to notify the instructor and negotiate an alternative schedule.
