@@ -272,6 +272,11 @@ Some cool features include:
 
 You can also debug your tests by placing a break point and walking through test code in VS Code and the frontend code in the browser's dev tools.
 
+> [!NOTE]
+> Configuring Playwright to automatically start your application and using the Playwright extension to run tests will often leave it running in the background. If left running, it will also use previously defined configuration settings. If you want to make sure you start with a clean global configuration then make sure you use the Playwright configuration settings.
+
+![alt text](playwrightSettings.png)
+
 ## Writing your own tests
 
 Now you are ready to write your first test against our demonstration service.
@@ -657,16 +662,16 @@ function App() {
     <div>
       <h1>Pizza</h1>
       <p>{'🍕'.repeat(count) || '👨‍🍳'}</p>
-      <label htmlFor="order">Pizza:</label>
+      <label htmlFor='order'>Pizza:</label>
       <div>
-        <input type="text" id="pizza-type" value={pizzaType} placeholder="type" onChange={(e) => setPizzaType(e.target.value)} />
+        <input type='text' id='pizza-type' value={pizzaType} placeholder='type' onChange={(e) => setPizzaType(e.target.value)} />
         &nbsp;<button onClick={() => setCount(count + 1)}>+1</button>
         &nbsp;
         <button disabled={!count || !pizzaType} onClick={handleOrder}>
           Order
         </button>
       </div>
-      <div id="orderValue">
+      <div id='orderValue'>
         <i>{order}</i>
       </div>
       <button disabled={!!menu.length} onClick={getMenu}>
