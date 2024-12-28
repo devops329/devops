@@ -273,7 +273,7 @@ Some cool features include:
 You can also debug your tests by placing a break point and walking through test code in VS Code and the frontend code in the browser's dev tools.
 
 > [!NOTE]
-> Configuring Playwright to automatically start your application and using the Playwright extension to run tests will often leave it running in the background. If left running, it will also use previously defined configuration settings. If you want to make sure you start with a clean global configuration then make sure you use the Playwright configuration settings.
+> Configuring Playwright to automatically start your application and using the Playwright extension to run tests will often leave it running in the background. If left running, it will also use previously defined configuration settings. If you want to make sure you start with a clean global configuration then make sure you run the global setup on each run.
 
 ![alt text](playwrightSettings.png)
 
