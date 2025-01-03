@@ -24,8 +24,8 @@ Each of the follow deliverables will take JWT Pizza from a simple program code t
 
 | 🍕 Deliverable                                                                              | Video                              | Description                                                                |
 | ------------------------------------------------------------------------------------------- | ---------------------------------- | -------------------------------------------------------------------------- |
-| [⓵ Development deploy](../deliverable1DevelopmentDeploy/deliverable1DevelopmentDeploy.md)   | [🎥](https://youtu.be/oKXmatAJRyU) | Deploy frontend to GitHub Pages manually                                   |
-| [⓶ Automated deploy](../deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)         | [🎥](https://youtu.be/MID8dL4gppE) | Deploy frontend to GitHub Pages using GitHub Actions                       |
+| [⓵ Development deploy](../deliverable1DevelopmentDeploy/deliverable1DevelopmentDeploy.md)   |                                    | Deploy frontend to GitHub Pages manually                                   |
+| [⓶ Automated deploy](../deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)         |                                    | Deploy frontend to GitHub Pages using GitHub Actions                       |
 | [⓷ Unit test](../deliverable3UnitTesting/deliverable3UnitTesting.md)                        | [🎥](https://youtu.be/PKiRH2ZKZeM) | Backend unit testing and analysis using Jest and GitHub Actions automation |
 | [⓸ UI test](../deliverable4UiTesting/deliverable4UiTesting.md)                              | [🎥](https://youtu.be/qvf1kaT_wr0) | User interface unit testing using Playwright and GitHub Actions automation |
 | [⓹ CDN deploy](../deliverable5CdnDeploy/deliverable5CdnDeploy.md)                           |                                    | Deploy frontend to AWS CloudFront                                          |

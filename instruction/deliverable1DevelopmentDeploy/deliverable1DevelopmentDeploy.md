@@ -5,8 +5,6 @@
 - Fork JWT Pizza
 - Run and explore JWT Pizza locally
 
-[🎥 Video overview](https://youtu.be/oKXmatAJRyU) - A bit outdated, but perhaps still useful
-
 ---
 
 ![course overview](../sharedImages/courseOverview.png)
