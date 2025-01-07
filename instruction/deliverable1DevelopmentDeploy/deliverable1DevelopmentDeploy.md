@@ -61,6 +61,8 @@ To get you started, we give you an example of what you need to supply for the fi
 | View home page                              | home.jsx           | _none_            | _none_                                                                                                                       |
 | Register new user<br/>(t@jwt.com, pw: test) | login.jsx          | [PUT] /api/auth   | INSERT INTO user (name, email, password) VALUES (?, ?, ?)<br/>INSERT INTO userRole (userId, role, objectId) VALUES (?, ?, ?) |
 
+Do not leave table cells blank. If there is nothing to write for a cell, put _none_ as shown in the example.
+
 ## ⭐ Deliverable
 
 Once you have completed the review of the code and completely filled out the **User activity** table found in `notes.md`, commit and push your `notes.md` file to your jwt-pizza repo and submit that you have completed the work to the [AutoGrader](https://cs329.cs.byu.edu).
