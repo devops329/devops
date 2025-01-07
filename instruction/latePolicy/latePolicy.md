@@ -6,7 +6,7 @@ To help you stay current with the rest of the class, we will implement the follo
 
 ## Late Submissions
 
-Late submissions receive **0** points.
+Late submissions receive **zero** points.
 
 ## Grace Days
 
