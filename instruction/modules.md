@@ -9,6 +9,7 @@
 - [Intro to AWS](aws/aws.md)
 - ☑ [AWS Account](awsAccount/awsAccount.md)
 - [GitHub](gitHub/gitHub.md)
+- [Late Policy](latePolicy/latePolicy.md)
 - [AutoGrader](autoGrader/autoGrader.md)
 - [Commit History](gitHub/commitHistory.md)
 - ⭐ [Christlike learning](christlikeLearning/christlikeLearning.md)
