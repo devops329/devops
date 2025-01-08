@@ -31,3 +31,4 @@ Grace days will either be updated automatically by the autograder or through you
 You can view your available late days in the `Profile` page of the AutoGrader.
 
 ## Extenuating Circumstances and Accommodations
+Life happens, sometimes in ways we cannot foresee or prepare for. If you encounter an extenuating circumstance or require university accommodations during the semester, please contact the professor as soon as possible. University Accommodations require you to ask the Professor for extensions **before** the deadline.
