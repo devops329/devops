@@ -54,6 +54,6 @@ Always remember how it felt to receive help. Actively look for opportunities to 
 
 ## ☑ Exercise
 
-Get on the Discord server and review each of the channels and the TA area. Review the previous instruction on asking question. Give some thought about proper forum etiquette.
+Get on the Discord server and review each of the channels and the TA area. Change your display name to be your actual name. Review the previous instruction on asking questions. Give some thought about proper forum etiquette.
 
 Figure out who your assigned TA is by reviewing the [TA schedule](https://docs.google.com/spreadsheets/d/1n0Z6sARR29lZRwoGzTYxqSiGV6s1vPSa4ddFE0Jh9j8). TAs are assigned by an alphabetical range. Find the range that contains the first letter of your last name. Using their Discord ID, open Discord to send them a direct message (DM) to introduce yourself.
