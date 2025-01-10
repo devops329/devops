@@ -13,9 +13,9 @@
 
 Before you start work on this deliverable make sure you have read all of the proceeding instruction topics and have completed all of the dependant exercises (topics marked with a ☑). This includes:
 
-- ☑ [JWT Pizza Service](jwtPizzaService/jwtPizzaService.md)
-- ☑ [JWT Pizza data](jwtPizzaData/jwtPizzaData.md)
-- ☑ [JWT Pizza Client](jwtPizzaClient/jwtPizzaClient.md)
+- ☑ [JWT Pizza Service](../jwtPizzaService/jwtPizzaService.md)
+- ☑ [JWT Pizza data](../jwtPizzaData/jwtPizzaData.md)
+- ☑ [JWT Pizza Client](../jwtPizzaClient/jwtPizzaClient.md)
 
 Failing to do this, will likely slow you down as you will not have the required knowledge to complete the deliverable.
 
