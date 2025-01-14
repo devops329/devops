@@ -157,6 +157,10 @@ Now you can build and start up the backend pizza service in your development env
 1. Create your `src/config.json` file with proper configuration settings.
 1. Use the VS Code debugger to start up that service.
 
+### Pizza data
+
+When the service starts, it will configure your database with the correct tables and a default admin user. This is enough to get started, but to fully use the application you will need to set up your menu, add a franchise, and a few users. You can do this by following the instructions for configuring your [pizza data](../jwtPizzaData/jwtPizzaData.md).
+
 ### Get familiar with the Pizza service
 
 Once you have the backend service is running correctly in your development environment, take some time to debug and step through the code until you completely understand how it all works. The better you understand the code the easier it will be to test, deploy, and monitor the service.
