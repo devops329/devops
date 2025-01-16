@@ -31,7 +31,7 @@ host=http://localhost:3000
 Later, once you get your pizza server running in a production cloud deployment environment, you will set host to the host name for your production pizza service. This will be something like:
 
 ```sh
-host=https://pizza-service.cs329.click
+host=https://pizza-service.yourdomainname.click
 ```
 
 ### Login as admin
