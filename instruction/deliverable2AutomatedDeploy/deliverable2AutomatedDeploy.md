@@ -278,7 +278,7 @@ Once JWT Pizza is live on your domain, go to the [AutoGrader](https://cs329.cs.b
 
 | Percent | Item                                                                                        |
 | ------- | ------------------------------------------------------------------------------------------- |
-| 60%     | Successful execution of GitHub Actions to deploy JWT Pizza to GitHub Pages on push          |
+| 50%     | Successful execution of GitHub Actions to deploy JWT Pizza to GitHub Pages on push          |
 | 10%     | Version updated with each build and visible in app footer.                                  |
 | 35%     | Completely functional JWT Pizza deployed with GitHub Pages accessible on custom domain name |
 | 5%      | Pipeline status badge display on your JWT Pizza **README.md** home page                     |
