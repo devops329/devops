@@ -87,7 +87,7 @@ Once you understand how the commands above function, it's helpful to have them c
 You can run this script by providing the URL of the server you want to target. In the following example, make sure you replace the Headquarters pizza URL with `localhost:3000` if you are running against your development environment, or your production pizza service URL if you are trying to generate the dummy data there.
 
 ```sh
-./generateDBData.sh https://pizza-service.cs329.click
+./generateDBData.sh https://pizza-service.yourdomainname.click
 ```
 
 ## ☑ Exercise
