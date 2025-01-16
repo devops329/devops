@@ -11,7 +11,7 @@
 
 ## Prerequisites
 
-Before you start work on this deliverable make sure you have read all of the proceeding instruction topics and have completed all of the dependant exercises (topics marked with a ☑). This includes:
+Before you start work on this deliverable make sure you have read all of the preceding instruction topics and have completed all of the dependent exercises (topics marked with a ☑). This includes:
 
 - ☑ [JWT Pizza Service](../jwtPizzaService/jwtPizzaService.md)
 - ☑ [JWT Pizza data](../jwtPizzaData/jwtPizzaData.md)
@@ -21,7 +21,7 @@ Failing to do this, will likely slow you down as you will not have the required 
 
 ## Getting started
 
-You now have everything you need to complete the first deliverable of the course. In this deliverable you will demonstrate that you have corrected forked and cloned the JWT Pizza application front and backend code, and that you have debugged through the code and understand how it works.
+You now have everything you need to complete the first deliverable of the course. In this deliverable you will demonstrate that you have correctly forked and cloned the JWT Pizza application front and backend code, and that you have debugged through the code and understand how it works.
 
 After you have followed all the steps in the associated exercises you should be able to interact with the JWT Pizza application deployed in your development environment by opening your browser, pointing it at `http://localhost:5173`.
 
