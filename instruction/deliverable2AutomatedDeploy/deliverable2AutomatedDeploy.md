@@ -44,16 +44,25 @@ The JWT Pizza frontend doesn't work correctly unless it is hosted on the root pa
 
 > [!NOTE]
 > If you do not already own a DNS hostname, you will need to go lease one now. You will use your hostname for all of your DevOps deployment tasks. You can lease a domain from AWS using Route53 or use a different provider if you are familiar with an alternative.
+> **If you have taken CS 260 you can use your old domain name and hosted zone for these steps.**
 
 Using your domain name take the following steps in order to associate it to your GitHub Pages.
 
-1. Add a `CNAME` record to your domain name DNS records that points to the GitHub Pages hostname. For example, if your GitHub account name was `byucsstudent`, you owned a domain named `byucsstudent.click`, and you wanted to associate the static deployment of JWT Pizza with the subdomain of `pizza.byucsstudent.click` you would create the following DNS record.
+1. Use Route 53 to register a domain if you do not have one. Check for avaliable domains. Once you find a suitable domain you can now leese it from Amazon. We would recommend using the *.click* domain because it only 3.00 USD a year. Proceed to checkout and continue.
+
+2. If you do not have a hosted zone create one now in Route 53. Choose any Domain name you would like (i.e. jwt-pizza-party). Just remember you can't change the domain name after you create it. You can keep the default settings. Here are is Amazon's recommended naming conventions.
+   - [AWS domain naming](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html?icmpid=docs_console_unmapped)
+3. Open up your hosted zone of choice and click on create record.
+  
+4. Add a `CNAME` record to your domain name DNS records that points to the GitHub Pages hostname. For example, if your GitHub account name was `byucsstudent`, you owned a domain named `byucsstudent.click`, and you wanted to associate the static deployment of JWT Pizza with the subdomain of `pizza.byucsstudent.click` you would create the following DNS record.
+<img width="923" alt="createRecord" src="https://github.com/user-attachments/assets/1fc9e8d5-59db-4370-969d-21a6f9d35055" />
+
    ```txt
    record name: pizza.byucsstudent.click
    record type: CNAME
    record value: byucsstudent.github.io
    ```
-1. Wait for the newly created record to propagate. You can use `nslookup` or `dig` to verify that it is available.
+5. Wait for the newly created record to propagate. You can use `nslookup` or `dig` to verify that it is available.
 
    ```sh
    nslookup pizza.byucsstudent.click
@@ -63,16 +72,16 @@ Using your domain name take the following steps in order to associate it to your
    Aliases:  pizza.byucsstudent.click
    ```
 
-1. Open the GitHub Pages settings for the fork of your jwt-pizza repository.
-1. Put your subdomain name in the `Custom domain` edit box and press `Save`.
+6. Open the GitHub Pages settings for the fork of your jwt-pizza repository.
+7. Put your subdomain name in the `Custom domain` edit box and press `Save`.
 
    ![Custom domain entry](customDomain.png)
 
-1. Check the box to `Enforce HTTPS`.
+8. Check the box to `Enforce HTTPS`.
 
    💡 It is interesting to consider how GitHub is able to generate a certificate for your domain. Perhaps this would make a great curiosity report.
 
-1. After the check completes you can navigate your browser to your subdomain and verify that "Hello GitHub Pages" is still being displayed.
+9. After the check completes you can navigate your browser to your subdomain and verify that "Hello GitHub Pages" is still being displayed.
 
    ```sh
    curl https://pizza.youdomainhere
