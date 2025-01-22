@@ -19,7 +19,7 @@ host=http://localhost:3000
 If you are hitting your production system then you will set it to something like:
 
 ```sh
-host=https://pizza-service.byucsstudent.click
+host=https://pizza-service.yourdomainname.click
 ```
 
 ## Common endpoint calls
@@ -93,7 +93,7 @@ You can also combine commands together into a script that runs all commands. The
 You can run this script by providing the URL of the server you want to target. In the following example, make sure you replace the Headquarters pizza URL with `localhost:3000` if you are running against your development environment, or your production pizza service URL it you are trying simulate traffic there.
 
 ```sh
-./generatePizzaTraffic.sh https://pizza-service.cs329.click
+./generatePizzaTraffic.sh https://pizza-service.yourdomainname.click
 ```
 
 This will result in something like the following output

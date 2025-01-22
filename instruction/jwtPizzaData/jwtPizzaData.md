@@ -18,7 +18,7 @@ You can use these credentials to populate your database with information that ma
 
 ## Using Curl to populate the data
 
-On easy way to populate your data is to use curl commands like the following. Note that you will need a POSIX compliant command console in order to use these commands. These commands rely on a program called **`jq`** (Json Query) which can be [installed](https://jqlang.github.io/jq/download/) in your development environment.
+One easy way to populate your data is to use curl commands like the following. Note that you will need a POSIX compliant command console in order to use these commands. These commands rely on a program called **`jq`** (Json Query) which can be [installed](https://jqlang.github.io/jq/download/) in your development environment.
 
 ### Specifying the target host
 
@@ -31,7 +31,7 @@ host=http://localhost:3000
 Later, once you get your pizza server running in a production cloud deployment environment, you will set host to the host name for your production pizza service. This will be something like:
 
 ```sh
-host=https://pizza-service.byucsstudent.click
+host=https://pizza-service.yourdomainname.click
 ```
 
 ### Login as admin
@@ -78,6 +78,16 @@ This creates a franchise and a store so that you can purchase pizzas.
 curl -X POST $host/api/franchise -H 'Content-Type: application/json' -d '{"name": "pizzaPocket", "admins": [{"email": "f@jwt.com"}]}'  -H "Authorization: Bearer $token"
 
 curl -X POST $host/api/franchise/1/store -H 'Content-Type: application/json' -d '{"franchiseId": 1, "name":"SLC"}'  -H "Authorization: Bearer $token"
+```
+
+## Generating DB data script
+
+Once you understand how the commands above function, it's helpful to have them combined into a single script to run them for you. Reducing toil is the name of the DevOps game, after all! The [generateDBData.sh](generateDBData/generateDBData.sh) provides an example of doing this.
+
+You can run this script by providing the URL of the server you want to target. In the following example, make sure you replace the Headquarters pizza URL with `localhost:3000` if you are running against your development environment, or your production pizza service URL if you are trying to generate the dummy data there.
+
+```sh
+./generateDBData.sh https://pizza-service.yourdomainname.click
 ```
 
 ## ☑ Exercise
