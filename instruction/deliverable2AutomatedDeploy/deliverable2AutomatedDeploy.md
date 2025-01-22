@@ -10,7 +10,7 @@
 
 ## Prerequisites
 
-Before you start work on this deliverable make sure you have read all of the proceeding instruction topics and have completed all of the dependant exercises (topics marked with a ☑). This includes:
+Before you start work on this deliverable make sure you have read all of the preceding instruction topics and have completed all of the dependent exercises (topics marked with a ☑). This includes:
 
 - [Automation](../automation/automation.md)
 - [Continuous integration (CI)](../continuousIntegration/continuousIntegration.md)
