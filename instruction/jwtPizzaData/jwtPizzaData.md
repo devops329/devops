@@ -18,7 +18,7 @@ You can use these credentials to populate your database with information that ma
 
 ## Using Curl to populate the data
 
-One easy way to populate your data is to use curl commands like the following. Note that you will need a POSIX compliant command console in order to use these commands. These commands rely on a program called **`jq`** (Json Query) which can be [installed](https://jqlang.github.io/jq/download/) in your development environment.
+One easy way to populate your data is to use curl commands like the following. Note that you will need a POSIX compliant command console in order to use these commands. These commands rely on a program called **`jq`** (Json Query) which can be [installed](https://jqlang.github.io/jq/download/) in your development environment. If you run into issues with `jq` on Windows, make sure the downloaded file is renamed to `jq.exe` (instead of e.g., `jq-win64.exe`) and is moved into a directory [in your system's PATH](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/).
 
 ### Specifying the target host
 
