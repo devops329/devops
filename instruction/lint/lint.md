@@ -118,10 +118,10 @@ Some problems are more benign. For example, having an unreachable return value, 
 
 ## ☑ Exercise
 
-Create an project based on the steps provided above. Run the linter and review and fix the items it reports.
+Create a project based on the steps provided above. Run the linter and review and fix the items it reports.
 
 Review the [rules](https://eslint.org/docs/latest/rules/) that eslint is configured to report. Find a couple that look interesting and change the project code to trigger them.
 
-Once you are done, you should should see something like this:
+Once you are done, you should see something like this:
 
 ![rule violation](ruleViolation.png)
