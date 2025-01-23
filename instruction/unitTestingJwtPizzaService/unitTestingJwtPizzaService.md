@@ -236,7 +236,7 @@ npm run lint
 ...
 ```
 
-This will spew out a bunch of errors. Most of them should be because we are using Jest, and we haven't told `eslint` about the types that Jest defines. You can correct this by modifying the `eslint.confg.mjs` file to include the Jest definitions.
+This will spew out a bunch of errors. Most of them should be because we are using Jest, and we haven't told `eslint` about the types that Jest defines. You can correct this by modifying the `eslint.config.mjs` file to include the Jest definitions.
 
 ```js
   { languageOptions: { globals: globals.jest } },

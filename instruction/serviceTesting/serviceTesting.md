@@ -28,7 +28,7 @@ npm install express
 
 ### Configuring the project
 
-Then modify `package.js` so that it serves up the endpoints over HTTP by adding a `start` script, and runs Jest for testing by adding a `test` script.
+Then modify `package.json` so that it serves up the endpoints over HTTP by adding a `start` script, and runs Jest for testing by adding a `test` script.
 
 ```json
 "scripts": {
