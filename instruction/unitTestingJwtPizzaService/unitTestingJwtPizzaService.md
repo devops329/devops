@@ -33,7 +33,7 @@ This is already done in `jwt-pizza-service` and so you don't need to worry about
 
 ## Coverage
 
-Add the Jest config file, `jest.config.json`, so coverage is turned on.
+Add the Jest config file, `jest.config.json`, so coverage is turned on with the requirement of 80% line coverage and the coverage report is output in JSON and text.
 
 ```json
 {
@@ -41,10 +41,7 @@ Add the Jest config file, `jest.config.json`, so coverage is turned on.
   "coverageReporters": ["json-summary", "text"],
   "coverageThreshold": {
     "global": {
-      "branches": 80,
-      "functions": 80,
-      "lines": 80,
-      "statements": 80
+      "lines": 80
     }
   }
 }
