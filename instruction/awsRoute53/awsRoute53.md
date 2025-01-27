@@ -39,7 +39,7 @@ You don't need to worry about creating DNS records right now, but you will do th
 
 ## What to do if your domain name doesn't work
 
-There are lots of possible reasons why your domain name is not working. The following are the most common reasons.
+There are lots of possible reasons why your domain name is not working. The following are the most common reasons. Make sure you don't have multiple hosted zones. You pay $0.50 a month for each one.
 
 ### You didn't verify
 
