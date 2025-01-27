@@ -8,6 +8,7 @@
 - [🍕 JWT Pizza](jwtPizza/jwtPizza.md)
 - [Intro to AWS](aws/aws.md)
 - ☑ [AWS Account](awsAccount/awsAccount.md)
+- [AWS Route 53](awsRoute53/awsRoute53.md)
 - [GitHub](gitHub/gitHub.md)
 - [Late Policy](latePolicy/latePolicy.md)
 - [AutoGrader](autoGrader/autoGrader.md)
