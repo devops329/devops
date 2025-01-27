@@ -1,8 +1,6 @@
 # AWS Route 53
 
-In order to deploy JWT Pizza you will need to lease a DNS domain name. You will use your domain name when you deploy JWT Pizza frontend to GitHub Pages and AWS CloudFront, and also when you deploy the backend using an AWS EC2 loadbalancer. If you already own a domain name, and can configure the DNS records associated with your domain name then you can skip this instruction.
-
-`Route 53` is the AWS service that handles everything DNS-related. With Route 53 you can buy a domain name and create DNS records.
+In order to deploy JWT Pizza you will need to lease a DNS domain name. You will use your domain name when you deploy JWT Pizza frontend to GitHub Pages and AWS CloudFront, and also when you deploy the backend using an AWS EC2 loadbalancer. If you already own a domain name, and can configure the DNS records associated with your domain name then you can skip this instruction. `Route 53` is the AWS service that handles everything DNS-related. With Route 53 you can buy a domain name and create DNS records.
 
 > [!IMPORTANT]
 > You will need an account with AWS in order to use Route 53. If you haven't done that work, go create your account and server following the previous instruction.
@@ -39,7 +37,7 @@ It may take a while before your purchase is completed, but when it is, the Route
 
 You don't need to worry about creating DNS records right now, but you will do that when you host your front and backend code later in the instruction.
 
-## What to do if your hostname doesn't work
+## What to do if your domain name doesn't work
 
 There are lots of possible reasons why your domain name is not working. The following are the most common reasons.
 
@@ -63,7 +61,7 @@ If the values do not match, then copy the values from the hosted zone into your 
 
 ![edit name servers](editNameServers.png)
 
-It will take a while for the new values to propagate, but when they are done you can verify the values associated with your DNS records using `nslookup` to see what the Host zone has, and `whois` to see what the DNS registrar has.
+It will take a while for the new values to propagate, but when they are done y[AWS Route 53](awsRoute53/awsRoute53.md)ou can verify the values associated with your DNS records using `nslookup` to see what the Host zone has, and `whois` to see what the DNS registrar has.
 
 ```sh
 > nslookup -type=ns byucsstudent.click
