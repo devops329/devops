@@ -107,7 +107,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: '22.x'
 
       - name: set version
         id: set_version
@@ -189,7 +189,7 @@ Then it installs Node.js version 20.
 - name: Setup Node
   uses: actions/setup-node@v4
   with:
-    node-version: '20.x'
+    node-version: '22.x'
 ```
 
 We then create our version number, set it in a GitHub Action output variable that will make it available to other jobs, and persistently store it in a file named `version.json`.

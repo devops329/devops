@@ -121,7 +121,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20.x"
+          node-version: '22.x'
 
       - name: Test
         run: |
