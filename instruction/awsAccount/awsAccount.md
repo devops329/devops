@@ -49,7 +49,7 @@ You are not required to use the CLI or CloudShell for this course, but it is a v
 
 ## Lease a DNS domain
 
-If you do not own a DNS hostname you will need to go lease one. We will use this for all of your DevOps deployment tasks. You can lease a domain from AWS using Route53 or use a different DNS provider. However, using Route 53 will make your **life much easier** when you go to create DNS records. You will want to start this process immediately since it might take a while to complete the process. If you choose to use Route53 then you want to make sure you chose a TLD that isn't expensive. For example, the `.click` domain TLD is usually only $3 a year.
+If you do not own a DNS hostname you will need to go lease one. We will use this for all of your DevOps deployment tasks. You can lease a domain from AWS using Route 53 or use a different DNS provider. However, using Route 53 will make your **life much easier** when you go to create DNS records. You will want to start this process immediately since it might take a while to complete the process. If you choose to use Route 53 then you want to make sure you chose a TLD that isn't expensive. For example, the `.click` domain TLD is usually only $3 a year.
 
 ## What is this going to cost you?
 

@@ -43,16 +43,22 @@ To do a static deployment of the JWT Pizza frontend you just need to do the foll
 The JWT Pizza frontend doesn't work correctly unless it is hosted on the root path of the domain. By default, GitHub Pages hosts the static deployment on a path called `jwt-pizza`. To get around this you must associate a custom domain with your GitHub Pages deployment.
 
 > [!NOTE]
-> If you do not already own a DNS hostname, you will need to go lease one now. You will use your hostname for all of your DevOps deployment tasks. You can lease a domain from AWS using Route53 or use a different provider if you are familiar with an alternative.
+> If you do not already own a DNS hostname, you will need to go lease one now. You will use your hostname for all of your DevOps deployment tasks. You can lease a domain from AWS using Route 53 or use a different provider if you are familiar with an alternative.
 
 Using your domain name take the following steps in order to associate it to your GitHub Pages.
 
 1. Add a `CNAME` record to your domain name DNS records that points to the GitHub Pages hostname. For example, if your GitHub account name was `byucsstudent`, you owned a domain named `byucsstudent.click`, and you wanted to associate the static deployment of JWT Pizza with the subdomain of `pizza.byucsstudent.click` you would create the following DNS record.
+
    ```txt
    record name: pizza.byucsstudent.click
    record type: CNAME
    record value: byucsstudent.github.io
    ```
+
+   If you are using Route 53 then you would open the Hosted zone for your domain name and add a `CNAME` record by pressing on the **Create record** button. Then provide `pizza` as the subdomain, change the **Record type** to `CNAME`, and put your GitHub URL as the record value. For the example values given above, this would look like the following:
+
+   ![create DNS record](createRecord.png)
+
 1. Wait for the newly created record to propagate. You can use `nslookup` or `dig` to verify that it is available.
 
    ```sh
