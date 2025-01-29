@@ -156,9 +156,7 @@ All files                |   49.37 |    61.72 |   46.15 |   48.41 |
 -------------------------|---------|----------|---------|---------|-----------------------------
 ```
 
-That takes us to somewhere around **49%** line coverage. This seems really promising and if we keep going down this path it feels like will have 80% coverage in no time. However, there is a demon waiting in the wings. Currently, the `.env.development` configuration file has you using your local JWT Pizza Service, and the JWT Headquarter's Pizza Factory service. That is nice from the integration testing standpoint, but the data hosted on that service is going to change constantly and that will make it hard to write tests that are consistent.
-
-However, we eventually want to run our tests with GitHub Actions, and we don't want that to be dependent on any external environment that can change.
+That takes us to somewhere around **48ish%** line coverage. This seems really promising, and if we keep going down this path it feels like will have 80% coverage in no time. However, there is a demon waiting in the wings. Currently, the `.env.development` configuration file has you using your local JWT Pizza Service, and the JWT Headquarter's Pizza Factory service. That is nice from the integration testing standpoint, but the data hosted on that service is going to change constantly and that will introduce a lot of flake into our tests. Additionally, we eventually want to run our tests with GitHub Actions, and we don't want that to be dependent on any external environment that can change.
 
 ## Mocking JWT Pizza Service
 
