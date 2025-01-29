@@ -260,9 +260,9 @@ In order to add coverage reporting we have to install the coverage utilities and
 
 The coverage tools we are going to use are called Istanbul and NYC.
 
-**Istanbul** is a JavaScript code coverage tool that computes statement, line, function, and branch coverage with module loader hooks to transparently add coverage when running tests. It can handle all types of testing including unit, functional, and end-to-end testing.
+- **Istanbul** is a JavaScript code coverage tool that computes statement, line, function, and branch coverage with module loader hooks to transparently add coverage when running tests. It can handle all types of testing including unit, functional, and end-to-end testing.
 
-**NYC** is the official command-line interface for Istanbul. It's a top-level wrapper around Istanbul, adding further capabilities and features. It hooks into your testing framework to track coverage information and then generates detailed reports.
+- **NYC** is the official command-line interface for Istanbul. It's a top-level wrapper around Istanbul, adding further capabilities and features. It hooks into your testing framework to track coverage information and then generates detailed reports.
 
 ### Install the coverage packages
 
