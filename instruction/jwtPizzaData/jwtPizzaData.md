@@ -82,13 +82,17 @@ curl -X POST $host/api/franchise/1/store -H 'Content-Type: application/json' -d 
 
 ## Generating DB data script
 
-Once you understand how the commands above function, it's helpful to have them combined into a single script to run them for you. Reducing toil is the name of the DevOps game, after all! The [generateDBData.sh](generateDBData/generateDBData.sh) provides an example of doing this.
+Once you understand how the commands above function, it's helpful to have them combined into a single script to run them for you. Reducing toil is the name of the DevOps game, after all! The [generatePizzaData.sh](generatePizzaData.sh) provides an example of doing this.
 
 You can run this script by providing the URL of the server you want to target. In the following example, make sure you replace the Headquarters pizza URL with `localhost:3000` if you are running against your development environment, or your production pizza service URL if you are trying to generate the dummy data there.
 
 ```sh
-./generateDBData.sh https://pizza-service.yourdomainname.click
+./generatePizzaData.sh https://pizza-service.yourdomainname.click
 ```
+
+> [!NOTE]
+> If you create your own `generatePizzaData.sh` file instead of using the exiting one, then you might need to set the execution mode of the file by running:
+> `chmod +x generatePizzaData.sh`
 
 ## ☑ Exercise
 
