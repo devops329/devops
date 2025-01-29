@@ -29,7 +29,7 @@ With the UI testing skills you have learned you are now ready to test the JWT Pi
 
 ### Configuring Playwright
 
-You previously created a fork of `jwt-pizza`. Now you need to add Playwright and the coverage functionality. The first step is to install the required packages and set up the project using the [Playwright instruction](../playwright/playwright.md#installing-playwright) that you studied earlier. Don't worry about writing any tests while you are configuring Playwright. At this point you are just making it so that you can run the example Playwright tests and verify that you have configured everything correctly.
+You previously created a fork of `jwt-pizza`. Now you need to add Playwright and the coverage functionality. The first step is to install the required packages and set up the project using what you learned in the [Playwright instruction](../playwright/playwright.md). Don't worry about writing any tests while you are configuring Playwright. At this point you are just making it so that you can run the example Playwright tests and verify that you have configured everything correctly.
 
 ### Running the first test
 
