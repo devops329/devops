@@ -70,9 +70,35 @@ File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Li
 All files                |   20.49 |    23.45 |   23.07 |   19.93 |
 ```
 
+## Using a development JWT Pizza Service
+
+In order to test your frontend JWT Pizza in your development environment, you need to have a running JWT Pizza server. Because of the work you did to set up JWT Pizza server in your development environment you should already be ready to go. However, you will want to make sure this is all working before you start writing serious tests.
+
+### Configuring the frontend
+
+You can determine the location of your server by examining the JWT Pizza `.env.development` file that contains the URLs for the frontend dependencies. Open that file and make sure that the `VITE_PIZZA_SERVICE_URL` is set to use your local development environment. This should look like the following:
+
+```sh
+VITE_PIZZA_SERVICE_URL=http://localhost:3000
+VITE_PIZZA_FACTORY_URL=https://pizza-factory.cs329.click
+```
+
+### Configuring the pizza data
+
+Next, you need make sure you have some JWT Pizza data stored in your development environment. If you don't currently have any data then go and follow the [instruction](../jwtPizzaData/jwtPizzaData.md) for inserting it.
+
+### Configuring the backend
+
+You then need to start up your JWT Pizza server so that the server is listening on `localhost:3000` and can respond to your frontend code as your UI tests are ran.
+
+```sh
+cd jwt-pizza-service
+npm run start
+```
+
 ## Recording a test
 
-We can use the VS Code Playwright extension `Record at cursor` functionality to give us a jump start on writing our tests. Open your `pizza.spec.js` file and add a new empty test.
+Creating a test from scratch can be time consuming. Instead, we can use the VS Code Playwright extension `Record at cursor` functionality to give us a jump start on writing our tests. Open your `pizza.spec.js` file and add a new empty test.
 
 ```js
 test('buy pizza with login', async ({ page }) => {});
@@ -118,14 +144,7 @@ All files                |   49.37 |    61.72 |   46.15 |   48.41 |
 -------------------------|---------|----------|---------|---------|-----------------------------
 ```
 
-That takes us to **49%** line coverage. This seems really promising and if we keep going down this path it feels like will have 80% coverage in no time. However, there is a demon waiting in the wings. Currently, the `.env.development` configuration file has you using the JWT Headquarters deployment Pizza service. That is nice from the integration testing standpoint, but the data hosted on that service is going to change constantly and that will make it hard to write tests that are consistent.
-
-To solve this, you can start your own JWT service and change your `.env.development` file so that it references your local JWT Pizza Service instead of the headquarters' service. This will make it so that you can add users and play with the data in a controlled environment.
-
-```sh
-VITE_PIZZA_SERVICE_URL=http://localhost:3000
-VITE_PIZZA_FACTORY_URL=https://pizza-factory.cs329.click
-```
+That takes us to **49%** line coverage. This seems really promising and if we keep going down this path it feels like will have 80% coverage in no time. However, there is a demon waiting in the wings. Currently, the `.env.development` configuration file has you using your local JWT Pizza Service, and the JWT Headquarter's Pizza Factory service. That is nice from the integration testing standpoint, but the data hosted on that service is going to change constantly and that will make it hard to write tests that are consistent.
 
 However, we eventually want to run our tests with GitHub Actions, and we don't want that to be dependent on any external environment that can change.
 
