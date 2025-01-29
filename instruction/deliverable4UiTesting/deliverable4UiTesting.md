@@ -31,6 +31,18 @@ With the UI testing skills you have learned you are now ready to test the JWT Pi
 
 You previously created a fork of `jwt-pizza`. Now you need to add Playwright and the coverage functionality. The first step is to install the required packages and set up the project using what you learned in the [Playwright instruction](../playwright/playwright.md). Don't worry about writing any tests while you are configuring Playwright. At this point you are just making it so that you can run the example Playwright tests and verify that you have configured everything correctly.
 
+One difference that you want to make when configuring the JWT Pizza frontend for testing is to only require the line coverage to be 80%. You can do this by modifying the `nycrc.json` file.
+
+```js
+{
+  "check-coverage": true,
+  "branches": 0,
+  "lines": 100,
+  "functions": 0,
+  "statements": 0
+}
+```
+
 ### Running the first test
 
 After all that setup you should be able to run the default Playwright tests and see the results with coverage turned on.
@@ -123,7 +135,7 @@ test('buy pizza with login', async ({ page }) => {
   await page.getByPlaceholder('Email address').click();
   await page.getByPlaceholder('Email address').fill('d@jwt.com');
   await page.getByPlaceholder('Email address').press('Tab');
-  await page.getByPlaceholder('Password').fill('a');
+  await page.getByPlaceholder('Password').fill('diner');
   await page.getByRole('button', { name: 'Login' }).click();
   await expect(page.getByRole('main')).toContainText('Send me those 2 pizzas right now!');
   await expect(page.locator('tbody')).toContainText('Veggie');
@@ -132,7 +144,7 @@ test('buy pizza with login', async ({ page }) => {
 });
 ```
 
-Go ahead and run the test in VS Code to make sure it works and then run the test again with coverage from the command console.
+Go ahead and run the test in VS Code to make sure it works and then run the test again with coverage from the command console. This will result in something similar to the following:
 
 ```sh
 ➜  npm run test:coverage
@@ -144,7 +156,7 @@ All files                |   49.37 |    61.72 |   46.15 |   48.41 |
 -------------------------|---------|----------|---------|---------|-----------------------------
 ```
 
-That takes us to **49%** line coverage. This seems really promising and if we keep going down this path it feels like will have 80% coverage in no time. However, there is a demon waiting in the wings. Currently, the `.env.development` configuration file has you using your local JWT Pizza Service, and the JWT Headquarter's Pizza Factory service. That is nice from the integration testing standpoint, but the data hosted on that service is going to change constantly and that will make it hard to write tests that are consistent.
+That takes us to somewhere around **49%** line coverage. This seems really promising and if we keep going down this path it feels like will have 80% coverage in no time. However, there is a demon waiting in the wings. Currently, the `.env.development` configuration file has you using your local JWT Pizza Service, and the JWT Headquarter's Pizza Factory service. That is nice from the integration testing standpoint, but the data hosted on that service is going to change constantly and that will make it hard to write tests that are consistent.
 
 However, we eventually want to run our tests with GitHub Actions, and we don't want that to be dependent on any external environment that can change.
 
