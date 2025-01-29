@@ -27,106 +27,11 @@ Failing to do this will likely slow you down as you will not have the required k
 
 With the UI testing skills you have learned you are now ready to test the JWT Pizza frontend. As part of these tests you will mock out the backend service so that you don't have to worry about the problems that come with integration testing.
 
-## Configuring Playwright
+### Configuring Playwright
 
-You previously created a fork of `jwt-pizza`. Now you need to add Playwright and the coverage functionality. The first step is to install the required packages and set up the project using the [Playwright instruction](../playwright/playwright.md) that you studied earlier. This includes the following:
+You previously created a fork of `jwt-pizza`. Now you need to add Playwright and the coverage functionality. The first step is to install the required packages and set up the project using the [Playwright instruction](../playwright/playwright.md#installing-playwright) that you studied earlier. Don't worry about writing any tests while you are configuring Playwright. At this point you are just making it so that you can run the example Playwright tests and verify that you have configured everything correctly.
 
-1. Install Playwright. You can choose if you want to use JavaScript or TypeScript.
-   ```sh
-   npm init playwright@latest
-   ```
-1. Add the `test` script to `package.json`.
-   ```json
-     "scripts": {
-      "test": "playwright test"
-    },
-   ```
-1. Install the Playwright Chromium testing browser. This may be done already from initially completing the [Playwright Test Browser Installation](../playwright/playwright.md#install-a-testing-browser) instructions.
-1. Cleanup the `playwright.config.js` file and add the ability to launch the JWT Pizza frontend using Vite so that the tests can call it.
-
-   ```js
-   import { defineConfig, devices } from '@playwright/test';
-
-   export default defineConfig({
-     testDir: './tests',
-     fullyParallel: true,
-     forbidOnly: !!process.env.CI,
-     retries: process.env.CI ? 2 : 0,
-     workers: process.env.CI ? 1 : undefined,
-     reporter: 'html',
-     timeout: 3000,
-     use: {
-       baseURL: 'http://localhost:5173',
-       trace: 'on-first-retry',
-     },
-     projects: [
-       {
-         name: 'chromium',
-         use: { ...devices['Desktop Chrome'], viewport: { width: 800, height: 600 } },
-       },
-     ],
-     webServer: {
-       command: 'npm run dev',
-       url: 'http://localhost:5173',
-       reuseExistingServer: !process.env.CI,
-       timeout: 5000,
-     },
-   });
-   ```
-
-1. Install coverage support
-
-   ```sh
-   npm install -D nyc vite-plugin-istanbul playwright-test-coverage
-   ```
-
-1. Modify `.gitignore` to exclude `.nyc_output`.
-1. Add the configuration files
-
-   **.nycrc.json**
-
-   ```js
-   {
-     "check-coverage": true,
-     "branches": 80,
-     "lines": 80,
-     "functions": 80,
-     "statements": 80
-   }
-   ```
-
-   **vite.config.js**
-
-   ```js
-   import { defineConfig } from 'vite';
-   import istanbul from 'vite-plugin-istanbul';
-
-   export default defineConfig({
-     plugins: [
-       istanbul({
-         include: ['src/**/*'],
-         exclude: ['node_modules'],
-         requireEnv: false,
-       }),
-     ],
-   });
-   ```
-
-   **package.json**
-
-   ```json
-   "scripts": {
-     "test:coverage": "nyc --reporter=json-summary --reporter=text playwright test"
-   }
-   ```
-
-1. Replace the `@playwright/test` import for all your test files
-
-   ```js
-   import { test, expect } from 'playwright-test-coverage';
-   ```
-
-## Running the first test
+### Running the first test
 
 After all that setup you should be able to run the default Playwright tests and see the results with coverage turned on.
 
