@@ -254,6 +254,118 @@ export default defineConfig({
 });
 ```
 
+## Coverage
+
+In order to add coverage reporting we have to install the coverage utilities and instrument the code. Unlike Jest, where they have coverage built into the application, Playwright requires you to install the coverage utility of your choice. This gives you freedom to customize things as you would like, but it is a bit painful to set up.
+
+The coverage tools we are going to use are called Istanbul and NYC.
+
+**Istanbul** is a JavaScript code coverage tool that computes statement, line, function, and branch coverage with module loader hooks to transparently add coverage when running tests. It can handle all types of testing including unit, functional, and end-to-end testing.
+
+**NYC** is the official command-line interface for Istanbul. It's a top-level wrapper around Istanbul, adding further capabilities and features. It hooks into your testing framework to track coverage information and then generates detailed reports.
+
+### Install the coverage packages
+
+First we need to install all the packages required for generating coverage. In addition to NYC we include `vite-plugin-istanbul` and `playwright-test-coverage` to have Vite execute istanbul in order to instrument the code for coverage gathering.
+
+```sh
+npm install -D nyc vite-plugin-istanbul playwright-test-coverage
+```
+
+### Create the coverage configuration
+
+We create a `.nycrc.json` file in order to specify the required coverage thresholds.
+
+```js
+{
+  "check-coverage": true,
+  "branches": 100,
+  "lines": 100,
+  "functions": 100,
+  "statements": 100
+}
+```
+
+NYC will output coverage information to a directory named `.nyc_output`. We definitely don't want push that to GitHub, so we add it to our growing list of coverage files found in `.gitignore`
+
+```txt
+coverage
+node_modules
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+.nyc_output
+```
+
+Vite needs to know to include Istanbul as a plugin when bundling, so we create/modify `vite.config.js` to include instructions on which files you want to have Istanbul analyze.
+
+```js
+import { defineConfig } from 'vite';
+import istanbul from 'vite-plugin-istanbul';
+
+export default defineConfig({
+  build: { sourcemap: true },
+  plugins: [
+    istanbul({
+      include: ['src/**/*'],
+      exclude: ['node_modules'],
+      requireEnv: false,
+    }),
+  ],
+});
+```
+
+Finally, we add another `package.json` script so that NYC runs the Playwright tests and reports the coverage results. We tell NYC to use two reporters: one that will save a high level JSON file, and another one that prints the details to the console.
+
+```json
+"scripts": {
+
+  ...
+
+  "test:coverage": "nyc --reporter=json-summary --reporter=text playwright test"
+}
+```
+
+### Instrument the tests
+
+The last step is to replace the Playwright `test` function with one that wraps the `test` function and generates coverage data. You need to do this on every test file that you want to report coverage.
+
+```js
+// import { test, expect } from '@playwright/test' <- Replace this with the line below
+import { test, expect } from 'playwright-test-coverage';
+```
+
+### Create a real test
+
+If we replace the test that calls the Playwright website with one that actually hits our React application we can determine the amount of coverage we get from loading the homepage.
+
+```sh
+test('test', async ({ page }) => {
+  await page.goto('http://localhost:5173/');
+});
+```
+
+### Run the tests with coverage
+
+With these changes, you are all set to run the tests and report coverage information.
+
+```sh
+➜  npm run test:coverage
+
+ERROR: Coverage for lines (44.44%) does not meet global threshold (80%)
+ERROR: Coverage for functions (25%) does not meet global threshold (80%)
+ERROR: Coverage for statements (44.44%) does not meet global threshold (80%)
+-----------|---------|----------|---------|---------|-------------------
+File       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+-----------|---------|----------|---------|---------|-------------------
+All files  |   44.44 |      100 |      25 |   44.44 |
+ index.tsx |   44.44 |      100 |      25 |   44.44 | 11-15,26
+-----------|---------|----------|---------|---------|-------------------
+```
+
+It looks like we have 44.5% line coverage. That is pretty good for just having one line of testing code. Next we will look at using VS Code to write and run tests, and then dive deeper into what the Playwright testing framework provides so that we can bump up our coverage percentage.
+
 ## VS Code Playwright extension
 
 The [VS Code extension for Playwright](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) is well worth the time to install and master. You can actually use it to install Playwright for your project instead of using the manual steps defined above.
@@ -276,6 +388,10 @@ You can also debug your tests by placing a break point and walking through test 
 > Configuring Playwright to automatically start your application and using the Playwright extension to run tests will often leave it running in the background. If left running, it will also use previously defined configuration settings. If you want to make sure you start with a clean global configuration then make sure you run the global setup on each run.
 
 ![alt text](playwrightSettings.png)
+
+### Visual code coverage
+
+If you want to be able to visually see in VS Code which lines are covered by the NYC report you can install a VS Code extension such as [Cover](https://marketplace.visualstudio.com/items?itemName=hindlemail.cover).
 
 ## Writing your own tests
 
@@ -418,6 +534,24 @@ test('test', async ({ page }) => {
 });
 ```
 
+With these changes, you are all set to run the tests again and see what percentage of coverage we are getting.
+
+```sh
+➜  npm run test:coverage
+
+Running 1 test using 1 worker
+  1 passed (1.1s)
+
+-----------|---------|----------|---------|---------|-------------------
+File       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+-----------|---------|----------|---------|---------|-------------------
+All files  |     100 |      100 |     100 |     100 |
+ index.tsx |     100 |      100 |     100 |     100 |
+-----------|---------|----------|---------|---------|-------------------
+```
+
+It looks like we have 💯% line coverage. I'm feeling good!
+
 ## Learning Playwright
 
 It is highly suggested that you review the [Playwright instruction](https://playwright.dev/docs/writing-tests) for writing tests. This includes creating `locators` to find page elements, `actions` to interact with a locator, and `expect` operations to test your assertions.
@@ -493,136 +627,6 @@ You can negate any of the above assertions by inserting the `not` in front of th
 ```js
 await expect(page.getByTestId('generated-copy').not.toBe('Lorem ipsum');
 ```
-
-## Coverage
-
-In order to add coverage reporting we have to install the coverage utilities and instrument the code. Unlike Jest, where they have coverage built into the application, Playwright requires you to install the coverage utility of your choice. This gives you freedom to customize things as you would like, but it is a bit painful to set up.
-
-The coverage tools we are going to use are called Istanbul and NYC.
-
-**Istanbul** is a JavaScript code coverage tool that computes statement, line, function, and branch coverage with module loader hooks to transparently add coverage when running tests. It can handle all types of testing including unit, functional, and end-to-end testing.
-
-**NYC** is the official command-line interface for Istanbul. It's a top-level wrapper around Istanbul, adding further capabilities and features. It hooks into your testing framework to track coverage information and then generates detailed reports.
-
-### Install the coverage packages
-
-First we need to install all the packages required for generating coverage. In addition to NYC we include `vite-plugin-istanbul` and `playwright-test-coverage` to have Vite execute istanbul in order to instrument the code for coverage gathering.
-
-```sh
-npm install -D nyc vite-plugin-istanbul playwright-test-coverage
-```
-
-### Create the coverage configuration
-
-We create a `.nycrc.json` file in order to specify the required coverage thresholds.
-
-```js
-{
-  "check-coverage": true,
-  "branches": 100,
-  "lines": 100,
-  "functions": 100,
-  "statements": 100
-}
-```
-
-NYC will output coverage information to a directory named `.nyc_output`. We definitely don't want push that to GitHub, so we add it to our growing list of coverage files found in `.gitignore`
-
-```txt
-coverage
-node_modules
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-.nyc_output
-```
-
-Vite needs to know to include Istanbul as a plugin when bundling, so we create/modify `vite.config.js` to include instructions on which files you want to have Istanbul analyze.
-
-```js
-import { defineConfig } from 'vite';
-import istanbul from 'vite-plugin-istanbul';
-
-export default defineConfig({
-  build: { sourcemap: true },
-  plugins: [
-    istanbul({
-      include: ['src/**/*'],
-      exclude: ['node_modules'],
-      requireEnv: false,
-    }),
-  ],
-});
-```
-
-Finally, we add another `package.json` script so that NYC runs the Playwright tests and reports the coverage results. We tell NYC to use two reporters: one that will save a high level JSON file, and another one that prints the details to the console.
-
-```json
-"scripts": {
-
-  ...
-
-  "test:coverage": "nyc --reporter=json-summary --reporter=text playwright test"
-}
-```
-
-### Instrument the tests
-
-The last step is to replace the Playwright `test` function with one that wraps the `test` function and generates coverage data. You need to do this on every test file that you want to report coverage.
-
-```js
-// import { test, expect } from '@playwright/test' <- Replace this with the line below
-import { test, expect } from 'playwright-test-coverage';
-```
-
-### Run the tests with coverage
-
-With these changes, you are all set to run the tests and report coverage information.
-
-```sh
-➜  npm run test:coverage
-
-Running 1 test using 1 worker
-  1 passed (1.1s)
-
------------|---------|----------|---------|---------|-------------------
-File       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
------------|---------|----------|---------|---------|-------------------
-All files  |     100 |      100 |     100 |     100 |
- index.tsx |     100 |      100 |     100 |     100 |
------------|---------|----------|---------|---------|-------------------
-```
-
-It looks like we have 💯% line coverage. I'm feeling good!
-
-If we modify our test so that it doesn't do anything meaningful:
-
-```sh
-test('test', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
-});
-```
-
-You can rerun the tests and see that we get a failure because the required coverage thresholds are not met.
-
-```sh
-➜  npm run test:coverage
-
-ERROR: Coverage for lines (44.44%) does not meet global threshold (80%)
-ERROR: Coverage for functions (25%) does not meet global threshold (80%)
-ERROR: Coverage for statements (44.44%) does not meet global threshold (80%)
------------|---------|----------|---------|---------|-------------------
-File       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
------------|---------|----------|---------|---------|-------------------
-All files  |   44.44 |      100 |      25 |   44.44 |
- index.tsx |   44.44 |      100 |      25 |   44.44 | 11-15,26
------------|---------|----------|---------|---------|-------------------
-```
-
-### Visual code coverage
-
-If you want to be able to see which lines are covered by the NYC report you can install a VS Code extension such as [Cover](https://marketplace.visualstudio.com/items?itemName=hindlemail.cover).
 
 ## ☑ Exercise
 
