@@ -180,14 +180,15 @@ Follow these steps to use Trace Viewer to get the network requests.
 
 This shows us that we made four requests. After we simplify them, we have the following.
 
-| method | endpoint        | request body                                                                                                                                       | response body                                                                                                                                                                                                                                                                                                                                                                                            |
-| ------ | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GET    | /api/order/menu |                                                                                                                                                    | [{"id":1,"title":"Veggie","image":"pizza1.png","price":0.0038,"description":"A garden of delight"},{"id":2,"title":"Pepperoni","image":"pizza2.png","price":0.0042,"description":"Spicy treat"},{"id":3,"title":"Margarita","image":"pizza3.png","price":0.0014,"description":"Essential classic"},{"id":4,"title":"Crusty","image":"pizza4.png","price":0.0024,"description":"A dry mouthed favorite"}] |
-| GET    | /api/franchise  |                                                                                                                                                    | [{"id":2,"name":"LotaPizza","stores":[{"id":4,"name":"Lehi"},{"id":5,"name":"Springville"},{"id":6,"name":"American Fork"}]},{"id":3,"name":"PizzaCorp","stores":[{"id":7,"name":"Spanish Fork"}]},{"id":4,"name":"topSpot","stores":[]}]                                                                                                                                                                |
-| PUT    | /api/auth       | {"email":"d@jwt.com","password":"a"}                                                                                                               | {"id":3,"name":"Kai Chen","email":"d@jwt.com","roles":[{"role":"diner"}]}                                                                                                                                                                                                                                                                                                                                |
-| POST   | /api/order      | {"items":[{"menuId":1,"description":"Veggie","price":0.0038},{"menuId":2,"description":"Pepperoni","price":0.0042}],"storeId":"1","franchiseId":1} | {"order":{"items":[{"menuId":1,"description":"Veggie","price":0.0038},{"menuId":2,"description":"Pepperoni","price":0.0042}],"storeId":"1","franchiseId":1,"id":23},"jwt":"eyJpYXQ"}                                                                                                                                                                                                                     |
+| method | endpoint | request body | response body |
+| --- | --- | --- | --- |
+| GET | /api/order/menu |  | [{"id":1,"title":"Veggie","image":"pizza1.png","price":0.0038,"description":"A garden of delight"},{"id":2,"title":"Pepperoni","image":"pizza2.png","price":0.0042,"description":"Spicy treat"},{"id":3,"title":"Margarita","image":"pizza3.png","price":0.0014,"description":"Essential classic"},{"id":4,"title":"Crusty","image":"pizza4.png","price":0.0024,"description":"A dry mouthed favorite"}] |
+| GET | /api/franchise |  | [{"id":2,"name":"LotaPizza","stores":[{"id":4,"name":"Lehi"},{"id":5,"name":"Springville"},{"id":6,"name":"American Fork"}]},{"id":3,"name":"PizzaCorp","stores":[{"id":7,"name":"Spanish Fork"}]},{"id":4,"name":"topSpot","stores":[]}] |
+| PUT | /api/auth | {"email":"d@jwt.com","password":"a"} | {"id":3,"name":"Kai Chen","email":"d@jwt.com","roles":[{"role":"diner"}]} |
+| POST | /api/order | {"items":[{"menuId":1,"description":"Veggie","price":0.0038},{"menuId":2,"description":"Pepperoni","price":0.0042}],"storeId":"1","franchiseId":1} | {"order":{"items":[{"menuId":1,"description":"Veggie","price":0.0038},{"menuId":2,"description":"Pepperoni","price":0.0042}],"storeId":"1","franchiseId":1,"id":23},"jwt":"eyJpYXQ"} |
 
 > [!NOTE]
+>
 > To access endpoints that an require admin user, you will need to change your `.env.development` file so that it references your local JWT Pizza Service, instead of the headquarters' service. Then you can log in with the default admin credentials.
 
 ### Create the mocks
@@ -322,19 +323,20 @@ Running the test requires that you first install the desired Playwright browser 
     npm run test:coverage
 ```
 
-You can then parse the coverage output to build a new coverage badge that is displayed in the README.md for your repository.
+You can then parse the coverage output to build a new coverage badge just like you did for the JWT Pizza Service.
 
 ```yml
 - name: Update coverage
   run: |
-    coverage_pct=$(grep -o '"pct":[0-9.]*' coverage/coverage-summary.json | head -n 1 | cut -d ':' -f 2)
-    color=$(echo "$coverage_pct < 80" | bc -l | awk '{if ($1) print "yellow"; else print "green"}')
-    curl https://img.shields.io/badge/Coverage-$coverage_pct%25-$color -o coverageBadge.svg
-    git config user.name github-actions
-    git config user.email github-actions@github.com
-    git add .
-    git commit -m "generated"
-    git push
+    coverage=$(jq '.total.lines.pct' coverage/coverage-summary.json)
+    color=$(echo "$coverage < 80" | bc -l | awk '{if ($1) print "red"; else print "green"}')
+    curl -s -X POST "https://badge.cs329.click/badge/${{ github.actor }}/jwtpizzacoverage?label=Coverage&value=$coverage%25&color=$color" -H "authorization: bearer ${{ secrets.FACTORY_API_KEY }}" -o /dev/null
+```
+
+Make sure you modify the `README.md` file for the project to contain a reference to the generated coverage badge.
+
+```md
+![Coverage badge](https://badge.cs329.click/badge/YOURGITHUBACCOUNTNAME/jwtpizzacoverage)
 ```
 
 Carefully study these steps until you understand what each line does. Then add them to your GitHub Actions workflow file and push it to GitHub.
