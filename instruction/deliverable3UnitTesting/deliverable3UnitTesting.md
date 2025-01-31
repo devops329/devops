@@ -119,11 +119,7 @@ services:
     ports:
       - '3306:3306'
     options: >-
-      --health-cmd "mysqladmin ping -ptempdbpassword"
-      --health-interval 10s
-      --health-start-period 10s
-      --health-timeout 5s
-      --health-retries 10
+      --health-cmd "mysqladmin ping -ptempdbpassword" --health-interval 10s --health-start-period 10s --health-timeout 5s --health-retries 10
 ```
 
 This tells GitHub that you require the MySQL service to be installed. We also provide the credentials that we want to use for the database. There isn't really a security problem with doing this since it is only a temporary database that will get thrown away once the tests are done. We just need to make sure we don't use any real credentials here. The `options` portion of the workflow specifies to wait until the `health-cmd` returns successfully. In this case we will wait ten seconds and then keep trying every ten seconds. When this completes our MySQL database is ready to use.
@@ -165,13 +161,9 @@ With MySQL running and our configuration all set up, you just need to add the st
 
 That's it! Your tests are ready to run every time you commit to the repository.
 
-## Adding a version number and reporting coverage
+## Adding a version number
 
 Before you run your new workflow you need to add a version number and report on the code coverage. The version is stored in a file named `version.json` and is represented with the current date and time.
-
-You can report your coverage publicly by updating the `coverageBadge.svg` file that is displayed in the README.md file with the latest coverage percentage. We do this with the help of an image generator found at `img.shields.io`.
-
-Here are the steps to add these two pieces.
 
 ```yml
 - name: set version
@@ -180,25 +172,40 @@ Here are the steps to add these two pieces.
     version=$(date +'%Y%m%d.%H%M%S')
     echo "version=$version" >> "$GITHUB_OUTPUT"
     printf '{"version": "%s" }' "$version" > src/version.json
+```
 
+## Adding coverage reporting
+
+![Example badge](badge.svg)
+
+In order to publicly display your coverage you will create a badge that displays your coverage percentage. We use the **Badge Me** service to create, store, and retrieve badges that you then display in your **README.md** file. The Badge Me service requires you to provide an authorization token that you define. You will supply your JWT Pizza API token to authorize the creation of a badge.
+
+```yml
 - name: Update coverage
   run: |
-    coverage_pct=$(grep -o '"pct":[0-9.]*' coverage/coverage-summary.json | head -n 1 | cut -d ':' -f 2)
-    color=$(echo "$coverage_pct < 80" | bc -l | awk '{if ($1) print "yellow"; else print "green"}')
-    curl https://img.shields.io/badge/Coverage-$coverage_pct%25-$color -o coverageBadge.svg
-    git config user.name github-actions
-    git config user.email github-actions@github.com
-    git add .
-    git commit -m "generated"
-    git push
+    coverage=$(jq '.total.lines.pct' coverage/coverage-summary.json)
+    color=$(echo "$coverage < 80" | bc -l | awk '{if ($1) print "red"; else print "green"}')
+    curl -s -X POST "https://badge.cs329.click/badge/${{ github.actor }}/jwtpizzaservicecoverage?label=Coverage&value=$coverage%25&color=$color" -H "authorization: bearer ${{ secrets.FACTORY_API_KEY }}" -o /dev/null
 ```
+
+To make your coverage badge appear in your README.md file, you will need to add the following markdown image reference to the **Badge Me** service URL representing the coverage badge that your CI pipeline created.
+
+```md
+![Coverage badge](https://badge.cs329.click/badge/YOURGITHUBACCOUNTNAME/jwtpizzaservicecoverage)
+```
+
+> [!NOTE]
+>
+> If your README.md already contains a reference for the coverage badge then replace it with the new definition provided above.
+
+## The final workflow
 
 Now when you commit and push these changes to GitHub it should automatically do the following:
 
 1. Analyze for lint
 1. Run all of your tests
-1. Calculate and report coverage
 1. Create a version number
+1. Calculate and report coverage
 
 The output from successfully running the workflow should look something like this.
 
@@ -207,8 +214,6 @@ The output from successfully running the workflow should look something like thi
 The README.md file should also display the current coverage and there should be a file named `version.json` in the src directory of the repository.
 
 ![Readme coverage](readmeCoverage.png)
-
-## The final workflow
 
 Here is the final workflow. Make sure you completely understand everything in this file. Having a solid understanding of this file will help you as we add more complexity to our CI pipelines in later deliverables.
 
@@ -235,11 +240,9 @@ jobs:
         ports:
           - '3306:3306'
         options: >-
-          --health-cmd "mysqladmin ping -ptempdbpassword"
-          --health-interval 10s
-          --health-start-period 10s
-          --health-timeout 5s
-          --health-retries 10
+          --health-cmd "mysqladmin ping -ptempdbpassword" --health-interval 10s --health-start-period 10s --health-timeout 5s --health-retries 10
+
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -287,14 +290,9 @@ jobs:
 
       - name: Update coverage
         run: |
-          coverage_pct=$(grep -o '"pct":[0-9.]*' coverage/coverage-summary.json | head -n 1 | cut -d ':' -f 2)
-          color=$(echo "$coverage_pct < 80" | bc -l | awk '{if ($1) print "yellow"; else print "green"}')
-          curl https://img.shields.io/badge/Coverage-$coverage_pct%25-$color -o coverageBadge.svg
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "generated"
-          git push
+          coverage=$(jq '.total.lines.pct' coverage/coverage-summary.json)
+          color=$(echo "$coverage < 80" | bc -l | awk '{if ($1) print "red"; else print "green"}')
+          curl -s -X POST "https://badge.cs329.click/badge/${{ github.actor }}/jwtpizzaservicecoverage?label=Coverage&value=$coverage%25&color=$color" -H "authorization: bearer ${{ secrets.FACTORY_API_KEY }}" -o /dev/null
 ```
 
 ## ⭐ Deliverable
