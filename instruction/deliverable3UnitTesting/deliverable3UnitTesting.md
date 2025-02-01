@@ -287,6 +287,13 @@ jobs:
           version=$(date +'%Y%m%d.%H%M%S')
           echo "version=$version" >> "$GITHUB_OUTPUT"
           printf '{"version": "%s" }' "$version" > src/version.json
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add src/version.json
+          git commit -m "Update version.json with version $version [CI skip]" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update coverage
         run: |
