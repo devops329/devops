@@ -321,7 +321,6 @@ Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and s
 | ------- | ---------------------------------------------------------------------------------- |
 | 10%     | Successful execution of GitHub Actions to run lint on commit                       |
 | 20%     | Successful execution of GitHub Actions to run tests on commit                      |
-| 5%      | Version updated with each build                                                    |
-| 65%     | At least 80% code coverage as documented by workflow execution and README.md badge |
+| 70%     | At least 80% code coverage as documented by workflow execution and README.md badge |
 
 Time to go and celebrate. How about cake 🍰?
