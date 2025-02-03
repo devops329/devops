@@ -172,11 +172,6 @@ Before you run your new workflow you need to add a version number and report on 
     version=$(date +'%Y%m%d.%H%M%S')
     echo "version=$version" >> "$GITHUB_OUTPUT"
     printf '{"version": "%s" }' "$version" > src/version.json
-    git config user.name github-actions
-    git config user.email github-actions@github.com
-    git add .
-    git commit -m "generated"
-    git push
 ```
 
 ## Adding coverage reporting
