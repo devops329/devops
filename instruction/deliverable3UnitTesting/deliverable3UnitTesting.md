@@ -172,6 +172,11 @@ Before you run your new workflow you need to add a version number and report on 
     version=$(date +'%Y%m%d.%H%M%S')
     echo "version=$version" >> "$GITHUB_OUTPUT"
     printf '{"version": "%s" }' "$version" > src/version.json
+    git config user.name github-actions
+    git config user.email github-actions@github.com
+    git add .
+    git commit -m "generated"
+    git push
 ```
 
 ## Adding coverage reporting
@@ -186,16 +191,11 @@ In order to publicly display your coverage you will create a badge that displays
 - name: Update coverage
   run: |
     coverage=$(jq '.total.lines.pct' coverage/coverage-summary.json)
-    color=$(echo "$coverage < 80" | bc -l | awk '{if ($1) print "red"; else print "green"}')
-    curl https://img.shields.io/badge/Coverage-$coverage_pct%25-$color -o coverageBadge.svg
-    git config user.name github-actions
-    git config user.email github-actions@github.com
-    git add .
-    git commit -m "generated"
-    git push
+    color=$(echo "$coverage < 80" | bc | awk '{if ($1) print "red"; else print "green"}')
+    curl -s -X POST "https://badge.cs329.click/badge/${{ github.actor }}/jwtpizzaservicecoverage?label=Coverage&value=$coverage%25&color=$color" -H "authorization: bearer ${{ secrets.FACTORY_API_KEY }}" -o /dev/null
 ```
 
-To make your coverage badge appear in your README.md file, you will need to add the following markdown image reference to the **Badge Me** service URL representing the coverage badge that your CI pipeline created.
+To make your coverage badge appear in your README.md file, you will need to add the following markdown image reference to the **Badge Me** service URL representing the coverage badge that your CI pipeline created. Make sure you replace the placeholder with your GitHub account name.
 
 ```md
 ![Coverage badge](https://badge.cs329.click/badge/YOURGITHUBACCOUNTNAME/jwtpizzaservicecoverage)
@@ -249,6 +249,7 @@ jobs:
         options: >-
           --health-cmd "mysqladmin ping -ptempdbpassword" --health-interval 10s --health-start-period 10s --health-timeout 5s --health-retries 10
 
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -293,17 +294,17 @@ jobs:
           version=$(date +'%Y%m%d.%H%M%S')
           echo "version=$version" >> "$GITHUB_OUTPUT"
           printf '{"version": "%s" }' "$version" > src/version.json
-
-      - name: Update coverage
-        run: |
-          coverage=$(jq '.total.lines.pct' coverage/coverage-summary.json)
-          color=$(echo "$coverage < 80" | bc -l | awk '{if ($1) print "red"; else print "green"}')
-          curl https://img.shields.io/badge/Coverage-$coverage_pct%25-$color -o coverageBadge.svg
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
           git commit -m "generated"
           git push
+
+      - name: Update coverage
+        run: |
+          coverage=$(jq '.total.lines.pct' coverage/coverage-summary.json)
+          color=$(echo "$coverage < 80" | bc | awk '{if ($1) print "red"; else print "green"}')
+          curl https://img.shields.io/badge/Coverage-$coverage_pct%25-$color -o coverageBadge.svg
 ```
 
 ## ⭐ Deliverable
