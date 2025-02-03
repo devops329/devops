@@ -192,7 +192,7 @@ In order to publicly display your coverage you will create a badge that displays
   run: |
     coverage=$(jq '.total.lines.pct' coverage/coverage-summary.json)
     color=$(echo "$coverage < 80" | bc | awk '{if ($1) print "red"; else print "green"}')
-    curl -s -X POST "https://badge.cs329.click/badge/${{ github.actor }}/jwtpizzaservicecoverage?label=Coverage&value=$coverage%25&color=$color" -H "authorization: bearer ${{ secrets.FACTORY_API_KEY }}" -o /dev/null
+    curl -s -X POST "https://badge.cs329.click/badge/${{ github.repository_owner }}/jwtpizzaservicecoverage?label=Coverage&value=$coverage%25&color=$color" -H "authorization: bearer ${{ secrets.FACTORY_API_KEY }}" -o /dev/null
 ```
 
 To make your coverage badge appear in your README.md file, you will need to add the following markdown image reference to the **Badge Me** service URL representing the coverage badge that your CI pipeline created. Make sure you replace the placeholder with your GitHub account name.

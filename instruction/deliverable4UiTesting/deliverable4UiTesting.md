@@ -330,7 +330,7 @@ You can then parse the coverage output to build a new coverage badge just like y
   run: |
     coverage=$(jq '.total.lines.pct' coverage/coverage-summary.json)
     color=$(echo "$coverage < 80" | bc -l | awk '{if ($1) print "red"; else print "green"}')
-    curl -s -X POST "https://badge.cs329.click/badge/${{ github.actor }}/jwtpizzacoverage?label=Coverage&value=$coverage%25&color=$color" -H "authorization: bearer ${{ secrets.FACTORY_API_KEY }}" -o /dev/null
+    curl -s -X POST "https://badge.cs329.click/badge/${{ github.repository_owner }}/jwtpizzacoverage?label=Coverage&value=$coverage%25&color=$color" -H "authorization: bearer ${{ secrets.FACTORY_API_KEY }}" -o /dev/null
 ```
 
 Make sure you modify the `README.md` file for the project to contain a reference to the generated coverage badge.
