@@ -255,6 +255,6 @@ export default [
 
 Now when you run `npm run lint` you should only see errors that are due to problems in your code or the `jwt-pizza-service` code. Go fix the problems you created until there are no linting errors.
 
-## Reporting problems with JWT Pizza Service
+## Problems with JWT Pizza Service
 
-If during the testing or linting process you discover problems with `jwt-pizza-service`, then you can open an issue or pull request on the repository to report them. This will help future students and also give you experience with this vital development process.
+As you may have already discovered, the JWT Pizza Service development is great on building applications quickly, but not so great when it comes to quality. It is likely that as you test the code, you will discover several bugs.  Feel free to fix those bugs in your fork of the repository. You can even reorganize, or rewrite, portions of the service in order to make testing easier. However, it is not necessary to report them or create pull requests on the application code base. The application team has already left the company and is now working on a bitcoin mining application.
