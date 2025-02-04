@@ -180,12 +180,12 @@ Follow these steps to use Trace Viewer to get the network requests.
 
 This shows us that we made four requests. After we simplify them, we have the following.
 
-| method | endpoint | request body | response body |
-| --- | --- | --- | --- |
-| GET | /api/order/menu |  | [{"id":1,"title":"Veggie","image":"pizza1.png","price":0.0038,"description":"A garden of delight"},{"id":2,"title":"Pepperoni","image":"pizza2.png","price":0.0042,"description":"Spicy treat"},{"id":3,"title":"Margarita","image":"pizza3.png","price":0.0014,"description":"Essential classic"},{"id":4,"title":"Crusty","image":"pizza4.png","price":0.0024,"description":"A dry mouthed favorite"}] |
-| GET | /api/franchise |  | [{"id":2,"name":"LotaPizza","stores":[{"id":4,"name":"Lehi"},{"id":5,"name":"Springville"},{"id":6,"name":"American Fork"}]},{"id":3,"name":"PizzaCorp","stores":[{"id":7,"name":"Spanish Fork"}]},{"id":4,"name":"topSpot","stores":[]}] |
-| PUT | /api/auth | {"email":"d@jwt.com","password":"a"} | {"id":3,"name":"Kai Chen","email":"d@jwt.com","roles":[{"role":"diner"}]} |
-| POST | /api/order | {"items":[{"menuId":1,"description":"Veggie","price":0.0038},{"menuId":2,"description":"Pepperoni","price":0.0042}],"storeId":"1","franchiseId":1} | {"order":{"items":[{"menuId":1,"description":"Veggie","price":0.0038},{"menuId":2,"description":"Pepperoni","price":0.0042}],"storeId":"1","franchiseId":1,"id":23},"jwt":"eyJpYXQ"} |
+| method | endpoint        | request body                                                                                                                                       | response body                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------ | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GET    | /api/order/menu |                                                                                                                                                    | [{"id":1,"title":"Veggie","image":"pizza1.png","price":0.0038,"description":"A garden of delight"},{"id":2,"title":"Pepperoni","image":"pizza2.png","price":0.0042,"description":"Spicy treat"},{"id":3,"title":"Margarita","image":"pizza3.png","price":0.0014,"description":"Essential classic"},{"id":4,"title":"Crusty","image":"pizza4.png","price":0.0024,"description":"A dry mouthed favorite"}] |
+| GET    | /api/franchise  |                                                                                                                                                    | [{"id":2,"name":"LotaPizza","stores":[{"id":4,"name":"Lehi"},{"id":5,"name":"Springville"},{"id":6,"name":"American Fork"}]},{"id":3,"name":"PizzaCorp","stores":[{"id":7,"name":"Spanish Fork"}]},{"id":4,"name":"topSpot","stores":[]}]                                                                                                                                                                |
+| PUT    | /api/auth       | {"email":"d@jwt.com","password":"a"}                                                                                                               | {"id":3,"name":"Kai Chen","email":"d@jwt.com","roles":[{"role":"diner"}]}                                                                                                                                                                                                                                                                                                                                |
+| POST   | /api/order      | {"items":[{"menuId":1,"description":"Veggie","price":0.0038},{"menuId":2,"description":"Pepperoni","price":0.0042}],"storeId":"1","franchiseId":1} | {"order":{"items":[{"menuId":1,"description":"Veggie","price":0.0038},{"menuId":2,"description":"Pepperoni","price":0.0042}],"storeId":"1","franchiseId":1,"id":23},"jwt":"eyJpYXQ"}                                                                                                                                                                                                                     |
 
 > [!NOTE]
 >
@@ -323,6 +323,8 @@ Running the test requires that you first install the desired Playwright browser 
     npm run test:coverage
 ```
 
+### Reporting coverage
+
 You can then parse the coverage output to build a new coverage badge just like you did for the JWT Pizza Service.
 
 ```yml
@@ -333,13 +335,21 @@ You can then parse the coverage output to build a new coverage badge just like y
     curl -s -X POST "https://badge.cs329.click/badge/${{ github.repository_owner }}/jwtpizzacoverage?label=Coverage&value=$coverage%25&color=$color" -H "authorization: bearer ${{ secrets.FACTORY_API_KEY }}" -o /dev/null
 ```
 
+> [!NOTE]
+>
+> You need to add the `FACTORY_API_KEY` to the Action secrets so that you can reference it as your authorization token when you build your coverage badge. If you need a refresher on how to do this, refer back to the [unit testing deliverable](../deliverable3UnitTesting/deliverable3UnitTesting.md#storing-secrets).
+>
+> ![Action secrets](actionSecrets.png)
+
 Make sure you modify the `README.md` file for the project to contain a reference to the generated coverage badge.
 
 ```md
 ![Coverage badge](https://badge.cs329.click/badge/YOURGITHUBACCOUNTNAME/jwtpizzacoverage)
 ```
 
-Carefully study these steps until you understand what each line does. Then add them to your GitHub Actions workflow file and push it to GitHub.
+## Running your pipeline
+
+Carefully study the CI pipeline steps until you understand what each line does. Then add them to your GitHub Actions workflow file and push it to GitHub.
 
 This should trigger the workflow to execute, and if everything works properly you should see something similar to the following on the Actions page of the GitHub console for your repository.
 
@@ -361,4 +371,4 @@ Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and s
 | Percent | Item                                                                               |
 | ------- | ---------------------------------------------------------------------------------- |
 | 30%     | Successful execution of GitHub Actions to run test on commit                       |
-| 70%     | At least 80% code coverage as documented by workflow execution and README.md badge |
+| 70%     | At least 80% line coverage as documented by workflow execution and README.md badge |
