@@ -37,7 +37,7 @@ One difference that you want to make when configuring the JWT Pizza frontend for
 {
   "check-coverage": true,
   "branches": 0,
-  "lines": 100,
+  "lines": 80,
   "functions": 0,
   "statements": 0
 }
