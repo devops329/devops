@@ -31,7 +31,7 @@ With the UI testing skills you have learned you are now ready to test the JWT Pi
 
 You previously created a fork of `jwt-pizza`. Now you need to add Playwright and the coverage functionality. The first step is to install the required packages and set up the project using what you learned in the [Playwright instruction](../playwright/playwright.md). Don't worry about writing any tests while you are configuring Playwright. At this point you are just making it so that you can run the example Playwright tests and verify that you have configured everything correctly.
 
-One difference that you want to make when configuring the JWT Pizza frontend for testing is to only require the line coverage to be 80%. You can do this by modifying the `nycrc.json` file.
+One difference that you want to make when configuring the JWT Pizza frontend for testing is to only require the line coverage to be 80%. You can do this by modifying the `.nycrc.json` file.
 
 ```js
 {
