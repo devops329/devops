@@ -42,6 +42,7 @@ Here are the steps to take:
    ![collab](../gitHub/addCollaborator.png)
 
    > [!IMPORTANT]
+   >
    > If you do not invite the TA to be a collaborator you will not be able to pass off your deliverables.
 
 1. Copy the URL for your fork of the repository.
@@ -70,6 +71,7 @@ As the application team makes changes to the frontend code you will need to sync
 To sync your fork, navigate to your account's fork of the `jwt-pizza` repository. It will display if your fork is out of date. Press the `Sync fork` button and confirm the action.
 
 > [!NOTE]
+>
 > Do not press the `Discard commits` button if it is available, or you will lose any code that you have added to your fork such as tests you have written.
 
 ![sync fork](syncFork.png)

@@ -43,6 +43,7 @@ Here are the steps to take:
    ![collab](../gitHub/addCollaborator.png)
 
    > [!IMPORTANT]
+   >
    > If you do not invite the TA to be a collaborator you will not be able to pass off your deliverables.
 
 1. Copy the URL for your fork of the repository.
@@ -59,6 +60,7 @@ Here are the steps to take:
 1. Create a `config.js` file in the `src` directory and insert your database credentials, jwtSecret, and API Key. The factory should point to the URL provided by JWT Headquarters. The following is an example `config.js` file.
 
    > [!NOTE]
+   >
    > Note that you must replace `jwtSecret`, `connection.password`, and `factory.apiKey` with values that you generate. `jwtSecret` is used to sign authorization tokens and can be any random string. `connection.password` is the password for your MySQL database. `factory.apiKey` allows you to fulfill orders from the JWT Headquarters factory.
 
    ```sh
@@ -98,6 +100,7 @@ Here are the steps to take:
 To sync your fork, navigate to your account's fork of the `jwt-pizza-service` repository. It will display if your fork is out of date. Press the `Sync fork` button and confirm the action.
 
 > [!NOTE]
+>
 > Do not press the `Discard commits` button if it is available, or you will lose any code that you have added to your fork such as tests you have written.
 
 ![Sync fork](syncFork.png)

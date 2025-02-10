@@ -115,34 +115,6 @@ The service contains one or more associated tasks. The tasks work together in or
    1. Remove the selection for the `default` security group. This provides no value, and we don't want to accidentally inherit a security rule that we are not expecting.
    1. Select the `jwt-pizza-service` security group that you created previously. This allows the container to accept incoming HTTP requests.
    1. Select the option to auto assign a `Public IP` address. We will need this so you can test the running task by making HTTP requests from the internet.
-1. Press `Create`.
-
-## Verifying the container deployment
-
-Once you have launched the container it should only take a couple of seconds for it to be available for use. Navigate to the service and select the `Tasks` tab. Then select the currently running task and use the networking bindings to see the IP address that is being used. Navigate your browser to that location, and you should see the `jwt-pizza-service`. The video below shows the service running on port 3000. Your service will be running on port 80.
-
-![ECS Container Launched](ecsContainerLaunched.gif)
-
-Use the public IP address for the task to verify that your ECS deployment of the JWT Pizza Service is working correctly.
-
-## Create an ECS service with a load balancer
-
-Using the task's public IP address to communicate with the container only works if you don't plan to scale the number of deployed containers to meet an increase in customer requests, or ever deploy a new container whenever the code changes. That is not going to work for JWT Pizza. Instead, we want to expose the container through a load balancer that can balance HTTP requests across multiple copies of your ECS task and route traffic to the new versions of the task as they become available.
-
-Before you can create a service that is associated with a load balancer, you need to delete the service that you created previously.
-
-1. Open the AWS browser console and navigate to the Elastic Container Service (ECS) service.
-1. Press `Clusters` from the left side navigation panel.
-1. Press the cluster you created earlier (`jwt-pizza-service`).
-1. Select the service you just created and press the `Delete service` button. This will delete all the running tasks and stop any additional monetary charges.
-
-Take the following steps to deploy with an Application Load Balancer.
-
-1. Open the AWS browser console and navigate to the Elastic Container Service (ECS) service.
-1. Press `Clusters` from the left side navigation panel.
-1. Press the cluster you created earlier (`jwt-pizza-service`).
-1. Press the `Create service` button.
-1. Repeat the earlier steps to [create an ECS Service](#create-an-ecs-service).
 1. Under `Load balancing`
 
    1. Select `Application Load Balancer`
@@ -174,13 +146,12 @@ You can find the load balancer's public hostname by taking the following steps.
 1. Open the AWS browser console and navigate to the Elastic Cloud Computing (EC2) service.
 1. Press `Load Balancers` from the left side navigation panel.
 1. Press the `jwt-pizza-service` load balancer.
-1. Copy the `DNS name` for the load balancer
-   ![Load balancer details](loadBalancerDetails.png)
+1. Copy the `DNS name` for the load balancer ![Load balancer details](loadBalancerDetails.png)
 
 In order to make a network request using the DNS name you have to tell Curl to use HTTPS, because that is all we opened up on the load balancer, but you also have to specify that you want to ignore an invalid certificate. You can do this with a command similar to the following.
 
 ```sh
-curl -k https://YOUR_DNSNAME_HERE
+curl -k https://LOADBALANCER_DNSNAME_HERE
 
 {"message":"welcome to JWT Pizza","version":"20240525.191742"}
 ```
@@ -200,6 +171,7 @@ The last step for configuring the scalable deployment of your backend, is to cre
 ![Create load balancer DNS record](createLoadBalancerDnsRecord.png)
 
 > [!NOTE]
+>
 > The subdomain must be `pizza-service` in order for the AutoGrader to access your service.
 
 ### Testing the DNS record

@@ -59,6 +59,7 @@ Modify your service's config.js file to contain the Grafana logging credentials.
 ```
 
 > [!NOTE]
+>
 > You want your development environment you should use a different `source` so that you don't mix logs from different environments. In the example shown above the `source` is set to **jwt-pizza-service-dev**.
 
 ### Modify CI pipeline
@@ -124,6 +125,7 @@ sendLogToGrafana(event) {
 However, your logging code for JWT Pizza will need to be more complext that what is demonstrated in the [Grafana Logging instruction](../grafanaLogging/grafanaLogging.md).
 
 > [!TIP]
+>
 > There is a third party NPM package, named [Pizza Logger](https://www.npmjs.com/package/pizza-logger), that you can use to supply your logs to Grafana. If you wish to use this package, you can view the documentation on NPM for more information.
 
 ### Add HTTP logging code

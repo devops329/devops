@@ -273,4 +273,5 @@ In order to complete the assignment you need to make your dashboard public so th
 1. Press the **Copy** button for the generated dashboard URL.
 
 > [!IMPORTANT]
+>
 > You will provide this URL for the Metrics and Logging deliverable.

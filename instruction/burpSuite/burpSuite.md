@@ -16,6 +16,7 @@ Burp Suite comes in a free community version and a paid enterprise edition. The 
 Burp Suite is an incredibly powerful tool and is a foundational piece for most penetration testing efforts. Fully covering all the features of Burp Suite is beyond the scope of this course, but we will cover the basics of its functionality.
 
 > [!NOTE]
+>
 > Any of the tools that you use for penetration testing must **not** be executed against an application without the explicit permission of the owner of the application.
 
 ## Functionality
@@ -96,6 +97,7 @@ You can populate a sequencer request by right-clicking on any request in the Tar
 Next, we press the `Start live capture` button. This will begin the process of executing thousands of requests.
 
 > [!NOTE]
+>
 > This will execute thousands or even tens of thousands of login requests. Depending on your backend service configuration this might cause scaling or additional payment charges. So be careful what you do here.
 
 ![Sequencer token](sequencerToken.png)
@@ -136,7 +138,7 @@ If you sort by **Popularity** you should get a good feel for what people are usi
 
 One extension that you might experiment with is the `Turbo Intruder`. Since the community edition of Burp Suite throttles its ability to execute intrusions, you can get around this with the Turbo Intruder extension. Go ahead and install the extension from the BApp Store and try it out.
 
-You add a request to the Turbo Intruder by right-clicking on it and selecting the `Extensions >  Turbo Intruder > Send to turbo intruder` option.
+You add a request to the Turbo Intruder by right-clicking on it and selecting the `Extensions > Turbo Intruder > Send to turbo intruder` option.
 
 ![Use turbo intruder](useTurboIntruder.png)
 

@@ -3,6 +3,7 @@
 In order to deploy JWT Pizza you will need to lease a DNS domain name. You will use your domain name when you deploy JWT Pizza frontend to GitHub Pages and AWS CloudFront, and also when you deploy the backend using an AWS EC2 loadbalancer. If you already own a domain name, and can configure the DNS records associated with your domain name then you can skip this instruction. `Route 53` is the AWS service that handles everything DNS-related. With Route 53 you can buy a domain name and create DNS records.
 
 > [!IMPORTANT]
+>
 > You will need an account with AWS in order to use Route 53. If you haven't done that work, go create your account and server following the previous instruction.
 
 ## Purchasing a domain name
@@ -10,6 +11,7 @@ In order to deploy JWT Pizza you will need to lease a DNS domain name. You will 
 AWS provides extensive documentation for all their services. You can find the documentation for [registering a new domain](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register.html) on their website. You may find the simplified directions below easier to follow, but if you run into trouble, or have additional questions, refer to the official documentation. Remember that you are leasing a domain name for a year, and so make sure it is a name that you would like. Also note that AWS credits do not apply to purchase of domain names.
 
 > [!IMPORTANT]
+>
 > If you are using new contact information that a registrar has never seen before, it will require you to verify the email address. Usually this means you will receive an email that you must respond to within 15 days. If you fail to do this your domain name will be removed from the registry without warning. Check your spam folder if you do not receive this email.
 
 1. Open the AWS console in your browser and log in.
@@ -29,6 +31,7 @@ AWS provides extensive documentation for all their services. You can find the do
 ## Hosted zone
 
 > [!NOTE]
+>
 > If you have already leased a domain name, but for some reason do not have a hosted zone in Route 53, you will need to create one. See the instruction below for the details.
 
 It may take a while before your purchase is completed, but when it is, the Route 53 service dashboard will show that you have a `hosted zone` for your domain name. You will use the `hosted zone` to modify your DNS records in order to expose your JWT Pizza to the world.

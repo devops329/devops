@@ -33,6 +33,7 @@ This includes graphs that show the latency of requests, locations that requests 
 ## Creating a synthetic test
 
 > [!NOTE]
+>
 > This will require that your application is currently running. If it is not, then go and deploy it now.
 
 To create a Grafana synthetic test do the following:
