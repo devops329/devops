@@ -98,7 +98,7 @@ Next, create a file named `Dockerfile` and add the following contents. A Dockerf
 **Dockerfile**
 
 ```dockerfile
-FROM node:20.12.2-alpine
+FROM node:22-alpine
 WORKDIR /usr/src/app
 COPY package*.json app.js ./
 RUN npm install
