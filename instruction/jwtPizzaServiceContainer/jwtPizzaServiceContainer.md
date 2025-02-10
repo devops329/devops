@@ -12,7 +12,7 @@ Now that you know how Docker containers work, you need to create a **jwt-pizza-s
 1. Create a file named `Dockerfile` in the project directory with the following content. Make sure you match the case of the filename.
 
    ```dockerfile
-   ARG NODE_VERSION=20.12.2
+   ARG NODE_VERSION=22
 
    FROM node:${NODE_VERSION}-alpine
    WORKDIR /usr/src/app
@@ -22,12 +22,13 @@ Now that you know how Docker containers work, you need to create a **jwt-pizza-s
    CMD ["node", "index.js", "80"]
    ```
 
-1. Modify/Create the `config.js` file. Set the database host field so that it looks outside the container for the MySQL server by specifying the value of `host.docker.internal`. Make sure you include the `config.js` file in your `.gitignore` file so that you do not accidentally push it to your repository. Set the parameters, such as the user, password, jwtSecret and factory.apiKey, according to your environment.
+1. Modify/Create the `src/config.js` file. Set the database host field so that it looks outside the container for the MySQL server by specifying the value of `host.docker.internal`. Make sure you include the `config.js` file in your `.gitignore` file so that you do not accidentally push it to your repository. Set the parameters, such as the user, password, jwtSecret and factory.apiKey, according to your environment.
    ```sh
    module.exports = {
     jwtSecret: 'yourRandomJWTGenerationSecretForAuth',
     db: {
       connection: {
+        //host: '127.0.0.1',
         host: 'host.docker.internal',
         user: 'root',
         password: 'yourDatabasePassword',
@@ -95,3 +96,21 @@ Create a JWT Pizza Service container using the instructions given above. This in
 Once you are done, your console window should show the build, list, and run commands.
 
 ![Docker successful run](dockerSuccess.png)
+
+> [!IMPORTANT]
+>
+> Once you have completed this exercise, make sure that you go back to your `config.js` and change the **host** back to `127.0.0.1` so that when you run your pizza service outside of a container it will find your MySQL database server.
+>
+> ```js
+> db: {
+>  connection: {
+>    host: '127.0.0.1',
+>    //host: 'host.docker.internal',
+>    user: 'root',
+>    password: 'yourDatabasePassword',
+>    database: 'pizza',
+>    connectTimeout: 60000,
+>  },
+>  listPerPage: 10,
+> },
+> ```
