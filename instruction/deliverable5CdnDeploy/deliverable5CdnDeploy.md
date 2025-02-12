@@ -96,7 +96,7 @@ This job gets the version from the previous build step, creates the OIDC authori
 
 ### React routing on browser refresh
 
-You need to remove the creation of the `404.hml` that GitHub Pages used to handle when a user refreshes the browser. You can do that by deleting the creation of the file from your workflow.
+You need to remove the creation of the `404.html` that GitHub Pages used to handle when a user refreshes the browser. You can do that by deleting the creation of the file from your workflow.
 
 ```yml
 cp dist/index.html dist/404.html
