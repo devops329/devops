@@ -29,8 +29,13 @@ Eventually you will change the **jwt-pizza-service** security group so that only
 1. Name the group `jwt-pizza-service`.
 1. Give a simple description like `JWT Pizza Service`.
 1. Press the `Add rule` for **inbound rules**.
+
    1. Select the `type` of **HTTPS**. This should populate the `Port range` with 443. Set the `Source` to **Anywhere-IPv4**.
    1. Add a second rule. Select the `type` of **HTTP**. This should populate the `Port range` with 80. Set the `Source` to **Anywhere-IPv4**.
+
+   ![Pizza service security group](pizzaServiceSecurityGroup.png)
+
+1. **Do not delete the Outbound rules**.
 1. Press the `Create security group` button.
 
 ### Create the database security group
@@ -40,7 +45,10 @@ Eventually you will change the **jwt-pizza-service** security group so that only
 1. Name the security group `jwt-pizza-db`.
 1. Give a simple description like `JWT Pizza Service Database`.
 1. Press the `Add rule` for **inbound rules**.
-   1. Select the `type` of `MYSQL/Aurora`. This should populate the `Port range` with 3306. Set the `Source` to be the **jwt-pizza-service** security group that you just created.
+
+   1. Select the `type` of `MYSQL/Aurora`. This should populate the `Port range` with 3306. Set the `Source` to be the **jwt-pizza-service** security group that you just created. Start typing the jwt-pizza-service in the source box and it should auto-fill the actual security group ID.
+
+   ![Pizza service database security group](pizzaServiceDbSecurityGroup.png)
 
 ## Creating a MySQL instance
 
@@ -73,7 +81,7 @@ With the network security deployed, you can now create the MySQL server instance
 1. Under **Database authentication** select `Password and IAM database authentication`.
 1. Press `Create database`.
 
-After a few minutes your database will display that it has been created. Note the **database endpoint**, you will use that as the DB hostname in a minute.
+After a few minutes your database will display that it has been created. Copy the **database endpoint**, you will store that value as the DB hostname in your GitHub Actions secrets.
 
 ![database properties](databaseProperties.png)
 
