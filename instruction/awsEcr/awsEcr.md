@@ -83,13 +83,12 @@ Next you need to enhance the `github-ci` role rights so that they can push to EC
       "Resource": "arn:aws:ecr:us-east-1:YOURACCOUNTIDHERE:repository/jwt-pizza-service"
    },
    {
-      "Sid": "RegisterTaskDefinition",
+      "Sid": "DeployContainer",
       "Effect": "Allow",
       "Action": [
-            "ecs:DescribeTaskDefinition",
-            "ecs:RegisterTaskDefinition"
+            "ecs:UpdateService"
       ],
-      "Resource": "*"
+      "Resource": "arn:aws:ecs:us-east-1:YOURACCOUNTIDHERE:service/jwt-pizza-service/jwt-pizza-service"
    },
    {
       "Sid": "PassRolesInTaskDefinition",
@@ -99,17 +98,6 @@ Next you need to enhance the `github-ci` role rights so that they can push to EC
       ],
       "Resource": [
             "arn:aws:iam::YOURACCOUNTIDHERE:role/jwt-pizza-ecs"
-      ]
-   },
-   {
-      "Sid": "DeployService",
-      "Effect": "Allow",
-      "Action": [
-            "ecs:UpdateService",
-            "ecs:DescribeServices"
-      ],
-      "Resource": [
-            "arn:aws:ecs:us-east-1:YOURACCOUNTIDHERE:service/jwt-pizza-service/jwt-pizza-service"
       ]
    }
    ```
@@ -176,7 +164,7 @@ Next, add a **deploy** job that creates the container and pushes it to ECR.
 
 1. Authenticate to AWS using OIDC. This is the same authentication step that we took with the frontend deployment. Using OIDC makes it so we don't have to store any credentials to our AWS account.
 
-   ⚠️ Make sure the AWS region matches the region you are using.
+   ⚠️ Make sure you are using the **us-east-1** AWS region for all your work in this course.
 
    ```yml
    - name: Create OIDC token to AWS

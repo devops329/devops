@@ -55,47 +55,25 @@ You should have already followed the [AWS ECS instruction](../awsEcs/awsEcs.md) 
 
 ## Step 4: Image deployment CI
 
-With ECR configured, the CI workflow for building and pushing a container image to ECR, and ECS configured to deploy a container, you are now ready to enhance the CI workflow to automatically push the container to ECS and update the application load balancer.
+In the previous steps you configured ECR, created the CI workflow for building and pushing a container image to ECR, and manually deployed the container with ECS. You are now ready to enhance your CI workflow to automatically execute the deployment.
 
-You deploy the new container to ECS by adding three new steps to the **deploy** job of the workflow.
+You deploy the new container to ECS by adding one new step to the **deploy** job of the workflow. This step uses the AWS CLI to tell ECS to update the service with the latest version found in the ECR repository.
 
-1. First, add the step that makes a copy of the existing ECS `jwt-pizza-service` task definition and save it to a file named `task-definition.json`. Here is an [example task-definition.json](task-definition.json) if you are interested in what they look like.
-   ```yml
-   - name: Download task definition
-     run: |
-       aws ecs describe-task-definition --region us-east-1 --task-definition jwt-pizza-service --query taskDefinition > task-definition.json
-       echo $(cat task-definition.json | jq 'del(.taskDefinitionArn, .requiresAttributes, .compatibilities, .revision, .status, .registeredAt, .registeredBy)') > task-definition.json
-   ```
-1. Modify the task definition so that it contains the name of the new container image that you just created.
-   ```yml
-   - name: Create new task definition
-     id: task-def
-     uses: aws-actions/amazon-ecs-render-task-definition@v1
-     with:
-       task-definition: task-definition.json
-       container-name: jwt-pizza-service
-       image: ${{ steps.build-image.outputs.image }}
-   ```
-1. Deploy the new task definition and update the ECS service. This will trigger ECS to create a rolling deployment of the new container and update the application load balancer to expose the new container.
-   ```yml
-   - name: Deploy new task definition
-     uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-     with:
-       task-definition: ${{ steps.task-def.outputs.task-definition }}
-       service: jwt-pizza-service
-       cluster: jwt-pizza-service
-       wait-for-service-stability: false
-   ```
+```yml
+- name: Deploy new container
+  run: |
+    aws ecs update-service --cluster jwt-pizza-service --service jwt-pizza-service --force-new-deployment
+```
 
 ### Test the container deployment
 
-You should now be able to commit and push the workflow script to GitHub. This will trigger the container to be pushed to ECS where it will become visible through your EC2 load balancer.
+You should now be able to commit and push the workflow script to GitHub. This will trigger the container to be pushed to ECR where ECS will load it into Fargate and make it visible through your EC2 load balancer.
 
-After the container has been deploy you can test the backend by making curl requests. _(Replace the assignment of the host variable with your own hostname.)_
+After the container has been deploy you can test the backend by making curl requests.
 
 ```sh
 # Set the hostname - replace with your hostname
-host=https://pizza-service.byucsstudent.click
+host=https://pizza-service.YOURHOSTNAMEHERE
 
 # Note that the version number will be different
 curl $host
