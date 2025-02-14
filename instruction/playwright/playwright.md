@@ -509,7 +509,7 @@ This doesn't return all the data that the actual endpoint was returning, but it 
 Here is the full test that we created.
 
 ```js
-import { test, expect } from '@playwright/test';
+import { test, expect } from 'playwright-test-coverage';
 
 test('test', async ({ page }) => {
   const menuResponse = [{ title: 'Veggie', description: 'A garden of delight' }];
