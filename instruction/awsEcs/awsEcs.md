@@ -93,7 +93,7 @@ A cluster represents a complete application where multiple services work in conc
 1. Under `Infrastructure` choose **AWS Fargate**.
 1. Press `Create`.
 
-Wait until the cluster finishes creating before you continue.
+Wait until the cluster status changes from **Provisioning** to **Active** before you continue.
 
 ## Create an ECS service
 
@@ -118,11 +118,11 @@ The service contains one or more associated tasks. The tasks work together in or
 1. Under `Load balancing`
 
    1. Select `Application Load Balancer`
-   1. Select the `Container` or incoming traffic to be `jwt-pizza-service 80:80`
+   1. Select the `Container` for incoming traffic to be `jwt-pizza-service 80:80`
    1. Create a new load balancer
       1. Provide `jwt-pizza-service` as the `Load balancer name`.
       1. Create a new listener on port 443 using HTTPS.
-      1. Select the wildcard certificate for the hostname that you created previously.
+      1. Select the **wildcard certificate** for the hostname that you created previously.
    1. Create a new target group.
 
       1. Provide the name `jwt-pizza-service`.

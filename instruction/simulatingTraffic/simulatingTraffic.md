@@ -26,7 +26,9 @@ host=https://pizza-service.yourdomainname.click
 
 The following are some examples that you can use.
 
-⚠️ **Note** that you must use a POSIX compliant command console to use these scripts. These commands also assume that you have populated your database with the default data provided by the [JWT Pizza Data](../jwtPizzaData/jwtPizzaData.md) instruction.
+> [!NOTE]
+>
+> You must use a POSIX compliant environment to use these scripts. Linux and MacOS are POSIX compliant. On Windows you can use the Git Bash command terminal to be sufficiently compatible. These commands also assume that you have populated your database with the default data provided by the [JWT Pizza Data](../jwtPizzaData/jwtPizzaData.md) instruction.
 
 ### Hit the menu every three seconds
 

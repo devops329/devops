@@ -187,7 +187,9 @@ While this makes it flexible for the endpoint to granularly provide access, it t
 
 You want to carefully study the role security model for JWT Pizza so that you can properly exploit it when you do your penetration testing.
 
-⚠️ It is important to note that the JWT Service enforces the roles and not the frontend client. The frontend should limit the views exposed to the customer, but in the end it must be the service that restricts access.
+> [!NOTE]
+>
+> It is important to note that the JWT Service enforces the roles and not the frontend client. The frontend should limit customer access to restricted views, but in the end it must be the backend service that restricts to data and functionality.
 
 #### AWS roles
 
