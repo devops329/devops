@@ -26,7 +26,7 @@ Now that we know how to deploy static content using CloudFront and S3 using GitH
 
 ## CDN distribution
 
-Set up your AWS S3 and CloudFront configuration as described in the [AWS CloudFront](../awsCloudFront/awsCloudFront.md) instruction. Your AWS configuration should consist of a private S3 bucket that contains your static frontend code. A CloudFront distribution then exposes the frontend to the world using a secure HTTP connection defined by your DNS hostname.
+Set up your AWS S3 and CloudFront configuration as described in the [AWS CloudFront](../awsCloudFront/awsCloudFront.md) instruction. Your AWS configuration should consist of a private S3 bucket that contains your static frontend code from the previous exercise. A CloudFront distribution then exposes the frontend to the world using a secure HTTP connection defined by your DNS hostname.
 
 ### Demonstrating completion
 
