@@ -35,7 +35,7 @@ First you need to set up AWS to use GitHub as an OIDC provider.
 
    ![OIDC properties](identityProperties.png)
 
-1. Copy the provider's ARN. You will use this later when defining your GitHub Action workflow.
+1. You will reference the identity provider ARN when you create the IAM role.
 
 ### Create the IAM policy
 
