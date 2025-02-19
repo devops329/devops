@@ -31,7 +31,7 @@ First you need to set up AWS to use GitHub as an OIDC provider.
    1. **provider URL**: `https://token.actions.githubusercontent.com`
    1. **Audience**: `sts.amazonaws.com`
 1. Press `Add provider`
-1. Click on the newly create identity provider to display its properties.
+1. Click on the newly created identity provider to display its properties.
 
    ![OIDC properties](identityProperties.png)
 
