@@ -63,7 +63,7 @@ Credentials allow access to protected resources and data. You never want any cre
 
 #### JWT Pizza logs
 
-Several occurrences of passwords showing up in log files have happened at even major companies such as [X](https://www.digitalguardian.com/blog/twitter-urges-all-users-change-password-following-internal-bug) and [GitHub](https://www.bleepingcomputer.com/news/security/github-accidentally-recorded-some-plaintext-passwords-in-its-internal-logs/). While the presence of a password in a log file doesn't necessary trigger a breach it does provide an opportunity for internal abuse and makes an attractive target for attackers.
+Several occurrences of passwords showing up in log files have happened at even major companies such as [X](https://www.digitalguardian.com/blog/twitter-urges-all-users-change-password-following-internal-bug) and [GitHub](https://www.bleepingcomputer.com/news/security/github-accidentally-recorded-some-plaintext-passwords-in-its-internal-logs/). While the presence of a password in a log file doesn't necessarily trigger a breach it does provide an opportunity for internal abuse and makes an attractive target for attackers.
 
 The JWT Pizza Service attempts to keep passwords out of log files with code such as the following. However, these simplistic attempts are not foolproof, and it is probably best to come up with something that is more reliable.
 
