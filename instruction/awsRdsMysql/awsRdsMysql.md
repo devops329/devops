@@ -30,7 +30,7 @@ Eventually you will change the **jwt-pizza-service** security group so that only
 1. Give a simple description like `JWT Pizza Service`.
 1. Press the `Add rule` for **inbound rules**.
 
-   1. Select the `type` of **HTTPS**. This should populate the `Port range` with 443. Set the `Sourcetype ` to **Anywhere-IPv4**, which should populate `Source` with 0.0.0.0/0.
+   1. Select the `type` of **HTTPS**. This should populate the `Port range` with 443. Set the `Source type` to **Anywhere-IPv4**, which should populate `Source` with 0.0.0.0/0.
    1. Add a second rule. Select the `type` of **HTTP**. This should populate the `Port range` with 80. Set the `Source type` to **Anywhere-IPv4**.
 
    ![Pizza service security group](pizzaServiceSecurityGroup.png)
