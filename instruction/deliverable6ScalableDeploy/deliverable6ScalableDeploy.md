@@ -69,7 +69,7 @@ You deploy the new container to ECS by adding one new step to the **deploy** job
 
 You should now be able to commit and push the workflow script to GitHub. This will trigger the container to be pushed to ECR where ECS will load it into Fargate and make it visible through your EC2 load balancer.
 
-After the container has been deploy you can test the backend by making curl requests.
+After the container has been deployed, you can test the backend by making curl requests.
 
 ```sh
 # Set the hostname - replace with your hostname
@@ -99,7 +99,7 @@ VITE_PIZZA_SERVICE_URL=https://pizza-service.YOURHOSTNAMEHERE
 VITE_PIZZA_FACTORY_URL=https://pizza-factory.cs329.click
 ```
 
-Repeat the same change with the `.env.development` file so that you use your backend when you are experimenting your frontend in your development environment.
+Repeat the same change with the `.env.development` file so that you use your backend when you are experimenting with your frontend in your development environment.
 
 Then push your changes to GitHub. Your CI pipeline should deploy the frontend changes and complete your work on creating a full cloud stack. With this change you can open up the dev tools while visiting your front end and see the requests going to your backend.
 
@@ -113,7 +113,7 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Set up ECR to host your backend Docker container.
 1. Set up ECS to deploy your backend Docker container using Fargate.
 1. Alter your GitHub Actions workflow to update ECR and ECS in order to deploy the backend service.
-1. Alter your DNS record in Route 53 to point to the application load balancer distribution.
+1. Alter your DNS record in Route 53 to point to the application load balancer.
 1. Modify and deploy your frontend so that it calls your backend service.
 
 Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and submit your work for the deliverable.
