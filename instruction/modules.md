@@ -16,6 +16,7 @@
 - ⭐ [Christlike learning](christlikeLearning/christlikeLearning.md)
 - ⭐ [Curiosity report](curiosityReport/curiosityReport.md)
 - ☑ [Asking Questions](askingQuestions/askingQuestions.md)
+- [Deliverable Frequently Asked Questions](faq/faq.md)
 
 ## Simple deployment
 
