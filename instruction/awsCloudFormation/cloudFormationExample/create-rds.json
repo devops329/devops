@@ -55,7 +55,7 @@
         "StorageType": "gp2",
         "VPCSecurityGroups": [{ "Ref": "DBSecurityGroupID" }],
         "DBSubnetGroupName": { "Ref": "DBSubnetGroupName" },
-        "BackupRetentionPeriod": 7,
+        "BackupRetentionPeriod": 1,
         "Tags": [{ "Key": "Name", "Value": { "Ref": "DBInstanceIdentifier" } }]
       },
       "Condition": "UseNewDB"
@@ -74,7 +74,7 @@
         "StorageType": "gp2",
         "VPCSecurityGroups": [{ "Ref": "DBSecurityGroupID" }],
         "DBSubnetGroupName": { "Ref": "DBSubnetGroupName" },
-        "BackupRetentionPeriod": 7,
+        "BackupRetentionPeriod": 1,
         "Tags": [{ "Key": "Name", "Value": { "Ref": "DBInstanceIdentifier" } }]
       },
       "Condition": "UseSnapshot"
