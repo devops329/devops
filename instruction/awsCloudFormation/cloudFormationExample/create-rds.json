@@ -1,0 +1,93 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "CloudFormation template to create an Amazon RDS MySQL instance. Optionally restore from an existing snapshot. Automatically take a final snapshot when the instance is terminated.",
+  "Parameters": {
+    "DBInstanceIdentifier": {
+      "Type": "String",
+      "Description": "Unique identifier for the RDS instance.",
+      "Default": "jwt-pizza-service-db"
+    },
+    "DBInstanceClass": {
+      "Type": "String",
+      "Default": "db.t4g.micro",
+      "Description": "The compute and memory capacity of the RDS instance."
+    },
+    "DBUsername": {
+      "Type": "String",
+      "Description": "Master username for the database.",
+      "Default": "admin"
+    },
+    "DBPassword": {
+      "Type": "String",
+      "Description": "Master password for the database.",
+      "NoEcho": true
+    },
+    "DBSecurityGroupID": {
+      "Type": "String",
+      "Description": "ID of the security group to assign to the RDS instance.",
+      "Default": "sg-xxxxxxxxx"
+    },
+    "DBSubnetGroupName": {
+      "Type": "String",
+      "Description": "Name of the RDS subnet group.",
+      "Default": ""
+    },
+    "SnapshotIdentifier": {
+      "Type": "String",
+      "Default": "",
+      "Description": "Optional existing snapshot identifier to restore from.",
+      "AllowedPattern": "|[a-zA-Z0-9-]+"
+    }
+  },
+  "Resources": {
+    "MyDBInstance": {
+      "Type": "AWS::RDS::DBInstance",
+      "DeletionPolicy": "Snapshot",
+      "Properties": {
+        "DBInstanceIdentifier": { "Ref": "DBInstanceIdentifier" },
+        "Engine": "mysql",
+        "DBInstanceClass": { "Ref": "DBInstanceClass" },
+        "AllocatedStorage": "20",
+        "MasterUsername": { "Ref": "DBUsername" },
+        "MasterUserPassword": { "Ref": "DBPassword" },
+        "DeletionProtection": false,
+        "PubliclyAccessible": false,
+        "StorageType": "gp2",
+        "VPCSecurityGroups": [{ "Ref": "DBSecurityGroupID" }],
+        "DBSubnetGroupName": { "Ref": "DBSubnetGroupName" },
+        "BackupRetentionPeriod": 7,
+        "Tags": [{ "Key": "Name", "Value": { "Ref": "DBInstanceIdentifier" } }]
+      },
+      "Condition": "UseNewDB"
+    },
+    "MyDBInstanceFromSnapshot": {
+      "Type": "AWS::RDS::DBInstance",
+      "DeletionPolicy": "Snapshot",
+      "Properties": {
+        "DBInstanceIdentifier": { "Ref": "DBInstanceIdentifier" },
+        "Engine": "mysql",
+        "DBInstanceClass": { "Ref": "DBInstanceClass" },
+        "AllocatedStorage": "20",
+        "SnapshotIdentifier": { "Ref": "SnapshotIdentifier" },
+        "DeletionProtection": false,
+        "PubliclyAccessible": false,
+        "StorageType": "gp2",
+        "VPCSecurityGroups": [{ "Ref": "DBSecurityGroupID" }],
+        "DBSubnetGroupName": { "Ref": "DBSubnetGroupName" },
+        "BackupRetentionPeriod": 7,
+        "Tags": [{ "Key": "Name", "Value": { "Ref": "DBInstanceIdentifier" } }]
+      },
+      "Condition": "UseSnapshot"
+    }
+  },
+  "Conditions": {
+    "UseSnapshot": { "Fn::Not": [{ "Fn::Equals": [{ "Ref": "SnapshotIdentifier" }, ""] }] },
+    "UseNewDB": { "Fn::Equals": [{ "Ref": "SnapshotIdentifier" }, ""] }
+  },
+  "Outputs": {
+    "RDSInstanceEndpoint": {
+      "Description": "The endpoint of the RDS instance.",
+      "Value": { "Fn::GetAtt": ["MyDBInstance", "Endpoint.Address"] }
+    }
+  }
+}
