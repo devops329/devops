@@ -2,6 +2,22 @@
 
 This document is for all frequently asked questions and issues for each deliverable.
 
+## Deliverable 3
+
+### Some (or all) of my endpoints return a 500 status code when running tests locally / My tests work in debug mode but not when I run them outside debug mode.
+
+In order to test your tests properly while working in your development enviornment, your JWT Pizza Service must be running at the same time. To accomplish this, in the terminal section of VS code, click the plus button on the right hand side of the screen to open up another terminal (or open a new window of gitbash for windows users or terminal for MacOS and Linux users). In the new terminal navigate to JWT Pizza Service and start your service. Your tests should now be returning non 500 level status codes.
+
+### My tests all pass locally but fail when I push to github
+
+The most likely cause of this issue is that your tests are relying on data already stored in the database. When your CI/CD pipeline runs, Github will spin up a brand new database with no data. Make sure your tests do not rely on other data other tests generate or data already stored in the database.
+
+### I need a franchisee or admin user
+[course instruction](https://github.com/devops329/devops/blob/main/instruction/unitTestingJwtPizzaService/unitTestingJwtPizzaService.md#creating-an-admin-user)
+
+### My pipeline fails in github because of linting
+[course instruction](https://github.com/devops329/devops/blob/main/instruction/unitTestingJwtPizzaService/unitTestingJwtPizzaService.md#linting)
+
 ## Deliverable 6
 
 ### Using CloudShell to validate the database is running correctly
