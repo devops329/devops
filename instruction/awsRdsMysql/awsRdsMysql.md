@@ -13,6 +13,10 @@ With a cloud deployment you can take advantage of scalable database services tha
 
 AWS RDS manages configuration, backup, monitoring, and restoration for you. Additionally, it only takes a couple mouse clicks to increase or decrease the size of your database server. This helps you reduce cost when you don't need a large instance, and increase the instance when your customers become more demanding.
 
+> [!IMPORTANT]
+>
+> Make sure you are using the `us-east-1` AWS region for all your work in this course.
+
 ## Creating the VPC security groups
 
 Before you create your database instance, you need to define the security groups that will allow network access to your database. You will first define the **jwt-pizza-service** security group that anyone can talk to, and then the database security group that only allows the **jwt-pizza-service** to talk to it.
