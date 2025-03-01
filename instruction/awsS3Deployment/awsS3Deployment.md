@@ -12,6 +12,10 @@ In order to use CI to deploy our static frontend content to S3 you need to creat
 
 ![S3 Deployment](s3Deployment.png)
 
+> [!IMPORTANT]
+>
+> Make sure you are using the `us-east-1` AWS region for all your work in this course.
+
 ### Setting up Open ID Connect (OIDC)
 
 You establish a trust relationship between GitHub and AWS by configuring AWS to use GitHub as an OIDC identity provider, associating a OIDC identity with an AWS IAM role that allows access to S3, and configuring a GitHub Actions workflow to use the identity.
@@ -161,7 +165,6 @@ Go ahead and create the following secrets.
              printf "<h1>CloudFront deployment with GitHub Actions</h1>" > dist/index.html
              aws s3 cp dist s3://${{ secrets.APP_BUCKET }} --recursive
              aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
-   
    ```
 
 1. Save the file, commit, and push.

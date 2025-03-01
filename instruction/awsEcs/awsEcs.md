@@ -30,6 +30,10 @@ The basic pieces that ECS provides are as follows.
 - **Service**: A service is a grouping of 1 or more tasks. For example, a blog service might have tasks representing containers for a web service, a business logic service, a memory cache, and a database. The service controls how many copies of a task are executing and replaces non-responsive tasks.
 - **Cluster**: A cluster is a collection of EC2 instances or Fargate controller. Clusters can span availability zones in order to make the application resilient to local failures.
 
+> [!IMPORTANT]
+>
+> Make sure you are using the `us-east-1` AWS region for all your work in this course.
+
 ## Required roles and rights
 
 Before you can configure Docker containers to run under ECS you need to authorize how the container executes. There are two roles that control the rights of an ECS task:

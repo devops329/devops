@@ -24,6 +24,10 @@ Failing to do this will likely slow you down as you will not have the required k
 
 Now that we know how to deploy static content using CloudFront and S3 using GitHub Actions, it is time to move our CDN hosting from GitHub Pages to AWS CloudFront.
 
+> [!IMPORTANT]
+>
+> Make sure you are using the `us-east-1` AWS region for all your work in this course.
+
 ## CDN distribution
 
 Set up your AWS S3 and CloudFront configuration as described in the [AWS CloudFront](../awsCloudFront/awsCloudFront.md) instruction. Your AWS configuration should consist of a private S3 bucket that contains the simple `Hello CloudfFront` HTML file from the previous exercise. You will use this CloudFront distribution to host your JWT Pizza frontend to the world.

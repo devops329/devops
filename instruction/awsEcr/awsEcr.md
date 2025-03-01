@@ -12,6 +12,10 @@ AWS Elastic Container Register (ECR) is an [Open Container Initiative](https://o
 
 Using ECR is similar to what you did with Docker Hub in a previous instruction topic. The steps are to create a repository and then push an image to that repository.
 
+> [!IMPORTANT]
+>
+> Make sure you are using the `us-east-1` AWS region for all your work in this course.
+
 ## Creating an ECR repository
 
 In order to use ECR, you must first create a ECS repository that will hold the **jwt-pizza-service** container images. Complete the following steps.
@@ -163,8 +167,6 @@ Next, add a **deploy** job that creates the container and pushes it to ECR.
    ```
 
 1. Authenticate to AWS using OIDC. This is the same authentication step that we took with the frontend deployment. Using OIDC makes it so we don't have to store any credentials to our AWS account.
-
-   ⚠️ Make sure you are using the **us-east-1** AWS region for all your work in this course.
 
    ```yml
    - name: Create OIDC token to AWS
