@@ -118,7 +118,7 @@ Before you can modify the CI workflow for the JWT Pizza Service you need to add 
 | AWS_ACCOUNT | Your AWS account number                             | 343243424 |
 | CI_IAM_ROLE | The IAM role with rights to deploy your application | github-ci |
 
-Previously the workflow stopped after the tests were done and the coverage badge was updated. Now you want to modify the **build** job of the workflow so that it creates the distributions files you will use to create and deploy a JWT Pizza Service Docker container.
+Previously the workflow stopped after the tests were done and the coverage badge was updated. Now you want to modify the **build** job of the workflow so that it creates the distribution files you will use to create and deploy a JWT Pizza Service Docker container.
 
 1. Create a distribution folder that will become our Docker container. This copies all the source code files and the newly created Dockerfile. We also replace the temporary database credentials that were used during testing with the ones needed by the production environment.
    ```yml
