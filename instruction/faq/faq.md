@@ -13,12 +13,26 @@ In order to test your tests properly while working in your development enviornme
 The most likely cause of this issue is that your tests are relying on data already stored in the database. When your CI/CD pipeline runs, Github will spin up a brand new database with no data. Make sure your tests do not rely on other data other tests generate or data already stored in the database.
 
 ### I need a franchisee or admin user
+
 [course instruction](https://github.com/devops329/devops/blob/main/instruction/unitTestingJwtPizzaService/unitTestingJwtPizzaService.md#creating-an-admin-user)
 
 ### My pipeline fails in github because of linting
+
 [course instruction](https://github.com/devops329/devops/blob/main/instruction/unitTestingJwtPizzaService/unitTestingJwtPizzaService.md#linting)
 
 ## Deliverable 6
+
+### Circuit breaker error when trying to deploy container
+
+If you get an error that says **circuit breaker was triggered**, it means that ECS tried to deploy your task multiple times and it failed each time. That can mean that the container is invalid, that your service is not starting, that your didn't set up your security group correctly, or that the load balancer health check is failing.
+
+![alt text](circuitBreaker.png)
+
+To diagnose the problem you need to look at the ECS task log and also the EC2 Load Balancer target group while the deployment is executing. This should show you what the error is before the circuit breaker finally triggers and tears everything down.
+
+To view the Task logs, go to the ECS cluster, view the service, and then the task. Select the `logs` tab.
+
+![alt text](taskErrors.png)
 
 ### Using CloudShell to validate the database is running correctly
 
