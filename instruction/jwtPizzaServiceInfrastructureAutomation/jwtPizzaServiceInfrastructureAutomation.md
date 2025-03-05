@@ -232,6 +232,7 @@ Take the time to completely review the template and become familiar with what it
 
 1. Supply the requested parameters based upon your AWS account. You can obtain these values from the following locations:
    1. The VPC ID and VPC subnets from the AWS VPC service dashboard.
+      1. To copy the list of subnets, you can click the checkbox next to 'Name' to select all subnets, which will create a comma-separated list in the lower window.
    1. The latest Task Definition version from the ECS service dashboard.
    1. The web certificate ARN from the Certificate Manager service dashboard.
    1. The security group from the EC2 service dashboard.
