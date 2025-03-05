@@ -95,6 +95,9 @@ jobs:
     needs:
       - build
       - deploy
+    permissions:
+      id-token: write
+      contents: write
     runs-on: ubuntu-latest
     env:
       version: ${{needs.build.outputs.version}}
