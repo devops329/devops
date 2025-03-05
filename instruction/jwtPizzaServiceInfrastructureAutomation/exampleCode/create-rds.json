@@ -68,7 +68,7 @@
         "Engine": "mysql",
         "DBInstanceClass": { "Ref": "DBInstanceClass" },
         "AllocatedStorage": "20",
-        "SnapshotIdentifier": { "Ref": "SnapshotIdentifier" },
+        "DBSnapshotIdentifier": { "Ref": "SnapshotIdentifier" },
         "DeletionProtection": false,
         "PubliclyAccessible": false,
         "StorageType": "gp2",
