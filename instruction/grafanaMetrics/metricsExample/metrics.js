@@ -1,45 +1,72 @@
 const config = require('./config.json');
 
-class Metrics {
-  constructor() {
-    this.requests = {};
+const requests = {};
 
-    // This will periodically sent metrics to Grafana
-    const timer = setInterval(() => {
-      Object.keys(this.requests).forEach((httpMethod) => {
-        this.sendMetricToGrafana('request', httpMethod, 'total', this.requests[httpMethod]);
-      });
-      const totalRequests = Object.values(this.requests).reduce((acc, curr) => acc + curr, 0);
-      this.sendMetricToGrafana('request', 'all', 'total', totalRequests);
-    }, 10000);
-
-    timer.unref();
-  }
-
-  incrementRequests(httpMethod) {
-    this.requests[httpMethod] = (this.requests[httpMethod] || 0) + 1;
-  }
-
-  sendMetricToGrafana(metricPrefix, httpMethod, metricName, metricValue) {
-    const metric = `${metricPrefix},source=${config.source},method=${httpMethod} ${metricName}=${metricValue}`;
-
-    fetch(`${config.url}`, {
-      method: 'post',
-      body: metric,
-      headers: { Authorization: `Bearer ${config.userId}:${config.apiKey}` },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          console.error('Failed to push metrics data to Grafana');
-        } else {
-          console.log(`Pushed ${metric}`);
-        }
-      })
-      .catch((error) => {
-        console.error('Error pushing metrics:', error);
-      });
-  }
+function track(req, res, next) {
+  requests[req.method] = (requests[req.method] || 0) + 1;
+  next();
 }
 
-const metrics = new Metrics();
-module.exports = metrics;
+// This will periodically send metrics to Grafana
+const timer = setInterval(() => {
+  Object.keys(requests).forEach((httpMethod) => {
+    sendMetricToGrafana('requests', requests[httpMethod], { method: httpMethod });
+  });
+}, 10000);
+
+timer.unref();
+
+function sendMetricToGrafana(metricName, metricValue, attributes) {
+  attributes = { ...attributes, source: config.source };
+
+  const metric = {
+    resourceMetrics: [
+      {
+        scopeMetrics: [
+          {
+            metrics: [
+              {
+                name: metricName,
+                unit: 's',
+                gauge: {
+                  dataPoints: [
+                    {
+                      asInt: metricValue,
+                      timeUnixNano: Date.now() * 1000000,
+                      attributes: [],
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  };
+
+  Object.keys(attributes).forEach((key) => {
+    metric.resourceMetrics[0].scopeMetrics[0].metrics[0].gauge.dataPoints[0].attributes.push({
+      key: key,
+      value: { stringValue: attributes[key] },
+    });
+  });
+
+  fetch(`${config.host}`, {
+    method: 'POST',
+    body: JSON.stringify(metric),
+    headers: { Authorization: `Bearer ${config.apiKey}`, 'Content-Type': 'application/json' },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        console.error('Failed to push metrics data to Grafana');
+      } else {
+        console.log(`Pushed ${metricName}`);
+      }
+    })
+    .catch((error) => {
+      console.error('Error pushing metrics:', error);
+    });
+}
+
+module.exports = { track };

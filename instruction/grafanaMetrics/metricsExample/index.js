@@ -6,20 +6,17 @@ let greeting = 'hello';
 
 app.use(express.json());
 
-app.get('/hello/:name', (req, res) => {
-  metrics.incrementRequests('get');
+app.get('/hello/:name', metrics.track, (req, res) => {
   res.send({ [greeting]: req.params.name });
 });
 
-app.post('/greeting/:greeting', (req, res) => {
+app.post('/greeting/:greeting', metrics.track, (req, res) => {
   greeting = req.params.greeting;
-  metrics.incrementRequests('post');
   res.send({ msg: `greeting is now ${greeting}` });
 });
 
-app.delete('/greeting', (req, res) => {
+app.delete('/greeting', metrics.track, (req, res) => {
   greeting = 'hello';
-  metrics.incrementRequests('delete');
   res.send({ msg: `greeting is now ${greeting}` });
 });
 
