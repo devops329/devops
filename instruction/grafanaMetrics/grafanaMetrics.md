@@ -36,14 +36,14 @@ In order to send metrics over HTTP you will need an API key.
 1. Look at the `Curl` example. Pull out the `-u` parameter to get your client ID and API key. Pull out the target host to get the URL that you will upload metrics to. Assign these to command shell variables like the following:
 
    ```sh
-   HOST="https://otlp-gateway-prod-us-east-2.grafana.net/otlp/v1/metrics"
+   URL="https://otlp-gateway-prod-us-east-2.grafana.net/otlp/v1/metrics"
    API_KEY="222222:glc_111111111111111111111111111111111111111111="
    ```
 
 1. Use the following Curl command to insert your first metrics:
 
    ```sh
-   while true; do curl -k -i -X POST -H 'Content-Type: application/json' -H "$OTEL_EXPORTER_OTLP_HEADERS" -u "$API_KEY" $HOST -d '{
+   while true; do curl -k -i -X POST -H 'Content-Type: application/json' -H "$OTEL_EXPORTER_OTLP_HEADERS" -u "$API_KEY" $URL -d '{
    "resourceMetrics": [
       {
          "scopeMetrics": [
