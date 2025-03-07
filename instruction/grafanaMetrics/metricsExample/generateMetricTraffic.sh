@@ -39,7 +39,7 @@ pid2=$!
 # Simulate deleting a greeting
 while true; do
   curl -s -X DELETE "$host/greeting" > /dev/null
-  echo "Delete greeting..."
+  echo "Deleting greeting..."
   sleep 10
 done &
 pid3=$!
