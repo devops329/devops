@@ -20,21 +20,20 @@ We start by simplifying our generation of data to be three values.
 
 ### Generating data
 
-We generate our data by creating a metric generation program ([metricsGenerator.js](visualizingMetricsExample/metricsGenerator.js)) that is similar to what was presented in the previous topic. Reuse the `config.json` settings that you created for your exploration with [Grafana Metrics](https://github.com/devops329/devops/blob/main/instruction/grafanaMetrics/grafanaMetrics.md#sending-metrics-from-code). This should looks something like:
+We generate our data by creating a metric generation program ([metricsGenerator.js](visualizingMetricsExample/metricsGenerator.js)) that is similar to what was presented in the previous topic. Reuse the `config.js` settings that you created for your exploration with [Grafana Metrics](../grafanaMetrics/grafanaMetrics.md#sending-metrics-from-code). This should looks something like:
 
-```json
-{
-  "source": "jwt-pizza-service",
-  "userId": 2222222,
-  "url": "https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write",
-  "apiKey": "glc_111111111111111111111111111111111111111111="
-}
+```js
+module.exports = {
+  source: 'jwt-pizza-service',
+  url: 'https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write',
+  apiKey: '2222222:glc_111111111111111111111111111111111111111111=',
+};
 ```
 
 This code sets a timer that triggers every second and supplies our metric values to Grafana Cloud.
 
 ```js
-const config = require('./config.json');
+const config = require('./config');
 
 accumulator = 0;
 count = 0;

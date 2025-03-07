@@ -14,11 +14,11 @@ The most likely cause of this issue is that your tests are relying on data alrea
 
 ### I need a franchisee or admin user
 
-[course instruction](https://github.com/devops329/devops/blob/main/instruction/unitTestingJwtPizzaService/unitTestingJwtPizzaService.md#creating-an-admin-user)
+[course instruction](../unitTestingJwtPizzaService/unitTestingJwtPizzaService.md#creating-an-admin-user)
 
 ### My pipeline fails in github because of linting
 
-[course instruction](https://github.com/devops329/devops/blob/main/instruction/unitTestingJwtPizzaService/unitTestingJwtPizzaService.md#linting)
+[course instruction](../unitTestingJwtPizzaService/unitTestingJwtPizzaService.md#linting)
 
 ## Deliverable 6
 
