@@ -24,7 +24,7 @@ trap cleanup SIGINT
 while true; do
   curl -s "$host/hello/torkel" > /dev/null
   echo "Saying hello..."
-  sleep 3
+  sleep $((RANDOM % 2 + 1))
 done &
 pid1=$!
 
@@ -32,7 +32,7 @@ pid1=$!
 while true; do
   curl -s -X POST "$host/greeting/hello" > /dev/null
   echo "Adding greeting..."
-  sleep 5
+  sleep $((RANDOM % 9 + 2))
 done &
 pid2=$!
 
@@ -40,7 +40,7 @@ pid2=$!
 while true; do
   curl -s -X DELETE "$host/greeting" > /dev/null
   echo "Deleting greeting..."
-  sleep 10
+  sleep $((RANDOM % 10 + 1))
 done &
 pid3=$!
 

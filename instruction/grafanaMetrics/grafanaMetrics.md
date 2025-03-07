@@ -14,6 +14,87 @@ In previous instruction we used the TestData data source to display randomly gen
 
 Grafana has dozens of predefined data sources for all kinds of data services. This includes services such as MySQL, AWS CloudWatch, Caddy Server, CSV files, ElasticSearch, GitHub, and so on. Each of these data sources define how to connect to the service and what data they expose for visualization in a dashboard panel.
 
+## Open Telemetry
+
+Grafana supports the [Open Telemetry](https://opentelemetry.io/) (OTel) standard for representing metric data. This is a commonly used standard used to represent observability data. It is well worth taking the time to learn. 💡 You could even consider doing a curiosity report on the subject.
+
+OTel uses standard data units, type of metrics, and methods for adding attributes to represent a metric. For example, a simple JSON representation of an OTel metric for current CPU usage with a **jwt-pizza-service** source attribute, would look like the following:
+
+```json
+{
+  "resourceMetrics": [
+    {
+      "scopeMetrics": [
+        {
+          "metrics": [
+            {
+              "name": "cpu",
+              "unit": "%",
+              "gauge": {
+                "dataPoints": [
+                  {
+                    "asInt": 50,
+                    "timeUnixNano": "1700000000000000000",
+                    "attributes": [
+                      {
+                        "key": "source",
+                        "value": { "stringValue": "jwt-pizza-service" }
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+The following tables describe the common units and data types that OTel supports. You can use these to describe the meaning of different metrics.
+
+| Unit | Meaning      | Characteristics              |
+| ---- | ------------ | ---------------------------- |
+| 1    | Simple count | Number of requests           |
+| s    | Seconds      | Latency, uptime              |
+| ms   | Milliseconds | Latency, uptime              |
+| %    | Percentage   | CPU utilization, memory used |
+| By   | Bytes        | Data sent                    |
+| MiBy | Megabytes    | Data written                 |
+
+| Type      | Meaning           | Characteristics                        | Example          |
+| --------- | ----------------- | -------------------------------------- | ---------------- |
+| sum       | Counter over time | Number of requests, errors, bytes sent | request_total    |
+| gauge     | Instantaneous     | Temperature, CPU usage, memory usage   | cpu_usage        |
+| histogram | Distribution      | Request latency, payload sizes         | request_duration |
+
+If you are providing `sum` data then you must also provide information about how the data is aggregated. This includes both an aggregation temporality value (cumulative or delta) and a monotonic description (true or false). For example, with a metric that represent request latency, you would set the type to be `sum` and specify that the aggregation is cumulative and monotonically increasing.
+
+```json
+{
+  "name": "latency",
+  "unit": "ms",
+  "sum": {
+    "dataPoints": [
+      {
+        "asInt": 50,
+        "timeUnixNano": "1700000000000000000",
+        "attributes": [
+          {
+            "key": "source",
+            "value": { "stringValue": "jwt-pizza-service" }
+          }
+        ]
+      }
+    ],
+    "aggregationTemporality": "AGGREGATION_TEMPORALITY_CUMULATIVE",
+    "isMonotonic": true
+  }
+}
+```
+
 ## Inserting metrics using HTTP
 
 For this exercise you will use the `HTTP Metrics` connector to insert data into a Prometheus data service hosted on Grafana Cloud and exposed using the `grafana-youraccountnamehere-prom` data source that Grafana created by default when you set up your account.
@@ -51,7 +132,7 @@ In order to send metrics over HTTP you will need an API key.
             "metrics": [
                {
                "name": "cpu",
-               "unit": "s",
+               "unit": "%",
                "gauge": {
                   "dataPoints": [
                      {
@@ -75,8 +156,6 @@ In order to send metrics over HTTP you will need an API key.
    }'; done;
    ```
 
-This uses the Open Telemetry protocol to send a series of simulated CPU metrics to the Grafana data collector.
-
 ## Create a visualization
 
 Now that you have a bunch of data sent to your collector, you can create a visualization of the data.
@@ -97,197 +176,117 @@ Now that you have a bunch of data sent to your collector, you can create a visua
 
 This should display the metrics that you inserted using Curl. You can experiment with this by changing the Curl command and refreshing the dashboard to see the result.
 
-## Sending metrics from code
+## Generating data with JavaScript
 
-Next we will create a simple Express service that sends metrics to Grafana.
+Now that we have some experience both generating and visualizing metrics, let's implement a simple metric generation program ([metricsGenerator.js](visualizingMetricsExample/metricsGenerator.js)) that creates a variety of metrics. First, we need to move our data source credentials from environment variables into a `config.js` file that we can access from our JavaScript. This should looks something like:
 
-Create a simple Express app by doing the following.
-
-1. Open your command console.
-1. Execute the commends:
-   ```sh
-   mkdir metricsExample && cd metricsExample
-   npm init -y
-   npm install express
-   ```
-1. Modify the `package.json` file to include a start script.
-   ```json
-     "scripts": {
-       "start": "node index.js"
-     },
-   ```
-1. Create a `config.js` file to include your Grafana credentials. Replace the values with the ones that were supplied when you created the data source connection. Note that the API_KEY provided by Grafana actually contains both the User ID and the API key. Split those values up when you convert them into your configuration file. So if the credentials your received when you created your HTTP Metrics connection looked like this:
-
-   ```txt
-   URL="https://otlp-gateway-prod-us-east-2.grafana.net/otlp/v1/metrics"
-   API_KEY="222222:glc_111111111111111111111111111111111111111111="
-   ```
-
-   Your `config.js` would look like this:
-
-   ```js
-   module.exports = {
-     source: 'jwt-pizza-service',
-     url: 'https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write',
-     apiKey: '2222222:glc_111111111111111111111111111111111111111111=',
-   };
-   ```
-
-   Make sure you include `config.json` in your `.gitignore` file so that you don't publicly post your Grafana API key.
-
-1. Create a `metrics.js` file that basically does the same thing that the curl command was doing. The difference is that it tracks the sum of each HTTP method type.
-
-   ```js
-   const config = require('./config.json');
-
-   const requests = {};
-
-   function track(req, res, next) {
-     requests[req.method] = (requests[req.method] || 0) + 1;
-     next();
-   }
-
-   // This will periodically send metrics to Grafana
-   const timer = setInterval(() => {
-     Object.keys(requests).forEach((httpMethod) => {
-       sendMetricToGrafana('requests', requests[httpMethod], { method: httpMethod });
-     });
-   }, 10000);
-
-   timer.unref();
-
-   function sendMetricToGrafana(metricName, metricValue, attributes) {
-     attributes = { ...attributes, source: config.source };
-
-     const metric = {
-       resourceMetrics: [
-         {
-           scopeMetrics: [
-             {
-               metrics: [
-                 {
-                   name: metricName,
-                   unit: 's',
-                   gauge: {
-                     dataPoints: [
-                       {
-                         asInt: metricValue,
-                         timeUnixNano: Date.now() * 1000000,
-                         attributes: [],
-                       },
-                     ],
-                   },
-                 },
-               ],
-             },
-           ],
-         },
-       ],
-     };
-
-     Object.keys(attributes).forEach((key) => {
-       metric.resourceMetrics[0].scopeMetrics[0].metrics[0].gauge.dataPoints[0].attributes.push({
-         key: key,
-         value: { stringValue: attributes[key] },
-       });
-     });
-
-     fetch(`${config.url}`, {
-       method: 'POST',
-       body: JSON.stringify(metric),
-       headers: { Authorization: `Bearer ${config.apiKey}`, 'Content-Type': 'application/json' },
-     })
-       .then((response) => {
-         if (!response.ok) {
-           console.error('Failed to push metrics data to Grafana');
-         } else {
-           console.log(`Pushed ${metricName}`);
-         }
-       })
-       .catch((error) => {
-         console.error('Error pushing metrics:', error);
-       });
-   }
-
-   module.exports = { track };
-   ```
-
-1. Create an `index.js` that contains your simple demonstration service. Every time an HTTP request is made to the service it will increment the total request count.
-
-   ```js
-   const express = require('express');
-   const app = express();
-
-   const metrics = require('./metrics');
-   let greeting = 'hello';
-
-   app.use(express.json());
-
-   app.get('/hello/:name', metrics.track, (req, res) => {
-     res.send({ [greeting]: req.params.name });
-   });
-
-   app.listen(3000, function () {
-     console.log(`Listening on port 3000`);
-   });
-   ```
-
-1. Start up the service.
-
-   ```sh
-   npm run start
-   ```
-
-1. Run a curl command to repeatedly hits the **hello** endpoint.
-   ```sh
-   while true; do curl localhost:3000/hello/Torkel; sleep 1; done;
-   ```
-
-You should be able to now go back to your dashboard and see a request rate of about 1 per second.
-
-## Enhancing visualizations
-
-There are a lot of setting that you can use to enhance your visualization. Take some time to experiment with them. For example, you will probably notice that the above code generates a metric that accumulates over time. In order to get it to render as the number of requests that were made over the last period you must apply a metric operation that computes the **rate of change** over a period of time. You do this with the `rate` operation.
-
-```
-rate(requests_seconds{source="jwt-pizza-service"}[30s])
+```js
+module.exports = {
+  source: 'jwt-pizza-service',
+  url: 'https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write',
+  apiKey: '2222222:glc_111111111111111111111111111111111111111111=',
+};
 ```
 
-You may also want to change the label that is used in the visualization. You can change that in the `Options` section for the visualization. First choose a custom labeling and then provide the variable name that you want to use for the label.
+Then we can write code that makes fetch requests similar to our Curl example. However, in this case we provide three different simulated metrics: CPU, request count, and request latency. This is done using the `setInterval` function to generate metrics make fetch requests to send it to Grafana every second.
 
-![alt text](customizeVisualization.png)
+```js
+const config = require('./config');
 
-## ☑ Exercise
+let requests = 0;
+let latency = 0;
 
-At this point you should have a pretty good idea how to create a Grafana dashboard that displays a simple request count metric as generated from JavaScript. Now it is time to take it to the next level. Do the following:
+setInterval(() => {
+  const cpuValue = Math.floor(Math.random() * 100) + 1;
+  sendMetricToGrafana('cpu', cpuValue, 'gauge', '%');
 
-1. Modify the service code to do the following:
-   1. Provides a POST endpoint that sets the greeting.
-   1. Provides a DELETE endpoint that resets the greeting back to the default.
-1. Create Curl commands that call all the service's endpoints.
-1. Change the visualization so that it shows multiple series with the counts for each type of HTTP method.
+  requests += Math.floor(Math.random() * 200) + 1;
+  sendMetricToGrafana('requests', requests, 'sum', '1');
 
-When you are done, you should have a dashboard that looks something like this:
+  latency += Math.floor(Math.random() * 200) + 1;
+  sendMetricToGrafana('latency', latency, 'sum', 'ms');
+}, 1000);
 
-![HTTP requests by method](httpRequestsByMethod.png)
+function sendMetricToGrafana(metricName, metricValue, type, unit, attributes) {
+  attributes = { ...attributes, source: config.source };
 
-### Make your dashboard public
+  const metric = {
+    resourceMetrics: [
+      {
+        scopeMetrics: [
+          {
+            metrics: [
+              {
+                name: metricName,
+                unit: unit,
+                [type]: {
+                  dataPoints: [
+                    {
+                      asInt: metricValue,
+                      timeUnixNano: Date.now() * 1000000,
+                      attributes: [],
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  };
 
-In order to complete the assignment you need to make your dashboard public so that all of your adoring fans (i.e. the TAs) can admire it.
+  Object.keys(attributes).forEach((key) => {
+    metric.resourceMetrics[0].scopeMetrics[0].metrics[0][type].dataPoints[0].attributes.push({
+      key: key,
+      value: { stringValue: attributes[key] },
+    });
+  });
 
-1. From your Grafana dashboard click on the `Share` button.
-1. Click on the `Public dashboard` tab.
-1. Acknowledge all the warnings.
+  if (type === 'sum') {
+    metric.resourceMetrics[0].scopeMetrics[0].metrics[0][type].aggregationTemporality = 'AGGREGATION_TEMPORALITY_CUMULATIVE';
+    metric.resourceMetrics[0].scopeMetrics[0].metrics[0][type].isMonotonic = true;
+  }
 
-   ![Make public dashboard](makePublicDashboard.png)
+  const body = JSON.stringify(metric);
+  fetch(`${config.url}`, {
+    method: 'POST',
+    body: body,
+    headers: { Authorization: `Bearer ${config.apiKey}`, 'Content-Type': 'application/json' },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        response.text().then((text) => {
+          console.error(`Failed to push metrics data to Grafana: ${text}\n${body}`);
+        });
+      } else {
+        console.log(`Pushed ${metricName}`);
+      }
+    })
+    .catch((error) => {
+      console.error('Error pushing metrics:', error);
+    });
+}
+```
 
-1. Press the `Generate public URL` button.
-1. **You must enable** the ability for the TA to change the range of the dashboard and also view annotations.
+Go grab an apple 🍏 while you let this run for a couple minutes. This will give you some meaningful data to play with.
 
-   ![Enable time range](enableTimeRange.png)
+## Enhancing your visualization
 
-1. Press the **Copy** button for the generated dashboard URL.
+That that you are generating data for three different metrics: cpu, requests, and latency, go ahead an create a new visualization pane on your Grafana dashboard.
 
-> [!IMPORTANT]
->
-> You will provide this URL for the Metrics and Logging deliverable. So make sure you keep track of how you get the URL and test that it works in an incognito window.
+Click the `+ Add query` button, change from Builder to Code mode, and add the query for each metric: **requests_total**, **latency_millisecond_total**, and **cpu_percent**. Then press the `Run queries` button. This should display the different metrics. You may need to adjust the duration to something smaller, like the last 5 minutes. You can also set the refresh to happen every 5 seconds.
+
+![alt text](metricVisualization.png)
+
+Because the CPU metric is of type gauge it shows the current CPU value, while the the latency and request metrics are summing with each passing second. You can modify the visualization of the summed metrics by using the `rate` operation to calculate the rate of change over a given period. The following examples calculate over the last minute.
+
+```txt
+rate(requests_total[1m])
+
+rate(latency_milliseconds_total[1m])
+```
+
+With that change your visualization should show clearly what you CPU, requests, and latency are as they change over time.
+
+![alt text](metricWithRateVisualization.png)

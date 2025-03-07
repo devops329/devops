@@ -2,19 +2,19 @@ const config = require('./config');
 
 const requests = {};
 
-function track(req, res, next) {
-  requests[req.method] = (requests[req.method] || 0) + 1;
-  next();
+function track(endpoint) {
+  return (req, res, next) => {
+    requests[endpoint] = (requests[endpoint] || 0) + 1;
+    next();
+  };
 }
 
 // This will periodically send metrics to Grafana
 const timer = setInterval(() => {
-  Object.keys(requests).forEach((httpMethod) => {
-    sendMetricToGrafana('requests', requests[httpMethod], { method: httpMethod });
+  Object.keys(requests).forEach((endpoint) => {
+    sendMetricToGrafana('requests', requests[endpoint], { endpoint });
   });
 }, 10000);
-
-timer.unref();
 
 function sendMetricToGrafana(metricName, metricValue, attributes) {
   attributes = { ...attributes, source: config.source };
@@ -27,8 +27,8 @@ function sendMetricToGrafana(metricName, metricValue, attributes) {
             metrics: [
               {
                 name: metricName,
-                unit: 's',
-                gauge: {
+                unit: '1',
+                sum: {
                   dataPoints: [
                     {
                       asInt: metricValue,
@@ -36,6 +36,8 @@ function sendMetricToGrafana(metricName, metricValue, attributes) {
                       attributes: [],
                     },
                   ],
+                  aggregationTemporality: 'AGGREGATION_TEMPORALITY_CUMULATIVE',
+                  isMonotonic: true,
                 },
               },
             ],
@@ -46,13 +48,13 @@ function sendMetricToGrafana(metricName, metricValue, attributes) {
   };
 
   Object.keys(attributes).forEach((key) => {
-    metric.resourceMetrics[0].scopeMetrics[0].metrics[0].gauge.dataPoints[0].attributes.push({
+    metric.resourceMetrics[0].scopeMetrics[0].metrics[0].sum.dataPoints[0].attributes.push({
       key: key,
       value: { stringValue: attributes[key] },
     });
   });
 
-  fetch(`${config.host}`, {
+  fetch(`${config.url}`, {
     method: 'POST',
     body: JSON.stringify(metric),
     headers: { Authorization: `Bearer ${config.apiKey}`, 'Content-Type': 'application/json' },
