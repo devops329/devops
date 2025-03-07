@@ -53,7 +53,13 @@ OTel uses standard data units, type of metrics, and methods for adding attribute
 }
 ```
 
+### Open Telemetry settings
+
 The following tables describe the common units and data types that OTel supports. You can use these to describe the meaning of different metrics.
+
+#### Metric units
+
+Units specify the measure of the metric. This impacts the labels and operations that are available for the metric.
 
 | Unit | Meaning      | Characteristics              |
 | ---- | ------------ | ---------------------------- |
@@ -64,11 +70,17 @@ The following tables describe the common units and data types that OTel supports
 | By   | Bytes        | Data sent                    |
 | MiBy | Megabytes    | Data written                 |
 
+#### Metric types
+
+Types specify how a metric should be interpreted. This impacts the default rendering and possible operations you can perform on the metric.
+
 | Type      | Meaning           | Characteristics                        | Example          |
 | --------- | ----------------- | -------------------------------------- | ---------------- |
 | sum       | Counter over time | Number of requests, errors, bytes sent | request_total    |
 | gauge     | Instantaneous     | Temperature, CPU usage, memory usage   | cpu_usage        |
 | histogram | Distribution      | Request latency, payload sizes         | request_duration |
+
+### Example of a `Sum` metric
 
 If you are providing `sum` data then you must also provide information about how the data is aggregated. This includes both an aggregation temporality value (cumulative or delta) and a monotonic description (true or false). For example, with a metric that represent request latency, you would set the type to be `sum` and specify that the aggregation is cumulative and monotonically increasing.
 
