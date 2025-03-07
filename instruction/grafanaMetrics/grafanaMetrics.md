@@ -119,7 +119,7 @@ Create a simple Express app by doing the following.
 1. Create a `config.json` file to include your Grafana credentials. Replace the values with the ones that were supplied when you created the data source connection. Note that the API_KEY provided by Grafana actually contains both the User ID and the API key. Split those values up when you convert them into your configuration file. So if the credentials your received when you created your HTTP Metrics connection looked like this:
 
    ```txt
-   HOST="https://otlp-gateway-prod-us-east-2.grafana.net/otlp/v1/metrics"
+   URL="https://otlp-gateway-prod-us-east-2.grafana.net/otlp/v1/metrics"
    API_KEY="222222:glc_111111111111111111111111111111111111111111="
    ```
 
@@ -128,7 +128,7 @@ Create a simple Express app by doing the following.
    ```json
    {
      "source": "jwt-pizza-service",
-     "host": "https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write",
+     "url": "https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write",
      "apiKey": "2222222:glc_111111111111111111111111111111111111111111="
    }
    ```
@@ -192,7 +192,7 @@ Create a simple Express app by doing the following.
        });
      });
 
-     fetch(`${config.host}`, {
+     fetch(`${config.url}`, {
        method: 'POST',
        body: JSON.stringify(metric),
        headers: { Authorization: `Bearer ${config.apiKey}`, 'Content-Type': 'application/json' },
