@@ -219,9 +219,7 @@ setInterval(() => {
   sendMetricToGrafana('latency', latency, 'sum', 'ms');
 }, 1000);
 
-function sendMetricToGrafana(metricName, metricValue, type, unit, attributes) {
-  attributes = { ...attributes, source: config.source };
-
+function sendMetricToGrafana(metricName, metricValue, type, unit) {
   const metric = {
     resourceMetrics: [
       {
@@ -236,7 +234,6 @@ function sendMetricToGrafana(metricName, metricValue, type, unit, attributes) {
                     {
                       asInt: metricValue,
                       timeUnixNano: Date.now() * 1000000,
-                      attributes: [],
                     },
                   ],
                 },
@@ -247,13 +244,6 @@ function sendMetricToGrafana(metricName, metricValue, type, unit, attributes) {
       },
     ],
   };
-
-  Object.keys(attributes).forEach((key) => {
-    metric.resourceMetrics[0].scopeMetrics[0].metrics[0][type].dataPoints[0].attributes.push({
-      key: key,
-      value: { stringValue: attributes[key] },
-    });
-  });
 
   if (type === 'sum') {
     metric.resourceMetrics[0].scopeMetrics[0].metrics[0][type].aggregationTemporality = 'AGGREGATION_TEMPORALITY_CUMULATIVE';
