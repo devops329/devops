@@ -16,7 +16,7 @@ Grafana has dozens of predefined data sources for all kinds of data services. Th
 
 ## Open Telemetry
 
-Grafana supports the [Open Telemetry](https://opentelemetry.io/) (OTel) standard for representing metric data. This is a commonly used standard used to represent observability data. It is well worth taking the time to learn. 💡 You could even consider doing a curiosity report on the subject.
+Grafana supports the [Open Telemetry](https://opentelemetry.io/) (OTel) standard for representing metric data. This is a commonly used standard for representing observability data. It is well worth taking the time to learn. 💡 You could even consider doing a curiosity report on the subject.
 
 OTel uses standard data units, type of metrics, and methods for adding attributes to represent a metric. For example, a simple JSON representation of an OTel metric for current CPU usage with a **jwt-pizza-service** source attribute, would look like the following:
 
