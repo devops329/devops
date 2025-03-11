@@ -75,6 +75,8 @@ deploy:
   permissions:
     id-token: write
   runs-on: ubuntu-latest
+  env:
+      version: ${{ github.event.inputs.version }}
   environment:
     name: production
     url: https://pizza.byucsstudent.click
