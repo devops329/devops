@@ -57,6 +57,7 @@ release:
       with:
         tag: version-${{ env.version }}
         name: Version ${{ env.version }}
+        makeLatest: true
         body: |
           ## 🚀 Changes
 

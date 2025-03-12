@@ -105,6 +105,7 @@ jobs:
           tag: stage-version-${{ env.version }}
           name: Staging ${{ env.version }}
           generateReleaseNotes: true
+          makeLatest: true
           body: |
             ## Description
 
