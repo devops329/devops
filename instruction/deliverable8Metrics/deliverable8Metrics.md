@@ -85,9 +85,8 @@ Modify your service's config.js file to contain the Grafana credentials. Note th
 ```js
   metrics: {
      source: 'jwt-pizza-service-dev',
-     userId: 2222222,
      url: 'https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write',
-     apiKey: 'glc_111111111111111111111111111111111111111111='
+     apiKey: '2222222:glc_111111111111111111111111111111111111111111='
    }
 ```
 
@@ -122,7 +121,6 @@ Without this, your CI pipeline will fail due to missing references from your new
       },
       metrics: {
         source: 'jwt-pizza-service',
-        userId: ${{ secrets.METRICS_USER_ID }},
         url: '${{ secrets.METRICS_URL }}',
         apiKey: '${{ secrets.METRICS_API_KEY }}',
       },            
