@@ -164,6 +164,10 @@ function getMemoryUsagePercentage() {
 
 The metrics that track your purchases will require that you calculate information whenever a purchase is made. This includes how long it took for the Pizza Factory to respond to the request to make a pizza, how many were made, how much it cost, and if it was successful.
 
+> [!NOTE]
+>
+> You can make a pizza purchase fail *and* take a long time by ordering more than 20 pizzas in a single order.
+
 ### Periodic reporting
 
 You can use the JavaScript `setInterval` function to collect and report the request, auth, user, system, and purchase metrics to Grafana. This could look something like the following, but do whatever fits the design of your code.
