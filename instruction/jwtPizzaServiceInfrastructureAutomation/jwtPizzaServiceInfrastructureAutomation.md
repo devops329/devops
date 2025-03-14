@@ -18,9 +18,9 @@ To delete the backend infrastructure you can simply delete the ECS `jwt-pizza-se
 
 Using CloudFormation to automate the creation and tear down of your backend JWT Pizza Service infrastructure will provide some significant cost savings. Instead of paying for keeping your backend service running throughout the month, or going through the pain of manually recreating it when needed, you can tear it down and start it up in a matter of minutes.
 
-## Creating a JWT Pizza Service backend CloudFront template
+## Creating a JWT Pizza Service backend CloudFormation template
 
-The following is a complete CloudFront template that deploys the JWT Pizza Service to ECS and ALB.
+The following is a complete CloudFormation template that deploys the JWT Pizza Service to ECS and ALB.
 
 ![CloudFormation resources](cloudFormationResources.png)
 
