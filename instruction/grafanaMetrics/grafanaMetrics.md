@@ -195,7 +195,7 @@ Now that we have some experience both generating and visualizing metrics, let's 
 ```js
 module.exports = {
   source: 'jwt-pizza-service',
-  url: 'https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write',
+  url: 'https://otlp-gateway-prod-us-east-2.grafana.net/otlp/v1/metrics',
   apiKey: '2222222:glc_111111111111111111111111111111111111111111=',
 };
 ```
