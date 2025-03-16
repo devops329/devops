@@ -165,7 +165,9 @@ In order to send metrics over HTTP you will need an API key.
          ]
       }
    ]
-   }'; done;
+   }'
+     sleep 1;  # Wait 1 second before the next iteration
+   done;
    ```
 
 ## Create a visualization
