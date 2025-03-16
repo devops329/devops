@@ -144,7 +144,7 @@ In order to send metrics over HTTP you will need an API key.
             "metrics": [
                {
                "name": "cpu",
-               "unit": "%",
+               "unit": "s",
                "gauge": {
                   "dataPoints": [
                      {
