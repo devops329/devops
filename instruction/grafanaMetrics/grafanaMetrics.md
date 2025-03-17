@@ -165,7 +165,7 @@ In order to send metrics over HTTP you will need an API key.
          ]
       }
    ]
-   }'; done;
+   }'; sleep .5; done;
    ```
 
 ## Create a visualization
@@ -177,7 +177,7 @@ Now that you have a bunch of data sent to your collector, you can create a visua
 1. Click the `Add` button on the top menu and create a new visualization.
 1. For the `Data source` specify **grafanacloud-youraccountnamehere-prom**.
 1. Toggle the query editor to `Builder` mode.
-1. For `Metric` select **cpu_seconds**, and for `Label filters` select **source** with a value of **jwt-pizza-service**. These are the values that you provided with the Curl command.
+1. For `Metric` select **cpu_percent**, and for `Label filters` select **source** with a value of **jwt-pizza-service**. These are the values that you provided with the Curl command.
 1. Change the `Query options` to have an **interval** of 1s.
 1. Press `Run Queries` to cause the data source to pull data from Mimir.
 1. Change the time range, on the top menu bar, to be the last 5 minutes and set the refresh to be every 5 seconds.
