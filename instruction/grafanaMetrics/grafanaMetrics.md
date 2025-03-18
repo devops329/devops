@@ -275,7 +275,7 @@ Go grab an apple 🍏 while you let this run for a couple minutes. This will giv
 
 ## Enhancing your visualization
 
-That that you are generating data for three different metrics: cpu, requests, and latency, go ahead an create a new visualization pane on your Grafana dashboard.
+Now that you are generating data for three different metrics: cpu, requests, and latency, go ahead an create a new visualization pane on your Grafana dashboard.
 
 Click the `+ Add query` button, change from Builder to Code mode, and add the query for each metric: **requests_total**, **latency_millisecond_total**, and **cpu_percent**. Then press the `Run queries` button. This should display the different metrics. You may need to adjust the duration to something smaller, like the last 5 minutes. You can also set the refresh to happen every 5 seconds.
 
