@@ -70,3 +70,25 @@ MySQL [pizza]> show tables;
 ```
 
 If you can do this, then you know your database is working, your username and password are correct, and that your security group is good. If you don't see the pizza database that means your service has never connected to the database. At this point, most likely, you have put the wrong password, username, or hostname in your GitHub secrets.
+
+## Deliverable 8
+
+### I don't know where to start with my metrics.js file and I'm not comfortable creating or using middleware
+
+When adding metrics to your JWT Pizza Service, it can be difficult to know where to start. The recommended approach is to use middleware since it allows you to track requests without modifying each route handler. However, if you prefer not to use middleware, you can create a separate Metrics class to store, update, and send metrics.
+
+```js
+// metrics.js
+
+class Metrics {
+  ... attributes for the different metrics to track
+  ... methods to change the attributes
+  ... method to contain the timeout loop to send your metrics
+  ... method that handles sending the metric to Grafana  
+}
+
+const metric = new Metrics
+export default metric
+```
+nstead of exporting the class itself, we export a single instance of Metrics. This ensures all route files use the same shared instance, preventing inconsistencies and ensuring that the collected metrics reflect the entire service.
+
