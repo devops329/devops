@@ -42,7 +42,7 @@ You will create your first K6 load against your JWT Pizza production deployment.
 1.  Open the Home menu, click `Testing & synthetics > Performance > Projects`.
 1.  Click the button to `Start testing`.
 
-    ![Start testing](image.png)
+    ![Start testing](startTesting.png)
 
     This will display the default project that was created along with your account. You can create a new project if you desire, but for now the default will do.
 
@@ -71,7 +71,11 @@ You will create your first K6 load against your JWT Pizza production deployment.
 
 ### Recording a HAR file
 
-You can use the Google Chrome developer tools to easily record and export a HTTP Archive (HAR) file.
+You can use the Google Chrome developer tools to easily record and export a HTTP Archive (HAR) file. A HAR file contains all of the HTTP requests and responses made made that are recorded on the DevTools network tab.
+
+Before you begin you may need to enable the ability to export sensitive data so that your HAR file contains authorization tokens. Navigate to the Chrome settings and select `Preferences` and enable **Allow to generate HAR with sensitive data** from the `Network` settings.
+
+![alt text](enableSensitiveHarExport.png)
 
 1. Open Google Chrome and navigate to your JWT Pizza production website. Make sure you are logged out of the website so that you can have a clean start.
 1. Open the developer tools. Switch the developer tools to the network tab. This is where everything gets recorded and where you will eventually export the HAR file from.
