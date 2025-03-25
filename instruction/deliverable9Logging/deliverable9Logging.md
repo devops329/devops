@@ -89,10 +89,9 @@ Without this your CI pipeline will fail because of missing references from your 
       },
       metrics: {
         source: 'jwt-pizza-service',
-        userId: ${{ secrets.METRICS_USER_ID }},
         url: '${{ secrets.METRICS_URL }}',
         apiKey: '${{ secrets.METRICS_API_KEY }}',
-      },
+      },  
       logging:    {
         source: 'jwt-pizza-service',
         userId: ${{ secrets.LOGGING_USER_ID }},
