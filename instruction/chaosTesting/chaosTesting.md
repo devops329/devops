@@ -64,21 +64,42 @@ At a minimum you should be conducting chaos testing in your staging and other no
 
 Experiment with chaos testing by doing the following:
 
-1. Add endpoint on your fork of the `jwt-pizza-service` code that can enable and disable chaos by causing one of your endpoints to randomly fail. Only allow an admin to execute the chaos endpoint. For example:
+1. Add a chaos injection endpoint to your fork of the `jwt-pizza-service` code that causes the pizza order endpoint to randomly fail. Only allow an admin to execute the chaos endpoint.
 
    ```js
-   authRouter.put(
+   let enableChaos = false;
+   orderRouter.put(
      '/chaos/:state',
      authRouter.authenticateToken,
      asyncHandler(async (req, res) => {
-       if (!req.user.isRole(Role.Admin)) {
-         throw new StatusCodeError('unknown endpoint', 404);
+       if (req.user.isRole(Role.Admin)) {
+         enableChaos = req.params.state === 'true';
        }
 
-       enableChaos = req.params.state === 'true';
        res.json({ chaos: enableChaos });
      })
    );
+
+   orderRouter.post('/', (req, res, next) => {
+     if (enableChaos && Math.random() < 0.5) {
+       throw new StatusCodeError('Chaos monkey', 500);
+     }
+     next();
+   });
+   ```
+
+1. Test that your chaos endpoint works
+
+   ```sh
+   host=localhost:3000
+
+   response=$(curl -s -X PUT $host/api/auth -d '{"email":"a@jwt.com", "password":"admin"}' -H 'Content-Type: application/json')
+
+   token=$(echo $response | jq -r '.token')
+
+   curl -X PUT $host/api/order/chaos/true  -H "Authorization: Bearer $token"
+
+   curl -s -X POST $host/api/order -H 'Content-Type: application/json' -d '{"franchiseId": 1, "storeId":1, "items":[{ "menuId": 1, "description": "Veggie", "price": 0.05 }]}'  -H "Authorization: Bearer $token"
    ```
 
 1. Make sure you have metrics that will display the chaos.
@@ -89,3 +110,7 @@ Experiment with chaos testing by doing the following:
 1. Wait for, acknowledge, and resolve the alert.
 
 ![Alert history](alertHistory.png)
+
+```
+
+```
