@@ -121,7 +121,7 @@ sendLogToGrafana(event) {
 }
 ```
 
-However, your logging code for JWT Pizza will need to be more complext that what is demonstrated in the [Grafana Logging instruction](../grafanaLogging/grafanaLogging.md).
+However, your logging code for JWT Pizza will need to be more complex than what is demonstrated in the [Grafana Logging instruction](../grafanaLogging/grafanaLogging.md).
 
 > [!TIP]
 >
