@@ -160,7 +160,7 @@ Once this is all working you should have something like this:
 
 ![Logging dashboard](loggingDashboard.png)
 
-Get the [public URL](../grafanaMetrics#make-your-dashboard-public) for your dashboard and submit it to the Canvas assignment. This should look something like this:
+Get the [public URL](../visualizingMetrics/visualizingMetrics.md#make-your-dashboard-public) for your dashboard and submit it to the Canvas assignment. This should look something like this:
 
 ```txt
 https://youraccounthere.grafana.net/public-dashboards/29305se9fsacc66a21fa91899b75734
