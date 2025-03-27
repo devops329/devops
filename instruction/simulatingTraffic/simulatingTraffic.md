@@ -71,6 +71,29 @@ while true; do
 done
 ```
 
+### Login, buy "too many pizzas" to cause an order to fail, wait 5 seconds, logout, wait 55 seconds
+
+```sh
+while true
+do
+  response=$(curl -s -X PUT $host/api/auth -d '{"email":"d@jwt.com", "password":"diner"}' -H 'Content-Type: application/json');
+  token=$(echo $response | jq -r '.token');
+  echo "Login hungry diner..."
+
+  items='{ "menuId": 1, "description": "Veggie", "price": 0.05 }'
+  for (( i=0; i < 21; i++ ))
+  do items+=', { "menuId": 1, "description": "Veggie", "price": 0.05 }'
+  done
+  
+  curl -s -X POST $host/api/order -H 'Content-Type: application/json' -d "{\"franchiseId\": 1, \"storeId\":1, \"items\":[$items]}"  -H "Authorization: Bearer $token" > /dev/null;
+  echo "Bought too many pizzas..."
+  sleep 5;
+  curl -s -X DELETE $host/api/auth -H "Authorization: Bearer $token" > /dev/null;
+  echo "Logging out hungry diner..."
+  sleep 55;
+done
+```
+
 ## Simulating traffic script
 
 You can also combine commands together into a script that runs all commands. The [generatePizzaTraffic.sh](simulatingTrafficExample/generatePizzaTraffic.sh) provides an example of doing this. The following outlines the general flow of the script.
@@ -86,6 +109,7 @@ You can also combine commands together into a script that runs all commands. The
 # Simulate a user with an invalid email and password every 25 seconds
 # Simulate a franchisee logging in every two minutes
 # Simulate a diner ordering a pizza every 20 seconds
+# Simulate a diner experiencing a failed pizza order every minute 
 
 # Wait for the background processes to complete
 ```
@@ -103,6 +127,7 @@ Requesting menu...
 Logging in with invalid credentials...
 Login franchisee...
 Login diner...
+Login hungry diner...
 Bought a pizza...
 Requesting menu...
 Requesting menu...
