@@ -11,7 +11,7 @@ host=$1
 # Function to cleanly exit
 cleanup() {
   echo "Terminating background processes..."
-  kill $pid1 $pid2 $pid3 $pid4
+  kill $pid1 $pid2 $pid3 $pid4 $pid5
   exit 0
 }
 
@@ -60,6 +60,26 @@ while true; do
 done &
 pid4=$!
 
+# Simulate a failed pizza order every 5 minutes
+while true; do
+  response=$(curl -s -X PUT $host/api/auth -d '{"email":"d@jwt.com", "password":"diner"}' -H 'Content-Type: application/json')
+  token=$(echo $response | jq -r '.token')
+  echo "Login hungry diner..."
+
+  items='{ "menuId": 1, "description": "Veggie", "price": 0.05 }'
+  for (( i=0; i < 21; i++ ))
+  do items+=', { "menuId": 1, "description": "Veggie", "price": 0.05 }'
+  done
+  
+  curl -s -X POST $host/api/order -H 'Content-Type: application/json' -d "{\"franchiseId\": 1, \"storeId\":1, \"items\":[$items]}"  -H "Authorization: Bearer $token"
+  echo "Bought too many pizzas..."
+  sleep 5
+  curl -s -X DELETE $host/api/auth -H "Authorization: Bearer $token" > /dev/null
+  echo "Logging out hungry diner..."
+  sleep 295
+done &
+pid5=$!
+
 
 # Wait for the background processes to complete
-wait $pid1 $pid2 $pid3 $pid4
+wait $pid1 $pid2 $pid3 $pid4 $pid5
