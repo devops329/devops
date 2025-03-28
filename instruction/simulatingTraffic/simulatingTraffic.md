@@ -108,7 +108,7 @@ You can also combine commands together into a script that runs all commands. The
 # Simulate a user with an invalid email and password every 25 seconds
 # Simulate a franchisee logging in every two minutes
 # Simulate a diner ordering a pizza every 20 seconds
-# Simulate a diner experiencing a failed pizza order every minute 
+# Simulate a diner experiencing a failed pizza order every 5 minutes 
 
 # Wait for the background processes to complete
 ```
