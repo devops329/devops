@@ -85,7 +85,7 @@ while true; do
   for (( i=0; i < 21; i++ ))
   do items+=', { "menuId": 1, "description": "Veggie", "price": 0.05 }'
   done
-  
+
   curl -s -X POST $host/api/order -H 'Content-Type: application/json' -d "{\"franchiseId\": 1, \"storeId\":1, \"items\":[$items]}"  -H "Authorization: Bearer $token"
   echo "Bought too many pizzas..."
   sleep 5
@@ -99,23 +99,13 @@ done
 
 You can also combine commands together into a script that runs all commands. The [generatePizzaTraffic.sh](simulatingTrafficExample/generatePizzaTraffic.sh) provides an example of doing this. The following outlines the general flow of the script.
 
-```sh
-# Exit if host not provided as a parameter
+1. Exit if host not provided as a parameter
+1. Provide a function that kills all of the while loops background processes on CTRL-C
+1. Repeatedly run curl commands in while loops as background processes.
+1. Simulate different request types
+1. Wait for the background processes to complete
 
-# Provide a function that kills all of the while loops background processes on CTRL-C
-
-# Repeatedly run curl commands in while loops as background processes.
-
-# Simulate a user requesting the menu every 3 seconds
-# Simulate a user with an invalid email and password every 25 seconds
-# Simulate a franchisee logging in every two minutes
-# Simulate a diner ordering a pizza every 20 seconds
-# Simulate a diner experiencing a failed pizza order every 5 minutes 
-
-# Wait for the background processes to complete
-```
-
-You can run this script by providing the URL of the server you want to target. In the following example, make sure you replace the Headquarters pizza URL with `localhost:3000` if you are running against your development environment, or your production pizza service URL it you are trying simulate traffic there.
+You can run this script by providing the URL of the server you want to target. In the following example, make sure you replace the service pizza URL with `localhost:3000` if you are running against your development environment, or your production pizza service URL it you are trying simulate traffic there.
 
 ```sh
 ./generatePizzaTraffic.sh https://pizza-service.yourdomainname.click
@@ -124,18 +114,14 @@ You can run this script by providing the URL of the server you want to target. I
 This will result in something like the following output
 
 ```sh
-Requesting menu...
-Logging in with invalid credentials...
-Login franchisee...
-Login diner...
-Login hungry diner...
-Bought a pizza...
-Requesting menu...
-Requesting menu...
-Requesting menu...
-Requesting menu...
-Requesting menu...
-Requesting menu...
-Logging out diner...
-Requesting menu...
+Requesting menu... 200
+Logging in with invalid credentials... 404
+Login hungry diner... true
+Login franchisee... true
+Login diner... true
+Bought a pizza... 200
+Requesting menu... 200
+Requesting menu... 200
+Requesting menu... 200
+Bought too many pizzas... 500
 ```
