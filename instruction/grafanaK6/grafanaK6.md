@@ -77,7 +77,7 @@ Before you begin you may need to enable the ability to export sensitive data so 
 
 ![alt text](enableSensitiveHarExport.png)
 
-1. Open Google Chrome and navigate to your JWT Pizza production website. Make sure you are logged out of the website so that you can have a clean start.
+1. Open Google Chrome and navigate to your JWT Pizza production website. Make sure you are logged out of the website so that you can have a clean start. You also want to clear the browser cache so that don't supply any HTTP cache headers in your requests.
 1. Open the developer tools. Switch the developer tools to the network tab. This is where everything gets recorded and where you will eventually export the HAR file from.
 1. Select the `Preserve log` button so that your entire sequence of requests are saved. Clear the recorded requests if it isn't already blank.
 
