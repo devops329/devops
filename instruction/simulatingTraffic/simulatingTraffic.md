@@ -71,7 +71,7 @@ while true; do
 done
 ```
 
-### Login, buy "too many pizzas" to cause an order to fail, wait 5 seconds, logout, wait 55 seconds
+### Login, buy "too many pizzas" to cause an order to fail, wait 5 seconds, logout, wait 295 seconds
 
 ```sh
 while true; do
@@ -89,7 +89,7 @@ while true; do
   sleep 5
   curl -s -X DELETE $host/api/auth -H "Authorization: Bearer $token" > /dev/null
   echo "Logging out hungry diner..."
-  sleep 55
+  sleep 295
 done
 ```
 
