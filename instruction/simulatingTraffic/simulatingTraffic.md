@@ -86,7 +86,7 @@ while true; do
   
   curl -s -X POST $host/api/order -H 'Content-Type: application/json' -d "{\"franchiseId\": 1, \"storeId\":1, \"items\":[$items]}"  -H "Authorization: Bearer $token"
   echo "Bought too many pizzas..."
-  sleep 5;
+  sleep 5
   curl -s -X DELETE $host/api/auth -H "Authorization: Bearer $token" > /dev/null
   echo "Logging out hungry diner..."
   sleep 55
