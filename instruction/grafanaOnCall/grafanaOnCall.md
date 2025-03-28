@@ -142,7 +142,7 @@ Press the `Create` button. This should automatically add you as the admin for th
 
 Create an on-call schedule so that unless escalated, only on-call team members are notified of events.
 
-To create a schedule, use the Grafana Cloud main navigation menu for `Alerts & IRM > OnCall > Schedules`. Press the `New Schedule` button. Press the `Set up on-call rotation schedule` create button. Name the schedule `JWT Pizza` and assign the team to the **JWT Pizza DevOps** that you just created. Press the `Create Schedule` button.
+To create a schedule, use the Grafana Cloud main navigation menu for `Alerts & IRM > IRM > Schedules`. Press the `New Schedule` button. Press the `Set up on-call rotation schedule` create button. Name the schedule `JWT Pizza` and assign the team to the **JWT Pizza DevOps** that you just created. Press the `Create Schedule` button.
 
 This will show an empty schedule with the quality marked in red as **Bad**. That is because no one is currently assigned. Fix this by pressing the `Add` button and selecting **New layer with rotation**.
 
@@ -156,7 +156,7 @@ Leave everything as the defaults and add yourself as a `User`. Press the `Create
 
 An escalation chain defines an ordered list of notification quests that should progressively increase in both audience and volume until someone acknowledges the event and begins the process of resolution.
 
-To create an escalation chain, use the Grafana Cloud main navigation menu for `Alerts & IRM > OnCall > Escalation chains`. Press the `New escalation chain` button.
+To create an escalation chain, use the Grafana Cloud main navigation menu for `Alerts & IRM > IRM > Escalation chains`. Press the `New escalation chain` button.
 
 Assign the **JWT Pizza DevOps** team and give the name `JWT Pizza` for the chain. Press the `Create Escalation Chain` button.
 
@@ -181,13 +181,13 @@ The escalation chain should look something like the following when you are done.
 
 Now we need to define the contact and integration that will connect the escalation chain to a Grafana alert.
 
-To create a contact point, use the Grafana Cloud main navigation menu for `Alerts & IRM > Alerting > Contact points`. Press the `Add contact point` button and supply the name **JWT Pizza DevOps**. Select the `Grafana OnCall` integration, select **New OnCall integration** with the value of `Grafana Alerting`, and provide `jwt-pizza` as the new integration name. Press `Save contact point`.
+To create a contact point, use the Grafana Cloud main navigation menu for `Alerts & IRM > Alerting > Contact points`. Press the `Add contact point` button and supply the name **JWT Pizza DevOps**. Select the `Grafana IRM` integration, select **New IRM integration** as the connection method, and provide `jwt-pizza` as the new integration name. Press `Save contact point`.
 
 ![Contact point](contactPoint.png)
 
 This will create both the contact point and the integration, but you need to associate your team with the integration, so we need to edit the integration.
 
-To edit an integration, use the Grafana Cloud main navigation menu for `Alerts & IRM > OnCall > Integrations`. Edit the `jwt-pizza` integration by pushing the triple dot button and selecting `Integration settings`. Specify **JWT Pizza DevOps** as the team and press `Update integration`.
+To edit an integration, use the Grafana Cloud main navigation menu for `Alerts & IRM > IRM > Integrations`. Edit the `jwt-pizza` integration by pushing the triple dot button and selecting `Integration settings`. Specify **JWT Pizza DevOps** as the team and press `Update integration`.
 
 ![Edit integration](editIntegration.png)
 
@@ -213,7 +213,7 @@ When the mobile push notification arrives, you can click on it, and it will disp
 
 Press the `Acknowledge` button.
 
-In your browser, use the Grafana Cloud main navigation menu for `Alerts & IRM > OnCall > Alert groups` to view the information for the generated alert. Click on the alert title to see the detail. This should display the timeline of the alert with the final entry being your acknowledgement of the alert.
+In your browser, use the Grafana Cloud main navigation menu for `Alerts & IRM > IRM > Alert groups` to view the information for the generated alert. Click on the alert title to see the detail. This should display the timeline of the alert with the final entry being your acknowledgement of the alert.
 
 ![Alert details](alertDetails.png)
 
@@ -229,7 +229,7 @@ Assuming that you actually have more than one active user the alert should get t
 
 ## ☑ Exercise
 
-Complete the above tutorial. This should generate an alert from one of your actual metrics using Grafana OnCall. Capture a screenshot of the resolved alert from the `Alerts & IRM > OnCall > Alert groups` view.
+Complete the above tutorial. This should generate an alert from one of your actual metrics using Grafana OnCall. Capture a screenshot of the resolved alert from the `Alerts & IRM > IRM > Alert groups` view.
 
 Once you are done, it should look something like the following.
 
