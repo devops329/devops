@@ -64,7 +64,6 @@ pid4=$!
 while true; do
   response=$(curl -s -X PUT $host/api/auth -d '{"email":"d@jwt.com", "password":"diner"}' -H 'Content-Type: application/json')
   token=$(echo $response | jq -r '.token')
-  echo $response
   echo "Login hungry diner..."
 
   items='{ "menuId": 1, "description": "Veggie", "price": 0.05 }'
