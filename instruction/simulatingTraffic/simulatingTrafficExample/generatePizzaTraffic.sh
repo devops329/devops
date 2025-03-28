@@ -60,7 +60,7 @@ while true; do
 done &
 pid4=$!
 
-# Simulate a failed pizza order every minute
+# Simulate a failed pizza order every 5 minutes
 while true; do
   response=$(curl -s -X PUT $host/api/auth -d '{"email":"d@jwt.com", "password":"diner"}' -H 'Content-Type: application/json')
   token=$(echo $response | jq -r '.token')
@@ -76,7 +76,7 @@ while true; do
   sleep 5
   curl -s -X DELETE $host/api/auth -H "Authorization: Bearer $token" > /dev/null
   echo "Logging out hungry diner..."
-  sleep 55
+  sleep 295
 done &
 pid5=$!
 
