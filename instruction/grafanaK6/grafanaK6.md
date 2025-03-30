@@ -73,7 +73,7 @@ You will create your first K6 load against your JWT Pizza production deployment.
 
 You can use the Google Chrome developer tools to easily record and export a HTTP Archive (HAR) file. A HAR file contains all of the HTTP requests and responses made made that are recorded on the DevTools network tab.
 
-Before you begin you may need to enable the ability to export sensitive data so that your HAR file contains authorization tokens. Navigate to the Chrome settings and select `Preferences` and enable **Allow to generate HAR with sensitive data** from the `Network` settings.
+Before you begin you may need to enable the ability to export sensitive data so that your HAR file contains authorization tokens. Open DevTools, select the `gear icon (⚙️)` on the top left corner, select `Preferences` and enable **Allow to generate HAR with sensitive data** from the `Network` settings.
 
 ![alt text](enableSensitiveHarExport.png)
 
