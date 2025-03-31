@@ -359,38 +359,6 @@ curl -X POST https://pizza-factory.cs329.click/api/admin/vendor -H 'authorizatio
 
 They have 24 hours to correct. Every hour after the first 24 hours deducts 5%.
 
-## Vulnerabilities
-
-- Identification and Authentication Failures
-  - Weak passwords
-  - You can register the same user multiple times. Only the first one's password is used.
-- Broken Access Control
-  - URL bypass (docs) (robots.txt)
-  - delete franchise
-- Security Misconfiguration
-  - stack in errors,
-  - jwt-pizza-service: `X-Powered-By: Express`
-  - Didn't change default password (admin)
-  - Containers have a public IP address
-- Injection
-  - Update user
-  ```sh
-  curl -X PUT $host/api/auth/4 -d '{"email":"f@jwt.com'\'' WHERE id=3333; select 1+1; -- "}' -H 'Content-Type: application/json' -H "Authorization: bearer $token" | jq '.'
-  ```
-
-## Known security violations
-
-1. Inject on order description
-1. Escalation on add user with a given role
-1. Reveals config `server: Express`
-1. If you use the same name for creating a franchise it will leak the SQL error
-1. Returns code stack with error
-1. Docs page has the demo data user's email and password
-1. Does not use cookies
-1. The default jwtSecret is not changed in their `config.js` file.
-1. Deployment will log db credentials when a connection failure happens.
-1. There is a default admin user with an email and password displayed in the docs
-
 GitHub Copilot: - **ClassDiscord**: Course provides Discord server for communication and collaboration among students and instructors.
 
 - **Canvas**: Course utilizes Canvas as the learning management system for delivering course materials, assignments, and grades.
