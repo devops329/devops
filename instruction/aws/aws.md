@@ -58,29 +58,3 @@ When you created your account you provided your credit card. You will be charged
 Make sure you monitor you billing by selecting the **Billing and cost management** interface from the user menu on the AWS browser console. This will give you detailed information about your current costs as well as a forecast for the future. An important role of a DevOps engineer is to understand the costs that result from the architectural choices that you make. This course is a good time to learn these skills before you start incurring bills in the thousands or millions of dollars.
 
 ![Cost management](costManagement.png)
-
-## Billing alerts
-
-> [! IMPORTANT]
->
-> You want to create an alert for your billing so that you don't get surprised when you accidentally start incurring cost.
-
-Billing alerts help protect your from incurring necessary cost. For you fiscal safety you are highly encouraged to create alerts that will save you from spending more that you have anticipated.
-
-### Budgets
-
-It is easy to set up an alert that will track your spending and send you a notification if things are out of line with your budget. To create a budget, access the AWS dashboard and navigate to `Billing and Cost Management > Budgets`. Then create new budget **Monthly Budget**. Give it a name and the amount that you are expecting to spend over the month. Provide your email address and press `Create Budget`.
-
-![Budget setup](budgetSetup.gif)
-
-When your spending exceeds your budget, alerts will display on the Budget display and you will receive an email from AWS warning you that you are over budget.
-
-![Budget alert](budgetAlert.gif)
-
-### Cost anomaly detector
-
-The **Cost Anomaly Detection Monitor** provides notifications for when your spending looks like it is out of the normal. This allows you to specify a dollar amount that will trigger an email message if that amount is above existing averages.
-
-To create a monitor, access the AWS dashboard and navigate to `Billing and Cost Management > Cost Anomaly Detection`. Choose the option to `Create monitor` and then provide the desired parameters.
-
-![Cost monitor](costMonitor.gif)

@@ -81,13 +81,19 @@ You can reduce your monthly bill significantly if you stop your resources when y
 
 An important part of developer operations is to understand how the architecture choices you make impact the cost of doing business. You should carefully consider every service that you deploy and how much that will cost you. You then want to set up processes to both monitor and alert on those expenditures to make sure they match the anticipated amounts.
 
-AWS provides extensive reporting tools for billing and cost exploration. These tools are available form on the AWS browser console under the `Billing and Cost Management` service. You are highly encouraged to spend time understanding everything that is provided there.
+AWS provides extensive reporting tools for billing and cost exploration. These tools are available form on the AWS browser console under the `Billing and Cost Management` service. You are **highly encouraged** to spend time understanding everything that is provided there.
 
 Below is an example billing report that shows the charges for load balancing, IPv4 address allocation, and Fargate.
 
 ![Billing report](billingReport.png)
 
-### Billing alerts
+## Billing alerts
+
+> [!IMPORTANT]
+>
+> You want to create an alert for your billing so that you don't get surprised when you accidentally start incurring cost.
+
+Billing alerts help protect your from incurring unnecessary cost. For you fiscal safety you are **highly encouraged** to create alerts that will save you from spending more that you have anticipated.
 
 By default, AWS will create _Free Tier alerts_ for you. These will email you whenever you come within a certain percentage threshold of your allocated free tier resource.
 
@@ -95,8 +101,27 @@ Additionally, you can create your own billing alerts that will notify you for ot
 
 To learn more about billing alerts refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html) on this subject.
 
+### Budgets
+
+It is easy to set up an alert that will track your spending and send you a notification if things are out of line with your budget. To create a budget, access the AWS dashboard and navigate to `Billing and Cost Management > Budgets`. Then create new budget **Monthly Budget**. Give it a name and the amount that you are expecting to spend over the month. Provide your email address and press `Create Budget`.
+
+![Budget setup](budgetSetup.gif)
+
+When your spending exceeds your budget, alerts will display on the Budget display and you will receive an email from AWS warning you that you are over budget.
+
+![Budget alert](budgetAlert.gif)
+
+### Cost anomaly detector
+
+The **Cost Anomaly Detection Monitor** provides notifications for when your spending looks like it is out of the normal. This allows you to specify a dollar amount that will trigger an email message if that amount is above existing averages.
+
+To create a monitor, access the AWS dashboard and navigate to `Billing and Cost Management > Cost Anomaly Detection`. Choose the option to `Create monitor` and then provide the desired parameters.
+
+![Cost monitor](costMonitor.gif)
+
 ## ☑ Exercise
 
 1. Create your AWS [account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/)
 1. Create a browser bookmark for your AWS browser console page that contains your account ID. That way you will be able to access your account quickly.
 1. Lease a DNS hostname if you don't already own one.
+1. **Create a budget alert**.
