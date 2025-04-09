@@ -28,14 +28,16 @@ This assignment should feel similar to the exercises you have already completed.
 
 It is time to add logging observability to the `jwt-pizza-service `code. In your fork of the code, use what you learned about [Grafana logging](../grafanaLogging/grafanaLogging.md) to create a log of all the following:
 
-1. HTTP requests
+1. HTTP requests (calls to pizza-service.yourdomain)
    1. HTTP method, path, status code
    1. If the request has an authorization header
    1. Request body
    1. Response body
 1. Database requests
    1. SQL queries
-1. Factory service requests
+1. Factory service requests (calls to pizza-factory.cs329.click)
+   1. Factory request body
+   2. Factory response body
 1. Any unhandled exceptions
 1. Sanitize all log entries so that they do not contain any confidential information
 
