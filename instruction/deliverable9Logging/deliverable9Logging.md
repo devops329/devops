@@ -36,6 +36,8 @@ It is time to add logging observability to the `jwt-pizza-service `code. In your
 1. Database requests
    1. SQL queries
 1. Factory service requests
+   1. Factory request body
+   2. Factory response body
 1. Any unhandled exceptions
 1. Sanitize all log entries so that they do not contain any confidential information
 
