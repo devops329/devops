@@ -37,7 +37,7 @@ As Netflix moved their application to AWS they took advantage of all this redund
 
 ![Chaos monkey icon](chaosMonkeyIcon.png)
 
-The system that Netflix build to inject chaos into the application is called the `Chaos Monkey`. There are different forms of monkeys that each focus on a type of possible failure. These include:
+The system that Netflix built to inject chaos into the application is called the `Chaos Monkey`. There are different forms of monkeys that each focus on a type of possible failure. These include:
 
 - **Chaos Monkey**: Randomly disables production resources.
 - **Latency Monkey**: Artificially delay network or database responses.
