@@ -1,4 +1,4 @@
-# Grafana OnCall
+a# Grafana OnCall
 
 🔑 **Key points**
 
@@ -181,7 +181,7 @@ The escalation chain should look something like the following when you are done.
 
 Now we need to define the contact and integration that will connect the escalation chain to a Grafana alert.
 
-To create a contact point, use the Grafana Cloud main navigation menu for `Alerts & IRM > Alerting > Contact points`. Press the `Add contact point` button and supply the name **JWT Pizza DevOps**. Select the `Grafana IRM` integration, select **New IRM integration** as the connection method, and provide `jwt-pizza` as the new integration name. Press `Save contact point`.
+To create a contact point, use the Grafana Cloud main navigation menu for `Alerts & IRM > Alerting > Contact points`. Press the `Create contact point` button and supply the name **JWT Pizza DevOps**. Select the `Grafana IRM` integration, select **New IRM integration** as the connection method, and provide `jwt-pizza` as the new integration name. Press `Save contact point`.
 
 ![Contact point](contactPoint.png)
 
