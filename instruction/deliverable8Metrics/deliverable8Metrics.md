@@ -208,6 +208,7 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
    1. Press the `Export` tab and `Save to file`.
    1. Name the file `grafana/deliverable8dashboard.json`
 1. Commit and push your changes so that they are running in your production environment.
+1. Simulate traffic to ensure all metrics and submetrics display nonzero data, demonstrating proper metric recording.
 
 Once this is all working you should have something like this:
 
@@ -224,6 +225,6 @@ https://youraccounthere.grafana.net/public-dashboards/29305se9fsacc66a21fa91899b
 | Percent | Item                                                                |
 | ------- | ------------------------------------------------------------------- |
 | 30%     | Storing all required metrics in Grafana Cloud Prometheus data store |
-| 70%     | Visualizing all required metrics in Grafana Cloud dashboard         |
+| 70%     | Visualizing all required metrics with nonzero data in Grafana Cloud dashboard         |
 
 **Congratulations!** You have provided significant observability for your JWT Pizza Service. Time to go celebrate. I'm thinking tacos 🌮.
