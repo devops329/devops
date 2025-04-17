@@ -170,6 +170,8 @@ In order to send metrics over HTTP you will need an API key.
 
 ## Create a visualization
 
+📖 **Deeper dive reading**: [Grafana Time Series](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/time-series/)
+
 Now that you have a bunch of data sent to your collector, you can create a visualization of the data.
 
 1. Open up your Grafana Cloud dashboard.

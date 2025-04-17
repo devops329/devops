@@ -8,8 +8,6 @@ if [ -z "$1" ]; then
 fi
 host=$1
 
-echo hello
-
 # Function to cleanly exit
 cleanup() {
   echo "Terminating background processes..."
@@ -20,26 +18,26 @@ cleanup() {
 # Trap SIGINT (Ctrl+C) to execute the cleanup function
 trap cleanup SIGINT
 
-# Simulate a saying hello
+# greet
 while true; do
-  curl -s "$host/hello/torkel" > /dev/null
-  echo "Saying hello..."
+  curl -s "$host/greet/torkel" > /dev/null
+  echo "Greet torkel..."
   sleep $((RANDOM % 2 + 1))
 done &
 pid1=$!
 
-# Simulate adding a greeting
+# update greeting
 while true; do
-  curl -s -X POST "$host/greeting/hello" > /dev/null
-  echo "Adding greeting..."
+  curl -s -X PUT "$host/greeting/hello" > /dev/null
+  echo "Update greeting..."
   sleep $((RANDOM % 9 + 2))
 done &
 pid2=$!
 
-# Simulate deleting a greeting
+# reset greeting
 while true; do
   curl -s -X DELETE "$host/greeting" > /dev/null
-  echo "Deleting greeting..."
+  echo "Reset greeting..."
   sleep $((RANDOM % 10 + 1))
 done &
 pid3=$!

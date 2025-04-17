@@ -1,21 +1,21 @@
 const express = require('express');
 const app = express();
-
 const metrics = require('./metrics');
+
 let greeting = 'hello';
 
-app.use(express.json());
-
-app.get('/hello/:name', metrics.track('getGreeting'), (req, res) => {
+app.get('/greet/:name', metrics.requestTracker, (req, res) => {
   res.send({ [greeting]: req.params.name });
 });
 
-app.post('/greeting/:greeting', metrics.track('createGreeting'), (req, res) => {
+app.put('/greeting/:greeting', metrics.requestTracker, (req, res) => {
+  metrics.greetingChanged();
+
   greeting = req.params.greeting;
   res.send({ msg: `greeting is now ${greeting}` });
 });
 
-app.delete('/greeting', metrics.track('deleteGreeting'), (req, res) => {
+app.delete('/greeting', metrics.requestTracker, (req, res) => {
   greeting = 'hello';
   res.send({ msg: `greeting is now ${greeting}` });
 });
