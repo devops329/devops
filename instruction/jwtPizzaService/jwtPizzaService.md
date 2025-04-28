@@ -121,10 +121,12 @@ graph TB;
     app-->setAuthUser
     app-->apiRouter
     apiRouter-->authRouter
+    apiRouter-->userRouter
     apiRouter-->orderRouter
     apiRouter-->franchiseRouter
     apiRouter-->docs
     authRouter-->database
+    userRouter-->database
     orderRouter-->database
     franchiseRouter-->database
 
