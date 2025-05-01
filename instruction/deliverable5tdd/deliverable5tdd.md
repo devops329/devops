@@ -2,9 +2,7 @@
 
 🔑 **Key points**
 
-- Use TDD to create documentation
-- Use TDD to improve code abstractions
-- Use TDD to support refactoring
+- Use TDD to drive development, increase confidence, and support regression testing.
 
 ---
 
@@ -22,26 +20,30 @@ Failing to do this will likely slow you down as you will not have the required k
 
 The JWT Pizza CEO wants to add a few new features to the application before we go live. This includes:
 
-| Feature            | Description                                                                                                                                                                                     |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Change credentials | As a user I can change my email and password.                                                                                                                                                   |
-| View users         | As an admin I can see a list of all users. Each user's name, email, and role is displayed. The list is paginated with a length of 10. The list can be filtered by email address, role, or name. |
-| Modify user        | As an admin I can change any user's name, email, and roles.                                                                                                                                     |
-| Delete user        | As an admin I can delete any user.                                                                                                                                                              |
+| Feature     | Description                                                                                                                                                                                         |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Update user | As a **user** I can change my name, email, and password.                                                                                                                                            |
+| List users  | As an **admin** I can see a list of all users. Each user's name, email, and role is displayed. The list is paginated with a length of 10. The list can be filtered by email address, role, or name. |
+| Modify user | As an **admin** I can change any user's name, email, and roles.                                                                                                                                     |
+| Delete user | As an **admin** I can delete any user.                                                                                                                                                              |
 
 ## Design
 
 ### Wireframes
 
-Change my email, name, or password from the user view.
+First we need to define what the interface is going to look like from the user's perspective. By working from the user down, we stand a better chance of actually implementing the functionality correctly on the first pass. When you start at the bottom of the technology stack and work up, you often end up with something that only a software developer understands.
+
+The **Update user** feature is added to the diner dashboard view.
 
 ![alt text](updateUserWireframe.png)
 
-List, filter, modify, and delete users from the admin view.
+The **List/Modify/Delete user** features are added to the admin dashboard view.
 
 ![alt text](adminUsersWireframe.png)
 
 ### Endpoint definitions
+
+Next we think about things from the frontend developer's perspective by defining the interface that the frontend will use in order to implement the features. This includes the ability to update, delete, and list users. The update user endpoint already exists, but we will need to add the other two endpoints as part of this work.
 
 | method | endpoint                            | request body                                                                        | response body                                                                                                                                                               |
 | ------ | ----------------------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -49,13 +51,13 @@ List, filter, modify, and delete users from the admin view.
 | DELETE | /api/user/:userId                   |                                                                                     |                                                                                                                                                                             |
 | GET    | /api/users?email=\*&name=\*&role=\* |                                                                                     | {"users":[<br/>{"id":3,"name":"Kai Chen","email":"d@jwt.com","roles":[{"role":"diner"}]},<br/>{"id":5,"name":"Buddy","email":"b@jwt.com","roles":[{"role":"admin"}]}<br/>]} |
 
-## Getting started
+## Time for Test Driven Development
 
-To get you started we will walk through the TDD process of adding the ability for a user to change their credentials.
+To get you started we will walk through the TDD process of adding the **Update User** feature. Since the endpoint to update a user already exists on the backend, only need to modify the frontend application to support the new feature.
 
 ### Starting test
 
-We start out by making sure we can get to the place where we want to add our functionality by using a new test that we create in a file named **user.spec.ts**. The test registers a new diner user and navigates to the diner dashboard.
+We start out by writing a test to make sure we can get to the place where we want to add our functionality. We add this test to a file named **user.spec.ts**. This basic test registers a new diner user and navigates to the diner dashboard.
 
 ```js
 import { test, expect } from 'playwright-test-coverage';
@@ -79,7 +81,7 @@ When we run this test it should work just fine since this is preexisting functio
 
 ### Display a simple dialog
 
-We then enhance **dinerDashboard.tsx** with a simple dialog for updating the user fields. To start off we need to import the dialog controls.
+We then enhance **dinerDashboard.tsx** with a simple dialog for updating the user fields. To start off, we need to import the dialog controls.
 
 ```js
 import { CloseIcon } from '../icons';
@@ -87,7 +89,7 @@ import { HSOverlay } from 'preline';
 import Button from '../components/button';
 ```
 
-Then add an `updateUser` function that is called when the **Edit** button is pressed.
+We then add an `updateUser` function that is called when the **Edit** button is pressed.
 
 ```ts
 async function updateUser() {
@@ -103,7 +105,7 @@ Add the **Edit** button to the display of the user. Put this right after the use
 <Button title="Edit" className="w-16 p-0" onPress={() => HSOverlay.open(document.getElementById('hs-jwt-modal')!)} />
 ```
 
-Finally we create the edit user dialog. For now we just display a placeholder for the user fields and provide an **Update** button.
+Finally, we create the edit user dialog. For now, we just display a placeholder for the user fields and provide an **Update** button.
 
 ```tsx
 <div role="dialog" aria-modal="true" aria-labelledby="dialog-title" id="hs-jwt-modal" className="hs-overlay hidden size-full fixed top-10 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none">
@@ -149,9 +151,9 @@ If we got all the application and testing code written correctly, the test shoul
 
 ### Enhance the test with dialog user fields
 
-To this point we have driven the development by first writing the code and then the test. Let's flip that an write the test first, let it fail, and then white the code until the test passes.
+To this point we have driven the development by first writing the code and then the test. Let's flip that and write the test first, let it fail, and then white the code until the test passes.
 
-Add a test that updates a non-existent dialog textbox for the user's name. Then assert that the name updates the user's information once the dialog is dismissed.
+Add a test that updates a non-existent dialog textbox for the user's name. Then assert that modifying the name updates the user's information once the dialog is dismissed.
 
 **user.spec.ts**
 
@@ -278,15 +280,19 @@ await page.getByRole('link', { name: 'pd' }).click();
 await expect(page.getByRole('main')).toContainText('pizza dinerx');
 ```
 
-This test will fail. Take a minute an try and figure out why. What did we miss? You can do this by debugging the application either as a user, or by debugging the test. My preference is usually debugging the test because I can set breakpoints, let the test repeatedly drive the action, and see where my assumptions failed.
+### Debugging the test
+
+This test will fail. Take a minute an try and figure out why. What did we miss?
+
+You can figure out what went wrong by guessing at what the code does, running the application either as a user, or by debugging the test. My preference is usually debugging the test because I can set breakpoints, let the test repeatedly drive the action, and easily observe where my assumptions failed.
 
 ![Debug test](debugTest.gif)
 
-By debugging the test we can see that it failed because the user information passed to the **DinerDashboard** component is still the old data because we never actually saved the data to the server. We only modified the React property managed by the **App** component.
+As the above debugging session shows, the test failed because the user information passed to the **DinerDashboard** component is still the old data. That is because we never actually persisted the data to the server. We only modified the React property managed by the **App** component.
 
 ### Calling the service
 
-To fix this we need to modify the `pizzaService` so that we can call the service endpoint to update a user.
+To fix this we need to modify the `pizzaService` so that we can call the service endpoint to update a user. First update the interface and then add an implementation.
 
 **pizzaService.ts**
 
@@ -327,203 +333,26 @@ async function updateUser() {
 }
 ```
 
-And now our test is all green.
+And now our test is all green. This is a great time to commit your changes.
 
-# Old stuff
+![Update User Test Success](updateUserTestSuccess.png)
 
-Enhance the updateUser function to read and update the user fields.
-
-```ts
-async function updateUser() {
-  let updatedUser = {
-    id: user.id,
-    name: nameRef.current?.value,
-    email: emailRef.current?.value,
-    password: passwordRef.current?.value || undefined,
-  };
-
-  props.setUser(updatedUser);
-  setTimeout(() => {
-    HSOverlay.close(document.getElementById('hs-jwt-modal')!);
-  }, 100);
-}
-```
-
-### Allow for the updating of the user
-
-Modify the app so that the diner dashboard can update the user state.
-
-**app.tsx**
-
-```js
-    { title: 'Diner', to: '/diner-dashboard', component: <DinerDashboard user={user} setUser={setUser} />, display: [] },
-```
-
-### Create the UI dialog
-
-Import the necessary dependencies to create the dialog
-
-**dinerDashboard.tsx**
-
-```js
-import { CloseIcon } from '../icons';
-import { HSOverlay } from 'preline';
-import Button from '../components/button';
-```
-
-Modify the component properties to accept the setUser function.
-
-```ts
-interface Props {
-  user: User | null;
-  setUser: (user: User) => void;
-}
-```
-
-Add refs to track the altered user properties.
-
-```ts
-const nameRef = React.useRef<HTMLInputElement>(null);
-const emailRef = React.useRef<HTMLInputElement>(null);
-const passwordRef = React.useRef<HTMLInputElement>(null);
-```
-
-Add updateUser function.
-
-```ts
-async function updateUser() {
-  const updatedUser = await pizzaService.updateUser({
-    id: user.id,
-    name: nameRef.current?.value,
-    email: emailRef.current?.value,
-    password: passwordRef.current?.value || undefined,
-  });
-
-  props.setUser(updatedUser);
-  setTimeout(() => {
-    HSOverlay.close(document.getElementById('hs-jwt-modal')!);
-  }, 100);
-}
-```
-
-Add an edit button to the display of the user. Add this right after the user's image.
-
-```tsx
-<Button title="Edit" className="w-16 p-0" onPress={() => HSOverlay.open(document.getElementById('hs-jwt-modal')!)} />
-```
-
-Create the dialog
-
-```tsx
-<div role="dialog" aria-modal="true" aria-labelledby="dialog-title" id="hs-jwt-modal" className="hs-overlay hidden size-full fixed top-10 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none">
-  <div className="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto min-h-[calc(100%-3.5rem)]">
-    <div className="w-full flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto   ">
-      <div className="flex justify-between items-center py-3 px-4 border-b bg-slate-200 rounded-t-xl ">
-        <h3 className="font-bold text-gray-800">Edit user</h3>
-        <button type="button" className="flex justify-center items-center size-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none" data-hs-overlay="#hs-jwt-modal">
-          <CloseIcon className="" />
-        </button>
-      </div>
-      <div className="p-4 overflow-y-scroll max-h-52">
-        <div className="my-4 text-lg text-start grid grid-cols-5 gap-2 items-center">
-          <div className="font-semibold">name:</div>
-          <input type="text" className="col-span-4 border border-gray-300 rounded-md p-1" defaultValue={user.name} ref={nameRef} />
-          <div className="font-semibold">email:</div>
-          <input type="email" className="col-span-4 border border-gray-300 rounded-md p-1" defaultValue={user.email} ref={emailRef} />
-          <div className="font-semibold">password:</div>
-          <input id="password" type="text" className="col-span-4 border border-gray-300 rounded-md p-1" defaultValue="" ref={passwordRef} />
-        </div>
-      </div>
-      <div className="flex justify-end items-center gap-x-2 py-3 px-4 border-t  bg-slate-200 rounded-b-xl">
-        <button type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" onClick={updateUser}>
-          Update
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-```
-
-### Expose the service endpoint
-
-**pizzaService**
-
-```js
-  updateUser(user: User): Promise<User>;
-```
-
-**httpPizzaService**
-
-```js
-  async updateUser(updatedUser: User): Promise<User> {
-    const { user, token } = await this.callEndpoint(`/api/user/${updatedUser.id}`, 'PUT', updatedUser);
-    localStorage.setItem('token', token);
-    return Promise.resolve(user);
-  }
-```
-
-### Final test
-
-**user.spec.ts**
-
-```js
-import { test, expect } from 'playwright-test-coverage';
-
-test('updateUser', async ({ page }) => {
-  await page.route('*/**/api/user/*', async (route) => {
-    if (route.request().method() === 'PUT') {
-      const body = route.request().postDataJSON();
-      expect(body).toMatchObject({ name: 'pizza dinerx', email: 'd@jwt.com' });
-      expect(body.password).toBeUndefined();
-      await route.fulfill({ json: { user: body, token: 'abcdef' } });
-    } else {
-      if (route.request().method() === 'GET') {
-        await route.fulfill({ json: { id: 2, name: 'pizza diner', email: 'd@jwt.com', roles: [{ role: 'diner' }] } });
-      }
-    }
-  });
-
-  await page.route('*/**/api/order', async (route) => {
-    await route.fulfill({ json: { id: 1, dinerId: 1, orders: [{ id: 1, franchiseId: 1, storeId: 1, date: '2024-06-05T05:14:40.000Z', items: [{ id: 1, menuId: 1, description: 'Veggie', price: 0.05 }] }] } });
-  });
-
-  await page.route('*/**/api/auth', async (route) => {
-    if (route.request().method() === 'PUT') {
-      await route.fulfill({ json: { user: { id: 2, name: 'pizza diner', email: 'd@jwt.com', roles: [{ role: 'diner' }] }, token: 'abcdef' } });
-    }
-  });
-
-  await page.goto('/');
-  await page.getByRole('link', { name: 'Login' }).click();
-  await page.getByRole('textbox', { name: 'Email address' }).fill('d@jwt.com');
-  await page.getByRole('textbox', { name: 'Password' }).fill('diner');
-  await page.getByRole('button', { name: 'Login' }).click();
-
-  await page.getByRole('link', { name: 'pd' }).click();
-  await page.getByRole('button', { name: 'Edit' }).click();
-  await page.getByRole('textbox').first().fill('pizza dinerx');
-  await page.getByRole('button', { name: 'Update' }).click();
-
-  await page.waitForSelector('[role="dialog"].hidden', { state: 'attached' });
-
-  await expect(page.getByRole('main')).toContainText('pizza dinerx');
-});
-```
+There are still other tests to write in order for us to be fully comfortable with the new update user functionality. This includes changing the password and email address, and changing user information using different roles. Go ahead and write those tests now and commit those changes also.
 
 ## ⭐ Deliverable
 
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
-1. Create Playwright tests for `jwt-pizza` that provide at least 80% coverage.
-1. Create a GitHub Actions workflow that executes the tests.
-1. Add the configuration necessary so that the workflow fails if there is not 80% coverage.
-1. Add the reporting of the coverage to the workflow by creating a coverage badge in the README.md file.
+1. Follow the steps given above to implement the **Update user** functionality to the diner dashboard. Maintain your 80% code coverage.
+1. Use TDD to implement the **View/Update/Delete users** functionality to the admin dashboard. Maintain you 80% code coverage.
 
 Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and submit your work for the deliverable.
 
 ### Rubric
 
-| Percent | Item                                                                               |
-| ------- | ---------------------------------------------------------------------------------- |
-| 30%     | Successful execution of GitHub Actions to run test on commit                       |
-| 70%     | At least 80% line coverage as documented by workflow execution and README.md badge |
+| Percent | Item                                                                        |
+| ------- | --------------------------------------------------------------------------- |
+| 20%     | Update user implemented on diner dashboard using TDD with 80% code coverage |
+| 40%     | View users implemented on admin dashboard using TDD with 80% code coverage  |
+| 20%     | Delete user implemented on admin dashboard using TDD with 80% code coverage |
+| 20%     | Update user implemented on admin dashboard using TDD with 80% code coverage |
