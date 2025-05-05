@@ -20,12 +20,12 @@ Failing to do this will likely slow you down as you will not have the required k
 
 The JWT Pizza CEO wants to add a few new features to the application before we go live. This includes:
 
-| Feature     | Description                                                                                                                                                                                         |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Update user | As a **user** I can change my name, email, and password.                                                                                                                                            |
-| List users  | As an **admin** I can see a list of all users. Each user's name, email, and role is displayed. The list is paginated with a length of 10. The list can be filtered by email address, role, or name. |
-| Modify user | As an **admin** I can change any user's name, email, and roles.                                                                                                                                     |
-| Delete user | As an **admin** I can delete any user.                                                                                                                                                              |
+| Feature         | Description                                                                                                                                                                                         |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Update user** | As a **user** I can change my name, email, and password.                                                                                                                                            |
+| **List users**  | As an **admin** I can see a list of all users. Each user's name, email, and role is displayed. The list is paginated with a length of 10. The list can be filtered by email address, role, or name. |
+| **Modify user** | As an **admin** I can change any user's name, email, and roles.                                                                                                                                     |
+| **Delete user** | As an **admin** I can delete any user.                                                                                                                                                              |
 
 ## Design
 
@@ -45,13 +45,13 @@ The **List/Modify/Delete user** features are added to the admin dashboard view.
 
 Next we think about things from the frontend developer's perspective by defining the interface that the frontend will use in order to implement the features. This includes the ability to update, delete, and list users. The update user endpoint already exists, but we will need to add the other two endpoints as part of this work.
 
-| method | endpoint                            | request body                                                                        | response body                                                                                                                                                               |
-| ------ | ----------------------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PUT    | /api/user/:userId                   | {"name":"bob","email":"a@jwt.com", "password":"admin", "roles":[{"role": "diner"}]} | {"email":"a@jwt.com", "roles":[{"role": "diner"}]}                                                                                                                          |
-| DELETE | /api/user/:userId                   |                                                                                     |                                                                                                                                                                             |
-| GET    | /api/users?email=\*&name=\*&role=\* |                                                                                     | {"users":[<br/>{"id":3,"name":"Kai Chen","email":"d@jwt.com","roles":[{"role":"diner"}]},<br/>{"id":5,"name":"Buddy","email":"b@jwt.com","roles":[{"role":"admin"}]}<br/>]} |
+| method | endpoint                                  | request body                                                                        | response body                                                                                                                                                                            |
+| ------ | ----------------------------------------- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| PUT    | /api/user/:userId                         | {"name":"bob","email":"a@jwt.com", "password":"admin", "roles":[{"role": "diner"}]} | {"email":"a@jwt.com", "roles":[{"role": "diner"}]}                                                                                                                                       |
+| DELETE | /api/user/:userId                         |                                                                                     |                                                                                                                                                                                          |
+| GET    | /api/user?page=1&email=\*&name=\*&role=\* |                                                                                     | {"users":[<br/>{"id":3,"name":"Kai Chen","email":"d@jwt.com","roles":[{"role":"diner"}]},<br/>{"id":5,"name":"Buddy","email":"b@jwt.com","roles":[{"role":"admin"}]}<br/>], "more":true} |
 
-## Getting started with Test Driven Development
+## Using TDD for frontend development
 
 To get you started we will walk through the TDD process of adding the **Update User** feature. Since the endpoint to update a user already exists on the backend, only need to modify the frontend application to support the new feature.
 
@@ -339,12 +339,113 @@ Now when we rerun our test, everything is green. This is a great time to commit 
 
 There are still other tests that we need to write in order for us to be fully comfortable with the new **update user** functionality. This includes changing the password and email address, and changing user information using different roles. Go ahead and write those tests now and commit those changes also.
 
+## Using TDD for backend development
+
+Before you go off and use TDD to implement all of the new functionality, let's do a little TDD on the backend. To start, want to use TDD to stub in the **Get Users** endpoint. We can actually do a little Documentation Driven Development (DDD) by first adding the endpoint to the docs found in the **userRouter.js** code. This will help us understand what we are trying to implement.
+
+```js
+userRouter.docs = [
+  {
+    method: 'GET',
+    path: '/api/user?page=1&email=*&name=*&role=*',
+    requiresAuth: true,
+    description: 'Gets a list of users',
+    example: `curl -X GET localhost:3000/api/user -H 'Authorization: Bearer tttttt'`,
+    response: { users: [{ id: 1, name: '常用名字', email: 'a@jwt.com', roles: [{ role: 'admin' }] }] },
+  },
+  // ...
+];
+```
+
+Based on the documentation, we can then write a simple test. Your code should already have tests for user functionality from the previous assignment. Go ahead and a basic test for the **list users** endpoint to the existing test suite.
+
+```js
+test('list users', async () => {
+  const listUsersRes = await request(app).get('/api/user');
+  expect(listUsersRes.status).toBe(200);
+});
+```
+
+This should fail and return a 404 error because the endpoint is not defined. So let's go add it to `userRouter.js`.
+
+```js
+// listUsers
+userRouter.get(
+  '/',
+  asyncHandler(async (req, res) => {
+    res.json({});
+  })
+);
+```
+
+Now the test will pass, but it isn't very interesting. Let's add the required authorization to the endpoint.
+
+### Enforcing authorization
+
+Enforcing authorization in the service is easy to add since we have all the infrastructure from the other endpoints. We just need to add the `authenticateToken` middleware.
+
+```js
+// listUsers
+userRouter.get(
+  '/',
+  authRouter.authenticateToken,
+  asyncHandler(async (req, res) => {
+    res.json({});
+  })
+);
+```
+
+Now the test will fail again because the request is not authorized. We can turn that test into an _unauthorizaed_ test.
+
+```js
+test('list users unauthorized', async () => {
+  const listUsersRes = await request(app).get('/api/user');
+  expect(listUsersRes.status).toBe(401);
+});
+```
+
+And then add a new test that registers a user and provide the authorization token.
+
+```js
+test('list users', async () => {
+  const [user, userToken] = await registerUser(request(app));
+  const listUsersRes = await request(app)
+    .get('/api/user')
+    .set('Authorization', 'Bearer ' + userToken);
+  expect(listUsersRes.status).toBe(200);
+});
+
+async function registerUser(service) {
+  const testUser = { name: 'pizza diner', email: `${randomName()}@test.com`, password: 'a' };
+  const registerRes = await service.post('/api/auth').send(testUser);
+  registerRes.body.user.password = testUser.password;
+
+  return [registerRes.body.user, registerRes.body.token];
+}
+
+function randomName() {
+  return Math.random().toString(36).substring(2, 12);
+}
+```
+
+### Completing the functionality
+
+That should get you started with the **list users** endpoint. However, there is still a lot of functionality to add.
+
+- Return a list of users
+- Handle the pagination of the list
+- Handle the email filter
+- Handle the name filter
+- Handle the role filter
+
+Make sure you use TDD to implement the functionality. Implement a little bit of code, implement a little bit of the tests, and then back and forth until everything is done and all the tests are green. Have fun with the process. If you do it right, it will feel like a video game as you power up and solve all the puzzles.
+
 ## ⭐ Deliverable
 
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
 1. Follow the steps given above to implement the **Update user** functionality to the diner dashboard. Maintain your 80% code coverage.
-1. Use TDD to implement the **View/Update/Delete users** functionality to the admin dashboard. Maintain you 80% code coverage.
+1. Use TDD to implement the **List/Update/Delete users** functionality to the admin dashboard. Maintain you 80% code coverage.
 
 Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and submit your work for the deliverable.
 
@@ -353,6 +454,6 @@ Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and s
 | Percent | Item                                                                        |
 | ------- | --------------------------------------------------------------------------- |
 | 20%     | Update user implemented on diner dashboard using TDD with 80% code coverage |
-| 40%     | View users implemented on admin dashboard using TDD with 80% code coverage  |
+| 40%     | List users implemented on admin dashboard using TDD with 80% code coverage  |
 | 20%     | Delete user implemented on admin dashboard using TDD with 80% code coverage |
 | 20%     | Update user implemented on admin dashboard using TDD with 80% code coverage |
