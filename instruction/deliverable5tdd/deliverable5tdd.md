@@ -51,11 +51,11 @@ Next we think about things from the frontend developer's perspective by defining
 | DELETE | /api/user/:userId                   |                                                                                     |                                                                                                                                                                             |
 | GET    | /api/users?email=\*&name=\*&role=\* |                                                                                     | {"users":[<br/>{"id":3,"name":"Kai Chen","email":"d@jwt.com","roles":[{"role":"diner"}]},<br/>{"id":5,"name":"Buddy","email":"b@jwt.com","roles":[{"role":"admin"}]}<br/>]} |
 
-## Time for Test Driven Development
+## Getting started with Test Driven Development
 
 To get you started we will walk through the TDD process of adding the **Update User** feature. Since the endpoint to update a user already exists on the backend, only need to modify the frontend application to support the new feature.
 
-### Starting test
+### First test
 
 We start out by writing a test to make sure we can get to the place where we want to add our functionality. We add this test to a file named **user.spec.ts**. This basic test registers a new diner user and navigates to the diner dashboard.
 
@@ -77,7 +77,7 @@ test('updateUser', async ({ page }) => {
 });
 ```
 
-When we run this test it should work just fine since this is preexisting functionality.
+When we run this test it should work just fine since this is pre-existing functionality.
 
 ### Display a simple dialog
 
@@ -211,7 +211,7 @@ This should result in a dialog that looks like this:
 
 ![Edit user dialog](editUserDialog.png)
 
-Now when you run the test it will fail when it checks to see if the user's name was updated instead of when we tried to enter the new user name.
+Now when you run the test it will fail when it checks to see if the user's name was updated instead of when we tried to enter the new username.
 
 ![alt text](readNameTestFailure.png)
 
@@ -280,37 +280,37 @@ await page.getByRole('link', { name: 'pd' }).click();
 await expect(page.getByRole('main')).toContainText('pizza dinerx');
 ```
 
-### Debugging the test
-
 This test will fail. Take a minute an try and figure out why. What did we miss?
 
-You can figure out what went wrong by guessing at what the code does, running the application either as a user, or by debugging the test. My preference is usually debugging the test because I can set breakpoints, let the test repeatedly drive the action, and easily observe where my assumptions failed.
+### Debugging the test
+
+You can figure out what went wrong by guessing at what the code does, running the application as a user, or by debugging the test. My preference is usually debugging the test because I can set breakpoints, let the test repeatedly drive the action, and easily observe where my assumptions failed.
 
 ![Debug test](debugTest.gif)
 
-As the above debugging session shows, the test failed because the user information passed to the **DinerDashboard** component is still the old data. That is because we never actually persisted the data to the server. We only modified the React property managed by the **App** component.
+As the above debugging session shows, the test failed because the user information passed to the **DinerDashboard** component is still the old data. That is because we never actually persisted the data on the backend. We only modified the React user property managed by the **App** component. The next time we load the information from the backend, it will still be the old data.
 
 ### Calling the service
 
-To fix this we need to modify the `pizzaService` so that we can call the service endpoint to update a user. First update the interface and then add an implementation.
+To fix this we need to modify the `pizzaService` so that we can call the service endpoint to update a user. This is done by first updating the service interface with an `updateUser` endpoint and then adding an implementation that will send the updated user to the service.
 
 **pizzaService.ts**
 
 ```js
-  updateUser(user: User): Promise<User>;
+updateUser(user: User): Promise<User>;
 ```
 
 **httpPizzaService.ts**
 
 ```js
-  async updateUser(updatedUser: User): Promise<User> {
-    const { user, token } = await this.callEndpoint(`/api/user/${updatedUser.id}`, 'PUT', updatedUser);
-    localStorage.setItem('token', token);
-    return Promise.resolve(user);
-  }
+async updateUser(updatedUser: User): Promise<User> {
+  const { user, token } = await this.callEndpoint(`/api/user/${updatedUser.id}`, 'PUT', updatedUser);
+  localStorage.setItem('token', token);
+  return Promise.resolve(user);
+}
 ```
 
-We then call the service whenever the user gets updated.
+We then call the 'updateUser' method on the service whenever the user gets updated.
 
 **dinerDashboard.tsx**
 
@@ -333,11 +333,11 @@ async function updateUser() {
 }
 ```
 
-And now our test is all green. This is a great time to commit your changes.
+Now when we rerun our test, everything is green. This is a great time to commit your changes.
 
 ![Update User Test Success](updateUserTestSuccess.png)
 
-There are still other tests to write in order for us to be fully comfortable with the new update user functionality. This includes changing the password and email address, and changing user information using different roles. Go ahead and write those tests now and commit those changes also.
+There are still other tests that we need to write in order for us to be fully comfortable with the new **update user** functionality. This includes changing the password and email address, and changing user information using different roles. Go ahead and write those tests now and commit those changes also.
 
 ## ⭐ Deliverable
 
