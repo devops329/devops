@@ -48,6 +48,9 @@ release:
   needs:
     - build
     - deploy
+  permissions:
+    id-token: write
+    contents: write
   runs-on: ubuntu-latest
   steps:
     - name: Create Release
