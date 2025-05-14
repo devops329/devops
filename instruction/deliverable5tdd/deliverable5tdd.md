@@ -20,12 +20,11 @@ Failing to do this will likely slow you down as you will not have the required k
 
 The JWT Pizza CEO wants to add a few new features to the application before we go live. This includes:
 
-| Feature         | Description                                                                                                                                                                                         |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Update user** | As a **user** I can change my name, email, and password.                                                                                                                                            |
-| **List users**  | As an **admin** I can see a list of all users. Each user's name, email, and role is displayed. The list is paginated with a length of 10. The list can be filtered by email address, role, or name. |
-| **Modify user** | As an **admin** I can change any user's name, email, and roles.                                                                                                                                     |
-| **Delete user** | As an **admin** I can delete any user.                                                                                                                                                              |
+| Feature         | Description                                                                                                                                                  |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Update user** | As a **user** I can change my name, email, and password.                                                                                                     |
+| **List users**  | As an **admin** I can see a list of all users. Each user's name, email, and role is displayed. The list is paginated. The list can be filtered by user name. |
+| **Delete user** | As an **admin** I can delete any user.                                                                                                                       |
 
 ## Design
 
@@ -35,21 +34,21 @@ First we need to define what the interface is going to look like from the user's
 
 The **Update user** feature is added to the diner dashboard view.
 
-![alt text](updateUserWireframe.png)
+![Update user wireframe](updateUserWireframe.png)
 
-The **List/Modify/Delete user** features are added to the admin dashboard view.
+The **List/Delete user** features are added to the admin dashboard view.
 
-![alt text](adminUsersWireframe.png)
+![List/Delete user wireframe](adminUsersWireframe.png)
 
 ### Endpoint definitions
 
 Next we think about things from the frontend developer's perspective by defining the interface that the frontend will use in order to implement the features. This includes the ability to update, delete, and list users. The update user endpoint already exists, but we will need to add the other two endpoints as part of this work.
 
-| method | endpoint                                  | request body                                                                        | response body                                                                                                                                                                            |
-| ------ | ----------------------------------------- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PUT    | /api/user/:userId                         | {"name":"bob","email":"a@jwt.com", "password":"admin", "roles":[{"role": "diner"}]} | {"email":"a@jwt.com", "roles":[{"role": "diner"}]}                                                                                                                                       |
-| DELETE | /api/user/:userId                         |                                                                                     |                                                                                                                                                                                          |
-| GET    | /api/user?page=1&email=\*&name=\*&role=\* |                                                                                     | {"users":[<br/>{"id":3,"name":"Kai Chen","email":"d@jwt.com","roles":[{"role":"diner"}]},<br/>{"id":5,"name":"Buddy","email":"b@jwt.com","roles":[{"role":"admin"}]}<br/>], "more":true} |
+| method | endpoint                          | request body                                                                        | response body                                                                                                                                                                            |
+| ------ | --------------------------------- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| PUT    | /api/user/:userId                 | {"name":"bob","email":"a@jwt.com", "password":"admin", "roles":[{"role": "diner"}]} | {"email":"a@jwt.com", "roles":[{"role": "diner"}]}                                                                                                                                       |
+| DELETE | /api/user/:userId                 |                                                                                     |                                                                                                                                                                                          |
+| GET    | /api/user?page=1&limit=10&name=\* |                                                                                     | {"users":[<br/>{"id":3,"name":"Kai Chen","email":"d@jwt.com","roles":[{"role":"diner"}]},<br/>{"id":5,"name":"Buddy","email":"b@jwt.com","roles":[{"role":"admin"}]}<br/>], "more":true} |
 
 ## Using TDD for frontend development
 
@@ -89,7 +88,7 @@ import { HSOverlay } from 'preline';
 import Button from '../components/button';
 ```
 
-We then add an `updateUser` function that is called when the **Edit** button is pressed.
+We then add an `updateUser` function that is called when the **Edit** button is pressed. The delay is used so that the preline can update the dialog React state correctly before we tell it to close. Otherwise, when running under automation we may tell preline to close before React has told preline that the dialog is actually displayed.
 
 ```ts
 async function updateUser() {
@@ -280,11 +279,17 @@ await page.getByRole('link', { name: 'pd' }).click();
 await expect(page.getByRole('main')).toContainText('pizza dinerx');
 ```
 
-This test will fail. Take a minute an try and figure out why. What did we miss?
+Now the test will fail. Take a minute an try and figure out why. What did we miss?
 
 ### Debugging the test
 
-You can figure out what went wrong by guessing at what the code does, running the application as a user, or by debugging the test. My preference is usually debugging the test because I can set breakpoints, let the test repeatedly drive the action, and easily observe where my assumptions failed.
+You can figure out what went wrong by either:
+
+1. Guessing at what the code does
+1. Running the application as a user
+1. Debugging the test.
+
+My preference is usually debugging the test because I can set breakpoints, let the test repeatedly drive the action, and easily observe where my assumptions failed.
 
 ![Debug test](debugTest.gif)
 
@@ -292,7 +297,7 @@ As the above debugging session shows, the test failed because the user informati
 
 ### Calling the service
 
-To fix this we need to modify the `pizzaService` so that we can call the service endpoint to update a user. This is done by first updating the service interface with an `updateUser` endpoint and then adding an implementation that will send the updated user to the service.
+To fix this we need to modify the front end `pizzaService.ts` facade code so that we can call the service endpoint to update a user. This is done by first updating the service interface with an `updateUser` endpoint and then adding an implementation that will send the updated user to the service.
 
 **pizzaService.ts**
 
@@ -337,17 +342,21 @@ Now when we rerun our test, everything is green. This is a great time to commit 
 
 ![Update User Test Success](updateUserTestSuccess.png)
 
+> [!NOTE]
+>
+> The above test does not mock out the backend. When you are using TDD for full stack development it is helpful to drive your development across the whole stake. However, when you push the front end test to your CI pipeline it will fail because there is no backend available when running under GitHub Actions. You can either solve this by either mocking out the backend or by actually starting up a backend when your frontend tests run.
+
 There are still other tests that we need to write in order for us to be fully comfortable with the new **update user** functionality. This includes changing the password and email address, and changing user information using different roles. Go ahead and write those tests now and commit those changes also.
 
 ## Using TDD for backend development
 
-Before you go off and use TDD to implement all of the new functionality, let's do a little TDD on the backend. To start, want to use TDD to stub in the **Get Users** endpoint. We can actually do a little Documentation Driven Development (DDD) by first adding the endpoint to the docs found in the **userRouter.js** code. This will help us understand what we are trying to implement.
+Before you go off and use TDD to implement all of the new functionality, let's do a little TDD on the backend. To start, we want to use TDD to rough in the **Get Users** endpoint. We can actually do a little Documentation Driven Development (DDD) by first adding the endpoint to the docs found in the **userRouter.js** code. This will help us understand what we are trying to implement.
 
 ```js
 userRouter.docs = [
   {
     method: 'GET',
-    path: '/api/user?page=1&email=*&name=*&role=*',
+    path: '/api/user?page=1&limit=10&name=*',
     requiresAuth: true,
     description: 'Gets a list of users',
     example: `curl -X GET localhost:3000/api/user -H 'Authorization: Bearer tttttt'`,
@@ -357,7 +366,7 @@ userRouter.docs = [
 ];
 ```
 
-Based on the documentation, we can then write a simple test. Your code should already have tests for user functionality from the previous assignment. Go ahead and a basic test for the **list users** endpoint to the existing test suite.
+Based on the documentation, we can then write a simple test. Your code should already have tests for user functionality from the Jest testing deliverable. Go ahead and a basic test for the **list users** endpoint to the existing test suite.
 
 ```js
 test('list users', async () => {
@@ -395,18 +404,14 @@ userRouter.get(
 );
 ```
 
-Now the test will fail again because the request is not authorized. We can turn that test into an _unauthorizaed_ test.
+Now the test will fail because the request is not authorized. Let's turn this test into an _unauthorized_ test and write a new test that provide the required authorization token.
 
 ```js
 test('list users unauthorized', async () => {
   const listUsersRes = await request(app).get('/api/user');
   expect(listUsersRes.status).toBe(401);
 });
-```
 
-And then add a new test that registers a user and provide the authorization token.
-
-```js
 test('list users', async () => {
   const [user, userToken] = await registerUser(request(app));
   const listUsersRes = await request(app)
@@ -434,9 +439,7 @@ That should get you started with the **list users** endpoint. However, there is 
 
 - Return a list of users
 - Handle the pagination of the list
-- Handle the email filter
 - Handle the name filter
-- Handle the role filter
 
 Make sure you use TDD to implement the functionality. Implement a little bit of code, implement a little bit of the tests, and then back and forth until everything is done and all the tests are green. Have fun with the process. If you do it right, it will feel like a video game as you power up and solve all the puzzles.
 
@@ -445,7 +448,7 @@ Make sure you use TDD to implement the functionality. Implement a little bit of 
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
 1. Follow the steps given above to implement the **Update user** functionality to the diner dashboard. Maintain your 80% code coverage.
-1. Use TDD to implement the **List/Update/Delete users** functionality to the admin dashboard. Maintain you 80% code coverage.
+1. Use TDD to implement the **List/Delete users** functionality to the admin dashboard. Maintain you 80% code coverage.
 
 Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and submit your work for the deliverable.
 
@@ -455,5 +458,4 @@ Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and s
 | ------- | --------------------------------------------------------------------------- |
 | 20%     | Update user implemented on diner dashboard using TDD with 80% code coverage |
 | 40%     | List users implemented on admin dashboard using TDD with 80% code coverage  |
-| 20%     | Delete user implemented on admin dashboard using TDD with 80% code coverage |
-| 20%     | Update user implemented on admin dashboard using TDD with 80% code coverage |
+| 40%     | Delete user implemented on admin dashboard using TDD with 80% code coverage |
