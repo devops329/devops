@@ -40,7 +40,6 @@
 - [Coverage](coverage/coverage.md)
 - [Jest Basics](jestBasics/jestBasics.md)
 - ☑ [Jest Advanced](jestAdvanced/jestAdvanced.md)
-- ☑ [Test driven development (TDD)](tdd/tdd.md)
 - ☑ [Service testing](serviceTesting/serviceTesting.md)
 - ☑ [Lint](lint/lint.md)
 - [Dependency injection](dependencyInjection/dependencyInjection.md)
@@ -50,6 +49,8 @@
 - [UI testing](uiTesting/uiTesting.md)
 - ☑ [Playwright](playwright/playwright.md)
 - ⭐ [⓸ User interface testing: JWT Pizza](deliverable4UiTesting/deliverable4UiTesting.md)
+- ☑ [Test driven development (TDD)](tdd/tdd.md)
+- ⭐ [⓹ Test driven development](deliverable5Tdd/deliverable5Tdd.md)
 
 ## Cloud deployment
 
@@ -58,7 +59,9 @@
 - ☑ [AWS S3](awsS3/awsS3.md)
 - [AWS CloudFront](awsCloudFront/awsCloudFront.md)
 - [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
-- ⭐ [⓹ CDN deployment: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
+- [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
+- ☑ [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
+- ⭐ [⓺ CDN deployment: JWT Pizza](deliverable5CdnDeploy/deliverable5CdnDeploy.md)
 - [Elasticity](elasticity/elasticity.md)
 - ☑ [AWS RDS MySQL](awsRdsMysql/awsRdsMysql.md)
 - [Docker](docker/docker.md)
@@ -66,19 +69,13 @@
 - ☑ [JWT Pizza Service container](jwtPizzaServiceContainer/jwtPizzaServiceContainer.md)
 - ☑ [AWS ECR](awsEcr/awsEcr.md)
 - ☑ [AWS ECS](awsEcs/awsEcs.md)
-- ⭐ [⓺ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
+- ⭐ [⓻ Scalable deployment: JWT Pizza Service](deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)
 - [Infrastructure as code](infrastructureAsCode/infrastructureAsCode.md)
 - [AWS Cloud Formation](awsCloudFormation/awsCloudFormation.md)
 - ☑ [JWT Pizza Service infrastructure automation](jwtPizzaServiceInfrastructureAutomation/jwtPizzaServiceInfrastructureAutomation.md)
-
-## Deployment strategies
-
 - [Versioning](versioning/versioning.md)
 - [Deployment strategies](deploymentStrategies/deploymentStrategies.md)
 - ☑ [GitHub releases](gitHubReleases/gitHubReleases.md)
-- [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
-- ☑ [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
-- ⭐ [⓻ Environments: JWT Pizza](deliverable7Environments/deliverable7Environments.md)
 
 ## Observability
 
@@ -102,7 +99,7 @@
 - [Grafana K6](grafanaK6/grafanaK6.md)
 - ⭐ [⓾ Load testing: JWT Pizza Service](deliverable10LoadTesting/deliverable10LoadTesting.md)
 
-## Failure management
+## Failure testing
 
 - [Failure](failure/failure.md)
 - [Backup and Recovery](recovery/recovery.md)

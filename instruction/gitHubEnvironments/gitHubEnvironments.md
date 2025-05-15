@@ -11,11 +11,11 @@ GitHub supports the concept of `environments` that allow you to isolate your sec
 
 ## Creating an environment
 
-Create an environment by going to your `jwt-pizza` repository's settings in GitHub and selecting the **Environments** view from the left-hand navigation. Then press the `New environment` button.
+You can create a GitHub environment by going to your `jwt-pizza` repository's settings in GitHub and selecting the **Environments** view from the left-hand navigation. Then press the `New environment` button.
 
 ![Create environment](createEnvironment.png)
 
-Give the new environment the name `production`. Once you have created the environment you can specify if it must be reviewed before a GitHub Action workflow can execute, that it can only execute from a given branch of the code, and also what secrets should be used with the CI pipeline.
+For example, you could create a new environment with the name `production`. Once you have created the environment you can specify if it must be reviewed before a GitHub Action workflow can execute, that it can only execute from a given branch of the code, and also what secrets should be used with the CI pipeline.
 
 This makes it so you can have a human gate in your deployment pipeline, as well as secrets that are different for your production environment, where customer data is kept, as opposed to your staging environment that can be more lax in security.
 
@@ -53,11 +53,7 @@ In order for your CI workflow to still have access using the AWS IAM CI rule tha
       "Condition": {
         "StringEquals": {
           "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
-          "token.actions.githubusercontent.com:sub": [
-            "repo:YOURGITHUBACCOUNTNAME/jwt-pizza:environment:production",
-            "repo:YOURGITHUBACCOUNTNAME/jwt-pizza:ref:refs/heads/main",
-            "repo:YOURGITHUBACCOUNTNAME/jwt-pizza-service:ref:refs/heads/main"
-          ]
+          "token.actions.githubusercontent.com:sub": ["repo:YOURGITHUBACCOUNTNAME/jwt-pizza:environment:production", "repo:YOURGITHUBACCOUNTNAME/jwt-pizza:ref:refs/heads/main", "repo:YOURGITHUBACCOUNTNAME/jwt-pizza-service:ref:refs/heads/main"]
         }
       }
     }
@@ -76,30 +72,10 @@ deploy:
     id-token: write
   runs-on: ubuntu-latest
   env:
-      version: ${{ needs.build.outputs.version }}
+    version: ${{ needs.build.outputs.version }}
   environment:
     name: production
     url: https://pizza.byucsstudent.click
 ```
 
 You can also include a **url** property that will display whenever the workflow executes. Make sure you set the URL to represent your JWT Pizza hostname.
-
-## ☑ Exercise
-
-Once you have completed the changes outlined above, go ahead and deploy the CI workflow change to your fork of the `jwt-pizza` code. This should trigger the review rule for the production environment. If you look at the GitHub Action dashboard you will see that the execution blocked waiting for the review.
-
-![Waiting for review](waitingForReview.png)
-
-You should also receive an email to the address associated with your GitHub account.
-
-![Review email](reviewEmail.png)
-
-After you review all the changes included in the deployment you can press the `Review deployments` button and complete the approval process.
-
-![Approval dialog](approvalDialog.png)
-
-Pressing the approval button will allow the workflow to continue.
-
-Once you are done, it should look something like the following.
-
-![SuccessfulWorkflow](successfulWorkflow.png)
