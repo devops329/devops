@@ -1,4 +1,4 @@
-# Deliverable ⓹ Content Delivery Network Deployment: JWT Pizza
+# Deliverable ⓺ Content Delivery Network Deployment: JWT Pizza
 
 🔑 **Key points**
 

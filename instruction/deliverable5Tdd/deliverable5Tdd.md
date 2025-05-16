@@ -1,4 +1,4 @@
-# Deliverable ⓹ Test driven development: JWT Pizza
+# Deliverable ⓹ Test driven development
 
 🔑 **Key points**
 

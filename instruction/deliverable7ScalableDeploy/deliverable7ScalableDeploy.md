@@ -1,4 +1,4 @@
-# Deliverable ⓺ Scalable deployment: JWT Pizza Service
+# Deliverable ⓻ Scalable deployment: JWT Pizza Service
 
 🔑 **Key points**
 
@@ -35,7 +35,7 @@ Your work on this deliverable consists of four parts:
 1. **ECS configuration**: Setup ECS to deploy a container to Fargate and expose it publicly using the application load balancer.
 1. **Image deployment CI**: Modify the CI pipeline to automatically deploy a new container image to ECS.
 
-![Deliverable 6 overview](deliverable6Overview.png)
+![Deliverable 6 overview](overview.png)
 
 ## Step 1: ECR configuration
 

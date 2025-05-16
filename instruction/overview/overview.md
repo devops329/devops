@@ -37,9 +37,9 @@ Multiple phases of development releases and changes to the devOps pipeline will 
 | [⓶ Automated deploy](../deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)         | Deploy frontend to GitHub Pages using GitHub Actions                       |
 | [⓷ Unit test](../deliverable3UnitTesting/deliverable3UnitTesting.md)                        | Backend unit testing and analysis using Jest and GitHub Actions automation |
 | [⓸ UI test](../deliverable4UiTesting/deliverable4UiTesting.md)                              | User interface unit testing using Playwright and GitHub Actions automation |
-| [⓹ CDN deploy](../deliverable5CdnDeploy/deliverable5CdnDeploy.md)                           | Deploy frontend to AWS CloudFront                                          |
-| [⓺ Scalable deploy](../deliverable6ScalableDeploy/deliverable6ScalableDeploy.md)            | Deploy backend to AWS Fargate and RDS MySQL                                |
-| [⓻ Environments](../deliverable7Environments/deliverable7Environments.md)                   | Deploy to staging and production environments                              |
+| [⓹ Test driven development](../deliverable5Tdd/deliverable5Tdd.md)                          | Add new features with test driven development (TDD)                        |
+| [⓺ CDN deploy](../deliverable6CdnDeploy/deliverable6CdnDeploy.md)                           | Deploy frontend to AWS CloudFront                                          |
+| [⓻ Scalable deploy](../deliverable7ScalableDeploy/deliverable7ScalableDeploy.md)            | Deploy backend to AWS Fargate and RDS MySQL                                |
 | [⓼ Metrics](../deliverable8Metrics/deliverable8Metrics.md)                                  | Provide metrics with Grafana Prometheus                                    |
 | [⓽ Logging](../deliverable9Logging/deliverable9Logging.md)                                  | Provide logging with Grafana Loki                                          |
 | [⓾ Load test](../deliverable10LoadTesting/deliverable10LoadTesting.md)                      | Execute end to end load testing with K6                                    |
