@@ -16,8 +16,19 @@ The content for this course is represented by the following parts.
 - 📅 [Schedule](https://github.com/devops329/devops/blob/main/schedule/schedule.md) - Lecture and assignment due dates
 - 📘 [Instruction](https://github.com/devops329/devops/blob/main/instruction/modules.md#readme) - Modules and topics
 - 🍕 [JWT Pizza](https://github.com/devops329/devops/blob/main/instruction/jwtPizza/jwtPizza.md) - QA and DevOps mastery target
+- Assignments and deliverables are submitted through [Canvas](https://byu.instructure.com)
 
-Assignments and deliverables are submitted through [Canvas](https://byu.instructure.com)
+## Outcomes
+
+By the end of the course you can expect the following outcomes in your personal development.
+
+- **Quality**: Implement comprehensive automated testing strategies, including unit, UI, E2E, performance, and load testing.
+- **Deployment**: Deploy various automated CI/CD pipeline strategies to reliably deliver software that is resilient, scalable, and secure.
+- **Management**: Monitor, detect anomalies, alter, and automatically correct system behavior.
+- **Curious**: Characterize and address gaps in understanding related to DevOps techniques and principles.
+- **Creative**: Discuss and generate alternate DevOps designs.
+- **Collaborative**: Work as a team to discover DevOps design weaknesses.
+- **Christlike**: Strive for gratitude for, inspiration in, and the ability to apply capabilities to, celestial pursuits.
 
 ## Acknowledgements
 

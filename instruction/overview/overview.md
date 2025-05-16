@@ -25,18 +25,6 @@ We often think of computer science as coding functions and implementing algorith
 
 As the benefits of AI coding continues to increase, it will be the system level architectural and management skills that will grow in high demand. This course will teach you to start thinking at the system level and give you experience creating tool chains that combine to produce amazing value.
 
-## Outcomes
-
-By the end of the course you can expect the following outcomes in your personal development.
-
-- **Quality**: Implement comprehensive automated testing strategies, including unit, UI, E2E, performance, and load testing.
-- **Deployment**: Deploy various automated CI/CD pipeline strategies to reliably deliver software that is resilient, scalable, and secure.
-- **Management**: Monitor, detect anomalies, alter, and automatically correct system behavior.
-- **Curious**: Characterize and address gaps in understanding related to DevOps techniques and principles.
-- **Creative**: Discuss and generate alternate DevOps designs.
-- **Collaborative**: Work as a team to discover DevOps design weaknesses.
-- **Christlike**: Strive for gratitude for, inspiration in, and the ability to apply capabilities to, celestial pursuits.
-
 ## Your deliverables
 
 Multiple phases of development releases and changes to the devOps pipeline will occur as different technologies and strategies are employed. As part of this process, you will create the following deliverables that demonstrate your mastery of the course concepts.
