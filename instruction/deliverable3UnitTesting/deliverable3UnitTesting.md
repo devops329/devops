@@ -21,7 +21,6 @@ Before you start work on this deliverable make sure you have read all of the pre
 - [Coverage](../coverage/coverage.md)
 - [Jest Basics](../jestBasics/jestBasics.md)
 - ☑ [Jest Advanced](../jestAdvanced/jestAdvanced.md)
-- ☑ [Test driven development (TDD)](../tdd/tdd.md)
 - ☑ [Service testing](../serviceTesting/serviceTesting.md)
 - ☑ [Lint](../lint/lint.md)
 - [Dependency injection](../dependencyInjection/dependencyInjection.md)
