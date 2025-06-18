@@ -66,7 +66,10 @@ Take the following steps to execute a penetration test on your JWT Pizza applica
 
 Take the following steps to execute a penetration test on a peer's JWT Pizza application.
 
-1. Go to the AutoGrader and click on this deliverable to obtain the contact information for your assigned peer. This includes both their email address and JWT Pizza URL.
+1. Access your [JWT Pizza Factory vendor account](https://pizza-factory.cs329.click) and select `Request partner` from the Penetration Testing interface. If a partner is available then this will provide you with the contact information for your partner. If no partner is currently available you will need to check back later to see if a partner has been assigned.
+
+   Make sure that you have provided correct contact information for accounts that you frequently check so that your partner can contact you.
+
 1. Communicate with your peer and decide on a date when you will conduct your penetration testing.
 1. On the decided date, attempt to penetrate your peer's JWT Pizza deployment. Take careful notes about the preparation, actions, and results for the penetration test.
 
@@ -89,7 +92,7 @@ When you and your peer have completed the report, commit it to the root of your 
 
 Complete the penetration tests defined above and produce the penetration report with your peer.
 
-Copy the URL of the report in your GitHub repository and submit it to the Canvas assignment. This should look something like this:
+Copy the URL of the report in your GitHub repository and submit it to the [Canvas assignment](byu.instructure.com). You submission should look something like this:
 
 ```txt
 https://github.com/byucsstudent/jwt-pizza/blob/main/penetrationTests/peerTest.md

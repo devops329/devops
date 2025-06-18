@@ -157,7 +157,7 @@ Once you have made the change, commit and push. This should trigger Vite to bund
 
 Let's look at each of the steps in the GitHub Actions workflow.
 
-First off we tell GitHub actions that we want to trigger this workflow whenever a commit is pushed into the main branch. We also add a trigger for when a **workflow dispatch** event is created, which will allow the AutoGrader to trigger your workflow manually or via an API call.
+First off we tell GitHub actions that we want to trigger this workflow whenever a commit is pushed into the main branch. We also add a trigger for when a **workflow dispatch** event is created, which will allow you to trigger your workflow manually or via an API call.
 
 ```yml
 on:
@@ -279,7 +279,7 @@ We only showed a simple basic example of what you can do with GitHub Actions, bu
 
 Complete the steps outlined above by creating a GitHub Actions workflow to deploy the JWT Pizza frontend whenever a change is pushed to the main branch.
 
-Once JWT Pizza is live on your domain, go to the [AutoGrader](https://cs329.cs.byu.edu) and submit your work for the deliverable.
+Once JWT Pizza is live on your domain, go to the [Canvas assignment](https://byu.instructure.com) and submit your work for the deliverable.
 
 ### Rubric
 

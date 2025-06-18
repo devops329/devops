@@ -176,7 +176,7 @@ The last step for configuring the scalable deployment of your backend, is to cre
 
 > [!NOTE]
 >
-> The subdomain must be `pizza-service` in order for the AutoGrader to access your service.
+> The subdomain must be `pizza-service` in order for your deliverables to be graded.
 
 ### Testing the DNS record
 

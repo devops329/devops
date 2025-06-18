@@ -202,7 +202,15 @@ Then we assert that the HTTP method was `PUT` and that we got the expected reque
 ```js
 await page.route('*/**/api/auth', async (route) => {
   const loginReq = { email: 'd@jwt.com', password: 'a' };
-  const loginRes = { user: { id: 3, name: 'Kai Chen', email: 'd@jwt.com', roles: [{ role: 'diner' }] }, token: 'abcdef' };
+  const loginRes = {
+    user: {
+      id: 3,
+      name: 'Kai Chen',
+      email: 'd@jwt.com',
+      roles: [{ role: 'diner' }],
+    },
+    token: 'abcdef',
+  };
   expect(route.request().method()).toBe('PUT');
   expect(route.request().postDataJSON()).toMatchObject(loginReq);
   await route.fulfill({ json: loginRes });
@@ -217,8 +225,20 @@ The final version of the test, with all the mocks, looks like this. Note that th
 test('purchase with login', async ({ page }) => {
   await page.route('*/**/api/order/menu', async (route) => {
     const menuRes = [
-      { id: 1, title: 'Veggie', image: 'pizza1.png', price: 0.0038, description: 'A garden of delight' },
-      { id: 2, title: 'Pepperoni', image: 'pizza2.png', price: 0.0042, description: 'Spicy treat' },
+      {
+        id: 1,
+        title: 'Veggie',
+        image: 'pizza1.png',
+        price: 0.0038,
+        description: 'A garden of delight',
+      },
+      {
+        id: 2,
+        title: 'Pepperoni',
+        image: 'pizza2.png',
+        price: 0.0042,
+        description: 'Spicy treat',
+      },
     ];
     expect(route.request().method()).toBe('GET');
     await route.fulfill({ json: menuRes });
@@ -244,7 +264,15 @@ test('purchase with login', async ({ page }) => {
 
   await page.route('*/**/api/auth', async (route) => {
     const loginReq = { email: 'd@jwt.com', password: 'a' };
-    const loginRes = { user: { id: 3, name: 'Kai Chen', email: 'd@jwt.com', roles: [{ role: 'diner' }] }, token: 'abcdef' };
+    const loginRes = {
+      user: {
+        id: 3,
+        name: 'Kai Chen',
+        email: 'd@jwt.com',
+        roles: [{ role: 'diner' }],
+      },
+      token: 'abcdef',
+    };
     expect(route.request().method()).toBe('PUT');
     expect(route.request().postDataJSON()).toMatchObject(loginReq);
     await route.fulfill({ json: loginRes });
@@ -364,7 +392,7 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Add the configuration necessary so that the workflow fails if there is not 80% coverage.
 1. Add the reporting of the coverage to the workflow by creating a coverage badge in the README.md file.
 
-Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and submit your work for the deliverable.
+Once this is all working, go to the [Canvas assignment](https://byu.instructure.com) and submit your work for the deliverable.
 
 ### Rubric
 

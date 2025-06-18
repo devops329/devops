@@ -129,7 +129,7 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Create the IAM policies, roles, and identity provider definitions necessary to secure access for deployment.
 1. Alter your GitHub Actions workflow to update S3 and CloudFront instead of deploying to GitHub Pages.
 
-Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and submit your work for the deliverable.
+Once this is all working, go to the [Canvas assignment](https://byu.instructure.com) and submit your work for the deliverable.
 
 ### Rubric
 

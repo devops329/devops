@@ -10,9 +10,9 @@ Late submissions receive **zero** points.
 
 ## Grace Days
 
-Each student will begin the semester with **one grace day**. Grace days allow you to submit a deliverable past the assigned due date for full credit. Each grace day covers one day late, excluding Sundays. For deliverables submitted via the [AutoGrader](https://cs329.cs.byu.edu), any grace days that are used will be deducted automatically. For deliverables submitted via Canvas, TAs will deduct grace days manually.
+Each student begins the semester with **two grace day**. Grace days allow you to submit a deliverable past the assigned due date for full credit. Each grace day covers one day late, excluding Sundays. For deliverables submitted for a [Canvas assignment](https://byu.instructure.com), any grace days that are used will be deducted by the TA grading the assignment.
 
-The grader will attempt to apply grace days to every late submission made, even submissions that earn partial credit. If you need to resubmit, the AutoGrader will track how many grace days you have already applied for that assignment. This means you can resubmit multiple times on the same day without using additional late days for each submission.
+The grader applies grace days to every late submission made, even submissions that earn partial credit. If you need to resubmit, the TA will track how many grace days you have already applied for that assignment. This means you can resubmit multiple times on the same day without using additional late days for each submission.
 
 You will receive a **zero** on all late submissions if the days late exceeds the grace days available, in which case, any available grace days will not be applied to that submission. For example, if you have two grace days and submit three days late, you will receive zero points but still have two grace days for a future assignment.
 
@@ -22,13 +22,12 @@ We encourage you to submit all work even if it is late. Most deliverables depend
 
 ## Earning Grace Days
 
-To encourage you to stay current with the course, and knowing that sometimes life happens, you can earn grace days.
-For each day early a deliverable is submitted (and receives 100%) excluding Sundays, you earn 1 grace day, up to a maximum of 2 per deliverable.
-Grace days will either be updated automatically by the autograder or through your assigned TA for submissions made through Canvas.
+To encourage you to stay ahead of the course, and handle the inevitable sickness, family emergency, powder day, or accident, you can earn grace days.
 
-## Tracking Grace Days
+For each day that a deliverable is submitted early, and receives 100%, Sundays excluded, you earn 1 grace day, up to a maximum of 2 per deliverable.
 
-You can view your available late days in the `Profile` page of the AutoGrader.
+You can view your available grace days on the `Grace Days` assignment in Canvas.
 
 ## Extenuating Circumstances and Accommodations
+
 Life happens, sometimes in ways we cannot foresee or prepare for. If you encounter an extenuating circumstance or require university accommodations during the semester, please contact the professor as soon as possible. University Accommodations require you to ask the Professor for extensions **before** the deadline.

@@ -4,7 +4,7 @@
 
 🔑 **Key points**
 
-- Format your commit messages so the AutoGrader can find your commits.
+- Format your commit messages so the TAs can easily review your commits.
 - Commit often and before the deadline.
 - Failure to clearly document your code authorship may result in failing the class.
 

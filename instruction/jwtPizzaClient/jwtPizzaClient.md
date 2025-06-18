@@ -35,15 +35,9 @@ Here are the steps to take:
 
 1. Navigate your browser over to the [jwt-pizza](https://github.com/devops329/jwt-pizza) repository on GitHub and select the option to `Fork` the repository.
    > ![forkRepo](forkRepo.png)
-1. Create the fork by pressing the `Create fork` button. For the AutoGrader to find your repo, leave the name of the repository `jwt-pizza`.
+1. Create the fork by pressing the `Create fork` button. You **must** leave the name of the repository `jwt-pizza` so that the TAs can easily review your work.
+
    > ![createFork](createFork.png)
-1. Invite 329 TA to be a collaborator on your repository by navigating to `Settings -> Collaborators -> Add People` and searching for `byucs329ta`.
-
-   ![collab](../gitHub/addCollaborator.png)
-
-   > [!IMPORTANT]
-   >
-   > If you do not invite the TA to be a collaborator you will not be able to pass off your deliverables.
 
 1. Copy the URL for your fork of the repository.
    > ![cloneUrl](cloneUrl.png)

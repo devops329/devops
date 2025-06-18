@@ -243,7 +243,6 @@ jobs:
         options: >-
           --health-cmd "mysqladmin ping -ptempdbpassword" --health-interval 10s --health-start-period 10s --health-timeout 5s --health-retries 10
 
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -307,7 +306,7 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Add the reporting of the coverage to the workflow by creating a coverage badge in the README.md file.
 1. Add the creation of a version file named `src/version.json`.
 
-Once this is all working, go to the [AutoGrader](https://cs329.cs.byu.edu) and submit your work for the deliverable.
+Once this is all working, go to the [Canvas assignment](https://byu.instructure.com) and submit your work for the deliverable.
 
 ### Rubric
 
