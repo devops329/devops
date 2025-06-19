@@ -177,27 +177,29 @@ Before you run your new workflow you need to add a version number and report on 
 
 ![Example badge](badge.svg)
 
-You can report your coverage publicly by updating the `coverageBadge.svg` file that is displayed in the README.md file with the latest coverage percentage. We do this with the help of an image generator found at `img.shields.io`.
+You can report your coverage publicly by creating a coverage badge that is displayed in your README.md file and updating it every time you CI pipeline executes.
 
-In order to publicly display your coverage you will create a badge that displays your coverage percentage. We use the **Badge Me** service to create, store, and retrieve badges that you then display in your **README.md** file. The Badge Me service requires you to provide an authorization token that you define. You will supply your JWT Pizza API token to authorize the creation of a badge.
+In order to publicly display your coverage you will create a badge that displays your coverage percentage. We use the **JWT Pizza Factory Badge** service to create, store, and retrieve badges that you then display in your **README.md** file. You supply your `BYU Net ID` and your `JWT Pizza API token` to authorize the creation of a badge. Make sure both of those values are represented in your GitHub Actions secrets.
 
 ```yml
 - name: Update coverage
   run: |
     coverage=$(jq '.total.lines.pct' coverage/coverage-summary.json)
     color=$(echo "$coverage < 80" | bc | awk '{if ($1) print "red"; else print "green"}')
-    curl -s -X POST "https://badge.cs329.click/badge/${{ github.repository_owner }}/jwtpizzaservicecoverage?label=Coverage&value=$coverage%25&color=$color" -H "authorization: bearer ${{ secrets.FACTORY_API_KEY }}"
-```
-
-To make your coverage badge appear in your README.md file, you will need to add the following markdown image reference to the **Badge Me** service URL representing the coverage badge that your CI pipeline created. Make sure you replace the placeholder with your GitHub account name.
-
-```md
-![Coverage badge](https://badge.cs329.click/badge/YOURGITHUBACCOUNTNAME/jwtpizzaservicecoverage)
+    curl -s -X POST "https://pizza-factory.cs329.click/api/badge/${{ secrets.NET_ID }}/jwtpizzaservicecoverage?label=Coverage&value=$coverage%25&color=$color" -H "authorization: bearer ${{ secrets.FACTORY_API_KEY }}"
 ```
 
 > [!NOTE]
 >
-> If your README.md already contains a reference for the coverage badge then replace it with the new definition provided above.
+> You need to add the `FACTORY_API_KEY` and `NET_ID` to the Action secrets so that you can reference them when you build your coverage badge. If you need a refresher on how to do this, refer back to the [unit testing deliverable](../deliverable3UnitTesting/deliverable3UnitTesting.md#storing-secrets).
+>
+> ![Action secrets](actionSecrets.png)
+
+To make your coverage badge appear in your README.md file, you will need to add the following markdown image reference to the **JWT Pizza Factory Badge** service URL representing the coverage badge that your CI pipeline created. Make sure you replace the placeholder with your BYU Net ID.
+
+```md
+![Coverage badge](https://pizza-factory.cs329.click/api/badge/YOURNETID/jwtpizzaservicecoverage)
+```
 
 ## The final workflow
 
@@ -292,7 +294,7 @@ jobs:
         run: |
           coverage=$(jq '.total.lines.pct' coverage/coverage-summary.json)
           color=$(echo "$coverage < 80" | bc | awk '{if ($1) print "red"; else print "green"}')
-          curl -s -X POST "https://badge.cs329.click/badge/${{ github.repository_owner }}/jwtpizzaservicecoverage?label=Coverage&value=$coverage%25&color=$color" -H "authorization: bearer ${{ secrets.FACTORY_API_KEY }}"
+          curl -s -X POST "https://pizza-factory.cs329.click/api/badge/${{ secrets.NET_ID }}/jwtpizzaservicecoverage?label=Coverage&value=$coverage%25&color=$color" -H "authorization: bearer ${{ secrets.FACTORY_API_KEY }}"
 ```
 
 ## ⭐ Deliverable

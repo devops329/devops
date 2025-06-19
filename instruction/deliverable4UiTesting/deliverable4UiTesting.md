@@ -359,20 +359,14 @@ You can then parse the coverage output to build a new coverage badge just like y
 - name: Update coverage
   run: |
     coverage=$(jq '.total.lines.pct' coverage/coverage-summary.json)
-    color=$(echo "$coverage < 80" | bc -l | awk '{if ($1) print "red"; else print "green"}')
-    curl -s -X POST "https://badge.cs329.click/badge/${{ github.repository_owner }}/jwtpizzacoverage?label=Coverage&value=$coverage%25&color=$color" -H "authorization: bearer ${{ secrets.FACTORY_API_KEY }}" -o /dev/null
+    color=$(echo "$coverage < 80" | bc | awk '{if ($1) print "red"; else print "green"}')
+    curl -s -X POST "https://pizza-factory.cs329.click/api/badge/${{ secrets.NET_ID }}/jwtpizzacoverage?label=Coverage&value=$coverage%25&color=$color" -H "authorization: bearer ${{ secrets.FACTORY_API_KEY }}"
 ```
-
-> [!NOTE]
->
-> You need to add the `FACTORY_API_KEY` to the Action secrets so that you can reference it as your authorization token when you build your coverage badge. If you need a refresher on how to do this, refer back to the [unit testing deliverable](../deliverable3UnitTesting/deliverable3UnitTesting.md#storing-secrets).
->
-> ![Action secrets](actionSecrets.png)
 
 Make sure you modify the `README.md` file for the project to contain a reference to the generated coverage badge.
 
 ```md
-![Coverage badge](https://badge.cs329.click/badge/YOURGITHUBACCOUNTNAME/jwtpizzacoverage)
+![Coverage badge](https://pizza-factory.cs329.click/api/badge/YOURNETID/jwtpizzacoverage)
 ```
 
 ## Running your pipeline
