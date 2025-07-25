@@ -1,4 +1,4 @@
-# Deliverable ⓻ Scalable deployment: JWT Pizza Service
+# Deliverable ⓻ Backend deployment: JWT Pizza Service
 
 🔑 **Key points**
 
