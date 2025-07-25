@@ -39,6 +39,8 @@
 ## Special days
 
 - **Sept 3**: First day of class
-- **Nov 27-28**: Holiday (Tuesday 18 is Monday instruction)
+- **Nov 24**: Withdraw deadline
+- **Nov 26**: No classes
+- **Nov 27-28**: Holiday
 - **Dec 10**: Last day of class
 - **Dec 17**: Last day of finals
