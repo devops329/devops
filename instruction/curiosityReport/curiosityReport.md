@@ -11,22 +11,51 @@ Curiosity is a defining characteristic of a successful software engineer. Throug
 
 In order to help you develop your ability to be curious, you are required to take a deep dive at least once during the course into something related to QA or DevOps that is either not covered in the course, or is only tangentially covered.
 
-This could include such topics as:
+# Examples of good reports
 
-1. Deploying using serverless technologies
-1. Learning what cloud vendors besides AWS provide for DevOps
-1. A deep dive into load balancers
-1. Using no-code solutions for application deployment
-1. Other testing frameworks
-1. Learn the internals of how Jest or Playwright work
-1. Learning the underlying OS support for how docker containers work
-1. Researching the origin of the Agile movement
-1. Studying how a company like Netflix does their DevOps
-1. Learning about Site Reliability Engineering (SRE)
+The following are reasonable reports that previous learners created. These provide examples of the level of effort and quality that your report should have in order to be accepted.
+
+- [Creating NPM Packages](https://github.com/eddieblu/jwt-pizza/blob/main/curiosityReport.md)
+- [Progressive Delivery](https://github.com/bvanitem/jwt-pizza/blob/main/curiosityReport.md)
+- [AWS Lambda](https://github.com/jjwjohns/jwt-pizza/blob/main/curiosityReport.md)
+- [How do Linters work](https://github.com/rileyballard6/jwt-pizza/blob/main/curiosityReport.md)
+- [Bun vs Deno vs Node.js](https://github.com/bauchdj/jwt-pizza/blob/main/curiosityReport.md)
+- [Upptime](https://github.com/EthanSuperior/jwt-pizza/blob/main/curiosityReport.md)
+- [GitOps](https://github.com/Korea19800/jwt-pizza/blob/main/curiosityReport.md)
+- [Vercel VS AWS](https://github.com/kevinisyoung/jwt-pizza/blob/main/curiosityReport.md)
+- [Terraform](https://github.com/garett-whimple/jwt-pizza/blob/main/curiosityReport.md)
+- [Git Branching Strategy and Forking in Collaboration](https://github.com/alexueda/jwt-pizza/blob/main/blob/main/curiosityReport/curiosityReport.md)
+- [Mutation Testing](https://github.com/mailiap/jwt-pizza/blob/main/curiosityReport.md)
+- [SSL Certificates](https://github.com/ammonharps-git/jwt-pizza/blob/main/reports/curiosityReport.md)
+- [.NET Aspire](https://github.com/qkarpowi/jwt-pizza/blob/main/CuriosityReport.md)
+- [CORS](https://github.com/mbird13/jwt-pizza/blob/main/curiosityReport.md)
+
+Some common characteristics of a good report include:
+
+1. Goes beyond the instruction provided in the course
+1. Is related to QA and DevOps
+1. Involves research and experimentation
+1. Clear, meaningful, write up that allows for review/reproduction of the research
+1. Wasn't just an AI cut and paste
+
+# Example of a poor report
+
+The following report doesn't meet the acceptance threshold for the following reasons:
+
+1. It simply repeats what is taught in the course instruction
+1. There is no depth in research and application
+1. It doesn't demonstrate the exercise of curiosity
+1. There are no references to existing authorities on the subject
+
+![Poor report](poorReport.png)
+
+A better Jest curiosity report would focus on a specific area that is not directly covered in the course.
+
+For example: **Diving into the internals of how SuperTest enables endpoint calls**.
 
 ## ⭐ Assignment
 
-By the end of the course you must do the following:
+Before the last few weeks of the course you must do the following:
 
 1. Pick a curiosity topic
 1. Research the topic
