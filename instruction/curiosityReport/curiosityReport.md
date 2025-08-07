@@ -47,7 +47,7 @@ The following report doesn't meet the acceptance threshold for the following rea
 1. It doesn't demonstrate the exercise of curiosity
 1. There are no references to existing authorities on the subject
 
-![Poor report](poorReport.png)
+> ![Poor report](poorReport.png)
 
 A better Jest curiosity report would focus on a specific area that is not directly covered in the course.
 
