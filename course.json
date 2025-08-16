@@ -93,7 +93,7 @@
         { "title": "☑ JWT Pizza Service container", "path": "instruction/jwtPizzaServiceContainer/jwtPizzaServiceContainer.md" },
         { "title": "☑ AWS ECR", "path": "instruction/awsEcr/awsEcr.md" },
         { "title": "☑ AWS ECS", "path": "instruction/awsEcs/awsEcs.md" },
-        { "title": "⓻ Overview", "path": "https://youtu.be/qvf1kaT_wr0", "type": "video" },
+        { "title": "⓻ Overview", "path": "https://youtu.be/mhFmGVfFA8c", "type": "video" },
         { "title": "⭐ ⓻ Backend deployment: JWT Pizza Service", "path": "instruction/deliverable7BackendDeployment/deliverable7BackendDeployment.md" },
         { "title": "Infrastructure as code", "path": "instruction/infrastructureAsCode/infrastructureAsCode.md" },
         { "title": "AWS Cloud Formation", "path": "instruction/awsCloudFormation/awsCloudFormation.md" },
