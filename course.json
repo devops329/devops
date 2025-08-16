@@ -10,6 +10,12 @@
     {
       "title": "Course info",
       "topics": [
+        { "title": "Welcome", "path": "https://youtu.be/PKiRH2ZKZeM", "type": "video" },
+        { "title": "Course overview", "path": "instruction/courseOverview/courseOverview.md" },
+        { "title": "Course expectations", "path": "instruction/courseExpectations/courseExpectations.md" },
+        { "title": "Course resources", "path": "instruction/courseResources/courseResources.md" },
+        { "title": "Course communication", "path": "instruction/courseCommunication/courseCommunication.md" },
+        { "title": "Course grading", "path": "instruction/courseGrading/courseGrading.md" },
         { "title": "Home", "path": "README.md" },
         { "title": "Syllabus", "path": "instruction/syllabus/syllabus.md" },
         { "title": "Schedule", "path": "schedule/schedule.md" }
