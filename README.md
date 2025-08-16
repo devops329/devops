@@ -1,7 +1,7 @@
 ![BYU logo](https://github.com/devops329/devops/blob/main/byuLogo.png?raw=true)
 
 # BYU QA and DevOps `cs329`
-x
+
 ![DevOps Cover](https://github.com/devops329/devops/blob/main/devopscover.jpg?raw=true)
 
 _Image Generated with Bing AI_
