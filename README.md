@@ -1,6 +1,6 @@
 ![BYU logo](https://github.com/devops329/devops/blob/main/byuLogo.png?raw=true)
 
-# BYU QA and DevOps `cs329`
+# BYU QA and DevOps `cs329` a
 
 ![DevOps Cover](https://github.com/devops329/devops/blob/main/devopscover.jpg?raw=true)
 
