@@ -17,7 +17,7 @@
 Before you start work on this deliverable make sure you have read all of the preceding instruction topics and have completed all of the dependent exercises (topics marked with a ☑). This includes:
 
 - [Testing](../testing/testing.md)
-- [Testing variations](../testingCategories/testingCategories.md)
+- [Testing categories](../testingCategories/testingCategories.md)
 - [Coverage](../coverage/coverage.md)
 - [Jest Basics](../jestBasics/jestBasics.md)
 - ☑ [Jest Advanced](../jestAdvanced/jestAdvanced.md)
