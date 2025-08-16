@@ -69,9 +69,9 @@
         { "title": "⭐ ⓷ Unit testing CI: JWT Pizza Service", "path": "instruction/deliverable3UnitTesting/deliverable3UnitTesting.md" },
         { "title": "UI testing", "path": "instruction/uiTesting/uiTesting.md" },
         { "title": "☑ Playwright", "path": "instruction/playwright/playwright.md" },
+        { "title": "⓸ Overview", "path": "https://youtu.be/qvf1kaT_wr0", "type": "video" },
         { "title": "⭐ ⓸ User interface testing: JWT Pizza", "path": "instruction/deliverable4UiTesting/deliverable4UiTesting.md" },
         { "title": "☑ Test driven development (TDD)", "path": "instruction/tdd/tdd.md" },
-        { "title": "⓹ Overview", "path": "https://youtu.be/qvf1kaT_wr0", "type": "video" },
         { "title": "⭐ ⓹ Test driven development", "path": "instruction/deliverable5Tdd/deliverable5Tdd.md" }
       ]
     },
