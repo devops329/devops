@@ -10,7 +10,6 @@
     {
       "title": "Course info",
       "topics": [
-        { "title": "Welcome", "path": "https://youtu.be/PKiRH2ZKZeM", "type": "video" },
         { "title": "Home", "path": "README.md" },
         { "title": "Syllabus", "path": "instruction/syllabus/syllabus.md" },
         { "title": "Schedule", "path": "schedule/schedule.md" }
@@ -66,11 +65,13 @@
         { "title": "Dependency injection", "path": "instruction/dependencyInjection/dependencyInjection.md" },
         { "title": "Integration testing", "path": "instruction/integrationTesting/integrationTesting.md" },
         { "title": "Unit testing: JWT Pizza Service", "path": "instruction/unitTestingJwtPizzaService/unitTestingJwtPizzaService.md" },
+        { "title": "⓷ Overview", "path": "https://youtu.be/PKiRH2ZKZeM", "type": "video" },
         { "title": "⭐ ⓷ Unit testing CI: JWT Pizza Service", "path": "instruction/deliverable3UnitTesting/deliverable3UnitTesting.md" },
         { "title": "UI testing", "path": "instruction/uiTesting/uiTesting.md" },
         { "title": "☑ Playwright", "path": "instruction/playwright/playwright.md" },
         { "title": "⭐ ⓸ User interface testing: JWT Pizza", "path": "instruction/deliverable4UiTesting/deliverable4UiTesting.md" },
         { "title": "☑ Test driven development (TDD)", "path": "instruction/tdd/tdd.md" },
+        { "title": "⓹ Overview", "path": "https://youtu.be/qvf1kaT_wr0", "type": "video" },
         { "title": "⭐ ⓹ Test driven development", "path": "instruction/deliverable5Tdd/deliverable5Tdd.md" }
       ]
     },
@@ -92,6 +93,7 @@
         { "title": "☑ JWT Pizza Service container", "path": "instruction/jwtPizzaServiceContainer/jwtPizzaServiceContainer.md" },
         { "title": "☑ AWS ECR", "path": "instruction/awsEcr/awsEcr.md" },
         { "title": "☑ AWS ECS", "path": "instruction/awsEcs/awsEcs.md" },
+        { "title": "⓻ Overview", "path": "https://youtu.be/qvf1kaT_wr0", "type": "video" },
         { "title": "⭐ ⓻ Backend deployment: JWT Pizza Service", "path": "instruction/deliverable7BackendDeployment/deliverable7BackendDeployment.md" },
         { "title": "Infrastructure as code", "path": "instruction/infrastructureAsCode/infrastructureAsCode.md" },
         { "title": "AWS Cloud Formation", "path": "instruction/awsCloudFormation/awsCloudFormation.md" },
