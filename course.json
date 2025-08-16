@@ -1,0 +1,158 @@
+{
+  "title": "QA & DevOps",
+  "schedule": "schedule/schedule.md",
+  "syllabus": "instruction/syllabus/syllabus.md",
+  "canvas": "https://byu.instructure.com/courses/31151",
+  "chat": "https://discord.com/channels/748656649287368704",
+  "modules": [
+    {
+      "title": "Course info",
+      "topics": [
+        { "title": "Home", "path": "README.md" },
+        { "title": "Syllabus", "path": "instruction/syllabus/syllabus.md" },
+        { "title": "Schedule", "path": "schedule/schedule.md" }
+      ]
+    },
+    {
+      "title": "Getting started",
+      "topics": [
+        { "title": "☑ Overview", "path": "instruction/overview/overview.md" },
+        { "title": "History", "path": "instruction/history/history.md" },
+        { "title": "Terminology", "path": "instruction/terminology/terminology.md" },
+        { "title": "🍕 JWT Pizza", "path": "instruction/jwtPizza/jwtPizza.md" },
+        { "title": "☑ JWT Pizza Factory", "path": "instruction/jwtPizzaFactory/jwtPizzaFactory.md" },
+        { "title": "Intro to AWS", "path": "instruction/aws/aws.md" },
+        { "title": "☑ AWS Account", "path": "instruction/awsAccount/awsAccount.md" },
+        { "title": "AWS Route 53", "path": "instruction/awsRoute53/awsRoute53.md" },
+        { "title": "GitHub", "path": "instruction/gitHub/gitHub.md" },
+        { "title": "Late Policy", "path": "instruction/latePolicy/latePolicy.md" },
+        { "title": "Commit History", "path": "instruction/gitHub/commitHistory.md" },
+        { "title": "⭐ Christlike learning", "path": "instruction/christlikeLearning/christlikeLearning.md" },
+        { "title": "⭐ Curiosity report", "path": "instruction/curiosityReport/curiosityReport.md" },
+        { "title": "☑ Asking Questions", "path": "instruction/askingQuestions/askingQuestions.md" },
+        { "title": "Deliverable Frequently Asked Questions", "path": "instruction/faq/faq.md" }
+      ]
+    },
+    {
+      "title": "Simple deployment",
+      "topics": [
+        { "title": "☑ JWT Pizza Service", "path": "instruction/jwtPizzaService/jwtPizzaService.md" },
+        { "title": "☑ JWT Pizza data", "path": "instruction/jwtPizzaData/jwtPizzaData.md" },
+        { "title": "☑ JWT Pizza Client", "path": "instruction/jwtPizzaClient/jwtPizzaClient.md" },
+        { "title": "Full stack debugging", "path": "instruction/fullStackDebugging/fullStackDebugging.md" },
+        { "title": "Merge conflicts", "path": "instruction/mergeConflicts/mergeConflicts.md" },
+        { "title": "⭐ ⓵ Development deployment: JWT Pizza", "path": "instruction/deliverable1DevelopmentDeploy/deliverable1DevelopmentDeploy.md" },
+        { "title": "Automation", "path": "instruction/automation/automation.md" },
+        { "title": "Continuous integration (CI)", "path": "instruction/continuousIntegration/continuousIntegration.md" },
+        { "title": "☑ GitHub Actions", "path": "instruction/gitHubActions/gitHubActions.md" },
+        { "title": "Static deployment", "path": "instruction/staticDeployment/staticDeployment.md" },
+        { "title": "☑ GitHub Pages", "path": "instruction/gitHubPages/gitHubPages.md" },
+        { "title": "⭐ ⓶ Automated deployment: JWT Pizza", "path": "instruction/deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md" }
+      ]
+    },
+    {
+      "title": "Quality assurance",
+      "topics": [
+        { "title": "Testing", "path": "instruction/testing/testing.md" },
+        { "title": "Testing variations", "path": "instruction/testingCategories/testingCategories.md" },
+        { "title": "Coverage", "path": "instruction/coverage/coverage.md" },
+        { "title": "Jest Basics", "path": "instruction/jestBasics/jestBasics.md" },
+        { "title": "☑ Jest Advanced", "path": "instruction/jestAdvanced/jestAdvanced.md" },
+        { "title": "☑ Service testing", "path": "instruction/serviceTesting/serviceTesting.md" },
+        { "title": "☑ Lint", "path": "instruction/lint/lint.md" },
+        { "title": "Dependency injection", "path": "instruction/dependencyInjection/dependencyInjection.md" },
+        { "title": "Integration testing", "path": "instruction/integrationTesting/integrationTesting.md" },
+        { "title": "Unit testing: JWT Pizza Service", "path": "instruction/unitTestingJwtPizzaService/unitTestingJwtPizzaService.md" },
+        { "title": "⭐ ⓷ Unit testing CI: JWT Pizza Service", "path": "instruction/deliverable3UnitTesting/deliverable3UnitTesting.md" },
+        { "title": "UI testing", "path": "instruction/uiTesting/uiTesting.md" },
+        { "title": "☑ Playwright", "path": "instruction/playwright/playwright.md" },
+        { "title": "⭐ ⓸ User interface testing: JWT Pizza", "path": "instruction/deliverable4UiTesting/deliverable4UiTesting.md" },
+        { "title": "☑ Test driven development (TDD)", "path": "instruction/tdd/tdd.md" },
+        { "title": "⭐ ⓹ Test driven development", "path": "instruction/deliverable5Tdd/deliverable5Tdd.md" }
+      ]
+    },
+    {
+      "title": "Cloud deployment",
+      "topics": [
+        { "title": "Security", "path": "instruction/security/security.md" },
+        { "title": "Cloud deployment", "path": "instruction/cloudDeployment/cloudDeployment.md" },
+        { "title": "☑ AWS S3", "path": "instruction/awsS3/awsS3.md" },
+        { "title": "AWS CloudFront", "path": "instruction/awsCloudFront/awsCloudFront.md" },
+        { "title": "AWS S3 deployment", "path": "instruction/awsS3Deployment/awsS3Deployment.md" },
+        { "title": "Deployment environments", "path": "instruction/deploymentEnvironments/deploymentEnvironments.md" },
+        { "title": "☑ GitHub environments", "path": "instruction/gitHubEnvironments/gitHubEnvironments.md" },
+        { "title": "⭐ ⓺ Frontend deployment: JWT Pizza", "path": "instruction/deliverable6FrontendDeployment/deliverable6FrontendDeployment.md" },
+        { "title": "Elasticity", "path": "instruction/elasticity/elasticity.md" },
+        { "title": "☑ AWS RDS MySQL", "path": "instruction/awsRdsMysql/awsRdsMysql.md" },
+        { "title": "Docker", "path": "instruction/docker/docker.md" },
+        { "title": "Containers", "path": "instruction/containers/containers.md" },
+        { "title": "☑ JWT Pizza Service container", "path": "instruction/jwtPizzaServiceContainer/jwtPizzaServiceContainer.md" },
+        { "title": "☑ AWS ECR", "path": "instruction/awsEcr/awsEcr.md" },
+        { "title": "☑ AWS ECS", "path": "instruction/awsEcs/awsEcs.md" },
+        { "title": "⭐ ⓻ Backend deployment: JWT Pizza Service", "path": "instruction/deliverable7BackendDeployment/deliverable7BackendDeployment.md" },
+        { "title": "Infrastructure as code", "path": "instruction/infrastructureAsCode/infrastructureAsCode.md" },
+        { "title": "AWS Cloud Formation", "path": "instruction/awsCloudFormation/awsCloudFormation.md" },
+        { "title": "☑ JWT Pizza Service infrastructure automation", "path": "instruction/jwtPizzaServiceInfrastructureAutomation/jwtPizzaServiceInfrastructureAutomation.md" },
+        { "title": "Versioning", "path": "instruction/versioning/versioning.md" },
+        { "title": "Deployment strategies", "path": "instruction/deploymentStrategies/deploymentStrategies.md" },
+        { "title": "☑ GitHub releases", "path": "instruction/gitHubReleases/gitHubReleases.md" }
+      ]
+    },
+    {
+      "title": "Observability",
+      "topics": [
+        { "title": "Observability", "path": "instruction/observability/observability.md" },
+        { "title": "Metrics", "path": "instruction/metrics/metrics.md" },
+        { "title": "☑ Grafana", "path": "instruction/grafana/grafana.md" },
+        { "title": "Grafana metrics", "path": "instruction/grafanaMetrics/grafanaMetrics.md" },
+        { "title": "☑ Visualizing metrics", "path": "instruction/visualizingMetrics/visualizingMetrics.md" },
+        { "title": "Simulating traffic", "path": "instruction/simulatingTraffic/simulatingTraffic.md" },
+        { "title": "⭐ ⓼ Metrics: JWT Pizza Service", "path": "instruction/deliverable8Metrics/deliverable8Metrics.md" },
+        { "title": "Logging", "path": "instruction/logging/logging.md" },
+        { "title": "☑ Grafana logging", "path": "instruction/grafanaLogging/grafanaLogging.md" },
+        { "title": "⭐ ⓽ Logging: JWT Pizza Service", "path": "instruction/deliverable9Logging/deliverable9Logging.md" },
+        { "title": "☑ Grafana annotations", "path": "instruction/grafanaAnnotations/grafanaAnnotations.md" },
+        { "title": "Status", "path": "instruction/statusReporting/statusReporting.md" }
+      ]
+    },
+    {
+      "title": "E2E testing",
+      "topics": [
+        { "title": "☑ Synthetic testing", "path": "instruction/syntheticTesting/syntheticTesting.md" },
+        { "title": "Load testing", "path": "instruction/loadTesting/loadTesting.md" },
+        { "title": "Grafana K6", "path": "instruction/grafanaK6/grafanaK6.md" },
+        { "title": "⭐ ⓾ Load testing: JWT Pizza Service", "path": "instruction/deliverable10LoadTesting/deliverable10LoadTesting.md" }
+      ]
+    },
+    {
+      "title": "Failure testing",
+      "topics": [
+        { "title": "Failure", "path": "instruction/failure/failure.md" },
+        { "title": "Backup and Recovery", "path": "instruction/recovery/recovery.md" },
+        { "title": "Alerts", "path": "instruction/alerting/alerting.md" },
+        { "title": "☑ Grafana OnCall", "path": "instruction/grafanaOnCall/grafanaOnCall.md" },
+        { "title": "Playbooks", "path": "instruction/playbooks/playbooks.md" },
+        { "title": "Self healing", "path": "instruction/selfHealing/selfHealing.md" },
+        { "title": "☑ Chaos testing", "path": "instruction/chaosTesting/chaosTesting.md" },
+        { "title": "Incident report", "path": "instruction/incidentReport/incidentReport.md" },
+        { "title": "⭐ ⑪ Chaos testing: JWT Pizza", "path": "instruction/deliverable11ChaosTesting/deliverable11ChaosTesting.md" }
+      ]
+    },
+    {
+      "title": "Penetration testing",
+      "topics": [
+        { "title": "Security Community", "path": "instruction/securityCommunity/securityCommunity.md" },
+        { "title": "Penetration testing", "path": "instruction/penetrationTesting/penetrationTesting.md" },
+        { "title": "☑ Burp Suite", "path": "instruction/burpSuite/burpSuite.md" },
+        { "title": "⭐ ⑫ Penetration testing: JWT Pizza", "path": "instruction/deliverable12PenetrationTesting/deliverable12PenetrationTesting.md" }
+      ]
+    },
+    {
+      "title": "Conclusion",
+      "topics": [
+        { "title": "⭐ Christlike learning conclusion", "path": "instruction/christlikeLearningConclusion/christlikeLearningConclusion.md" },
+        { "title": "⭐ Wrap up", "path": "instruction/wrapUp/wrapUp.md" }
+      ]
+    }
+  ]
+}
