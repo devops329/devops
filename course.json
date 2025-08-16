@@ -2,8 +2,10 @@
   "title": "QA & DevOps",
   "schedule": "schedule/schedule.md",
   "syllabus": "instruction/syllabus/syllabus.md",
-  "canvas": "https://byu.instructure.com/courses/31151",
-  "chat": "https://discord.com/channels/748656649287368704",
+  "links": {
+    "canvas": "https://byu.instructure.com/courses/31151",
+    "chat": "https://discord.com/channels/748656649287368704"
+  },
   "modules": [
     {
       "title": "Course info",
