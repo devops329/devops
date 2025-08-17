@@ -28,8 +28,7 @@
         {
           "title": "Schedule",
           "path": "schedule/schedule.md",
-          "id": "4d398bdff38f40108c07a336314519d4",
-          "type": "quiz"
+          "id": "4d398bdff38f40108c07a336314519d4"
         }
       ]
     },
@@ -49,7 +48,8 @@
         {
           "title": "Demo",
           "path": "instruction/masteryLsDemo/masteryLsDemo.md",
-          "id": "ccccb516c3e243d39c8d1b0f3b64d52e"
+          "id": "ccccb516c3e243d39c8d1b0f3b64d52e",
+          "type": "quiz"
         },
         {
           "title": "Terminology",
