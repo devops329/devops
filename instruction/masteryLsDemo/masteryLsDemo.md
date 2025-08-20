@@ -16,11 +16,11 @@ This is a quiz in Mastery LS format
 
 ```masteryls
 {"id":"39283", "title":"Multiple select", "type":"multiple-select", "body": "A **multiple select** question can have multiple answers. Incorrect selections count against correct ones when calculating the correct percentage." }
-- [ ] This is **not** the right answer
+- [x] This is **not** the right answer
 - [x] This is _the_ right answer
-- [ ] This is **not** the right answer
+- [x] This is **not** the right answer
 - [x] Another right answer
-- [ ] This is **not** the right answer
+- [x] This is **not** the right answer
 ```
 
 ## Lists
