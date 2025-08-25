@@ -58,9 +58,9 @@ function example() {
 ## Mermaid Diagram
 
 ```mermaid
-graph TD;
-  A[Start] --> B{Is it working?};
-  B -- Yes --> C[Great!];
+graph TB;
+    A[Start] --> B{Is it working?};
+    B -- Yes --> C[Great!];
 ```
 
 ## Blockquote and Important Note
