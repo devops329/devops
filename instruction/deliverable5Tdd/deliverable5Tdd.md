@@ -12,7 +12,7 @@
 
 Before you start work on this deliverable make sure you have read all of the preceding instruction topics and have completed all of the dependent exercises (topics marked with a ☑). This includes:
 
-- ☑ [Test driven development (TDD)](tdd/tdd.md)
+- ☑ [Test driven development (TDD)](../tdd/tdd.md)
 
 Failing to do this will likely slow you down as you will not have the required knowledge to complete the deliverable.
 
