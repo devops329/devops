@@ -1,16 +1,6 @@
 {
-  "title": "QA & DevOps",
   "schedule": "schedule/schedule.md",
   "syllabus": "instruction/syllabus/syllabus.md",
-  "links": {
-    "canvas": "https://byu.instructure.com/courses/31151",
-    "chat": "https://discord.com/channels/748656649287368704",
-    "gitHub": {
-      "url": "https://github.com/devops329/devops/blob/main",
-      "apiUrl": "https://api.github.com/repos/devops329/devops/contents",
-      "rawUrl": "https://raw.githubusercontent.com/devops329/devops/main"
-    }
-  },
   "modules": [
     {
       "title": "Course info",
