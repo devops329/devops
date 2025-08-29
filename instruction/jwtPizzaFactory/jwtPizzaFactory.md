@@ -2,7 +2,7 @@
 
 The JWT Pizza Factory is controlled by JWT Pizza Headquarters and provides two major functionalities. First, it creates the pizzas that are served up by your JWT Pizza application. Second, it manages your JWT pizza vendor account.
 
-Before your do any work in the class you must setup your Vendor account with the [JWT Pizza Factory](https://pizza-factory.cs329.click). You register using your **BYU ID** and providing information such as your name, contact information, GitHub repository, and the URL of your pizza service website.
+Before your do any work in the class you must setup your Vendor account with the [JWT Pizza Factory](https://pizza-factory.cs329.click). Register with your **BYU ID** and provide information such as your name, contact information, GitHub repository, and the URL of your pizza service website.
 
 ![alt text](createAcccount.png)
 
