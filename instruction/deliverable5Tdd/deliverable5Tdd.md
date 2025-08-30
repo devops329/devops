@@ -88,7 +88,9 @@ import { HSOverlay } from 'preline';
 import Button from '../components/button';
 ```
 
-We then add an `updateUser` function that is called when the **Edit** button is pressed. The delay is used so that the preline can update the dialog React state correctly before we tell it to close. Otherwise, when running under automation we may tell preline to close before React has told preline that the dialog is actually displayed.
+We then add an `updateUser` function that is called when the **Edit** button is pressed. You can place this block anywhere in the DinerDashboard component.
+
+The **setTimeout** delay is used so that the preline can update the dialog React state correctly before we tell it to close. Otherwise, when running under automation we may tell preline to close before React has told preline that the dialog is actually displayed.
 
 ```ts
 async function updateUser() {
@@ -104,7 +106,7 @@ Add the **Edit** button to the display of the user. Put this right after the use
 <Button title='Edit' className='w-16 p-0' onPress={() => HSOverlay.open(document.getElementById('hs-jwt-modal')!)} />
 ```
 
-Finally, we create the edit user dialog. For now, we just display a placeholder for the user fields and provide an **Update** button.
+Finally, we create the edit user dialog. Place this as the last child of the **View** element. For now, we just display a placeholder for the user fields and provide an **Update** button.
 
 ```tsx
 <div
@@ -145,28 +147,27 @@ Finally, we create the edit user dialog. For now, we just display a placeholder 
 
 ### Test that the dialog displays
 
-With the dialog stubbed in, we can enhance the test to make sure the dialog displays and dismisses properly. Adding the following code we make sure that we can press the **Edit** button, view the dialog, and then dismiss it.
+With the dialog stubbed in, we can enhance the test to make sure the dialog displays and dismisses properly. Adding the following code we make sure that we can press the **Edit** button, view the dialog, and then dismiss it. Place the code at the bottom of the **updateUser** test so that it runs after you have navigated to the user view.
 
 **user.spec.ts**
 
 ```js
-  await page.getByRole('button', { name: 'Edit' }).click();
-  await expect(page.locator('h3')).toContainText('Edit user');
-  await page.getByRole('button', { name: 'Update' }).click();
+await page.getByRole('button', { name: 'Edit' }).click();
+await expect(page.locator('h3')).toContainText('Edit user');
+await page.getByRole('button', { name: 'Update' }).click();
 
-  await page.waitForSelector('[role="dialog"].hidden', { state: 'attached' });
+await page.waitForSelector('[role="dialog"].hidden', { state: 'attached' });
 
-  await expect(page.getByRole('main')).toContainText('pizza diner');
-});
+await expect(page.getByRole('main')).toContainText('pizza diner');
 ```
 
-If we got all the application and testing code written correctly, the test should pass fine.
+If we got all the application and testing code written correctly, the test should pass fine since it simply opens and closes the edit dialog.
 
 ### Enhance the test with dialog user fields
 
 To this point we have driven the development by first writing the code and then the test. Let's flip that and write the test first, let it fail, and then write the code until the test passes.
 
-Add a test that updates a non-existent dialog textbox for the user's name. Then assert that modifying the name updates the user's information once the dialog is dismissed.
+Further modify the **updateUser** test so that it interacts with a non-existent dialog textbox representing the user's name. Then assert that modifying the name updates the user's information once the dialog is dismissed.
 
 **user.spec.ts**
 
@@ -183,7 +184,7 @@ Add a test that updates a non-existent dialog textbox for the user's name. Then 
 });
 ```
 
-When you run the test it should fail.
+When you run the test it should fail. Note that the code the image is similar to what the above instructions provided, but slightly different. Feel free to also customize the test to your liking.
 
 ![alt text](setNameTestFailure.png)
 
