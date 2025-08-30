@@ -101,38 +101,38 @@ async function updateUser() {
 Add the **Edit** button to the display of the user. Put this right after the user's image.
 
 ```tsx
-<Button title="Edit" className="w-16 p-0" onPress={() => HSOverlay.open(document.getElementById('hs-jwt-modal')!)} />
+<Button title='Edit' className='w-16 p-0' onPress={() => HSOverlay.open(document.getElementById('hs-jwt-modal')!)} />
 ```
 
 Finally, we create the edit user dialog. For now, we just display a placeholder for the user fields and provide an **Update** button.
 
 ```tsx
 <div
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="dialog-title"
-  id="hs-jwt-modal"
-  className="hs-overlay hidden size-full fixed top-10 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none"
+  role='dialog'
+  aria-modal='true'
+  aria-labelledby='dialog-title'
+  id='hs-jwt-modal'
+  className='hs-overlay hidden size-full fixed top-10 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none'
 >
-  <div className="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto min-h-[calc(100%-3.5rem)]">
-    <div className="w-full flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto   ">
-      <div className="flex justify-between items-center py-3 px-4 border-b bg-slate-200 rounded-t-xl ">
-        <h3 className="font-bold text-gray-800">Edit user</h3>
+  <div className='hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto min-h-[calc(100%-3.5rem)]'>
+    <div className='w-full flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto   '>
+      <div className='flex justify-between items-center py-3 px-4 border-b bg-slate-200 rounded-t-xl '>
+        <h3 className='font-bold text-gray-800'>Edit user</h3>
         <button
-          type="button"
-          className="flex justify-center items-center size-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none"
-          data-hs-overlay="#hs-jwt-modal"
+          type='button'
+          className='flex justify-center items-center size-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none'
+          data-hs-overlay='#hs-jwt-modal'
         >
-          <CloseIcon className="" />
+          <CloseIcon className='' />
         </button>
       </div>
-      <div className="p-4 overflow-y-scroll max-h-52">
-        <div className="my-4 text-lg text-start grid grid-cols-5 gap-2 items-center">update fields here</div>
+      <div className='p-4 overflow-y-scroll max-h-52'>
+        <div className='my-4 text-lg text-start grid grid-cols-5 gap-2 items-center'>update fields here</div>
       </div>
-      <div className="flex justify-end items-center gap-x-2 py-3 px-4 border-t  bg-slate-200 rounded-b-xl">
+      <div className='flex justify-end items-center gap-x-2 py-3 px-4 border-t  bg-slate-200 rounded-b-xl'>
         <button
-          type="button"
-          className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+          type='button'
+          className='py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none'
           onClick={updateUser}
         >
           Update
@@ -164,7 +164,7 @@ If we got all the application and testing code written correctly, the test shoul
 
 ### Enhance the test with dialog user fields
 
-To this point we have driven the development by first writing the code and then the test. Let's flip that and write the test first, let it fail, and then white the code until the test passes.
+To this point we have driven the development by first writing the code and then the test. Let's flip that and write the test first, let it fail, and then write the code until the test passes.
 
 Add a test that updates a non-existent dialog textbox for the user's name. Then assert that modifying the name updates the user's information once the dialog is dismissed.
 
@@ -204,35 +204,19 @@ const passwordRef = React.useRef<HTMLInputElement>(null);
 Then we want to modify the dialog to represent all of the user fields. Replace
 
 ```tsx
-<div className="my-4 text-lg text-start grid grid-cols-5 gap-2 items-center">update fields here</div>
+<div className='my-4 text-lg text-start grid grid-cols-5 gap-2 items-center'>update fields here</div>
 ```
 
 with
 
 ```tsx
-<div className="my-4 text-lg text-start grid grid-cols-5 gap-2 items-center">
-  <div className="font-semibold">name:</div>
-  <input
-    type="text"
-    className="col-span-4 border border-gray-300 rounded-md p-1"
-    defaultValue={user.name}
-    ref={nameRef}
-  />
-  <div className="font-semibold">email:</div>
-  <input
-    type="email"
-    className="col-span-4 border border-gray-300 rounded-md p-1"
-    defaultValue={user.email}
-    ref={emailRef}
-  />
-  <div className="font-semibold">password:</div>
-  <input
-    id="password"
-    type="text"
-    className="col-span-4 border border-gray-300 rounded-md p-1"
-    defaultValue=""
-    ref={passwordRef}
-  />
+<div className='my-4 text-lg text-start grid grid-cols-5 gap-2 items-center'>
+  <div className='font-semibold'>name:</div>
+  <input type='text' className='col-span-4 border border-gray-300 rounded-md p-1' defaultValue={user.name} ref={nameRef} />
+  <div className='font-semibold'>email:</div>
+  <input type='email' className='col-span-4 border border-gray-300 rounded-md p-1' defaultValue={user.email} ref={emailRef} />
+  <div className='font-semibold'>password:</div>
+  <input id='password' type='text' className='col-span-4 border border-gray-300 rounded-md p-1' defaultValue='' ref={passwordRef} />
 </div>
 ```
 
@@ -405,7 +389,7 @@ userRouter.docs = [
 ];
 ```
 
-Based on the documentation, we can then write a simple test. Your code should already have tests for user functionality from the Jest testing deliverable. Go ahead and a basic test for the **list users** endpoint to the existing test suite.
+Based on the documentation, we can then write a simple test. Your code should already have tests for user functionality from the Jest testing deliverable. Go ahead and add a basic test for the **list users** endpoint to the existing test suite.
 
 ```js
 test('list users', async () => {
