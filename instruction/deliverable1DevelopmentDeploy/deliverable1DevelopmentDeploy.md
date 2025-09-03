@@ -71,5 +71,5 @@ Once you have completed the review of the code and completely filled out the **U
 
 | Percent | Item                                                                                                                                                                                                                         |
 | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 30%     | Successfully forked the JWT Pizza repositories and added the TA as a collaborator.                                                                                                                                           |
+| 30%     | Successfully forked the JWT Pizza repositories.                                                                                                                                                                              |
 | 70%     | Manually deployed JWT Pizza to your development environment. Used the debuggers to step through both the front and backend while completing the **User Activity** table found in the `notes.md` file of your jwt-pizza repo. |

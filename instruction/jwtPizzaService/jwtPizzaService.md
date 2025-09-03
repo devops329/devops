@@ -38,14 +38,6 @@ Here are the steps to take:
 
 1. Navigate your browser over to the Headquarters [jwt-pizza-service](https://github.com/devops329/jwt-pizza-service) repository on GitHub.
 1. Fork the repository to your GitHub account.
-1. Invite the 329 TA to be a collaborator on your repository by navigating to `Settings -> Collaborators -> Add People` and searching for `byucs329ta`.
-
-   ![collab](../gitHub/addCollaborator.png)
-
-   > [!IMPORTANT]
-   >
-   > If you do not invite the TA to be a collaborator you will not be able to pass off your deliverables.
-
 1. Copy the URL for your fork of the repository.
 1. Use the URL to clone the repository from your account to your development environment.
    ```sh
