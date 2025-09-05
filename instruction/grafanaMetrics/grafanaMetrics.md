@@ -176,7 +176,7 @@ Now that you have a bunch of data sent to your collector, you can create a visua
 
 1. Open up your Grafana Cloud dashboard.
 1. Open the Home menu, click on Dashboards, and then select **Pizza Dashboard** that you previously created.
-1. Click the `Add` button on the top menu and create a new visualization.
+1. Click the `Add` button on the top menu and create a new visualization. You may need to click the `Edit` button to enter Edit mode so the `Add` button will appear.
 1. For the `Data source` specify **grafanacloud-youraccountnamehere-prom**.
 1. Toggle the query editor to `Builder` mode.
 1. For `Metric` select **cpu_percent**, and for `Label filters` select **source** with a value of **jwt-pizza-service**. These are the values that you provided with the Curl command.
@@ -186,7 +186,7 @@ Now that you have a bunch of data sent to your collector, you can create a visua
 
    ![Visualization editor](visualizationEditor.png)
 
-1. Press the `Save` button, confirm the save, and then press `Apply` to return to your dashboard.
+1. Press the `Save dashboard` button, confirm the save, and then return to your dashboard by pressing `Back to dashboard`.
 
 This should display the metrics that you inserted using Curl. You can experiment with this by changing the Curl command and refreshing the dashboard to see the result.
 
@@ -196,29 +196,29 @@ Now that we have some experience both generating and visualizing metrics, let's 
 
 ```js
 module.exports = {
-  source: 'jwt-pizza-service',
-  url: 'https://otlp-gateway-prod-us-east-2.grafana.net/otlp/v1/metrics',
-  apiKey: '2222222:glc_111111111111111111111111111111111111111111=',
+  source: "jwt-pizza-service",
+  url: "https://otlp-gateway-prod-us-east-2.grafana.net/otlp/v1/metrics",
+  apiKey: "2222222:glc_111111111111111111111111111111111111111111="
 };
 ```
 
 Then we can write code that makes fetch requests similar to our Curl example. However, in this case we provide three different simulated metrics: CPU, request count, and request latency. This is done using the `setInterval` function to generate metrics make fetch requests to send it to Grafana every second.
 
 ```js
-const config = require('./config');
+const config = require("./config");
 
 let requests = 0;
 let latency = 0;
 
 setInterval(() => {
   const cpuValue = Math.floor(Math.random() * 100) + 1;
-  sendMetricToGrafana('cpu', cpuValue, 'gauge', '%');
+  sendMetricToGrafana("cpu", cpuValue, "gauge", "%");
 
   requests += Math.floor(Math.random() * 200) + 1;
-  sendMetricToGrafana('requests', requests, 'sum', '1');
+  sendMetricToGrafana("requests", requests, "sum", "1");
 
   latency += Math.floor(Math.random() * 200) + 1;
-  sendMetricToGrafana('latency', latency, 'sum', 'ms');
+  sendMetricToGrafana("latency", latency, "sum", "ms");
 }, 1000);
 
 function sendMetricToGrafana(metricName, metricValue, type, unit) {
@@ -235,28 +235,29 @@ function sendMetricToGrafana(metricName, metricValue, type, unit) {
                   dataPoints: [
                     {
                       asInt: metricValue,
-                      timeUnixNano: Date.now() * 1000000,
-                    },
-                  ],
-                },
-              },
-            ],
-          },
-        ],
-      },
-    ],
+                      timeUnixNano: Date.now() * 1000000
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
   };
 
-  if (type === 'sum') {
-    metric.resourceMetrics[0].scopeMetrics[0].metrics[0][type].aggregationTemporality = 'AGGREGATION_TEMPORALITY_CUMULATIVE';
+  if (type === "sum") {
+    metric.resourceMetrics[0].scopeMetrics[0].metrics[0][type].aggregationTemporality =
+      "AGGREGATION_TEMPORALITY_CUMULATIVE";
     metric.resourceMetrics[0].scopeMetrics[0].metrics[0][type].isMonotonic = true;
   }
 
   const body = JSON.stringify(metric);
   fetch(`${config.url}`, {
-    method: 'POST',
+    method: "POST",
     body: body,
-    headers: { Authorization: `Bearer ${config.apiKey}`, 'Content-Type': 'application/json' },
+    headers: { Authorization: `Bearer ${config.apiKey}`, "Content-Type": "application/json" }
   })
     .then((response) => {
       if (!response.ok) {
@@ -268,7 +269,7 @@ function sendMetricToGrafana(metricName, metricValue, type, unit) {
       }
     })
     .catch((error) => {
-      console.error('Error pushing metrics:', error);
+      console.error("Error pushing metrics:", error);
     });
 }
 ```
