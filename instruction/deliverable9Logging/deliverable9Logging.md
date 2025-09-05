@@ -153,8 +153,8 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Create a log visualization on your Grafana Cloud `Pizza Dashboard` to display all the [required log events](#required-log-events).
 1. Export a copy of your dashboard and save it to your fork of the `jwt-pizza-service` repository in a directory named `grafana`.
    1. On the Grafana Cloud console, navigate to your dashboard.
-   1. Press the `Share` button.
-   1. Press the `Export` tab and `Save to file`.
+   1. Press the `Export` tab and `Export as code`.
+   1. Press `Download file`, or press `Copy to clipboard` and paste the code into a new file.
    1. Name the file `grafana/deliverable9dashboard.json`
 1. Commit and push your changes so that they are running in your production environment.
 
