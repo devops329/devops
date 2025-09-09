@@ -51,8 +51,9 @@ Here are the steps to take:
 1. Obtain a JWT Pizza Factory API Key. You can get this key from the account your created with the [JWT Pizza Factory](https://pizza-factory.cs329.click).
 1. Create a `config.js` file in the `src` directory and insert your database credentials, jwtSecret, and API Key. The factory should point to the URL provided by JWT Headquarters. The following is an example `config.js` file.
 
-   ```sh
+   ```js
    module.exports =  {
+       // Your JWT secret can be any random string you would like. It just needs to be secret.
       jwtSecret: 'yourjwtsecrethere',
       db: {
       connection: {
