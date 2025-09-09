@@ -51,31 +51,31 @@ Here are the steps to take:
 1. Obtain a JWT Pizza Factory API Key. You can get this key from the account your created with the [JWT Pizza Factory](https://pizza-factory.cs329.click).
 1. Create a `config.js` file in the `src` directory and insert your database credentials, jwtSecret, and API Key. The factory should point to the URL provided by JWT Headquarters. The following is an example `config.js` file.
 
-   > [!NOTE]
-   >
-   > Note that you must replace `jwtSecret`, `connection.password`, and `factory.apiKey` with values that you generate. `jwtSecret` is used to sign authorization tokens and can be any random string. `connection.password` is the password for your MySQL database. `factory.apiKey` allows you to fulfill orders from the JWT Headquarters factory.
-
    ```sh
    module.exports =  {
       jwtSecret: 'yourjwtsecrethere',
       db: {
-        connection: {
-          host: '127.0.0.1',
-          user: 'root',
-          password: 'yourpasswordhere',
-          database: 'pizza',
-          connectTimeout: 60000,
-        },
-        listPerPage: 10,
+      connection: {
+         host: '127.0.0.1',
+         user: 'root',
+         password: 'yourpasswordhere',
+         database: 'pizza',
+         connectTimeout: 60000,
+      },
+      listPerPage: 10,
       },
       factory: {
-        url: 'https://pizza-factory.cs329.click',
-        apiKey: 'yourapikeyhere',
+      url: 'https://pizza-factory.cs329.click',
+      apiKey: 'yourapikeyhere',
       },
    };
    ```
 
-1. Start the service using `node index.js` or debugging it from within your IDE.
+> [!NOTE]
+>
+> Note that you must replace `jwtSecret`, `connection.password`, and `factory.apiKey` with values that you generate. `jwtSecret` is used to sign authorization tokens and can be any random string. `connection.password` is the password for your MySQL database. `factory.apiKey` allows you to fulfill orders from the JWT Headquarters factory.
+
+8. Start the service using `node index.js` or debugging it from within your IDE.
    ```sh
    ➜ cd src
    ➜  node index.js
