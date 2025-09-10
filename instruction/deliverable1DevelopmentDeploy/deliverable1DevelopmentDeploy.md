@@ -59,9 +59,17 @@ To get you started, we give you an example of what you need to supply for the fi
 | User activity                               | Frontend component | Backend endpoints | Database SQL                                                                                                                 |
 | ------------------------------------------- | ------------------ | ----------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | View home page                              | home.jsx           | _none_            | _none_                                                                                                                       |
-| Register new user<br/>(t@jwt.com, pw: test) | register.jsx       | [POST] /api/auth  | INSERT INTO user (name, email, password) VALUES (?, ?, ?)<br/>INSERT INTO userRole (userId, role, objectId) VALUES (?, ?, ?) |
+| Register new user<br/>(t@jwt.com, pw: test) | register.jsx       | [POST] /api/auth  | `INSERT INTO user (name, email, password) VALUES (?, ?, ?)` <br/>`INSERT INTO userRole (userId, role, objectId) VALUES (?, ?, ?)` |
 
 Do not leave table cells blank. If there is nothing to write for a cell, put _none_ as shown in the example.
+
+### Formatting Tip
+
+When filling out your report try to use backticks to surround your code and `<br/>` to make line breaks. Not only is this professional but its a good habit to start now.
+
+```md
+`INSERT INTO user (name, email, password) VALUES (?, ?, ?)` <br/>`INSERT INTO userRole (userId, role, objectId) VALUES (?, ?, ?)`
+```
 
 ## ⭐ Deliverable
 
