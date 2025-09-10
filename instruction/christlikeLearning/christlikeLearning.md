@@ -29,7 +29,7 @@ Likewise,
 >
 > Dallin H. Oaks - _[Give Thanks in All Things](https://www.churchofjesuschrist.org/study/general-conference/2003/04/give-thanks-in-all-things)_
 
-Gratitude removes the obstacles that pride creates. It allows us to see things as the really are and explore the path forward with the purest of motives. That is why it is essential to begin any endeavor, educational or otherwise, with a spirit of thankfulness to the source from whom all blessing flow.
+Gratitude removes the obstacles that pride creates. It allows us to see things as they really are and explore the path forward with the purest of motives. That is why it is essential to begin any endeavor, educational or otherwise, with a spirit of thankfulness to the source from whom all blessing flow.
 
 ## Learning by the inspiration of the Spirit
 
