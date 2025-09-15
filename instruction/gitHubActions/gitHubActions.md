@@ -131,7 +131,7 @@ jobs:
 
 ## An example: Pull request deployment
 
-In order to help you see the value the comes from GitHub Actions, let's consider a real world example. You have created a popular open source repository. You already created a `deploy` workflow that triggers whenever a change is made to the main branch of your repo. The `deploy` workflow builds your code and hosts the resulting binary on AWS.
+In order to help you see the value that comes from GitHub Actions, let's consider a real world example. You have created a popular open source repository. You already created a `deploy` workflow that triggers whenever a change is made to the main branch of your repo. The `deploy` workflow builds your code and hosts the resulting binary on AWS.
 
 ![pull request deployment](pullRequestDeployment.png)
 
@@ -163,7 +163,7 @@ Create a GitHub Action CI pipeline in your fork of the `jwt-pizza` repository by
 1. Commit and push. Because this workflow is triggered by a **push** on the **main** branch it will begin executing on every push, including the one that adds this workflow.
 1. Open The Actions tab of your fork of `jwt-pizza` on GitHub.
 1. Click on the **CI Pipeline** and the latest workflow run.
-1. Click on the **test** job and expand the **Run** step. This should the workflow and display **Hello GitHub Actions** in the workflow output.
+1. Click on the **test** job and expand the **Run** step. This should show the workflow and display **Hello GitHub Actions** in the workflow output.
 
 Once you are done, it should look something like this:
 
