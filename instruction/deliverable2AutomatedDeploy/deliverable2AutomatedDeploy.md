@@ -259,7 +259,7 @@ The final step deploys the contents of the artifact that was created in the prev
 
 GitHub Actions will automatically create an image that shows the state of an Action workflow. You can reference the badge in the `README.md` file found in the root of your fork of `jwt-pizza`.
 
-All you need to do copy the following Markdown, paste it in the README file, replace the account name with your GitHub account name, and commit.
+All you need to do is copy the following Markdown, paste it in the README file, replace the account name with your GitHub account name, and commit.
 
 ```md
 [![CI Pipeline](https://github.com/YOURACCOUNTNAMEHERE/jwt-pizza/actions/workflows/ci.yml/badge.svg)](https://github.com/YOURACCOUNTNAMEHERE/jwt-pizza/actions/workflows/ci.yml)
