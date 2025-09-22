@@ -192,8 +192,6 @@ In order to publicly display your coverage you will create a badge that displays
 > [!NOTE]
 >
 > You need to add the `FACTORY_API_KEY` and `NET_ID` to the Action secrets so that you can reference them when you build your coverage badge. If you need a refresher on how to do this, refer back to the [unit testing deliverable](../deliverable3UnitTesting/deliverable3UnitTesting.md#storing-secrets).
->
-> ![Action secrets](actionSecrets.png)
 
 To make your coverage badge appear in your README.md file, you will need to add the following markdown image reference to the **JWT Pizza Factory Badge** service URL representing the coverage badge that your CI pipeline created. Make sure you replace the placeholder with your BYU Net ID.
 
