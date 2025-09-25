@@ -103,6 +103,7 @@ Go ahead and create the following secrets.
 | --------------- | ---------------------------------------------------------------------- | ------------------------------- |
 | JWT_SECRET      | A random value that you create for signing your authentication tokens. | 343ab90294hijkfd2fdsaf4dsa3f424 |
 | FACTORY_API_KEY | The API Key for making calls to the Headquarters factory               | 83025y7098dsf9310dc90           |
+| NET_ID          | The net ID you used when your registered with the Pizza Factory        | cosmo337                        |
 
 ### Using MySQL in GitHub Actions
 
