@@ -223,6 +223,17 @@ The final version of the test, with all the mocks, looks like this. Note that th
 
 ```js
 test('purchase with login', async ({ page }) => {
+  await page.route('*/**/api/user/me', async (route) => {
+    const meRes = {
+      id: 3,
+      name: 'Kai Chen',
+      email: 'd@jwt.com',
+      roles: [{ role: 'diner' }],
+    };
+    expect(route.request().method()).toBe('GET');
+    await route.fulfill({ json: meRes });
+  });
+
   await page.route('*/**/api/order/menu', async (route) => {
     const menuRes = [
       {
@@ -244,20 +255,22 @@ test('purchase with login', async ({ page }) => {
     await route.fulfill({ json: menuRes });
   });
 
-  await page.route('*/**/api/franchise', async (route) => {
-    const franchiseRes = [
-      {
-        id: 2,
-        name: 'LotaPizza',
-        stores: [
-          { id: 4, name: 'Lehi' },
-          { id: 5, name: 'Springville' },
-          { id: 6, name: 'American Fork' },
-        ],
-      },
-      { id: 3, name: 'PizzaCorp', stores: [{ id: 7, name: 'Spanish Fork' }] },
-      { id: 4, name: 'topSpot', stores: [] },
-    ];
+  await page.route(/\/api\/franchise(\?.*)?$/, async (route) => {
+    const franchiseRes = {
+      franchises: [
+        {
+          id: 2,
+          name: 'LotaPizza',
+          stores: [
+            { id: 4, name: 'Lehi' },
+            { id: 5, name: 'Springville' },
+            { id: 6, name: 'American Fork' },
+          ],
+        },
+        { id: 3, name: 'PizzaCorp', stores: [{ id: 7, name: 'Spanish Fork' }] },
+        { id: 4, name: 'topSpot', stores: [] },
+      ],
+    };
     expect(route.request().method()).toBe('GET');
     await route.fulfill({ json: franchiseRes });
   });
