@@ -113,7 +113,7 @@ npm run start
 Creating a test from scratch can be time consuming. Instead, we can use the VS Code Playwright extension `Record at cursor` functionality to give us a jump start on writing our tests. Open your `pizza.spec.js` file and add a new empty test.
 
 ```js
-test('buy pizza with login', async ({ page }) => {});
+test('purchase with login', async ({ page }) => {});
 ```
 
 Put your cursor in the body of the test function, open the `Test Explorer` tab and press the `Record at cursor` action. This wil start up the recording. Then go through the steps of ordering a pizza and logging in as prompted.
@@ -123,7 +123,7 @@ Put your cursor in the body of the test function, open the `Test Explorer` tab a
 After all that is done you should end up with a test that looks something like the following.
 
 ```js
-test('buy pizza with login', async ({ page }) => {
+test('purchase with login', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Order now' }).click();
   await expect(page.locator('h2')).toContainText('Awesome is a click away');
@@ -219,21 +219,80 @@ await page.route('*/**/api/auth', async (route) => {
 
 We repeat this process by looking at each of the expected endpoint calls and creating a a route to verify and respond to them.
 
-The final version of the test, with all the mocks, looks like this. Note that there are a few things that were altered from the original recording to clean things up a bit.
+### Refactoring
+
+As you write you tests you will want to start decomposing the tests so that they don't repeat common code. This is especially tree of mocks. There are lots of ways to do this, but one common pattern is to create a utility method that generically handles things like the login request.
 
 ```js
-test('purchase with login', async ({ page }) => {
-  await page.route('*/**/api/user/me', async (route) => {
-    const meRes = {
-      id: 3,
-      name: 'Kai Chen',
-      email: 'd@jwt.com',
-      roles: [{ role: 'diner' }],
+async function basicInit(page: Page) {
+  let loggedInUser: User | undefined;
+  const validUsers: Record<string, User> = { 'd@jwt.com': { id: '3', name: 'Kai Chen', email: 'd@jwt.com', password: 'a', roles: [{ role: Role.Diner }] } };
+
+  // Authorize login for the given user
+  await page.route('*/**/api/auth', async (route) => {
+    const loginReq = route.request().postDataJSON();
+    const user = validUsers[loginReq.email];
+    if (!user || user.password !== loginReq.password) {
+      await route.fulfill({ status: 401, json: { error: 'Unauthorized' } });
+      return;
+    }
+    loggedInUser = validUsers[loginReq.email];
+    const loginRes = {
+      user: loggedInUser,
+      token: 'abcdef',
     };
-    expect(route.request().method()).toBe('GET');
-    await route.fulfill({ json: meRes });
+    expect(route.request().method()).toBe('PUT');
+    await route.fulfill({ json: loginRes });
+  });
+```
+
+You can then use the mocks provided by `basicInit` to easily implement a login test.
+
+```js
+test('login', async ({ page }) => {
+  await basicInit(page);
+  await page.getByRole('link', { name: 'Login' }).click();
+  await page.getByRole('textbox', { name: 'Email address' }).fill('d@jwt.com');
+  await page.getByRole('textbox', { name: 'Password' }).fill('a');
+  await page.getByRole('button', { name: 'Login' }).click();
+
+  await expect(page.getByRole('link', { name: 'KC' })).toBeVisible();
+});
+```
+
+### The final test
+
+Here is a final version of the basic login tests with all the mocks placed in a utility function. Note that there are a few things that were altered from the original recording to clean things up a bit.
+
+```js
+async function basicInit(page: Page) {
+  let loggedInUser: User | undefined;
+  const validUsers: Record<string, User> = { 'd@jwt.com': { id: '3', name: 'Kai Chen', email: 'd@jwt.com', password: 'a', roles: [{ role: Role.Diner }] } };
+
+  // Authorize login for the given user
+  await page.route('*/**/api/auth', async (route) => {
+    const loginReq = route.request().postDataJSON();
+    const user = validUsers[loginReq.email];
+    if (!user || user.password !== loginReq.password) {
+      await route.fulfill({ status: 401, json: { error: 'Unauthorized' } });
+      return;
+    }
+    loggedInUser = validUsers[loginReq.email];
+    const loginRes = {
+      user: loggedInUser,
+      token: 'abcdef',
+    };
+    expect(route.request().method()).toBe('PUT');
+    await route.fulfill({ json: loginRes });
   });
 
+  // Return the currently logged in user
+  await page.route('*/**/api/user/me', async (route) => {
+    expect(route.request().method()).toBe('GET');
+    await route.fulfill({ json: loggedInUser });
+  });
+
+  // A standard menu
   await page.route('*/**/api/order/menu', async (route) => {
     const menuRes = [
       {
@@ -255,6 +314,7 @@ test('purchase with login', async ({ page }) => {
     await route.fulfill({ json: menuRes });
   });
 
+  // Standard franchises and stores
   await page.route(/\/api\/franchise(\?.*)?$/, async (route) => {
     const franchiseRes = {
       franchises: [
@@ -275,49 +335,32 @@ test('purchase with login', async ({ page }) => {
     await route.fulfill({ json: franchiseRes });
   });
 
-  await page.route('*/**/api/auth', async (route) => {
-    const loginReq = { email: 'd@jwt.com', password: 'a' };
-    const loginRes = {
-      user: {
-        id: 3,
-        name: 'Kai Chen',
-        email: 'd@jwt.com',
-        roles: [{ role: 'diner' }],
-      },
-      token: 'abcdef',
-    };
-    expect(route.request().method()).toBe('PUT');
-    expect(route.request().postDataJSON()).toMatchObject(loginReq);
-    await route.fulfill({ json: loginRes });
-  });
-
+  // Order a pizza.
   await page.route('*/**/api/order', async (route) => {
-    const orderReq = {
-      items: [
-        { menuId: 1, description: 'Veggie', price: 0.0038 },
-        { menuId: 2, description: 'Pepperoni', price: 0.0042 },
-      ],
-      storeId: '4',
-      franchiseId: 2,
-    };
+    const orderReq = route.request().postDataJSON();
     const orderRes = {
-      order: {
-        items: [
-          { menuId: 1, description: 'Veggie', price: 0.0038 },
-          { menuId: 2, description: 'Pepperoni', price: 0.0042 },
-        ],
-        storeId: '4',
-        franchiseId: 2,
-        id: 23,
-      },
+      order: { ...orderReq, id: 23 },
       jwt: 'eyJpYXQ',
     };
     expect(route.request().method()).toBe('POST');
-    expect(route.request().postDataJSON()).toMatchObject(orderReq);
     await route.fulfill({ json: orderRes });
   });
 
   await page.goto('/');
+}
+
+test('login', async ({ page }) => {
+  await basicInit(page);
+  await page.getByRole('link', { name: 'Login' }).click();
+  await page.getByRole('textbox', { name: 'Email address' }).fill('d@jwt.com');
+  await page.getByRole('textbox', { name: 'Password' }).fill('a');
+  await page.getByRole('button', { name: 'Login' }).click();
+
+  await expect(page.getByRole('link', { name: 'KC' })).toBeVisible();
+});
+
+test('purchase with login', async ({ page }) => {
+  await basicInit(page);
 
   // Go to order page
   await page.getByRole('button', { name: 'Order now' }).click();
