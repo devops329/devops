@@ -103,40 +103,26 @@ async function updateUser() {
 Add the **Edit** button to the display of the user. Put this right after the user's image.
 
 ```tsx
-<Button title='Edit' className='w-16 p-0' onPress={() => HSOverlay.open(document.getElementById('hs-jwt-modal')!)} />
+<Button title="Edit" className="w-16 p-0" onPress={() => HSOverlay.open(document.getElementById('hs-jwt-modal')!)} />
 ```
 
 Finally, we create the edit user dialog. Place this as the last child of the **View** element. For now, we just display a placeholder for the user fields and provide an **Update** button.
 
 ```tsx
-<div
-  role='dialog'
-  aria-modal='true'
-  aria-labelledby='dialog-title'
-  id='hs-jwt-modal'
-  className='hs-overlay hidden size-full fixed top-10 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none'
->
-  <div className='hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto min-h-[calc(100%-3.5rem)]'>
-    <div className='w-full flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto   '>
-      <div className='flex justify-between items-center py-3 px-4 border-b bg-slate-200 rounded-t-xl '>
-        <h3 className='font-bold text-gray-800'>Edit user</h3>
-        <button
-          type='button'
-          className='flex justify-center items-center size-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none'
-          data-hs-overlay='#hs-jwt-modal'
-        >
-          <CloseIcon className='' />
+<div role="dialog" aria-modal="true" aria-labelledby="dialog-title" id="hs-jwt-modal" className="hs-overlay hidden size-full fixed top-10 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none">
+  <div className="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto min-h-[calc(100%-3.5rem)]">
+    <div className="w-full flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto   ">
+      <div className="flex justify-between items-center py-3 px-4 border-b bg-slate-200 rounded-t-xl ">
+        <h3 className="font-bold text-gray-800">Edit user</h3>
+        <button type="button" className="flex justify-center items-center size-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none" data-hs-overlay="#hs-jwt-modal">
+          <CloseIcon className="" />
         </button>
       </div>
-      <div className='p-4 overflow-y-scroll max-h-52'>
-        <div className='my-4 text-lg text-start grid grid-cols-5 gap-2 items-center'>update fields here</div>
+      <div className="p-4 overflow-y-scroll max-h-52">
+        <div className="my-4 text-lg text-start grid grid-cols-5 gap-2 items-center">update fields here</div>
       </div>
-      <div className='flex justify-end items-center gap-x-2 py-3 px-4 border-t  bg-slate-200 rounded-b-xl'>
-        <button
-          type='button'
-          className='py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none'
-          onClick={updateUser}
-        >
+      <div className="flex justify-end items-center gap-x-2 py-3 px-4 border-t  bg-slate-200 rounded-b-xl">
+        <button type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" onClick={updateUser}>
           Update
         </button>
       </div>
@@ -205,19 +191,19 @@ const passwordRef = React.useRef<HTMLInputElement>(null);
 Then we want to modify the dialog to represent all of the user fields. Replace
 
 ```tsx
-<div className='my-4 text-lg text-start grid grid-cols-5 gap-2 items-center'>update fields here</div>
+<div className="my-4 text-lg text-start grid grid-cols-5 gap-2 items-center">update fields here</div>
 ```
 
 with
 
 ```tsx
-<div className='my-4 text-lg text-start grid grid-cols-5 gap-2 items-center'>
-  <div className='font-semibold'>name:</div>
-  <input type='text' className='col-span-4 border border-gray-300 rounded-md p-1' defaultValue={user.name} ref={nameRef} />
-  <div className='font-semibold'>email:</div>
-  <input type='email' className='col-span-4 border border-gray-300 rounded-md p-1' defaultValue={user.email} ref={emailRef} />
-  <div className='font-semibold'>password:</div>
-  <input id='password' type='text' className='col-span-4 border border-gray-300 rounded-md p-1' defaultValue='' ref={passwordRef} />
+<div className="my-4 text-lg text-start grid grid-cols-5 gap-2 items-center">
+  <div className="font-semibold">name:</div>
+  <input type="text" className="col-span-4 border border-gray-300 rounded-md p-1" defaultValue={user.name} ref={nameRef} />
+  <div className="font-semibold">email:</div>
+  <input type="email" className="col-span-4 border border-gray-300 rounded-md p-1" defaultValue={user.email} ref={emailRef} />
+  <div className="font-semibold">password:</div>
+  <input id="password" type="text" className="col-span-4 border border-gray-300 rounded-md p-1" defaultValue="" ref={passwordRef} />
 </div>
 ```
 
@@ -359,7 +345,7 @@ Now when we rerun our test, everything is green. This is a great time to commit 
 
 > [!NOTE]
 >
-> The above test does not mock out the backend. When you are using TDD for full stack development it is helpful to drive your development across the whole stake. However, when you push the front end test to your CI pipeline it will fail because there is no backend available when running under GitHub Actions. You can either solve this by either mocking out the backend or by actually starting up a backend when your frontend tests run.
+> The above test does not mock out the backend. When you are using TDD for full stack development it is helpful to drive your development across the whole stack. However, when you push the frontend test to your CI pipeline it will fail because there is no backend available when running under GitHub Actions. You can either solve this by either mocking out the backend or by actually starting up a backend when your frontend tests run.
 
 There are still other tests that we need to write in order for us to be fully comfortable with the new **update user** functionality. This includes changing the password and email address, and changing user information using different roles. Go ahead and write those tests now and commit those changes also.
 
