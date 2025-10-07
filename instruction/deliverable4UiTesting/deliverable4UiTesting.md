@@ -60,9 +60,9 @@ All files |       0 |        0 |       0 |       0 |
 ----------|---------|----------|---------|---------|-------------------
 ```
 
-This isn't very exciting since the default test doesn't actually execute any of the Pizza code. Let's write a simple test to get the ball rolling. Delete `example.spec.js` and create a new test file called `pizza.spec.js`.
+This isn't very exciting since the default test doesn't actually execute any of the Pizza code. Let's write a simple test to get the ball rolling. Delete `example.spec.js` and create a new test file called `pizza.spec.ts`.
 
-```js
+```ts
 import { test, expect } from 'playwright-test-coverage';
 
 test('home page', async ({ page }) => {
@@ -112,7 +112,7 @@ npm run start
 
 Creating a test from scratch can be time consuming. Instead, we can use the VS Code Playwright extension `Record at cursor` functionality to give us a jump start on writing our tests. Open your `pizza.spec.js` file and add a new empty test.
 
-```js
+```ts
 test('purchase with login', async ({ page }) => {});
 ```
 
@@ -122,7 +122,7 @@ Put your cursor in the body of the test function, open the `Test Explorer` tab a
 
 After all that is done you should end up with a test that looks something like the following.
 
-```js
+```ts
 test('purchase with login', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Order now' }).click();
@@ -199,7 +199,7 @@ We specify the URL path to match with the glob sequence `*/**/api/auth`. This wi
 
 Then we assert that the HTTP method was `PUT` and that we got the expected request body. Finally, we fulfill the route request by returning the mocked response body.
 
-```js
+```ts
 await page.route('*/**/api/auth', async (route) => {
   const loginReq = { email: 'd@jwt.com', password: 'a' };
   const loginRes = {
@@ -223,7 +223,7 @@ We repeat this process by looking at each of the expected endpoint calls and cre
 
 As you write you tests you will want to start decomposing the tests so that they don't repeat common code. This is especially tree of mocks. There are lots of ways to do this, but one common pattern is to create a utility method that generically handles things like the login request.
 
-```js
+```ts
 async function basicInit(page: Page) {
   let loggedInUser: User | undefined;
   const validUsers: Record<string, User> = { 'd@jwt.com': { id: '3', name: 'Kai Chen', email: 'd@jwt.com', password: 'a', roles: [{ role: Role.Diner }] } };
@@ -248,7 +248,7 @@ async function basicInit(page: Page) {
 
 You can then use the mocks provided by `basicInit` to easily implement a login test.
 
-```js
+```ts
 test('login', async ({ page }) => {
   await basicInit(page);
   await page.getByRole('link', { name: 'Login' }).click();
@@ -264,7 +264,7 @@ test('login', async ({ page }) => {
 
 Here is a final version of the basic login tests with all the mocks placed in a utility function. Note that there are a few things that were altered from the original recording to clean things up a bit.
 
-```js
+```ts
 async function basicInit(page: Page) {
   let loggedInUser: User | undefined;
   const validUsers: Record<string, User> = { 'd@jwt.com': { id: '3', name: 'Kai Chen', email: 'd@jwt.com', password: 'a', roles: [{ role: Role.Diner }] } };
