@@ -76,7 +76,7 @@ With the bucket in place you can now create your CloudFront distribution that wi
 
 1. Open the AWS browser console and navigate to the CloudFront service.
 1. Press the `Create distribution` button.
-1. For the `Origin domain` start typing the name of the bucket you create. The S3 bucket should appear.
+1. For the `Origin domain` start typing the name of the bucket you created. The S3 bucket should appear.
    > ![Origin domain entry](originDomainEntry.png)
 1. In the name edit box, change the name so that it is just your DNS name for simplicity.
    > ![Name edit](nameEdit.png)
