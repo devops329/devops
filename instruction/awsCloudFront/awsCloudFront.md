@@ -44,9 +44,9 @@ The first step we need to take is to create an S3 bucket to host the static file
 
 For this tutorial, the _Hello World_ page will serve as a representation of all the frontend static content.
 
-## Create a custom SSL certificate
+## Create a custom TLS certificate
 
-You want your static content to be securely hosted. AWS offers a free service for managing SSL certificates when they are used for AWS services such as CloudFront.
+You want your static content to be securely hosted. AWS offers a free service for managing TLS certificates when they are used for AWS services such as CloudFront.
 
 1. Open the AWS browser console and navigate to the AWS Certificate Manager service.
 
@@ -76,65 +76,46 @@ With the bucket in place you can now create your CloudFront distribution that wi
 
 1. Open the AWS browser console and navigate to the CloudFront service.
 1. Press the `Create distribution` button.
-1. For the `Origin domain` start typing the name of the bucket you created. The S3 bucket should appear.
-   > ![Origin domain entry](originDomainEntry.png)
-1. In the name edit box, change the name so that it is just your DNS name for simplicity.
-   > ![Name edit](nameEdit.png)
-1. Under `Origin access` change from `public`, because our S3 bucket is not public, to **Origin access control settings**. Create a new OAC if you don't already have one, and press `Create`. The OAC allows CloudFront to request private files from S3. This will display a message saying that you need to update the S3 bucket policy. We will do this step later.
-1. Skip down to `Default cache behavior`
-   1. Under `Viewer protocol policy` specify **Redirect HTTP to HTTPS**
-   1. Under `Allowed HTTP methods` specify **GET, HEAD, OPTIONS**.
-   1. Under `Cache key and origin requests` choose the **CachingOptimized** cache policy.
-   1. Under the `Web Application Firewall (WAF)` choose the option to **Do not enable security protections**. This is an additional paid service that you don't need at this time.
-1. Skip down to `Settings`
-   1. Under `Price class` specify **Use only North America and Europe**. Unless of course you want your JWT Pizza to be optimized for access in Asia. (Realize that there may be additional charges for choosing this option.)
-   1. Under `Alternate domain name` press **add item** and type your DNS name (e.g. pizza.byucsstudent.click).
-   1. Chose the certificate that you created in the previous section.
-      > ![Settings](settings.png)
-   1. Set **index.html** as the `Default root object` so that it will be used when the root domain is specified.
-   1. Provide a description for the distribution such as `JWT Pizza`.
-1. Press `Create distribution`.
+1. Provide the distribution name (**JWT Pizza**), a description, and the domain name for you service. You can use the check domain option if you are hosting your domain on Route 53. Press **Next** to continue.
 
-### Associate the security policy with your S3 bucket
+   ![Get started](getStarted.png)
 
-After creating your distribution this will display your newly created policy with a warning that you need to set the provided security policy on your S3 bucket.
+1. Specify that you want to use Amazon S3 as the origin for the CDN content.
+1. Provide your S3 bucket as the S3 origin by clicking on the **Browse S3** button and choosing your pizza S3 bucket.
+1. Leave the other settings with the default. Press **Next** to continue.
 
-![Create policy warning](createPolicyWarning.png)
+   ![Specify origin](specifyOrigin.png)
 
-1.  Copy the newly created policy by pressing the `Copy policy` button.
-1.  Click the link to `Go to S3 bucket permissions`.
-1.  Click on the bucket and then `permissions`.
-1.  For the `Bucket policy` box press `edit` and then paste the policy. This allows CloudFront to access the bucket.
+1. Select **Do not enable security protections**. This is an additional paid service that you don't need at this time. Press **Next** to continue.
+1. If you successfully created your certificate in the **Create a custom TLS certificate** section, then it should show up here based on the domain name that you previously provided. Press **Next** to continue.
 
-If you forget to copy the policy then you can use this template policy and insert the proper AWS properties.
+   ![Get TLS certificate](getTlsCertificate.png)
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": {
-    "Sid": "AllowCloudFrontServicePrincipalReadOnly",
-    "Effect": "Allow",
-    "Principal": {
-      "Service": "cloudfront.amazonaws.com"
-    },
-    "Action": "s3:GetObject",
-    "Resource": "arn:aws:s3:::<S3 bucket name>/*",
-    "Condition": {
-      "StringEquals": {
-        "AWS:SourceArn": "arn:aws:cloudfront::<AWS account ID>:distribution/<CloudFront distribution ID>"
-      }
-    }
-  }
-}
-```
+1. Review your configuration and press **Create distribution** if it looks correct.
+
+   ![Review and Create](reviewAndCreate.png)
+
+This will initiate the creation of the distribution, but you need to make a couple changes before it will work correctly. On the distribution overview page, locate the **Settings** section and click on the **Edit** button.
+
+![Distribution](distribution.png)
+
+1. Change the **Price class** to be **Use only North America and Europe**. This will decrease your AWS bill.
+
+   ![Price class](priceClass.png)
+
+1. Add a **Default root object** and set it to `index.html`. This will make it so the index.html file is loaded when you hit the distribution without specifying a path.
+
+   ![Default root object](defaultRootObject.png)
 
 ### View the hosted content
 
 You should now be able to access the S3 files through CloudFront. Navigate back to the CloudFront console and view the distribution you just created. It will take a little while for it to deploy around the globe, but when the `deploying` state goes away, you should be able to access the placeholder index.html file using the `Distribution domain name` name found on the `General` tab of the distribution. This should be a URL with the `cloudfront.net` root domain. For example:
 
 ```sh
-https://d38ifnrzczg9k1.cloudfront.net
+https://yourdistirubtionid.cloudfront.net
 ```
+
+This should show your `Hello World` test page.
 
 ![view homepage from CloudFront](viewHomePageFromCloudFront.png)
 
