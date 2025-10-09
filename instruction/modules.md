@@ -55,7 +55,6 @@
 
 ## Cloud deployment
 
-- [Security](security/security.md)
 - [Cloud deployment](cloudDeployment/cloudDeployment.md)
 - ☑ [AWS S3](awsS3/awsS3.md)
 - [AWS CloudFront](awsCloudFront/awsCloudFront.md)
@@ -114,6 +113,7 @@
 
 ## Penetration testing
 
+- [Security](security/security.md)
 - [Security Community](securityCommunity/securityCommunity.md)
 - [Penetration testing](penetrationTesting/penetrationTesting.md)
 - ☑ [Burp Suite](burpSuite/burpSuite.md)
