@@ -61,7 +61,7 @@
 - [AWS CloudFront](awsCloudFront/awsCloudFront.md)
 - [AWS S3 deployment](awsS3Deployment/awsS3Deployment.md)
 - [Deployment environments](deploymentEnvironments/deploymentEnvironments.md)
-- ☑ [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
+- [GitHub environments](gitHubEnvironments/gitHubEnvironments.md)
 - ⭐ [⓺ Frontend deployment: JWT Pizza](deliverable6FrontendDeployment/deliverable6FrontendDeployment.md)
 - [Elasticity](elasticity/elasticity.md)
 - ☑ [AWS RDS MySQL](awsRdsMysql/awsRdsMysql.md)

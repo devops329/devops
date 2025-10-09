@@ -9,6 +9,10 @@
 
 GitHub supports the concept of `environments` that allow you to isolate your secrets and enforce protection rules. Protection rules can require a manual approval, delay a job, or restrict the environment to certain branches.
 
+> [!NOTE]
+>
+> You can use GitHub environments if you would like for your JWT Pizza deployment, but it is not required.
+
 ## Creating an environment
 
 You can create a GitHub environment by going to your `jwt-pizza` repository's settings in GitHub and selecting the **Environments** view from the left-hand navigation. Then press the `New environment` button.
