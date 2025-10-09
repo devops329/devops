@@ -268,11 +268,6 @@
       "title": "Cloud deployment",
       "topics": [
         {
-          "title": "Security",
-          "path": "instruction/security/security.md",
-          "id": "6738d182c369401086b3efaeff64526d"
-        },
-        {
           "title": "Cloud deployment",
           "path": "instruction/cloudDeployment/cloudDeployment.md",
           "id": "22170154b07b4447824237aa48a3dacc"
@@ -528,6 +523,11 @@
     {
       "title": "Penetration testing",
       "topics": [
+        {
+          "title": "Security",
+          "path": "instruction/security/security.md",
+          "id": "6738d182c369401086b3efaeff64526d"
+        },
         {
           "title": "Security Community",
           "path": "instruction/securityCommunity/securityCommunity.md",
