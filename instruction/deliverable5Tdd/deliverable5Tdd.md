@@ -466,6 +466,10 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 
 Once this is all working, go to the [Canvas assignment](https://byu.instructure.com) and submit your work for the deliverable.
 
+> [!NOTE]
+>
+> Because you do not deploy your own backend service yet, your frontend code will not work with your production release. We will correct this with the [backend deployment deliverable](../deliverable7BackendDeployment/deliverable7BackendDeployment.md).
+
 ### Rubric
 
 | Percent | Item                                                                        |
