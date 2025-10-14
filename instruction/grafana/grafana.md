@@ -78,7 +78,7 @@ At a high level, Grafana Cloud consists of three major parts.
 
 To get started we are going to configure a `TestData` data source. This data source is simply a random number generator that we will use to demonstrate how things work.
 
-1. From the `Home` menu select `Connections` and pick `Add new connection`.
+1. From the `Home` menu select `Connections` and pick `Add new connection`. You may need to press the Grafana logo to open the `Home` menu if it is not already open.
 1. This will display all the different data sources that you can make a connection to.
 1. Type `TestData` into the search box and click on the resulting data source.
 
@@ -110,12 +110,12 @@ Now you can create a visualization from the data source.
 
    1. Press the refresh button at the top of the graph to pull in some data from the data source.
 
-1. Press the `Save` button and confirm the request. This will save the panel and display your new dashboard. Click on the gear menu to change the dashboard settings.
+1. Press the `Save dashboard` button and confirm the request, this will save the panel. Then press the `Back to dashboard` button to return to your dashboard with the newly created panel. Click on the gear menu to change the dashboard settings.
 
    ![Dashboard with panel](dashboardWithPanel.png)
 
 1. Rename the dashboard to `Pizza Dashboard`.
-1. Press the `Save` button and confirm.
+1. Press the `Save dashboard` button and confirm to save your changes. Then select `Back to dashboard` to return to your dashboard.
 1. Click on the `Auto refresh` button and select 5s to have the visualization refresh every five seconds. This will bring in new random data, but with a real data source it would create a rolling display of the metrics.
 
    ![Auto update](autoUpdate.png)

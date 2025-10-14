@@ -176,7 +176,7 @@ Now that you have a bunch of data sent to your collector, you can create a visua
 
 1. Open up your Grafana Cloud dashboard.
 1. Open the Home menu, click on Dashboards, and then select **Pizza Dashboard** that you previously created.
-1. Click the `Add` button on the top menu and create a new visualization.
+1. Click the `Add` button on the top menu and create a new visualization. You may need to click the `Edit` button to enter Edit mode so the `Add` button will appear.
 1. For the `Data source` specify **grafanacloud-youraccountnamehere-prom**.
 1. Toggle the query editor to `Builder` mode.
 1. For `Metric` select **cpu_percent**, and for `Label filters` select **source** with a value of **jwt-pizza-service**. These are the values that you provided with the Curl command.
@@ -186,7 +186,7 @@ Now that you have a bunch of data sent to your collector, you can create a visua
 
    ![Visualization editor](visualizationEditor.png)
 
-1. Press the `Save` button, confirm the save, and then press `Apply` to return to your dashboard.
+1. Press the `Save dashboard` button, confirm the save, and then return to your dashboard by pressing `Back to dashboard`.
 
 This should display the metrics that you inserted using Curl. You can experiment with this by changing the Curl command and refreshing the dashboard to see the result.
 
