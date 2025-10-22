@@ -67,9 +67,11 @@ You deploy the new container to ECS by adding one new step to the **deploy** job
 
 ### Test the container deployment
 
-You should now be able to commit and push the workflow script to GitHub. This will trigger the container to be pushed to ECR where ECS will load it into Fargate and make it visible through your EC2 load balancer.
+You should now be able to commit and push the workflow script to GitHub. This will trigger the container to be pushed to ECR where ECS will load it into Fargate and make it visible through your EC2 load balancer. You can view the new container being deployed to ECS by viewing the jwt-pizza-service in the ECS dashboard. This should show the new container being added, and the old container draining its connections and eventually being removed.
 
-After the container has been deployed, you can test the backend by making curl requests.
+![alt text](newTaskDeploy.png)
+
+After the new container has been deployed, you can test the backend by making curl requests.
 
 ```sh
 # Set the hostname - replace with your hostname
