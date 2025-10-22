@@ -110,28 +110,30 @@ The service contains one or more associated tasks. The tasks work together in or
 
    ![Create service](createService.png)
 
-1. Under `Environment` select `Launch type` since we don't want to utilize a capacity strategy at this point. A capacity strategy defines how the service should scale in order to meet customer demand.
-1. Under `Deployment configuration`
-   1. Select `Service` since we want the JWT Pizza Service to continually run, as opposed to a short running task.
+1. Under `Service details`
    1. Select `jwt-pizza-service` from the `Family` dropdown. This selects the task definition that you created earlier.
    1. Provide **jwt-pizza-service** as the `Service name`.
+1. Under `Environment` select `Launch type` since we don't want to utilize a capacity strategy at this point. A capacity strategy defines how the service should scale in order to meet customer demand.
+1. Leave all the `Deployment configuration` settings as the defaults. The **Replica** scheduling strategy will create copies of your container as necessary in order to handle your user request load. The **Rolling update** deployment strategy will replace the previous versions of your containers with a newer version one at a time.
 1. Under `Networking`
-   1. Remove the selection for the `default` security group. This provides no value, and we don't want to accidentally inherit a security rule that we are not expecting.
+   1. Select your VPC.
+   1. Change the `Subnets` so that it contains at least two public subnets as defined by your VPC.
+   1. If selected, remove any selected security groups. We don't want to accidentally inherit a security rule that we are not expecting.
    1. Select the `jwt-pizza-service` security group that you created previously. This allows the container to accept incoming HTTP requests.
    1. Select the option to auto assign a `Public IP` address. We will need this so you can test the running task by making HTTP requests from the internet.
-1. Under `Load balancing`
+1. Under `Load balancing` select **Use load balancing**
 
    1. Select `Application Load Balancer`
    1. Select the `Container` for incoming traffic to be `jwt-pizza-service 80:80`
    1. Create a new load balancer
       1. Provide `jwt-pizza-service` as the `Load balancer name`.
       1. Create a new listener on port 443 using HTTPS.
-      1. Select the **wildcard certificate** for the hostname that you created previously.
+      1. Select the **wildcard certificate** for the hostname that you created previously. This makes it so you can publically access your container using a secure HTTP connection.
    1. Create a new target group.
 
       1. Provide the name `jwt-pizza-service`.
       1. Set the Protocol to HTTP.
-      1. Set the Health check path to `/api/docs`.
+      1. Set the Health check path to `/api/docs`. The load balancer will make this request to your container to determine if it is running correctly.
 
       ![Load balancer config](loadBalancerConfig.png)
 
