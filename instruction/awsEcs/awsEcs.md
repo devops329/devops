@@ -143,6 +143,16 @@ This will take a few minutes for the service and associated load balancer to dep
 
 ![CloudFormation progress](cloudFormationProgress.png)
 
+### Monitoring container deployment
+
+As your ECS cluster spins up it will deploy the service and the task representing your JWT pizza docker container. You can monitor the deployment process of the container by navigating to the ECS service dashboard, selecting your cluster and service, and then selecting the `Tasks` tab to view all the tasks that are running under the service. If everything is working correctly the **Last status** field should be **Running** for the service's task.
+
+![ECS Service](ecsService.png)
+
+If it is not running correctly, or you just want to see the details for the task, you can click on the task and see its configuration, logs, and networking properties. The **Networking** tab will show you the public IP address of the container. The **Logs** tab will show you the console log messages that the container outputs. The following is an example of a properly running JWT Pizza Service container.
+
+![ECS Task](ecsTask.png)
+
 ### Testing the load balancer
 
 Launching the service that is configured with a load balancer will automatically launch an EC2 Application load balancer that is configured to work with your ECS cluster. This takes several minutes to complete, but once it is done you should be able to make an HTTP request to your Docker container using the load balancer's public hostname.
@@ -152,7 +162,9 @@ You can find the load balancer's public hostname by taking the following steps.
 1. Open the AWS browser console and navigate to the Elastic Cloud Computing (EC2) service.
 1. Press `Load Balancers` from the left side navigation panel.
 1. Press the `jwt-pizza-service` load balancer.
-1. Copy the `DNS name` for the load balancer ![Load balancer details](loadBalancerDetails.png)
+1. Copy the `DNS name` for the load balancer
+
+![Load balancer details](loadBalancerDetails.png)
 
 In order to make a network request using the DNS name you have to tell Curl to use HTTPS, because that is all we opened up on the load balancer, but you also have to specify that you want to ignore an invalid certificate. You can do this with a command similar to the following.
 
