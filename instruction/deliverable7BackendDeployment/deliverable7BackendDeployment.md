@@ -118,7 +118,7 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Alter your DNS record in Route 53 to point to the application load balancer.
 1. Modify and deploy your frontend so that it calls your backend service.
 
-Once this is all working, go to the [Canvas assignment](https://byu.instructure.com) and submit your work for the deliverable.
+Once this is all working, go to the [Canvas assignment](https://byu.instructure.com) and submit your deployed JWT Pizza URL for the deliverable.
 
 ### Rubric
 
