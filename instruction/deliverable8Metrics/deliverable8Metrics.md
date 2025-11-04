@@ -70,9 +70,9 @@ While this list specifies all of the required metrics, the images are just examp
 
 ## Modifying the application code
 
-You are going to have to modify the `jwt-pizza-service` code in order to add observability. You want to keep modifications to the development team's work to a minimum. If you change things too much, you are probably going to have merge problems when they update the application and you have to merge your fork.
+You are going to have to modify the `jwt-pizza-service` code in order to add observability. You want to keep modifications to the development team's work to a minimum. If you change things too much, then your observability code makes it hard to understand your application code.
 
-Try to use design patterns and principles such as middleware and modularity to isolate your changes as much as possible.
+Try to use design patterns and principles such as [middleware](https://expressjs.com/en/guide/using-middleware.html) and modularity to isolate your changes as much as possible.
 
 ## Getting started
 
