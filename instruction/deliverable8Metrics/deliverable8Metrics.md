@@ -85,7 +85,7 @@ Modify your service's config.js file to contain the Grafana credentials. Note th
 ```js
   metrics: {
      source: 'jwt-pizza-service-dev',
-     url: 'https://influx-prod-13-prod-us-east-0.grafana.net/api/v1/push/influx/write',
+     url: 'https://otlp-gateway-prod-us-east-2.grafana.net/otlp/v1/metrics',
      apiKey: '2222222:glc_111111111111111111111111111111111111111111='
    }
 ```
@@ -266,9 +266,9 @@ https://youraccounthere.grafana.net/public-dashboards/29305se9fsacc66a21fa91899b
 
 ### Rubric
 
-| Percent | Item                                                                |
-| ------- | ------------------------------------------------------------------- |
-| 30%     | Storing all required metrics in Grafana Cloud Prometheus data store |
-| 70%     | Visualizing all required metrics with nonzero data in Grafana Cloud dashboard         |
+| Percent | Item                                                                          |
+| ------- | ----------------------------------------------------------------------------- |
+| 30%     | Storing all required metrics in Grafana Cloud Prometheus data store           |
+| 70%     | Visualizing all required metrics with nonzero data in Grafana Cloud dashboard |
 
 **Congratulations!** You have provided significant observability for your JWT Pizza Service. Time to go celebrate. I'm thinking tacos 🌮.
