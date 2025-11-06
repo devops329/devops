@@ -29,13 +29,23 @@ In order to send logs over HTTP you will need an API key.
 1. This will display the template necessary to obtain the API Key for uploading logs to the Grafana Cloud Loki service.
 1. Supply the name `jwt-pizza-logs` for the `Access Policy token name`.
 1. Press `Create token`.
-1. Copy the token to a secure location in your development environment. You will need this token to upload logs.
+1. Copy the token to a secure location in your development environment. You will need this token to upload logs. Make sure you capture both your `Account ID` and the token. The Account ID will look like a seven digit number, the token is a much longer string and will start with **glc**. You can look at the example section to see both of these values.
+
+   ```txt
+   1111111:glc_333424324234234234234234234234234123412342314324234312432543543264326=
+   ```
+
 1. Note the section titled `Anatomy of your Loki log`. This defines how to format the data that you upload to Loki.
-1. Note the section titled `Send logs from your application code`. This gives you examples of how to upload a log event using things like Curl, Node.js, or Go. The example has your API Key already prepopulated in the example.
+1. Note the section titled `Send logs from your application code`. This gives you examples of how to upload a log event using things like Curl, Node.js, or Go. The example has your API Key and your account ID already prepopulated in the example. You can also see the URL for connecting to the Grafana log connector.
+
+   ```txt
+   https://logs-prod-006.grafana.net/loki/api/v1/push
+   ```
+
 1. Examine the example for Curl. It will look something like the following:
 
    ```sh
-   curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer 111111:glc_111111111111111111=" -d '{"streams": [{"stream": {"Language": "Curl", "source": "Shell"},"values": [["'"$(($(date +%s)*1000000000))"'", "This is my log line"]]}]}' https://logs-prod-006.grafana.net/loki/api/v1/push
+   curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer 1111111:glc_111111111111111111=" -d '{"streams": [{"stream": {"Language": "Curl", "source": "Shell"},"values": [["'"$(($(date +%s)*1000000000))"'", "This is my log line"]]}]}' https://logs-prod-006.grafana.net/loki/api/v1/push
    ```
 
 ### Loki JSON log syntax
