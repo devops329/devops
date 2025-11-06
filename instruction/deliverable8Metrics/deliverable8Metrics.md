@@ -129,7 +129,7 @@ Without this, your CI pipeline will fail due to missing references from your new
 
 ### Create metrics.js
 
-Create a file named `metrics.js` in the `src` directory. Use this file to for all the code necessary to interact with Grafana. This may be somewhat similar to what you created in the [Grafana Metrics instruction](../grafanaMetrics/grafanaMetrics.md). However, it will need to be more complex than what was presented in the instruction because it will have to supply metrics for more than just HTTP requests.
+Create a file named `metrics.js` in the `src` directory. Use this file to for all the code necessary to interact with Grafana. This may be somewhat similar to what you created in the [Visualizing Metrics instruction](../visualizingMetrics/visualizingMetrics.md). However, it will need to be more complex than what was presented in the instruction because it will have to supply metrics for more than just HTTP requests.
 
 ### Add endpoint request metrics code
 
