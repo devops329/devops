@@ -92,7 +92,7 @@ You can run this script by providing the URL of the server you want to target. I
 
 > [!NOTE]
 >
-> If you create your own `generatePizzaData.sh` file instead of using the exiting one, then you might need to set the execution mode of the file by running: `chmod +x generatePizzaData.sh`
+> If you create your own `generatePizzaData.sh` file instead of using the existing one, then you might need to set the execution mode of the file by running: `chmod +x generatePizzaData.sh`
 
 ## ☑ Exercise
 
