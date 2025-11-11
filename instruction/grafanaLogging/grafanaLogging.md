@@ -138,7 +138,7 @@ Grafana comes with a data explorer tool that allows you to examine a data source
 1. Click on the hint to `add json parser`.
 1. Press the blue `Run Query` button to see the results.
 
-This will display the log messages for the past 30 minutes. You can adjust the time range by either clicking and dragging over the `Logs volume` pane, or by change the time range specified on the top navigation bar next to the `Run Query` button.
+This will display the log messages for the past 30 minutes. You can adjust the time range by either clicking and dragging over the `Logs volume` pane, or by changing the time range specified on the top navigation bar next to the `Run Query` button.
 
 Because you chose the JSON parser, the log message was automatically parsed into fields, and it is visually differentiating based on the **level** field.
 
