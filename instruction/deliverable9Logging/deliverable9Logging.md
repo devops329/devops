@@ -62,7 +62,7 @@ Modify your service's config.js file to contain the Grafana logging credentials.
 
 > [!NOTE]
 >
-> You want your development environment you should use a different `source` so that you don't mix logs from different environments. In the example shown above the `source` is set to **jwt-pizza-service-dev**.
+> You want your development environment logging to use a different `source` so that you don't mix logs from different environments. In the example shown above the `source` is set to **jwt-pizza-service-dev**. In your production environment you want to use **jwt-pizza-service-prod**.
 
 ### Modify CI pipeline
 
