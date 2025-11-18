@@ -24,7 +24,7 @@ The following results are based upon a load test against the JWT Pizza applicati
 
 ![K6 example test graph](k6ExampleTestGraph.png)
 
-You can see the breakdown of metrics for each endpoint. This includes how many requests were made and the different latency statistics. This demonstrates that the login (api/auth) request takes on average 108 ms. That seems understandable since it creates a cryptographically signed JWT. The Pizza creation call (api/order) takes 48 ms on average. Since making a pizza requires a call to the JWT Pizza Headquarters that seems reasonable.
+You can see the breakdown of metrics for each endpoint. This includes how many requests were made and the different latency statistics. This demonstrates that the login (api/auth) request takes an average of 108 ms. That seems understandable since it creates a cryptographically signed JWT. The pizza creation call (api/order) takes 48 ms on average. Since making a pizza requires a call to the JWT Pizza Headquarters, that seems reasonable.
 
 ![K6 example test metrics](k6ExampleTestMetrics.png)
 
