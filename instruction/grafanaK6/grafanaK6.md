@@ -198,7 +198,7 @@ Next modify the check code so that it fails the iteration if the HTTP status is 
   }
 ```
 
-Now you can press the `Create` button you will see that you have two tests. One created with the visual Test Builder and one that is driven directly by the script that you just created with the Script Editor. If you run the newly created script version, you will still get the occasional login error, but the test will stop the execution of the instance whenever the check fails. That means that all the order errors are gone.
+Now you can press the `Create` button and you will see that you have two tests. One created with the visual Test Builder and one that is driven directly by the script that you just created with the Script Editor. If you run the newly created script version, you will still get the occasional login error, but the test will stop the execution of the instance whenever the check fails. That means that all the order errors are gone.
 
 ![Script run results](scriptRunResults.png)
 
