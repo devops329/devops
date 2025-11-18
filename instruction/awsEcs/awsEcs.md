@@ -79,7 +79,7 @@ Now you are ready to define the task that will execute your JWT Pizza backend. T
    1. Set the `Task execution role` to be the **jwt-pizza-ecs** execution role that you just created.
 1. Under `Container - 1`.
    1. Provide the name `jwt-pizza-service`.
-   1. Set the `Image URI` to the URI that was generated when you uploaded the container image to ECR. You can find this under ECR properties for your uploaded image. This should be something like:
+   1. Set the `Image URI` to the URI that was generated when you uploaded the container image to ECR. You can find this under ECR properties for your uploaded image. Make sure that you specify **latest** as the version to select. This should be something like:
       ```sh
       1234567890.dkr.ecr.us-east-1.amazonaws.com/jwt-pizza-service:latest
       ```
