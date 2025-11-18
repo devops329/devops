@@ -106,7 +106,7 @@ Let's discuss each of these steps in detail.
 
 ### Define communication preferences
 
-To define communication preferences, use the Grafana Cloud main navigation menu for `Alerts & IRM > OnCall > Users`. There you should see your name listed as the only user in your account. Press the `Edit` button.
+To define communication preferences, use the Grafana Cloud main navigation menu for `Alerts & IRM > IRM > Users`. There you should see your name listed as the only user in your account. Press the `Edit` button.
 
 Add your phone number and verify it using the steps found on the `Phone Verification` tab.
 
