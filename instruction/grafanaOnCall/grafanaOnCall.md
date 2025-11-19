@@ -118,7 +118,7 @@ Install the OnCall Mobile app using the steps found on the `Mobile App Connectio
 
 You can also associate your Slack account or integrate your Google Calendar if you desire.
 
-Set up your `Default Notifications` so that you receive notifications both for the **Default** and **Important** levels of events. You can specify to notify you with SMS, email, phone calls, or mobile push notifications. Intersperse the notifications with appropriate wait periods as you desire.
+After navigating to your user's **Notification rules**, set up your `Default Notification rules` so that you receive notifications both for the **Default** and **Important** levels of events. You can specify to notify you with SMS, email, phone calls, or mobile push notifications. Intersperse the notifications with appropriate wait periods as you desire.
 
 The different steps in the notifications will each successively trigger until you finally acknowledge that you have received the notification. The idea is that you want things to get gradually louder and more annoying until you finally respond.
 
