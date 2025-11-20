@@ -61,7 +61,7 @@ Your job is to do the following:
 1. Properly diagnose and remedy the root cause of the failure.
    1. If you debug carefully, it will be obvious what action to take to resolve the chaos.
    1. You will _not_ need to change the JWT Pizza code.
-1. Produce an [incident report](../incidentReport/incidentReport.md) using the template found in the `jwt-pizza` repository under the [incidentReports](https://github.com/devops329/jwt-pizza/tree/main/incidentReports) folder.
+1. Produce an [incident report](../incidentReport/incidentReport.md) using the [incident report template](../incidentReport/templateIncidentReport.md).
    1. If your alerts were not triggered by the chaos, update your alert rules so they can catch future failure.
    1. Include a section in your report documenting any changes you made.
 1. Submit that you have completed the deliverable to the [Canvas](https://byu.instructure.com) assignment.
