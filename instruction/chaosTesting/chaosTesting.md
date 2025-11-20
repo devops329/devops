@@ -45,7 +45,7 @@ The system that Netflix built to inject chaos into the application is called the
 - **Doctor Monkey**: Checks metrics for signs of unhealthy components and removes them.
 - **Janitor Monkey**: Cleans up and removes unused resources.
 - **Security Monkey**: Scans for security violations and vulnerabilities and terminates offending instances.
-- **10-18n Monkey**: Scans and reports usability violations.
+- **10-18 Monkey**: Scans and reports usability violations (l10n localization, i18n internationalization).
 - **Chaos Gorilla**: Simulates an entire Amazon availability zone outage.
 
 ## What about you?
