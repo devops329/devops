@@ -52,6 +52,9 @@ For major incidents such as security incidents related to personally identifiabl
 
 Later on in the instruction you will have the opportunity to create your own incident report. Take the time to consider what you would include in your report in order to decrease the possibility of a repeated failure.
 
+- [Template incident report](templateIncidentReport.md) for use with your chaos incident reporting.
+- [Example incident report](exampleIncidentReport.md) of when Unix Time took down the internet.
+
 ## A bit of fun
 
 ![XKCD Automation](xkcdExistentialBugReports.png)
