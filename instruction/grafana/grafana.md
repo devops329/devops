@@ -49,7 +49,11 @@ Grafana Cloud provides a generous free tier to get you started and allow you to 
 
 ### Create a Grafana Cloud account
 
-In order to get started with Grafana Cloud you need to create a free account.
+In order to get started with Grafana Cloud you need to create a **free account**. The free account with give you full access for two weeks and after that you will be limited in the amount of data you can send, but it is more than enough to complete the class.
+
+> [!IMPORTANT]
+>
+> Do not give your credit card to Grafana. You will not need to pay for anything used by this class.
 
 1. Go to [the Grafana website](https://grafana.com/)
 1. Press the `Create account` button.
