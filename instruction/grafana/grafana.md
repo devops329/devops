@@ -53,7 +53,7 @@ In order to get started with Grafana Cloud you need to create a **free account**
 
 > [!IMPORTANT]
 >
-> Do not give your credit card to Grafana. You will not need to pay for anything used by this class.
+> 💳 Do not give your credit card to Grafana. You will not need to pay Grafana anything for your work in this class.
 
 1. Go to [the Grafana website](https://grafana.com/)
 1. Press the `Create account` button.
