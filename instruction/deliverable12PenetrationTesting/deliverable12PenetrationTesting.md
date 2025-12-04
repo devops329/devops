@@ -92,7 +92,7 @@ When you and your peer have completed the report, commit it to the root of your 
 
 Complete the penetration tests defined above and produce the penetration report with your peer.
 
-Copy the URL of the report in your GitHub repository and submit it to the [Canvas assignment](byu.instructure.com). You submission should look something like this:
+Copy the URL of the report in your GitHub repository and submit it to the [Canvas assignment](https://byu.instructure.com). You submission should look something like this:
 
 ```txt
 https://github.com/byucsstudent/jwt-pizza/blob/main/penetrationTests/peerTest.md
