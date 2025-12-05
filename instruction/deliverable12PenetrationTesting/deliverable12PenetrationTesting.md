@@ -31,14 +31,15 @@ As different attacks are conducted you will document each attack using the follo
 - Record the date that the attack was executed.
 - Target website
 - Classify the attack according to the [OWASP Top Ten](../securityCommunity/securityCommunity.md), or provide your own classification if the exploit does not fit those categories.
-- Severity on a scale of 1 to 4
-  1. **Critical**: The application is down or unusable.
-  1. **High**: Authorization was escalated to administrator level. Performance was significantly impacted. Significant data was acquired.
-  1. **Medium**: Customer credentials were impersonated or stolen. Minor performance impacted or specific feature disabled.
-  1. **Low**: System configuration or not critical customer data was obtained.
+- Severity on a scale of 0 to 4
+  - 0 - **Unsuccessful**: The attack failed to have any meaningful impact.
+  - 1 - **Low**: System configuration or not critical customer data was obtained.
+  - 2 - **Medium**: Customer credentials were impersonated or stolen. Minor performance impacted or specific feature disabled.
+  - 3 - **High**: Authorization was escalated to administrator level. Performance was significantly impacted. Significant data was acquired.
+  - 4 - **Critical**: The application is down or unusable.
 - Description of result
-- Capture images of the attack
-- Corrections that were made
+- Capture images of the attack if successful or useful.
+- Corrections that were made if successful.
 
 ### Example attack record
 
