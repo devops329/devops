@@ -12,10 +12,10 @@ This course provides you with the experience and skills necessary to deploy, man
 
 The content for this course is represented by the following parts.
 
-- [Overview](https://github.com/devops329/devops/blob/main/instruction/overview/overview.md)
-- 📅 [Schedule](https://github.com/devops329/devops/blob/main/schedule/schedule.md) - Lecture and assignment due dates
-- 📘 [Instruction](https://github.com/devops329/devops/blob/main/instruction/modules.md#readme) - Modules and topics
-- 🍕 [JWT Pizza](https://github.com/devops329/devops/blob/main/instruction/jwtPizza/jwtPizza.md) - QA and DevOps mastery target
+- [Overview](instruction/overview/overview.md)
+- 📅 [Schedule](schedule/schedule.md) - Lecture and assignment due dates
+- 📘 [Instruction](instruction/modules.md#readme) - Modules and topics
+- 🍕 [JWT Pizza](instruction/jwtPizza/jwtPizza.md) - QA and DevOps mastery target
 - Assignments and deliverables are submitted through [Canvas](https://byu.instructure.com)
 
 ## Outcomes
