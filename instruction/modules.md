@@ -1,5 +1,11 @@
 # Modules
 
+## Course info
+
+- [📅 Schedule](../schedule/schedule.md)
+- [Syllabus](syllabus/syllabus.md)
+- [Instruction topics](modules.md)
+
 ## Getting started
 
 - ☑ [Overview](overview/overview.md)
