@@ -10,7 +10,7 @@ The URL for your pizza website should include the `pizza` subdomain for your lea
 pizza.byucsstudent.click
 ```
 
-![alt text](createAcccount.png)
+![alt text](createAccount.png)
 
 It is important that you provide accurate contact information for a location that you check frequently because this is what your peers will use to connect with you. Without proper information you may not be able to complete key deliverables.
 
