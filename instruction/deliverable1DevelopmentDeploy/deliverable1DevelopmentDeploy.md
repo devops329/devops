@@ -16,6 +16,7 @@ Before you start work on this deliverable make sure you have read all of the pre
 - ☑ [JWT Pizza Service](../jwtPizzaService/jwtPizzaService.md)
 - ☑ [JWT Pizza data](../jwtPizzaData/jwtPizzaData.md)
 - ☑ [JWT Pizza Client](../jwtPizzaClient/jwtPizzaClient.md)
+- ☑ [JWT Pizza Factory](../jwtPizzaFactory/jwtPizzaFactory.md)
 
 Failing to do this, will likely slow you down as you will not have the required knowledge to complete the deliverable.
 
@@ -56,9 +57,9 @@ Put breakpoints in both the front and backend code and start doing each of the u
 
 To get you started, we give you an example of what you need to supply for the first couple activities:
 
-| User activity                               | Frontend component | Backend endpoints | Database SQL                                                                                                                 |
-| ------------------------------------------- | ------------------ | ----------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| View home page                              | home.jsx           | _none_            | _none_                                                                                                                       |
+| User activity                               | Frontend component | Backend endpoints | Database SQL                                                                                                                      |
+| ------------------------------------------- | ------------------ | ----------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| View home page                              | home.jsx           | _none_            | _none_                                                                                                                            |
 | Register new user<br/>(t@jwt.com, pw: test) | register.jsx       | [POST] /api/auth  | `INSERT INTO user (name, email, password) VALUES (?, ?, ?)` <br/>`INSERT INTO userRole (userId, role, objectId) VALUES (?, ?, ?)` |
 
 Do not leave table cells blank. If there is nothing to write for a cell, put _none_ as shown in the example.
@@ -77,7 +78,8 @@ Once you have completed the review of the code and completely filled out the **U
 
 ### Rubric
 
-| Percent | Item                                                                                                                                                                                                                         |
-| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 30%     | Successfully forked the JWT Pizza repositories.                                                                                                                                                                              |
-| 70%     | Manually deployed JWT Pizza to your development environment. Used the debuggers to step through both the front and backend while completing the **User Activity** table found in the `notes.md` file of your jwt-pizza repo. |
+| Percent    | Item                                                                                                                                                                                                                         |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Prereq** | Successfully created your [JWT Pizza Factory](../jwtPizzaFactory/jwtPizzaFactory.md) account.                                                                                                                                |
+| 30%        | Successfully forked the JWT Pizza repositories.                                                                                                                                                                              |
+| 70%        | Manually deployed JWT Pizza to your development environment. Used the debuggers to step through both the front and backend while completing the **User Activity** table found in the `notes.md` file of your jwt-pizza repo. |
