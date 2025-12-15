@@ -55,7 +55,18 @@ As different attacks are conducted you will document each attack using the follo
 
 ## Penetration test process
 
-### Step 1: Self attack
+> [!IMPORTANT]
+>
+> Do not attempt to participate in this deliverable if you have not completed the previous phase and are committed to collaborating with a peer. Your peer's experience will be negatively impacted if you are unable to fully participate. I you accept the responsibility of being a peer and then do not complete your part of the collaboration you may receive **negative** mastery points for this deliverable.
+
+### Step 1: Collaborate with a peer
+
+1. Log into the [Pizza Factory](https://pizza-factory.cs329.click) and request a `pentest partner`. If there is not currently a partner available then check back later. If you attempted to get a partner, but one was never assigned or your partner did not respond before the partner connection deadline, then immediately contact the TAs and they will figure out a solution for you.
+2. Immediately contact your partner and set up a time to conduct your peer attack and create the penetration test report. Class will be cancelled on the day after the partner connection deadline and so you should be able to at least use that time to work together.
+
+![alt text](partnerConnection.png)
+
+### Step 2: Self attack
 
 Take the following steps to execute a penetration test on your JWT Pizza application.
 
@@ -63,7 +74,7 @@ Take the following steps to execute a penetration test on your JWT Pizza applica
 1. Attempt to penetrate your deployment of JWT Pizza.
 1. Make modifications to your fork and deployment of JWT Pizza in order to resolve any security issues that you discovered.
 
-### Step 2: Peer attack
+### Step 3: Peer attack
 
 Take the following steps to execute a penetration test on a peer's JWT Pizza application.
 
@@ -74,7 +85,7 @@ Take the following steps to execute a penetration test on a peer's JWT Pizza app
 1. Communicate with your peer and decide on a date when you will conduct your penetration testing.
 1. On the decided date, attempt to penetrate your peer's JWT Pizza deployment. Take careful notes about the preparation, actions, and results for the penetration test.
 
-### Step 3: Generate a report
+### Step 4: Generate a report
 
 Meet with your peer and create a joint report in Markdown format. The report must contain the following sections.
 
@@ -86,6 +97,12 @@ Meet with your peer and create a joint report in Markdown format. The report mus
    1. Peer 1 attack on peer 2: Create an attack record for each attack.
    1. Peer 2 attack on peer 1: Create an attack record for each attack.
 1. Combined summary of learnings
+1. Log into the [Pizza Factory](https://pizza-factory.cs329.click) and give your partner a star rating.
+   1. ⭐: Peer did not respond sufficiently to collaborate.
+   1. ⭐⭐: Coordination meeting was scheduled and held.
+   1. ⭐⭐⭐: Peer's website was available for attack.
+   1. ⭐⭐⭐⭐: Peer attacked your website.
+   1. ⭐⭐⭐⭐⭐: Peer made a significant effort to both harden their website and attack yours.
 
 When you and your peer have completed the report, commit it to the root of your fork of the `jwt-pizza` repository in a directory named `penetrationTests` and a file name `peerTest.md`.
 
@@ -101,10 +118,16 @@ https://github.com/byucsstudent/jwt-pizza/blob/main/penetrationTests/peerTest.md
 
 ### Rubric
 
-| Percent | Item                          |
-| ------- | ----------------------------- |
-| 25%     | Self attack                   |
-| 50%     | Peer attack                   |
-| 25%     | Combined summary of learnings |
+> [!NOTE]
+>
+> If you did not collaborate with a peer as required by following prerequisites then do not submit for this deliverable.
+
+| Percent | Item                                                                                      |
+| ------- | ----------------------------------------------------------------------------------------- |
+| Prereq  | Connect with a peer before the connection deadline provided on the course schedule        |
+| Prereq  | Meet with you peer on or before the day after the connection deadline and work out a plan |
+| 25%     | Self attack                                                                               |
+| 50%     | Peer attack                                                                               |
+| 25%     | Combined summary of learnings and star rating applied for peer                            |
 
 **Congratulations!** You have enhanced the security of your application. Time to go celebrate. I'm thinking hamburgers 🍔.
