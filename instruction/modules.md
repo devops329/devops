@@ -5,6 +5,7 @@
 - [📅 Schedule](../schedule/schedule.md)
 - [Syllabus](syllabus/syllabus.md)
 - [Instruction topics](modules.md)
+- [Late Policy](latePolicy/latePolicy.md)
 
 ## Getting started
 
@@ -17,7 +18,6 @@
 - ☑ [AWS Account](awsAccount/awsAccount.md)
 - [AWS Route 53](awsRoute53/awsRoute53.md)
 - [GitHub](gitHub/gitHub.md)
-- [Late Policy](latePolicy/latePolicy.md)
 - [Commit History](gitHub/commitHistory.md)
 - ⭐ [Christlike learning](christlikeLearning/christlikeLearning.md)
 - ⭐ [Curiosity report](curiosityReport/curiosityReport.md)
