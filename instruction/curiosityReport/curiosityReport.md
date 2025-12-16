@@ -36,7 +36,7 @@ Some common characteristics of a good report include:
 1. Is related to QA and DevOps
 1. Involves research and experimentation
 1. Clear, meaningful, write up that allows for review/reproduction of the research
-1. Wasn't just an AI cut and paste
+1. It was your curiosity, not AIs
 
 # Example of a poor report
 
@@ -46,6 +46,7 @@ The following report doesn't meet the acceptance threshold for the following rea
 1. There is no depth in research and application
 1. It doesn't demonstrate the exercise of curiosity
 1. There are no references to existing authorities on the subject
+1. AI or Google query would have produced a better report
 
 > ![Poor report](poorReport.png)
 

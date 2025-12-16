@@ -71,7 +71,7 @@ As different attacks are conducted you will document each attack using the follo
 Take the following steps to execute a penetration test on your JWT Pizza application.
 
 1. Carefully review the JWT Pizza application functionality and code. Make notes about possible vulnerabilities and attack vectors.
-1. Attempt to penetrate your deployment of JWT Pizza.
+1. Attempt to penetrate your deployment of JWT Pizza. **At least five different attacks must be made and documented**.
 1. Make modifications to your fork and deployment of JWT Pizza in order to resolve any security issues that you discovered.
 
 ### Step 3: Peer attack
@@ -83,7 +83,7 @@ Take the following steps to execute a penetration test on a peer's JWT Pizza app
    Make sure that you have provided correct contact information for accounts that you frequently check so that your partner can contact you.
 
 1. Communicate with your peer and decide on a date when you will conduct your penetration testing.
-1. On the decided date, attempt to penetrate your peer's JWT Pizza deployment. Take careful notes about the preparation, actions, and results for the penetration test.
+1. On the decided date, attempt to penetrate your peer's JWT Pizza deployment. **At least five different attacks must be made and documented**. Take careful notes about the preparation, actions, and results for the penetration test.
 
 ### Step 4: Generate a report
 
@@ -126,8 +126,8 @@ https://github.com/byucsstudent/jwt-pizza/blob/main/penetrationTests/peerTest.md
 | ------- | ----------------------------------------------------------------------------------------- |
 | Prereq  | Connect with a peer before the connection deadline provided on the course schedule        |
 | Prereq  | Meet with you peer on or before the day after the connection deadline and work out a plan |
-| 25%     | Self attack                                                                               |
-| 50%     | Peer attack                                                                               |
+| 25%     | Self attack. **At least five different attacks made and documented**.                     |
+| 50%     | Peer attack. **At least five different attacks made and documented**.                     |
 | 25%     | Combined summary of learnings and star rating applied for peer                            |
 
 **Congratulations!** You have enhanced the security of your application. Time to go celebrate. I'm thinking hamburgers 🍔.
