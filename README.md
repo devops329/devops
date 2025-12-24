@@ -1,4 +1,4 @@
-![BYU logo](https://github.com/devops329/devops/blob/main/byuLogo.png?raw=true)
+![BYU logo](https://raw.githubusercontent.com/devops329/devops/refs/heads/main/byuLogo.png)
 
 # BYU QA and DevOps `cs329`
 
