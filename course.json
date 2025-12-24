@@ -21,6 +21,11 @@
           "id": "49e4ad88-06a3-4a57-9d55-77ffb9310b6e"
         },
         {
+          "title": "Late Policy",
+          "path": "instruction/latePolicy/latePolicy.md",
+          "id": "47a43704-6388-4424-ae59-663695fcd800"
+        },
+        {
           "title": "Instruction topics",
           "path": "instruction/modules.md",
           "id": "c6b62e79-bc96-4cfb-8f27-7324548b4bc3"
@@ -74,11 +79,6 @@
           "title": "GitHub",
           "path": "instruction/gitHub/gitHub.md",
           "id": "cbfaf177-9b44-4ce1-9b47-d6e0eec135bc"
-        },
-        {
-          "title": "Late Policy",
-          "path": "instruction/latePolicy/latePolicy.md",
-          "id": "47a43704-6388-4424-ae59-663695fcd800"
         },
         {
           "title": "Commit History",
