@@ -2,7 +2,7 @@
 
 # BYU QA and DevOps `cs329`
 
-![DevOps Cover](https://github.com/devops329/devops/blob/main/devopscover.jpg?raw=true)
+![DevOps Cover](https://raw.githubusercontent.com/devops329/devops/refs/heads/main/devopscover.jpg)
 
 _Image Generated with Bing AI_
 
