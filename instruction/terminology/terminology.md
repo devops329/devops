@@ -19,7 +19,7 @@ As with any branch of computer science, we like to throw around a lot of technic
 | CF        | Continuous Feedback                          | Automating metrics and logs such that there is real time observability of the application.                                    |
 | VCS       | Version Control System                       | Historical tracking of application changes that allows for branching, roll back, and annotation.                              |
 | VM        | Virtual Machine                              | A software program that simulates a physical machine environment. Multiple isolated VMs can run on a single physical machine. |
-| Container | Container                                    | A lightweight virtualization of a operating system environment that is easily deployable from an small image.                 |
+| Container | Container                                    | A lightweight virtualization of a operating system environment that is easily deployable from a small image.                 |
 | OCI       | Open Container Initiative                    | The official standard for creating and hosting containers.                                                                    |
 | AWS       | Amazon Web Services                          | The company that popularized cloud based service hosting.                                                                     |
 | IAM       | Identity and Access Management               | The rigorous definition of who, or what, can access what, when, and from where.                                               |
@@ -28,6 +28,6 @@ As with any branch of computer science, we like to throw around a lot of technic
 | HTTP      | Hypertext Transfer Protocol                  | The protocol for communicating on the World Wide Web.                                                                         |
 | HTTPS     | Hypertext Transfer Protocol Secure           | Encrypted version of HTTP.                                                                                                    |
 | TDD       | Test-Driven Development                      | Using the creation of automated tests to enhance and expedite code development.                                               |
-| SLA       | Service Level Agreement                      | A public contractual that specifies requirements for metrics like uptime and latency.                                         |
+| SLA       | Service Level Agreement                      | A public contract that specifies requirements for metrics like uptime and latency.                                         |
 | SLO       | Service Level Objective                      | An internal declaration of key metrics that the service targets.                                                              |
 | SLI       | Service Level Indicator                      | A key metric that defines the success of a service.                                                                           |
