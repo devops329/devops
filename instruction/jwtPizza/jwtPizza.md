@@ -16,7 +16,7 @@ An external contracted application team has written the code for the application
 
 You shouldn't assume that the external development engineers have done a perfect job with JWT Pizza. In fact, there are several known bugs and security vulnerabilities in the code. Part of your job will be to discover and correct these problems.
 
-💡 You might consider a deep dive into JWT technology for your curiosity report. Learn about how it was created, how it works, and what its strengths and weaknesses.
+💡 You might consider a deep dive into JWT technology for your curiosity report. Learn about how it was created, how it works, and what its strengths and weaknesses are.
 
 ## Deliverables
 
