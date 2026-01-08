@@ -24,10 +24,12 @@ We encourage you to submit all work even if it is late. Most deliverables depend
 
 To encourage you to stay ahead of the course, and handle the inevitable sickness, family emergency, powder day, or accident, you can earn grace days.
 
-For each day that a deliverable is submitted early, and receives 100%, Sundays excluded, you earn 1 grace day, up to a maximum of 2 per deliverable.
+For each day, excluding Sundays, that a deliverable is submitted early, and receives 100%, you earn 1 grace day.
 
 You can view your available grace days on the `Grace Days` assignment in Canvas.
 
 ## Extenuating Circumstances and Accommodations
 
 Life happens, sometimes in ways we cannot foresee or prepare for. If you encounter an extenuating circumstance or require university accommodations during the semester, please contact the professor as soon as possible. University Accommodations require you to ask the Professor for extensions **before** the deadline.
+
+Make sure you review the [syllabus](../syllabus/syllabus.md) for all of the details.
