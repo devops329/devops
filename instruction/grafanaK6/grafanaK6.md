@@ -18,6 +18,10 @@ In 2000, a pair of developers were working on a multiplayer game that required s
 
 This is a great example of a small team doing what they love, building something useful, and making a good living in the process.
 
+> [!NOTE]
+>
+> Fun fact: The creators of K6 actually had a pet alligator in the office.
+
 ## An example run
 
 The following results are based upon a load test against the JWT Pizza application that simulates a simple login, look at the menu, and purchase a pizza scenario. K6 generates an impressive amount of metrics and visualizations that help to understand how well the application responded to the simulated load. The following graph shows 10 concurrent virtual users (VU), making a maximum of 3.33 requests per second, with an average 95th percentile response time of 118ms.
@@ -48,9 +52,7 @@ You will create your first K6 load against your JWT Pizza production deployment.
 
     ![Default K6 project](defaultProject.png)
 
-1.  Click on the `Default project` name in order to create a new test. This might display some tutorial documentation that you can read or dismiss. You should then see a `Create new test` button. _(Note that the creators of K6 actually had a pet alligator in the office, and thus the alligator theme.)_
-
-    ![Create test button](createTestButton.png)
+1.  Click on the `Default project` name in order to create a new test. This might display some tutorial documentation that you can read or dismiss. You should then see a `Create new test` button.
 
 1.  Press the `Create new test` button. This will display the new test and give you different options for how you can create it. There are three options.
 
