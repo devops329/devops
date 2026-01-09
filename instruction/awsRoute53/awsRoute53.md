@@ -64,7 +64,7 @@ If the values do not match, then copy the values from the hosted zone into your 
 
 ![edit name servers](editNameServers.png)
 
-It will take a while for the new values to propagate, but when they are done y[AWS Route 53](awsRoute53/awsRoute53.md)ou can verify the values associated with your DNS records using `nslookup` to see what the Host zone has, and `whois` to see what the DNS registrar has.
+It will take a while for the new values to propagate, but when they are done modifying [AWS Route 53](awsRoute53/awsRoute53.md), you can verify the values associated with your DNS records using `nslookup` to see what the Host zone has, and `whois` to see what the DNS registrar has.
 
 ```sh
 > nslookup -type=ns byucsstudent.click
