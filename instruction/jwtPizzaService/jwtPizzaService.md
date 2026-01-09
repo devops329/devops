@@ -169,7 +169,8 @@ Enable some breakpoints and step through the code that sets up the database, aut
 
 ```sh
 curl http://localhost:3000
-
+```
+```
 {"message":"welcome to JWT Pizza","version":"20240518.154317"}
 ```
 
@@ -179,7 +180,8 @@ This should return an empty menu since you haven't created any initial data yet.
 
 ```sh
 curl http://localhost:3000/api/order/menu
-
+```
+```
 []
 ```
 
@@ -189,6 +191,7 @@ The application automatically creates a default admin user if the database didn'
 
 ```sh
 curl -X PUT http://localhost:3000/api/auth -H "Content-Type:application/json" -d '{"email":"a@jwt.com","password":"admin"}'
-
+```
+```
 {"user":{"id":1,"name":"常用名字","email":"a@jwt.com","roles":[{"role":"admin"}]},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IuW4uOeUqOWQjeWtlyIsImVtYWlsIjoiYUBqd3QuY29tIiwicm9sZXMiOlt7InJvbGUiOiJhZG1pbiJ9XSwiaWF0IjoxNzM0MDQ1MDE2fQ.XmWeetWEryvDA21NPQFPueiTnHVuTYMwdJregFCW4p8"}
 ```
