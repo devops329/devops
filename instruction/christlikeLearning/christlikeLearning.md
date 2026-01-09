@@ -7,7 +7,7 @@
 
 ---
 
-Humility is a foundational requirement for a learning mindset. By intentionally acknowledging the source of our blessings and opportunities we approach learning with eagerness and openness. This then allows us to receive the influence and inspiration of the divine and in turn apply our talents in the service of righteousness.
+Humility is a foundational requirement for a learning mindset. By intentionally acknowledging the source of our blessings and opportunities, we approach learning with eagerness and openness. This then allows us to receive the influence and inspiration of the divine and in turn apply our talents in the service of righteousness.
 
 This can be summarized by three principles to apply in all of our educational and temporal endeavors.
 
@@ -47,7 +47,7 @@ I have found this to be true. When I put forth my best efforts, combined with ea
 
 ## Letting the Spirit inspire our actions
 
-When Karl G. Maeser asked President Brigham Young how he should approach his work, he received the following response.
+When Karl G. Maeser asked President Brigham Young how he should approach his work, he received the following response:
 
 > “Brother Maeser, I want you to remember that you ought not to teach even the alphabet or the multiplication tables **without the Spirit of God**.”
 
