@@ -74,7 +74,7 @@ When filling out your report try to use backticks to surround your code and `<br
 
 ## ⭐ Deliverable
 
-Once you have completed the review of the code and completely filled out the **User activity** table found in `notes.md`, commit and push your `notes.md` file to your jwt-pizza repo and submit that you have completed the work to the [Canvas assignment](https://byu.instructure.com).
+Once you have completed the review of the code and completely filled out the **User activity** table found in `notes.md`, commit and push your `notes.md` file to your jwt-pizza repo and submit that you have completed the work to the [Canvas assignment](https://byu.instructure.com/courses/33943/assignments/1258888).
 
 ### Rubric
 
