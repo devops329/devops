@@ -93,7 +93,7 @@ Below is an example billing report that shows the charges for load balancing, IP
 >
 > You want to create an alert for your billing so that you don't get surprised when you accidentally start incurring cost.
 
-Billing alerts help protect your from incurring unnecessary cost. For you fiscal safety you are **highly encouraged** to create alerts that will save you from spending more that you have anticipated.
+Billing alerts help protect your from incurring unnecessary cost. For your fiscal safety you are **highly encouraged** to create alerts that will save you from spending more that you have anticipated.
 
 By default, AWS will create _Free Tier alerts_ for you. These will email you whenever you come within a certain percentage threshold of your allocated free tier resource.
 
