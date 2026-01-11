@@ -67,6 +67,6 @@ graph LR;
     end
 ```
 
-This greatly simplifies your life because you don't have to worry about deploying and managing code running on backend servers. That is left to the DevOps engineers working at JWT Headquarters. You just need to put the JWT Pizza frontend code in a location from where a browser can load the frontend code.
+This greatly simplifies your life because you don't have to worry about deploying and managing code running on backend servers. That is left to the DevOps engineers working at JWT Headquarters. You just need to put the JWT Pizza frontend code in a location where a browser can load the frontend code.
 
 In later instruction you will learn how to deploy your own JWT Pizza Service and database. Then you will only rely on the Pizza Factory provided by JWT Headquarters. Deploying your own backend service and database makes things significantly more complicated, but it gives you control over the full stack, and that is where all the fun is.
