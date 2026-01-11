@@ -190,7 +190,7 @@ steps:
     uses: actions/checkout@v4
 ```
 
-Then it installs Node.js version 20.
+Then it installs Node.js version 22.
 
 ```yml
 - name: Setup Node
@@ -210,7 +210,7 @@ We then create our version number, set it in a GitHub Action output variable tha
     printf '{"version": "%s" }' "$version" > public/version.json
 ```
 
-Next it builds the distribution bundle by installing all the dependencies, running Vite to do the bundling, and then copying over our 404 handler file fix that we introduced in the last deliverable.
+Next it builds the distribution bundle by installing all the dependencies, running Vite to do the bundling.
 
 ```yml
 - name: Build
@@ -286,6 +286,6 @@ Once JWT Pizza is live on your domain, go to the [Canvas assignment](https://byu
 | Percent | Item                                                                                        |
 | ------- | ------------------------------------------------------------------------------------------- |
 | 50%     | Successful execution of GitHub Actions to deploy JWT Pizza to GitHub Pages on push          |
-| 10%     | Version updated with each build and visible in app footer.                                  |
+| 10%     | Version updated with each build and visible in app footer                                   |
 | 35%     | Completely functional JWT Pizza deployed with GitHub Pages accessible on custom domain name |
 | 5%      | Pipeline status badge display on your JWT Pizza **README.md** home page                     |
