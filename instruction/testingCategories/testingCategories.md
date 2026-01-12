@@ -104,7 +104,7 @@ Compatibility testing helps to ensure that different versions of the application
 
 Compatibility testing also needs to be concerned with every device and operating system compatibility. For an application that can run on consumer devices such as televisions or gaming consoles you must actually test the application on each of those devices. That can run into thousands of permutations that must be tested before you can have confidence in a release. Even for simple websites, compatibility testing can be daunting since the permutations of browsers, operating systems, and hardware can quickly run into the dozens or hundreds.
 
-To help with the complexities of compatibility testing, software companies often rent access to device farms where an application can be installed and tested on thousands of devices simultaneously. Once such company that has captured a broad share of the native device testing market is [BrowserStack](https://www.browserstack.com/). The following image shows many of the operating systems and hardware devices that you can test your application with.
+To help with the complexities of compatibility testing, software companies often rent access to device farms where an application can be installed and tested on thousands of devices simultaneously. One company that has captured a broad share of the native device testing market is [BrowserStack](https://www.browserstack.com/). The following image shows many of the operating systems and hardware devices that you can test your application with.
 
 ![BrowserStack emulation](browserStackEmulation.png)
 
@@ -116,7 +116,7 @@ The following image shows JWT Pizza running on a Google Pixel 8. BrowserStack al
 
 ### Accessibility
 
-Accessibility testing ensures that your application can service a diverse population of customers. Not only does this help some of the most disadvantaged members of our committee, it can also be a violation of local or federal law to not adhere to the most basic levels of accessibility support. This includes high contrast themes, support for screen readers, and proper keyboard navigation.
+Accessibility testing ensures that your application can service a diverse population of customers. Not only does this help some of the most disadvantaged members of our community, it can also be a violation of local or federal law to not adhere to the most basic levels of accessibility support. This includes high contrast themes, support for screen readers, and proper keyboard navigation.
 
 The most popular accessibility guideline in North America is the Web Content Accessibility Guidelines (WCAG). Not only does this guideline provide 12 comprehensive guidelines organized under the categories of Perceivable, Operable, Understandable, and Robust, it also provides a full test suite that you can apply to your application.
 
