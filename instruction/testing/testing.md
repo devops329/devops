@@ -77,10 +77,10 @@ test('catalog history', async () => {
 
 ## Testing latency
 
-The faster your tests run the more likely they will be ran. If you have a test suite that takes minutes or hours to complete then those test cannot reasonably be part of an engineers normal workflow and they will only be used with by a long running CI pipeline. While that does provide some utility, you want to encourage the following realtime development pattern:
+The faster your tests run the more likely they will be ran. If you have a test suite that takes minutes or hours to complete then those tests cannot reasonably be part of an engineer's normal workflow and they will only be used by a long running CI pipeline. While that does provide some utility, you want to encourage the following realtime development pattern:
 
 1. Make a change
-1. Run a full test suite to give you confidence that you didn't brake anything
+1. Run a full test suite to give you confidence that you didn't break anything
 1. Repeat until a reasonable milestone is achieved
 1. Commit and let more exhaustive tests execute
 
