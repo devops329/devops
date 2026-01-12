@@ -190,7 +190,7 @@ steps:
     uses: actions/checkout@v4
 ```
 
-Then it installs Node.js version 22.
+Then it installs Node.js.
 
 ```yml
 - name: Setup Node
@@ -210,7 +210,7 @@ We then create our version number, set it in a GitHub Action output variable tha
     printf '{"version": "%s" }' "$version" > public/version.json
 ```
 
-Next it builds the distribution bundle by installing all the dependencies, running Vite to do the bundling.
+Next it then installs all the dependencies and runs Vite to do build the distribution bundle.
 
 ```yml
 - name: Build
