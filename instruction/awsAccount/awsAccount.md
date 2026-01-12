@@ -81,7 +81,7 @@ You can reduce your monthly bill significantly if you stop your resources when y
 
 An important part of developer operations is to understand how the architecture choices you make impact the cost of doing business. You should carefully consider every service that you deploy and how much that will cost you. You then want to set up processes to both monitor and alert on those expenditures to make sure they match the anticipated amounts.
 
-AWS provides extensive reporting tools for billing and cost exploration. These tools are available form on the AWS browser console under the `Billing and Cost Management` service. You are **highly encouraged** to spend time understanding everything that is provided there.
+AWS provides extensive reporting tools for billing and cost exploration. These tools are available on the AWS browser console under the `Billing and Cost Management` service. You are **highly encouraged** to spend time understanding everything that is provided there.
 
 Below is an example billing report that shows the charges for load balancing, IPv4 address allocation, and Fargate.
 
@@ -93,7 +93,7 @@ Below is an example billing report that shows the charges for load balancing, IP
 >
 > You want to create an alert for your billing so that you don't get surprised when you accidentally start incurring cost.
 
-Billing alerts help protect your from incurring unnecessary cost. For you fiscal safety you are **highly encouraged** to create alerts that will save you from spending more that you have anticipated.
+Billing alerts help protect your from incurring unnecessary cost. For your fiscal safety you are **highly encouraged** to create alerts that will save you from spending more that you have anticipated.
 
 By default, AWS will create _Free Tier alerts_ for you. These will email you whenever you come within a certain percentage threshold of your allocated free tier resource.
 
