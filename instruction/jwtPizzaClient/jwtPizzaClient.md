@@ -134,6 +134,6 @@ Open the browser's dev tools, set breakpoints and begin learning the code. Make 
 1.  Order a pizza.
 1.  Validate that the pizza JWT is valid.
 1.  Login as a franchisee (f@jwt.com with password `franchisee`)
-1.  View the franchisee menu and observe that you have received the revenue for the pervious pizza purchase.
+1.  View the franchisee menu and observe that you have received the revenue for the previous pizza purchase.
 
 ![alt text](jwtPizzaFranchise.png)
