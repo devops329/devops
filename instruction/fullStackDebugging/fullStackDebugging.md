@@ -1,6 +1,6 @@
 # Full stack debugging
 
-Knowing how to properly debug a full stack application is a critical skill for QA and DevOps engineers. In order to be successful you need to start with the proper mental model and clearly distinguish that you are debugging two separate application using two different debugging tools at the same time. You will use the browser's dev tools to debug the frontend application and VS Code's debugger to debug the backend that is running with Node.js.
+Knowing how to properly debug a full stack application is a critical skill for QA and DevOps engineers. In order to be successful you need to start with the proper mental model and clearly distinguish that you are debugging two separate applications using two different debugging tools at the same time. You will use the browser's dev tools to debug the frontend application and VS Code's debugger to debug the backend that is running with Node.js.
 
 ![alt text](fullStackDebugging.png)
 
