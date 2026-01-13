@@ -74,12 +74,15 @@ When filling out your report try to use backticks to surround your code and `<br
 
 ## ⭐ Deliverable
 
-Once you have completed the review of the code and completely filled out the **User activity** table found in `notes.md`, commit and push your `notes.md` file to your jwt-pizza repo and submit that you have completed the work to the [Canvas assignment](https://byu.instructure.com).
+Once you have completed the review of the code and completely filled out the **User activity** table found in `notes.md`, commit and push your `notes.md` file to your jwt-pizza repo and submit that you have completed the work to the [Canvas assignment](https://byu.instructure.com). 
+
+You will also need to update your [JWT Factory](https://pizza-factory.cs329.click) account to include your Pizza Website and the GitHub URL to your JWT Pizza Frontend Repo
 
 ### Rubric
 
 | Percent    | Item                                                                                                                                                                                                                         |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Prereq** | Successfully created your [JWT Pizza Factory](../jwtPizzaFactory/jwtPizzaFactory.md) account.                                                                                                                                |
-| 30%        | Successfully forked the JWT Pizza repositories.                                                                                                                                                                              |
+| 15%        | Successfully submited your JWT Pizza github link in canvas and updated your information on JWT Pizza Factory|
+| 15%        | Successfully forked the JWT Pizza repositories.                                                                                                                                                                              |
 | 70%        | Manually deployed JWT Pizza to your development environment. Used the debuggers to step through both the front and backend while completing the **User Activity** table found in the `notes.md` file of your jwt-pizza repo. |
