@@ -59,7 +59,7 @@ One easy way to do this is to use a service from `GitHub` called `GitHub Pages`.
            uses: actions/deploy-pages@v4
    ```
 
-   This CI pipeline will execute a **Build** job that creates a simple `index.html` file and then use the **upload-pages-artifact** action to create an artifact that can be deploy to GitHub Pages. The **Deploy** job then deploys the artifact to the github-pages environment that using the **deploy-pages** action.
+   This CI pipeline will execute a **Build** job that creates a simple `index.html` file and then use the **upload-pages-artifact** action to create an artifact that can be deployed to GitHub Pages. The **Deploy** job then deploys the artifact to the github-pages environment using the **deploy-pages** action.
 
 1. Commit and push. This will trigger the CI pipeline and once it has completed you should be able to view the static deployment by using the URL that GitHub Pages automatically creates for you. This will follow the pattern:
 
