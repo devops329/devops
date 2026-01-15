@@ -76,6 +76,10 @@ When filling out your report try to use backticks to surround your code and `<br
 
 Once you have completed the review of the code and completely filled out the **User activity** table found in `notes.md`, commit and push your `notes.md` file to your jwt-pizza repo and submit that you have completed the work to the [Canvas assignment](https://byu.instructure.com). 
 
+> [!IMPORTANT]
+>
+> Make sure you have entered both the GitHub URL and the Website URL for you JWT Pizza frontend code in your [JWT Pizza Factory](../jwtPizzaFactory/jwtPizzaFactory.md) Account. You can change this later, but this is what the TA uses to find and grade your deliverable.
+
 ### Rubric
 
 | Percent    | Item                                                                                                                                                                                                                         |
