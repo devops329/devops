@@ -4,13 +4,14 @@ The JWT Pizza Factory is controlled by JWT Pizza Headquarters and provides two m
 
 Before your do any work in the class you must setup your Vendor account with the [JWT Pizza Factory](https://pizza-factory.cs329.click). Register with your **BYU ID** and provide information such as your name, contact information, GitHub repository, and the URL of your pizza service website.
 
-The URL for your pizza website should include the `pizza` subdomain for the DNS hostname you plan to lease. For example,
+The URL for your pizza website should include the `pizza` subdomain for the DNS hostname. This can be an hosthame you already own, or one that you plan to lease. For example,
 
 ```
 pizza.byucsstudent.click
 ```
 
 > [!NOTE]
+> 
 > You will finish setting up the `pizza` subdomain in Deliverable 2, and you can edit this URL in your JWT Pizza Factory account at any time to match.
 
 ![alt text](createAccount.png)
