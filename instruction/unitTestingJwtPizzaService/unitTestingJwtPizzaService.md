@@ -8,7 +8,7 @@
 
 ---
 
-Now that you have the JWT Pizza Service in your hands you can start to assure its quality by writing unit tests. As part of your testing you will generate a coverage report. Later you will add coverage thresholds, so that if the coverage requirements of your tests do not meet the required thresholds, then an error is generated.
+Now that you have the JWT Pizza Service in your hands you can start to assure its quality by writing unit tests. As part of your testing you will generate a coverage report. Later you will add coverage thresholds, so that if the coverage requirements of your tests do not meet the required thresholds, an error is generated.
 
 If you haven't already done so, make sure you fork the [jwt-pizza-service](../jwtPizzaService/jwtPizzaService.md) repository and clone it to your development environment.
 
@@ -64,9 +64,9 @@ Add the `test` script to `package.json` so that it knows to use Jest for testing
 
 ## Creating a simple test
 
-Now that you have set up `jwt-pizza-service` to be tested with Jest, you can make sure it is all working right by writing a simple test. Create a file named `authRouter.test.js` in the `src/routes` directory and place the following `hello world` test in file.
+Now that you have set up `jwt-pizza-service` to be tested with Jest, you can make sure it is all working right by writing a simple test. Create a file named `authRouter.test.js` in the `src/routes` directory and place the following `hello world` test in the file.
 
-```sh
+```js
 test('hello world', () => {
   expect('hello' + ' world').toBe('hello world');
 });
