@@ -87,7 +87,7 @@ Using your domain name take the following steps in order to associate it to your
    Hello GitHub Pages
    ```
 
-   The previous `youraccountnamehere.github.io/jwt-pages` URL should now redirect you with an HTTP `301` response to your new domain.
+   The previous `youraccountnamehere.github.io/jwt-pizza` URL should now redirect you with an HTTP `301` response to your new domain.
 
 ## Enhance your CI pipeline
 
