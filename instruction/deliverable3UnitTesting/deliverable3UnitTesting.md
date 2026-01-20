@@ -178,9 +178,9 @@ Before you run your new workflow you need to add a version number and report on 
 
 ![Example badge](badge.svg)
 
-You can report your coverage publicly by creating a coverage badge that is displayed in your README.md file and updating it every time you CI pipeline executes.
+You can report your coverage publicly by creating a coverage badge that is displayed in your README.md file and updating it every time your CI pipeline executes.
 
-In order to publicly display your coverage you will create a badge that displays your coverage percentage. We use the **JWT Pizza Factory Badge** service to create, store, and retrieve badges that you then display in your **README.md** file. You supply your `BYU Net ID` and your `JWT Pizza API token` to authorize the creation of a badge. Make sure both of those values are represented in your GitHub Actions secrets.
+In order to publicly display your coverage, you will create a badge that displays your coverage percentage. We use the **JWT Pizza Factory Badge** service to create, store, and retrieve badges that you then display in your **README.md** file. You supply your `BYU Net ID` and your `JWT Pizza API token` to authorize the creation of a badge. Make sure both of those values are represented in your GitHub Actions secrets.
 
 ```yml
 - name: Update coverage
