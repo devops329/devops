@@ -107,7 +107,7 @@ Go ahead and create the following secrets.
 
 ### Using MySQL in GitHub Actions
 
-To set up MySQL you need to add the following to your workflow.
+To set up MySQL you need to add the following to your workflow after the `runs-on` line but before the `steps` section.
 
 ```yml
 services:
