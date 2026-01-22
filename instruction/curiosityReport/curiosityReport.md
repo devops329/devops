@@ -36,7 +36,7 @@ Some common characteristics of a good report include:
 1. Is related to QA and DevOps
 1. Involves research and experimentation
 1. Clear, meaningful, write up that allows for review/reproduction of the research
-1. It was your curiosity, not AIs
+1. It was your curiosity, not AI's
 
 # Example of a poor report
 
