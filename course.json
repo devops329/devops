@@ -359,16 +359,16 @@
           "id": "b2271809-f1a3-4b58-a61f-07789d25d5f2"
         },
         {
+          "title": "⭐ ⓻ Backend deployment: JWT Pizza Service",
+          "path": "instruction/deliverable7BackendDeployment/deliverable7BackendDeployment.md",
+          "id": "b27b7084-42f8-4fa1-80cd-b4cb73318a03"
+        },
+        {
           "title": "⓻ Video",
           "type": "video",
           "path": "https://youtu.be/mhFmGVfFA8c",
           "id": "559d557e-ef11-40be-8f6b-02a20b47c67e",
           "description": "https://youtu.be/mhFmGVfFA8c"
-        },
-        {
-          "title": "⭐ ⓻ Backend deployment: JWT Pizza Service",
-          "path": "instruction/deliverable7BackendDeployment/deliverable7BackendDeployment.md",
-          "id": "b27b7084-42f8-4fa1-80cd-b4cb73318a03"
         },
         {
           "title": "Infrastructure as code",
