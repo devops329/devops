@@ -282,6 +282,13 @@
           "title": "⭐ ⓹ Test driven development",
           "path": "instruction/deliverable5Tdd/deliverable5Tdd.md",
           "id": "06b8c571-e160-4be2-be14-db93ec649203"
+        },
+        {
+          "title": "⓻ Video",
+          "type": "video",
+          "path": "https://youtu.be/mhFmGVfFA8c",
+          "id": "559d557e-ef11-40be-8f6b-02a20b47c67e",
+          "description": "https://youtu.be/mhFmGVfFA8c"
         }
       ]
     },
