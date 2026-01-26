@@ -245,6 +245,13 @@
           "id": "b7266538-3a60-41ff-9106-0e731013b6f8"
         },
         {
+          "title": "⓷ Video",
+          "type": "video",
+          "path": "https://youtu.be/PKiRH2ZKZeM",
+          "id": "dfac72a4-82ba-4ef0-8646-644eb5737bbb",
+          "description": "https://youtu.be/PKiRH2ZKZeM"
+        },
+        {
           "title": "UI testing",
           "path": "instruction/uiTesting/uiTesting.md",
           "id": "d1a8bbc1-70be-4136-b5ef-b7bc319aa3f1"
@@ -268,13 +275,6 @@
           "title": "⭐ ⓹ Test driven development",
           "path": "instruction/deliverable5Tdd/deliverable5Tdd.md",
           "id": "06b8c571-e160-4be2-be14-db93ec649203"
-        },
-        {
-          "title": "⓷ Video",
-          "type": "video",
-          "path": "https://youtu.be/PKiRH2ZKZeM",
-          "id": "dfac72a4-82ba-4ef0-8646-644eb5737bbb",
-          "description": "https://youtu.be/PKiRH2ZKZeM"
         }
       ]
     },
