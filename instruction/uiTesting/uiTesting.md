@@ -15,7 +15,7 @@ UI tests can be some of the most valuable tests that you can execute, because th
 
 ## The difficulties of UI testing
 
-No one understands the difficulty of testing applications in a browser better than the companies that build web browsers. They have to test every possible use of HTML, CSS, and JavaScript that a user could think of. There is no way that manual testing is going to work and so early on they started putting hooks into their browsers that allowed them to be driven from automated external processes. [Selenium](https://www.selenium.dev/) was introduced in 2004 as the first popular tool to automate the browser. However, Selenium is generally considered to be flaky and slow. Flakiness means that a test fails in unpredictable, non-reproducible ways. When you need thousands of tests to pass before you can deploy a new feature, even a little flakiness becomes a big problem. If those tests take hours to run, you have an even bigger problem.
+No one understands the difficulty of testing applications in a browser better than the companies that build web browsers. They have to test every possible use of HTML, CSS, and JavaScript that a user could think of. There was no way that manual testing was going to work and so early on they started putting hooks into their browsers that allowed them to be driven from automated external processes. [Selenium](https://www.selenium.dev/) was introduced in 2004 as the first popular tool to automate the browser. However, Selenium is generally considered to be flaky and slow. Flakiness means that a test fails in unpredictable, non-reproducible ways. When you need thousands of tests to pass before you can deploy a new feature, even a little flakiness becomes a big problem. If those tests take hours to run, you have an even bigger problem.
 
 Testing UI code that executes in a web browser is significantly harder than testing backend code that runs from a command console. With backend code you are running under a predictable operating system with little variation on how it executes. With code that renders in a browser, you must actually execute the code in the browser and then simulate a user interacting with the application through mouse, finger, and keyboard actions.
 
@@ -104,7 +104,7 @@ test('addStore', async ({ page }) => {
 
 ## Flakiness
 
-Browser driven testing is inherently flaky due to the nature of simulating a user across diverse devices. Flake can cause tests to intermittently pass or fail. This slows down development cycles and create a sense of distrust in the testing process. Here are some ways to combat flaky tests:
+Browser driven testing is inherently flaky due to the nature of simulating a user across diverse devices. Flakiness can cause tests to intermittently pass or fail. This slows down development cycles and creates a sense of distrust in the testing process. Here are some ways to combat flaky tests:
 
 - Identify and eliminate synchronization issues: Ensure your tests wait for elements to load completely before interacting with them.
 - Handle dynamic content effectively: Use robust selectors that can adapt to slight changes in the UI.
