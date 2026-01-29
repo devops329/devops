@@ -61,12 +61,12 @@ In order to have something that we can use to demonstrate how to use Playwright,
      </head>
      <body>
        <div id="root"></div>
-       <script type="module" src="/src/index.tsx"></script>
+       <script type="module" src="/src/index.jsx"></script>
      </body>
    </html>
    ```
 
-1. Create a `src` directory and then add a file named `index.tsx` that contains the following.
+1. Create a `src` directory and then add a file named `index.jsx` that contains the following.
 
    ```jsx
    import React from 'react';
