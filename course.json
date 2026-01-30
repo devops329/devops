@@ -241,7 +241,9 @@
         {
           "title": "Unit testing: JWT Pizza Service",
           "path": "instruction/unitTestingJwtPizzaService/unitTestingJwtPizzaService.md",
-          "id": "60e72fcd-259f-4e78-88ff-f9a3a2c90aca"
+          "id": "60e72fcd-259f-4e78-88ff-f9a3a2c90aca",
+          "interactions": [],
+          "commit": "2aa89c004356a9a2e616ed6c58cb6cd8607e5cf9"
         },
         {
           "title": "⭐ ⓷ Unit testing CI: JWT Pizza Service",
