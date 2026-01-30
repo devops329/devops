@@ -15,20 +15,15 @@ In order to help you develop your ability to be curious, you are required to tak
 
 The following are reasonable reports that previous learners created. These provide examples of the level of effort and quality that your report should have in order to be accepted.
 
-- [Creating NPM Packages](https://github.com/eddieblu/jwt-pizza/blob/main/curiosityReport.md)
 - [Progressive Delivery](https://github.com/bvanitem/jwt-pizza/blob/main/curiosityReport.md)
 - [AWS Lambda](https://github.com/jjwjohns/jwt-pizza/blob/main/curiosityReport.md)
 - [How do Linters work](https://github.com/rileyballard6/jwt-pizza/blob/main/curiosityReport.md)
-- [Bun vs Deno vs Node.js](https://github.com/bauchdj/jwt-pizza/blob/main/curiosityReport.md)
 - [Upptime](https://github.com/EthanSuperior/jwt-pizza/blob/main/curiosityReport.md)
 - [GitOps](https://github.com/Korea19800/jwt-pizza/blob/main/curiosityReport.md)
-- [Vercel VS AWS](https://github.com/kevinisyoung/jwt-pizza/blob/main/curiosityReport.md)
 - [Terraform](https://github.com/garett-whimple/jwt-pizza/blob/main/curiosityReport.md)
 - [Git Branching Strategy and Forking in Collaboration](https://github.com/alexueda/jwt-pizza/blob/main/blob/main/curiosityReport/curiosityReport.md)
 - [Mutation Testing](https://github.com/mailiap/jwt-pizza/blob/main/curiosityReport.md)
-- [SSL Certificates](https://github.com/ammonharps-git/jwt-pizza/blob/main/reports/curiosityReport.md)
 - [.NET Aspire](https://github.com/qkarpowi/jwt-pizza/blob/main/CuriosityReport.md)
-- [CORS](https://github.com/mbird13/jwt-pizza/blob/main/curiosityReport.md)
 
 Some common characteristics of a good report include:
 
