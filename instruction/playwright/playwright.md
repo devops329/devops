@@ -21,7 +21,7 @@
 
 For the purposes of this course, we could pick any of the top UI testing frameworks. However, we are going to pick a newcomer, Playwright. Playwright has some major advantages. It is backed by Microsoft, it integrates really well with VS Code, and it runs as a Node.js process. It is also considered one of the least flaky of the testing frameworks.
 
-Playwright gets its speed and stability by running directly against each of the major browsers' DevTool API. This is a major advantage over other tools that either directly or indirectly use the Selenium WebDriver or only support a single browser.
+Playwright gets its speed and stability by running directly against each of the major browsers' DevTool APIs. This is a major advantage over other tools that either directly or indirectly use the Selenium WebDriver or only support a single browser.
 
 ## Tutorial project
 
@@ -61,12 +61,12 @@ In order to have something that we can use to demonstrate how to use Playwright,
      </head>
      <body>
        <div id="root"></div>
-       <script type="module" src="/src/index.tsx"></script>
+       <script type="module" src="/src/index.jsx"></script>
      </body>
    </html>
    ```
 
-1. Create a `src` directory and then add a file named `index.tsx` that contains the following.
+1. Create a `src` directory and then add a file named `index.jsx` that contains the following.
 
    ```jsx
    import React from 'react';
@@ -110,17 +110,17 @@ Now you can run `npm run dev` and experiment with the demonstration application.
 
 ## Installing Playwright
 
-With our demonstration app created we are ready to install Playwright. When going through the installation steps, choose TypeScript, `tests` for the test directory, ignore the GitHub Actions workflow for now, and do not install any Playwright browsers.
+With our demonstration app created we are ready to install Playwright. When going through the installation steps, choose JavaScript, `tests` for the test directory, ignore the GitHub Actions workflow for now, and do not install any Playwright browsers.
 
 ```sh
 npm init playwright@latest
 ```
 
-This will update `package.json` with the `playwright` package, create a `playwright.config.ts` file, and create some sample tests in the `test` and `tests-examples` directories. This will also update your `.gitignore` file so that you don't accidentally check in test coverage or report information.
+This will update `package.json` with the `playwright` package, create a `playwright.config.js` file, and create some sample tests in the `test` and `tests-examples` directories. This will also update your `.gitignore` file so that you don't accidentally check in test coverage or report information.
 
 ### Install a testing browser
 
-Now review the playwright configuration file: `playwright.config.ts`. In there you will find the specification for which browser drivers to use.
+Now review the playwright configuration file: `playwright.config.js`. In there you will find the specification for which browser drivers to use.
 
 ```js
   /* Configure projects for major browsers */
@@ -153,13 +153,13 @@ The easiest way to run your first Playwright test is to use the examples that ca
 
 ```sh
 └── tests
-    └── example.spec.ts
+    └── example.spec.js
 
 ```
 
-Playwright will run any test found in the testing directory as defined by the `testDir` property in the `playwright.config.ts` file. You chose `tests` to be the testing directory during the installation. Playwright follows the common convention of including `.spec.` in test names. You can also use `.test.` if you want to be consistent with your Jest tests.
+Playwright will run any test found in the testing directory as defined by the `testDir` property in the `playwright.config.js` file. You chose `tests` to be the testing directory during the installation. Playwright follows the common convention of including `.spec.` in test names. You can also use `.test.` if you want to be consistent with your Jest tests.
 
-The `example.spec.ts` found in the `tests` directory contains two simple tests. Here is what the first one looks like.
+The `example.spec.js` found in the `tests` directory contains two simple tests. Here is what the first one looks like.
 
 ```js
 test('has title', async ({ page }) => {
@@ -207,7 +207,7 @@ This opens up a window that shows all the tests found in the `tests` directory a
 
 ## Configuring to test with Vite
 
-Before we can write our own tests we need to finish configuring Playwright. Open the `playwright.config.ts` file and modify it so that it will launch our service whenever a test needs to run. This is done by adding a `webServer` section to the config that provides the startup command for Vite and the URL that our service is running from.
+Before we can write our own tests we need to finish configuring Playwright. Open the `playwright.config.js` file and modify it so that it will launch our service whenever a test needs to run. This is done by adding a `webServer` section to the config that provides the startup command for Vite and the URL that our service is running from.
 
 ```js
   webServer: {
@@ -360,7 +360,7 @@ ERROR: Coverage for statements (44.44%) does not meet global threshold (80%)
 File       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
 -----------|---------|----------|---------|---------|-------------------
 All files  |   44.44 |      100 |      25 |   44.44 |
- index.tsx |   44.44 |      100 |      25 |   44.44 | 11-15,26
+ index.jsx |   44.44 |      100 |      25 |   44.44 | 11-15,26
 -----------|---------|----------|---------|---------|-------------------
 ```
 
@@ -398,7 +398,7 @@ If you want to be able to visually see in VS Code which lines are covered by the
 
 Now you are ready to write your first test against our demonstration service.
 
-Let's start by getting rid of the example tests. To do this you can either delete the `example.spec.ts` file or move it to the `tests-examples` directory where it will be ignored.
+Let's start by getting rid of the example tests. To do this you can either delete the `example.spec.js` file or move it to the `tests-examples` directory where it will be ignored.
 
 ### Recording a test
 
@@ -547,7 +547,7 @@ Running 1 test using 1 worker
 File       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
 -----------|---------|----------|---------|---------|-------------------
 All files  |     100 |      100 |     100 |     100 |
- index.tsx |     100 |      100 |     100 |     100 |
+ index.jsx |     100 |      100 |     100 |     100 |
 -----------|---------|----------|---------|---------|-------------------
 ```
 
@@ -633,7 +633,7 @@ await expect(page.getByTestId('generated-copy').not.toBe('Lorem ipsum');
 
 Create a project based on the instructions provided above. Change the `App` component to be the following. Install Playwright and create tests until you get 100% code coverage with this new code.
 
-**index.tsx**
+**index.jsx**
 
 ```jsx
 import React from 'react';
