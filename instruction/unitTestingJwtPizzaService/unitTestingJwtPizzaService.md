@@ -27,7 +27,7 @@ npm install -D jest supertest
 
 In order to test service endpoints you need to decompose the creation of the Express app from the use of it for serving HTTP requests or running tests.
 
-![](../serviceTesting/endpointRequests.png)
+![Endpoint requests](../serviceTesting/endpointRequests.png)
 
 This is already done in `jwt-pizza-service` and so you don't need to worry about it, but you should clearly understand the implications of the pattern. The `service.js` file creates the Express app and exports it. The `index.js` file then uses the app to listen for HTTP requests. The `service.test.js` file uses the app to run tests.
 
