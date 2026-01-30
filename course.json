@@ -97,7 +97,9 @@
         {
           "title": "⭐ Curiosity report",
           "path": "instruction/curiosityReport/curiosityReport.md",
-          "id": "f00a356a-1ccf-4638-9315-f3a55ca61231"
+          "id": "f00a356a-1ccf-4638-9315-f3a55ca61231",
+          "interactions": [],
+          "commit": "d75a3fffb4d9259b36c144d93e682b94b299a4cb"
         },
         {
           "title": "☑ Asking Questions",
