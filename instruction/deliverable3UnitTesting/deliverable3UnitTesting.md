@@ -27,7 +27,7 @@ Before you start work on this deliverable make sure you have read all of the pre
 - [Integration testing](../integrationTesting/integrationTesting.md)
 - ☑ [JWT Pizza Service](../jwtPizzaService/jwtPizzaService.md)
 - [JWT Pizza data](../jwtPizzaData/jwtPizzaData.md)
-- [Unit testing: JWT Pizza Service](../unitTestingJwtPizzaService/unitTestingJwtPizzaService.md)
+- ☑ [Unit testing: JWT Pizza Service](../unitTestingJwtPizzaService/unitTestingJwtPizzaService.md)
 
 Failing to do this will likely slow you down as you will not have the required knowledge to complete the deliverable.
 
