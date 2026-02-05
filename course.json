@@ -15,7 +15,9 @@
         {
           "title": "📅 Schedule",
           "path": "schedule/schedule.md",
-          "id": "c2c7e920-b9fc-4c66-b771-c32e2db7adb1"
+          "id": "c2c7e920-b9fc-4c66-b771-c32e2db7adb1",
+          "interactions": [],
+          "commit": "1ee4a031b7eed7cb0256cdef1bae36ce3be65c30"
         },
         {
           "title": "Syllabus",
