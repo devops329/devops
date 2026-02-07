@@ -63,6 +63,8 @@ When you work on a deliverable you should follow this basic pattern:
 
 Resubmissions are only considered in cases where the instruction was unclear, or something failed between the submission and grading process (e.g. Your server died before it was able to be graded).
 
+ If you are unclear about the deliverable, or would like to have someone review your work, please reach out to a TA or the instructor prior to submitting.
+
 ## Commit Policy
 
 It is critical that you develop good software engineering practices. Your GitHub commit history should demonstrate every step of your work in this class. If your history does not prove your ownership of the work you may be given a failing grade for the class.
