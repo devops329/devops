@@ -290,6 +290,13 @@
           "title": "⭐ ⓹ Test driven development",
           "path": "instruction/deliverable5Tdd/deliverable5Tdd.md",
           "id": "06b8c571-e160-4be2-be14-db93ec649203"
+        },
+        {
+          "title": "JTW Pizza Testing",
+          "type": "video",
+          "path": "https://youtu.be/HXNx_Gp0jyM",
+          "id": "9df4714b-733d-4ea2-86d8-71c7503049df",
+          "description": ""
         }
       ]
     },
