@@ -272,7 +272,9 @@
         {
           "title": "⭐ ⓸ User interface testing: JWT Pizza",
           "path": "instruction/deliverable4UiTesting/deliverable4UiTesting.md",
-          "id": "1feab954-5b76-416c-b558-210acae8b055"
+          "id": "1feab954-5b76-416c-b558-210acae8b055",
+          "interactions": [],
+          "commit": "670bc1d4feeae16ab42cc471cd8ae525e3f3a7de"
         },
         {
           "title": "⓸ Video",
