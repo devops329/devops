@@ -14,6 +14,10 @@
 
 ![course overview](../sharedImages/courseOverview.png)
 
+## In-person presentation
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRxeHdul2uCQ9jaolTG-qIgR0j5Mqlad321p7YecKiPH0mNVnBYou-jfGvtiosAKbukYYpzizl3GhNd/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
 ## Prerequisites
 
 Before you start work on this deliverable make sure you have read all of the preceding instruction topics and have completed all of the dependent exercises (topics marked with a ☑). This includes:
