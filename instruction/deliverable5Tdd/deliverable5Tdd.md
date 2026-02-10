@@ -166,8 +166,6 @@ Further modify the **updateUser** test so that it interacts with a non-existent 
   await page.waitForSelector('[role="dialog"].hidden', { state: 'attached' });
 
   await expect(page.getByRole('main')).toContainText('pizza dinerx');
-
-});
 ```
 
 When you run the test it should fail. Note that the code the image is similar to what the above instructions provided, but slightly different. Feel free to also customize the test to your liking.
