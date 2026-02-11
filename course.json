@@ -409,6 +409,13 @@
           "title": "☑ GitHub releases",
           "path": "instruction/gitHubReleases/gitHubReleases.md",
           "id": "912296be-c38a-46d7-ab7a-f84cd51fc5eb"
+        },
+        {
+          "title": "Cloud deployment slides",
+          "type": "embedded",
+          "path": "<iframe src=\"https://docs.google.com/presentation/d/e/2PACX-1vRE1rjMq6Vl7LqB9wFETIzoafNEEHHpLWZHS_ym9C-HQMXFYG0_1je3L8q-5yLwCawoBN365fn8Ghbh/pubembed",
+          "id": "335b35dd-e226-47fd-8cec-93c7fb038b13",
+          "description": "<iframe src=\"https://docs.google.com/presentation/d/e/2PACX-1vRE1rjMq6Vl7LqB9wFETIzoafNEEHHpLWZHS_ym9C-HQMXFYG0_1je3L8q-5yLwCawoBN365fn8Ghbh/pubembed"
         }
       ]
     },
