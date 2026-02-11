@@ -453,4 +453,5 @@ Once this is all working, go to the [Canvas assignment](https://byu.instructure.
 | Percent | Item                                                                               |
 | ------- | ---------------------------------------------------------------------------------- |
 | 30%     | Successful execution of GitHub Actions to run test on commit                       |
-| 70%     | At least 80% line coverage as documented by workflow execution and README.md badge |
+| 65%     | At least 80% line coverage as documented by workflow execution and README.md badge |
+| 5%      | Pipeline status badge display on your JWT Pizza **README.md** home page            |
