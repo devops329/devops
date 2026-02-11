@@ -441,7 +441,7 @@ This should trigger the workflow to execute, and if everything works properly yo
 
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
-1. Create Playwright tests for `jwt-pizza` that provide at least 80% coverage.
+1. Create Playwright tests for `jwt-pizza` that provide at least 80% coverage. Your tests should include locators, navigation, and expect statements that generate significant confidence that the code is working correctly.
 1. Create a GitHub Actions workflow that executes the tests.
 1. Add the configuration necessary so that the workflow fails if there is not 80% coverage.
 1. Add the reporting of the coverage to the workflow by creating a coverage badge in the README.md file.
@@ -453,5 +453,5 @@ Once this is all working, go to the [Canvas assignment](https://byu.instructure.
 | Percent | Item                                                                               |
 | ------- | ---------------------------------------------------------------------------------- |
 | 30%     | Successful execution of GitHub Actions to run test on commit                       |
-| 65%     | At least 80% line coverage as documented by workflow execution and README.md badge |
-| 5%      | Pipeline status badge display on your JWT Pizza **README.md** home page            |
+| 65%     | At least 80% confidence building line coverage as documented by workflow execution |
+| 5%      | Coverage status badge display on your JWT Pizza **README.md** home page            |
