@@ -254,7 +254,7 @@
         },
         {
           "title": "⓷ Video",
-          "type": "video",
+          "type": "embedded",
           "path": "https://www.youtube.com/embed/PKiRH2ZKZeM",
           "id": "dfac72a4-82ba-4ef0-8646-644eb5737bbb",
           "description": "https://youtu.be/PKiRH2ZKZeM"
