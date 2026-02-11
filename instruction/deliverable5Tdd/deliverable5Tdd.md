@@ -412,7 +412,7 @@ userRouter.get(
 );
 ```
 
-Now the test will fail because the request is not authorized. Let's turn this test into an _unauthorized_ test and write a new test that provide the required authorization token.
+Now the test will fail because the request is not authorized. Let's turn this test into an _unauthorized_ test and write a new test that provides the required authorization token.
 
 ```js
 test('list users unauthorized', async () => {
@@ -460,7 +460,7 @@ Make sure you use TDD to implement the functionality. Implement a little bit of 
 In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
 1. Follow the steps given above to implement the **Update user** functionality to the diner dashboard. Maintain your 80% code coverage.
-1. Use TDD to implement the **List/Delete users** functionality to the admin dashboard. Maintain you 80% code coverage.
+1. Use TDD to implement the **List/Delete users** functionality to the admin dashboard. Maintain your 80% code coverage.
 
 Once this is all working, go to the [Canvas assignment](https://byu.instructure.com) and submit your work for the deliverable.
 
