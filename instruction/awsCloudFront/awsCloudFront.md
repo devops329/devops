@@ -92,7 +92,7 @@ With the bucket in place you can now create your CloudFront distribution that wi
 
 1. Select **Do not enable security protections**. This is an additional paid service that you don't need at this time. Press **Next** to continue.
 
-   ![noWaf.png](noWaf.png)
+   ![No fireware](noFirewall.png)
 
 1. If you successfully created your certificate in the **Create a custom TLS certificate** section, then it should show up here based on the domain name that you previously provided. Press **Next** to continue.
 
