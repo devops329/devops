@@ -90,7 +90,7 @@ With the bucket in place you can now create your CloudFront distribution that wi
 
    ![Specify origin](specifyOrigin.png)
 
-1. Select **Do not enable security protections**. This is an additional paid service that you don't need at this time. Press **Next** to continue.
+1. Select **Do not enable security protections**. The Web Application Firewall examines traffic at the application (HTTP) layer. This is helpful to stop common attacks such as SQL injection, Cross-Site Scripting (XSS), and Layer 7 DDoS. This is an additional paid service and you need to learn how to prevent these attacks yourself as part of this course. Press **Next** to continue.
 
    ![No fireware](noFirewall.png)
 
