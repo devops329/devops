@@ -132,10 +132,10 @@ Let's start by creating a simple web service that has a single endpoint.
        ],
      };
 
-     fetch(`${config.url}`, {
+     fetch(`${config.endpointUrl}`, {
        method: 'POST',
        body: JSON.stringify(body),
-       headers: { Authorization: `Bearer ${config.apiKey}`, 'Content-Type': 'application/json' },
+       headers: { Authorization: `Bearer ${config.accountId}:${config.apiKey}`, 'Content-Type': 'application/json' },
      })
        .then((response) => {
          if (!response.ok) {

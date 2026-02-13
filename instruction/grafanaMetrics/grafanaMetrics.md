@@ -124,19 +124,28 @@ In order to send metrics over HTTP you will need an API key.
 1. This will display the template necessary to obtain the API Key for uploading metrics to the Grafana Cloud Prometheus service.
 1. Supply the name `jwt-pizza-metrics` for the `Access Policy token name`.
 1. Press `Create token`.
-1. **Copy the token to a secure location in your development environment**. You will need this token to upload metrics.
 1. Note the section titled `Send a Otel metric from your application code`. This gives you examples of how to upload a metric using things like Curl, Node.js, or Go. The example has your API Key already prepopulated in the example.
-1. Look at the `Curl` example. Pull out the `-u` parameter to get your client ID and API key. Pull out the target host to get the URL that you will upload metrics to. Assign these to command shell variables like the following:
+1. Look at the `Curl` example. It will begin with something like the following:
 
    ```sh
-   URL="https://otlp-gateway-prod-us-east-2.grafana.net/otlp/v1/metrics"
-   API_KEY="222222:glc_111111111111111111111111111111111111111111="
+   curl -k -i -XPOST -H 'Content-Type: application/json' -H "$OTEL_EXPORTER_OTLP_HEADERS" -u "1090750:glc_3333333333333" https://otlp-gateway-prod-us-east-0.grafana.net/otlp/v1/metrics
    ```
 
+1. Extract the **account ID**, **API key**, and **endpoint URL** out of the example Curl command. The Account ID is a seven digit number, the API key is a much longer string and will start with glc. The endpoint url is the target of the curl request. Assign these to command shell variables like the following:
+
+   ```sh
+   endpoint_url="https://otlp-gateway-prod-us-east-0.grafana.net/otlp/v1/metrics"
+
+   api_key="glc_3333333333333"
+
+   account_id="1090750"
+   ```
+
+1. You will want to save these values **to a secure location**. You will need them to upload metrics.
 1. Use the following Curl command to insert your first metrics:
 
    ```sh
-   while true; do curl -k -i -X POST -H 'Content-Type: application/json' -H "$OTEL_EXPORTER_OTLP_HEADERS" -u "$API_KEY" $URL -d '{
+   while true; do curl -k -i -X POST -H 'Content-Type: application/json' -H "$OTEL_EXPORTER_OTLP_HEADERS" -u "$account_id:$api_key" $endpoint_url -d '{
    "resourceMetrics": [
       {
          "scopeMetrics": [
@@ -192,13 +201,14 @@ This should display the metrics that you inserted using Curl. You can experiment
 
 ## Generating data with JavaScript
 
-Now that we have some experience both generating and visualizing metrics, let's implement a simple metric generation program ([metricsGenerator.js](visualizingMetricsExample/metricsGenerator.js)) that creates a variety of metrics. First, we need to move our data source credentials from environment variables into a `config.js` file that we can access from our JavaScript. This should looks something like:
+Now that we have some experience both generating and visualizing metrics, let's implement a simple metric generation program ([metricsGenerator.js](exampleCode/metricsGenerator.js)) that creates a variety of metrics. First, we need to move our data source credentials from environment variables into a `config.js` file that we can access from our JavaScript. This should looks something like:
 
 ```js
 module.exports = {
   source: 'jwt-pizza-service',
-  url: 'https://otlp-gateway-prod-us-east-2.grafana.net/otlp/v1/metrics',
-  apiKey: '2222222:glc_111111111111111111111111111111111111111111=',
+  endpointUrl: 'https://otlp-gateway-prod-us-east-0.grafana.net/otlp/v1/metrics',
+  accountId: '1090750',
+  apiKey: 'glc_3333333333333',
 };
 ```
 
@@ -253,10 +263,10 @@ function sendMetricToGrafana(metricName, metricValue, type, unit) {
   }
 
   const body = JSON.stringify(metric);
-  fetch(`${config.url}`, {
+  fetch(`${config.endpointUrl}`, {
     method: 'POST',
     body: body,
-    headers: { Authorization: `Bearer ${config.apiKey}`, 'Content-Type': 'application/json' },
+    headers: { Authorization: `Bearer ${config.accountId}:${config.apiKey}`, 'Content-Type': 'application/json' },
   })
     .then((response) => {
       if (!response.ok) {

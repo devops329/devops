@@ -34,7 +34,6 @@ While this list specifies all of the required metrics, the images are just examp
 1. HTTP requests by method/minute
 
    ![alt text](httpRequestMetrics.png)
-
    1. Total requests
    1. GET, PUT, POST, and DELETE requests
 
@@ -45,7 +44,6 @@ While this list specifies all of the required metrics, the images are just examp
 1. Authentication attempts/minute
 
    ![alt text](authRequestMetrics.png)
-
    1. Successful
    1. Failed
 
@@ -56,7 +54,6 @@ While this list specifies all of the required metrics, the images are just examp
 1. Pizzas
 
    ![alt text](pizzaMetrics.png)
-
    1. Sold/minute
    1. Creation failures
    1. Revenue/minute
@@ -64,7 +61,6 @@ While this list specifies all of the required metrics, the images are just examp
 1. Latency
 
    ![alt text](latencyMetrics.png)
-
    1. Service endpoint
    1. Pizza creation
 
@@ -85,8 +81,9 @@ Modify your service's config.js file to contain the Grafana credentials. Note th
 ```js
   metrics: {
      source: 'jwt-pizza-service-dev',
-     url: 'https://otlp-gateway-prod-us-east-2.grafana.net/otlp/v1/metrics',
-     apiKey: '2222222:glc_111111111111111111111111111111111111111111='
+     endpointUrl: 'https://logs-prod-006.grafana.net/loki/api/v1/push',
+     accountId: '1032529',
+     apiKey: 'glc_3333333333333',
    }
 ```
 
@@ -96,7 +93,7 @@ Modify your service's config.js file to contain the Grafana credentials. Note th
 
 ### Modify CI pipeline
 
-Because you added new configuration to the JWT Service, you will need to also enhance your GitHub Actions workflow to have the new metrics configuration fields. You must also add secrets for the METRICS_URL and METRICS_API_KEY. Note that because this configuration is being deployed to your production environment you want to set the source to something different than your development environment. In this case **jwt-pizza-service** without the **-dev** suffix.
+Because you added new configuration to the JWT Service, you will need to also enhance your GitHub Actions workflow to have the new metrics configuration fields. You must also add secrets for the METRICS_ENDPOINT_URL, METRICS_ACCOUNT_ID, and METRICS_API_KEY. Note that because this configuration is being deployed to your production environment you want to set the source to something different than your development environment. In this case **jwt-pizza-service** without the **-dev** suffix.
 
 Without this, your CI pipeline will fail due to missing references from your new metrics code when your tests run.
 
@@ -121,8 +118,9 @@ Without this, your CI pipeline will fail due to missing references from your new
       },
       metrics: {
         source: 'jwt-pizza-service',
-        url: '${{ secrets.METRICS_URL }}',
+        endpointUrl: '${{ secrets.METRICS_ENDPOINT_URL, }}',
         apiKey: '${{ secrets.METRICS_API_KEY }}',
+        accountId: '${{ secrets.METRICS_ACCOUNT_ID_KEY }}',
       },            
     };" > src/config.js
 ```

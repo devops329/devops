@@ -54,19 +54,19 @@ Modify your service's config.js file to contain the Grafana logging credentials.
 ```js
   logging: {
      source: 'jwt-pizza-service-dev',
-     userId: 2222222,
-     url: 'https://logs-prod-006.grafana.net/loki/api/v1/push',
-     apiKey: 'glc_111111111111111111111111111111111111111111='
+     endpointUrl: 'https://logs-prod-006.grafana.net/loki/api/v1/push',
+     accountId: '1032529',
+     apiKey: 'glc_222222222222',
    }
 ```
 
 > [!NOTE]
 >
-> You want your development environment logging to use a different `source` so that you don't mix logs from different environments. In the example shown above the `source` is set to **jwt-pizza-service-dev**. In your production environment you want to use **jwt-pizza-service-prod**.
+> You want your development environment logging to use a different `source` so that you don't mix logs from different environments. In the example shown above the `source` is set to **jwt-pizza-service-dev**. In your production environment you want to use **jwt-pizza-service**.
 
 ### Modify CI pipeline
 
-Because you are adding a new configuration to the JWT Service, you will need to also enhance your GitHub Actions workflow to have the new logging configuration fields. You must also add secrets for the metrics LOGGING_USER_ID, LOGGING_URL, and LOGGING_API_KEY.
+Because you are adding a new configuration to the JWT Service, you will need to also enhance your GitHub Actions workflow to have the new logging configuration fields. You must also add secrets for the metrics LOGGING_ACCOUNT_ID, LOGGING_ENDPOINT_URL, and LOGGING_API_KEY.
 
 Without this your CI pipeline will fail because of missing references from your new logging code when your tests run.
 
@@ -91,13 +91,14 @@ Without this your CI pipeline will fail because of missing references from your 
       },
       metrics: {
         source: 'jwt-pizza-service',
-        url: '${{ secrets.METRICS_URL }}',
+        accountId: '${{ secrets.METRICS_ACCOUNT_ID_KEY }}',
+        endpointUrl: '${{ secrets.METRICS_ENDPOINT_URL, }}',
         apiKey: '${{ secrets.METRICS_API_KEY }}',
       },  
       logging:    {
         source: 'jwt-pizza-service',
-        userId: ${{ secrets.LOGGING_USER_ID }},
-        url: '${{ secrets.LOGGING_URL }}',
+        accountId: ${{ secrets.LOGGING_ACCOUNT_ID }},
+        endpointUrl: '${{ secrets.LOGGING_ENDPOINT_URL }}',
         apiKey: '${{ secrets.LOGGING_API_KEY }}',
       },
     };" > src/config.js
@@ -115,7 +116,7 @@ sendLogToGrafana(event) {
     body: body,
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${config.userId}:${config.apiKey}`,
+      Authorization: `Bearer ${config.accountId}:${config.apiKey}`,
     },
   }).then((res) => {
     if (!res.ok) console.log('Failed to send log to Grafana');

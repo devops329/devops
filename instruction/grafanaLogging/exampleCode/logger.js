@@ -1,4 +1,4 @@
-const config = require('./config.json');
+const config = require('./config');
 
 class Logger {
   httpLogger = (req, res, next) => {
@@ -45,12 +45,12 @@ class Logger {
 
   sendLogToGrafana(event) {
     const body = JSON.stringify(event);
-    fetch(`${config.url}`, {
+    fetch(`${config.endpointUrl}`, {
       method: 'post',
       body: body,
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${config.userId}:${config.apiKey}`,
+        Authorization: `Bearer ${config.accountId}:${config.apiKey}`,
       },
     }).then((res) => {
       if (!res.ok) console.log('Failed to send log to Grafana');
