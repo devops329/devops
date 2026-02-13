@@ -320,7 +320,7 @@
           "path": "instruction/awsCloudFront/awsCloudFront.md",
           "id": "0fdb0e78-7dfd-4dd9-8aed-2e754fa6626a",
           "interactions": [],
-          "commit": "6d72583335055ece3cdb98bd52113bb3f88cf732"
+          "commit": "f78a59e4490d4e86aacd3afe1e3a71c8f9266e80"
         },
         {
           "title": "AWS S3 deployment",
