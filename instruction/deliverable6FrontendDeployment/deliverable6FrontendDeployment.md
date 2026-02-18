@@ -114,9 +114,11 @@ This will cause the React DOM Router to get loaded and properly route back to th
 
 ### Demonstrating completion
 
-Once completed, your repository's GitHub Actions workflow history should demonstrate a successful deployment to S3.
+Once completed, you can kick off your CI pipeline and your repository's GitHub Actions workflow should successfully deploy to S3.
 
 ![Workflow output](workflowOutput.png)
+
+The Cloudfront invalidation, found in your CI pipeline, will trigger an update to Cloudfront and make your JWT Pizza frontend available from your DNS hostname. You can verify this by requesting your pizza subdomain in a web browser.
 
 ## ⭐ Deliverable
 
