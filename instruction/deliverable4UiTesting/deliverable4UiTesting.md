@@ -234,7 +234,7 @@ In the Trace Viewer or Playwright UI window you can view your test's API calls w
 
 ![TraceViewerNetworkTab](traceViewerNetworkTab.png)
 
-Now you can use this information to debug your test's mocks by viewing each API call, the URL the request is being made to, and the response being returned. If the row is blue, this indicates that API call is mocked. If the row is white or red, that indicates the API call is not mocked (and is going to the normal backend service), or it is returning with an error. You can also compare the mocked API response to the actual API response to make sure the information is structured correctly and includes all needed fields. 
+Now you can use this information to debug your test's mocks by viewing each API call, the URL the request is being made to, and the response being returned. If the row is blue, this indicates that API call is mocked. If the row is white or red, that indicates the API call is not mocked (and is going to the normal backend service), or it is returning with an error. You can also click on the row and compare the mocked API response to the actual API response to make sure the response data is structured correctly. 
 
 ### Refactoring
 
