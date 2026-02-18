@@ -340,7 +340,9 @@
         {
           "title": "⭐ ⓺ Frontend deployment: JWT Pizza",
           "path": "instruction/deliverable6FrontendDeployment/deliverable6FrontendDeployment.md",
-          "id": "d50c35c8-5940-4aac-aa8c-893298510af3"
+          "id": "d50c35c8-5940-4aac-aa8c-893298510af3",
+          "interactions": [],
+          "commit": "e63e0d62a7ae42e0e935e412acbf3a3be2db9921"
         },
         {
           "title": "Elasticity",
