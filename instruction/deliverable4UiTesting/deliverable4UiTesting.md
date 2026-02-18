@@ -223,6 +223,19 @@ await page.route('*/**/api/auth', async (route) => {
 
 We repeat this process by looking at each of the expected endpoint calls and creating a a route to verify and respond to them.
 
+### Debugging the mocks
+
+As you work on adding mocks you may run into bugs with your mocks not working the way you expect. Some of the best tools for debugging mocked API calls are Playwright's `Trace Viewer` and `UI Mode`. You can access the Trace Viewer in VS Code by following the steps under `Recording endpoint requests`. If the Trace Viewer is having issues or you want to use the UI mode instead, you can open a similar interactive test viewer window by running the following command in your terminal
+```npx playwright test --ui```
+
+In the Trace Viewer or Playwright UI window you can view your test's API calls with the following steps: 
+1. In the **tools** pane at the bottom of the browser, select the `Network` tab.
+2. Below the `Network` tab button, select the `Fetch` tab. This will filter to show your API calls.
+
+![TraceViewerNetworkTab](traceViewerNetworkTab.png)
+
+Now you can use this information to debug your test's mocks by viewing each API call, the URL the request is being made to, and the response being returned. If the row is blue, this indicates that API call is mocked. If the row is white or red, that indicates the API call is not mocked (and is going to the normal backend service), or it is returning with an error. You can also compare the mocked API response to the actual API response to make sure the information is structured correctly and includes all needed fields. 
+
 ### Refactoring
 
 As you write you tests you will want to start decomposing the tests so that they don't repeat common code. This is especially tree of mocks. There are lots of ways to do this, but one common pattern is to create a utility method that generically handles things like the login request.
