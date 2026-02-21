@@ -225,7 +225,7 @@ We repeat this process by looking at each of the expected endpoint calls and cre
 
 ### Refactoring
 
-As you write you tests you will want to start decomposing the tests so that they don't repeat common code. This is especially tree of mocks. There are lots of ways to do this, but one common pattern is to create a utility method that generically handles things like the login request.
+As you write you tests you will want to start decomposing the tests so that they don't repeat common code. This is especially true of mocks. There are lots of ways to do this, but one common pattern is to create a utility method that generically handles things like the login request.
 
 ```ts
 async function basicInit(page: Page) {
