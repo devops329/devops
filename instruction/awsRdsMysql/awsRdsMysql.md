@@ -61,17 +61,21 @@ With the network security deployed, you can now create the MySQL server instance
 1. Open the AWS browser console and navigate to the RDS service.
 1. Press the `Create database` button.
 1. Select `MySQL`.
-1. Under **Templates** choose `Free tier`.
+1. Under **Templates** choose `Sandbox`.
 1. Under **Settings**
 
    1. Name your DB instance: `jwt-pizza-service-db`
    1. Leave the username as: `admin`
+   1. Select `Self managed`
    1. Specify your password.
 
       ⚠️ Make sure you don't use anything complicated in your password. The password is communicated as a URL connection string and so many punctuation mark characters will cause the connection to fail. It is best to stick to alphanumeric passwords.
 
+1. Under **Database authentication** select `Password and IAM database authentication`.
+
 1. Under **Instance configuration**
 
+   1. Make sure `Burstable classes` option is selected
    1. Select `db.t4g.micro` as the DB instance class
 
       ![RDS instance configuration](rdsInstanceConfiguration.png)
@@ -82,7 +86,6 @@ With the network security deployed, you can now create the MySQL server instance
       1. Select the `jwt-pizza-db` security group you created earlier.
       1. Unselect the `default` security group.
    1. Select one of the available availability zones for the `Availability zone`.
-1. Under **Database authentication** select `Password and IAM database authentication`.
 1. Press `Create database`.
 
 After a few minutes your database will display that it has been created. Copy the **database endpoint**, you will store that value as the DB hostname in your GitHub Actions secrets.
