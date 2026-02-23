@@ -29,7 +29,7 @@ The easiest way to get started using AWS S3 is to use the AWS browser console fo
 
 ![Create bucket button](createBucketButton.png)
 
-Buckets are identified by a globally unique name that you provide. That means you have to pick a name for your bucket that no one else has ever used. Commonly your companies name or website hostname is used a prefix for your bucket names.
+Buckets are identified by a globally unique name that you provide. That means you have to pick a name for your bucket that no one else has ever used. Commonly your company's name or website hostname is used a prefix for your bucket names.
 
 ![Create bucket](createBucket.png)
 
