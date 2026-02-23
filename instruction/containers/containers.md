@@ -190,7 +190,7 @@ docker tag webserver:latest byucsstudent/webserver:latest
 docker push byucsstudent/webserver:latest
 ```
 
-Assuming that command was successful, you can toggle back over to Docker Hub and you should see your container image listed in your webserver repository.
+Assuming that command was successful, you can toggle back over to [Docker Hub](https://hub.docker.com/) and you should see your container image listed in your webserver repository.
 
 ![List repository](listRepository.png)
 
