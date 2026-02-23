@@ -369,7 +369,9 @@
         {
           "title": "☑ JWT Pizza Service container",
           "path": "instruction/jwtPizzaServiceContainer/jwtPizzaServiceContainer.md",
-          "id": "cc1ba4e0-1f63-45de-8078-98fde375ab07"
+          "id": "cc1ba4e0-1f63-45de-8078-98fde375ab07",
+          "interactions": [],
+          "commit": "6591b25211a5d6de60bbecbf1707e293cacd66c0"
         },
         {
           "title": "☑ AWS ECR",
