@@ -325,9 +325,7 @@
         {
           "title": "AWS S3 deployment",
           "path": "instruction/awsS3Deployment/awsS3Deployment.md",
-          "id": "c8fd04a3-b9ae-420a-96e9-583015d6e979",
-          "interactions": [],
-          "commit": "05d6c2536194e7f1c9aacdb29387305a8bf53942"
+          "id": "c8fd04a3-b9ae-420a-96e9-583015d6e979"
         },
         {
           "title": "Deployment environments",
@@ -354,7 +352,9 @@
         {
           "title": "☑ AWS RDS MySQL",
           "path": "instruction/awsRdsMysql/awsRdsMysql.md",
-          "id": "2ee7df35-7f44-4622-85d0-f1fe49282f56"
+          "id": "2ee7df35-7f44-4622-85d0-f1fe49282f56",
+          "interactions": [],
+          "commit": "8b0d23585b8d31d108c2c98f196608a254355401"
         },
         {
           "title": "Docker",
