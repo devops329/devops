@@ -73,6 +73,7 @@ Now that you know how Docker containers work, you need to create a **jwt-pizza-s
    docker run -d --name jwt-pizza-service -p 80:80 jwt-pizza-service
 
    curl localhost:80
+   curl localhost:80/api/order/menu
    ```
 
    This should return the service welcome response if the container is successfully running.
