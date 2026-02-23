@@ -33,7 +33,6 @@ Eventually you will change the **jwt-pizza-service** security group so that only
 1. Name the group `jwt-pizza-service`.
 1. Give a simple description like `JWT Pizza Service`.
 1. Press the `Add rule` for **inbound rules**.
-
    1. Select the `type` of **HTTPS**. This should populate the `Port range` with 443. Set the `Source` to **Anywhere-IPv4**.
    1. Add a second rule. Select the `type` of **HTTP**. This should populate the `Port range` with 80. Set the `Source` to **Anywhere-IPv4**.
 
@@ -49,7 +48,6 @@ Eventually you will change the **jwt-pizza-service** security group so that only
 1. Name the security group `jwt-pizza-db`.
 1. Give a simple description like `JWT Pizza Service Database`.
 1. Press the `Add rule` for **inbound rules**.
-
    1. Select the `type` of `MYSQL/Aurora`. This should populate the `Port range` with 3306. Set the `Source` to be the **jwt-pizza-service** security group that you just created. Start typing the jwt-pizza-service in the source box and it should auto-fill the actual security group ID.
 
    ![Pizza service database security group](pizzaServiceDbSecurityGroup.png)
@@ -61,9 +59,8 @@ With the network security deployed, you can now create the MySQL server instance
 1. Open the AWS browser console and navigate to the RDS service.
 1. Press the `Create database` button.
 1. Select `MySQL`.
-1. Under **Templates** choose `Sandbox`.
+1. Under **Templates** choose `Free tier` or `Sandbox` if free tier is not available.
 1. Under **Settings**
-
    1. Name your DB instance: `jwt-pizza-service-db`
    1. Leave the username as: `admin`
    1. Select `Self managed`
@@ -74,7 +71,6 @@ With the network security deployed, you can now create the MySQL server instance
 1. Under **Database authentication** select `Password and IAM database authentication`.
 
 1. Under **Instance configuration**
-
    1. Make sure `Burstable classes` option is selected
    1. Select `db.t4g.micro` as the DB instance class
 
