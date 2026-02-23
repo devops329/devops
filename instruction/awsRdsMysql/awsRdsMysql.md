@@ -61,7 +61,7 @@ With the network security deployed, you can now create the MySQL server instance
 1. Open the AWS browser console and navigate to the RDS service.
 1. Press the `Create database` button.
 1. Select `MySQL`.
-1. Under **Templates** choose `Free tier`.
+1. Under **Templates** choose `Free tier` or `Sandbox` if free tier is not available.
 1. Under **Settings**
 
    1. Name your DB instance: `jwt-pizza-service-db`
