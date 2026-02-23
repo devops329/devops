@@ -364,7 +364,9 @@
         {
           "title": "Containers",
           "path": "instruction/containers/containers.md",
-          "id": "f2270b66-6119-4a1c-813b-bac46fdcc52c"
+          "id": "f2270b66-6119-4a1c-813b-bac46fdcc52c",
+          "interactions": [],
+          "commit": "ae85e034fef56a3e97b8a17097d71ad81c72c0b0"
         },
         {
           "title": "☑ JWT Pizza Service container",
