@@ -94,7 +94,7 @@ A cluster represents a complete application where multiple services work in conc
 1. Press `Clusters` from the left side navigation panel.
 1. Press `Create cluster`.
 1. Provide **jwt-pizza-service** as the Cluster name.
-1. Under `Infrastructure` choose **AWS Fargate**.
+1. Under `Infrastructure` choose **Fargate only**.
 1. Press `Create`.
 
 Wait until the cluster status changes from **Provisioning** to **Active** before you continue.
