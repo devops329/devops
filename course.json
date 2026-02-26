@@ -383,7 +383,9 @@
         {
           "title": "☑ AWS ECS",
           "path": "instruction/awsEcs/awsEcs.md",
-          "id": "b2271809-f1a3-4b58-a61f-07789d25d5f2"
+          "id": "b2271809-f1a3-4b58-a61f-07789d25d5f2",
+          "interactions": [],
+          "commit": "472fbb45f2403add95a236b76a999260e5a91b41"
         },
         {
           "title": "⭐ ⓻ Backend deployment: JWT Pizza Service",
