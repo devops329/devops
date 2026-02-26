@@ -78,7 +78,7 @@ We want to be careful which AWS services and resources we expose through the cre
 ```
 
 1. Replace `BUCKET_NAME_HERE` with the name of the S3 bucket you created (e.g. pizza.yourhostname).
-1. Replace `AWS_ACCOUNT` with your AWS account number (e.g. 882352824274).
+1. Replace `AWS_ACCOUNT_HERE` with your AWS account number (e.g. 882352824274).
 1. Replace `DISTRIBUTION_HERE` with the CloudFront distribution ID (e.g. F3A3ZL6IF7XCE1).
 1. Press `Next`.
 1. Name the policy `jwt-pizza-ci-deployment`.
