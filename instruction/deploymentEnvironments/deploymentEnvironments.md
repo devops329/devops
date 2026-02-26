@@ -45,6 +45,6 @@ Each environment has the same starting flow where the software is tested, analyz
 
 ## Conclusion
 
-By adopting multiple deployment environments, you can improve the reliability, security, and overall quality of your application. You also provide for specialized uses like single tenancy or sells demos. Each environment serves a specific purpose, from ensuring smooth deployment and final testing in staging, to safeguarding against vulnerabilities in penetration testing, to providing a stable and performant user experience in production.
+By adopting multiple deployment environments, you can improve the reliability, security, and overall quality of your application. You also provide for specialized uses like single tenancy or sales demos. Each environment serves a specific purpose, from ensuring smooth deployment and final testing in staging, to safeguarding against vulnerabilities in penetration testing, to providing a stable and performant user experience in production.
 
 The key is that by automating your CI/CD pipeline it is easy to spin up new environments. This keeps you flexible to explore new business models as well as prevent, and recover from, system failures.
