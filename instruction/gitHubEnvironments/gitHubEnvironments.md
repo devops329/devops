@@ -35,7 +35,7 @@ Make yourself the reviewer and add the same [secrets](../awsS3Deployment/awsS3De
 
 | Secret          | Description                                                 | Example              |
 | --------------- | ----------------------------------------------------------- | -------------------- |
-| AWS_ACCOUNT     | Your AWS account number                                     | 343243424            |
+| AWS_ACCOUNT     | Your AWS account ID number                                  | 343243424            |
 | CI_IAM_ROLE     | The IAM user with rights to deploy your application         | github-ci            |
 | APP_BUCKET      | The S3 bucket hosting your static deployment files          | pizza.ilovebyu.click |
 | DISTRIBUTION_ID | The CloudFront Distribution ID for your frontend deployment | F3GRFXFEBQ8EEU       |
