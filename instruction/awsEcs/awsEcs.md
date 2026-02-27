@@ -38,8 +38,8 @@ The basic pieces that ECS provides are as follows.
 
 Before you can configure Docker containers to run under ECS you need to authorize how the container executes. There are two roles that control the rights of an ECS task:
 
-1. **Task execution role** - This defines the rights necessary to deploy a task. This includes things like the ability to start up a getting an ECR image and setting up CloudWatch logging.
-1. **Task role** - This defines what rights the task has. This includes things like database access rights or read from S3.
+1. **Task execution role** - This defines the rights necessary to deploy a task. This includes things like the ability to start up and getting an ECR image and setting up CloudWatch logging.
+1. **Task role** - This defines what rights the task has. This includes things like database access rights or reading from S3.
 
 We will not define a **Task role** at this time, but you will do this later if you add rights for the task to connect to your MySQL instance without providing explicit credentials.
 
@@ -70,7 +70,7 @@ Now you are ready to define the task that will execute your JWT Pizza backend. T
 1. Open the AWS browser console and navigate to the Elastic Container Service (ECS) service.
 1. Press `Task definitions` from the left side navigation panel.
 1. Press `Create new task definition`.
-1. Provide the name **jwt-pizza-service** for the `Task definition family`.
+1. Provide the name `jwt-pizza-service` for the `Task definition family`.
 1. Under `Infrastructure requirements`
    1. Leave the `Launch type` as AWS Fargate.
    1. Set the `Operating System` to be _Linux/ARM64_.
@@ -93,7 +93,7 @@ A cluster represents a complete application where multiple services work in conc
 1. Open the AWS browser console and navigate to the Elastic Container Service (ECS) service.
 1. Press `Clusters` from the left side navigation panel.
 1. Press `Create cluster`.
-1. Provide **jwt-pizza-service** as the Cluster name.
+1. Provide `jwt-pizza-service` as the Cluster name.
 1. Under `Infrastructure` choose **Fargate only**.
 1. Press `Create`.
 
@@ -112,7 +112,7 @@ The service contains one or more associated tasks. The tasks work together in or
 
 1. Under `Service details`
    1. Select `jwt-pizza-service` from the `Family` dropdown. This selects the task definition that you created earlier.
-   1. Provide **jwt-pizza-service** as the `Service name`.
+   1. Provide `jwt-pizza-service` as the `Service name`.
 1. Under `Environment` select `Launch type` since we don't want to utilize a capacity strategy at this point. A capacity strategy defines how the service should scale in order to meet customer demand.
 1. Leave all the `Deployment configuration` settings as the defaults. The **Replica** scheduling strategy will create copies of your container as necessary in order to handle your user request load. The **Rolling update** deployment strategy will replace the previous versions of your containers with a newer version one at a time.
 1. Under `Networking`
