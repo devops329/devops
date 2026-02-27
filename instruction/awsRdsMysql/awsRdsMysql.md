@@ -5,7 +5,7 @@
 - AWS RDS provides excellent managed database support
 - Security groups protect access to the database
 - Store your credentials securely
-- Deploy an RDS MySQL database for use the JWT Pizza Service
+- Deploy an RDS MySQL database for use by the JWT Pizza Service
 
 ---
 
