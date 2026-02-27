@@ -223,7 +223,7 @@ docker exec <container ID> ls -la
 
 ## Container practice
 
-Follow the instruction given above to create a container image and uploaded it to Docker Hub. It should look something like the following.
+Follow the instruction given above to create a container image and upload it to Docker Hub. It should look something like the following.
 
 ![List repository](listRepository.png)
 
