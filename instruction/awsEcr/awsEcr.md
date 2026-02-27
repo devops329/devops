@@ -18,7 +18,7 @@ Using ECR is similar to what you did with Docker Hub in a previous instruction t
 
 ## Creating an ECR repository
 
-In order to use ECR, you must first create a ECS repository that will hold the **jwt-pizza-service** container images. Complete the following steps.
+In order to use ECS, you must first create a ECR repository that will hold the **jwt-pizza-service** container images. Complete the following steps.
 
 1. Open the AWS browser console and navigate to the ECR service.
 1. Press `Create repository` and verify that it is making a private repository.
