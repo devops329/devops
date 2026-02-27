@@ -52,6 +52,9 @@ Eventually you will change the **jwt-pizza-service** security group so that only
 
    ![Pizza service database security group](pizzaServiceDbSecurityGroup.png)
 
+1. **Do not delete the Outbound rules**.
+1. Press the `Create security group` button.
+
 ## Creating a MySQL instance
 
 With the network security deployed, you can now create the MySQL server instance.
