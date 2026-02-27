@@ -9,9 +9,9 @@
 
 ---
 
-With a cloud deployment you can take advantage of scalable database services that can dynamically increase in storage and computing capacity as the size and demands of your customer audience increase. For the JWT Pizza service you are going to use the AWS Relational Database Service (RDS) MySQL implementation.
+With cloud deployment you can take advantage of scalable database services that can dynamically increase in storage and computing capacity as the size and demands of your customer audience increase. For the JWT Pizza service you are going to use the AWS Relational Database Service (RDS) MySQL implementation.
 
-AWS RDS manages configuration, backup, monitoring, and restoration for you. Additionally, it only takes a couple mouse clicks to increase or decrease the size of your database server. This helps you reduce cost when you don't need a large instance, and increase the instance when your customers become more demanding.
+AWS RDS manages configuration, backup, monitoring, and restoration for you. Additionally, it only takes a couple mouse clicks to increase or decrease the size of your database server. This helps you reduce cost when you don't need a large instance and increase the instance when your customers become more demanding.
 
 > [!IMPORTANT]
 >
