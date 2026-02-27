@@ -30,7 +30,7 @@ Today the major players in the container space are Docker Inc, the original prop
 
 The core technology for Docker containers came from existing Linux technology, primarily Linux Containers (LXC). Linux `namespaces` isolate the docker application's view of the operating system's environment. This includes process trees, network, user IDs, and the file system. The kernel's `cgroups` limit the available memory and CPU.
 
-Once a container is executing in a hosted environment, a `container image` can be captured that consists only of the changes that were added to the parent container. This use a delta based file system called OverlayFS and makes the resulting size of the container image much smaller because it doesn't have all the files represented by the entire operating system.
+Once a container is executing in a hosted environment, a `container image` can be captured that consists only of the changes that were added to the parent container. This uses a delta based file system called OverlayFS and makes the resulting size of the container image much smaller because it doesn't have all the files represented by the entire operating system.
 
 A container image is then uploaded to a container registry where in can be downloaded and run in any environment that supports the container execution standard. Generally this works most efficiently on Linux systems executing a runC (Docker) or CRI-O (Kubernetes) runtime. Although, other runtimes and OS specific adaptations exist to make containers work on operating systems such as Windows and OSX.
 
@@ -62,7 +62,7 @@ The Docker software is composed mainly of the Docker daemon, called dockerd, tha
 
 ### Registries
 
-A Docker registry is a repository for Docker images. You can push container images to a register and then pull them down at a later time. Registries can be public or private. Docker Inc. provides the most used public registry, named Docker Hub. There are other well-used registries available from vendors such as AWS (ECR), Google (GCR), Microsoft (ACR), and GitHub.
+A Docker registry is a repository for Docker images. You can push container images to a registry and then pull them down at a later time. Registries can be public or private. Docker Inc. provides the most used public registry, named Docker Hub. There are other well-used registries available from vendors such as AWS (ECR), Google (GCR), Microsoft (ACR), and GitHub.
 
 ## Installation
 
