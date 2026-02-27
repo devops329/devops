@@ -118,4 +118,4 @@ Deploy a MySQL server in your AWS account using the instructions given above. Th
 
 1. Create the security groups.
 1. Create the MySQL RDS instance.
-1. Add the DB connection information to your `jwt-pizza-service` GitHub Action secrets.
+1. Add the DB connection information to your `jwt-pizza-service` GitHub Actions secrets.
