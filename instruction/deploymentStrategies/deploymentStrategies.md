@@ -3,7 +3,7 @@
 🔑 **Key points**
 
 - There are many tools and strategies that you can use to deploy your code.
-- Version compatibility and roll back is a key part of your strategy
+- Version compatibility and roll back is a key part of your strategy.
 
 ---
 
