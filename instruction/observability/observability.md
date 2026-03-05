@@ -24,7 +24,7 @@ Without being able to observe what is happening inside the box, you are left gue
 
 There are three types of tools that are usually associated with increasing the observability of a software system.
 
-1. **Metrics**: Provides raw numbers, such as requests rates and CPU percentages, that can be aggregated together to quickly analyze the health of a system. They can also provide a historical record of system performance.
+1. **Metrics**: Provides raw numbers, such as request rates and CPU percentages, that can be aggregated together to quickly analyze the health of a system. They can also provide a historical record of system performance.
 1. **Logging**: Records key information as it passes through the system. This includes fields such as request IP addresses, SQL queries, and authentication requests.
 1. **Tracing**: Allows you to debug a distributed system similarly to how you would use an IDE to walk through each line of code. With tracing, you can follow the path of a request that started on a customer's device, through the backend service, and into a database.
 
@@ -65,7 +65,7 @@ All the desirable characteristics that you want for your application also apply 
 
 ### Aggregation and accessibility
 
-In the early days of logging, each server had a cache of logs. If there was a problem, you had to SSH into the server and manually examine the log files until you found where the problem occurred. If the failure was triggered across multiple requests that were logged on different servers, then you were in a world of hurt to try and figure out what happened.
+In the early days of logging, each server had a cache of logs. If there was a problem, you had to SSH into the server and manually examine the log files until you found where the problem occurred. If the failure was triggered across multiple requests that were logged on different servers, then you were in a world of hurt trying to figure out what happened.
 
 Instead, you want to transfer observability data as quickly as possible to a central location where it can be aggregated and accessed from anywhere you might need.
 
