@@ -15,7 +15,7 @@
 
 CloudFormation is AWS's primary IaC and automation tool. With CloudFormation you can create a parameterized JSON file, called a **CloudFormation Template**, that describes each AWS resource that you want to create. You then use the template to create a CloudFormation stack. A stack represents the instantiation of all the resources defined by the template. You can also delete all the resources represented by the stack with a single button press.
 
-- **Resource**: An AWS object such as a S3 Bucket or EC2 instance.
+- **Resource**: An AWS object such as an S3 Bucket or EC2 instance.
 - **Template**: A JSON script that defines resources to deploy.
 - **Stack**: The deployed resources.
 
@@ -116,14 +116,14 @@ Let's take the template defined above and use it to build a stack that creates a
 
 Before we can execute a template we need to put the template file in a location where CloudFormation can access it. You have three options.
 
-1. Specify a file on disk and let CloudFormation automatically create an S3 bucket to put the template.
+1. Specify a file on disk and let CloudFormation automatically create an S3 bucket to put the template in.
 1. Create your own S3 bucket to host all of your templates.
 1. Give CloudFormation access to your Git repository that contains your templates.
 
 Let's choose the option to create our own S3 bucket so that we can keep everything in one place that we specify. To make this happen, we just need to create a bucket to hold all our templates and copy the templates into it.
 
 1. Open the AWS browser console and navigate to the S3 service.
-1. Create a new bucket names something unique such as `YOURNAMEHERE-cloudformation-templates`.
+1. Create a new bucket named something unique such as `YOURNAMEHERE-cloudformation-templates`.
 1. Save the above example to a file named `create-bucket.json` in your development environment and then upload it to the S3 bucket you just created.
 1. Copy the URL for the file you just uploaded so that you can use it when you create your CloudFormation stack.
 
