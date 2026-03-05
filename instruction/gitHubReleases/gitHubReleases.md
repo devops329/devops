@@ -9,7 +9,7 @@
 
 📖 **Deeper dive reading**: [Managing GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
 
-GitHub supports the ability to associate a release with a version and commit. When you combine GitHub's release tracking with updates to project issues and pushes to your production environment, you can create an complete automated CI pipleline that manages your entire release infrastructure from a GitHub action workflow.
+GitHub supports the ability to associate a release with a version and commit. When you combine GitHub's release tracking with updates to project issues and pushes to your production environment, you can create a completely automated CI pipleline that manages your entire release infrastructure from a GitHub actions workflow.
 
 ![Release workflow](releaseWorkflow.png)
 
