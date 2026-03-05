@@ -274,7 +274,7 @@ If you do choose an option that deletes and recreates your database, either manu
 Complete the following.
 
 1. Delete your previous ECS and ALB infrastructure.
-1. Create a S3 bucket to host your CloudFormation templates.
+1. Create an S3 bucket to host your CloudFormation templates.
 1. Create the `jwt-pizza-service.json` template file.
 1. Save the CloudFormation template to your fork of the `jwt-pizza-service` in a folder named `cloudFormation`.
 1. Deploy a CloudFormation stack using the `jwt-pizza-service.json` template.
