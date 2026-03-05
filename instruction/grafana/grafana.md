@@ -102,10 +102,16 @@ Now you can create a visualization from the data source.
 
    ![New dashboard](newDashboard.png)
 
+1. Press the dashboard `Edit` button.
 1. Press the `Add visualization` button.
-1. Select the `awesome-data` data source.
-1. This will display the settings for a new panel that you are adding to the dashboard. Notice the following:
 
+![alt text](addVisualization.png)
+
+1. Drag the panel onto the dashboard.
+1. Give it the name 'random'.
+1. Press the `configurate` button
+1. Select the `awesome-data` data source and press the refresh button.
+1. This will display the settings for a new panel that you are adding to the dashboard. Notice the following:
    1. The `Data source` is set to **awesome-data**. You can change the data source of a visualization at any time.
    1. The `Scenario` has **Random Walk** selected. This means you are pulling random data from the data source. There are lots of other types of data that the data source exposes for use with different types of visualizations.
    1. The `Visualization` is set to **Time series**. This is a good choice for your random walk data.
