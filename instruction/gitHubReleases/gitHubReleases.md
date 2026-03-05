@@ -66,14 +66,14 @@ release:
           **commit**: ${{ github.sha }}
 ```
 
-With this job in your pipeline, it will automatically create the version the next time you commit to your fork of the `jwt-pizza` repository.
+With this job in your pipeline, it will automatically create the release the next time you commit to your fork of the `jwt-pizza` repository.
 
 ## ☑ Exercise
 
 Do the following:
 
 1. Review your GitHub Action workflow for `jwt-pizza` to see how it creates and uses a version number.
-1. Modify your GitHub Action workflow for `jwt-pizza` so that it automatically creates a tag and version that represents the production release.
+1. Modify your GitHub Action workflow for `jwt-pizza` so that it automatically creates a tag and release that represents the production release.
 
 Once you are done, it should look something like this:
 
