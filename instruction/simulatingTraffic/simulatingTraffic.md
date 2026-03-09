@@ -2,7 +2,7 @@
 
 🔑 **Key points**
 
-- Using Curl you can simulate data helps to create visualizations for production use.
+- Using Curl you can simulate data to help create visualizations for production use.
 
 ---
 
@@ -99,11 +99,11 @@ done
 
 You can also combine commands together into a script that runs all commands. The [generatePizzaTraffic.sh](simulatingTrafficExample/generatePizzaTraffic.sh) provides an example of doing this. The following outlines the general flow of the script.
 
-1. Exit if host not provided as a parameter
-1. Provide a function that kills all of the while loops background processes on CTRL-C
+1. Exit if host not provided as a parameter.
+1. Provide a function that kills all of the while loops background processes on CTRL-C.
 1. Repeatedly run curl commands in while loops as background processes.
-1. Simulate different request types
-1. Wait for the background processes to complete
+1. Simulate different request types.
+1. Wait for the background processes to complete.
 
 You can run this script by providing the URL of the server you want to target. In the following example, make sure you replace the service pizza URL with `localhost:3000` if you are running against your development environment, or your production pizza service URL it you are trying simulate traffic there.
 
