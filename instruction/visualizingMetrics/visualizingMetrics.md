@@ -10,7 +10,7 @@ Inserting and visualizing metrics can take some time to get comfortable with. Yo
 
 ![Big green number](bigGreenNumber.png)
 
-For this course we mainly focus on visualizing service metric and so let's carefully walk through the basic concepts you are going to need in order to build your JWT Pizza dashboard.
+For this course we mainly focus on visualizing service metrics so let's carefully walk through the basic concepts you are going to need in order to build your JWT Pizza dashboard.
 
 ## A simple web service
 
