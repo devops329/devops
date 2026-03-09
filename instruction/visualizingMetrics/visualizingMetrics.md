@@ -181,7 +181,7 @@ Now that you are generating data for your web service you can create a visualiza
 1. Go to your dashboard.
 1. Create a new visualization.
 1. Set the `Query options` to display on a **Min interval** of 10s.
-1. Select the `requests_total` metric with a label filter of `source` equal to `jwt-pizza-service-dev`.
+1. Select the `requests_total` metric with a label filter of `source` equal to `jwt-pizza-service`.
 1. Add an operation with a `Rate` **Range function** with a **Range** of 30s.
 1. Change the legend options to be custom with a value of {{endpoint}}.
 1. Experiment with the visualization options to make the graph more appealing.
