@@ -18,7 +18,7 @@ The Grafana team, lead by Torkel Ödegaard, continued to enhance the application
 
 ### Torkel Ödegaard
 
-Grafana Labs Co-Founder, Grafana creator & and tech lead. Avid book reader, SciFi fan, coder, guitar player.
+Grafana Labs Co-Founder, Grafana creator and tech lead. Avid book reader, SciFi fan, coder, guitar player.
 
 ![Torkel Ödegaard](torkelOdegaard.png)
 
@@ -55,7 +55,7 @@ In order to get started with Grafana Cloud you need to create a **free account**
 >
 > 💳 Do not give your credit card to Grafana. You will not need to pay Grafana anything for your work in this class.
 
-1. Go to [the Grafana website](https://grafana.com/)
+1. Go to [the Grafana website](https://grafana.com/).
 1. Press the `Create account` button.
 
    ![Create account](createAccount.png)
@@ -72,9 +72,9 @@ In order to get started with Grafana Cloud you need to create a **free account**
 
 At a high level, Grafana Cloud consists of three major parts.
 
-1. **Collector**: Software running as part of your application, either in your code or as an additional agent program, collects data and send it over a connection to be stored in Grafana Cloud.
-1. **Data source**: A representation of logging or metrics data that is configured to either be read directly from the service providing the data (e.g. MySQL database or AWS CloudWatch), or from data stored in Grafana Cloud (e.g. Prometheus or Loki). The data source also defines a query and filter that controls how the data is presented to the visualization dashboard.
-1. **Dashboard**: The dashboard contains visualization panels that each display a data source with additional rendering properties such as the time range to display, colors, visualization type. There are [dozens of panel types](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/) that you can use when building your dashboard. This includes line charts, bar charts, pie charts, gauges, big numbers, node networks, tables, flame graphs, and so on.
+1. **Collector**: Software running as part of your application, either in your code or as an additional agent program, that collects data and sends it over a connection to be stored in Grafana Cloud.
+1. **Data source**: A representation of logging or metrics data that is configured to either be read directly from the service providing the data (e.g. MySQL database or AWS CloudWatch) or from data stored in Grafana Cloud (e.g. Prometheus or Loki). The data source also defines a query and filter that controls how the data is presented to the visualization dashboard.
+1. **Dashboard**: The dashboard contains visualization panels that each display a data source with additional rendering properties such as the time range to display, colors, and visualization type. There are [dozens of panel types](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/) that you can use when building your dashboard. This includes line charts, bar charts, pie charts, gauges, big numbers, node networks, tables, flame graphs, and so on.
 
 ![Grafana architecture](grafanaArchitecture.png)
 
@@ -109,7 +109,7 @@ Now you can create a visualization from the data source.
 
 1. Drag the panel onto the dashboard.
 1. Give it the name 'random'.
-1. Press the `configurate` button
+1. Press the `configure` button.
 1. Select the `awesome-data` data source and press the refresh button.
 1. This will display the settings for a new panel that you are adding to the dashboard. Notice the following:
    1. The `Data source` is set to **awesome-data**. You can change the data source of a visualization at any time.
