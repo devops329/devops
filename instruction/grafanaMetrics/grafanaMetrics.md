@@ -82,7 +82,7 @@ Types specify how a metric should be interpreted. This impacts the default rende
 
 ### Example of a `Sum` metric
 
-If you are providing `sum` data then you must also provide information about how the data is aggregated. This includes both an aggregation temporality value (cumulative or delta) and a monotonic description (true or false). For example, with a metric that represent request latency, you would set the type to be `sum` and specify that the aggregation is cumulative and monotonically increasing.
+If you are providing `sum` data then you must also provide information about how the data is aggregated. This includes both an aggregation temporality value (cumulative or delta) and a monotonic description (true or false). For example, with a metric that represents request latency, you would set the type to be `sum` and specify that the aggregation is cumulative and monotonically increasing.
 
 ```json
 {
@@ -117,7 +117,7 @@ In order to send metrics over HTTP you will need an API key.
 
 1. Open up your Grafana Cloud dashboard.
 1. Select the `Connections` option from the left home menu and press `Add new connection`.
-1. In the connection search box enter `HTTP Metrics` and press enter
+1. In the connection search box enter `HTTP Metrics` and press enter.
 
    ![HTTP Metrics connection](httpMetricsConnection.png)
 
@@ -301,6 +301,6 @@ rate(requests_total[1m])
 rate(latency_milliseconds_total[1m])
 ```
 
-With that change your visualization should show clearly what you CPU, requests, and latency are as they change over time.
+With that change your visualization should show clearly what your CPU, requests, and latency are as they change over time.
 
 ![alt text](metricWithRateVisualization.png)
