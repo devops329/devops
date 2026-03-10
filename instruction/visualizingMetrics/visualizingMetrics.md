@@ -81,8 +81,9 @@ Let's start by creating a simple web service that has a single endpoint.
      const metrics = [];
      Object.keys(requests).forEach((endpoint) => {
        metrics.push(createMetric('requests', requests[endpoint], '1', 'sum', 'asInt', { endpoint }));
-       metrics.push(createMetric('greetingChange', greetingChangedCount, '1', 'sum', 'asInt', {}));
      });
+
+     metrics.push(createMetric('greetingChange', greetingChangedCount, '1', 'sum', 'asInt', {}));
 
      sendMetricToGrafana(metrics);
    }, 10000);
