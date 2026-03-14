@@ -26,7 +26,7 @@ This assignment should feel similar to the exercises you have already completed.
 
 ### Required log events
 
-It is time to add logging observability to the `jwt-pizza-service `code. In your fork of the code, use what you learned about [Grafana logging](../grafanaLogging/grafanaLogging.md) to create a log of all the following:
+It is time to add logging observability to the `jwt-pizza-service` code. In your fork of the code, use what you learned about [Grafana logging](../grafanaLogging/grafanaLogging.md) to create a log of all the following:
 
 1. HTTP requests (calls to pizza-service.yourdomain)
    1. HTTP method, path, status code
