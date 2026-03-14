@@ -2,12 +2,12 @@
 
 🔑 **Key points**
 
-- Logs provide the details that are missing in metrics
+- Logs provide the details that are missing in metrics.
 - Your logging design makes a big difference.
 
 ---
 
-Metrics give you a good overview of how well the system is operating, but sometimes you need to dig into the details to full understand what is going on. For example, you might see that your request latency is going up unexpectedly. However, the latency metric only tells you that the overall system latency is increasing. It doesn't tell you why it is increasing. Is it a really long single request? Is it requests from a specific user? Or is it requests being handled by a specific server?
+Metrics give you a good overview of how well the system is operating, but sometimes you need to dig into the details to fully understand what is going on. For example, you might see that your request latency is going up unexpectedly. However, the latency metric only tells you that the overall system latency is increasing. It doesn't tell you why it is increasing. Is it a really long single request? Is it requests from a specific user? Or is it requests being handled by a specific server?
 
 A good logging system gives you a record of individual events that are tagged with information that you can use to aggregate similar events. You can also use the timestamp of the events to see what is going on in the system at the same time.
 
