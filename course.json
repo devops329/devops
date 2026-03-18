@@ -580,7 +580,9 @@
           "title": "Status",
           "path": "instruction/statusReporting/statusReporting.md",
           "id": "c12c055e-5494-4b22-8654-34ae9287ea9f",
-          "state": "published"
+          "state": "published",
+          "interactions": [],
+          "commit": "2924f6e17a2144bb77d75e91ecb1b0d8bbb4aeb3"
         }
       ]
     },
