@@ -3,7 +3,7 @@
 🔑 **Key points**
 
 - Grafana supports annotated visualizations.
-- Experiment creating annotations with Curl.
+- Experiment with creating annotations with Curl.
 - Modify the CI pipeline so that an annotation is created on release events.
 
 ---
