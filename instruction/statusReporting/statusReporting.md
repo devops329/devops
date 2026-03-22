@@ -47,7 +47,7 @@ As an alternative to building your own status page, you can use one of the many 
 
 ### Upptime
 
-One that is free and easy to setup is [upptime](https://github.com/upptime/upptime). Upptime makes extensive use of GitHub. A scheduled GitHub Actions workflow monitors the website and updates GitHub Pages to display the status. GitHub Issues are used to track an incident and the results are automatically integrated into the [status page](https://demo.upptime.js.org/).
+One that is free and easy to set up is [upptime](https://github.com/upptime/upptime). Upptime makes extensive use of GitHub. A scheduled GitHub Actions workflow monitors the website and updates GitHub Pages to display the status. GitHub Issues are used to track an incident and the results are automatically integrated into the [status page](https://demo.upptime.js.org/).
 
 ![Upptime](upptime.png)
 
