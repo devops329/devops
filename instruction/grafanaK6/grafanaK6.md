@@ -54,11 +54,11 @@ You will create your first K6 load against your JWT Pizza production deployment.
 
 1.  Click on the `Default project` name in order to create a new test. This might display some tutorial documentation that you can read or dismiss. You should then see a `Create new test` button.
 
-1.  Press the `Create new test` button. This will display the new test and give you different options for how you can create it. There are three options.
-
+1.  Press the `Create new test` button. This will display the new test and give you different options for how you can create it. There are several options.
     1. Download and use the **K6 CLI** to build a test in your development environment
     1. write a JavaScript testing script in the Grafana Cloud K6 **Script Editor**
-    1. or use the Grafana Cloud K6 **Test Builder**.
+    1. use the Grafana Cloud K6 **Test Builder**
+    1. or record user flow.
 
     Using the Test Builder is the fastest way to get up and running, so we will use that.
 
@@ -75,7 +75,7 @@ You will create your first K6 load against your JWT Pizza production deployment.
 
 You can use the Google Chrome developer tools to easily record and export a HTTP Archive (HAR) file. A HAR file contains all of the HTTP requests and responses made made that are recorded on the DevTools network tab.
 
-Before you begin you may need to enable the ability to export sensitive data so that your HAR file contains authorization tokens. Open DevTools, select the `gear icon (⚙️)` on the top left corner, select `Preferences` and enable **Allow to generate HAR with sensitive data** from the `Network` settings.
+Before you begin you may need to enable the ability to export sensitive data so that your HAR file contains authorization tokens. Open DevTools, select the `gear icon (⚙️)` on the top right corner, select `Preferences` and in the `Network` section enable **Allow to generate HAR with sensitive data**.
 
 ![alt text](enableSensitiveHarExport.png)
 
