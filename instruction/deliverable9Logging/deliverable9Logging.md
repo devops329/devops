@@ -128,7 +128,7 @@ However, your logging code for JWT Pizza will need to be more complex than what 
 
 > [!TIP]
 >
-> There is a third party NPM package, named [Pizza Logger](https://www.npmjs.com/package/pizza-logger), that you can use to supply your logs to Grafana. If you wish to use this package, you can view the documentation on NPM for more information.
+> There is a third party NPM package, named [JWT Pizza Logger](https://www.npmjs.com/package/jwt-pizza-logger), that you can use to supply your logs to Grafana. If you wish to use this package, you can view the documentation on NPM for more information.
 
 ### Add HTTP logging code
 
