@@ -236,7 +236,7 @@ In order to complete the deliverable you need to make your dashboard public so t
 
 > [!IMPORTANT]
 >
-> You must create a public URL for the Metrics and Logging deliverable that allows for the modification of the time range. **Make sure you** test your URL in an incognito window. If it does not work for the TA they will reject your submission.
+> The time-range makes it easier for the TA to grade your work. Without the time range, the TA may not be able to correctly evaluate your work.
 
 ## ⭐ Deliverable
 
