@@ -32,7 +32,7 @@ You can see the breakdown of metrics for each endpoint. This includes how many r
 
 ![K6 example test metrics](k6ExampleTestMetrics.png)
 
-When looking at latency metrics the important values are often found in the upper percentiles. These include the top 1% or even the top 0.1% of slow requests. Here we see that even though login usually only takes 108 ms, 1% (P99) of the requests took 143 ms with a standard deviation of 17 ms. That isn't too bad, but sometime you will have results where the average in something like 10 ms, but the p99 is 3000 ms. On the surface this might not feel like a big deal since only 1 in 100 customers will have to wait 3 seconds to log in, but with complex applications there tends to be a layering effect where the login request will make a dozen or so endpoint requests in series. If each of those 12 requests have a 1% chance of taking 3 seconds you may end up with 10% of your customers always waiting multiple seconds. Now a small fraction becomes a noticeable delay that drives down retention and impacts the business.
+When looking at latency metrics the important values are often found in the upper percentiles. These include the top 1% or even the top 0.1% of slow requests. Here we see that even though login usually only takes 108 ms, 1% (P99) of the requests took 143 ms with a standard deviation of 17 ms. That isn't too bad, but sometimes you will have results where the average in something like 10 ms, but the p99 is 3000 ms. On the surface this might not feel like a big deal since only 1 in 100 customers will have to wait 3 seconds to log in, but with complex applications there tends to be a layering effect where the login request will make a dozen or so endpoint requests in series. If each of those 12 requests have a 1% chance of taking 3 seconds you may end up with 10% of your customers always waiting multiple seconds. Now a small fraction becomes a noticeable delay that drives down retention and impacts the business.
 
 By simulating load and experimenting with changes in the architecture, you can quickly remove bottlenecks that otherwise would have had significant impact.
 
@@ -75,7 +75,7 @@ You will create your first K6 load against your JWT Pizza production deployment.
 
 You can use the Google Chrome developer tools to easily record and export a HTTP Archive (HAR) file. A HAR file contains all of the HTTP requests and responses made made that are recorded on the DevTools network tab.
 
-Before you begin you may need to enable the ability to export sensitive data so that your HAR file contains authorization tokens. Open DevTools, select the `gear icon (⚙️)` on the top right corner, select `Preferences` and in the `Network` section enable **Allow to generate HAR with sensitive data**.
+Before you begin, you may need to enable the ability to export sensitive data so that your HAR file contains authorization tokens. Open DevTools, select the `gear icon (⚙️)` on the top right corner, select `Preferences` and in the `Network` section enable **Allow to generate HAR with sensitive data**.
 
 ![alt text](enableSensitiveHarExport.png)
 
