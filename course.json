@@ -672,7 +672,9 @@
           "title": "⭐ ⑪ Chaos testing: JWT Pizza",
           "path": "instruction/deliverable11ChaosTesting/deliverable11ChaosTesting.md",
           "id": "109aac9b-5942-4acf-badb-0a70ceb93ae9",
-          "state": "published"
+          "state": "published",
+          "interactions": [],
+          "commit": "85381f8ca0b0e50f2ffa1fd7319b55b85d077bec"
         }
       ]
     },
@@ -689,9 +691,7 @@
           "title": "Security Community",
           "path": "instruction/securityCommunity/securityCommunity.md",
           "id": "0be5e888-ec79-44d6-b08d-5c28e9d12432",
-          "state": "published",
-          "interactions": [],
-          "commit": "c6869ae9737ed60fb12f83e3d87504a1fa101651"
+          "state": "published"
         },
         {
           "title": "Penetration testing",
