@@ -56,7 +56,7 @@ Your job is to do the following:
 1. Have an appropriate [alerting system](../grafanaOnCall/grafanaOnCall.md) in place so that you are effectively on call during the entire testing period.
 1. Make sure you are [simulating traffic](../simulatingTraffic/simulatingTraffic.md) to your application. Otherwise you will not have any interesting metrics to trigger an alarm on when the chaos is injected.
 1. Access your [JWT Pizza Factory vendor account](https://pizza-factory.cs329.click) and select `Initiate chaos`.
-1. The incident will occur between 8am and 2pm the next day.
+1. The incident will occur between 8am and 3pm the next day.
 1. Respond to the incident in a timely manner.
 1. Properly diagnose and remedy the root cause of the failure.
    1. If you debug carefully, it will be obvious what action to take to resolve the chaos.
