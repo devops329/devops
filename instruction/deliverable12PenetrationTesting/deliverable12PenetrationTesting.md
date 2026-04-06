@@ -57,7 +57,7 @@ As different attacks are conducted you will document each attack using the follo
 
 > [!IMPORTANT]
 >
-> Do not attempt to participate in this deliverable if you have not completed the previous phase and are committed to collaborating with a peer. Your peer's experience will be negatively impacted if you are unable to fully participate. I you accept the responsibility of being a peer and then do not complete your part of the collaboration you may receive **negative** mastery points for this deliverable.
+> Do not attempt to participate in this deliverable if you have not completed the previous phase and are committed to collaborating with a peer. Your peer's experience will be negatively impacted if you are unable to fully participate. If you accept the responsibility of being a peer and then do not complete your part of the collaboration you may receive **negative** mastery points for this deliverable.
 
 ### Step 1: Collaborate with a peer
 
