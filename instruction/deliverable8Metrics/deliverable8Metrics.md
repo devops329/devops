@@ -236,7 +236,7 @@ In order to complete the deliverable you need to make your dashboard public so t
 
 > [!IMPORTANT]
 >
-> You must create a public URL for the Metrics and Logging deliverable that allows for the modification of the time range. **Make sure you** test your URL in an incognito window. If it does not work for the TA they will reject your submission.
+> The time-range makes it easier for the TA to grade your work. Without the time range, the TA may not be able to correctly evaluate your work.
 
 ## ⭐ Deliverable
 
@@ -256,13 +256,13 @@ Once this is all working you should have something like this:
 
 ![Metric dashboard](metricDashboard.png)
 
-Get the [public URL](../deliverable8Metrics/deliverable8Metrics.md#make-your-dashboard-public) for your dashboard and submit it to the Canvas assignment. This should look something like this:
-
+Get the [public URL](../deliverable8Metrics/deliverable8Metrics.md#make-your-dashboard-public) for your dashboard and submit it to the Canvas assignment. Your URL **must include a specific time range** showing a window when your metrics were actively recording data. To get this URL, set the dashboard time range to a period with nonzero data, then copy the full URL from your browser's address bar — it will include `from` and `to` query parameters. This allows the TAs to verify your metrics at the exact time they were generated.
+ 
+The submitted URL should look something like this:
+ 
 ```txt
-https://youraccounthere.grafana.net/public-dashboards/29305se9fsacc66a21fa91899b75734
+https://youraccounthere.grafana.net/public-dashboards/29305se9fsacc66a21fa91899b75734?from=2026-03-26T19:09:00.000Z&to=2026-03-26T19:14:00.000Z&timezone=browser
 ```
-
-### Rubric
 
 | Percent | Item                                                                          |
 | ------- | ----------------------------------------------------------------------------- |
