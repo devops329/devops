@@ -90,12 +90,12 @@ Take the following steps to execute a penetration test on a peer's JWT Pizza app
 Meet with your peer and create a joint report in Markdown format. The report must contain the following sections.
 
 1. Both peers names
-1. Self attack
-   1. Peer 1: Create an attack record for each attack.
-   1. Peer 2: Create an attack record for each attack.
-1. Peer attack
-   1. Peer 1 attack on peer 2: Create an attack record for each attack.
-   1. Peer 2 attack on peer 1: Create an attack record for each attack.
+1. Self attacks
+   1. Peer 1: Create an attack record for each attack (5 total).
+   1. Peer 2: Create an attack record for each attack (5 total).
+1. Peer attacks
+   1. Peer 1 attacks on peer 2: Create an attack record for each attack (5 total).
+   1. Peer 2 attacks on peer 1: Create an attack record for each attack (5 total).
 1. Combined summary of learnings
 1. Log into the [Pizza Factory](https://pizza-factory.cs329.click) and give your partner a star rating.
    1. ⭐: Peer did not respond sufficiently to collaborate.
