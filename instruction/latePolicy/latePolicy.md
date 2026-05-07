@@ -28,6 +28,16 @@ For each day, excluding Sundays, that a deliverable is submitted early, and rece
 
 You can view your available grace days on the `Grace Days` assignment in Canvas.
 
+## Examples
+
+1. You have 2 grace days. You turn in an assignment in 1 day late for full credit. You now have 1 grace day.
+2. You have 2 grace days. You turn in an assignment 3 days early. You now have 5 grace days.
+3. You have 2 grace days. You turn in an assignment 3 days late. You receive no credit for the assignment. You still have 2 grace days.
+4. You have 2 grace days. The assignment is due on Saturday. You turn it in on Monday. You now have 1 grace day.
+5. You have 2 grace days. The assignment is due on Monday. You turn it in on Saturday. You now have 3 grace days.
+
+
+
 ## Extenuating Circumstances and Accommodations
 
 Life happens, sometimes in ways we cannot foresee or prepare for. If you encounter an extenuating circumstance or require university accommodations during the semester, please contact the professor as soon as possible. University Accommodations require you to ask the Professor for extensions **before** the deadline.
