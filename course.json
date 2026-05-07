@@ -33,7 +33,9 @@
           "title": "Late Policy",
           "path": "instruction/latePolicy/latePolicy.md",
           "id": "47a43704-6388-4424-ae59-663695fcd800",
-          "state": "published"
+          "state": "published",
+          "interactions": [],
+          "commit": "88d8aa78755e06aad393ad6d969d0df524a751ae"
         },
         {
           "title": "Instruction topics",
