@@ -4,7 +4,16 @@
 
 This course provides you with the experience and skills necessary to deploy, manage, and ensure the quality of a modern software application. This includes automated testing at all levels, continuous integration and deployment pipelines, application monitoring, failure detection, alerting, and elastic application scaling.
 
-## Course Content
+
+## Learning Environment
+
+We use [MasteryLS](https://masteryls.com) as the primary learning system for this course. MasteryLS provides efficient content navigation, search, and consistent structure. MasteryLS also enables extensive AI support for personalized learning and automated feedback. 
+
+ [Canvas](https://byu.instructure.com) is automatically synced with MasteryLS so that it can serve purely as a gradebook.
+
+## Course Content Repository
+
+All of the content for this course is maintained in a [GitHub repository](https://github.com/devops329). We use GitHub to manage the content so that we can rapidly enhance and correct it. Using GitHub also makes it so that you can get more familiar with this essential professional development tool.
 
 If you find errors in the content then we encourage you to fork the content repository and [create a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork). That way everyone benefits from your work, and you are listed as a contributor on a significant open source project.
 
@@ -73,7 +82,10 @@ In summary, TAs are here to help but not to hold your hand and take away the lea
 
 ## **Doing Your Own Work**
 
-All deliverables must be your own work. You are encouraged to study with other students, discuss concepts, ideas, and general approaches. However, you may not submit someone else's solution as your deliverable or provide your solution to other students. You may use generative AI as an assistant when developing your deliverables.
+
+All deliverables must be your own work. You are encouraged to study with other students, discuss concepts, ideas, and general approaches. However, you may not submit someone else's solution as your deliverable or provide your solution to other students.
+
+You may use AI at the partner level as defined by the Computer Science Department Policy on AI.
 
 In order to demonstrate original authorship, you must:
 
@@ -83,6 +95,37 @@ In order to demonstrate original authorship, you must:
 1. If you cannot do this then it will be considered as if you had submitted someone else's work.
 
 **Violations of this policy will result in all involved students failing the course and the possibility of further action at the university level.**
+
+## AI Usage Definition
+
+**Level**: `Partner`
+
+**Intent**: Collaborate with AI while maintaining ownership and understanding.
+
+**Allowed**
+- AI-generated code or content contributions
+- Iterative co-development
+- AI-assisted debugging and refinement
+
+**Requirements**
+- You must understand all submitted work
+- You must be able to explain any part on request. If you cannot explain your work, you may fail the class.
+
+**Prompt Guidance**: Use prompts that support collaboration with explanation:
+- “Help me implement this function step by step and explain each part.”
+- “Suggest an approach, then help me code it.”
+- “Walk me through improving this design.”
+- “Explain why this solution works.”
+
+**Rule of thumb**: You are co-creating, not delegating.
+
+
+```masteryls
+{"id":"cae08349-d561-4c4b-9a84-208fab172b36", "title":"Acknowledgement", "type":"multiple-select" }
+
+
+- [x] I have read this syllabus
+```
 
 ##   Grade Scheme
 
