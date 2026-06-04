@@ -10,32 +10,28 @@
           "path": "README.md",
           "id": "ea40e6cf-0e42-4310-847e-3e55592a4d5b",
           "state": "published",
-          "interactions": [],
-          "commit": "b7122b1fa3e51b41dde35a3ca4ba47b04d3afb83"
+          "interactions": []
         },
         {
           "title": "📅 Schedule",
           "path": "schedule/schedule.md",
           "id": "c2c7e920-b9fc-4c66-b771-c32e2db7adb1",
           "state": "published",
-          "interactions": [],
-          "commit": "1ee4a031b7eed7cb0256cdef1bae36ce3be65c30"
+          "interactions": []
         },
         {
           "title": "Syllabus",
           "path": "instruction/syllabus/syllabus.md",
           "id": "49e4ad88-06a3-4a57-9d55-77ffb9310b6e",
           "state": "published",
-          "interactions": [],
-          "commit": "dba53094447a25a7f37062ebc2b0cf6e7772e104"
+          "interactions": []
         },
         {
           "title": "Late Policy",
           "path": "instruction/latePolicy/latePolicy.md",
           "id": "47a43704-6388-4424-ae59-663695fcd800",
           "state": "published",
-          "interactions": [],
-          "commit": "b59188d97e559eed0a9ad63eb93326361920ba2a"
+          "interactions": []
         },
         {
           "title": "Instruction topics",
@@ -119,8 +115,7 @@
           "path": "instruction/curiosityReport/curiosityReport.md",
           "id": "f00a356a-1ccf-4638-9315-f3a55ca61231",
           "state": "published",
-          "interactions": [],
-          "commit": "d75a3fffb4d9259b36c144d93e682b94b299a4cb"
+          "interactions": []
         },
         {
           "title": "☑ Asking Questions",
@@ -289,8 +284,7 @@
           "path": "instruction/unitTestingJwtPizzaService/unitTestingJwtPizzaService.md",
           "id": "60e72fcd-259f-4e78-88ff-f9a3a2c90aca",
           "state": "published",
-          "interactions": [],
-          "commit": "2aa89c004356a9a2e616ed6c58cb6cd8607e5cf9"
+          "interactions": []
         },
         {
           "title": "⭐ ⓷ Unit testing CI: JWT Pizza Service",
@@ -323,8 +317,7 @@
           "path": "instruction/deliverable4UiTesting/deliverable4UiTesting.md",
           "id": "1feab954-5b76-416c-b558-210acae8b055",
           "state": "published",
-          "interactions": [],
-          "commit": "2d8eb9613d74752f980090dda3aca1096effb399"
+          "interactions": []
         },
         {
           "title": "⓸ Video",
@@ -376,8 +369,7 @@
           "path": "instruction/awsCloudFront/awsCloudFront.md",
           "id": "0fdb0e78-7dfd-4dd9-8aed-2e754fa6626a",
           "state": "published",
-          "interactions": [],
-          "commit": "fe694f7382cc555a0c36f46b0b531b9a229ffcb8"
+          "interactions": []
         },
         {
           "title": "AWS S3 deployment",
@@ -402,8 +394,7 @@
           "path": "instruction/deliverable6FrontendDeployment/deliverable6FrontendDeployment.md",
           "id": "d50c35c8-5940-4aac-aa8c-893298510af3",
           "state": "published",
-          "interactions": [],
-          "commit": "e63e0d62a7ae42e0e935e412acbf3a3be2db9921"
+          "interactions": []
         },
         {
           "title": "Elasticity",
@@ -416,8 +407,7 @@
           "path": "instruction/awsRdsMysql/awsRdsMysql.md",
           "id": "2ee7df35-7f44-4622-85d0-f1fe49282f56",
           "state": "published",
-          "interactions": [],
-          "commit": "af0b8c319376f9ade43ff8034a85914bbc62002a"
+          "interactions": []
         },
         {
           "title": "Docker",
@@ -430,16 +420,14 @@
           "path": "instruction/containers/containers.md",
           "id": "f2270b66-6119-4a1c-813b-bac46fdcc52c",
           "state": "published",
-          "interactions": [],
-          "commit": "ae85e034fef56a3e97b8a17097d71ad81c72c0b0"
+          "interactions": []
         },
         {
           "title": "☑ JWT Pizza Service container",
           "path": "instruction/jwtPizzaServiceContainer/jwtPizzaServiceContainer.md",
           "id": "cc1ba4e0-1f63-45de-8078-98fde375ab07",
           "state": "published",
-          "interactions": [],
-          "commit": "6591b25211a5d6de60bbecbf1707e293cacd66c0"
+          "interactions": []
         },
         {
           "title": "☑ AWS ECR",
@@ -452,8 +440,7 @@
           "path": "instruction/awsEcs/awsEcs.md",
           "id": "b2271809-f1a3-4b58-a61f-07789d25d5f2",
           "state": "published",
-          "interactions": [],
-          "commit": "472fbb45f2403add95a236b76a999260e5a91b41"
+          "interactions": []
         },
         {
           "title": "⭐ ⓻ Backend deployment: JWT Pizza Service",
@@ -539,8 +526,7 @@
           "path": "instruction/visualizingMetrics/visualizingMetrics.md",
           "id": "2db82108-3c93-445b-bcdb-dcfdd1477c36",
           "state": "published",
-          "interactions": [],
-          "commit": "f43dc87cfdee0b0d0d94a6bccdc1c745430459b5"
+          "interactions": []
         },
         {
           "title": "Simulating traffic",
@@ -571,8 +557,7 @@
           "path": "instruction/deliverable9Logging/deliverable9Logging.md",
           "id": "cdb8f6cb-ce37-43f7-8d53-7dd065a28bba",
           "state": "published",
-          "interactions": [],
-          "commit": "75bff36eaa1c50dfaa2b9059cea390d4e897fb48"
+          "interactions": []
         },
         {
           "title": "☑ Grafana annotations",
@@ -585,8 +570,7 @@
           "path": "instruction/statusReporting/statusReporting.md",
           "id": "c12c055e-5494-4b22-8654-34ae9287ea9f",
           "state": "published",
-          "interactions": [],
-          "commit": "c6d61e4b97623766c68978550144e465d72f11cd"
+          "interactions": []
         }
       ]
     },
@@ -675,8 +659,7 @@
           "path": "instruction/deliverable11ChaosTesting/deliverable11ChaosTesting.md",
           "id": "109aac9b-5942-4acf-badb-0a70ceb93ae9",
           "state": "published",
-          "interactions": [],
-          "commit": "85381f8ca0b0e50f2ffa1fd7319b55b85d077bec"
+          "interactions": []
         }
       ]
     },
