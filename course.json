@@ -6,10 +6,11 @@
     "files": [
       {
         "id": "021d7a94-d68b-4f8b-9b62-881a94272d12",
-        "title": "Schedule",
+        "title": "Winter 2026",
         "path": "schedule/schedule.md",
         "default": true,
-        "state": "published"
+        "state": "published",
+        "commit": "9c91bd1157aa8466de834bcef7520db9797d6ce5"
       }
     ]
   },
