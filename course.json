@@ -9,8 +9,7 @@
         "title": "Winter 2026",
         "path": "schedule/schedule.md",
         "default": true,
-        "state": "published",
-        "commit": "754e811b39cf75fb3453d61e982cf95b3c7a3a00"
+        "state": "published"
       }
     ]
   },
@@ -23,7 +22,9 @@
           "path": "README.md",
           "id": "ea40e6cf-0e42-4310-847e-3e55592a4d5b",
           "state": "published",
-          "interactions": []
+          "interactions": [
+            "c4a3c902-38d2-4e23-ac1a-8b1695c61b75"
+          ]
         },
         {
           "title": "Syllabus",
