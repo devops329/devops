@@ -38,12 +38,6 @@
           "id": "47a43704-6388-4424-ae59-663695fcd800",
           "state": "published",
           "interactions": []
-        },
-        {
-          "title": "Instruction topics",
-          "path": "instruction/modules.md",
-          "id": "c6b62e79-bc96-4cfb-8f27-7324548b4bc3",
-          "state": "published"
         }
       ]
     },
@@ -106,7 +100,7 @@
         },
         {
           "title": "Commit History",
-          "path": "instruction/gitHub/commitHistory.md",
+          "path": "instruction/commitHistory/commitHistory.md",
           "id": "843efb19-aa29-4b19-91be-3410c5b3900e",
           "state": "published"
         },

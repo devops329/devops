@@ -1,7 +1,5 @@
 # GitHub Commit History
 
-![GitHub logo](gitHubLogo.png)
-
 🔑 **Key points**
 
 - Format your commit messages so the TAs can easily review your commits.
