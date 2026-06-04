@@ -9,7 +9,8 @@
         "title": "Winter 2026",
         "path": "schedule/schedule.md",
         "default": true,
-        "state": "published"
+        "state": "published",
+        "commit": "754e811b39cf75fb3453d61e982cf95b3c7a3a00"
       }
     ]
   },
