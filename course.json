@@ -1,19 +1,6 @@
 {
   "title": "Quality Assurance & DevOps",
   "links": {},
-  "schedule": {
-    "id": "9cb80a1f-ea93-4442-b301-e58ecc513dbd",
-    "files": [
-      {
-        "id": "23e2c87e-3905-46b7-a16c-20859785956c",
-        "title": "Winter 2026",
-        "path": "schedule/schedule.md",
-        "default": true,
-        "state": "published",
-        "commit": "1019bc86837c6537577d447dfea1e261b3ebbdd3"
-      }
-    ]
-  },
   "modules": [
     {
       "title": "Course info",
