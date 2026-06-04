@@ -1,6 +1,18 @@
 {
   "title": "Quality Assurance & DevOps",
   "links": {},
+  "schedule": {
+    "id": "4cf43677-b255-424e-854f-e2a9418ddb5c",
+    "files": [
+      {
+        "id": "021d7a94-d68b-4f8b-9b62-881a94272d12",
+        "title": "Schedule",
+        "path": "schedule/schedule.md",
+        "default": true,
+        "state": "published"
+      }
+    ]
+  },
   "modules": [
     {
       "title": "Course info",
