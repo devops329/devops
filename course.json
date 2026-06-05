@@ -50,14 +50,16 @@
       "title": "Getting started",
       "topics": [
         {
-          "title": "☑ Overview",
+          "title": "Overview",
+          "type": "instruction",
           "path": "instruction/overview/overview.md",
           "id": "db884190-7b79-4e77-b8d3-b253c24e80e5",
           "state": "published",
           "interactions": [
             "b4f01e8a-d99f-4f51-a8e4-1dd8a77bfa09",
             "60d98115-3f79-4d55-a0b5-3787be46ffca"
-          ]
+          ],
+          "description": ""
         },
         {
           "title": "History",
