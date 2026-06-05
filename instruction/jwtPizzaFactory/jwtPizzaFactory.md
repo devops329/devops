@@ -30,6 +30,22 @@ After you have provided and verified your information you can use the Vendor Das
 >
 > Creating your JWT Pizza Factory account is a prerequisite for all course deliverables. Please take the time to create you account as soon as you have created your GitHub repository and have leased your DNS domain.
 
-## ☑ Exercise
+## Exercises
 
-1. Create your JWT Pizza Factory [account](https://pizza-factory.cs329.click)
+
+```masteryls
+{"id":"21f11851-8df8-49ec-a137-48db2bb0746e", "title":"Pizza factory account", "type":"multiple-select" }
+I have done the following.
+
+- [x] Created my [JWT Pizza Factory account](https://pizza-factory.cs329.click)
+- [x] Provided my correct Net ID, Phone number, email.
+- [x] Provided by DNS hostname. If you don't have a hostname then provide the name you plan on leasing soon. You can change it in the future if you get a different hostname.
+- [x] Provided by GitHub account.
+```
+
+
+```masteryls
+{"id":"ddf00844-13df-4764-8947-8e973f375b29", "title":"URL submission", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true }
+My GitHub account URL is:
+```
+
