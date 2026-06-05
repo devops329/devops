@@ -79,7 +79,7 @@ You can reduce your monthly bill significantly if you stop your resources when y
 
 ## Billing Management
 
-An important part of developer operations is to understand how the architecture choices you make impact the cost of doing business. You should carefully consider every service that you deploy and how much that will cost you. You then want to set up processes to both monitor and alert on those expenditures to make sure they match the anticipated amounts.
+An important part of development operations is to understand how the architecture choices you make impact the cost of doing business. You should carefully consider every service that you deploy and how much that will cost you. You then want to set up processes to both monitor and alert on those expenditures to make sure they match the anticipated amounts.
 
 AWS provides extensive reporting tools for billing and cost exploration. These tools are available on the AWS browser console under the `Billing and Cost Management` service. You are **highly encouraged** to spend time understanding everything that is provided there.
 
