@@ -90,7 +90,11 @@
           "title": "☑ JWT Pizza Factory",
           "path": "instruction/jwtPizzaFactory/jwtPizzaFactory.md",
           "id": "f259807a-505b-4992-8d58-73a30ad33ed5",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "21f11851-8df8-49ec-a137-48db2bb0746e",
+            "ddf00844-13df-4764-8947-8e973f375b29"
+          ]
         },
         {
           "title": "Intro to AWS",
