@@ -1,6 +1,6 @@
 # Overview
 
-Welcome to **Computer Science 329**: _Quality Assurance and Developer Operations_!
+Welcome to **Computer Science 329**: _Quality Assurance and Development Operations_!
 
 This course covers the essential processes required to take an application from a local development environment and deliver it to a customer-accessible production environment.
 
