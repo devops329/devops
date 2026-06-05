@@ -151,9 +151,12 @@
         },
         {
           "title": "⭐ Christlike learning",
+          "type": "project",
+          "points": 50,
           "path": "instruction/christlikeLearning/christlikeLearning.md",
           "id": "aeedacf1-bfe8-4dca-a576-fb7e1d3723b4",
-          "state": "published"
+          "state": "published",
+          "description": ""
         },
         {
           "title": "⭐ Curiosity report",
