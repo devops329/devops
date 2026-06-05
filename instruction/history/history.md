@@ -82,7 +82,7 @@ The purpose of this course is to teach you the techniques and tools necessary to
 
 ```masteryls
 {"id":"544e5344-9e3a-4375-b868-6475363aec74", "title":"Why DevOps", "type":"essay" }
-What are the primary factors that lead to the creation of Developer Operations?
+What are the primary factors that lead to the creation of Development Operations?
 ```
 
 
