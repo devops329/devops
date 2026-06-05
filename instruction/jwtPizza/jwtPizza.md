@@ -48,6 +48,8 @@ The 10,000-foot overview of the JWT Pizza application consists of the following 
 
 ```mermaid
 graph TB;
+    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
+
     subgraph Your JWT Pizza
     jwtPizza-->jwtPizzaService
     jwtPizzaService-->database
@@ -63,6 +65,8 @@ The following is the sitemap for JWT Pizza as provided by the product team. Note
 
 ```mermaid
 graph TB;
+    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
+
     Home-->Login
     Home-->Logout
     Home-->Register
