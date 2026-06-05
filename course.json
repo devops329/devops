@@ -156,6 +156,9 @@
           "path": "instruction/christlikeLearning/christlikeLearning.md",
           "id": "aeedacf1-bfe8-4dca-a576-fb7e1d3723b4",
           "state": "published",
+          "interactions": [
+            "ad9f8fcc-e180-430a-aef1-9cce645bad04"
+          ],
           "description": ""
         },
         {
