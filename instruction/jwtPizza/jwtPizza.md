@@ -110,3 +110,16 @@ Note that the application team may release updates to their original deliverable
 |   2   | **[JWT Pizza Service](https://pizza-service.cs329.click) (backend)** | With this deliverable you can change your frontend to use your deployment of this service rather than the JWT headquarters version. Note that you are required to obtain an API key from JWT headquarters before you will be able to deploy your service. The API key is necessary to create a JWT pizza order token. | [JWT Pizza Service](https://github.com/devops329/jwt-pizza-service) |
 
 Take some time playing around with the JWT Pizza application. Register yourself as a diner and order some pizza. The more you become familiar with the application the easier it will be for you to test, deploy, and manage it.
+
+## Exercises
+
+
+```masteryls
+{"id":"7484c679-2e00-47aa-90be-dffd8a0df1f1", "title":"Playing with pizza", "type":"multiple-choice" }
+
+Head on over to [JWT Pizza](https://pizza.cs329.click). Make an account and buy a pizza.
+
+- [x] I successfully ordered a `Charred Leopard`.
+- [ ] I couldn't figure out how to buy a pizza. 
+```
+
