@@ -81,7 +81,10 @@
           "title": "🍕 JWT Pizza",
           "path": "instruction/jwtPizza/jwtPizza.md",
           "id": "3e1aceaa-90d4-413b-835d-ba6ba7139f40",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "7484c679-2e00-47aa-90be-dffd8a0df1f1"
+          ]
         },
         {
           "title": "☑ JWT Pizza Factory",
