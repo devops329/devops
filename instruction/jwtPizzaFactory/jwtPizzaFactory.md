@@ -39,8 +39,8 @@ I have done the following.
 
 - [x] Created my [JWT Pizza Factory account](https://pizza-factory.cs329.click)
 - [x] Provided my correct Net ID, Phone number, email.
-- [x] Provided by DNS hostname. If you don't have a hostname then provide the name you plan on leasing soon. You can change it in the future if you get a different hostname.
-- [x] Provided by GitHub account.
+- [x] Provided my DNS hostname. **Note**: _If you don't have a hostname, then provide the name you plan on leasing soon. You can change it in the future if you get a different hostname._
+- [x] Provided my GitHub account.
 ```
 
 
