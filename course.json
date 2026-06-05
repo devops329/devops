@@ -133,7 +133,11 @@
           "title": "GitHub",
           "path": "instruction/gitHub/gitHub.md",
           "id": "cbfaf177-9b44-4ce1-9b47-d6e0eec135bc",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "e9908551-09d4-4426-95a7-5b793891a852",
+            "f2c953c8-eee7-4ceb-9be1-0e6249f453a0"
+          ]
         },
         {
           "title": "Commit History",
