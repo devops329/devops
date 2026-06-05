@@ -148,6 +148,17 @@ You have finished modifying a file in your local project and want to share these
 ```
 
 
+```masteryls
+{"id":"11cc437f-a7bc-4f12-8b1b-477ea1745743","title":"Forking vs. Cloning","type":"multiple-choice"}
+When working with GitHub, what is the primary difference between **forking** a repository and **cloning** a repository?
+
+- [ ] A fork creates a new version of the repository on your local computer, while a clone creates a copy of the repository on the GitHub server.
+- [ ] Cloning is the specific process used to propose changes to an upstream project, while forking is the process used to download those changes for local testing.
+- [x] A fork creates a personal copy of a repository on your GitHub account (server-side), while a clone creates a local copy of a repository on your machine.
+- [ ] A fork is a Git command used to merge two different repositories together, while a clone is a GitHub feature used to create a backup of a single branch.
+```
+
+
 ## A bit of fun
 
 ![XKCD Git](xkcdGit.png)
