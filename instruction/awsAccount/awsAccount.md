@@ -136,7 +136,6 @@ I have done the following.
 
 - [x] Created my AWS [account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/)
 - [x] Created a browser bookmark for your AWS browser console page that contains your account ID. That way you will be able to access your account quickly.
-- [x] Leased a DNS hostname, or have an existing one.
 - [x] **Created a budget alert**.
 ```
 
