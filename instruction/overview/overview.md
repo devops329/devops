@@ -138,7 +138,14 @@ Whenever you approach something new, do so with the attitude that you will learn
 
 This class should have the energy of a startup. We are on the cutting edge of technology. With the skills you learn to build entire systems, you will change the world. I will do my best to bring my energy to our time together, and I hope you will do the same. Together, as a team, we are going to have a lot of fun.
 
-## ☑ Exercise
+## ☑ Exercises
+
+
+```masteryls
+{"id":"b4f01e8a-d99f-4f51-a8e4-1dd8a77bfa09", "title":"Essay", "type":"essay" }
+What do you want to accomplish from this course and what will you do to obtain it?
+```
+
 
 ```masteryls
 {"id":"60d98115-3f79-4d55-a0b5-3787be46ffca", "title":"Canvas notifications", "type":"multiple-choice" }
