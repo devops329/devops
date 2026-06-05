@@ -63,7 +63,10 @@
           "title": "History",
           "path": "instruction/history/history.md",
           "id": "121fc17a-264a-403a-84e1-fd6331f546e3",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "544e5344-9e3a-4375-b868-6475363aec74"
+          ]
         },
         {
           "title": "Terminology",
