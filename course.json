@@ -113,7 +113,10 @@
           "title": "☑ AWS Account",
           "path": "instruction/awsAccount/awsAccount.md",
           "id": "f582c3b6-5dd7-4cdb-9168-ba89afd56707",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "216569e1-63d8-4e0a-a050-48b10d6ea910"
+          ]
         },
         {
           "title": "AWS Route 53",
