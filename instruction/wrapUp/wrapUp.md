@@ -9,7 +9,7 @@ Always remember to continually invest in your capabilities, collaboration, curio
 
 ```masteryls
 {"id":"431d3154-c324-48e7-b2a4-da857e3281b1", "title":"Course Outcomes", "type":"likert", "showResults":"editor", "required":"true"}
-Please take a moment and let us know how this course has delivered on the promise for you to achieve the following outcomes.
+Please take a moment and evaluate where you are currently with the course outcomes.
 
 Scale: Beginner|Intermediate|Proficient|Advanced|Expert
 
@@ -18,7 +18,7 @@ Scale: Beginner|Intermediate|Proficient|Advanced|Expert
 |Automation|**Automation**: Design and implement automated testing and delivery workflows, valuing disciplined practices that foster trust, quality, and continuous improvement.|
 |Observability|**Observability**: Analyze software systems using evidence and metrics, cultivating intellectual humility and informed judgment.|
 |Collaboration|**Collaboration**: Collaborate effectively with peers to improve software quality and delivery, developing habits of respect, accountability, and Christlike service.|
-|Stewardship|**Stewardship**: Evaluate the practical and ethical implications of software engineering decisions, strengthening integrity and responsible stewardship of technology and its impact on others.|
+|Leadership|**Leadership**: Evaluate the practical and ethical implications of QA and DevOps decisions, strengthening integrity and responsible stewardship of technology and its impact on others.|
 |Learning|**Learning**: Assess emerging tools and practices in quality assurance and DevOps, fostering lifelong learning, curiosity, and creativity while magnifying the ability to serve and bless others.|
 ```
 
