@@ -8,7 +8,7 @@
 
 ![jwt pizza logo](jwt-pizza-logo.png)
 
-In order for us to master the concepts of Quality Assurance and Developer Operations, we will work on a simple web application named JWT Pizza (pronounced Jot Pizza).
+In order for us to master the concepts of Quality Assurance and Development Operations, we will work on a simple web application named JWT Pizza (pronounced Jot Pizza).
 
 JWT Pizza provides the valuable service of exchanging BitCoin for virtual pizzas that are represented by a cryptographically signed token ([JWT](https://jwt.io/introduction)). JWT Pizza also provides the opportunity to create a franchise and cash in on the 🍕 virtual pizza craze.
 
