@@ -6,7 +6,7 @@ To help you stay current with the rest of the class, we will implement the follo
 
 ## Late Submissions
 
-Late submissions receive **zero** points. When determining if a submission is late, consider Sunday and Monday as one day.
+Late submissions receive **zero** points.
 
 ## Grace Days
 
