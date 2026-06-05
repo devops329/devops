@@ -39,6 +39,16 @@ The sheer amount of services can make AWS feel complex and imposing. The key to 
 | IAM                 | Security and access policies                          |
 | VPC                 | Virtual private network access                        |
 
+Other popular AWS services include:
+
+
+| Service             | Use for this course                                   |
+| ------------------- | ----------------------------------------------------- |
+| Lambda              | Running serverless functions                          |
+| RDS                 | Managed relational databases                          |
+| DynamoDB            | Managed NoSQL databases                               |
+| CloudWatch          | Monitoring and logging                                |
+
 You should to take some time to read about, and get familiar, with what each of these services offer and how they work. One of the great things about Cloud Computing is that you can experiment without any significant long term impact or expense. You can simply start something up, play with it for a while, and then tear it down.
 
 ## AWS Dashboard
@@ -58,3 +68,16 @@ When you created your account you provided your credit card. You will be charged
 Make sure you monitor you billing by selecting the **Billing and cost management** interface from the user menu on the AWS browser console. This will give you detailed information about your current costs as well as a forecast for the future. An important role of a DevOps engineer is to understand the costs that result from the architectural choices that you make. This course is a good time to learn these skills before you start incurring bills in the thousands or millions of dollars.
 
 ![Cost management](costManagement.png)
+
+
+## Exercises
+
+```masteryls
+{"id":"1ebcaea8-9988-4cd6-9f46-b110b6c6bcc0","title":"Serverless Compute Services","type":"multiple-choice"}
+A developer needs to run a short-lived script that automatically processes images every time they are uploaded to an Amazon S3 bucket. The developer wants to avoid managing virtual servers and only pay for the exact duration the code executes. Which AWS service is the most appropriate for this use case?
+
+- [x] AWS Lambda
+- [ ] Amazon EC2
+- [ ] Amazon Lightsail
+- [ ] Amazon RDS
+```
