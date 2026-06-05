@@ -77,6 +77,15 @@ Application, DevOps, Site Reliability, and Platform engineers all share the same
 
 The purpose of this course is to teach you the techniques and tools necessary to master these implementations. Understanding this history—and the recurring themes of innovation—provides a deeper appreciation for the modern ecosystem of software delivery.
 
+## Exercises
+
+
+```masteryls
+{"id":"544e5344-9e3a-4375-b868-6475363aec74", "title":"Why DevOps", "type":"essay" }
+What are the primary factors that lead to the creation of Developer Operations?
+```
+
+
 ## A bit of fun
 
 ![XKCD Old days 2](xkcdOldDays2.png)
