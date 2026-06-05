@@ -31,3 +31,12 @@ As with any branch of computer science, we like to throw around a lot of technic
 | SLA       | Service Level Agreement                      | A public contract that specifies requirements for metrics like uptime and latency.                                         |
 | SLO       | Service Level Objective                      | An internal declaration of key metrics that the service targets.                                                              |
 | SLI       | Service Level Indicator                      | A key metric that defines the success of a service.                                                                           |
+
+## Exercises
+
+
+```masteryls
+{"id":"8dd7f991-4900-43c9-988e-06164fa46e6c", "title":"Terminology", "type":"essay" }
+Why do you think Computer Science is so fond of acronyms? How do you keep them all straight?
+```
+
