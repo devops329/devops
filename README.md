@@ -16,11 +16,9 @@ The content for this course is represented by the following parts.
 
 ## Outcomes
 
-By the end of the course you can expect the following outcomes in your personal development.
-
 ```masteryls
 {"id":"c4a3c902-38d2-4e23-ac1a-8b1695c61b75", "title":"Course Outcomes", "type":"likert", "showResults":"editor", "required":"true"}
-How familiar are you currently with the course outcomes?
+By the end of the course you can expect the following outcomes in your personal development. How familiar are you currently with the outcomes?
 
 Scale: Beginner|Intermediate|Proficient|Advanced|Expert
 
