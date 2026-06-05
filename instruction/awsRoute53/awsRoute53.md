@@ -88,8 +88,8 @@ Name Server: NS-474.AWSDNS-59.COM
 
 
 ```masteryls
-{"id":"e79da2b6-2e44-43d2-9011-47c1573d1435", "title":"Lease a hostname", "type":"essay", "gradingCriteria":"The hostname is fish.com" }
-Provide the hostname that you have leased. 
+{"id":"e79da2b6-2e44-43d2-9011-47c1573d1435", "title":"Lease a hostname", "type":"essay" }
+Provide the hostname that you have leased. The provided hostname must be valid as represented by a utility like nslookup.
 
 _For example: byucsstudent.gold_
 
