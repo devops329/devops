@@ -72,7 +72,10 @@
           "title": "Terminology",
           "path": "instruction/terminology/terminology.md",
           "id": "111da672-fce7-42a8-ba91-8b6cbe1b29a3",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "8dd7f991-4900-43c9-988e-06164fa46e6c"
+          ]
         },
         {
           "title": "🍕 JWT Pizza",
