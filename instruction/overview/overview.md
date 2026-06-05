@@ -11,7 +11,7 @@ This course covers the essential processes required to take an application from 
 Beyond building the core application, two distinct roles are required to deliver software effectively to a customer:
 
 1.  **Quality Assurance (QA)**: QA provides an independent review of the application team's deliverables. Their goal is to ensure the application follows the design specification and is free from critical issues that could harm the company or its customers.
-2.  **Developer Operations (DevOps)**: DevOps provides the automated pipeline that takes the application team's deliverables and places them in the hands of the customer. The term "DevOps" stems from the idea of applying a developer mindset to deployment operations—essentially building an application for product delivery.
+2.  **Development Operations (DevOps)**: DevOps provides the automated pipeline that takes the application team's deliverables and places them in the hands of the customer. The term "DevOps" stems from the idea of applying a developer mindset to deployment operations—essentially building an application for product delivery.
 
 In a small company, the application team often assumes the roles of QA and DevOps. However, these functions are typically more successful when they operate independently.
 
