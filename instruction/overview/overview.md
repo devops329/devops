@@ -142,7 +142,7 @@ This class should have the energy of a startup. We are on the cutting edge of te
 
 
 ```masteryls
-{"id":"b4f01e8a-d99f-4f51-a8e4-1dd8a77bfa09", "title":"Essay", "type":"essay" }
+{"id":"b4f01e8a-d99f-4f51-a8e4-1dd8a77bfa09", "title":"Results", "type":"essay" }
 What do you want to accomplish from this course and what will you do to obtain it?
 ```
 
