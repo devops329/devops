@@ -83,3 +83,12 @@ Name Server: NS-1507.AWSDNS-60.ORG
 Name Server: NS-1619.AWSDNS-10.CO.UK
 Name Server: NS-474.AWSDNS-59.COM
 ```
+
+## Exercises
+
+
+```masteryls
+{"id":"e79da2b6-2e44-43d2-9011-47c1573d1435", "title":"Lease a hostname", "type":"essay", "gradingCriteria":"The provided hostname is valid" }
+Provide the hostname that you have leased. Make sure you update your JWT Pizza Factory account settings if it different than the one you originally provided.
+```
+
