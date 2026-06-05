@@ -104,7 +104,10 @@
           "title": "Intro to AWS",
           "path": "instruction/aws/aws.md",
           "id": "433873f1-561c-4f13-92d7-e8e68a38687d",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "1ebcaea8-9988-4cd6-9f46-b110b6c6bcc0"
+          ]
         },
         {
           "title": "☑ AWS Account",
