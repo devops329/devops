@@ -144,7 +144,10 @@
           "title": "Commit History",
           "path": "instruction/commitHistory/commitHistory.md",
           "id": "843efb19-aa29-4b19-91be-3410c5b3900e",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "cec9307b-6cb3-484b-bc4f-f2f447d24219"
+          ]
         },
         {
           "title": "⭐ Christlike learning",
