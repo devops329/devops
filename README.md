@@ -35,15 +35,11 @@ Scale: Beginner|Intermediate|Proficient|Advanced|Expert
 
 | id | statement |
 |----|-----------|
-|Quality|**Quality**: Implement comprehensive automated testing strategies, including unit, UI, E2E, performance, and load testing.
-|Deployment|**Deployment**: Deploy various automated CI/CD pipeline strategies to reliably deliver software that is resilient, scalable, and secure.
-|Management|**Management**: Monitor, detect anomalies, alter, and automatically correct system behavior.
-|Curious|**Curious**: Characterize and address gaps in understanding related to DevOps techniques and principles.
-|Creative|**Creative**: Discuss and generate alternate DevOps designs.
-|Collaborative|**Collaborative**: Work as a team to discover DevOps design weaknesses.
-|Christlike|**Christlike**: Strive for gratitude for, inspiration in, and the ability to apply capabilities to, celestial pursuits.
-
-
+|Automation|**Automation**: Design and implement automated testing and delivery workflows, valuing disciplined practices that foster trust, quality, and continuous improvement.|
+|Observability|**Observability**: Analyze software systems using evidence and metrics, cultivating intellectual humility and informed judgment.|
+|Collaboration|**Collaboration**: Collaborate effectively with peers to improve software quality and delivery, developing habits of respect, accountability, and Christlike service.|
+|Stewardship|**Stewardship**: Evaluate the practical and ethical implications of software engineering decisions, strengthening integrity and responsible stewardship of technology and its impact on others.|
+|Learning|**Learning**: Assess emerging tools and practices in quality assurance and DevOps, fostering lifelong learning, curiosity, and creativity while magnifying the ability to serve and bless others.|
 ```
 ## Acknowledgements
 
