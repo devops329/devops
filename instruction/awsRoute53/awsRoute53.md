@@ -88,7 +88,7 @@ Name Server: NS-474.AWSDNS-59.COM
 
 
 ```masteryls
-{"id":"e79da2b6-2e44-43d2-9011-47c1573d1435", "title":"Lease a hostname", "type":"essay", "gradingCriteria":"The provided hostname is valid and is currently assigned by a DNS registrar." }
+{"id":"e79da2b6-2e44-43d2-9011-47c1573d1435", "title":"Lease a hostname", "type":"essay", "gradingCriteria":"The provided hostname is valid as defined by a utility like nslookup." }
 Provide the hostname that you have leased.
 
 _For example: byucsstudent.gold_
