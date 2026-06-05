@@ -45,7 +45,7 @@ I have done the following.
 
 
 ```masteryls
-{"id":"ddf00844-13df-4764-8947-8e973f375b29", "title":"URL submission", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The URL is for `https://github.com`" }
+{"id":"ddf00844-13df-4764-8947-8e973f375b29", "title":"URL submission", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The URL has the form `https://github.com/accountname`" }
 My GitHub account URL is:
 
 _Example: https://github.com/myaccountname_
