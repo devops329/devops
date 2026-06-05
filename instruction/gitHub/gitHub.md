@@ -123,6 +123,31 @@ GitHub allows you to create a fork of any repository on GitHub. You just push th
 
 In this class, if you notice something in the instruction that needs to be enhanced, feel free to fork the [instruction repo](https://github.com/devops329/devops), and make a pull request. This will give you experience with forking and improve the instruction for others at the same time, plus your name will be included as a contributor. How cool is that!
 
+## Exercises
+
+
+```masteryls
+{"id":"e9908551-09d4-4426-95a7-5b793891a852","title":"Effective Commit Messages","type":"multiple-choice"}
+When contributing to a repository on GitHub, which of the following commit messages follows the industry best practice of being concise, descriptive, and written in the imperative mood?
+
+- [ ] I fixed the bug in the navigation bar that was causing the links to overlap.
+- [x] Fix navigation bar overlap on mobile viewports
+- [ ] Fixed the issue with the header and updated the readme file
+- [ ] Minor changes and bug fixes
+```
+
+
+```masteryls
+{"id":"f2c953c8-eee7-4ceb-9be1-0e6249f453a0","title":"Git Workflow Command Sequence","type":"multiple-choice"}
+You have finished modifying a file in your local project and want to share these changes with your team on a remote GitHub repository. Which of the following correctly describes the sequence and purpose of the commands required?
+
+- [ ] Use `git commit` to move changes from the working directory to the staging area, then `git push` to update the remote repository.
+- [ ] Use `git push` to stage your files and `git pull` to sync those staged files with the remote GitHub repository.
+- [x] Use `git add` to move changes to the staging area, `git commit` to save a snapshot to the local repository, and `git push` to upload those changes to the remote repository.
+- [ ] Use `git add` to save changes directly to the local repository and `git commit` to upload the local history to the remote server.
+```
+
+
 ## A bit of fun
 
 ![XKCD Git](xkcdGit.png)
