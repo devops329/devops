@@ -2,7 +2,7 @@
 
 Your success in this course is primarily based upon timely execution. Staying on track results in an enjoyable, positive experience. Once you get behind in the course, it is extremely difficult to catch up.
 
-To help you stay current with the rest of the class, we will implement the following late policy:
+To help you stay current with the rest of the class, we will implement the following late policy.
 
 ## Late Submissions
 
