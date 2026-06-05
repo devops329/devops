@@ -4,6 +4,28 @@ We hope that you have enjoyed learning how to assure the quality of an applicati
 
 Always remember to continually invest in your capabilities, collaboration, curiosity, creativity, and Christlike skills as you make the world a better place.
 
+## Outcomes
+
+
+```masteryls
+{"id":"431d3154-c324-48e7-b2a4-da857e3281b1", "title":"Course Outcomes", "type":"likert", "showResults":"editor", "required":"true"}
+Please take a moment and let us know how this course has delivered on the promise for you to achieve the following outcomes.
+
+Scale: Beginner|Intermediate|Proficient|Advanced|Expert
+
+| id | statement |
+|----|-----------|
+|Quality|**Quality**: Implement comprehensive automated testing strategies, including unit, UI, E2E, performance, and load testing.
+|Deployment|**Deployment**: Deploy various automated CI/CD pipeline strategies to reliably deliver software that is resilient, scalable, and secure.
+|Management|**Management**: Monitor, detect anomalies, alter, and automatically correct system behavior.
+|Curious|**Curious**: Characterize and address gaps in understanding related to DevOps techniques and principles.
+|Creative|**Creative**: Discuss and generate alternate DevOps designs.
+|Collaborative|**Collaborative**: Work as a team to discover DevOps design weaknesses.
+|Christlike|**Christlike**: Strive for gratitude for, inspiration in, and the ability to apply capabilities to, celestial pursuits.
+
+
+```
+
 ## Clean up AWS
 
 After everything has been graded, you should consider cleaning up your resources on AWS.
