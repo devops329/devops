@@ -124,7 +124,10 @@
           "title": "AWS Route 53",
           "path": "instruction/awsRoute53/awsRoute53.md",
           "id": "4f47535e-ca37-452a-ac3f-7f50053e134b",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "e79da2b6-2e44-43d2-9011-47c1573d1435"
+          ]
         },
         {
           "title": "GitHub",
