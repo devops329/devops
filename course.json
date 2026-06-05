@@ -719,7 +719,10 @@
           "title": "⭐ Wrap up",
           "path": "instruction/wrapUp/wrapUp.md",
           "id": "8cfd04f3-ec28-40e8-b747-67e50fa6ef5a",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "431d3154-c324-48e7-b2a4-da857e3281b1"
+          ]
         }
       ]
     }
