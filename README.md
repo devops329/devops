@@ -18,15 +18,6 @@ The content for this course is represented by the following parts.
 
 By the end of the course you can expect the following outcomes in your personal development.
 
-- **Quality**: Implement comprehensive automated testing strategies, including unit, UI, E2E, performance, and load testing.
-- **Deployment**: Deploy various automated CI/CD pipeline strategies to reliably deliver software that is resilient, scalable, and secure.
-- **Management**: Monitor, detect anomalies, alter, and automatically correct system behavior.
-- **Curious**: Characterize and address gaps in understanding related to DevOps techniques and principles.
-- **Creative**: Discuss and generate alternate DevOps designs.
-- **Collaborative**: Work as a team to discover DevOps design weaknesses.
-- **Christlike**: Strive for gratitude for, inspiration in, and the ability to apply capabilities to, celestial pursuits.
-
-
 ```masteryls
 {"id":"c4a3c902-38d2-4e23-ac1a-8b1695c61b75", "title":"Course Outcomes", "type":"likert", "showResults":"editor", "required":"true"}
 How familiar are you currently with the course outcomes?
