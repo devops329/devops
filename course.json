@@ -241,7 +241,9 @@
           "path": "instruction/deliverable1DevelopmentDeploy/deliverable1DevelopmentDeploy.md",
           "id": "72583959-ac00-419e-9c08-df275ee59828",
           "state": "published",
-          "interactions": [],
+          "interactions": [
+            "4261e0b4-655b-4740-9f3b-52f50d1fa29f"
+          ],
           "description": ""
         },
         {
