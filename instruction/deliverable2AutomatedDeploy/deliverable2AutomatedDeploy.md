@@ -285,6 +285,9 @@ Complete the steps outlined above by creating a GitHub Actions workflow to deplo
 Once you have completed that, supply the URL to your JWT Pizza website.
 
 _Example: https://pizza.mydomain.click_
+
+
+This will do an initial check of your submission and then pass it on to a TA for grading.
 ```
 
 
