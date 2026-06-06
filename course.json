@@ -1,6 +1,10 @@
 {
   "title": "Quality Assurance & DevOps",
   "links": {},
+  "externalRefs": {
+    "canvasCourseId": "20802",
+    "canvasScheduleFileId": "021d7a94-d68b-4f8b-9b62-881a94272d12"
+  },
   "schedule": {
     "id": "4cf43677-b255-424e-854f-e2a9418ddb5c",
     "files": [
@@ -48,6 +52,9 @@
     },
     {
       "title": "Getting started",
+      "externalRefs": {
+        "canvasModuleId": 391104
+      },
       "topics": [
         {
           "title": "Overview",
@@ -159,7 +166,10 @@
           "interactions": [
             "ad9f8fcc-e180-430a-aef1-9cce645bad04"
           ],
-          "description": ""
+          "description": "",
+          "externalRefs": {
+            "canvasAssignmentId": 1365744
+          }
         },
         {
           "title": "⭐ Curiosity report",
@@ -184,6 +194,9 @@
     },
     {
       "title": "Simple deployment",
+      "externalRefs": {
+        "canvasModuleId": 391105
+      },
       "topics": [
         {
           "title": "☑ JWT Pizza Service",
@@ -225,7 +238,10 @@
           "interactions": [
             "4261e0b4-655b-4740-9f3b-52f50d1fa29f"
           ],
-          "description": ""
+          "description": "",
+          "externalRefs": {
+            "canvasAssignmentId": 1365745
+          }
         },
         {
           "title": "Automation",
@@ -267,7 +283,10 @@
           "interactions": [
             "86fcd4b4-0b56-4c6b-8e23-9bb967f9c061"
           ],
-          "description": ""
+          "description": "",
+          "externalRefs": {
+            "canvasAssignmentId": 1365746
+          }
         },
         {
           "title": "⓶ Video",
