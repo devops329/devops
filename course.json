@@ -278,9 +278,12 @@
         },
         {
           "title": "⭐ ⓶ Automated deployment: JWT Pizza",
+          "type": "project",
+          "points": 100,
           "path": "instruction/deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md",
           "id": "7a775575-c63b-4d63-8210-b4b231832fb3",
-          "state": "published"
+          "state": "published",
+          "description": ""
         },
         {
           "title": "⓶ Video",
