@@ -459,7 +459,7 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 
 
 ```masteryls
-{"id":"20b2c9ef-5f27-4aa9-bc34-bfc8cdd04199", "title":"⓸ User interface testing submission", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The page contains a link with the alt text of `Coverage badge` and a level one heading of jwt-pizza", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
+{"id":"20b2c9ef-5f27-4aa9-bc34-bfc8cdd04199", "title":"⓸ User interface testing submission", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The page contains a link with the alt text of `Coverage badge` and a level one heading with the exact text of `🍕 jwt-pizza`", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
 
 
 Once you have completed this deliverable submit the URL of your JWT Pizza Service repository.
