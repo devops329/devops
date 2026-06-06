@@ -236,12 +236,15 @@
         },
         {
           "title": "⭐ ⓵ Development deployment: JWT Pizza",
+          "type": "project",
+          "points": 100,
           "path": "instruction/deliverable1DevelopmentDeploy/deliverable1DevelopmentDeploy.md",
           "id": "72583959-ac00-419e-9c08-df275ee59828",
           "state": "published",
           "interactions": [
             "9644a09e-c5ea-44ea-aeaf-1153b9850d0d"
-          ]
+          ],
+          "description": ""
         },
         {
           "title": "Automation",
