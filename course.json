@@ -283,6 +283,9 @@
           "path": "instruction/deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md",
           "id": "7a775575-c63b-4d63-8210-b4b231832fb3",
           "state": "published",
+          "interactions": [
+            "86fcd4b4-0b56-4c6b-8e23-9bb967f9c061"
+          ],
           "description": ""
         },
         {
