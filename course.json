@@ -370,12 +370,15 @@
         },
         {
           "title": "⭐ ⓷ Unit testing CI: JWT Pizza Service",
+          "type": "project",
+          "points": 100,
           "path": "instruction/deliverable3UnitTesting/deliverable3UnitTesting.md",
           "id": "b7266538-3a60-41ff-9106-0e731013b6f8",
           "state": "published",
           "interactions": [
             "57ca73af-feb2-4abb-8e37-1c542c7f4fb9"
-          ]
+          ],
+          "description": ""
         },
         {
           "title": "⓷ Video",
