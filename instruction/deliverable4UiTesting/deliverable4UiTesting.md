@@ -456,7 +456,18 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Add the configuration necessary so that the workflow fails if there is not 80% coverage.
 1. Add the reporting of the coverage to the workflow by creating a coverage badge in the README.md file.
 
-Once this is all working, go to the [Canvas assignment](https://byu.instructure.com) and submit your work for the deliverable.
+
+
+```masteryls
+{"id":"20b2c9ef-5f27-4aa9-bc34-bfc8cdd04199", "title":"⓸ User interface testing submission", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The page contains a link with the alt text of `Coverage badge`", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
+
+
+Once you have completed this deliverable submit the URL of your JWT Pizza Service repository.
+
+_Example: https://github.com/youraccount/jwt-pizza-service_
+
+This will do an initial check of your submission and then pass it on to a TA for grading.
+```
 
 ### Rubric
 
