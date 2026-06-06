@@ -307,7 +307,16 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Add the reporting of the coverage to the workflow by creating a coverage badge in the README.md file.
 1. Add the creation of a version file named `src/version.json`.
 
-Once this is all working, go to the [Canvas assignment](https://byu.instructure.com) and submit your work for the deliverable.
+
+```masteryls
+{"id":"57ca73af-feb2-4abb-8e37-1c542c7f4fb9", "title":"Unit testing CI submission", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The page contains a link with the alt text of `Coverage badge`" }
+
+
+Once you have completed this deliverable submit the URL of your JWT Pizza Service repository.
+
+_Example: https://github.com/youraccount/jwt-pizza-service_
+```
+
 
 ### Rubric
 
