@@ -428,9 +428,12 @@
         },
         {
           "title": "⭐ ⓹ Test driven development",
+          "type": "project",
+          "points": 100,
           "path": "instruction/deliverable5Tdd/deliverable5Tdd.md",
           "id": "06b8c571-e160-4be2-be14-db93ec649203",
-          "state": "published"
+          "state": "published",
+          "description": ""
         }
       ]
     },
