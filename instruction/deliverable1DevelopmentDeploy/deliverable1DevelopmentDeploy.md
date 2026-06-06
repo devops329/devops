@@ -80,6 +80,14 @@ Once you have completed the review of the code and completely filled out the **U
 >
 > Make sure you have entered both the GitHub URL and the Website URL for you JWT Pizza frontend code in your [JWT Pizza Factory](../jwtPizzaFactory/jwtPizzaFactory.md) Account. You can change this later, but this is what the TA uses to find and grade your deliverable.
 
+
+```masteryls
+{"id":"9644a09e-c5ea-44ea-aeaf-1153b9850d0d", "title":"URL submission", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"Contains a title for simon" }
+Your Simon repo
+```
+
+
+
 ### Rubric
 
 | Percent    | Item                                                                                                                                                                                                                         |
