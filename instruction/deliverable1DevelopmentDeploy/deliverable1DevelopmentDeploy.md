@@ -79,7 +79,7 @@ When filling out your report try to use backticks to surround your code and `<br
 {"id":"4261e0b4-655b-4740-9f3b-52f50d1fa29f", "title":"URL submission", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- Include a section named `JWT Pizza code study and debugging` that contains a table of possible user activities. This table must be completely filled up", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the notes.md file." }
 Once you have completed the review of the code and completely filled out the **User activity** table found in `notes.md`, commit and push your `notes.md` file to your jwt-pizza repo. Then provide the URL of your JWT Pizza repository.
 
-_Example: https://github.com/myaccount/pizza_
+_Example: https://github.com/myaccount/jwt-pizza_
 ```
 
 
