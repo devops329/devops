@@ -1,6 +1,10 @@
 {
   "title": "Quality Assurance & DevOps",
   "links": {},
+  "externalRefs": {
+    "canvasCourseId": "20802",
+    "canvasScheduleFileId": "021d7a94-d68b-4f8b-9b62-881a94272d12"
+  },
   "schedule": {
     "id": "4cf43677-b255-424e-854f-e2a9418ddb5c",
     "files": [
@@ -16,6 +20,9 @@
   "modules": [
     {
       "title": "Course info",
+      "externalRefs": {
+        "canvasModuleId": 391068
+      },
       "topics": [
         {
           "title": "Home",
@@ -24,7 +31,10 @@
           "state": "published",
           "interactions": [
             "c4a3c902-38d2-4e23-ac1a-8b1695c61b75"
-          ]
+          ],
+          "externalRefs": {
+            "canvasPageId": 1573659
+          }
         },
         {
           "title": "Syllabus",
@@ -33,7 +43,10 @@
           "state": "published",
           "interactions": [
             "cae08349-d561-4c4b-9a84-208fab172b36"
-          ]
+          ],
+          "externalRefs": {
+            "canvasPageId": 1573660
+          }
         },
         {
           "title": "Late Policy",
@@ -48,6 +61,9 @@
     },
     {
       "title": "Getting started",
+      "externalRefs": {
+        "canvasModuleId": 391069
+      },
       "topics": [
         {
           "title": "Overview",
@@ -159,7 +175,10 @@
           "interactions": [
             "ad9f8fcc-e180-430a-aef1-9cce645bad04"
           ],
-          "description": ""
+          "description": "",
+          "externalRefs": {
+            "canvasAssignmentId": 1365741
+          }
         },
         {
           "title": "⭐ Curiosity report",
