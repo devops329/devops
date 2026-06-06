@@ -462,7 +462,13 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Follow the steps given above to implement the **Update user** functionality to the diner dashboard. Maintain your 80% code coverage.
 1. Use TDD to implement the **List/Delete users** functionality to the admin dashboard. Maintain your 80% code coverage.
 
-Once this is all working, go to the [Canvas assignment](https://byu.instructure.com) and submit your work for the deliverable.
+
+```masteryls
+{"id":"8c1b8dfa-32a0-4b1e-a455-e8f0c0713c16", "title":" ⓹ Test driven development submission", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- Include a section named HTML Deliverable
+- At least two completed checklist items are explained clearly", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
+Simple **submission** by url
+```
+
 
 > [!NOTE]
 >
