@@ -277,7 +277,6 @@ We only showed a simple basic example of what you can do with GitHub Actions, bu
 
 ## ⭐ Deliverable
 
-
 ```masteryls
 {"id":"86fcd4b4-0b56-4c6b-8e23-9bb967f9c061", "title":"⓶ Automated deployment submission", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The page contains the title JWT Pizza" }
 Complete the steps outlined above by creating a GitHub Actions workflow to deploy the JWT Pizza frontend whenever a change is pushed to the main branch.
@@ -287,9 +286,8 @@ Once you have completed that, supply the URL to your JWT Pizza website.
 _Example: https://pizza.mydomain.click_
 
 
-This will do an initial check of your submission and then pass it on to a TA for grading.
+This will do an initial check of your submission and then pass it on for final grading.
 ```
-
 
 ### Rubric
 

@@ -307,7 +307,6 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Add the reporting of the coverage to the workflow by creating a coverage badge in the README.md file.
 1. Add the creation of a version file named `src/version.json`.
 
-
 ```masteryls
 {"id":"57ca73af-feb2-4abb-8e37-1c542c7f4fb9", "title":"⓷ Unit testing CI submission", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The page contains a link with the alt text of `Coverage badge` and a level one heading with the exact text of `🍕 jwt-pizza-service`", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
 
@@ -316,7 +315,7 @@ Once you have completed this deliverable, submit the URL of your JWT Pizza Servi
 
 _Example: https://github.com/youraccount/jwt-pizza-service_
 
-This will do an initial check of your submission and then pass it on to a TA for grading.
+This will do an initial check of your submission and then pass it on for final grading.
 ```
 
 ### Rubric

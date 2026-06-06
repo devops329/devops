@@ -158,14 +158,14 @@ Further modify the **updateUser** test so that it interacts with a non-existent 
 **user.spec.ts**
 
 ```js
-  await page.getByRole('button', { name: 'Edit' }).click();
-  await expect(page.locator('h3')).toContainText('Edit user');
-  await page.getByRole('textbox').first().fill('pizza dinerx');
-  await page.getByRole('button', { name: 'Update' }).click();
+await page.getByRole('button', { name: 'Edit' }).click();
+await expect(page.locator('h3')).toContainText('Edit user');
+await page.getByRole('textbox').first().fill('pizza dinerx');
+await page.getByRole('button', { name: 'Update' }).click();
 
-  await page.waitForSelector('[role="dialog"].hidden', { state: 'attached' });
+await page.waitForSelector('[role="dialog"].hidden', { state: 'attached' });
 
-  await expect(page.getByRole('main')).toContainText('pizza dinerx');
+await expect(page.getByRole('main')).toContainText('pizza dinerx');
 ```
 
 When you run the test it should fail. Note that the code the image is similar to what the above instructions provided, but slightly different. Feel free to also customize the test to your liking.
@@ -391,7 +391,7 @@ userRouter.get(
   '/',
   asyncHandler(async (req, res) => {
     res.json({});
-  })
+  }),
 );
 ```
 
@@ -408,7 +408,7 @@ userRouter.get(
   authRouter.authenticateToken,
   asyncHandler(async (req, res) => {
     res.json({});
-  })
+  }),
 );
 ```
 
@@ -462,7 +462,6 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Follow the steps given above to implement the **Update user** functionality to the diner dashboard. Maintain your 80% code coverage.
 1. Use TDD to implement the **List/Delete users** functionality to the admin dashboard. Maintain your 80% code coverage.
 
-
 ```masteryls
 {"id":"8c1b8dfa-32a0-4b1e-a455-e8f0c0713c16", "title":" ⓹ Test driven development submission", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The page contains a link with the alt text of `Coverage badge` and a level one heading with the exact text of `🍕 jwt-pizza-service`", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
 
@@ -471,9 +470,8 @@ Once you have completed this deliverable, submit the URL of your JWT Pizza Servi
 
 _Example: https://github.com/youraccount/jwt-pizza-service_
 
-This will do an initial check of your submission and then pass it on to a TA for grading.
+This will do an initial check of your submission and then pass it on for final grading.
 ```
-
 
 > [!NOTE]
 >
