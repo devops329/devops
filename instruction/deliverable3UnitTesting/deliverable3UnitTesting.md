@@ -315,6 +315,8 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 Once you have completed this deliverable submit the URL of your JWT Pizza Service repository.
 
 _Example: https://github.com/youraccount/jwt-pizza-service_
+
+This will do an initial check of your submission and then pass it on to a TA for grading.
 ```
 
 ### Rubric
