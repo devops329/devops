@@ -402,7 +402,9 @@
           "path": "instruction/deliverable4UiTesting/deliverable4UiTesting.md",
           "id": "1feab954-5b76-416c-b558-210acae8b055",
           "state": "published",
-          "interactions": []
+          "interactions": [
+            "20b2c9ef-5f27-4aa9-bc34-bfc8cdd04199"
+          ]
         },
         {
           "title": "⓸ Video",
