@@ -464,9 +464,14 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 
 
 ```masteryls
-{"id":"8c1b8dfa-32a0-4b1e-a455-e8f0c0713c16", "title":" ⓹ Test driven development submission", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- Include a section named HTML Deliverable
-- At least two completed checklist items are explained clearly", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
-Simple **submission** by url
+{"id":"8c1b8dfa-32a0-4b1e-a455-e8f0c0713c16", "title":" ⓹ Test driven development submission", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The page contains a link with the alt text of `Coverage badge` and a level one heading with the exact text of `🍕 jwt-pizza-service`", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
+
+
+Once you have completed this deliverable, submit the URL of your JWT Pizza Service repository.
+
+_Example: https://github.com/youraccount/jwt-pizza-service_
+
+This will do an initial check of your submission and then pass it on to a TA for grading.
 ```
 
 
