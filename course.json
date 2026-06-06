@@ -21,7 +21,7 @@
     {
       "title": "Course info",
       "externalRefs": {
-        "canvasModuleId": 391068
+        "canvasModuleId": 391070
       },
       "topics": [
         {
@@ -33,7 +33,7 @@
             "c4a3c902-38d2-4e23-ac1a-8b1695c61b75"
           ],
           "externalRefs": {
-            "canvasPageId": 1573659
+            "canvasPageId": 1573661
           }
         },
         {
@@ -45,7 +45,7 @@
             "cae08349-d561-4c4b-9a84-208fab172b36"
           ],
           "externalRefs": {
-            "canvasPageId": 1573660
+            "canvasPageId": 1573662
           }
         },
         {
@@ -62,7 +62,7 @@
     {
       "title": "Getting started",
       "externalRefs": {
-        "canvasModuleId": 391069
+        "canvasModuleId": 391071
       },
       "topics": [
         {
@@ -177,7 +177,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1365741
+            "canvasAssignmentId": 1365742
           }
         },
         {
