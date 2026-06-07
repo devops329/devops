@@ -131,7 +131,16 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Create the IAM policies, roles, and identity provider definitions necessary to secure access for deployment.
 1. Alter your GitHub Actions workflow to update S3 and CloudFront instead of deploying to GitHub Pages.
 
-Once this is all working, go to the [Canvas assignment](https://byu.instructure.com) and submit your work for the deliverable.
+```masteryls
+{"id":"837b0841-1061-45bb-ae57-47337885f8cd", "title":"⓺ Frontend deployment submission", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The page contains a link with the alt text of `Coverage badge` and a level one heading with the exact text of `🍕 jwt-pizza`", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
+
+
+Once you have completed this deliverable, submit the URL of your JWT Pizza Service repository.
+
+_Example: https://github.com/youraccount/jwt-pizza_
+
+This will do an initial check of your submission and then pass it on for final grading.
+```
 
 ### Rubric
 
