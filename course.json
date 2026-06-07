@@ -548,9 +548,12 @@
         },
         {
           "title": "⭐ ⓻ Backend deployment: JWT Pizza Service",
+          "type": "project",
+          "points": 100,
           "path": "instruction/deliverable7BackendDeployment/deliverable7BackendDeployment.md",
           "id": "b27b7084-42f8-4fa1-80cd-b4cb73318a03",
-          "state": "published"
+          "state": "published",
+          "description": ""
         },
         {
           "title": "⓻ Video",
