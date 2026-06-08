@@ -786,7 +786,9 @@
           "path": "instruction/deliverable11ChaosTesting/deliverable11ChaosTesting.md",
           "id": "109aac9b-5942-4acf-badb-0a70ceb93ae9",
           "state": "published",
-          "interactions": []
+          "interactions": [
+            "0fc6c832-d9b7-470f-a3b5-f09b675079f2"
+          ]
         }
       ]
     },
