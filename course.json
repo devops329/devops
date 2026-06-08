@@ -841,9 +841,12 @@
       "topics": [
         {
           "title": "⭐ Christlike learning conclusion",
+          "type": "project",
+          "points": 100,
           "path": "instruction/christlikeLearningConclusion/christlikeLearningConclusion.md",
           "id": "c411e1bf-87ab-497c-ae5c-4e5d79244369",
-          "state": "published"
+          "state": "published",
+          "description": ""
         },
         {
           "title": "⭐ Wrap up",
