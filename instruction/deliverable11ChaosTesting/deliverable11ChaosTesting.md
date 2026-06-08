@@ -77,6 +77,19 @@ incidentReports/
 ├── incident-2025-03-01-1.md
 ```
 
+
+```masteryls
+{"id":"0fc6c832-d9b7-470f-a3b5-f09b675079f2", "title":"⑪ Chaos testing deliverable", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The resulting file contains JavaScript that executes a K6 load test.", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the 'loadTests/loginAndOrder.js' file." }
+
+Once you have completed this deliverable, submit the URL of your JWT Pizza repository. Your repository should have a `loadTests/loginAndOrder.js` file representing your load test code and a `loadTests/testRun.png` image file representing a load test run result.
+
+_Example: https://github.com/youraccountname/jwt-pizza
+
+This will do an initial check of your submission and then pass it on for final grading.
+```
+
+
+
 Submit the URL for the location of where the incident reports are found in your fork of the `jwt-pizza` repository to the Canvas assignment. This should look something like this:
 
 ```txt
