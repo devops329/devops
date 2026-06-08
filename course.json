@@ -718,9 +718,12 @@
         },
         {
           "title": "⭐ ⓾ Load testing: JWT Pizza Service",
+          "type": "project",
+          "points": 100,
           "path": "instruction/deliverable10LoadTesting/deliverable10LoadTesting.md",
           "id": "ec9512c5-1fe8-4f21-be64-366f86ce1813",
-          "state": "published"
+          "state": "published",
+          "description": ""
         }
       ]
     },
