@@ -670,10 +670,13 @@
         },
         {
           "title": "⭐ ⓽ Logging: JWT Pizza Service",
+          "type": "project",
+          "points": 100,
           "path": "instruction/deliverable9Logging/deliverable9Logging.md",
           "id": "cdb8f6cb-ce37-43f7-8d53-7dd065a28bba",
           "state": "published",
-          "interactions": []
+          "interactions": [],
+          "description": ""
         },
         {
           "title": "☑ Grafana annotations",
