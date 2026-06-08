@@ -646,9 +646,12 @@
         },
         {
           "title": "⭐ ⓼ Metrics: JWT Pizza Service",
+          "type": "project",
+          "points": 100,
           "path": "instruction/deliverable8Metrics/deliverable8Metrics.md",
           "id": "4a96dfb7-c892-4dac-bee9-c14f5cba5059",
-          "state": "published"
+          "state": "published",
+          "description": ""
         },
         {
           "title": "Logging",
