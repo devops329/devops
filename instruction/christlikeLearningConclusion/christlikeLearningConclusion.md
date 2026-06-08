@@ -19,7 +19,7 @@ Write in your journal the answer to the following questions:
 
 
 ```masteryls
-{"id":"e144e3cc-c7da-412a-9814-914e96955809", "title":"Christlike learning", "type":"multiple-choice", "syncGrade":true, "autoGrade":true }
+{"id":"e144e3cc-c7da-412a-9814-914e96955809", "title":"Christlike learning conclusion deliverable", "type":"multiple-choice", "syncGrade":true, "autoGrade":true }
 I have completed the **Christlike Learning conclusion** deliverable, including recording how to show gratitude, plead for help, and use my talents for good in all aspects of my life.
 
 
