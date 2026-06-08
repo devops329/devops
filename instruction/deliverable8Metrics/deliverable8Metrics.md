@@ -214,9 +214,12 @@ You will need some traffic to your website in order to demonstrate that the visu
 
 ## Make your dashboard public
 
-In order to complete the deliverable you need to make your dashboard public so that all of your adoring fans (i.e. the TAs) can admire it.
+In order to complete the deliverable you need to make your dashboard public so that all of your adoring fans (i.e. your reviewers) can admire it.
 
 1. Navigate to your Grafana dashboard. If it says `Exit edit` in the top right corner then make sure you exit edit mode.
+
+1. **Important**: Select a time range at demonstrates your metrics displaying interesting values from your generated traffic.
+
 1. Click on the `Share` button and select **Share externally**.
 
    ![alt text](shareDashboard.png)
@@ -225,18 +228,18 @@ In order to complete the deliverable you need to make your dashboard public so t
 
    ![alt text](shareWarning.png)
 
-1. Enable the settings to allow people to change the time range and display annotations. **You must enable** this ability so that the TAs can grade your work.
+1. Enable the settings to allow people to change the time range and display annotations. **You must enable** this ability so that the reviews can examine your work.
 
    ![alt text](shareSettings.png)
 
 1. Copy the external link.
-1. Test the link by opening an incognito window and view the link.
+1. Open an **incognito window** and test the link to make sure it renders the dashboard with the correct time range.
 
 ![alt text](fullDashboard.png)
 
 > [!IMPORTANT]
 >
-> The time-range makes it easier for the TA to grade your work. Without the time range, the TA may not be able to correctly evaluate your work.
+> The time-range makes it possible for the reviewer to grade your work. Without the time range, your submission may be rejected.
 
 ## ⭐ Deliverable
 
@@ -256,15 +259,15 @@ Once this is all working you should have something like this:
 
 ![Metric dashboard](metricDashboard.png)
 
-Get the [public URL](../deliverable8Metrics/deliverable8Metrics.md#make-your-dashboard-public). Your URL **must include a specific time range** showing a window when your metrics were actively recording data. To get this URL, set the dashboard time range to a period with nonzero data, then copy the full URL from your browser's address bar — it will include `from` and `to` query parameters.
+Get the [public URL](../deliverable8Metrics/deliverable8Metrics.md#make-your-dashboard-public) as described above. The URL must generate a dashboard, in an incognito window, that shows a time range when your metrics were correctly recording the required pizza data.
 
 
 ```masteryls
-{"id":"ed3699cd-7a05-47e6-8383-8c31ba6b18a5", "title":"⓻ Backend deployment", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The resulting HTML page contains the title 'Grafana'\n- There must be a valid 'to' and 'from' range in the URL query parameters." }
+{"id":"ed3699cd-7a05-47e6-8383-8c31ba6b18a5", "title":"⓻ Backend deployment", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The resulting HTML page contains the title 'Grafana'\n- The URL contqains the path 'public-dashboards'." }
 
 Once you have completed this deliverable, submit the URL of your public metrics dashboard.
 
-_Example: https://youraccounthere.grafana.net/public-dashboards/29305se9fsacc66a21fa91899b75734?from=2026-03-26T19:09:00.000Z&to=2026-03-26T19:14:00.000Z&timezone=browser_
+_Example: https://youraccounthere.grafana.net/public-dashboards/b66ffb7c594a4dd381724ec6da3e67d3_
 
 This will do an initial check of your submission and then pass it on for final grading.
 ```
