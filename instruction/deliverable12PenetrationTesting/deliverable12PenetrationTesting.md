@@ -112,9 +112,9 @@ Complete the penetration tests defined above and produce the penetration report 
 
 
 ```masteryls
-{"id":"088a9049-e569-4f36-9ee7-aca2ce343435", "title":"⑫ Penetration testing deliverable", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The resulting file contains a report of a penetration test that details five different attacks.\n- Description of self attacks.\n- Description of peer attacks.\n- Summary of learnings.", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the 'pentrationTests/peerTest.md' file." }
+{"id":"088a9049-e569-4f36-9ee7-aca2ce343435", "title":"⑫ Penetration testing deliverable", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The resulting file contains a report of a penetration test that details five different attacks.\n- Description of self attacks.\n- Description of peer attacks.\n- Summary of learnings.", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the 'penetrationTests/peerTest.md' file." }
 
-Once you have completed this deliverable, submit the URL of your JWT Pizza repository. Your repository should have a `pentrationTests/peerTest.md` file that details the results from the penetration test.
+Once you have completed this deliverable, submit the URL of your JWT Pizza repository. Your repository should have a `penetrationTests/peerTest.md` file that details the results from the penetration test.
 
 _Example: https://github.com/youraccountname/jwt-pizza
 
