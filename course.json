@@ -829,6 +829,9 @@
           "path": "instruction/deliverable12PenetrationTesting/deliverable12PenetrationTesting.md",
           "id": "e1023bf5-69db-4d7b-a249-944f41404039",
           "state": "published",
+          "interactions": [
+            "088a9049-e569-4f36-9ee7-aca2ce343435"
+          ],
           "description": ""
         }
       ]
