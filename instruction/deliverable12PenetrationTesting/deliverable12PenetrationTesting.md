@@ -121,12 +121,6 @@ _Example: https://github.com/youraccountname/jwt-pizza
 This will do an initial check of your submission and then pass it on for final grading.
 ```
 
-Copy the URL of the report in your GitHub repository and submit it to the [Canvas assignment](https://byu.instructure.com). You submission should look something like this:
-
-```txt
-https://github.com/byucsstudent/jwt-pizza/blob/main/penetrationTests/peerTest.md
-```
-
 ### Rubric
 
 > [!NOTE]
