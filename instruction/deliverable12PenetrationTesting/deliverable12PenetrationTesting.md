@@ -62,9 +62,9 @@ As different attacks are conducted you will document each attack using the follo
 ### Step 1: Collaborate with a peer
 
 1. Log into the [Pizza Factory](https://pizza-factory.cs329.click) and request a `pentest partner`. If there is not currently a partner available then check back later. If you attempted to get a partner, but one was never assigned or your partner did not respond before the partner connection deadline, then immediately contact the TAs and they will figure out a solution for you.
-2. Immediately contact your partner and set up a time to conduct your peer attack and create the penetration test report. Class will be cancelled on the day after the partner connection deadline and so you should be able to at least use that time to work together.
+2. Immediately contact your partner and set up a time to conduct your peer attack and create the penetration test report. Class will be canceled on the day after the partner connection deadline and so you can use that time to work together.
 
-![alt text](partnerConnection.png)
+![Partner Connection](partnerConnection.png)
 
 ### Step 2: Self attack
 
@@ -109,6 +109,17 @@ When you and your peer have completed the report, commit it to the root of your 
 ## ⭐ Deliverable
 
 Complete the penetration tests defined above and produce the penetration report with your peer.
+
+
+```masteryls
+{"id":"088a9049-e569-4f36-9ee7-aca2ce343435", "title":"⑫ Penetration testing deliverable", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The resulting file contains a report of a penetration test that details five different attacks.\n- Description of self attacks.\n- Description of peer attacks.\n- Summary of learnings.", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the 'pentrationTests/peerTest.md' file." }
+
+Once you have completed this deliverable, submit the URL of your JWT Pizza repository. Your repository should have a `pentrationTests/peerTest.md` file that details the results from the penetration test.
+
+_Example: https://github.com/youraccountname/jwt-pizza
+
+This will do an initial check of your submission and then pass it on for final grading.
+```
 
 Copy the URL of the report in your GitHub repository and submit it to the [Canvas assignment](https://byu.instructure.com). You submission should look something like this:
 
