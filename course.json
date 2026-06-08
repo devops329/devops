@@ -846,6 +846,9 @@
           "path": "instruction/christlikeLearningConclusion/christlikeLearningConclusion.md",
           "id": "c411e1bf-87ab-497c-ae5c-4e5d79244369",
           "state": "published",
+          "interactions": [
+            "e144e3cc-c7da-412a-9814-914e96955809"
+          ],
           "description": ""
         },
         {
