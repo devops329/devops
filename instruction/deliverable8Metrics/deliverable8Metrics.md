@@ -263,7 +263,7 @@ Get the [public URL](../deliverable8Metrics/deliverable8Metrics.md#make-your-das
 
 
 ```masteryls
-{"id":"ed3699cd-7a05-47e6-8383-8c31ba6b18a5", "title":"⓻ Backend deployment", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The resulting HTML page contains the title 'Grafana'\n- The URL contqains the path 'public-dashboards'." }
+{"id":"ed3699cd-7a05-47e6-8383-8c31ba6b18a5", "title":"⓼ Metrics deployment", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The resulting HTML page contains the title 'Grafana'\n- The URL contqains the path 'public-dashboards'." }
 
 Once you have completed this deliverable, submit the URL of your public metrics dashboard.
 
