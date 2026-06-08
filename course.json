@@ -675,7 +675,9 @@
           "path": "instruction/deliverable9Logging/deliverable9Logging.md",
           "id": "cdb8f6cb-ce37-43f7-8d53-7dd065a28bba",
           "state": "published",
-          "interactions": [],
+          "interactions": [
+            "7ed20ebf-7a25-4550-a977-bbf7ce055c60"
+          ],
           "description": ""
         },
         {
