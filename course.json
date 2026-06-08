@@ -20,6 +20,9 @@
   "modules": [
     {
       "title": "Course info",
+      "externalRefs": {
+        "canvasModuleId": 391545
+      },
       "topics": [
         {
           "title": "Home",
@@ -28,7 +31,10 @@
           "state": "published",
           "interactions": [
             "c4a3c902-38d2-4e23-ac1a-8b1695c61b75"
-          ]
+          ],
+          "externalRefs": {
+            "canvasPageId": 1576030
+          }
         },
         {
           "title": "Syllabus",
@@ -37,7 +43,10 @@
           "state": "published",
           "interactions": [
             "cae08349-d561-4c4b-9a84-208fab172b36"
-          ]
+          ],
+          "externalRefs": {
+            "canvasPageId": 1576031
+          }
         },
         {
           "title": "Late Policy",
@@ -53,7 +62,7 @@
     {
       "title": "Getting started",
       "externalRefs": {
-        "canvasModuleId": 391104
+        "canvasModuleId": 391546
       },
       "topics": [
         {
@@ -168,7 +177,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1365744
+            "canvasAssignmentId": 1366879
           }
         },
         {
@@ -197,7 +206,7 @@
     {
       "title": "Simple deployment",
       "externalRefs": {
-        "canvasModuleId": 391105
+        "canvasModuleId": 391547
       },
       "topics": [
         {
@@ -242,7 +251,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1365745
+            "canvasAssignmentId": 1366880
           }
         },
         {
@@ -287,7 +296,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1365746
+            "canvasAssignmentId": 1366881
           }
         },
         {
@@ -302,6 +311,9 @@
     },
     {
       "title": "Quality assurance",
+      "externalRefs": {
+        "canvasModuleId": 391548
+      },
       "topics": [
         {
           "title": "Testing",
@@ -380,7 +392,10 @@
           "interactions": [
             "57ca73af-feb2-4abb-8e37-1c542c7f4fb9"
           ],
-          "description": ""
+          "description": "",
+          "externalRefs": {
+            "canvasAssignmentId": 1366882
+          }
         },
         {
           "title": "⓷ Video",
@@ -412,7 +427,10 @@
           "interactions": [
             "20b2c9ef-5f27-4aa9-bc34-bfc8cdd04199"
           ],
-          "description": ""
+          "description": "",
+          "externalRefs": {
+            "canvasAssignmentId": 1366883
+          }
         },
         {
           "title": "⓸ Video",
@@ -438,12 +456,18 @@
           "interactions": [
             "8c1b8dfa-32a0-4b1e-a455-e8f0c0713c16"
           ],
-          "description": ""
+          "description": "",
+          "externalRefs": {
+            "canvasAssignmentId": 1366884
+          }
         }
       ]
     },
     {
       "title": "Cloud deployment",
+      "externalRefs": {
+        "canvasModuleId": 391549
+      },
       "topics": [
         {
           "title": "Cloud deployment slides",
@@ -500,7 +524,10 @@
           "interactions": [
             "837b0841-1061-45bb-ae57-47337885f8cd"
           ],
-          "description": ""
+          "description": "",
+          "externalRefs": {
+            "canvasAssignmentId": 1366885
+          }
         },
         {
           "title": "Elasticity",
@@ -558,7 +585,10 @@
           "interactions": [
             "21790c67-c8b2-479f-ab30-e6397159b329"
           ],
-          "description": ""
+          "description": "",
+          "externalRefs": {
+            "canvasAssignmentId": 1366886
+          }
         },
         {
           "title": "⓻ Video",
@@ -608,6 +638,9 @@
     },
     {
       "title": "Observability",
+      "externalRefs": {
+        "canvasModuleId": 391550
+      },
       "topics": [
         {
           "title": "Observability",
@@ -656,7 +689,10 @@
           "interactions": [
             "ed3699cd-7a05-47e6-8383-8c31ba6b18a5"
           ],
-          "description": ""
+          "description": "",
+          "externalRefs": {
+            "canvasAssignmentId": 1366887
+          }
         },
         {
           "title": "Logging",
@@ -680,7 +716,10 @@
           "interactions": [
             "7ed20ebf-7a25-4550-a977-bbf7ce055c60"
           ],
-          "description": ""
+          "description": "",
+          "externalRefs": {
+            "canvasAssignmentId": 1366888
+          }
         },
         {
           "title": "☑ Grafana annotations",
@@ -699,6 +738,9 @@
     },
     {
       "title": "E2E testing",
+      "externalRefs": {
+        "canvasModuleId": 391551
+      },
       "topics": [
         {
           "title": "☑ Synthetic testing",
@@ -728,12 +770,18 @@
           "interactions": [
             "69839e67-9763-4434-a6d8-4e0713380a08"
           ],
-          "description": ""
+          "description": "",
+          "externalRefs": {
+            "canvasAssignmentId": 1366889
+          }
         }
       ]
     },
     {
       "title": "Failure testing",
+      "externalRefs": {
+        "canvasModuleId": 391552
+      },
       "topics": [
         {
           "title": "Failure",
@@ -793,12 +841,18 @@
           "interactions": [
             "0fc6c832-d9b7-470f-a3b5-f09b675079f2"
           ],
-          "description": ""
+          "description": "",
+          "externalRefs": {
+            "canvasAssignmentId": 1366890
+          }
         }
       ]
     },
     {
       "title": "Penetration testing",
+      "externalRefs": {
+        "canvasModuleId": 391553
+      },
       "topics": [
         {
           "title": "Security",
@@ -834,12 +888,18 @@
           "interactions": [
             "088a9049-e569-4f36-9ee7-aca2ce343435"
           ],
-          "description": ""
+          "description": "",
+          "externalRefs": {
+            "canvasAssignmentId": 1366891
+          }
         }
       ]
     },
     {
       "title": "Conclusion",
+      "externalRefs": {
+        "canvasModuleId": 391554
+      },
       "topics": [
         {
           "title": "⭐ Christlike learning conclusion",
@@ -851,7 +911,10 @@
           "interactions": [
             "e144e3cc-c7da-412a-9814-914e96955809"
           ],
-          "description": ""
+          "description": "",
+          "externalRefs": {
+            "canvasAssignmentId": 1366892
+          }
         },
         {
           "title": "⭐ Wrap up",
