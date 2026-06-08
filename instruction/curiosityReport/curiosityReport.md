@@ -58,6 +58,18 @@ Before the last few weeks of the course you must do the following:
 1. Create a markdown file and insert it into your fork of the `jwt-pizza` repository in a file named `curiosityReport.md`.
 1. Populate the markdown file with what you learned
 
+
+
+```masteryls
+{"id":"98d476d3-a4ae-49a4-9cf9-2715da15cfd4", "title":"Curiosity report deliverable", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The report clearly contains the following:\n- What topic the learner found curious.\n- What research they did to explore the topic\n- What is the current state of art with the topic\n- Experiments the learner conducted\n- Detailed reproduction instruction on how to reproduce what the learner did", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the 'curiosityReport.md' file." }
+
+Once you have completed this deliverable, submit the URL of your JWT Pizza repository. Your repository should have a `curiosityReport.md` file located in the root.
+
+_Example: https://github.com/youraccountname/jwt-pizza
+
+This will do an initial check of your submission and then pass it on for final grading.
+```
+
 Once you are done, go over to Canvas and submit the URL of your markdown file. Your URL should look something like this:
 
 ```
