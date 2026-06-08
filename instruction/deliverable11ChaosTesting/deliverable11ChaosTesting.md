@@ -89,13 +89,6 @@ This will do an initial check of your submission and then pass it on for final g
 ```
 
 
-
-Submit the URL for the location of where the incident reports are found in your fork of the `jwt-pizza` repository to the Canvas assignment. This should look something like this:
-
-```txt
-https://github.com/youraccountname/jwt-pizza/tree/main/incidentReports
-```
-
 ### Rubric
 
 | Percent | Item                                                                                                                                                     |
