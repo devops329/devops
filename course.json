@@ -824,9 +824,12 @@
         },
         {
           "title": "⭐ ⑫ Penetration testing: JWT Pizza",
+          "type": "project",
+          "points": 100,
           "path": "instruction/deliverable12PenetrationTesting/deliverable12PenetrationTesting.md",
           "id": "e1023bf5-69db-4d7b-a249-944f41404039",
-          "state": "published"
+          "state": "published",
+          "description": ""
         }
       ]
     },
