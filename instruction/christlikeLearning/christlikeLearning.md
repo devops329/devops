@@ -1,5 +1,11 @@
 # Christlike learning
 
+```masteryls
+{"id":"6c137756-4306-431c-bec8-bc44706cff79","title":"Website application","type":"github-submission","validateUrl":true,"syncGrade":true,"autoGrade":false,"gradingCriteria":"- Use of proper HTML\n- use of proper CSS\n- WebSocket implemented both in client and server\n- MongoDB for database support\n- Express JS for service endpoints\n- User autentication supported on front and backend\n- The application is at the level of an university introductory CS course on Web Programming"}
+Supply your semester long project GitHub repo URL.
+```       
+
+
 🔑 **Key points**
 
 - Gratitude, inspiration, and action are divine traits of successful software engineers.
