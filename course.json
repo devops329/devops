@@ -176,7 +176,9 @@
           "path": "instruction/curiosityReport/curiosityReport.md",
           "id": "f00a356a-1ccf-4638-9315-f3a55ca61231",
           "state": "published",
-          "interactions": []
+          "interactions": [
+            "98d476d3-a4ae-49a4-9cf9-2715da15cfd4"
+          ]
         },
         {
           "title": "☑ Asking Questions",
