@@ -79,7 +79,7 @@ incidentReports/
 
 
 ```masteryls
-{"id":"0fc6c832-d9b7-470f-a3b5-f09b675079f2", "title":"⑪ Chaos testing deliverable", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The resulting file contains JavaScript that executes a K6 load test.", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the 'incidentReports/incident-1.md' file." }
+{"id":"0fc6c832-d9b7-470f-a3b5-f09b675079f2", "title":"⑪ Chaos testing deliverable", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The resulting file contains an incident report that full describes both the incident and resolution.", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the 'incidentReports/incident-1.md' file." }
 
 Once you have completed this deliverable, submit the URL of your JWT Pizza repository. Your repository must have a `incidentReports/incident-1.md` file representing your full incident report.
 
