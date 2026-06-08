@@ -67,9 +67,3 @@ _Example: https://github.com/youraccountname/jwt-pizza
 
 This will do an initial check of your submission and then pass it on for final grading.
 ```
-
-Once you are done, go over to Canvas and submit the URL of your markdown file. Your URL should look something like this:
-
-```
-https://github.com/byucsstudent/jwt-pizza/blob/main/curiosityReport.md
-```
