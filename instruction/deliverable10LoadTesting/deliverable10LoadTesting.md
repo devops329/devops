@@ -37,17 +37,16 @@ Follow the steps described in the [Grafana K6](../grafanaK6/grafanaK6.md) instru
 1. Alter the test script so that it doesn't have a hard-coded JWT in the pizza verification request, but instead reads it from the purchase response. This should be similar to how the authentication token is handled.
 1. Execute the test and analyze the results.
 1. Save a copy of your load test script to your fork of the `jwt-pizza` repository under the name `loadTests/loginAndOrder.js`.
-1. Create and save an image load test results to  to your fork of the `jwt-pizza` repository under the name `loadTests/testrun.png`. This should look something like this:
+1. Create and save an image load test results to  to your fork of the `jwt-pizza` repository under the name `loadTests/testRun.png`. This should look something like this:
 
 ![Load run example](loadRunExample.png)
 
-
 ```masteryls
-{"id":"69839e67-9763-4434-a6d8-4e0713380a08", "title":"⓾ Load testing", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The resulting HTML page contains the title 'Grafana'\n- The URL contains the path 'public-dashboards'.\n- Ignore any 'Error loading Grafana' messages contained in the page's javascript" }
+{"id":"69839e67-9763-4434-a6d8-4e0713380a08", "title":"⓾ Load testing", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The resulting file contains JavaScript that executes a load test.", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the 'loadTests/loginAndOrder.js' file." }
 
-Once you have completed this deliverable, submit the URL of your public metrics dashboard.
+Once you have completed this deliverable, submit the URL of your JWT Pizza repository. Your repository should have a `loadTests/loginAndOrder.js` file representing your load test code and a `loadTests/testRun.png` image file representing a load test run result.
 
-_Example: https://youraccounthere.grafana.net/public-dashboards/b66ffb7c594a4dd381724ec6da3e67d3_
+_Example: https://github.com/youraccountname/jwt-pizza
 
 This will do an initial check of your submission and then pass it on for final grading.
 ```
