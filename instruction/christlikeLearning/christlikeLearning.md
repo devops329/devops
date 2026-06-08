@@ -71,9 +71,6 @@ Write in your journal the answer to the following questions:
 
 Ponder on this as you seek to master and apply the concepts of this course. You will repeat this same exercise at the conclusion of the course.
 
-Once you are done, go over to Canvas and submit that you have completed this.
-
-
 ```masteryls
 {"id":"ad9f8fcc-e180-430a-aef1-9cce645bad04", "title":"Multiple choice", "type":"multiple-choice", "syncGrade":true, "autoGrade":true }
 I have completed the **Christlike Learning** deliverable, including recording how to show gratitude, plead for help, and use my talents for good in all aspects of my life.
