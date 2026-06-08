@@ -70,18 +70,18 @@ Your job is to do the following:
 >
 > If you are unable to be on call during the defined testing period you have the responsibility to notify the instructor and negotiate an alternative schedule.
 
-When you generate your report you must commit the report to your fork of the `jwt-pizza` repository in a folder named `incidentReports`. The report filename should follow the convention `incident-YYYY-MM-DD-#.md`. For example:
+When you generate your report you must commit the report to your fork of the `jwt-pizza` repository in a folder named `incidentReports`. The report filename must be named `incident-1.md`. For example:
 
 ```txt
 incidentReports/
-├── incident-2025-03-01-1.md
+├── incident-1.md
 ```
 
 
 ```masteryls
-{"id":"0fc6c832-d9b7-470f-a3b5-f09b675079f2", "title":"⑪ Chaos testing deliverable", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The resulting file contains JavaScript that executes a K6 load test.", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the 'loadTests/loginAndOrder.js' file." }
+{"id":"0fc6c832-d9b7-470f-a3b5-f09b675079f2", "title":"⑪ Chaos testing deliverable", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The resulting file contains JavaScript that executes a K6 load test.", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the 'incidentReports/incident-1.md' file." }
 
-Once you have completed this deliverable, submit the URL of your JWT Pizza repository. Your repository should have a `loadTests/loginAndOrder.js` file representing your load test code and a `loadTests/testRun.png` image file representing a load test run result.
+Once you have completed this deliverable, submit the URL of your JWT Pizza repository. Your repository must have a `incidentReports/incident-1.md` file representing your full incident report.
 
 _Example: https://github.com/youraccountname/jwt-pizza
 
