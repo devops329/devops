@@ -165,12 +165,15 @@ Once this is all working you should have something like this:
 
 Get the public URL for your dashboard and submit it to the Canvas assignment. Your URL should include a specific time range showing a window when your logs were actively recording data. 
 
-To get this URL, set the dashboard time range to a period with nonzero data, then copy the full URL from your browser's address bar — it will include from and to query parameters. This allows the TAs to verify your logs at the exact time they were generated.
 
-The submitted URL should look something like this:
+```masteryls
+{"id":"7ed20ebf-7a25-4550-a977-bbf7ce055c60", "title":"⓽ Logging deployment", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The resulting HTML page contains the title 'Grafana'\n- The URL contains the path 'public-dashboards'.\n- Ignore any 'Error loading Grafana' messages contained in the page's javascript" }
 
-```txt
-https://youraccounthere.grafana.net/public-dashboards/29305se9fsacc66a21fa91899b75734?from=2026-03-26T19:09:00.000Z&to=2026-03-26T19:14:00.000Z&timezone=browser
+Once you have completed this deliverable, submit the URL of your public logging dashboard.
+
+_Example: https://youraccounthere.grafana.net/public-dashboards/b66ffb7c594a4dd381724ec6da3e67d3_
+
+This will do an initial check of your submission and then pass it on for final grading.
 ```
 
 ### Rubric
