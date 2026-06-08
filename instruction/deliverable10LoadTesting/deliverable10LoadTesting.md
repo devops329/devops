@@ -42,7 +42,7 @@ Follow the steps described in the [Grafana K6](../grafanaK6/grafanaK6.md) instru
 ![Load run example](loadRunExample.png)
 
 ```masteryls
-{"id":"69839e67-9763-4434-a6d8-4e0713380a08", "title":"⓾ Load testing", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The resulting file contains JavaScript that executes a load test.", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the 'loadTests/loginAndOrder.js' file." }
+{"id":"69839e67-9763-4434-a6d8-4e0713380a08", "title":"⓾ Load testing", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The resulting file contains JavaScript that executes a K6 load test.\n - The folder containing the script also contains a file named loginAndOrder.js", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the 'loadTests/loginAndOrder.js' file." }
 
 Once you have completed this deliverable, submit the URL of your JWT Pizza repository. Your repository should have a `loadTests/loginAndOrder.js` file representing your load test code and a `loadTests/testRun.png` image file representing a load test run result.
 
