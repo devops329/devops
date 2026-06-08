@@ -651,6 +651,9 @@
           "path": "instruction/deliverable8Metrics/deliverable8Metrics.md",
           "id": "4a96dfb7-c892-4dac-bee9-c14f5cba5059",
           "state": "published",
+          "interactions": [
+            "ed3699cd-7a05-47e6-8383-8c31ba6b18a5"
+          ],
           "description": ""
         },
         {
