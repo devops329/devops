@@ -17,4 +17,12 @@ Write in your journal the answer to the following questions:
 1. How did the spirit assist me in my efforts to master the principles of this course?
 1. How successful was I in applying my spiritual and temporal talents in concert to further the eternal?
 
-Once you are done, go over to Canvas and submit that you have completed this assignment.
+
+```masteryls
+{"id":"e144e3cc-c7da-412a-9814-914e96955809", "title":"Christlike learning", "type":"multiple-choice", "syncGrade":true, "autoGrade":true }
+I have completed the **Christlike Learning conclusion** deliverable, including recording how to show gratitude, plead for help, and use my talents for good in all aspects of my life.
+
+
+- [x] Deliverable complete
+- [ ] I'm **not** going to complete this deliverable
+```
