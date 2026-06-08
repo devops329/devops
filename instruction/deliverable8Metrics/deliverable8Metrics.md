@@ -256,13 +256,19 @@ Once this is all working you should have something like this:
 
 ![Metric dashboard](metricDashboard.png)
 
-Get the [public URL](../deliverable8Metrics/deliverable8Metrics.md#make-your-dashboard-public) for your dashboard and submit it to the Canvas assignment. Your URL **must include a specific time range** showing a window when your metrics were actively recording data. To get this URL, set the dashboard time range to a period with nonzero data, then copy the full URL from your browser's address bar — it will include `from` and `to` query parameters. This allows the TAs to verify your metrics at the exact time they were generated.
- 
-The submitted URL should look something like this:
- 
-```txt
-https://youraccounthere.grafana.net/public-dashboards/29305se9fsacc66a21fa91899b75734?from=2026-03-26T19:09:00.000Z&to=2026-03-26T19:14:00.000Z&timezone=browser
+Get the [public URL](../deliverable8Metrics/deliverable8Metrics.md#make-your-dashboard-public). Your URL **must include a specific time range** showing a window when your metrics were actively recording data. To get this URL, set the dashboard time range to a period with nonzero data, then copy the full URL from your browser's address bar — it will include `from` and `to` query parameters.
+
+
+```masteryls
+{"id":"ed3699cd-7a05-47e6-8383-8c31ba6b18a5", "title":"⓻ Backend deployment", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The resulting HTML page contains the title 'Grafana'" }
+
+Once you have completed this deliverable, submit the URL of your public metrics dashboard.
+
+_Example: https://youraccounthere.grafana.net/public-dashboards/29305se9fsacc66a21fa91899b75734?from=2026-03-26T19:09:00.000Z&to=2026-03-26T19:14:00.000Z&timezone=browser_
+
+This will do an initial check of your submission and then pass it on for final grading.
 ```
+
 
 | Percent | Item                                                                          |
 | ------- | ----------------------------------------------------------------------------- |
