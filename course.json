@@ -193,7 +193,10 @@
           "title": "☑ Asking Questions",
           "path": "instruction/askingQuestions/askingQuestions.md",
           "id": "fa89e6e1-cfcf-48ac-a782-08f35918d612",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "9f35a1b4-8968-4829-b951-bd7a1ad2ee08"
+          ]
         },
         {
           "title": "Deliverable Frequently Asked Questions",
