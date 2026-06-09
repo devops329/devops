@@ -463,15 +463,17 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Use TDD to implement the **List/Delete users** functionality to the admin dashboard. Maintain your 80% code coverage.
 
 ```masteryls
-{"id":"8c1b8dfa-32a0-4b1e-a455-e8f0c0713c16", "title":" ⓹ Test driven development submission", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The page contains a link with the alt text of `Coverage badge` and a level one heading with the exact text of `🍕 jwt-pizza-service`", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
+{"id":"6c137756-4306-431c-bec8-bc44706cff71","title":"⓹ Test driven development submission","type":"github-submission","syncGrade":true,"autoGrade":false,"gradingCriteria":"- The diner dashboard has the ability to update a user.\n- The admin dashboard has the ability to List and Delete users.\n- each of these features has significant test coverage."}
+Once you have completed this deliverable, submit the URL of your JWT Pizza frontend repository.
+
+_Example: https://github.com/myaccount/jwt-pizza_
+
+This will do an initial check of your frontend submission code and then pass it on for final grading.
+
+**Note**: The necessary backend code will also be reviewed during the final grading process.
+```       
 
 
-Once you have completed this deliverable, submit the URL of your JWT Pizza Service repository.
-
-_Example: https://github.com/youraccount/jwt-pizza-service_
-
-This will do an initial check of your submission and then pass it on for final grading.
-```
 
 > [!NOTE]
 >
