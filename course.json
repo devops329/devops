@@ -490,7 +490,10 @@
           "title": "UI testing",
           "path": "instruction/uiTesting/uiTesting.md",
           "id": "d1a8bbc1-70be-4136-b5ef-b7bc319aa3f1",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "8de29cc1-603b-4f49-bc02-481a9939d02b"
+          ]
         },
         {
           "title": "☑ Playwright",
