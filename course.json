@@ -422,13 +422,15 @@
           ]
         },
         {
-          "title": "☑ Jest advanced",
+          "title": "Jest advanced",
+          "type": "instruction",
           "path": "instruction/jestAdvanced/jestAdvanced.md",
           "id": "5a861a8f-55be-4f48-b46b-9cbe8f45dfed",
           "state": "published",
           "interactions": [
             "8dc7f6f6-5a65-49bb-8b35-01fa9a5b92d6"
-          ]
+          ],
+          "description": ""
         },
         {
           "title": "☑ Service testing",
