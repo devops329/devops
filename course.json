@@ -496,10 +496,12 @@
           ]
         },
         {
-          "title": "☑ Playwright",
+          "title": "Playwright",
+          "type": "instruction",
           "path": "instruction/playwright/playwright.md",
           "id": "2b272056-45df-4d02-8d47-3b9d69c79291",
-          "state": "published"
+          "state": "published",
+          "description": ""
         },
         {
           "title": "⭐ ⓸ User interface testing: JWT Pizza",
