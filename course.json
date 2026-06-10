@@ -404,7 +404,10 @@
           "title": "AI unit testing",
           "path": "instruction/aiUnitTesting/aiUnitTesting.md",
           "id": "5b05aead-7a34-4953-bc44-8ce50a982282",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "be4e744f-23b6-402d-9445-40e0087ec47d"
+          ]
         },
         {
           "title": "☑ Jest advanced",
