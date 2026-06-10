@@ -58,6 +58,17 @@ Before the last few weeks of the course you must do the following:
 1. Create a markdown file and insert it into your fork of the `jwt-pizza` repository in a file named `curiosityReport.md`.
 1. Populate the markdown file with what you learned
 
+
+### Rubric
+
+| Percent | Item                                                                                                                      |
+| ------- | ------------------------------------------------------------------------------------------------------------------------- |
+| 20%     | Description of a topic and why you find it interesting. |
+| 20%     | What you did to research the topic.      |
+| 10%     | Current state of art for the topic.      |
+| 30%     | Experiments you conducted including a detailed reproduction path.      |
+| 20%     | What you learned. |
+
 ```masteryls
 {"id":"9778d76b-fad6-4c91-aba0-7bf564af9c50","title":"Curiosity report deliverable","type":"url-submission","syncGrade":true,"autoGrade":false,"validateUrl":true,"gradingCriteria":"The report clearly contains the following:\n- What topic the learner found curious.\n- What research they did to explore the topic\n- What is the current state of art with the topic\n- Experiments the learner conducted\n- Detailed reproduction instruction on how to reproduce what the learner did","urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the 'curiosityReport.md' file."}
 
