@@ -201,3 +201,16 @@ Be careful not to treat DI as a solution for every problem. Use it where flexibi
 We are not going to use a formal dependency injection framework in JWT Pizza, but we will use the underlying principles of dependency inversion to make our code easier to test.
 
 💡 Having a deep understanding of dependency injection is a valuable career skill. You might consider writing your curiosity report on how different frameworks handle "Lifetime Management" (Singleton vs. Transient objects).
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"65edaa97-7d70-4e3d-9e18-7aed4c6067c7","title":"DI vs. Dependency Inversion","type":"multiple-choice"}
+Which of the following best describes the relationship and difference between Dependency Injection (DI) and the Dependency Inversion Principle (DIP)?
+
+- [ ] Dependency Injection is the high-level architectural principle, while Dependency Inversion is the specific implementation of using a Service Locator to find dependencies.
+- [x] Dependency Inversion is a design principle that suggests high-level modules should depend on abstractions, whereas Dependency Injection is a technique for providing those dependencies to a class.
+- [ ] Dependency Inversion is a technique used to instantiate objects via reflection, while Dependency Injection is a principle stating that low-level modules must always inherit from high-level modules.
+- [ ] There is no functional difference; Dependency Injection is simply the modern name for the original Dependency Inversion Principle.
+```
