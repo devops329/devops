@@ -21,7 +21,15 @@ A common example of a static deployment is a website consisting of a set of HTML
 </html>
 ```
 
-You can host this file on a server that simply delivers it to the customer's browser. This is a completely static deployment because no code execution happens on the backend during the request.
+Here is a more complicated example of an audio mixer that you can interact with and alter. Everything is loaded from a single HTML file and executed right here in the browser.
+
+
+```masteryls
+{"id":"39ecfa23-3913-44a1-93bc-db33d61fe1fa", "title":"Web page", "type":"web-page", "height":500, "file":"audioMixer.html"}
+```
+
+
+You can host static deployment on a server, or content delivery network (CDN), that simply delivers it to the customer's browser. This is a completely static deployment because no code execution happens on the backend when the application is used.
 
 ```mermaid
 graph LR;
