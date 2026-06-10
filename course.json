@@ -3,7 +3,7 @@
   "links": {},
   "externalRefs": {
     "canvasCourseId": "20802",
-    "canvasScheduleFileId": "021d7a94-d68b-4f8b-9b62-881a94272d12"
+    "canvasScheduleFileId": "fc1847c8-59b7-4692-ab93-d1f0bc2dee23"
   },
   "schedule": {
     "id": "4cf43677-b255-424e-854f-e2a9418ddb5c",
@@ -28,7 +28,7 @@
     {
       "title": "Course info",
       "externalRefs": {
-        "canvasModuleId": 391725
+        "canvasModuleId": 391735
       },
       "topics": [
         {
@@ -40,7 +40,7 @@
             "c4a3c902-38d2-4e23-ac1a-8b1695c61b75"
           ],
           "externalRefs": {
-            "canvasPageId": 1576568
+            "canvasPageId": 1576571
           }
         },
         {
@@ -52,7 +52,7 @@
             "cae08349-d561-4c4b-9a84-208fab172b36"
           ],
           "externalRefs": {
-            "canvasPageId": 1576569
+            "canvasPageId": 1576572
           }
         },
         {
@@ -69,7 +69,7 @@
     {
       "title": "Getting started",
       "externalRefs": {
-        "canvasModuleId": 391726
+        "canvasModuleId": 391736
       },
       "topics": [
         {
@@ -184,7 +184,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1367556
+            "canvasAssignmentId": 1367571
           }
         },
         {
@@ -199,7 +199,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1367557
+            "canvasAssignmentId": 1367572
           }
         },
         {
@@ -219,7 +219,7 @@
     {
       "title": "Simple deployment",
       "externalRefs": {
-        "canvasModuleId": 391727
+        "canvasModuleId": 391737
       },
       "topics": [
         {
@@ -264,7 +264,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1367558
+            "canvasAssignmentId": 1367573
           }
         },
         {
@@ -309,7 +309,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1367559
+            "canvasAssignmentId": 1367574
           }
         },
         {
@@ -325,7 +325,7 @@
     {
       "title": "Quality assurance",
       "externalRefs": {
-        "canvasModuleId": 391728
+        "canvasModuleId": 391738
       },
       "topics": [
         {
@@ -395,7 +395,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1367560
+            "canvasAssignmentId": 1367575
           }
         },
         {
@@ -430,7 +430,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1367561
+            "canvasAssignmentId": 1367576
           }
         },
         {
@@ -471,7 +471,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1367562
+            "canvasAssignmentId": 1367577
           }
         }
       ]
@@ -479,7 +479,7 @@
     {
       "title": "Cloud deployment",
       "externalRefs": {
-        "canvasModuleId": 391729
+        "canvasModuleId": 391739
       },
       "topics": [
         {
@@ -531,7 +531,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1367563
+            "canvasAssignmentId": 1367578
           }
         },
         {
@@ -592,7 +592,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1367564
+            "canvasAssignmentId": 1367579
           }
         },
         {
@@ -644,7 +644,7 @@
     {
       "title": "Observability",
       "externalRefs": {
-        "canvasModuleId": 391730
+        "canvasModuleId": 391740
       },
       "topics": [
         {
@@ -696,7 +696,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1367565
+            "canvasAssignmentId": 1367580
           }
         },
         {
@@ -723,7 +723,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1367566
+            "canvasAssignmentId": 1367581
           }
         },
         {
@@ -744,7 +744,7 @@
     {
       "title": "E2E testing",
       "externalRefs": {
-        "canvasModuleId": 391731
+        "canvasModuleId": 391741
       },
       "topics": [
         {
@@ -777,7 +777,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1367567
+            "canvasAssignmentId": 1367582
           }
         }
       ]
@@ -785,7 +785,7 @@
     {
       "title": "Failure testing",
       "externalRefs": {
-        "canvasModuleId": 391732
+        "canvasModuleId": 391742
       },
       "topics": [
         {
@@ -848,7 +848,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1367568
+            "canvasAssignmentId": 1367583
           }
         }
       ]
@@ -856,7 +856,7 @@
     {
       "title": "Penetration testing",
       "externalRefs": {
-        "canvasModuleId": 391733
+        "canvasModuleId": 391743
       },
       "topics": [
         {
@@ -895,7 +895,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1367569
+            "canvasAssignmentId": 1367584
           }
         }
       ]
@@ -903,7 +903,7 @@
     {
       "title": "Conclusion",
       "externalRefs": {
-        "canvasModuleId": 391734
+        "canvasModuleId": 391744
       },
       "topics": [
         {
@@ -918,21 +918,19 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1367570
+            "canvasAssignmentId": 1367585
           }
         },
         {
-          "title": "Wrap up",
-          "type": "instruction",
+          "title": "⭐ Wrap up",
           "path": "instruction/wrapUp/wrapUp.md",
           "id": "8cfd04f3-ec28-40e8-b747-67e50fa6ef5a",
           "state": "published",
           "interactions": [
             "431d3154-c324-48e7-b2a4-da857e3281b1"
           ],
-          "description": "",
           "externalRefs": {
-            "canvasPageId": 1576570
+            "canvasPageId": 1576573
           }
         }
       ]
