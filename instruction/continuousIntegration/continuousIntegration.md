@@ -96,7 +96,6 @@ jobs:
 
 ## Exercises
 
-
 ```masteryls
 {"id":"d0d5489e-5640-49d2-8cfe-5f7c76b5be1e","title":"Defining the Integration in CI","type":"multiple-choice"}
 In the context of a Continuous Integration (CI) pipeline, what is the primary "integration" occurring?
@@ -106,7 +105,6 @@ In the context of a Continuous Integration (CI) pipeline, what is the primary "i
 - [x] The frequent merging of code changes from multiple developers into a shared central repository
 - [ ] The synchronization of high-level project requirements with the current state of the source code
 ```
-
 
 ```masteryls
 {"id":"3be2d962-6f38-4e35-a4fc-c99d51cd6c90","title":"CI Integration Frequency","type":"multiple-choice"}
