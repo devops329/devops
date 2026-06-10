@@ -2,24 +2,25 @@
 
 🔑 **Key points**
 
-- Testing distributed services requires specialized techniques.
-- Gain experience by writing service tests.
+- Testing distributed services requires specialized tools to simulate network requests.
+- Separating the service logic from the server listener makes testing easier.
+- Aim for high test coverage to ensure all logical branches (including errors) are handled.
 
 ---
 
-We can now apply what we have learned about unit testing by creating a simple HTTP service and driving our testing of the service with [Jest](https://jestjs.io/) and a service testing helper package called [SuperTest](https://www.testim.io/blog/supertest-how-to-test-apis-like-a-pro/).
+Apply your unit testing knowledge by creating a simple HTTP service and driving its tests with [Jest](https://jestjs.io/) and [SuperTest](https://www.testim.io/blog/supertest-how-to-test-apis-like-a-pro/), a popular service testing helper.
 
-The example HTTP service is a simple Express-based service called `City`, that provides the following endpoints.
+The example HTTP service is a simple Express-based application called `City` that provides the following endpoints:
 
-- **Login**: Sets an authorization token
-- **List cities**: Returns a list of city names and their populations
-- **Add city**: Authenticates the authorization token and inserts a new city with its population
+- **Login**: Returns an authorization token.
+- **List cities**: Returns a list of city names and their populations.
+- **Add city**: Validates an authorization token and adds a new city to the list.
 
-The following are the steps needed to take to create the City service and set it up for testing.
+Follow these steps to create the City service and set it up for automated testing.
 
 ### Installing the necessary packages
 
-First create an NPM based project and install the packages need to create an HTTP service.
+First, create a new Node.js project and install the packages needed to create an HTTP service.
 
 ```sh
 npm init -y
@@ -28,7 +29,7 @@ npm install express
 
 ### Configuring the project
 
-Then modify `package.json` so that it serves up the endpoints over HTTP by adding a `start` script, and runs Jest for testing by adding a `test` script.
+Modify `package.json` to include a `start` script to serve the endpoints and a `test` script to run Jest.
 
 ```json
 "scripts": {
@@ -37,7 +38,7 @@ Then modify `package.json` so that it serves up the endpoints over HTTP by addin
 },
 ```
 
-Create a `.gitignore` file so that we don't accidentally commit the `node_modules` or `coverage` files that will be generated as we use the project.
+Create a `.gitignore` file so you don't accidentally commit the `node_modules` folder or the `coverage` reports generated during testing.
 
 ```txt
 node_modules
@@ -46,7 +47,7 @@ coverage
 
 ### Providing the service endpoints
 
-Next, create a file named `service.js` that initializes Express and defines all the endpoints. Note that it does not start the service listening on an HTTP port. It only exports the service from the module. We will put the service, represented by the `app` variable, to work in the next step.
+Create a file named `service.js` to initialize Express and define the endpoints. Notice that this file does **not** start the service on a specific port; it only exports the `app` object. This separation is critical for testing, as it allows SuperTest to interact with the app without binding to a real network port.
 
 **service.js**
 
@@ -82,11 +83,11 @@ module.exports = app;
 
 ### Calling the service endpoints
 
-We will call the service endpoints from both HTTP requests and from our automated tests.
+You can call the service endpoints via standard HTTP requests or through automated tests.
 
 ![Endpoint requests](endpointRequests.png)
 
-The hosting of our endpoints over HTTP is accomplished by listening on a network port with the function `app.listen(port)` as defined in a file that we create named `index.js`.
+To host the endpoints over HTTP for manual use, create a file named `index.js` that calls `app.listen(port)`.
 
 **index.js**
 
@@ -99,11 +100,11 @@ app.listen(port, () => {
 });
 ```
 
-The driving of the endpoints from our tests is accomplished by making endpoint requests through SuperTest by calling the function `request(app)` as defined in a file named `service.test.js` that we will create later.
+To drive the endpoints from tests, you will use SuperTest's `request(app)` function in a test file.
 
 ### Smoke test
 
-We want to make sure our service is working as expected, and so we do a quick manual smoke test to demonstrate that the service works from the command console. First start up the service.
+Perform a quick manual "smoke test" to ensure the service works from the command line. First, start the service:
 
 ```sh
 ➜ node index.js
@@ -111,28 +112,31 @@ We want to make sure our service is working as expected, and so we do a quick ma
 Service started on port 3000
 ```
 
-Then execute each of the endpoints using Curl.
+Then, execute each endpoint using `curl`:
 
 ```sh
+# Login
 ➜  curl -X POST localhost:3000/login
 {"message":"Success","authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp9"}
 
+# List cities
 ➜  curl localhost:3000/cities
 [{"name":"Provo","population":116618}]
 
+# Add city (with authorization)
 ➜  curl -X POST localhost:3000/cities -H 'Content-Type: application/json' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp9' -d '{ "name":"Lehi", "population": 33435}'
 [{"name":"Provo","population":116618},{"name":"Lehi","population":33435}]
 ```
 
-## Add Jest and Supertest
+## Add Jest and SuperTest
 
-We are now ready to set up Jest and create some automated tests. Get started by installing both Jest and SuperTest. SuperTest provides the ability to easily make endpoint requests without having to actually making HTTP network requests.
+Now, set up Jest and create automated tests. Install both as development dependencies using the `-D` flag. SuperTest allows you to simulate HTTP requests without actually binding to a network port, making tests faster and more reliable.
 
 ```sh
 npm install -D jest supertest
 ```
 
-The `-D` flag tells NPM to install these packages as a development dependency that will not be included in a production release. Here are the changes that occur in `package.json`.
+Your `package.json` should now reflect these additions:
 
 ```json
   "devDependencies": {
@@ -141,9 +145,9 @@ The `-D` flag tells NPM to install these packages as a development dependency th
   }
 ```
 
-## Setup service for testing
+## Set up the service for testing
 
-Now we can create our first test by creating a file named `service.test.js`.
+Create a file named `service.test.js` to house your test suite.
 
 **service.test.js**
 
@@ -156,11 +160,11 @@ test('hello world', () => {
 });
 ```
 
-This contains a single test that just demonstrates that all the parts for creating real tests are in place.
+This initial "sanity check" ensures your testing environment is configured correctly.
 
 ## Configuring for coverage
 
-We want to see how much of our service code is covered by our test. We do this by adding the Jest config `jest.config.json` file and setting `collectCoverage` to true.
+To see how much of your service code is covered by tests, create a `jest.config.json` file and set `collectCoverage` to `true`.
 
 ```json
 {
@@ -170,7 +174,7 @@ We want to see how much of our service code is covered by our test. We do this b
 
 ## Run the tests
 
-We can now finally run our initial test and see what the coverage is. Open up a command console and execute `npm test`
+Execute `npm test` in your terminal to run the initial test and view the coverage report.
 
 ```sh
 ➜  npm test
@@ -188,15 +192,15 @@ Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 ```
 
-This shows that our `hello world` test passed, and we have **56.25%** coverage without even writing a meaningful test. This happened because we imported `service.js` in our test file. That caused all the initialization code to execute even though no endpoints were called.
+The report shows **56.25%** coverage. This occurs because importing `service.js` into the test file executes the initialization code (like defining the endpoints), even though no endpoints have been called yet.
 
 ## Testing the endpoints
 
-Let's delete the `hello world` test and write some tests that actually hit the endpoints.
+Replace the "hello world" test with tests that exercise the actual endpoints.
 
 ### Get cities
 
-First we will test the `[GET] /cities` endpoint.
+First, test the `[GET] /cities` endpoint.
 
 ```js
 test('get cities', async () => {
@@ -207,31 +211,11 @@ test('get cities', async () => {
 });
 ```
 
-This calls the `[GET] /cities` endpoint using the SuperTest `request(app)` function. The result of the asynchronous call is an object that has all the information about the response. This includes the status, headers, and body. We can then use the Jest expectation object and matchers to validate the response.
-
-When we run the test, everything is green, and we jump to **62.5%** coverage.
-
-```sh
-➜  npm test
-
- PASS  ./service.test.js
-  ✓ get cities (11 ms)
-
-------------|---------|----------|---------|---------|-------------------
-File        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
-------------|---------|----------|---------|---------|-------------------
-All files   |    62.5 |        0 |   33.33 |    62.5 |
- service.js |    62.5 |        0 |   33.33 |    62.5 | 10,18-23
-------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
-```
+The SuperTest `request(app)` function returns a response object containing the status, headers, and body. You can then use Jest matchers to validate the data. After running this, coverage should increase to **62.5%**.
 
 ### Login
 
-Next on our list is to test the `[POST] /login` endpoint. We need to do this now because it is necessary to login before we can call our last endpoint.
-
-This test is a little more complex because we have to deal with the authorization token. However, other than the authorization header and the change from a `get` request to a `post` request, it is pretty similar to the previous test.
+Next, test the `[POST] /login` endpoint. This is necessary because subsequent tests will require an authorization token.
 
 ```js
 test('login', async () => {
@@ -243,15 +227,11 @@ test('login', async () => {
 });
 ```
 
-The authorization token is returned in the body of the response. Even though our simple service code always returns the same authorization token, we want to make our test more general than that, so we use a regular expression match to validate that the authorization token matches the pattern we expect.
-
-When we run the tests again we see that we are up to **68.75%**. So close that I can taste it. Just one more endpoint to test.
+We use a regular expression to validate that the authorization token matches the expected alphanumeric pattern. Coverage should now be at **68.75%**.
 
 ### Add city
 
-The `[POST] /cities` endpoint requires that we have previously logged in, so we need to combine this test with the action of logging in. We don't want to repeat the code for logging in for every endpoint that requires authorization, so we are going to decompose the problem and reuse the login functionality in order to create our last test.
-
-Here is what the resulting tests look like.
+The `[POST] /cities` endpoint requires a valid authorization token. To avoid code duplication, we can reuse the login logic.
 
 ```js
 test('get cities', async () => {
@@ -278,7 +258,10 @@ test('add cities', async () => {
   const authToken = await login();
 
   const city = { name: 'Orem', population: 89932 };
-  const addCitiesRes = await request(app).post('/cities').set('Authorization', `Bearer ${authToken}`).send(city);
+  const addCitiesRes = await request(app)
+    .post('/cities')
+    .set('Authorization', `Bearer ${authToken}`)
+    .send(city);
 
   expect(addCitiesRes.status).toBe(200);
   expect(addCitiesRes.headers['content-type']).toMatch('application/json; charset=utf-8');
@@ -289,15 +272,15 @@ test('add cities', async () => {
 });
 ```
 
-The `add cities` test gets the authorization token from the login request and passes it as a header with the post request to add a new city. The rest is just assertions that we got back a list containing both the old and new cities.
+The `add cities` test retrieves the token from the `login()` helper and passes it in the `Authorization` header.
 
 ## Diagnosing missing coverage
 
-With the above tests implemented we are now up to **93.75%** coverage. Where is the remaining 6.25%? If we turn on coverage display using the VS Code Jest extension, we can visually see that the remaining code is the failure case where an invalid or missing token is provided when calling to get the cities.
+With these tests, coverage is at **93.75%**. To find the missing **6.25%**, you can use the VS Code Jest extension to highlight uncovered lines. In this case, the failure case for a missing or invalid token is not yet tested.
 
 ![Missing coverage](missingCoverage.png)
 
-We can fix that by writing a test that doesn't provide the authorization token and expects to get back a 401 HTTP status code.
+Fix this by writing a test that omits the authorization token and expects a `401 Unauthorized` status.
 
 ```js
 test('add cities no auth', async () => {
@@ -307,12 +290,12 @@ test('add cities no auth', async () => {
 });
 ```
 
-Now we have 💯 coverage with 46 lines of testing code used to assure the quality of 30 lines of service code. That is a _1:.65_ ratio. Not a horrible amount of work, and we will sleep better tonight knowing that we can extend or refactor this code with confidence that we didn't break anything.
+You now have **100% coverage**. In this example, 46 lines of test code are used to verify 30 lines of service code—a ratio of roughly 1.5:1. This investment allows you to refactor or extend the service with confidence.
 
 ## ☑ Exercise
 
-Create a node.js project named serviceTestingExample. Reproduce the steps given above in order to solidify your understanding of the concepts.
+Create a Node.js project named `serviceTestingExample`. Reproduce the steps above to solidify your understanding of service testing, Jest, and SuperTest.
 
-Once you are done, you should have 100% coverage. It should look similar to the image shown below.
+Once complete, your coverage report should look like the image below.
 
 ![total coverage](totalCoverage.png)
