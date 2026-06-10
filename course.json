@@ -276,7 +276,11 @@
           "title": "Automation",
           "path": "instruction/automation/automation.md",
           "id": "9d48b24f-e28e-4528-bb11-c8d5b847cbf2",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "7de16112-5e71-4864-aa86-0104f12525fc",
+            "904cd549-9614-4540-9000-0bde1ac2d211"
+          ]
         },
         {
           "title": "Continuous integration (CI)",
