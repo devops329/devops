@@ -98,14 +98,15 @@ You can run this script by providing the URL of the server you want to target. I
 
 Once you have the JWT Pizza Service running in your development environment, execute the above commands from your console command application.
 
-Once you are done, you should be able to use `curl` to output the menu as follows:
+
+
+````masteryls
+{"id":"c3085596-1b52-4c30-98ff-34c0142eb862", "title":"Verifying pizza data configuration", "type":"essay","gradingCriteria":"The user provided the text that contains: A garden of delight, Spicy treat, Essential classic, A dry mouthed favorite, For those with a darker side" }
+Once you are done, execute the following `curl` command in order to view the menu:
 
 ```sh
-curl -s localhost:3000/api/order/menu | jq '.[].description'
-
-"A garden of delight"
-"Spicy treat"
-"Essential classic"
-"A dry mouthed favorite"
-"For those with a darker side"
+curl -s localhost:3000/api/order/menu
 ```
+
+Paste the response below.
+````
