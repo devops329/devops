@@ -93,3 +93,28 @@ jobs:
 *   **Automate the build:** One command should be able to build the entire system.
 *   **Keep the build fast:** If the CI process takes hours, developers will stop merging frequently.
 *   **Test in a clone of the production environment:** Use containers (like Docker) to ensure the CI environment matches production as closely as possible.
+
+## Exercises
+
+
+```masteryls
+{"id":"d0d5489e-5640-49d2-8cfe-5f7c76b5be1e","title":"Defining the Integration in CI","type":"multiple-choice"}
+In the context of a Continuous Integration (CI) pipeline, what is the primary "integration" occurring?
+
+- [ ] The deployment of fully validated application builds into a live production environment
+- [ ] The manual merging of major feature branches only at the conclusion of a development sprint
+- [x] The frequent merging of code changes from multiple developers into a shared central repository
+- [ ] The synchronization of high-level project requirements with the current state of the source code
+```
+
+
+```masteryls
+{"id":"3be2d962-6f38-4e35-a4fc-c99d51cd6c90","title":"CI Integration Frequency","type":"multiple-choice"}
+To effectively minimize integration friction and identify bugs early, which practice should a development team follow within a Continuous Integration (CI) workflow?
+
+- [ ] Postpone merging code to the main branch until the entire feature has been manually smoke-tested in a local environment to ensure stability.
+- [x] Integrate code changes into the shared repository frequently, ideally at least once a day, to keep the delta between versions small and manageable.
+- [ ] Trigger automated builds and test suites only during off-peak hours to prevent slowing down the development environment for other engineers.
+- [ ] Allow the build to remain in a "failed" state if the errors are related to non-critical components, as long as the core functionality is still working.
+```
+
