@@ -1,25 +1,26 @@
-# Test driven development (TDD)
+# Test-Driven Development (TDD)
 
 🔑 **Key points**
 
-- Test driven development (TDD) accelerates development and enables refactoring.
-- Master TDD through practice.
+- Test-driven development (TDD) accelerates development and enables confident refactoring.
+- TDD follows a "Red-Green-Refactor" cycle.
+- Mastery of TDD comes through consistent practice.
 
 ---
 
-Test driven development ([TDD](https://en.wikipedia.org/wiki/Test-driven_development)) was popularized in the 1990s as part of the [extreme programming](https://en.wikipedia.org/wiki/Extreme_programming) wave. The idea is that you begin writing software by creating tests that represent the consumer of your software. You then use the tests to drive the development of your code. When the tests pass you know that your code is complete.
+Test-driven development ([TDD](https://en.wikipedia.org/wiki/Test-driven_development)) was popularized in the late 1990s as a core practice of [Extreme Programming (XP)](https://en.wikipedia.org/wiki/Extreme_programming). The methodology shifts the focus: instead of writing code and then testing it, you begin by creating tests that define the intended behavior of your software. You then use these tests to drive the implementation. When the tests pass, you have verification that your code meets the requirements.
 
-TDD has been proven to add about 15% to your initial development time, but it results in better abstractions and accurate domain models, provides documentation and examples for your code, results in less bugs, makes your code more maintainable, and prevents against the introduction of future bugs.
+Research suggests that TDD can add approximately 15% to initial development time. However, this investment yields significant long-term benefits: it encourages better abstractions, produces accurate domain models, provides "living" documentation through examples, results in fewer bugs, and creates a safety net that prevents regressions (introducing new bugs while fixing old ones).
 
-TDD enhances the application development process by including the development of the tests while you write the application code. This helps enhance your development, by focusing first on what the code is supposed to do instead of focusing on how you are going to do it. You also know that when all the tests pass you are done with the implementation. Usually TDD works best when you develop the code and the tests at the same time. This turns the creation of the application into a _conversation_ between the implementation and the testing. You stub out parts of the implementation, write parts of the test, code part of the implementation, validate the tests pass, and repeat. This helps you think about how the code is going to be used, assures you that the implementation provides the desired result, and keeps you from breaking code that was previously working.
+TDD enhances the development process by integrating testing into the coding workflow. This forces you to focus first on *what* the code is supposed to do rather than *how* you will implement it. TDD works best as a continuous "conversation" between the implementation and the tests. You stub out a function, write a test case, implement just enough code to make it pass, and then repeat. This approach ensures your code is usable, satisfies the requirements, and remains stable as the codebase grows.
 
-Today, TDD is a common industry practice that you will be expected to use on a daily basis. However, it takes effort to learn how to write tests that are effective and efficient. Making this a standard part of your development process will give you a significant advantage as you progress in your professional career.
+Today, TDD is a standard industry practice. While it takes effort to learn how to write effective and efficient tests, making TDD a foundational part of your workflow will provide a significant advantage in your professional career.
 
-We will demonstrate the use of TDD by implementing Fibonacci.
+We will demonstrate TDD by implementing a function to calculate the Fibonacci sequence.
 
 ## Writing tests first
 
-We start by creating a stub version of the function that simply returns zero and place it in a file named `fibonacci.js`.
+We begin by creating a "stub" version of the function in a file named `fibonacci.js`. This stub does the bare minimum to be executable.
 
 ```js
 function fibonacci(pos) {
@@ -29,13 +30,13 @@ function fibonacci(pos) {
 module.exports = fibonacci;
 ```
 
-Next we install Jest and modify the package.json to tell NPM to use Jest. We install Jest using the `-D` parameter to specify that this is only used during development.
+Next, we initialize our environment. We install Jest using the `-D` (or `--save-dev`) flag to specify that it is a development dependency, not required for the production environment.
 
 ```sh
 npm install -D jest
 ```
 
-We also modify the `scripts` section of the `package.json` file to specify that we want to use Jest when we run tests.
+We then modify the `scripts` section of the `package.json` file to define how to run our tests.
 
 **package.json**
 
@@ -47,19 +48,19 @@ We also modify the `scripts` section of the `package.json` file to specify that 
 
 ## Running our first tests
 
-Now we can write a test. We will name the test file `fibonacci.test.js` so that we can easily associate the test with the implementation found in `fibonacci.js`.
+Now we can write our first test. We will name the file `fibonacci.test.js` so Jest can automatically find it and associate it with our implementation.
 
-Our first test will make sure that the base case for calculating the Fibonacci value at position zero works correctly.
+Our first test ensures that the base case—the Fibonacci value at position zero—is calculated correctly.
 
 ```js
 const fibonacci = require('./fibonacci.js');
 
-test('fibonacci zero', () => {
+test('fibonacci position 0', () => {
   expect(fibonacci(0)).toBe(0);
 });
 ```
 
-We then run our tests using the `npm test` command. This uses the script named `test` that we created in our `package.json` file.
+Run the test using the `npm test` command:
 
 ```sh
 ➜ npm test
@@ -71,11 +72,9 @@ Test Suites: 1 passed, 1 total
 Tests: 1 passed, 1 total
 ```
 
-Strangely our test passes, but that is only because we threw in a default value of zero for our stub implementation and that is the correct response for the Fibonacci position zero. This is a good reminder that you shouldn't assume the code is correct just because a test passes. Usually you want to see your test fail first and then correct the code to make it pass. That way you know it isn't a bug in the test that is hiding a bug in your code.
+Interestingly, our test passes, but only because our stub happens to return `0`. This is a crucial TDD lesson: **never assume code is correct just because a test passes.** You should generally see a test fail first (the "Red" phase) before writing the code to make it pass (the "Green" phase). This ensures the test is actually validating the logic and isn't a "false positive."
 
-We will leave that test there to serve as a base case and to make sure we don't break anything as we implement the actual code.
-
-Let's add another test that covers another basic case so that we can see a failure.
+Let's add a second test case to trigger a failure.
 
 ```js
 test('fibonacci position 1', () => {
@@ -96,23 +95,14 @@ test('fibonacci position 1', () => {
 
     Expected: 1
     Received: 0
-
-       6 |
-       7 | test('fibonacci position 1', () => {
-    >  8 |   expect(fibonacci(1)).toBe(1);
-         |                        ^
-       9 | });
-      10 |
-
-      at Object.toBe (fibonacci.test.js:8:24)
-
+...
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 passed, 2 total
 ```
 
 ## Covering the basic functionality
 
-Now that we are confident that the tests are working correctly, let's create another test that covers multiple calls to our Fibonacci implementation. By running through a list of positions, we will save ourselves from writing a single test for each position. This could be considered as violating the **Only test one thing** principle, but the clarity and simplicity that it provides seems to justify the exception.
+Now that we have seen a failure, we can expand our test suite. We will use a loop to check multiple positions in the sequence. While some developers argue this violates the "test only one thing" principle, the clarity and coverage it provides for mathematical functions often justify the approach.
 
 ```js
 test('fibonacci sequence', () => {
@@ -124,7 +114,7 @@ test('fibonacci sequence', () => {
 });
 ```
 
-Now we are ready to drive the implementation of our code with our tests. Let's start with a simple recursive implementation.
+Now we drive the implementation. We will start with a simple recursive approach.
 
 ```js
 function fibonacci(pos) {
@@ -138,26 +128,11 @@ function fibonacci(pos) {
 }
 ```
 
-When we run our tests we see that they are all passing now.
-
-```sh
-➜ npm test
-
- PASS  ./fibonacci.test.js
-  ✓ fibonacci position 0 (1 ms)
-  ✓ fibonacci position 1
-  ✓ fibonacci sequence (2 ms)
-
-Test Suites: 1 passed, 1 total
-Tests:       3 passed, 3 total
-Snapshots:   0 total
-Time:        0.184 s
-Ran all test suites.
-```
+Running `npm test` now shows all three tests passing.
 
 ## Boundary cases and bug discovery
 
-That looks great. Now let's add a boundary test case where we provide a negative number. Since Fibonacci doesn't define what to do with a negative position, we will assume it should be zero.
+With the basic logic working, we should test "edge cases," such as negative numbers. Since the Fibonacci sequence is typically defined for non-negative integers, we will assume our function should return `0` for negative inputs.
 
 ```js
 test('fibonacci negative', () => {
@@ -165,15 +140,11 @@ test('fibonacci negative', () => {
 });
 ```
 
-This fails with a stack size exceeded error.
+Running this results in a failure:
 
 ```sh
-➜  npm test
-
  FAIL  ./fibonacci.test.js
-  ✓ fibonacci position 0 (1 ms)
-  ✓ fibonacci position 1 (2 ms)
-  ✓ fibonacci sequence (1 ms)
+...
   ✕ fibonacci negative (1 ms)
 
   ● fibonacci negative
@@ -181,7 +152,7 @@ This fails with a stack size exceeded error.
     RangeError: Maximum call stack size exceeded
 ```
 
-A review of our code show that providing a negative number will just keep going negative infinitely. We fix this by modifying the first condition to also handle negative numbers. Now all the tests pass.
+Our recursive logic causes an infinite loop for negative numbers, eventually overflowing the stack. We can fix this by updating our base case to handle any input less than or equal to zero.
 
 ```js
 function fibonacci(pos) {
@@ -195,15 +166,15 @@ function fibonacci(pos) {
 }
 ```
 
-Let's add one more boundary test that represents a large Fibonacci position.
+Next, let's test a very large Fibonacci position.
 
 ```js
 test('fibonacci position large', () => {
-  expect(fibonacci(100)).toBe(354224848179261915075);
+  expect(fibonacci(100)).toBe(354224848179261915075n);
 });
 ```
 
-When we run this test, it seems to block and never return. That is because a recursive implementation is O(2^n) which is 1.2676506002×10³⁰ calculations for the 100th position. To solve this we need to rewrite the function using an iterative approach.
+This test causes the process to hang. The recursive implementation has a time complexity of $O(2^n)$, requiring roughly $1.26 \times 10^{30}$ operations for the 100th position. To fix this, we must refactor to an iterative approach.
 
 ```js
 function fibonacci(pos) {
@@ -224,24 +195,18 @@ function fibonacci(pos) {
 }
 ```
 
-This implementation passes all the tests except for the `position large` test. Here we hit a problem with the JavaScript numeric type is not large enough to represent the desired value.
+Even with the iterative fix, the test fails because JavaScript's standard `Number` type cannot accurately represent integers of that size (it loses precision after `Number.MAX_SAFE_INTEGER`).
 
 ```sh
- FAIL  ./fibonacci.test.js
-  ✕ fibonacci position large (1 ms)
-  ● fibonacci position large
-
-    expect(received).toBe(expected) // Object.is equality
-
-    Expected: 354224848179261900000
-    Received: 354224848179262000000
+ Expected: 354224848179261915075n
+ Received: 354224848179262000000
 ```
 
-To solve this we need to convert both our tests and our code to use the BigInt numeric type. That makes our code look like the following.
+To solve this, we must use the `BigInt` primitive for both the implementation and the tests.
 
 **fibonacci.js**
 
-```sh
+```js
 function fibonacci(pos) {
   if (pos <= 0) {
     return 0n;
@@ -288,18 +253,13 @@ test('fibonacci negative', () => {
 });
 
 test('fibonacci position large', () => {
-  const x = fibonacci(100);
-  console.log(x);
-  const t = x === 354224848179261915075n;
-  expect(t).toBe(true);
+  expect(fibonacci(100)).toBe(354224848179261915075n);
 });
 ```
 
-Now the tests all pass.
-
 ## Refactoring and regression testing
 
-As a final step we can refactor the implementation to make it more concise and then run the tests again to make sure we didn't break anything with our new representation.
+The final stage of the TDD cycle is **Refactor**. Now that we have a full suite of passing tests, we can rewrite the implementation to be more concise. Because we have tests, we can refactor with confidence, knowing that any mistakes will be caught immediately.
 
 ```js
 function fibonacci(pos) {
@@ -311,12 +271,14 @@ function fibonacci(pos) {
 }
 ```
 
+Running the tests again confirms our refactored code still works perfectly.
+
 ## Final thoughts
 
-Hopefully you have seen how TDD allows you to discover problems you would not have otherwise found, speed up your development, and generate confidence that your code still works when you make future changes.
+TDD allows you to discover architectural problems early, speed up development by reducing manual debugging, and provides the confidence to change code without fear of breaking existing functionality.
 
-Whenever a test passes, it is also a good place to commit your changes to your version repository since you know you are in a stable state.
+A helpful tip: whenever a test passes, it is a great time to commit your changes to version control (like Git), as you know the application is in a stable state.
 
 ## ☑ Exercise
 
-Create a node.js project named tddExample. Reproduce the steps given above in order to solidify your understanding of the concepts.
+Create a Node.js project named `tddExample`. Reproduce the steps provided above to solidify your understanding of the TDD cycle.
