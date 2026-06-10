@@ -51,7 +51,6 @@ graph LR;
     subgraph Supabase
     app-->|API Calls|db
     app-->|API Calls|authentication
-    notification-->|Alerts|app
     end
 ```
 
