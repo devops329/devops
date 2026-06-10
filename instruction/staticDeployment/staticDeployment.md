@@ -42,7 +42,11 @@ graph LR;
     end
 ```
 
-Static deployments are desirable because they are simple to set up, inexpensive to host, and easily scalable through Content Delivery Networks (CDNs).
+With technologies such as WebAssembly, you can do incredibly powerful things all in the user's browsers. This includes video editing, executing LLMs, and graphing complex mathematical calculations.
+
+
+
+Static deployments are highly desirable because they are simple to set up, inexpensive to host, and easily scalable through Content Delivery Networks (CDNs).
 
 ## Calling non-static services
 
