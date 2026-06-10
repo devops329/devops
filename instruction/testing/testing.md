@@ -78,7 +78,7 @@ test('catalog history', async () => {
 - Tests can run concurrently.
 
 
-## Structuring Tests with Arrange-Act-Assert (AAA)
+## Structuring Tests with Arrange-Act-Assert
 
 The **Arrange-Act-Assert (AAA)** pattern is the gold standard for structuring unit tests. It provides a clear, consistent framework that improves the readability and maintainability of your test suite. By separating the setup of the test from the execution and the verification, developers can quickly understand the intent of a test case and diagnose failures when they occur.
 
@@ -118,12 +118,6 @@ Using this pattern consistently offers several advantages to a development team:
 *   **Easier Maintenance**: If the setup logic for a class changes, you know exactly which section (Arrange) needs to be updated.
 *   **Clearer Test Intent**: It enforces the "Single Responsibility Principle" for tests. If your **Act** section contains multiple lines or complex logic, it is a signal that the test should likely be split into multiple smaller tests.
 
-### Best Practices
-
-To get the most out of the AAA pattern, keep these tips in mind:
-*   **Keep 'Act' Small**: The Act phase should be the smallest part of the test. If you are calling five different methods in the Act phase, you are likely testing a workflow rather than a single unit of behavior.
-*   **Avoid Logic in Assert**: Don't use `if` statements or complex loops in your Assert section. If the assertion requires logic, the test becomes prone to its own bugs.
-*   **Use Comments (Optional)**: In complex tests, explicitly labeling the sections with `// Arrange`, `// Act`, and `// Assert` comments can further improve clarity for junior developers or external contributors.
 
 
 ## Testing latency
