@@ -357,6 +357,13 @@ module.exports = CatFact;
 
 Once you are done, your code should have 100% coverage with all tests passing.
 
-The following is an example of what you should submit. Notice the coverage line at the top of the `catFact.js` file that demonstrates the complete coverage.
+The following is an example of what VS Code will look like when you are successful. Notice that all tests are green and the coverage line at the top of the `catFact.js` file that demonstrates the complete coverage.
 
 ![Cat Fact Coverage](catFactCoverage.png)
+
+
+```masteryls
+{"id":"8dc7f6f6-5a65-49bb-8b35-01fa9a5b92d6", "title":"Jest advanced", "type":"essay", "gradingCriteria":"- The code will achieve 100% line coverage for the CatFact class." }
+Once you have your tests working in VS Code, paste the test code below.
+```
+
