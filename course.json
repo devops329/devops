@@ -533,7 +533,10 @@
           "title": "Dependency injection",
           "path": "instruction/dependencyInjection/dependencyInjection.md",
           "id": "8845e562-9dda-4e78-9ae3-6d4104f47bd3",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "65edaa97-7d70-4e3d-9e18-7aed4c6067c7"
+          ]
         },
         {
           "title": "Integration testing",
