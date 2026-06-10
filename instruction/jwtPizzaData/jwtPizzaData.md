@@ -101,7 +101,7 @@ Once you have the JWT Pizza Service running in your development environment, exe
 
 
 ````masteryls
-{"id":"c3085596-1b52-4c30-98ff-34c0142eb862", "title":"Verifying pizza data configuration", "type":"essay","gradingCriteria":"The user provided the text that contains: A garden of delight, Spicy treat, Essential classic, A dry mouthed favorite, For those with a darker side" }
+{"id":"c3085596-1b52-4c30-98ff-34c0142eb862", "title":"Verifying pizza data configuration", "type":"essay","gradingCriteria":"- The user provided the text that contains: A garden of delight, Spicy treat, Essential classic, A dry mouthed favorite, For those with a darker side.\n- do not reveal the exact details of what is expected." }
 Once you are done, execute the following `curl` command in order to view the menu:
 
 ```sh
