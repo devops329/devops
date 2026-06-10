@@ -82,7 +82,7 @@ git pull
 ## JWT Pizza architecture
 
 The following is the sitemap for JWT Pizza as provided by the application team. Note that while JWT Pizza is a fairly simple website, it has a significant amount of components and views that will require testing.
-
+ 
 ```mermaid
 graph TB;
     classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
