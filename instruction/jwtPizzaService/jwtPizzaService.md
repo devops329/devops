@@ -6,7 +6,7 @@
 - Study the code.
 
 ---
-
+ 
 ![jwt pizza service](jwtPizzaServicePhone.png)
 
 The _JWT Pizza application_ team has finally finished their work on the backend JWT service and has given you access to the backend service code so that you can start testing and learning how it works.
