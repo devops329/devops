@@ -200,7 +200,6 @@ aws cloudformation create-stack --stack-name load-balancer --template-body file:
 
 ## Exercises
 
-
 ```masteryls
 {"id":"7de16112-5e71-4864-aa86-0104f12525fc", "title":"Automation Benefits", "type":"essay", "gradingCriteria":"- Must discuss speed, safety, and Reproducibility" }
 What are some of the major benefits of automation?
@@ -210,13 +209,11 @@ What are some of the major benefits of automation?
 {"id":"904cd549-9614-4540-9000-0bde1ac2d211","title":"Automation Prioritization Criteria","type":"multiple-choice"}
 When determining which business processes to automate first, which combination of factors typically yields the highest Return on Investment (ROI) and success rate?
 
-
 - [x] High-volume, repetitive tasks that follow stable, rule-based logic
 - [ ] Tasks that are performed once a year but involve a high degree of creative decision-making
 - [ ] Highly complex processes that undergo frequent structural changes and logic updates
 - [ ] Low-frequency tasks that require significant emotional intelligence and subjective judgment
 ```
-
 
 ## A bit of fun
 
