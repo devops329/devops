@@ -576,3 +576,9 @@ function App() {
 When finished, your coverage report should look like this:
 
 ![Playwright coverage](playwrightCoverage.png)
+
+
+```masteryls
+{"id":"c2d59460-aeaf-4c2e-b4bb-3a78e1c7ed7c", "title":"Playwright", "type":"essay", "gradingCriteria":"100% line coverage represented" }
+Paste the result of your final coverage report.
+```
