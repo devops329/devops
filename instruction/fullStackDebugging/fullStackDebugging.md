@@ -121,7 +121,6 @@ New software engineers attempt to avoid leaning this critical skill by simply gu
 
 ## Exercises
 
-
 ```masteryls
 {"id":"c86eb274-bd44-472c-8d73-1e4dc9d348c2","title":"Isolating Errors in Full Stack Data Flow","type":"multiple-choice"}
 You are debugging a React application where a specific UI component fails to display data expected from a Node.js API. The frontend is running, but the screen remains blank without any visual errors. Which of the following actions is the most effective first step to determine if the issue resides in the frontend logic or the backend API?
