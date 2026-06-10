@@ -2,56 +2,62 @@
 
 🔑 **Key points**
 
-- Integration testing increases your confidence that components work together correctly
-- Mocking can hide significant integration bugs
-- Removing mocking can improve application performance and design
+- Integration testing increases confidence that components work together correctly.
+- Mocking can hide significant integration bugs by masking real-world behavior.
+- Reducing reliance on mocking can improve application performance and architectural design.
 
 ---
 
-We previously briefly introduced the concept of integration testing. Let's take a bit of a deeper look at what integration testing means and the trade-offs that it presents.
+We previously introduced the concept of integration testing. Let's take a deeper look at what integration testing means and the trade-offs it presents.
 
-Integration testing makes sure that dependent components work well with each other. It would seem, that if you mock out all of those dependencies then it is easier to test the target component without having to deal with the messy details of the dependencies. But is that really true?
+Integration testing ensures that dependent components work correctly with each other. It might seem that mocking those dependencies makes it easier to test a target component without dealing with the messy details of external systems. But is that always the best approach?
 
-Think about the implications of mocking out dependencies. First off you need to create a skeleton copy of the dependency. Once created that copy must be forever maintained. Any change to the dependency will require an equivalent change in the mock. That means you now have duplicated code with different implementations and there is always the chance that those implementations will get out of sync. How will you know when they do get out of sync? Well your customers may tell you, or you might have higher level end-to-end tests that actually don't mock the dependency. This doesn't sound good.
+Consider the implications of mocking dependencies. First, you must create a "skeleton" copy of the dependency. Once created, that copy must be maintained indefinitely. Any change to the real dependency requires an equivalent change in the mock. This results in duplicated logic with different implementations, creating a high risk that they will fall out of sync. How will you know when they do? You might only find out when a customer reports a bug, or if you have higher-level end-to-end tests that don't use mocks. Neither scenario is ideal.
 
-What is the alternative? Don't mock. Actually test the component as it naturally exists. That is the whole point of integration testing. Don't give a false sense of confidence that something is working unless you actually test that component in the way it actually works.
+The alternative is to avoid mocking where possible. Test the component as it naturally exists within the system. This is the core purpose of integration testing: providing genuine confidence that a system works by testing it in a realistic environment.
 
 ## Making integration testing work
 
-Now that we have stated the motivation for getting rid of mocking, the question then becomes how can we mitigate the impact of that decision? The justification for mocking comes in two forms:
+If we aim to reduce mocking, how can we mitigate the challenges that come with it? The justification for mocking usually falls into two categories:
 
-1. It is **faster** to test because you do not have to invoke the dependencies.
-1. It is **easier** to test because the output of dependencies is predictable.
+1. It is **faster** because you do not have to invoke external dependencies.
+2. It is **easier** because the output of dependencies is predictable.
 
-These can both be true, and they may justify the use of mocking. However, it should not be assumed that they are always true and therefore mocking should be used in every case. Often times the dependencies can easily be instrumented so that the response is predictable or at least the unpredictable parts such as IDs or dates can be abstracted away. Likewise, dependencies are not always slow. Oftentimes they respond in nanoseconds and are just as fast as the mocking infrastructure.
+While these points can be true, they shouldn't be used as a default excuse to mock everything. Often, dependencies can be configured so their responses are predictable—or unpredictable parts, such as IDs or timestamps, can be abstracted. Furthermore, dependencies are not always slow. Modern local databases or internal services often respond in milliseconds, making them nearly as fast as a mocking framework.
 
 ### Exposing performance problems
 
-Now let's consider the benefits for dropping the mocks. First, if the dependencies are slow, doesn't it make sense to actually solve that problem? After all, testing is not just about assuring the correctness of the response data, but the acceptability of the time it takes to get that response. No one cares if an algorithm can compute Fibonacci to the 1000 position correctly if it takes 10 years for that computation to complete. Instead of hiding a performance problem behind a mock, go and fix the problem.
+Removing mocks can actually highlight performance issues. If a dependency is slow, shouldn't that be addressed rather than hidden? Testing is not just about data correctness; it is also about the acceptability of the time it takes to get a response. No one cares if an algorithm computes a result correctly if it takes ten years to complete. Instead of hiding a performance bottleneck behind a mock, use integration testing to identify and fix the problem.
 
 ### Encouraging better design
 
-Next up is the complications of instrumenting a dependency so that it can reliably return a predictable answer. This commonly happens when you are testing against an environment where application state is stored and reused between test runs. For example, you might have a database that is always used for your tests. Without mocking, you will start to accumulate lots of users, pizzas, and franchises. This is further complicated that you can't just keep using the same names for your test data because there will be existing data from the last run with the same name. Likewise, if you have two tests that use the same name they will stomp on each other, and if you have tests that depend on the data generated by the previous test things get even worse.
+Testing against real dependencies can be complicated when application state is stored and reused between test runs. For example, if you use a shared database for tests, you might accumulate a cluttered mess of users, pizzas, and franchises. If multiple tests use the same data names, they will conflict. If tests depend on data generated by a previous run, they become brittle.
 
-Once again, it should be clear that all of these problems are due to writing sloppy tests and poorly designed application code. Every test should be able to execute independently of any other test. This does not have to be done by mocking out all the dependencies, but instead you can accomplish it by making sure that the data dependencies are scoped to the test, completely unique, or spun up in an environment that is isolated to the test. If you build those abstractions into your code, then it makes your application better because it can use those same abstractions to isolate different customer's data or to quickly spin up additional specialized environments. Once again, the application becomes better because you didn't hide the problem behind mocking.
+These problems are often symptoms of poorly designed tests or application code. Every test should be able to execute independently. Instead of mocking, you can achieve isolation by ensuring that data dependencies are:
+- Scoped to the specific test.
+- Completely unique (e.g., using UUIDs).
+- Spun up in an isolated environment (e.g., using containers or temporary databases).
 
-## When mocking might be necessary
+Building these abstractions makes your application better. The same logic used to isolate test data can be used to isolate customer data or to quickly spin up specialized environments for staging or production. The application improves because you didn't hide the architectural friction behind a mock.
 
-There are times when mocking might be necessary. This includes cases where a third party service is involved. This is especially true when calling the service creates a monetary impact. You don't want to write a test for a real estate application that will actually buy a house every time you run it.
+## When mocking is necessary
 
-There also might be the case were the initialization cost of the test is so high that it discourages you from running tests. Usually this only happens with extremely large, complex applications. However, this usually happens at the application level, not the component or integration level.
+There are still times when mocking is appropriate. This includes:
+- **Third-party services:** You don't want a test for a real estate application to actually buy a house every time it runs.
+- **Monetary impact:** Avoid services that charge per API call during a test suite.
+- **High initialization costs:** If the setup time for a dependency is so high that it discourages developers from running tests, a mock might be necessary. This is more common in extremely large, complex legacy systems.
 
 ## JWT Pizza integration testing
 
-Consider the major JWT Pizza components. How do you want to conduct your integration testing?
+Consider the major JWT Pizza components. How should you approach integration testing for this architecture?
 
 ![component overview](componentOverview.png)
 
-An obvious candidate for integration testing is to assure the quality of the integration between the `jwt-pizza` and `jwt-pizza-service` code. Here are some ways you can approach this:
+An obvious candidate for integration testing is the connection between the `jwt-pizza` (frontend) and `jwt-pizza-service` (backend). Here are several approaches:
 
-1. **None** - Don't do integration testing. Just mock out the integration. This has some appeal. It means the frontend and backend teams can develop the application completely independent of each other. The frontend can build functionality that is still in the design phase on the backend. The test setup is easier in the sense that you don't need to run a backend at all. However, the benefits probably don't outweigh the disadvantages. Additionally, just because we mock out the coupling between the frontend and backend doesn't mean that you have removed the coupling. You have just hidden a whole class of bugs that the mocks may be hiding.
-1. **jwt-pizza and jwt-pizza-service** - Integrate the testing of the frontend and the backend, but mock out the pizza factory service and the database. This seems like an obvious choice. With a mocked out database, the performance characteristics of the integration test should be excellent, and we get a more realistic representation of the performance of the frontend/backend communication. We also will immediately know if we introduce any bugs in the service endpoints.
-1. **jwt-pizza-service and database** - Integrate the testing of the backend and the database. This makes a lot of sense as long as we can initialize the database with sufficient testing data as well as be confident that the performance of the database in a development environment will not discourage the execution of tests.
-1. **jwt-pizza, jwt-pizza-service, and database** - Integrate everything but the pizza factory. Since the pizza factory is outside of the codebase for the product, it seems logical to exclude it. However, even testing this much of the application actually goes beyond integration testing and enters the realm of end-to-end testing. Additionally, the testing configuration of the database is going to be coupled to the tests that you run on the frontend. This might result in complex and brittle tests, or tests that require a significant amount of setup.
+1. **No integration testing:** Mock everything. This allows frontend and backend teams to work independently, even if the backend API isn't ready. However, this hides a whole class of bugs that only appear when the two sides actually communicate.
+2. **Frontend + Backend (Mocked Database):** Integrate the frontend and backend but mock the pizza factory service and the database. This provides a realistic representation of frontend/backend communication with high performance, and you'll immediately catch bugs in service endpoints.
+3. **Backend + Database:** Integrate the backend and the database. This is highly effective as long as you can initialize the database with fresh data and ensure database performance doesn't slow down the development cycle.
+4. **Full Integration (Frontend + Backend + Database):** Integrate everything except the external pizza factory. While this provides high confidence, it enters the realm of end-to-end (E2E) testing. The database configuration becomes tightly coupled to the frontend tests, which can lead to complex and brittle setups.
 
-Give some thought about the trade-offs for all of these decisions. What value does integration testing provide? Would it be easier to do integration testing using mocks of the dependencies? What do you gain by doing integration testing without mocks?
+Consider the trade-offs for each decision. What value does the integration provide? Does a mock make the test easier to write at the expense of catching real bugs? What do you gain by testing against the real implementation?
