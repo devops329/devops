@@ -12,14 +12,14 @@
         "id": "021d7a94-d68b-4f8b-9b62-881a94272d12",
         "title": "Winter 2026",
         "path": "schedule/schedule.md",
-        "default": true,
+        "default": false,
         "state": "published"
       },
       {
         "id": "fc1847c8-59b7-4692-ab93-d1f0bc2dee23",
         "title": "Fall 2026",
         "path": "schedule/fall-2026.md",
-        "default": false
+        "default": true
       }
     ]
   },
