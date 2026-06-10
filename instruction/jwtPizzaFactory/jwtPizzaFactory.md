@@ -11,7 +11,7 @@ pizza.byucsstudent.click
 ```
 
 > [!NOTE]
-> 
+>
 > You will finish setting up the `pizza` subdomain in Deliverable 2, and you can edit this URL in your JWT Pizza Factory account at any time to match.
 
 ![alt text](createAccount.png)
@@ -30,8 +30,7 @@ After you have provided and verified your information you can use the Vendor Das
 >
 > Creating your JWT Pizza Factory account is a prerequisite for all course deliverables. Please take the time to create you account as soon as you have created your GitHub repository and have leased your DNS domain.
 
-## Exercises
-
+## ☑ Exercise
 
 ```masteryls
 {"id":"21f11851-8df8-49ec-a137-48db2bb0746e", "title":"Pizza factory account", "type":"multiple-select" }
@@ -43,11 +42,9 @@ I have done the following.
 - [x] Provided my GitHub account.
 ```
 
-
 ```masteryls
 {"id":"ddf00844-13df-4764-8947-8e973f375b29", "title":"URL submission", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The URL has the form `https://github.com/accountname`" }
 My GitHub account URL is:
 
 _Example: https://github.com/myaccountname_
 ```
-

@@ -123,8 +123,7 @@ GitHub allows you to create a fork of any repository on GitHub. You just push th
 
 In this class, if you notice something in the instruction that needs to be enhanced, feel free to fork the [instruction repo](https://github.com/devops329/devops), and make a pull request. This will give you experience with forking and improve the instruction for others at the same time, plus your name will be included as a contributor. How cool is that!
 
-## Exercises
-
+## ☑ Exercise
 
 ```masteryls
 {"id":"e9908551-09d4-4426-95a7-5b793891a852","title":"Effective Commit Messages","type":"multiple-choice"}
@@ -136,7 +135,6 @@ When contributing to a repository on GitHub, which of the following commit messa
 - [ ] Minor changes and bug fixes
 ```
 
-
 ```masteryls
 {"id":"f2c953c8-eee7-4ceb-9be1-0e6249f453a0","title":"Git Workflow Command Sequence","type":"multiple-choice"}
 You have finished modifying a file in your local project and want to share these changes with your team on a remote GitHub repository. Which of the following correctly describes the sequence and purpose of the commands required?
@@ -147,7 +145,6 @@ You have finished modifying a file in your local project and want to share these
 - [ ] Use `git add` to save changes directly to the local repository and `git commit` to upload the local history to the remote server.
 ```
 
-
 ```masteryls
 {"id":"11cc437f-a7bc-4f12-8b1b-477ea1745743","title":"Forking vs. Cloning","type":"multiple-choice"}
 When working with GitHub, what is the primary difference between **forking** a repository and **cloning** a repository?
@@ -157,7 +154,6 @@ When working with GitHub, what is the primary difference between **forking** a r
 - [x] A fork creates a personal copy of a repository on your GitHub account (server-side), while a clone creates a local copy of a repository on your machine.
 - [ ] A fork is a Git command used to merge two different repositories together, while a clone is a GitHub feature used to create a backup of a single branch.
 ```
-
 
 ## A bit of fun
 

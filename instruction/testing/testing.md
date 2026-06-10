@@ -77,7 +77,6 @@ test('catalog history', async () => {
 - Tests can run in any order.
 - Tests can run concurrently.
 
-
 ## Structuring Tests with Arrange-Act-Assert
 
 The **Arrange-Act-Assert (AAA)** pattern is the gold standard for structuring unit tests. It provides a clear, consistent framework that improves the readability and maintainability of your test suite. By separating the setup of the test from the execution and the verification, developers can quickly understand the intent of a test case and diagnose failures when they occur.
@@ -95,17 +94,17 @@ Consider a simple `ShoppingCart` class. When testing the functionality of adding
 ```javascript
 // Example using a JavaScript testing framework like Jest
 test('should update total price when an item is added', () => {
-    // Arrange
-    const cart = new ShoppingCart();
-    const item = { name: 'Widget', price: 10.00 };
-    const expectedTotal = 10.00;
+  // Arrange
+  const cart = new ShoppingCart();
+  const item = { name: 'Widget', price: 10.0 };
+  const expectedTotal = 10.0;
 
-    // Act
-    cart.addItem(item);
+  // Act
+  cart.addItem(item);
 
-    // Assert
-    expect(cart.total).toBe(expectedTotal);
-    expect(cart.items.length).toBe(1);
+  // Assert
+  expect(cart.total).toBe(expectedTotal);
+  expect(cart.items.length).toBe(1);
 });
 ```
 
@@ -113,12 +112,10 @@ test('should update total price when an item is added', () => {
 
 Using this pattern consistently offers several advantages to a development team:
 
-*   **Improved Readability**: Because every test follows the same structure, developers don't have to "hunt" for what is actually being tested.
-*   **Separation of Concerns**: It prevents "interleaving" where you might assert something, then act again, then assert more. Interleaved tests are difficult to debug and often indicate that a test is trying to do too much.
-*   **Easier Maintenance**: If the setup logic for a class changes, you know exactly which section (Arrange) needs to be updated.
-*   **Clearer Test Intent**: It enforces the "Single Responsibility Principle" for tests. If your **Act** section contains multiple lines or complex logic, it is a signal that the test should likely be split into multiple smaller tests.
-
-
+- **Improved Readability**: Because every test follows the same structure, developers don't have to "hunt" for what is actually being tested.
+- **Separation of Concerns**: It prevents "interleaving" where you might assert something, then act again, then assert more. Interleaved tests are difficult to debug and often indicate that a test is trying to do too much.
+- **Easier Maintenance**: If the setup logic for a class changes, you know exactly which section (Arrange) needs to be updated.
+- **Clearer Test Intent**: It enforces the "Single Responsibility Principle" for tests. If your **Act** section contains multiple lines or complex logic, it is a signal that the test should likely be split into multiple smaller tests.
 
 ## Testing latency
 
@@ -192,7 +189,7 @@ In the following example, everything is mocked so that the testing framework is 
 test('get joke', () => {
   // Mocking the request behavior entirely
   const mockRequest = {
-    get: () => ({ joke: 'Chuck Norris can divide by zero.' })
+    get: () => ({ joke: 'Chuck Norris can divide by zero.' }),
   };
 
   const jokeRes = mockRequest.get('/api/joke');
@@ -260,8 +257,7 @@ test('get orders', async () => {
 });
 ```
 
-## Exercises
-
+## ☑ Exercise
 
 ```masteryls
 {"id":"7d6ec40a-e0f0-4841-82a6-61411fc573db","title":"Primary Benefits of Testing","type":"multiple-select"}

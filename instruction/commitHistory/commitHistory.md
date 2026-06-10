@@ -31,8 +31,7 @@ Remember to make meaningful commit messages that describe the **what** and **why
 
 Your commit history should show that you completed the work well before the deadline. Some deliverables can be completed in a few hours, but waiting until the deadline to start working on a project is not a habit that your employer will appreciate. Start early and commit as you go. Any significant change (writing a test, adding a step to a workflow, changing a config file, etc.) should be committed.
 
-## Exercises
-
+## ☑ Exercise
 
 ```masteryls
 {"id":"cec9307b-6cb3-484b-bc4f-f2f447d24219","title":"Commit History Compliance","type":"multiple-select"}
@@ -43,7 +42,6 @@ Your commit history must demonstrate the following:
 - [ ] **Significant detail** - Verbose discussion of the purpose, effort, and resulting change
 - [x] **Single task** - Doesn't combine multiple features or fixes
 ```
-
 
 ## A bit of fun
 

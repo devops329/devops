@@ -41,13 +41,12 @@ The sheer amount of services can make AWS feel complex and imposing. The key to 
 
 Other popular AWS services include:
 
-
-| Service             | Use for this course                                   |
-| ------------------- | ----------------------------------------------------- |
-| Lambda              | Running serverless functions                          |
-| RDS                 | Managed relational databases                          |
-| DynamoDB            | Managed NoSQL databases                               |
-| CloudWatch          | Monitoring and logging                                |
+| Service    | Use for this course          |
+| ---------- | ---------------------------- |
+| Lambda     | Running serverless functions |
+| RDS        | Managed relational databases |
+| DynamoDB   | Managed NoSQL databases      |
+| CloudWatch | Monitoring and logging       |
 
 You should to take some time to read about, and get familiar, with what each of these services offer and how they work. One of the great things about Cloud Computing is that you can experiment without any significant long term impact or expense. You can simply start something up, play with it for a while, and then tear it down.
 
@@ -69,8 +68,7 @@ Make sure you monitor you billing by selecting the **Billing and cost management
 
 ![Cost management](costManagement.png)
 
-
-## Exercises
+## ☑ Exercise
 
 ```masteryls
 {"id":"1ebcaea8-9988-4cd6-9f46-b110b6c6bcc0","title":"Serverless Compute Services","type":"multiple-choice"}

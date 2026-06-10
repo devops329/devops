@@ -23,11 +23,9 @@ A common example of a static deployment is a website consisting of a set of HTML
 
 Here is a more complicated example of an audio mixer that you can interact with and alter. Everything is loaded from a single HTML file and executed right here in the browser.
 
-
 ```masteryls
 {"id":"39ecfa23-3913-44a1-93bc-db33d61fe1fa", "title":"Web page", "type":"web-page", "height":500, "file":"audioMixer.html"}
 ```
-
 
 You can host static deployment on a server, or content delivery network (CDN), that simply delivers it to the customer's browser. This is a completely static deployment because no code execution happens on the backend when the application is used.
 
@@ -43,7 +41,6 @@ graph LR;
 ```
 
 With technologies such as WebAssembly, you can do incredibly powerful things all in the user's browsers. This includes video editing, executing LLMs, and graphing complex mathematical calculations.
-
 
 Static deployments are highly desirable because they are simple to set up, inexpensive to host, and easily scalable through Content Delivery Networks (CDNs).
 
@@ -85,7 +82,7 @@ This approach simplifies development because you do not have to worry about depl
 
 In later lessons, you will learn how to deploy your own JWT Pizza Service and database. While deploying your own backend makes the architecture significantly more complex, it gives you full control over the entire stack.
 
-## Exercises
+## ☑ Exercise
 
 ```masteryls
 {"id":"c42e5169-4462-4001-b8a0-dda9046a5245","title":"Static vs. Dynamic Deployment","type":"multiple-choice"}

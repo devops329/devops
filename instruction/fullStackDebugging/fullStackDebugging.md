@@ -119,7 +119,7 @@ Hopefully this gives you a good introduction to debugging a full stack applicati
 
 New software engineers attempt to avoid leaning this critical skill by simply guessing why their code is not working and instead just making random changes. Slightly more experienced engineers will add lots of console log statements to try and figure out what is going on. While that approach is better it is still inferior to taking the time to learn how to debug using the tools available to you. Save yourself the frustration and invest in debugging skills. It will pay off significantly over your career.
 
-## Exercises
+## ☑ Exercise
 
 ```masteryls
 {"id":"c86eb274-bd44-472c-8d73-1e4dc9d348c2","title":"Isolating Errors in Full Stack Data Flow","type":"multiple-choice"}
@@ -130,4 +130,3 @@ You are debugging a React application where a specific UI component fails to dis
 - [x] Open the browser's **Network** tab, trigger the action, and inspect the status code and response body of the specific API request.
 - [ ] Check the `package.json` file in the React project to ensure the `proxy` field correctly matches the local URL of the Node.js server.
 ```
-

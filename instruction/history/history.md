@@ -50,7 +50,7 @@ Ultimately, DevOps and QA teams build the internal applications and pipelines th
 
 ## Cloud services: Automating hardware deployment
 
-The next revolution arrived in the early 2000s when cloud services, such as Amazon Web Services (AWS), began providing elastic computing, massive storage, managed databases, and global networking. Because these services were accessible via Application Programming Interfaces (APIs), they were a perfect fit for the automation mindset. 
+The next revolution arrived in the early 2000s when cloud services, such as Amazon Web Services (AWS), began providing elastic computing, massive storage, managed databases, and global networking. Because these services were accessible via Application Programming Interfaces (APIs), they were a perfect fit for the automation mindset.
 
 Previously, automation focused on building and testing code. With cloud services, DevOps and QA engineers could also automate infrastructure scaling, capacity, and performance.
 
@@ -77,14 +77,12 @@ Application, DevOps, Site Reliability, and Platform engineers all share the same
 
 The purpose of this course is to teach you the techniques and tools necessary to master these implementations. Understanding this history—and the recurring themes of innovation—provides a deeper appreciation for the modern ecosystem of software delivery.
 
-## Exercises
-
+## ☑ Exercise
 
 ```masteryls
 {"id":"544e5344-9e3a-4375-b868-6475363aec74", "title":"Why DevOps", "type":"essay", "gradingCriteria":"- Must include a description of Googles SRE program" }
 What are the primary factors that lead to the creation of Development Operations?
 ```
-
 
 ## A bit of fun
 

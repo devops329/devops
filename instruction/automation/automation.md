@@ -198,7 +198,7 @@ With this script you don't have to log into the AWS Browser Console, navigate to
 aws cloudformation create-stack --stack-name load-balancer --template-body file://create-load-balancer.json
 ```
 
-## Exercises
+## ☑ Exercise
 
 ```masteryls
 {"id":"7de16112-5e71-4864-aa86-0104f12525fc", "title":"Automation Benefits", "type":"essay", "gradingCriteria":"- Must discuss speed, safety, and Reproducibility" }

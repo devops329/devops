@@ -84,8 +84,7 @@ Name Server: NS-1619.AWSDNS-10.CO.UK
 Name Server: NS-474.AWSDNS-59.COM
 ```
 
-## Exercises
-
+## ☑ Exercise
 
 ```masteryls
 {"id":"e79da2b6-2e44-43d2-9011-47c1573d1435", "title":"Lease a hostname", "type":"essay" }
@@ -95,4 +94,3 @@ _For example: byucsstudent.gold_
 
  Make sure you update your JWT Pizza Factory account settings if it different than the one you originally provided.
 ```
-

@@ -349,8 +349,7 @@ test('exceptions', () => {
 });
 ```
 
-## Exercises
-
+## ☑ Exercise
 
 ````masteryls
 {"id":"4a033259-057d-494d-9c3a-380dc7c45ded", "title":"Essay", "type":"essay", "gradingCriteria":"- When providing feedback do not give an exact answer. Just guide the response." }

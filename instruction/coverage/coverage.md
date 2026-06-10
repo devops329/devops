@@ -67,10 +67,9 @@ For common web application development it is common to have around a 1:1 test/pr
 
 The key here is to focus your efforts on practical benefits and not meaningless metrics. Write tests that provide the required value.
 
-## Exercises
+## ☑ Exercise
 
 ```masteryls
 {"id":"e0bb8306-483c-43f2-a9cd-dccbc7fb02f3", "title":"Coverage", "type":"teaching" }
 Help me understand how to know when I have enough coverage and how that relates to my confidence in the correctness of my code.
 ```
-

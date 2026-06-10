@@ -44,7 +44,7 @@ git commit -m "merge() conflict due to ..."
 git push
 ```
 
-## Exercises
+## ☑ Exercise
 
 ```masteryls
 {"id":"5b2bcb09-4ed8-43dd-935b-ec6e8640d2d5","title":"Forking vs. Cloning","type":"multiple-choice"}

@@ -126,9 +126,7 @@ To create a monitor, access the AWS dashboard and navigate to `Billing and Cost 
 1. Lease a DNS hostname if you don't already own one.
 1. **Create a budget alert**.
 
-
-## Exercises
-
+## ☑ Exercise
 
 ```masteryls
 {"id":"216569e1-63d8-4e0a-a050-48b10d6ea910", "title":"AWS account", "type":"multiple-select" }
@@ -138,4 +136,3 @@ I have done the following.
 - [x] Created a browser bookmark for your AWS browser console page that contains your account ID. That way you will be able to access your account quickly.
 - [x] **Created a budget alert**.
 ```
-

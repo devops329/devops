@@ -38,7 +38,7 @@ A unit test focuses on the core logic of the code without being tied to external
 
 ### Component
 
-Component testing expands the scope of unit testing by verifying that a group of units works together as a cohesive whole. Using the endpoint example, a component test would ensure that everything within a specific class or module functions correctly. This often involves calling multiple related endpoints to ensure that shared state is updated properly. 
+Component testing expands the scope of unit testing by verifying that a group of units works together as a cohesive whole. Using the endpoint example, a component test would ensure that everything within a specific class or module functions correctly. This often involves calling multiple related endpoints to ensure that shared state is updated properly.
 
 For instance, while a unit test verifies that the login endpoint works in isolation, a component test ensures that the entire authorization flow (login, register, logout, and delete user) works correctly together.
 
@@ -56,7 +56,7 @@ At this level, you typically remove many of the mocks used in unit or component 
 
 ### Regression
 
-Before automated testing became standard, developers often modified code and then performed manual "spot checks" to ensure they hadn't broken existing features. When a change inadvertently breaks existing functionality, it is called a **regression**. 
+Before automated testing became standard, developers often modified code and then performed manual "spot checks" to ensure they hadn't broken existing features. When a change inadvertently breaks existing functionality, it is called a **regression**.
 
 Automated regression testing is achieved by maintaining a suite of component and integration tests that run whenever code changes. This suite provides a safety net, giving developers the confidence to refactor or add features without fear of breaking the system. A robust regression suite can significantly reduce the need for manual quality assurance (QA) cycles.
 
@@ -115,6 +115,7 @@ Accessibility testing ensures that an application is usable by everyone, includi
 The most common standard is the **Web Content Accessibility Guidelines (WCAG)**, which organizes requirements into four categories: Perceivable, Operable, Understandable, and Robust.
 
 You can test accessibility using Google Chrome’s **Lighthouse** utility:
+
 1. Open the `Lighthouse` tab in Chrome DevTools.
 2. Select **Accessibility**.
 3. Click `Analyze page load`.
@@ -158,8 +159,7 @@ In this course, you will apply these strategies to the JWT Pizza project:
 2.  **Unit and UI testing:** For the `jwt-pizza` frontend, mocking calls to the backend service.
 3.  **Synthetic, Load, Chaos, and Penetration testing:** Performed on the production application to ensure resilience and security.
 
-## Exercises
-
+## ☑ Exercise
 
 ```masteryls
 {"id":"c022b6e5-09b9-4fc6-a05a-e036d4e7c14d", "title":"Testing categories", "type":"essay" }

@@ -25,25 +25,30 @@ Artificial Intelligence (AI) tools are increasingly used to assist with software
 To maximize the effectiveness of AI-generated tests and mitigate the risk of "overfitting," developers should follow specific strategies during the prompting process.
 
 ### Requirement-Driven Prompting
+
 Instead of only providing the source code, provide the **functional requirements** or a specification. This allows the AI to act as a validator. If the code contains a logic bug, the AI-generated test (based on the requirement) will fail when executed, highlighting the error.
 
 **Example: Catching a Bug with Requirements**
 Consider a function with a logic error:
+
 ```js
 function calculateTotal(price, tax) {
   return price + tax; // Bug: Should apply tax as a percentage
 }
 ```
+
 **Ineffective Prompt:** "Write a test for the `calculateTotal` function."
-*Result:* The AI may generate `expect(calculateTotal(100, 10)).toBe(110)`, which passes but reinforces the bug.
+_Result:_ The AI may generate `expect(calculateTotal(100, 10)).toBe(110)`, which passes but reinforces the bug.
 
 **Effective Prompt:** "Write a Jest test for `calculateTotal`. **Requirement:** The function should take a base price and a tax rate (e.g., 0.1 for 10%), then return the total price including tax."
-*Result:* The AI will generate `expect(calculateTotal(100, 0.1)).toBe(110)`. This test will fail against the current code, alerting the developer that the implementation is wrong.
+_Result:_ The AI will generate `expect(calculateTotal(100, 0.1)).toBe(110)`. This test will fail against the current code, alerting the developer that the implementation is wrong.
 
 ### Iterative Refinement
+
 AI-generated code is rarely perfect on the first attempt. Use an iterative approach by providing feedback to the model based on test execution results.
 
 **Example: Iterative Prompting**
+
 1. **Initial Prompt:** "Write a test for this API handler."
 2. **Observation:** The generated test fails because it doesn't mock the database connection.
 3. **Follow-up Prompt:** "The previous test failed with a connection error. Rewrite the test using `jest.mock` to simulate the database response."
@@ -164,8 +169,7 @@ describe('CatFact Class', () => {
 
 AI-assisted unit testing is a powerful addition to the modern developer's toolkit, capable of dramatically increasing productivity and test coverage. However, it is not a replacement for human judgment. To ensure a robust and maintainable test suite, developers must review AI-generated code for accuracy, relevance, and alignment with business goals. The most effective testing strategies combine the speed of AI with the critical thinking of an experienced engineer.
 
-## Exercises
-
+## ☑ Exercise
 
 ```masteryls
 {"id":"be4e744f-23b6-402d-9445-40e0087ec47d", "title":"Test generation prompting", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
