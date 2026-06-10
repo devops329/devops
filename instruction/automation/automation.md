@@ -150,6 +150,7 @@ When things go wrong, you really want to respond quickly, and that is where auto
 
 ```mermaid
 graph LR;
+    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
     subgraph Monitoring
     autoFixer
     end
