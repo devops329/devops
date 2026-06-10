@@ -128,9 +128,14 @@ Other problems are more benign, such as unreachable code or a constant condition
 
 1. Create a project following the steps above.
 2. Run the linter, then review and fix each reported item in `index.js`.
+    ![rule violation](ruleViolation.png)
 3. Review the [available ESLint rules](https://eslint.org/docs/latest/rules/). Find two rules that look interesting and modify your code to trigger them.
 4. Verify that the linter correctly identifies your new violations.
 
 Once you have resolved the errors, your terminal should report no problems found:
 
-![rule violation](ruleViolation.png)
+
+```masteryls
+{"id":"b9220ac6-b738-44e3-bb1f-6c19c1d35230", "title":"Essay", "type":"essay", "gradingCriteria":"- Explains the purpose of a linter\n- Describes any pain points" }
+Describe your experience using ESLint.
+```
