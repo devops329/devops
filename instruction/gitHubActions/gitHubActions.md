@@ -193,7 +193,7 @@ jobs:
         run: |
           files=$(find "." -type f -name "*.md"  | wc -l | awk '{print $1}')
           if [ "$files" -gt 0 ]; then
-            lines=$(find "$ROOT" -type f -name "*.md"  -print0 | xargs -0 wc -l | tail -1 | awk '{print $1}')
+            lines=$(find "." -type f -name "*.md"  -print0 | xargs -0 wc -l | tail -1 | awk '{print $1}')
             printf "%-10s %6s %8s\n" ".md" "$files" "$lines"
           fi
 ```
