@@ -90,7 +90,6 @@ when you are done you should be able to view your simple Hello GitHub Pages webs
 https://YOURGITHUBACCOUNTNAME.github.io/jwt-pizza/
 ```
 
-
 ```masteryls
 {"id":"6d5b693b-70eb-4aa9-90ee-e32d512185cb", "title":"GitHub Pages", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The page contains the text 'Hello github pages'\n- The URL contains '.github.io'" }
 Once you have your page accessible through GitHub Pages, submit your URL.
