@@ -157,3 +157,11 @@ In this course, you will apply these strategies to the JWT Pizza project:
 1.  **Unit and Integration testing:** For the `jwt-pizza-service` and the MySQL database.
 2.  **Unit and UI testing:** For the `jwt-pizza` frontend, mocking calls to the backend service.
 3.  **Synthetic, Load, Chaos, and Penetration testing:** Performed on the production application to ensure resilience and security.
+
+## Exercises
+
+
+```masteryls
+{"id":"c022b6e5-09b9-4fc6-a05a-e036d4e7c14d", "title":"Testing categories", "type":"essay" }
+Compare and contrast **Unit** and **Integration** testing.
+```
