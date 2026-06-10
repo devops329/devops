@@ -252,7 +252,10 @@
           "title": "Merge conflicts",
           "path": "instruction/mergeConflicts/mergeConflicts.md",
           "id": "fee37f51-a612-49da-b308-a4cb25f86d2b",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "5b2bcb09-4ed8-43dd-935b-ec6e8640d2d5"
+          ]
         },
         {
           "title": "⭐ ⓵ Development deployment: JWT Pizza",
