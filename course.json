@@ -433,10 +433,12 @@
           "description": ""
         },
         {
-          "title": "☑ Service testing",
+          "title": "Service testing",
+          "type": "instruction",
           "path": "instruction/serviceTesting/serviceTesting.md",
           "id": "a579710b-bf81-46fa-8062-92da3447bbd2",
-          "state": "published"
+          "state": "published",
+          "description": ""
         },
         {
           "title": "☑ Lint",
