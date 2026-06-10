@@ -373,12 +373,6 @@
           "state": "published"
         },
         {
-          "title": "Dependency injection",
-          "path": "instruction/dependencyInjection/dependencyInjection.md",
-          "id": "8845e562-9dda-4e78-9ae3-6d4104f47bd3",
-          "state": "published"
-        },
-        {
           "title": "Integration testing",
           "path": "instruction/integrationTesting/integrationTesting.md",
           "id": "34b4c084-f487-4eb8-8737-a9849f6960cf",
@@ -448,6 +442,12 @@
           "id": "8f07e8eb-f5bb-4127-8f0e-7651a6b8782f",
           "state": "published",
           "description": "https://youtu.be/qvf1kaT_wr0"
+        },
+        {
+          "title": "Dependency injection",
+          "path": "instruction/dependencyInjection/dependencyInjection.md",
+          "id": "8845e562-9dda-4e78-9ae3-6d4104f47bd3",
+          "state": "published"
         },
         {
           "title": "☑ Test driven development (TDD)",
