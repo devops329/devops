@@ -2,13 +2,15 @@
 
 🔑 **Key points**
 
-- An application that doesn't require you to provide backend support is called a static deployment.
+- A static deployment is an application consisting of pre-built files served directly to a user's browser without requiring server-side code execution.
+- Static deployments are highly scalable, cost-effective, and simple to maintain.
+- A static application can still interact with dynamic backend services via APIs provided by third parties.
 
 ---
 
-Sometimes your application consists of files that can be loaded and executed on a user's device. This simplifies things because you do not need to deploy backend computing resources to handle things like functional endpoints or storing customer data.
+Sometimes an application consists entirely of files that can be loaded and executed directly on a user's device. This simplifies the deployment process because you do not need to manage backend computing resources to handle API endpoints or store customer data on your own servers.
 
-A common example of static deployment is this: A website that only consists of a set of HTML pages can be hosted as files on an HTTP server and then executed on the user's computer when they load the files in the browser. Taking this to the extreme, we can provide a sample application that simply prints out _Hello World_.
+A common example of a static deployment is a website consisting of a set of HTML, CSS, and JavaScript files. These files are hosted on a web server and delivered to the user's browser, where they are interpreted and rendered. To illustrate this, consider a simple application that prints "Hello World."
 
 ```html
 <!DOCTYPE html>
@@ -19,60 +21,60 @@ A common example of static deployment is this: A website that only consists of a
 </html>
 ```
 
-You can then host the file on a server that simply delivers the file to the customer's browser where it is interpreted and rendered. This is a completely static deployment because no execution of code happens on the backend.
+You can host this file on a server that simply delivers it to the customer's browser. This is a completely static deployment because no code execution happens on the backend during the request.
 
 ```mermaid
 graph LR;
-    subgraph  Browser
-    app
+    subgraph Browser
+    app[Browser Engine]
     end
-    subgraph file server
-    app-->|download|index.html
+    subgraph File Server
+    app-->|Requests|index.html
+    index.html-->|Downloads|app
     end
 ```
 
-Static deployments are desirable because they are simple, inexpensive, and easily scalable.
+Static deployments are desirable because they are simple to set up, inexpensive to host, and easily scalable through Content Delivery Networks (CDNs).
 
 ## Calling non-static services
 
-You can only get so far building applications that only execute on a customer's device. For example, if your application requires authentication, you need to store those credentials somewhere. However, that doesn't mean that you need to provide the dynamic part of the application.
+There is a limit to what you can build using only client-side code. For example, if your application requires user authentication, you must store and verify credentials in a secure environment. However, needing dynamic functionality does not necessarily mean you must move away from a static deployment model for your frontend.
 
-An application can still be considered a static deployment even if it calls backend computational services, as long as **you** are not providing those services. The idea here is that your part of the application is static, while some other party is supporting the dynamic part of the application.
+An application is still considered a static deployment even if it calls backend computational services, as long as **you** are not the one providing and maintaining those server-side services. In this model, your part of the application remains static, while a third party supports the dynamic functionality.
 
-Consider a case where you build a React application that uses [Google Firebase](https://firebase.google.com/) to handle authentication, notifications, and simple data storage. In this case you are still only deploying a static application, and Google is handling all the harder issues related to scalability, reliability, and resilience.
+Consider a React application that uses [Google Firebase](https://firebase.google.com/) to handle authentication, notifications, and data storage. In this scenario, you are still deploying a static application (the React build files), while Google handles the complexities of scalability, reliability, and server-side logic.
 
 ```mermaid
 graph LR;
-    subgraph  Browser
-    app
+    subgraph Browser
+    app[Static App]
     end
-    subgraph Google
-    app-->firebase
+    subgraph Google Firebase
+    app-->|API Calls|firebase[Backend Services]
     end
 ```
 
 ## JWT Pizza
 
-You can deploy the JWT Pizza application by placing the frontend code on a publicly available HTTP server, and then using the JWT Pizza service and database provided by JWT Headquarters.
+You can deploy the JWT Pizza application by placing the frontend code on a publicly available web server and then connecting it to the JWT Pizza service and database provided by JWT Headquarters.
 
 ```mermaid
 graph LR;
-    subgraph  Browser
-    jwtPizza
+    subgraph Browser
+    jwtPizza[JWT Pizza Frontend]
     end
     subgraph JWT Headquarters
-    jwtPizza-->jwtPizzaService
-    jwtPizzaService-->database
-    jwtPizzaService-->jwtPizzaFactory
+    jwtPizza-->jwtPizzaService[Pizza Service]
+    jwtPizzaService-->database[(Database)]
+    jwtPizzaService-->jwtPizzaFactory[Pizza Factory]
     end
 ```
 
-This greatly simplifies your life because you don't have to worry about deploying and managing code running on backend servers. That is left to the DevOps engineers working at JWT Headquarters. You just need to put the JWT Pizza frontend code in a location where a browser can load the frontend code.
+This approach simplifies development because you do not have to worry about deploying or managing code on backend servers. Those responsibilities are handled by the DevOps engineers at JWT Headquarters. You only need to host the JWT Pizza frontend code in a location where a browser can load it.
 
-In later instruction you will learn how to deploy your own JWT Pizza Service and database. Then you will only rely on the Pizza Factory provided by JWT Headquarters. Deploying your own backend service and database makes things significantly more complicated, but it gives you control over the full stack, and that is where all the fun is.
+In later lessons, you will learn how to deploy your own JWT Pizza Service and database. While deploying your own backend makes the architecture significantly more complex, it gives you full control over the entire stack.
 
 ## Exercises
-
 
 ```masteryls
 {"id":"c42e5169-4462-4001-b8a0-dda9046a5245","title":"Static vs. Dynamic Deployment","type":"multiple-choice"}
@@ -83,4 +85,3 @@ What is the primary technical characteristic that distinguishes a static deploym
 - [ ] Static deployments require a server-side runtime environment like Node.js or Python to generate the page content every time a user visits the URL.
 - [ ] Static deployments must be hosted on a local physical server and are incompatible with modern edge computing or Content Delivery Networks (CDNs).
 ```
-
