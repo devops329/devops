@@ -16,6 +16,8 @@ Now that you have the frontend application you can run the full JWT Pizza stack 
 
 ```mermaid
 graph LR;
+    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
+
     subgraph  Development environment
     jwtPizza-->jwtPizzaService
     jwtPizzaService-->database
@@ -83,6 +85,8 @@ The following is the sitemap for JWT Pizza as provided by the application team. 
 
 ```mermaid
 graph TB;
+    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
+
     Home-->Login
     Home-->Logout
     Home-->Register
