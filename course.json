@@ -314,7 +314,10 @@
           "title": "☑ GitHub Pages",
           "path": "instruction/gitHubPages/gitHubPages.md",
           "id": "98a15d03-5143-46bb-94ca-36f509c8ddf2",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "6d5b693b-70eb-4aa9-90ee-e32d512185cb"
+          ]
         },
         {
           "title": "⭐ ⓶ Automated deployment: JWT Pizza",
