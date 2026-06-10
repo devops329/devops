@@ -548,10 +548,12 @@
           ]
         },
         {
-          "title": "☑ Test driven development (TDD)",
+          "title": "Test driven development (TDD)",
+          "type": "instruction",
           "path": "instruction/tdd/tdd.md",
           "id": "e5c54d40-6742-4f3a-976d-5f4693c2a9de",
-          "state": "published"
+          "state": "published",
+          "description": ""
         },
         {
           "title": "⭐ ⓹ Test driven development",
