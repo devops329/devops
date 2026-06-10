@@ -118,3 +118,17 @@ After you start up the two debuggers and set breakpoint on both the front and ba
 Hopefully this gives you a good introduction to debugging a full stack application. In order to really get comfortable with this fundamental skill you will need to spend time doing it. Luckily this course will provide you lots of opportunities to do it.
 
 New software engineers attempt to avoid leaning this critical skill by simply guessing why their code is not working and instead just making random changes. Slightly more experienced engineers will add lots of console log statements to try and figure out what is going on. While that approach is better it is still inferior to taking the time to learn how to debug using the tools available to you. Save yourself the frustration and invest in debugging skills. It will pay off significantly over your career.
+
+## Exercises
+
+
+```masteryls
+{"id":"c86eb274-bd44-472c-8d73-1e4dc9d348c2","title":"Isolating Errors in Full Stack Data Flow","type":"multiple-choice"}
+You are debugging a React application where a specific UI component fails to display data expected from a Node.js API. The frontend is running, but the screen remains blank without any visual errors. Which of the following actions is the most effective first step to determine if the issue resides in the frontend logic or the backend API?
+
+- [ ] Add a `console.log()` inside the React component's `render` method to check if the state variable is an empty array or `null`.
+- [ ] Restart the Node.js server with the `--inspect` flag and attach a debugger to step through the database controller logic.
+- [x] Open the browser's **Network** tab, trigger the action, and inspect the status code and response body of the specific API request.
+- [ ] Check the `package.json` file in the React project to ensure the `proxy` field correctly matches the local URL of the Node.js server.
+```
+
