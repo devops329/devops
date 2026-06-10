@@ -10,117 +10,114 @@
 
 📖 **Deeper dive reading**:
 
-- [Playwright](https://playwright.dev/)
-- [Testing best Practices](https://playwright.dev/docs/best-practices)
-- [Writing tests](https://playwright.dev/docs/writing-tests)
-- [VS Code Playwright extension](https://playwright.dev/docs/getting-started-vscode)
+- [Playwright Official Site](https://playwright.dev/)
+- [Testing Best Practices](https://playwright.dev/docs/best-practices)
+- [Writing Tests](https://playwright.dev/docs/writing-tests)
+- [VS Code Playwright Extension](https://playwright.dev/docs/getting-started-vscode)
 
 ---
 
 ![Playwright icon](playwrightIcon.png)
 
-For the purposes of this course, we could pick any of the top UI testing frameworks. However, we are going to pick a newcomer, Playwright. Playwright has some major advantages. It is backed by Microsoft, it integrates really well with VS Code, and it runs as a Node.js process. It is also considered one of the least flaky of the testing frameworks.
+While there are many excellent UI testing frameworks available, we will use Playwright for this course. Playwright offers several major advantages: it is backed by Microsoft, integrates seamlessly with VS Code, and runs as a Node.js process. It is also widely considered one of the most stable and reliable testing frameworks available today.
 
-Playwright gets its speed and stability by running directly against each of the major browsers' DevTool APIs. This is a major advantage over other tools that either directly or indirectly use the Selenium WebDriver or only support a single browser.
+Playwright achieves its speed and stability by communicating directly with the DevTools APIs of all major browsers. This provides a significant advantage over tools that rely on the Selenium WebDriver or those that only support a single browser engine.
 
 ## Tutorial project
 
-In order to have something that we can use to demonstrate how to use Playwright, we need to first create an example project. Take the following steps:
+To demonstrate how to use Playwright, we first need to create an example project. Follow these steps:
 
-1. Create a test directory
-   ```sh
-   mkdir playwrightExample && cd playwrightExample
-   ```
-1. Create the basic Vite React app
-   ```sh
-   npm init -y
-   npm install vite@latest -D
-   npm install react react-dom
-   ```
-1. Modify `package.json` to include the following
-   ```json
-     "type": "module",
-     "scripts": {
-       "dev": "vite",
-       "test": "playwright test"
-     },
-   ```
-1. Create a very simple `index.html` home page in the root of the project.
+1.  **Create a project directory**
+    ```sh
+    mkdir playwrightExample && cd playwrightExample
+    ```
+2.  **Initialize a basic Vite React app**
+    ```sh
+    npm init -y
+    npm install vite@latest -D
+    npm install react react-dom
+    ```
+3.  **Modify `package.json`** to include the following fields:
+    ```json
+    "type": "module",
+    "scripts": {
+      "dev": "vite",
+      "test": "playwright test"
+    },
+    ```
+4.  **Create a simple `index.html`** file in the root of the project:
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <title>Playwright example</title>
+        <style>
+          div {
+            padding-bottom: 10px;
+            font-family: sans-serif;
+          }
+        </style>
+      </head>
+      <body>
+        <div id="root"></div>
+        <script type="module" src="/src/index.jsx"></script>
+      </body>
+    </html>
+    ```
+5.  **Create a `src` directory** and add a file named `index.jsx` with the following content:
+    ```jsx
+    import React from 'react';
+    import ReactDOM from 'react-dom/client';
 
-   ```html
-   <!DOCTYPE html>
-   <html lang="en">
-     <head>
-       <title>Playwright example</title>
-       <style>
-         div {
-           padding-bottom: 10px;
-           font-family: sans-serif;
-         }
-       </style>
-     </head>
-     <body>
-       <div id="root"></div>
-       <script type="module" src="/src/index.jsx"></script>
-     </body>
-   </html>
-   ```
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 
-1. Create a `src` directory and then add a file named `index.jsx` that contains the following.
+    function App() {
+      const [count, setCount] = React.useState(1);
+      const [menu, setMenu] = React.useState([]);
 
-   ```jsx
-   import React from 'react';
-   import ReactDOM from 'react-dom/client';
+      async function getMenu() {
+        const response = await fetch('https://pizza-service.cs329.click/api/order/menu');
+        const data = await response.json();
+        setMenu(
+          data.map((item, i) => (
+            <li key={i}>
+              {item.title} - {item.description}
+            </li>
+          ))
+        );
+      }
 
-   ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+      return (
+        <div>
+          <h1>Pizza</h1>
+          <p>{'🍕'.repeat(count)}</p>
+          <button onClick={() => setCount(count + 1)}>+1</button>
+          <button disabled={!!menu.length} onClick={getMenu}>
+            Menu
+          </button>
+          <ul>{menu}</ul>
+        </div>
+      );
+    }
+    ```
 
-   function App() {
-     const [count, setCount] = React.useState(1);
-     const [menu, setMenu] = React.useState([]);
-
-     async function getMenu() {
-       const response = await fetch('https://pizza-service.cs329.click/api/order/menu');
-       const data = await response.json();
-       setMenu(
-         data.map((item, i) => (
-           <li key={i}>
-             {item.title} - {item.description}
-           </li>
-         ))
-       );
-     }
-
-     return (
-       <div>
-         <h1>Pizza</h1>
-         <p>{'🍕'.repeat(count)}</p>
-         <button onClick={() => setCount(count + 1)}>+1</button>
-         <button disabled={!!menu.length} onClick={getMenu}>
-           Menu
-         </button>
-         <ul>{menu}</ul>
-       </div>
-     );
-   }
-   ```
-
-Now you can run `npm run dev` and experiment with the demonstration application. Notice that you can order pizzas by pressing the `+1` button and get the JWT pizza menu by pressing `Menu`. Once the menu is displayed it will disable the menu option. Get familiar with the code so that you are ready to start writing your UI tests.
+You can now run `npm run dev` to explore the demonstration application. You can "order" pizzas by clicking the `+1` button and fetch the pizza menu by clicking `Menu`. Note that once the menu is displayed, the button becomes disabled. Familiarize yourself with the code before moving on to writing UI tests.
 
 ![playwright demo](playWrightDemo.png)
 
 ## Installing Playwright
 
-With our demonstration app created we are ready to install Playwright. When going through the installation steps, choose JavaScript, `tests` for the test directory, ignore the GitHub Actions workflow for now, and do not install any Playwright browsers.
+With the demonstration app ready, we can install Playwright. Run the following command and choose these options: **JavaScript**, use `tests` for the test directory, skip the GitHub Actions workflow for now, and **do not** install the default browsers (we will do this manually).
 
 ```sh
 npm init playwright@latest
 ```
 
-This will update `package.json` with the `playwright` package, create a `playwright.config.js` file, and create some sample tests in the `test` and `tests-examples` directories. This will also update your `.gitignore` file so that you don't accidentally check in test coverage or report information.
+This command updates your `package.json`, creates a `playwright.config.js` file, and generates sample tests in the `tests` and `tests-examples` directories. It also updates your `.gitignore` to prevent test reports and coverage data from being committed.
 
 ### Install a testing browser
 
-Now review the playwright configuration file: `playwright.config.js`. In there you will find the specification for which browser drivers to use.
+Review the configuration file: `playwright.config.js`. You will see a list of browser projects:
 
 ```js
   /* Configure projects for major browsers */
@@ -141,7 +138,7 @@ Now review the playwright configuration file: `playwright.config.js`. In there y
     },
 ```
 
-For simplicity's sake, we will only run tests with `chromium`, so delete the other entries. Once you have modified the file you can install the `chromium` driver.
+For simplicity, we will only run tests using `chromium`. Delete the other entries in the `projects` array. After saving the file, install the Chromium driver:
 
 ```sh
 npx playwright install --with-deps chromium
@@ -149,17 +146,16 @@ npx playwright install --with-deps chromium
 
 ## Running your first test
 
-The easiest way to run your first Playwright test is to use the examples that came with the Playwright installation.
+Playwright includes sample tests to help you get started. You should see an example file in your test directory:
 
 ```sh
 └── tests
     └── example.spec.js
-
 ```
 
-Playwright will run any test found in the testing directory as defined by the `testDir` property in the `playwright.config.js` file. You chose `tests` to be the testing directory during the installation. Playwright follows the common convention of including `.spec.` in test names. You can also use `.test.` if you want to be consistent with your Jest tests.
+Playwright runs any test file found in the directory defined by the `testDir` property in `playwright.config.js`. By convention, test files include `.spec.` or `.test.` in their filenames.
 
-The `example.spec.js` found in the `tests` directory contains two simple tests. Here is what the first one looks like.
+The `example.spec.js` file contains a test that looks like this:
 
 ```js
 test('has title', async ({ page }) => {
@@ -168,7 +164,7 @@ test('has title', async ({ page }) => {
 });
 ```
 
-This test navigates to the Playwright website and checks to make sure the resulting page has the title `Playwright`. You can run the tests from your project directory with the following console command.
+This test navigates to the Playwright website and asserts that the page title contains "Playwright". Run the tests from your project directory:
 
 ```sh
 npm test
@@ -177,37 +173,35 @@ Running 2 tests using 2 workers
   2 passed (1.1s)
 ```
 
-**Congratulations!** You have just ran your first Playwright test.
+**Congratulations!** You have successfully run your first Playwright test.
 
 ### Viewing the results
 
-In addition to outputting the result to the console, Playwright creates a file named `test-results/.last-run.json` that contains the result of running the test.
+Playwright outputs results to the console and saves detailed data in `test-results/`. To view a visual, interactive report in your browser, run:
 
-If you want to see a visual report in a browser window you can run:
-
-```
+```sh
 npx playwright show-report
 ```
 
-This will allow you to interactively review what happened with the test.
+This report allows you to drill down into each test step to see exactly what happened.
 
 ![test result in browser](testResultInBrowser.png)
 
 ### Interactive execution
 
-You can also run the test using the Playwright UI mode.
+Playwright also features a "UI Mode" for a more interactive experience:
 
 ```sh
 npx playwright test --ui
 ```
 
-This opens up a window that shows all the tests found in the `tests` directory and allows you to interactively execute them and review the results. This includes a time-lapse overview of what the browser was doing while it executed and the ability to see the state of the browser during each step of the test.
+This opens a window where you can run tests individually, watch a time-lapse of the browser execution, and inspect the DOM at every step of the test.
 
 > ![Playwright UI](playwrightUi.gif)
 
 ## Configuring to test with Vite
 
-Before we can write our own tests we need to finish configuring Playwright. Open the `playwright.config.js` file and modify it so that it will launch our service whenever a test needs to run. This is done by adding a `webServer` section to the config that provides the startup command for Vite and the URL that our service is running from.
+To test our local React application, we need to configure Playwright to launch our development server automatically. Open `playwright.config.js` and add a `webServer` section. This tells Playwright how to start the app and which URL to wait for.
 
 ```js
   webServer: {
@@ -218,7 +212,7 @@ Before we can write our own tests we need to finish configuring Playwright. Open
   },
 ```
 
-You can also remove all the comments in order to make the file easier to read. When you are done your configuration file should look like the following. Make sure you understand what all of this [configuration](https://playwright.dev/docs/test-configuration) is doing so that you can get the maximum value that Playwright provides.
+You can also remove the default comments to make the file cleaner. Your final configuration should look similar to this:
 
 ```js
 import { defineConfig, devices } from '@playwright/test';
@@ -256,17 +250,14 @@ export default defineConfig({
 
 ## Coverage
 
-In order to add coverage reporting we have to install the coverage utilities and instrument the code. Unlike Jest, where they have coverage built into the application, Playwright requires you to install the coverage utility of your choice. This gives you freedom to customize things as you would like, but it is a bit painful to set up.
+To add code coverage reporting, we must instrument our code. Unlike Jest, which has coverage built-in, Playwright requires external utilities. This offers flexibility but requires a bit more setup. We will use **Istanbul** and **NYC**.
 
-The coverage tools we are going to use are called Istanbul and NYC.
-
-- **Istanbul** is a JavaScript code coverage tool that computes statement, line, function, and branch coverage with module loader hooks to transparently add coverage when running tests. It can handle all types of testing including unit, functional, and end-to-end testing.
-
-- **NYC** is the official command-line interface for Istanbul. It's a top-level wrapper around Istanbul, adding further capabilities and features. It hooks into your testing framework to track coverage information and then generates detailed reports.
+- **Istanbul**: A JavaScript code coverage tool that tracks statement, line, function, and branch coverage.
+- **NYC**: The command-line interface for Istanbul.
 
 ### Install the coverage packages
 
-First we need to install all the packages required for generating coverage. In addition to NYC we include `vite-plugin-istanbul` and `playwright-test-coverage` to have Vite execute istanbul in order to instrument the code for coverage gathering.
+Install the necessary packages, including a Vite plugin to instrument the code and a Playwright wrapper to collect the data:
 
 ```sh
 npm install -D nyc vite-plugin-istanbul playwright-test-coverage
@@ -274,9 +265,9 @@ npm install -D nyc vite-plugin-istanbul playwright-test-coverage
 
 ### Create the coverage configuration
 
-We create a `.nycrc.json` file in order to specify the required coverage thresholds.
+Create a `.nycrc.json` file in your root directory to define coverage thresholds:
 
-```js
+```json
 {
   "check-coverage": true,
   "branches": 100,
@@ -286,7 +277,7 @@ We create a `.nycrc.json` file in order to specify the required coverage thresho
 }
 ```
 
-NYC will output coverage information to a directory named `.nyc_output`. We definitely don't want push that to GitHub, so we add it to our growing list of coverage files found in `.gitignore`
+Update your `.gitignore` to include the `.nyc_output` directory:
 
 ```txt
 coverage
@@ -298,7 +289,7 @@ node_modules
 .nyc_output
 ```
 
-Vite needs to know to include Istanbul as a plugin when bundling, so we create/modify `vite.config.js` to include instructions on which files you want to have Istanbul analyze.
+Modify `vite.config.js` to include the Istanbul plugin. This ensures that the code served during tests contains the necessary instrumentation.
 
 ```js
 import { defineConfig } from 'vite';
@@ -316,46 +307,42 @@ export default defineConfig({
 });
 ```
 
-Finally, we add another `package.json` script so that NYC runs the Playwright tests and reports the coverage results. We tell NYC to use two reporters: one that will save a high level JSON file, and another one that prints the details to the console.
+Finally, add a coverage script to `package.json`. This script tells NYC to run Playwright and then generate a summary report.
 
 ```json
 "scripts": {
-
-  ...
-
   "test:coverage": "nyc --reporter=json-summary --reporter=text playwright test"
 }
 ```
 
 ### Instrument the tests
 
-The last step is to replace the Playwright `test` function with one that wraps the `test` function and generates coverage data. You need to do this on every test file that you want to report coverage.
+In every test file where you want to collect coverage, replace the standard Playwright import with the `playwright-test-coverage` wrapper:
 
 ```js
-// import { test, expect } from '@playwright/test' <- Replace this with the line below
+// import { test, expect } from '@playwright/test'
 import { test, expect } from 'playwright-test-coverage';
 ```
 
-### Create a real test
+### Create a local test
 
-If we replace the test that calls the Playwright website with one that actually hits our React application we can determine the amount of coverage we get from loading the homepage.
+Create a test that targets your local Vite application instead of an external website:
 
-```sh
-test('test', async ({ page }) => {
+```js
+test('homepage loads', async ({ page }) => {
   await page.goto('http://localhost:5173/');
 });
 ```
 
 ### Run the tests with coverage
 
-With these changes, you are all set to run the tests and report coverage information.
+Run your new coverage script:
 
 ```sh
-➜  npm run test:coverage
+npm run test:coverage
 
 ERROR: Coverage for lines (44.44%) does not meet global threshold (80%)
-ERROR: Coverage for functions (25%) does not meet global threshold (80%)
-ERROR: Coverage for statements (44.44%) does not meet global threshold (80%)
+...
 -----------|---------|----------|---------|---------|-------------------
 File       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
 -----------|---------|----------|---------|---------|-------------------
@@ -364,57 +351,41 @@ All files  |   44.44 |      100 |      25 |   44.44 |
 -----------|---------|----------|---------|---------|-------------------
 ```
 
-It looks like we have 44.5% line coverage. That is pretty good for just having one line of testing code. Next we will look at using VS Code to write and run tests, and then dive deeper into what the Playwright testing framework provides so that we can bump up our coverage percentage.
+A 44% coverage rate is a good start for a single test. Next, we will use the VS Code extension to improve our testing workflow and increase this percentage.
 
 ## VS Code Playwright extension
 
-The [VS Code extension for Playwright](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) is well worth the time to install and master. You can actually use it to install Playwright for your project instead of using the manual steps defined above.
+The [VS Code extension for Playwright](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) is a powerful tool. It allows you to run tests directly from the **Testing** (beaker icon) sidebar.
 
-Just like the Jest VS Code extension, the Playwright extension will detect that you have Playwright tests and allow you to run them from the `flask` menu of the sidebar.
-
-Some cool features include:
-
-- Installing other browsers
-- In context error messages
-- Debugging tests
-- Picking a locator by clicking on an element
-- Recording a new tests
-- Record starting at the cursor
-- Displaying the trace viewer
-
-You can also debug your tests by placing a break point and walking through test code in VS Code and the frontend code in the browser's dev tools.
+Key features include:
+- Generating locators by clicking elements in the browser
+- Debugging tests with breakpoints
+- Recording new tests based on your interactions
+- Viewing the trace viewer directly in the editor
 
 > [!NOTE]
 >
-> Configuring Playwright to automatically start your application and using the Playwright extension to run tests will often leave it running in the background. If left running, it will also use previously defined configuration settings. If you want to make sure you start with a clean global configuration then make sure you run the global setup on each run.
+> When using the extension, Playwright might keep your application running in the background. If you change your configuration, ensure you restart the test runner to pick up the changes.
 
 ![alt text](playwrightSettings.png)
 
 ### Visual code coverage
 
-If you want to be able to visually see in VS Code which lines are covered by the NYC report you can install a VS Code extension such as [Cover](https://marketplace.visualstudio.com/items?itemName=hindlemail.cover).
+To see which lines are covered directly in your editor, you can install a VS Code extension like [Cover](https://marketplace.visualstudio.com/items?itemName=hindlemail.cover), which reads the NYC reports.
 
 ## Writing your own tests
 
-Now you are ready to write your first test against our demonstration service.
-
-Let's start by getting rid of the example tests. To do this you can either delete the `example.spec.js` file or move it to the `tests-examples` directory where it will be ignored.
+Let's write a comprehensive test for our pizza application.
 
 ### Recording a test
 
-We can create our test by using the VS Code Playwright extension's ability to record the interactions with the browser. To start the recording press the `Record new` new option found under the `Playwright panel` of the Test Explorer side pane.
+Use the "Record new" feature in the Playwright sidebar. This opens a browser window where your interactions (clicks, typing) are automatically converted into test code.
 
 > ![Playwright record test](playwrightRecordTest.gif)
 
-When you start the recording it will open up a browser window and connect to the server that you specified in the Playwright configuration file.
-
-You can then navigate to the desired webpage, interact with the page components and add assertions from the recording toolbar.
-
-When you are done, press the stop button and view the resulting test case.
-
 ### Examining the test
 
-Here is the test that resulted from the recording.
+The recorded test might look like this:
 
 ```js
 test('test', async ({ page }) => {
@@ -427,22 +398,11 @@ test('test', async ({ page }) => {
 });
 ```
 
-You can see how Playwright tries to abstract away as much of the locating of page elements as possible. Instead of using a CSS selector to find an element, it tries to find things by roles that have some distinguishing characteristic. For example, the different buttons are located by finding a role of button with a `+` or `Menu` in their text.
-
-```sh
-  await page.getByRole('button', { name: '+' }).click();
-```
-
-Using the `expect` function we can assert that the desired changes happened in reaction to our clicks, either that something was visible or that it contained certain text.
-
-```sh
-  await expect(page.getByText('🍕🍕🍕')).toBeVisible();
-  await expect(page.getByRole('list')).toContainText('Veggie - A garden of delight');
-```
+Playwright uses **Locators** like `getByRole` or `getByText` to find elements. This is more robust than using CSS selectors because it mimics how a user or screen reader perceives the page.
 
 ### Modifying the test
 
-Let's improve the test a bit.
+Let's refine the recorded test to be more descriptive and robust:
 
 ```js
 test('test', async ({ page }) => {
@@ -451,7 +411,8 @@ test('test', async ({ page }) => {
   await expect(page.getByText('🍕')).toBeVisible();
 
   const expected = '🍕🍕🍕🍕🍕';
-  await page.getByRole('button', { name: '+' }).click({ clickCount: expected.length });
+  // Note: We need to handle emoji unicode length correctly
+  await page.getByRole('button', { name: '+' }).click({ clickCount: [...expected].length - 1 });
   await expect(page.getByText(expected)).toHaveText(expected);
 
   await expect(page.getByRole('button', { name: 'Menu' })).toBeEnabled();
@@ -461,40 +422,17 @@ test('test', async ({ page }) => {
 });
 ```
 
-We add some validation of preconditions such that a pizza is already displayed at the start and that menu button goes from **enabled** to **disabled**.
-
-We also use data driven JavaScript to control how many times we push the pizza button and then to assert that the right number of pizzas occur, and we change the locator to find an exact text value rather than some possible substring.
-
 ### Debugging the test
 
-When we run the new test we get an error saying that it couldn't find the pizzas after we added them all. The error is showing that we made way more pizzas than we imagined.
-
-![expect pizzas error](expectPizzasError.png)
-
-If we debug the test by placing a breakpoint on the first line and then stepping through we can see our error.
+If a test fails, you can set a breakpoint in VS Code and step through the execution. This allows you to inspect the state of the app in the browser and the variables in your test code simultaneously.
 
 ![Playwright debug](playwrightDebug.gif)
 
-We are using the `length` operation on a string with emojis in it. Length is not going to take into account the unicode size of the emoji. So we need to convert it to an array of characters first and then get the length.
-
-```js
-await page.getByRole('button', { name: '+' }).click({ clickCount: [...expected].length });
-```
-
-Running the test again reveals another error. We were not taking into account the original 🍕 that existed before we inserted the new ones. To solve this we just insert one less pizza than we expect to be there in the end.
-
-```js
-await page.getByRole('button', { name: '+' }).click({ clickCount: [...expected].length - 1 });
-```
-
 ### Mocking
 
-We can demonstrate how mocking works with Playwright by replacing our actual call to the `jwt-pizza-service` with a mocked HTTP response. We want to mock out the call because we don't want our test to fail whenever the menu changes. However, the danger here is that the JSON response might change and the test will no longer detect the failure.
-
-Mocking the call turns out to be really easy. You just call the `route` method on the page object that is passed to the test and provide a function that can both validate the request and return a response.
+Playwright can intercept network requests and provide mocked responses. This is useful for isolating your UI from backend changes or network instability.
 
 ```js
-// Mock out the service
 const menuResponse = [{ title: 'Veggie', description: 'A garden of delight' }];
 await page.route('*/**/api/order/menu', async (route) => {
   expect(route.request().method()).toBe('GET');
@@ -502,19 +440,17 @@ await page.route('*/**/api/order/menu', async (route) => {
 });
 ```
 
-This doesn't return all the data that the actual endpoint was returning, but it is just what we need to validate that the UI is behaving properly.
-
 ### Final test version
 
-Here is the full test that we created.
+Here is the completed test file using coverage and mocking:
 
 ```js
 import { test, expect } from 'playwright-test-coverage';
 
-test('test', async ({ page }) => {
+test('pizza app flow', async ({ page }) => {
   const menuResponse = [{ title: 'Veggie', description: 'A garden of delight' }];
 
-  // Mock out the service
+  // Mock the menu API call
   await page.route('*/**/api/order/menu', async (route) => {
     expect(route.request().method()).toBe('GET');
     await route.fulfill({ json: menuResponse });
@@ -522,8 +458,7 @@ test('test', async ({ page }) => {
 
   await page.goto('http://localhost:5173/');
   await expect(page.getByText('Pizza')).toBeVisible();
-  await expect(page.getByText('🍕')).toBeVisible();
-
+  
   const expected = '🍕🍕🍕🍕🍕';
   await page.getByRole('button', { name: '+' }).click({ clickCount: [...expected].length - 1 });
   await expect(page.getByText(expected)).toHaveText(expected);
@@ -535,103 +470,53 @@ test('test', async ({ page }) => {
 });
 ```
 
-With these changes, you are all set to run the tests again and see what percentage of coverage we are getting.
-
-```sh
-➜  npm run test:coverage
-
-Running 1 test using 1 worker
-  1 passed (1.1s)
-
------------|---------|----------|---------|---------|-------------------
-File       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
------------|---------|----------|---------|---------|-------------------
-All files  |     100 |      100 |     100 |     100 |
- index.jsx |     100 |      100 |     100 |     100 |
------------|---------|----------|---------|---------|-------------------
-```
-
-It looks like we have 💯% line coverage. I'm feeling good!
+Running `npm run test:coverage` should now show 100% coverage.
 
 ## Learning Playwright
 
-It is highly suggested that you review the [Playwright instruction](https://playwright.dev/docs/writing-tests) for writing tests. This includes creating `locators` to find page elements, `actions` to interact with a locator, and `expect` operations to test your assertions.
+Review the [Playwright documentation](https://playwright.dev/docs/writing-tests) to master the three pillars of testing: Locators, Actions, and Assertions.
 
 ### Locators
 
-Generally a locator starts with the `page` object passed to the test function. The locators attempt to abstract the structure of the page and instead focus on things such as roles, text, and labels.
+Locators are the central piece of Playwright's auto-waiting and retry-ability.
 
-If you need to locate a specific element it is good practice to add a `data-testid` to an element instead of using the DOM ID. That allows you the freedom to change the element ID that your code interacts with, without breaking your test.
-
-```html
-<p data-testid="generated-copy">Lorem ipsum</p>
-```
-
-```js
-await expect(page.getByTestId('generated-copy').toBe('Lorem ipsum');
-```
-
-Experiment with the different locators until you feel comfortable with the unique abilities of each type.
-
-| Locator                 | Description                                                                                |
-| ----------------------- | ------------------------------------------------------------------------------------------ |
-| page.getByRole()        | Locate by explicit and implicit accessibility attributes.                                  |
-| page.getByText()        | Locate by text content.                                                                    |
-| page.getByLabel()       | Locate a form control by associated label's text.                                          |
-| page.getByPlaceholder() | Locate an input by placeholder.                                                            |
-| page.getByAltText()     | Locate an element, usually image, by its text alternative.                                 |
-| page.getByTitle()       | Locate an element by its title attribute.                                                  |
-| page.getByTestId()      | Locate an element based on its data-testid attribute (other attributes can be configured). |
+| Locator | Description |
+| --- | --- |
+| `page.getByRole()` | Locate by accessibility attributes (button, heading, etc.). |
+| `page.getByText()` | Locate by visible text content. |
+| `page.getByLabel()` | Locate a form control by its label text. |
+| `page.getByPlaceholder()` | Locate an input by its placeholder text. |
+| `page.getByAltText()` | Locate an element (usually an image) by its alt text. |
+| `page.getByTestId()` | Locate an element by its `data-testid` attribute. |
 
 ### Actions
 
-Actions allow you to interact with an element in order to simulate a user. Here are the most commonly used locators.
+Actions simulate user interaction.
 
-| Action                  | Description                     |
-| ----------------------- | ------------------------------- |
-| locator.check()         | Check the input checkbox        |
-| locator.click()         | Click the element               |
-| locator.uncheck()       | Uncheck the input checkbox      |
-| locator.hover()         | Hover mouse over the element    |
-| locator.fill()          | Fill the form field, input text |
-| locator.focus()         | Focus the element               |
-| locator.press()         | Press single key                |
-| locator.setInputFiles() | Pick files to upload            |
-| locator.selectOption()  | Select option in the drop-down  |
+| Action | Description |
+| --- | --- |
+| `locator.click()` | Click the element. |
+| `locator.fill()` | Clear the field and type text. |
+| `locator.check()` | Check a checkbox or radio button. |
+| `locator.hover()` | Hover the mouse over the element. |
+| `locator.press()` | Press a specific keyboard key. |
+| `locator.selectOption()` | Select an option in a `<select>` dropdown. |
 
-Here is an example of clicking on a button.
+### Assertions
 
-```js
-await page.getByRole('button').click();
-```
+The `expect` function provides many built-in matchers.
 
-### Expect
-
-The expect method provides the validation that your assertions are correct. Playwright provides many assertions.
-
-| Assertion                         | Description                       |
-| --------------------------------- | --------------------------------- |
-| expect(locator).toBe()            | Equality                          |
-| expect(locator).toBeChecked()     | Checkbox is checked               |
-| expect(locator).toBeEnabled()     | Control is enabled                |
-| expect(locator).toBeVisible()     | Element is visible                |
-| expect(locator).toContainText()   | Element contains text             |
-| expect(locator).toHaveAttribute() | Element has attribute             |
-| expect(locator).toHaveCount()     | List of elements has given length |
-| expect(locator).toHaveText()      | Element matches text              |
-| expect(locator).toHaveValue()     | Input element has value           |
-| expect(page).toHaveTitle()        | Page has title                    |
-| expect(page).toHaveURL()          | Page has URL                      |
-
-You can negate any of the above assertions by inserting the `not` in front of the assertion function.
-
-```js
-await expect(page.getByTestId('generated-copy').not.toBe('Lorem ipsum');
-```
+| Assertion | Description |
+| --- | --- |
+| `expect(locator).toBeVisible()` | Element is visible on the page. |
+| `expect(locator).toBeEnabled()` | Form control is not disabled. |
+| `expect(locator).toContainText()` | Element contains specific text. |
+| `expect(locator).toHaveValue()` | Input element has a specific value. |
+| `expect(page).toHaveURL()` | The browser is at the expected URL. |
 
 ## ☑ Exercise
 
-Create a project based on the instructions provided above. Change the `App` component to be the following. Install Playwright and create tests until you get 100% code coverage with this new code.
+Create a project based on the instructions above. Update the `App` component in `index.jsx` to the code provided below. Install Playwright and write tests until you achieve 100% code coverage.
 
 **index.jsx**
 
@@ -667,7 +552,7 @@ function App() {
     <div>
       <h1>Pizza</h1>
       <p>{'🍕'.repeat(count) || '👨‍🍳'}</p>
-      <label htmlFor='order'>Pizza:</label>
+      <label htmlFor='pizza-type'>Pizza:</label>
       <div>
         <input type='text' id='pizza-type' value={pizzaType} placeholder='type' onChange={(e) => setPizzaType(e.target.value)} />
         &nbsp;<button onClick={() => setCount(count + 1)}>+1</button>
@@ -688,6 +573,6 @@ function App() {
 }
 ```
 
-Once you are done, you should have 100% coverage. This will look something like the following.
+When finished, your coverage report should look like this:
 
 ![Playwright coverage](playwrightCoverage.png)
