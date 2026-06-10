@@ -15,11 +15,12 @@ In order to help you develop your ability to be curious, you are required to tak
 
 The following are reasonable reports that previous learners created. These provide examples of the level of effort and quality that your report should have in order to be accepted.
 
-- [AWS Lambda](https://github.com/jjwjohns/jwt-pizza/blob/main/curiosityReport.md)
-- [How do Linters work](https://github.com/rileyballard6/jwt-pizza/blob/main/curiosityReport.md)
-- [Upptime](https://github.com/EthanSuperior/jwt-pizza/blob/main/curiosityReport.md)
-- [Terraform](https://github.com/garett-whimple/jwt-pizza/blob/main/curiosityReport.md)
-- [Git Branching Strategy and Forking in Collaboration](https://github.com/alexueda/jwt-pizza/blob/main/blob/main/curiosityReport/curiosityReport.md)
+- [AWS EventBridge](https://github.com/ChloeWarner03/jwt-pizza/blob/main/curiosityreport/curiosityReport.md)
+- [Terraform](https://github.com/mmad4804/jwt-pizza/blob/main/curiosityReport.md)
+- [Fuzz Testing](https://github.com/opensprocket/jwt-pizza/blob/main/curiosityReport.md)
+- [Date Testing](https://github.com/Zach31224/jwt-pizza/blob/main/curiosityReport.md)
+- [GitHub Actions Runners](https://github.com/pblood66/jwt-pizza/blob/main/CuriousityReport.md)
+- [AWS Cloud Development Kit](https://github.com/owenslar/jwt-pizza/blob/main/curiosityReport.md)
 
 Some required characteristics of a good report include:
 
@@ -51,7 +52,7 @@ For example: **Diving into the internals of how SuperTest enables endpoint calls
 Before the last few weeks of the course you must do the following:
 
 1. Pick a curiosity topic
-1. Research the topic
+1. Research and experiment with the topic
 1. Create a markdown file and insert it into your fork of the `jwt-pizza` repository in a file named `curiosityReport.md`.
 1. Populate the markdown file with what you learned
 
