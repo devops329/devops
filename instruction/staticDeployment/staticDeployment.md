@@ -29,16 +29,7 @@ Here is a more complicated example of an audio mixer that you can interact with 
 
 You can host static deployment on a server, or content delivery network (CDN), that simply delivers it to the customer's browser. This is a completely static deployment because no code execution happens on the backend when the application is used.
 
-```mermaid
-graph LR;
-    subgraph Browser
-    app[Browser Engine]
-    end
-    subgraph File Server
-    app-->|Requests|index.html
-    index.html-->|Downloads|app
-    end
-```
+![webAppStaticDeployment.jpg](webAppStaticDeployment.jpg)
 
 With technologies such as WebAssembly, you can do incredibly powerful things all in the user's browsers. This includes video editing, executing LLMs, and graphing complex mathematical calculations.
 
@@ -50,15 +41,16 @@ There is a limit to what you can build using only client-side code. For example,
 
 An application is still considered a static deployment even if it calls backend computational services, as long as **you** are not the one providing and maintaining those server-side services. In this model, your part of the application remains static, while a third party supports the dynamic functionality.
 
-Consider a React application that uses [Google Firebase](https://firebase.google.com/) to handle authentication, notifications, and data storage. In this scenario, you are still deploying a static application (the React build files), while Google handles the complexities of scalability, reliability, and server-side logic.
+Consider a React application that uses [Supabase](https://supabase.com/) to handle authentication, notifications, and data storage. In this scenario, you are still deploying a static application (the React build files), while Supabase handles the complexities of scalability, reliability, and server-side logic.
 
 ```mermaid
 graph LR;
     subgraph Browser
     app[Static App]
     end
-    subgraph Google Firebase
-    app-->|API Calls|firebase[Backend Services]
+    subgraph Supabase
+    app-->|API Calls|db
+    app-->|API Calls|login
     end
 ```
 
