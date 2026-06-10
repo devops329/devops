@@ -15,6 +15,8 @@ This instruction walks you through the process of setting up the backend JWT Piz
 
 ```mermaid
 graph LR;
+    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
+
     subgraph  Development environment
     jwtPizzaService
     jwtPizzaService-->database
@@ -111,6 +113,8 @@ The following is a diagram representing the architecture of the JWT Pizza Servic
 
 ```mermaid
 graph TB;
+    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
+
     app-->setAuthUser
     app-->apiRouter
     apiRouter-->authRouter
