@@ -37,11 +37,12 @@ Some common characteristics of a good report include:
 
 The following report doesn't meet the acceptance threshold for the following reasons:
 
+1. It doesn't demonstrate the exercise of curiosity
 1. It simply repeats what is taught in the course instruction
 1. There is no depth in research and application
-1. It doesn't demonstrate the exercise of curiosity
 1. There are no references to existing authorities on the subject
-1. AI or Google query would have produced a better report
+1. There are no experiments
+1. There is no reproduction path
 
 > ![Poor report](poorReport.png)
 
