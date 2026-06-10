@@ -299,3 +299,9 @@ Create a Node.js project named `serviceTestingExample`. Reproduce the steps abov
 Once complete, your coverage report should look like the image below.
 
 ![total coverage](totalCoverage.png)
+
+
+```masteryls
+{"id":"342db483-1cba-4d11-9d6c-d1cc72c2a86a", "title":"Service testing", "type":"essay" }
+Describe the roles of the Jest and SuperTest packages.
+```
