@@ -286,7 +286,11 @@
           "title": "Continuous integration (CI)",
           "path": "instruction/continuousIntegration/continuousIntegration.md",
           "id": "2e19fd54-0b4f-4f61-a019-aa4791197edd",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "d0d5489e-5640-49d2-8cfe-5f7c76b5be1e",
+            "3be2d962-6f38-4e35-a4fc-c99d51cd6c90"
+          ]
         },
         {
           "title": "☑ GitHub Actions",
