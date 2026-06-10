@@ -282,3 +282,9 @@ A helpful tip: whenever a test passes, it is a great time to commit your changes
 ## ☑ Exercise
 
 Create a Node.js project named `tddExample`. Reproduce the steps provided above to solidify your understanding of the TDD cycle.
+
+
+```masteryls
+{"id":"643d3b23-0990-4ae0-a56c-65d8c72da21f", "title":"TDD experience", "type":"essay" }
+Describe your experience with using TDD.
+```
