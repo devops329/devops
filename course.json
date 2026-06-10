@@ -444,12 +444,13 @@
           "description": ""
         },
         {
-          "title": "Lint",
-          "type": "instruction",
+          "title": "☑ Lint",
           "path": "instruction/lint/lint.md",
           "id": "5d8bdd55-b01b-4271-a0da-e0900cc40bd7",
           "state": "published",
-          "description": ""
+          "interactions": [
+            "b9220ac6-b738-44e3-bb1f-6c19c1d35230"
+          ]
         },
         {
           "title": "Unit testing: JWT Pizza Service",
