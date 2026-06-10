@@ -174,7 +174,7 @@ Once you are done, it should look something like this:
 
 
 ````masteryls
-{"id":"3b49bdd9-c1ad-41e4-9367-d257bae73490", "title":"Essay", "type":"essay", "gradingCriteria":"-n In addition to explaining the steps, the learner must explain what triggers the pipeline.\n- Do not give exact descriptions of what the workflow does." }
+{"id":"3b49bdd9-c1ad-41e4-9367-d257bae73490", "title":"Essay", "type":"essay", "gradingCriteria":"-n In addition to explaining the steps, the learner must explain what triggers the pipeline.\n- Do not give exact descriptions of what the learner has missed." }
 Describe what the following GitHub Actions workflow does.
 
 ```yml
