@@ -2,32 +2,34 @@
 
 🔑 **Key points**
 
-- UI testing is a critical piece of your application testing strategy.
-- Devices, OS, and browsers create a complicated testing matrix.
-- Browsers, drivers, and frameworks create the testing stack.
-- Flakiness is a major problem.
+- UI testing is a critical component of a modern application testing strategy.
+- The diversity of devices, operating systems (OS), and browsers creates a complex testing matrix.
+- The testing stack is composed of browsers, drivers, and frameworks.
+- Flakiness is a significant challenge in UI automation.
 
 ---
 
-UI testing consists of emulating a customer interaction with the application and then asserting the correct response. This includes authenticating users, guiding them through the decision making process, and achieving the desired result.
+UI testing involves emulating user interactions with an application and asserting that it responds correctly. This includes authenticating users, guiding them through various workflows, and verifying that they can achieve their desired results.
 
-UI tests can be some of the most valuable tests that you can execute, because the UI is always at the top of your application stack and is the actual component that a customer interacts with. However, for UI testing to obtain its full value, it has to actually integrate with the underlying architecture during the tests and represent realistic customer usage. It is not enough to simply display the home page and call it good. The tests must validate that all the vital navigation elements are displayed and the customer's data is rendered appropriately.
+UI tests are among the most valuable tests in a suite because the UI is the top layer of the application stack and the primary interface for users. However, for UI testing to provide full value, it must integrate with the underlying architecture during execution to represent realistic usage. It is not enough to simply verify that a home page loads; tests must validate that vital navigation elements are functional and that user data renders correctly.
 
 ## The difficulties of UI testing
 
-No one understands the difficulty of testing applications in a browser better than the companies that build web browsers. They have to test every possible use of HTML, CSS, and JavaScript that a user could think of. There was no way that manual testing was going to work and so early on they started putting hooks into their browsers that allowed them to be driven from automated external processes. [Selenium](https://www.selenium.dev/) was introduced in 2004 as the first popular tool to automate the browser. However, Selenium is generally considered to be flaky and slow. Flakiness means that a test fails in unpredictable, non-reproducible ways. When you need thousands of tests to pass before you can deploy a new feature, even a little flakiness becomes a big problem. If those tests take hours to run, you have an even bigger problem.
+No one understands the difficulty of browser-based testing better than the companies that build the browsers themselves. They must test every possible combination of HTML, CSS, and JavaScript. Because manual testing cannot scale to this level of complexity, browser vendors implemented "hooks" that allow browsers to be controlled by automated external processes. 
 
-Testing UI code that executes in a web browser is significantly harder than testing backend code that runs from a command console. With backend code you are running under a predictable operating system with little variation on how it executes. With code that renders in a browser, you must actually execute the code in the browser and then simulate a user interacting with the application through mouse, finger, and keyboard actions.
+[Selenium](https://www.selenium.dev/) was introduced in 2004 as the first popular tool for browser automation. However, Selenium is often associated with being "flaky" and slow. **Flakiness** refers to a test that fails in unpredictable, non-reproducible ways. When a pipeline requires thousands of tests to pass before a feature can be deployed, even a small percentage of flakiness becomes a major bottleneck. If those tests also take hours to run, development velocity decreases significantly.
+
+Testing UI code in a web browser is significantly harder than testing backend code. Backend code typically runs in a predictable server environment with little execution variance. In contrast, browser-based code must be executed within a specific rendering engine while simulating complex human interactions like mouse movements, touch gestures, and keyboard input.
 
 #### Device, browser, and OS explosion
 
-UI testing is further complicated by the variations of browsers and devices that the UI may execute on. According to _statCounter_, the global mobile vendor usage for 2023-2024 indicated that Android and Apple evenly split a majority of the mobile market.
+UI testing is further complicated by the vast array of browsers and devices. According to StatCounter, global mobile vendor usage for 2023–2024 shows Android and Apple splitting the majority of the market nearly evenly.
 
 ![Mobile stats](mobileStats.png)
 
-> _source: [statCounter](https://gs.statcounter.com/vendor-market-share/mobile/worldwide)_
+> _Source: [StatCounter](https://gs.statcounter.com/vendor-market-share/mobile/worldwide)_
 
-In addition to the different devices, you also need to consider the different browsers. Each of these browsers has unique characteristics and behaviors that are also influenced by the device they are running on. As of February 2024, here are the statistics for browser usage.
+In addition to hardware diversity, testers must account for different browsers. Each browser has unique behaviors and rendering characteristics influenced by the host operating system. As of February 2024, browser usage statistics are as follows:
 
 | Browser | Percentage |
 | ------- | ---------- |
@@ -36,37 +38,37 @@ In addition to the different devices, you also need to consider the different br
 | Edge    | 5%         |
 | Firefox | 3%         |
 
-> _source: [similarWeb](https://www.similarweb.com/browsers/)_
+> _Source: [SimilarWeb](https://www.similarweb.com/browsers/)_
 
 ## Browser drivers
 
-Browser drivers act as the bridge between your test scripts and the actual web browser environment. These tools simulate user interactions like clicking buttons, filling out forms, and navigating pages. They essentially become the invisible hands that execute your tests within a real browser.
+Browser drivers act as the bridge between your test scripts and the web browser environment. These tools simulate user interactions—such as clicking buttons, filling out forms, and navigating pages—acting as the "invisible hands" that execute tests within a real browser.
 
 ![testingStack](testingStack.png)
 
-Currently, the most common browser drivers are based upon the W3C [WebDriver](https://www.w3.org/TR/webdriver2/) specification. The standard was derived based upon the previously mentioned [Selenium](https://www.selenium.dev/). Many of the common testing frameworks that exist today use the Selenium WebDriver as their foundation. There are other drivers that follow the WebDriver specification for specific browsers. These include SafariDriver, OperaDriver, and FirefoxDriver.
+Currently, the most common browser drivers are based on the W3C [WebDriver](https://www.w3.org/TR/webdriver2/) specification. This standard was derived from the original Selenium project. Many modern testing frameworks use the Selenium WebDriver as their foundation. Other drivers follow the WebDriver specification for specific browsers, including SafariDriver, OperaDriver, and FirefoxDriver.
 
-Alternatively, the testing framework Playwright chose to go directly against the browser APIs for all the major browsers. This includes WebKit (Safari), Chromium, and Firefox. They took this approach in order to execute tests faster, with less flakiness.
+Alternatively, the Playwright framework interacts directly with browser-level APIs for all major engines, including WebKit (Safari), Chromium (Chrome/Edge), and Firefox. This approach is designed to execute tests faster and with higher reliability.
 
 ### Running headless
 
-Usually a driver will allow you to execute in a **visual** or **headless** mode. When running in headless mode there is no UI rendering of the application and so the tests run significantly faster. However, when developing tests it is useful to see what is actually happening while the test executes.
+Drivers typically allow you to execute tests in either **visual** (headed) or **headless** mode. In headless mode, the application does not render a visible UI, allowing tests to run significantly faster and consume fewer resources. However, when developing or debugging tests, visual mode is useful for observing the execution in real-time.
 
 ## Testing frameworks
 
-There are lots of UI testing frameworks available for you to use. Here are some of the major players.
+There are many UI testing frameworks available, each with different strengths.
 
 | Tool       | Pros                                                                                                                                           | Cons                                                                               | Driver                                        |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | --------------------------------------------- |
-| Jest       | Popular choice for JavaScript projects, integrates seamlessly with React Testing Library, offers snapshot testing for visual regression checks | Primarily for JavaScript-based UIs                                                 | Selenium WebDriver                            |
-| Cypress    | Easy to learn with a visual test editor, offers time travel debugging for easier troubleshooting                                               | Focused on end-to-end testing, may not be ideal for complex unit testing scenarios | Chrome DevTools Protocol                      |
-| Playwright | Designed for modern web development, supports multiple browsers natively, offers a recorder for faster test creation                           | Requires coding knowledge in JavaScript, Python, or .NET                           | Native calls to Chromium, WebKit, and Firefox |
+| Jest       | Popular for JavaScript projects; integrates with React Testing Library; supports snapshot testing for visual regressions.                       | Primarily designed for JavaScript-based component testing.                         | Selenium WebDriver (via integrations)         |
+| Cypress    | Easy to learn with a visual test runner; offers "time travel" debugging to inspect state at any step.                                          | Focused on end-to-end testing; can be difficult to use for complex unit scenarios. | Chrome DevTools Protocol                      |
+| Playwright | Built for modern web apps; natively supports multiple browsers; includes a code recorder for rapid test creation.                             | Requires proficiency in JavaScript, Python, Java, or .NET.                         | Native calls to Chromium, WebKit, and Firefox |
 
 ## Writing tests
 
-The various test frameworks provide different methods for writing tests. This can be customer scripting language, visual interactions, or using common programming languages such as JavaScript or C#. The choice of language has a significant impact on the performance, capability, and ease of the framework.
+Testing frameworks provide various methods for authoring tests, including custom scripting languages, visual interaction recorders, or standard programming languages like JavaScript and C#. The choice of language and framework significantly impacts the performance, maintainability, and capabilities of the test suite.
 
-Here is an example test written in JavaScript for the Playwright framework.
+The following example demonstrates a test written in JavaScript using the Playwright framework:
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -89,14 +91,16 @@ test('addStore', async ({ page }) => {
     await route.fulfill({ json: { store: mockServiceData } });
   });
 
-  // Initiate the page loading
+  // Initiate page loading
   await page.goto('http://localhost:5173/');
   await expect(page).toHaveTitle('DevOps Demo');
 
-  // add a new store by pressing the button
+  // Add a new store by interacting with the UI
   await page.locator('css=input').fill('provo');
   const addStoreBtn = page.getByRole('button', { name: 'Add' });
   await addStoreBtn.click();
+
+  // Verify the new store appears in the table
   const storeTable = page.getByRole('cell', { name: 'provo' });
   await expect(storeTable).toHaveText('provo');
 });
@@ -104,8 +108,23 @@ test('addStore', async ({ page }) => {
 
 ## Flakiness
 
-Browser driven testing is inherently flaky due to the nature of simulating a user across diverse devices. Flakiness can cause tests to intermittently pass or fail. This slows down development cycles and creates a sense of distrust in the testing process. Here are some ways to combat flaky tests:
+Browser-driven testing is inherently susceptible to flakiness due to the complexity of simulating human behavior across diverse environments. Flaky tests intermittently pass or fail without code changes, which slows down development and erodes trust in the CI/CD pipeline. 
 
-- Identify and eliminate synchronization issues: Ensure your tests wait for elements to load completely before interacting with them.
-- Handle dynamic content effectively: Use robust selectors that can adapt to slight changes in the UI.
-- Minimize reliance on external factors: Avoid tests that depend on network conditions or third-party services.
+To combat flakiness:
+
+- **Eliminate synchronization issues:** Ensure tests explicitly wait for elements to be visible or actionable before interacting with them.
+- **Use robust selectors:** Avoid fragile CSS paths; use data attributes or accessible roles that are less likely to change during UI refactors.
+- **Minimize external dependencies:** Use mocking or stubbing to prevent tests from failing due to network instability or third-party service outages.
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"8de29cc1-603b-4f49-bc02-481a9939d02b","title":"Purpose of Browser-Driven UI Testing","type":"multiple-choice"}
+What is the primary reason for performing UI testing that directly drives a web browser rather than relying solely on unit or integration tests?
+
+- [ ] It significantly reduces the overall execution time of the test suite because browsers can process JavaScript faster than isolated runtime environments.
+- [ ] It is the most efficient method for achieving 100% code coverage across the backend's internal business logic and database schemas.
+- [x] It validates the entire application stack from the user's perspective, ensuring that the frontend, backend, and environment integrate correctly.
+- [ ] It allows developers to bypass the user interface to test private server-side methods that are not exposed to the network.
+```
