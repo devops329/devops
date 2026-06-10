@@ -395,7 +395,10 @@
           "title": "Jest basics",
           "path": "instruction/jestBasics/jestBasics.md",
           "id": "8a376585-ab52-4670-a3d2-1fc7c46218e1",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "4a033259-057d-494d-9c3a-380dc7c45ded"
+          ]
         },
         {
           "title": "AI unit testing",
