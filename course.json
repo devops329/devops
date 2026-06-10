@@ -305,7 +305,10 @@
           "title": "Static deployment",
           "path": "instruction/staticDeployment/staticDeployment.md",
           "id": "2022e6f1-0137-4e98-b38a-b7e57b2d5ac1",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "c42e5169-4462-4001-b8a0-dda9046a5245"
+          ]
         },
         {
           "title": "☑ GitHub Pages",
