@@ -69,9 +69,8 @@ The key here is to focus your efforts on practical benefits and not meaningless 
 
 ## Exercises
 
-
 ```masteryls
 {"id":"e0bb8306-483c-43f2-a9cd-dccbc7fb02f3", "title":"Coverage", "type":"teaching" }
-Help me understand the when I have enough coverage and how that relates to confidence in the correctness of my code.
+Help me understand how to know when I have enough coverage and how that relates to my confidence in the correctness of my code.
 ```
 
