@@ -120,6 +120,14 @@ Following the above instruction you should have already forked and cloned the jw
 https://github.com/youraccountnamehere/jwt-pizza
 ```
 
+
+```masteryls
+{"id":"d6ea467d-336b-4f3c-bd43-bbe38bb5efc6","title":"JWT Pizza Service Repository","type":"url-submission","syncGrade":false,"autoGrade":false,"validateUrl":true,"gradingCriteria":"- The heading '🍕 jwt-pizza' exists","urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file."}
+After you have cloned the JWT Pizza repository to your account, submit the URL of your pizza  repository for review.
+
+_Example: https://github.com/youracountname/jwt-pizza_
+```
+
 Now you can build and start up the JWT pizza frontend in your development environment and learn the code.
 
 1. Build and explore the application code.
