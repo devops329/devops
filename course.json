@@ -386,7 +386,10 @@
           "title": "Coverage",
           "path": "instruction/coverage/coverage.md",
           "id": "dd013921-f09a-4987-b32e-b66ed853b093",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "e0bb8306-483c-43f2-a9cd-dccbc7fb02f3"
+          ]
         },
         {
           "title": "Jest basics",
