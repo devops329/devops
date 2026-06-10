@@ -216,3 +216,26 @@ test('get orders', async () => {
   await request(app).get('/api/order/').set('Authorization', `Bearer ${authToken}`);
 });
 ```
+
+## Exercises
+
+
+```masteryls
+{"id":"7d6ec40a-e0f0-4841-82a6-61411fc573db","title":"Primary Benefits of Testing","type":"multiple-select"}
+What is the primary benefit of incorporating a robust testing strategy early in the software development lifecycle?
+
+- [ ] It provides a formal guarantee that the software is entirely free of bugs and security vulnerabilities.
+- [x] It complements documentation and architectural planning.
+- [x] It identifies defects early, significantly reducing the cost and complexity of remediation compared to finding them in production.
+- [ ] It allows developers to skip code quality checks since all errors will be caught during the final test phase.
+```
+
+```masteryls
+{"id":"41af55fd-ccbc-4dfb-bef1-9e4ec3547aa6","title":"Avoiding Brittle Tests","type":"multiple-choice"}
+When beginners start writing unit tests, they often create "brittle" tests that break frequently during refactoring. Which of the following actions is a primary cause of this problem?
+
+- [ ] Organizing tests using the **Arrange-Act-Assert** pattern, which creates too much overhead for simple logic
+- [ ] Mocking a database connection to ensure that the unit tests can run quickly and in isolation from the infrastructure
+- [x] Asserting against the internal implementation details of a class rather than its public API and observable behavior
+- [ ] Writing tests that only verify the final return value of a function instead of inspecting every local variable change
+```
