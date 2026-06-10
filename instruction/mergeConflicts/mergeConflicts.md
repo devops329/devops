@@ -43,3 +43,15 @@ git add .
 git commit -m "merge() conflict due to ..."
 git push
 ```
+
+## Exercises
+
+```masteryls
+{"id":"5b2bcb09-4ed8-43dd-935b-ec6e8640d2d5","title":"Forking vs. Cloning","type":"multiple-choice"}
+When collaborating on projects that may eventually require resolving merge conflicts, it is essential to understand how you access the code. What is the primary difference between a **fork** and a **clone**?
+
+- [ ] A fork is a core Git command used to manage local branches, while a clone is a platform-specific feature used to delete remote repositories.
+- [ ] A clone provides a way to resolve merge conflicts automatically on the server, whereas a fork requires all conflicts to be handled via the command line interface.
+- [ ] Forking is the process of downloading a repository's history as a static ZIP file, while cloning establishes a live connection for real-time peer-to-peer coding.
+- [x] A fork creates a copy of the repository on the hosting service (server-side) under your account, while a clone creates a local copy of the repository on your physical machine.
+```
