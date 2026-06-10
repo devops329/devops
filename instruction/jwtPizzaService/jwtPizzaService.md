@@ -148,6 +148,13 @@ Following the above instruction you should have already forked and cloned the jw
 https://github.com/youraccountnamehere/jwt-pizza-service
 ```
 
+```masteryls
+{"id":"58c26abd-ce8a-4f9c-b65a-55e4992f208f", "title":"JWT Pizza Service Repository", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The heading '🍕 jwt-pizza-service' exists", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
+After you have cloned the JWT Pizza Service repository to your account, submit the URL of your pizza service repository for review.
+
+_Example: https://github.com/youracountname/jwt-pizza-service_
+```
+
 Now you can build and start up the backend pizza service in your development environment and learn the code.
 
 1. Build and explore the application code.
@@ -158,13 +165,6 @@ Now you can build and start up the backend pizza service in your development env
 1. Open the jwt-pizza-service project in VS Code.
 1. Create your `src/config.json` file with proper configuration settings.
 1. Use the VS Code debugger to start up that service.
-
-```masteryls
-{"id":"58c26abd-ce8a-4f9c-b65a-55e4992f208f", "title":"JWT Pizza Service Repository", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The heading '🍕 jwt-pizza-service' exists", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
-After you have cloned the JWT Pizza Service repository to your account, submit the URL of your pizza service repository for review.
-
-_Example: https://github.com/youracountname/jwt-pizza-service_
-```
 
 
 ### Pizza data
