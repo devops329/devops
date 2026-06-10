@@ -553,6 +553,9 @@
           "path": "instruction/tdd/tdd.md",
           "id": "e5c54d40-6742-4f3a-976d-5f4693c2a9de",
           "state": "published",
+          "interactions": [
+            "643d3b23-0990-4ae0-a56c-65d8c72da21f"
+          ],
           "description": ""
         },
         {
