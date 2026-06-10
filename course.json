@@ -377,7 +377,10 @@
           "title": "Testing categories",
           "path": "instruction/testingCategories/testingCategories.md",
           "id": "50e24a98-cbdf-41b8-8ec0-7144d786039d",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "c022b6e5-09b9-4fc6-a05a-e036d4e7c14d"
+          ]
         },
         {
           "title": "Coverage",
