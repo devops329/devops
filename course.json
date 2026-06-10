@@ -14,6 +14,12 @@
         "path": "schedule/schedule.md",
         "default": true,
         "state": "published"
+      },
+      {
+        "id": "fc1847c8-59b7-4692-ab93-d1f0bc2dee23",
+        "title": "Fall 2026",
+        "path": "schedule/fall-2026.md",
+        "default": false
       }
     ]
   },
