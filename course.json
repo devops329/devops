@@ -225,7 +225,10 @@
           "title": "☑ JWT Pizza data",
           "path": "instruction/jwtPizzaData/jwtPizzaData.md",
           "id": "2179e37d-e6ce-494c-9fc5-6baeec9df25a",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "c3085596-1b52-4c30-98ff-34c0142eb862"
+          ]
         },
         {
           "title": "☑ JWT Pizza Client",
