@@ -314,13 +314,15 @@
           ]
         },
         {
-          "title": "☑ GitHub Actions",
+          "title": "GitHub Actions",
+          "type": "instruction",
           "path": "instruction/gitHubActions/gitHubActions.md",
           "id": "d6053d1c-bbea-4dfa-a087-0905614ea63d",
           "state": "published",
           "interactions": [
             "3b49bdd9-c1ad-41e4-9367-d257bae73490"
-          ]
+          ],
+          "description": ""
         },
         {
           "title": "Static deployment",
