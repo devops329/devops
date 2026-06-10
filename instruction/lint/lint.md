@@ -136,6 +136,6 @@ Once you have resolved the errors, your terminal should report no problems found
 
 
 ```masteryls
-{"id":"b9220ac6-b738-44e3-bb1f-6c19c1d35230", "title":"Essay", "type":"essay", "gradingCriteria":"- Explains the purpose of a linter\n- Describes any pain points" }
+{"id":"b9220ac6-b738-44e3-bb1f-6c19c1d35230", "title":"Using ESLint", "type":"essay", "gradingCriteria":"- Explains the purpose of a linter\n- Describes any pain points" }
 Describe your experience using ESLint.
 ```
