@@ -50,7 +50,8 @@ graph LR;
     end
     subgraph Supabase
     app-->|API Calls|db
-    app-->|API Calls|login
+    app-->|API Calls|authentication
+    notification-->|Alerts|app
     end
 ```
 
