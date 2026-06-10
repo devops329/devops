@@ -66,3 +66,12 @@ The amount of effort you put into verifying the correctness of your code should 
 For common web application development it is common to have around a 1:1 test/production code ratio, with somewhere above 80% line coverage.
 
 The key here is to focus your efforts on practical benefits and not meaningless metrics. Write tests that provide the required value.
+
+## Exercises
+
+
+```masteryls
+{"id":"e0bb8306-483c-43f2-a9cd-dccbc7fb02f3", "title":"Coverage", "type":"teaching" }
+Help me understand the when I have enough coverage and how that relates to confidence in the correctness of my code.
+```
+
