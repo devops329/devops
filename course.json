@@ -542,7 +542,10 @@
           "title": "Integration testing",
           "path": "instruction/integrationTesting/integrationTesting.md",
           "id": "34b4c084-f487-4eb8-8737-a9849f6960cf",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "6e6925ac-fed4-4532-97c6-48703215e391"
+          ]
         },
         {
           "title": "☑ Test driven development (TDD)",
