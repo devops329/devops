@@ -367,7 +367,11 @@
           "title": "Testing",
           "path": "instruction/testing/testing.md",
           "id": "19b89f40-f56e-4a68-aa12-a13082d3e533",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "7d6ec40a-e0f0-4841-82a6-61411fc573db",
+            "41af55fd-ccbc-4dfb-bef1-9e4ec3547aa6"
+          ]
         },
         {
           "title": "Testing categories",
