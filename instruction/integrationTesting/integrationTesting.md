@@ -61,3 +61,11 @@ An obvious candidate for integration testing is the connection between the `jwt-
 4. **Full Integration (Frontend + Backend + Database):** Integrate everything except the external pizza factory. While this provides high confidence, it enters the realm of end-to-end (E2E) testing. The database configuration becomes tightly coupled to the frontend tests, which can lead to complex and brittle setups.
 
 Consider the trade-offs for each decision. What value does the integration provide? Does a mock make the test easier to write at the expense of catching real bugs? What do you gain by testing against the real implementation?
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"6e6925ac-fed4-4532-97c6-48703215e391", "title":"Integration testing", "type":"essay" }
+Describe the factors you would consider when determining if integration testing in appropriate for a given module.
+```
