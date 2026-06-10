@@ -181,8 +181,7 @@ Describe what the following GitHub Actions workflow does.
 name: CI Pipeline
 
 on:
-  push:
-    workflow_dispatch
+  workflow_dispatch
 jobs:
   test:
     runs-on: ubuntu-latest
