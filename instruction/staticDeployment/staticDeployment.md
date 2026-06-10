@@ -70,3 +70,17 @@ graph LR;
 This greatly simplifies your life because you don't have to worry about deploying and managing code running on backend servers. That is left to the DevOps engineers working at JWT Headquarters. You just need to put the JWT Pizza frontend code in a location where a browser can load the frontend code.
 
 In later instruction you will learn how to deploy your own JWT Pizza Service and database. Then you will only rely on the Pizza Factory provided by JWT Headquarters. Deploying your own backend service and database makes things significantly more complicated, but it gives you control over the full stack, and that is where all the fun is.
+
+## Exercises
+
+
+```masteryls
+{"id":"c42e5169-4462-4001-b8a0-dda9046a5245","title":"Static vs. Dynamic Deployment","type":"multiple-choice"}
+What is the primary technical characteristic that distinguishes a static deployment from a dynamic server-side deployment?
+
+- [x] Static deployments serve pre-built files directly to the user without requiring a server to execute code or query a database during the request-response cycle.
+- [ ] Static deployments are restricted to HTML and CSS only and cannot execute client-side JavaScript or interact with external APIs.
+- [ ] Static deployments require a server-side runtime environment like Node.js or Python to generate the page content every time a user visits the URL.
+- [ ] Static deployments must be hosted on a local physical server and are incompatible with modern edge computing or Content Delivery Networks (CDNs).
+```
+
