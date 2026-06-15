@@ -758,13 +758,15 @@
           ]
         },
         {
-          "title": "☑ JWT Pizza Service infrastructure automation",
+          "title": "JWT Pizza Service infrastructure automation",
+          "type": "instruction",
           "path": "instruction/jwtPizzaServiceInfrastructureAutomation/jwtPizzaServiceInfrastructureAutomation.md",
           "id": "893a10b3-b1be-4516-8e25-e7b54dbef5c6",
           "state": "published",
           "interactions": [
             "6370aa82-b543-43f2-9cd6-e6bd83285b79"
-          ]
+          ],
+          "description": ""
         },
         {
           "title": "Versioning",
