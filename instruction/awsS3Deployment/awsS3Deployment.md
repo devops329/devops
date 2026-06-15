@@ -199,8 +199,6 @@ After the workflow runs successfully, visit your website URL. You should see the
 
 ![Final result](finalResult.png)
 
-Once you have confirmed the deployment works, you can disable or delete this test workflow. You will implement a similar deployment process for the actual JWT Pizza frontend code in a later assignment.
-
 
 ## ☑ Exercise
 
@@ -211,3 +209,6 @@ Provide the URL of your publicly available CloudFront hosted website that was de
 
 _Example: pizza.mydomainname.click_
 ```
+
+
+Once you have confirmed the deployment works, you can disable or delete this test workflow. You will implement a similar deployment process for the actual JWT Pizza frontend code in a later assignment.
