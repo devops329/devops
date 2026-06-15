@@ -104,6 +104,20 @@ The JWT Pizza frontend currently uses an **In Situ** strategy executed by a CI w
 
 For a production system, this "In Situ" approach is not ideal. Rollbacks are difficult because they require a full rebuild and redeployment, which can take ten minutes or more. To improve this, the frontend deployment will be moved to a strategy where files are deployed atomically, allowing for near-instant rollbacks.
 
+## ☑ Exercise
+
+
+```masteryls
+{"id":"b3ef9f02-00c5-47eb-a531-df38b6e651fa","title":"Blue-Green Traffic Switching","type":"multiple-choice"}
+In a blue-green deployment strategy, how is the transition from the current production version to the new version typically executed?
+
+- [ ] By incrementally updating individual nodes within a single cluster until all instances run the new version.
+- [x] By reconfiguring a load balancer or router to point traffic from the current environment to an identical idle environment containing the new code.
+- [ ] By routing a small percentage of users to the new environment to monitor performance before a full rollout.
+- [ ] By taking the current environment offline to perform an in-place upgrade of the application and its dependencies.
+```
+
+
 ## A bit of fun
 
 ![XKCD Will It Work](xkcdWillItWork.png)
