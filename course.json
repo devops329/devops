@@ -585,7 +585,10 @@
           "title": "Cloud deployment",
           "path": "instruction/cloudDeployment/cloudDeployment.md",
           "id": "d9cbf5b2-3e07-4666-b9fb-c0a371ceccab",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "6d7276ff-ea09-47e4-b91e-acc2a42bd301"
+          ]
         },
         {
           "title": "☑ AWS S3",
