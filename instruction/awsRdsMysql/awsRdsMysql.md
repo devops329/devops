@@ -2,123 +2,123 @@
 
 🔑 **Key points**
 
-- AWS RDS provides excellent managed database support
-- Security groups protect access to the database
-- Store your credentials securely
-- Deploy an RDS MySQL database for use by the JWT Pizza Service
+- AWS RDS provides managed database support, handling maintenance and backups.
+- Security groups act as virtual firewalls to protect database access.
+- Credentials must be stored securely using environment variables or secrets.
+- Deploying an RDS MySQL instance is a core step for the JWT Pizza Service infrastructure.
 
 ---
 
-With cloud deployment you can take advantage of scalable database services that can dynamically increase in storage and computing capacity as the size and demands of your customer audience increase. For the JWT Pizza service you are going to use the AWS Relational Database Service (RDS) MySQL implementation.
+Cloud deployment allows you to leverage scalable database services that can dynamically increase storage and computing capacity as your user base grows. For the JWT Pizza service, you will use the AWS Relational Database Service (RDS) MySQL implementation.
 
-AWS RDS manages configuration, backup, monitoring, and restoration for you. Additionally, it only takes a couple mouse clicks to increase or decrease the size of your database server. This helps you reduce cost when you don't need a large instance and increase the instance when your customers become more demanding.
+AWS RDS manages configuration, backups, monitoring, and restoration for you. Additionally, you can adjust the size of your database server with just a few clicks. This allows you to reduce costs during low-demand periods and scale up as your customer traffic increases.
 
 > [!IMPORTANT]
 >
-> Make sure you are using the `us-east-1` AWS region for all your work in this course.
+> Ensure you are using the `us-east-1` (N. Virginia) AWS region for all work in this course.
 
-## Creating the VPC security groups
+## Creating VPC security groups
 
-Before you create your database instance, you need to define the security groups that will allow network access to your database. You will first define the **jwt-pizza-service** security group that anyone can talk to, and then the database security group that only allows the **jwt-pizza-service** to talk to it.
+Before creating your database instance, you must define the security groups that control network traffic. You will define two groups:
+1. **jwt-pizza-service**: A group for the application service.
+2. **jwt-pizza-db**: A group for the database that only allows traffic from the application service.
 
-Eventually you will change the **jwt-pizza-service** security group so that only the load balancer can talk to it, but you can't do that until you actually deploy a load balancer.
+Initially, the `jwt-pizza-service` group will allow public traffic. Once a load balancer is deployed later in the course, you will restrict this group further.
 
 ![Security groups](securityGroups.png)
 
 ### Create the Pizza Service security group
 
-1. Open the AWS browser console and navigate to the VPC service.
-1. Select `Security groups` from the left panel navigation.
-1. Press `Create security group`.
-1. Name the group `jwt-pizza-service`.
-1. Give a simple description like `JWT Pizza Service`.
-1. Press the `Add rule` for **inbound rules**.
-   1. Select the `type` of **HTTPS**. This should populate the `Port range` with 443. Set the `Source` to **Anywhere-IPv4**.
-   1. Add a second rule. Select the `type` of **HTTP**. This should populate the `Port range` with 80. Set the `Source` to **Anywhere-IPv4**.
+1. Open the AWS Management Console and navigate to the **VPC** service.
+1. Select **Security groups** from the left navigation panel.
+1. Click **Create security group**.
+1. **Security group name**: `jwt-pizza-service`.
+1. **Description**: `JWT Pizza Service`.
+1. Under **Inbound rules**, click **Add rule**:
+   1. **Type**: `HTTPS`. This auto-populates port 443. Set **Source** to `Anywhere-IPv4` (`0.0.0.0/0`).
+   1. **Type**: `HTTP`. This auto-populates port 80. Set **Source** to `Anywhere-IPv4` (`0.0.0.0/0`).
 
    ![Pizza service security group](pizzaServiceSecurityGroup.png)
 
-1. **Do not delete the Outbound rules**.
-1. Press the `Create security group` button.
+1. **Do not delete the default Outbound rules**.
+1. Click **Create security group**.
 
 ### Create the database security group
 
-1. Navigate to `Security groups` in the VPC service.
-1. Press `Create security group`.
-1. Name the security group `jwt-pizza-db`.
-1. Give a simple description like `JWT Pizza Service Database`.
-1. Press the `Add rule` for **inbound rules**.
-   1. Select the `type` of `MYSQL/Aurora`. This should populate the `Port range` with 3306. Set the `Source` to be the **jwt-pizza-service** security group that you just created. Start typing the jwt-pizza-service in the source box and it should auto-fill the actual security group ID.
+1. Return to the **Security groups** page in the VPC service.
+1. Click **Create security group**.
+1. **Security group name**: `jwt-pizza-db`.
+1. **Description**: `JWT Pizza Service Database`.
+1. Under **Inbound rules**, click **Add rule**:
+   1. **Type**: `MySQL/Aurora`. This auto-populates port 3306. 
+   1. **Source**: Select the `jwt-pizza-service` security group you just created. As you type `jwt-pizza-service` in the source box, the console should suggest the corresponding Security Group ID.
 
    ![Pizza service database security group](pizzaServiceDbSecurityGroup.png)
 
-1. **Do not delete the Outbound rules**.
-1. Press the `Create security group` button.
+1. **Do not delete the default Outbound rules**.
+1. Click **Create security group**.
 
 ## Creating a MySQL instance
 
-With the network security deployed, you can now create the MySQL server instance.
+With the network security configured, you can now provision the MySQL server instance.
 
-1. Open the AWS browser console and navigate to the RDS service.
-1. Press the `Create database` button.
-1. Select `MySQL`.
-1. Under **Templates** choose `Free tier` or `Sandbox` if free tier is not available.
-1. Under **Settings**
-   1. Name your DB instance: `jwt-pizza-service-db`
-   1. Leave the username as: `admin`
-   1. Select `Self managed`
-   1. Specify your password.
+1. Open the AWS Management Console and navigate to the **RDS** service.
+1. Click **Create database**.
+1. Choose **Standard create**.
+1. **Engine options**: Select `MySQL`.
+1. **Templates**: Choose `Free tier`. (If Free tier is unavailable, select `Dev/Test`).
+1. **Settings**:
+   1. **DB instance identifier**: `jwt-pizza-service-db`.
+   1. **Master username**: `admin`.
+   1. **Credentials management**: Select `Self managed`.
+   1. **Master password**: Specify a strong password.
 
-      ⚠️ Make sure you don't use anything complicated in your password. The password is communicated as a URL connection string and so many punctuation mark characters will cause the connection to fail. It is best to stick to alphanumeric passwords.
+      ⚠️ **Warning:** Avoid using special characters (like `@`, `:`, or `/`) in your password. Since this password is often passed within a URL connection string, certain punctuation marks can cause the connection to fail. It is safest to use alphanumeric characters.
 
-1. Under **Database authentication** select `Password and IAM database authentication`.
-
-1. Under **Instance configuration**
-   1. Make sure `Burstable classes` option is selected
-   1. Select `db.t4g.micro` as the DB instance class
+1. **Instance configuration**:
+   1. Ensure **Burstable classes** is selected.
+   1. Select `db.t4g.micro` (or the current free-tier eligible equivalent).
 
       ![RDS instance configuration](rdsInstanceConfiguration.png)
 
-1. Under **Connectivity**
-   1. Select **No** for `Public access`.
-   1. Select **Choose existing** for the `VPC security group`.
-      1. Select the `jwt-pizza-db` security group you created earlier.
-      1. Unselect the `default` security group.
-   1. Select one of the available availability zones for the `Availability zone`.
-1. Press `Create database`.
+1. **Connectivity**:
+   1. **Public access**: Select **No**.
+   1. **VPC security group**: Select **Choose existing**.
+      1. Select the `jwt-pizza-db` security group.
+      1. Remove the `default` security group.
+   1. **Availability Zone**: Select any available zone (e.g., `us-east-1a`).
+1. Click **Create database**.
 
-After a few minutes your database will display that it has been created. Copy the **database endpoint**, you will store that value as the DB hostname in your GitHub Actions secrets.
+The database may take several minutes to provision. Once the status is **Available**, click on the instance name and copy the **Endpoint**. You will use this as your DB hostname.
 
 ![database properties](databaseProperties.png)
 
 ## Securing your database
 
-With the database deployed, it would be great if you could immediately use it. However, you have two problems. You need to safely provide the credentials to the JWT Pizza Service, and you have to access the database over a private network.
+While the database is now deployed, you must address two requirements before the JWT Pizza Service can use it: establishing network connectivity and managing credentials.
 
-Security is often a trade-off between ease of use and strong protections. Note that DevOps automation can often help alleviate the burden of the security overhead by removing the manual hoops that you otherwise have to jump through.
+Security is often a trade-off between convenience and protection. DevOps automation helps bridge this gap by handling security requirements without manual overhead.
 
 ### Private network access
 
-You can solve the network problem by deploying the JWT Pizza service to AWS and opening a hole in the network firewall so that only the service can access the database. You already configured the network hole when you created the security group for the database and specified that only devices in the `jwt-pizza-service` security group could access it.
-
-Keeping the database on a private network is a good security practice since the database is a high value target that contains user information and credentials.
+By keeping the database on a private network (Public access: No), you protect high-value user data from direct internet exposure. The JWT Pizza Service will be able to reach the database because you configured the `jwt-pizza-db` security group to explicitly allow traffic from the `jwt-pizza-service` security group.
 
 ### DB credentials
 
-To solve the database credential problem, you will store the information necessary to access the database in your `jwt-pizza-service` GitHub Actions secrets. The CI workflow will inject the credentials into the service's configuration when it is deployed.
+To provide credentials to the application securely, you will store them as **GitHub Actions secrets**. During the CI/CD workflow, these secrets will be injected into the service's environment variables.
 
-Go ahead and update the GitHub Actions secrets with the values you just used to configure the database. This includes the hostname, username (admin), and password.
+Update your GitHub repository secrets with the following values:
 
 | Secret      | Description                                         | Example                                               |
 | ----------- | --------------------------------------------------- | ----------------------------------------------------- |
-| DB_HOSTNAME | The production hostname for the database            | jwt-pizza-service-db.xxxx.us-east-1.rds.amazonaws.com |
+| DB_HOSTNAME | The production endpoint for the database            | jwt-pizza-service-db.xxxx.us-east-1.rds.amazonaws.com |
 | DB_USERNAME | The production username for the database            | admin                                                 |
-| DB_PASSWORD | The production password used to access the database | 90fnkl32sd9clza                                       |
+| DB_PASSWORD | The production password used to access the database | your-alphanumeric-password                            |
 
 ## ☑ Exercise
 
-Deploy a MySQL server in your AWS account using the instructions given above. This includes the following steps:
+Deploy a MySQL server in your AWS account following the steps outlined above:
 
-1. Create the security groups.
-1. Create the MySQL RDS instance.
-1. Add the DB connection information to your `jwt-pizza-service` GitHub Actions secrets.
+1. Create the application and database security groups.
+2. Provision the MySQL RDS instance within the `jwt-pizza-db` security group.
+3. Add the database endpoint, username, and password to your `jwt-pizza-service` GitHub Actions secrets.
