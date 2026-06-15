@@ -1,0 +1,893 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AWS Elasticity Demo</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg: #f4f7fb;
+        --panel: #ffffff;
+        --border: #d7deea;
+        --border-2: #c7d3e6;
+        --ink: #1f2937;
+        --muted: #56657a;
+        --blue: #2b6de0;
+        --blue-2: #e8f0ff;
+        --blue-3: #dce9ff;
+        --good: #0f7c51;
+        --warn: #a15c00;
+        --bad: #b42318;
+        --shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+        --radius: 10px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+      }
+
+      .container {
+        width: min(1180px, 94vw);
+        margin: 20px auto;
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: 16px;
+      }
+
+      .panel,
+      .stage-wrap {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .panel {
+        padding: 16px;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: 1.4rem;
+      }
+
+      .lede {
+        margin: 0 0 14px;
+        line-height: 1.45;
+        color: var(--muted);
+      }
+
+      .wiki-link {
+        font-size: 0.82rem;
+        color: #64748b;
+        text-decoration: none;
+      }
+
+      .wiki-link:hover {
+        color: #475569;
+        text-decoration: underline;
+      }
+
+      .control {
+        margin-bottom: 12px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 700;
+      }
+
+      .input-grid {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 8px;
+        align-items: center;
+      }
+
+      input[type='range'] {
+        width: 100%;
+      }
+
+      input[type='number'],
+      select {
+        width: 100%;
+        border: 1px solid #c5d2e5;
+        border-radius: 8px;
+        padding: 8px 10px;
+        background: #fff;
+        color: var(--ink);
+      }
+
+      .value {
+        font-weight: 700;
+        color: #0044b3;
+      }
+
+      .segmented {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .segmented input {
+        display: none;
+      }
+
+      .segmented label {
+        margin: 0;
+        padding: 8px 10px;
+        border: 1px solid #c9d9f1;
+        border-radius: 8px;
+        background: #fff;
+        text-align: center;
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      .segmented input:checked + label {
+        background: var(--blue-2);
+        border-color: #a7c4f6;
+        color: #123c8d;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 10px 0 16px;
+      }
+
+      button {
+        border: 1px solid #bfd1ec;
+        background: var(--blue-2);
+        color: var(--ink);
+        border-radius: 8px;
+        padding: 8px 12px;
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      button:hover {
+        background: var(--blue-3);
+      }
+
+      .equation {
+        padding: 10px;
+        background: #f1f5fb;
+        border-radius: 8px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.86rem;
+        line-height: 1.45;
+        margin-bottom: 12px;
+        white-space: pre-line;
+      }
+
+      .results {
+        display: grid;
+        gap: 6px;
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 7px 8px;
+        background: #f8fbff;
+        border: 1px solid #e0e8f5;
+        border-radius: 6px;
+        font-size: 0.92rem;
+      }
+
+      .row strong {
+        white-space: nowrap;
+        font-weight: 400;
+        color: #0044b3;
+      }
+
+      .pass {
+        color: var(--good);
+        font-weight: 700;
+      }
+
+      .warn {
+        color: var(--warn);
+        font-weight: 700;
+      }
+
+      .fail {
+        color: var(--bad);
+        font-weight: 700;
+      }
+
+      .stage-wrap {
+        padding: 12px;
+      }
+
+      .stage {
+        min-height: 620px;
+        border-radius: 8px;
+        border: 2px dashed #bac7dc;
+        background: linear-gradient(135deg, #f8fbff, #edf3ff);
+        padding: 16px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .preview-card,
+      .timeline-card,
+      .legend-card {
+        border: 1px solid #d5deed;
+        border-radius: 10px;
+        padding: 14px;
+        background: #ffffff;
+      }
+
+      .hero {
+        display: grid;
+        gap: 10px;
+      }
+
+      .hero-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 999px;
+        border: 2px solid currentColor;
+        padding: 6px 12px;
+        font-weight: 700;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: currentColor;
+      }
+
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .metric {
+        border: 1px solid #dbe6f3;
+        border-radius: 10px;
+        padding: 10px;
+        background: #f9fcff;
+      }
+
+      .metric .label {
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin-bottom: 4px;
+      }
+
+      .metric .num {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .metric .sub {
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+
+      .topology {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 12px;
+        align-items: stretch;
+      }
+
+      .topo-block {
+        border: 1px solid #dbe6f3;
+        border-radius: 10px;
+        background: linear-gradient(180deg, #fbfdff, #f2f7ff);
+        padding: 12px;
+      }
+
+      .topo-title {
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .asg-line {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+      }
+
+      .inst {
+        width: 64px;
+        border-radius: 10px;
+        border: 1px solid #bfd1ec;
+        background: linear-gradient(180deg, #ffffff, #edf4ff);
+        box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+        padding: 8px 6px 7px;
+        text-align: center;
+        font-size: 0.78rem;
+      }
+
+      .inst .type {
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+
+      .inst .scale {
+        font-size: 0.72rem;
+        color: var(--muted);
+      }
+
+      .inst.active {
+        border-color: #85b2f6;
+        background: linear-gradient(180deg, #eef5ff, #dfeaff);
+      }
+
+      .load-bar {
+        height: 18px;
+        background: #eaf0f8;
+        border-radius: 999px;
+        overflow: hidden;
+        border: 1px solid #cfd9e7;
+      }
+
+      .load-fill {
+        height: 100%;
+        width: 50%;
+        background: linear-gradient(90deg, #4f83e6, #7ec8ff);
+      }
+
+      .capacity-bar {
+        height: 18px;
+        background: #eaf0f8;
+        border-radius: 999px;
+        overflow: hidden;
+        border: 1px solid #cfd9e7;
+      }
+
+      .capacity-fill {
+        height: 100%;
+        width: 50%;
+        background: linear-gradient(90deg, #16a34a, #6ee7b7);
+      }
+
+      .scale-note {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-top: 6px;
+      }
+
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 6px;
+        align-items: end;
+        min-height: 180px;
+      }
+
+      .bar-wrap {
+        display: grid;
+        gap: 4px;
+        align-items: end;
+      }
+
+      .bar {
+        border-radius: 8px 8px 4px 4px;
+        background: linear-gradient(180deg, #8fb9ff, #4f83e6);
+        min-height: 16px;
+        border: 1px solid rgba(43, 109, 224, 0.25);
+      }
+
+      .bar.capacity {
+        background: linear-gradient(180deg, #8fe8c8, #16a34a);
+        border-color: rgba(22, 163, 74, 0.18);
+      }
+
+      .bar.over {
+        background: linear-gradient(180deg, #ffc07a, #f97316);
+        border-color: rgba(249, 115, 22, 0.18);
+      }
+
+      .bar-label {
+        font-size: 0.75rem;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .legend {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
+
+      .legend span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .swatch {
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+        display: inline-block;
+      }
+
+      .hint {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin: 6px 0 0;
+      }
+
+      .footer-note {
+        font-size: 0.82rem;
+        color: #66738a;
+        margin-top: 10px;
+      }
+
+      @media (max-width: 940px) {
+        .container {
+          grid-template-columns: 1fr;
+        }
+
+        .summary-grid,
+        .topology {
+          grid-template-columns: 1fr;
+        }
+
+        .timeline {
+          grid-template-columns: repeat(6, 1fr);
+        }
+      }
+
+      @media (max-width: 560px) {
+        .summary-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .segmented {
+          grid-template-columns: 1fr;
+        }
+
+        .timeline {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <section class="panel">
+        <h1>AWS Elasticity Demo</h1>
+        <p class="lede">Explore how an application on AWS can respond to changing demand with <strong>horizontal scaling</strong> (more EC2 instances in an Auto Scaling Group) or <strong>vertical scaling</strong> (bigger EC2 instance sizes). The demo also shows estimated cost and whether the system stays within capacity.</p>
+        <p class="lede">
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Elasticity_(computing)" target="_blank" rel="noopener noreferrer">Learn more on Wikipedia</a>
+        </p>
+
+        <div class="control">
+          <label>Scaling mode</label>
+          <div class="segmented">
+            <div>
+              <input id="modeHorizontal" type="radio" name="mode" value="horizontal" checked />
+              <label for="modeHorizontal">Horizontal</label>
+            </div>
+            <div>
+              <input id="modeVertical" type="radio" name="mode" value="vertical" />
+              <label for="modeVertical">Vertical</label>
+            </div>
+            <div>
+              <input id="modeHybrid" type="radio" name="mode" value="hybrid" />
+              <label for="modeHybrid">Hybrid</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="control">
+          <label for="workload">Workload / request rate: <span class="value" id="workloadValue">6,000</span> req/min</label>
+          <input id="workload" type="range" min="1000" max="20000" step="500" value="6000" />
+        </div>
+
+        <div class="control">
+          <label for="baseInstances">Horizontal scaling: desired EC2 instances: <span class="value" id="baseInstancesValue">3</span></label>
+          <input id="baseInstances" type="range" min="1" max="12" step="1" value="3" />
+        </div>
+
+        <div class="control">
+          <label for="instanceType">Vertical scaling: EC2 instance type</label>
+          <select id="instanceType">
+            <option value="t3.small">t3.small</option>
+            <option value="t3.medium" selected>t3.medium</option>
+            <option value="m6i.large">m6i.large</option>
+            <option value="c6i.xlarge">c6i.xlarge</option>
+            <option value="m6i.2xlarge">m6i.2xlarge</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="minInstances">Auto Scaling Group min / max</label>
+          <div class="input-grid">
+            <input id="minInstances" type="number" min="1" max="20" value="2" />
+            <input id="maxInstances" type="number" min="1" max="40" value="10" />
+          </div>
+        </div>
+
+        <div class="control">
+          <label for="budget"
+            >Cost sensitivity: hourly budget <span class="value">$<span id="budgetValue">2.50</span></span></label
+          >
+          <input id="budget" type="range" min="0.5" max="8" step="0.25" value="2.5" />
+        </div>
+
+        <div class="control">
+          <label for="trafficBurst">Traffic spike severity: <span class="value" id="burstValue">70%</span></label>
+          <input id="trafficBurst" type="range" min="0" max="100" step="1" value="70" />
+        </div>
+
+        <div class="actions">
+          <button id="presetCost" type="button">Cost-optimized</button>
+          <button id="presetBalanced" type="button">Balanced</button>
+          <button id="presetPerf" type="button">Performance-first</button>
+          <button id="resetDemo" type="button">Reset</button>
+        </div>
+
+        <div class="equation" id="equation">Capacity = instances × instance power\nCost = instances × instance hourly price</div>
+
+        <div class="results" id="results"></div>
+        <div class="footer-note">This page is intentionally self-contained, so it can be dropped into a single file and run locally.</div>
+      </section>
+
+      <section class="stage-wrap">
+        <div class="stage" aria-label="AWS elasticity preview area">
+          <div class="preview-card hero">
+            <div class="hero-top">
+              <div>
+                <div style="font-size: 0.82rem; color: #66738a; font-weight: 700; letter-spacing: 0.02em">APPLICATION TIER</div>
+                <div style="font-size: 1.25rem; font-weight: 700; margin-top: 2px">EC2 Auto Scaling Group behind an ALB</div>
+              </div>
+              <div class="chip" id="healthChip" role="img" aria-label="Application health status">
+                <span class="dot" aria-hidden="true"></span>
+                <span id="healthText">Healthy</span>
+              </div>
+            </div>
+
+            <div class="summary-grid">
+              <div class="metric">
+                <div class="label">Estimated hourly cost</div>
+                <div class="num" id="costOut">$0.00</div>
+                <div class="sub" id="costSub">within budget</div>
+              </div>
+              <div class="metric">
+                <div class="label">Total capacity</div>
+                <div class="num" id="capacityOut">0</div>
+                <div class="sub">req/min handled</div>
+              </div>
+              <div class="metric">
+                <div class="label">Utilization</div>
+                <div class="num" id="utilOut">0%</div>
+                <div class="sub">current demand / capacity</div>
+              </div>
+              <div class="metric">
+                <div class="label">Elasticity outcome</div>
+                <div class="num" id="elasticityOut">Stable</div>
+                <div class="sub">scaling response</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="preview-card topology">
+            <div class="topo-block">
+              <div class="topo-title">How the AWS setup changes</div>
+              <div id="scaleBlurb" class="hint" style="margin-top: 0; margin-bottom: 10px">Horizontal scaling adds more EC2 instances to the Auto Scaling Group.</div>
+              <div class="asg-line" id="instanceLine"></div>
+              <div class="load-bar" aria-label="Demand bar">
+                <div class="load-fill" id="loadFill"></div>
+              </div>
+              <div class="scale-note">Demand</div>
+              <div class="capacity-bar" aria-label="Capacity bar" style="margin-top: 10px">
+                <div class="capacity-fill" id="capacityFill"></div>
+              </div>
+              <div class="scale-note">Capacity</div>
+              <p class="hint" id="throughputHint">The application can absorb the spike without dropping requests.</p>
+            </div>
+            <div class="topo-block">
+              <div class="topo-title">Elasticity timeline</div>
+              <div class="timeline" id="timeline"></div>
+              <div class="legend" style="margin-top: 10px">
+                <span><i class="swatch" style="background: linear-gradient(180deg, #8fb9ff, #4f83e6)"></i> Demand</span>
+                <span><i class="swatch" style="background: linear-gradient(180deg, #8fe8c8, #16a34a)"></i> Capacity</span>
+                <span><i class="swatch" style="background: linear-gradient(180deg, #ffc07a, #f97316)"></i> Overrun</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="legend-card">
+            <div class="legend">
+              <span><i class="swatch" style="background: #4f83e6"></i> More traffic</span>
+              <span><i class="swatch" style="background: #16a34a"></i> More capacity</span>
+              <span><i class="swatch" style="background: #f97316"></i> Traffic exceeds capacity</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const workload = document.getElementById('workload');
+      const baseInstances = document.getElementById('baseInstances');
+      const instanceType = document.getElementById('instanceType');
+      const minInstances = document.getElementById('minInstances');
+      const maxInstances = document.getElementById('maxInstances');
+      const budget = document.getElementById('budget');
+      const trafficBurst = document.getElementById('trafficBurst');
+      const workloadValue = document.getElementById('workloadValue');
+      const baseInstancesValue = document.getElementById('baseInstancesValue');
+      const burstValue = document.getElementById('burstValue');
+      const budgetValue = document.getElementById('budgetValue');
+      const equation = document.getElementById('equation');
+      const results = document.getElementById('results');
+      const costOut = document.getElementById('costOut');
+      const capacityOut = document.getElementById('capacityOut');
+      const utilOut = document.getElementById('utilOut');
+      const elasticityOut = document.getElementById('elasticityOut');
+      const costSub = document.getElementById('costSub');
+      const throughputHint = document.getElementById('throughputHint');
+      const healthText = document.getElementById('healthText');
+      const healthChip = document.getElementById('healthChip');
+      const scaleBlurb = document.getElementById('scaleBlurb');
+      const instanceLine = document.getElementById('instanceLine');
+      const loadFill = document.getElementById('loadFill');
+      const capacityFill = document.getElementById('capacityFill');
+      const timeline = document.getElementById('timeline');
+      const modeInputs = [...document.querySelectorAll('input[name="mode"]')];
+
+      const INSTANCE_TYPES = {
+        't3.small': { power: 1200, cost: 0.0208, label: 't3.small' },
+        't3.medium': { power: 2200, cost: 0.0416, label: 't3.medium' },
+        'm6i.large': { power: 4500, cost: 0.096, label: 'm6i.large' },
+        'c6i.xlarge': { power: 7400, cost: 0.17, label: 'c6i.xlarge' },
+        'm6i.2xlarge': { power: 9200, cost: 0.384, label: 'm6i.2xlarge' },
+      };
+
+      function clamp(n, min, max) {
+        return Math.max(min, Math.min(max, n));
+      }
+
+      function money(n) {
+        return '$' + n.toFixed(2);
+      }
+
+      function pct(n) {
+        return Math.round(n) + '%';
+      }
+
+      function getMode() {
+        return modeInputs.find((i) => i.checked)?.value || 'horizontal';
+      }
+
+      function resultRow(label, value, verdict, verdictClass) {
+        const row = document.createElement('div');
+        row.className = 'row';
+        row.innerHTML = '<span>' + label + '</span><span>' + value + '</span><span class="' + verdictClass + '">' + verdict + '</span>';
+        return row;
+      }
+
+      function buildInstanceCards(count, selectedType, activeCount) {
+        instanceLine.innerHTML = '';
+        const visible = clamp(count, 1, 16);
+        for (let i = 0; i < visible; i++) {
+          const card = document.createElement('div');
+          card.className = 'inst' + (i < activeCount ? ' active' : '');
+          card.innerHTML = '<div class="type">EC2</div><div>' + selectedType.label + '</div><div class="scale">' + (i < activeCount ? 'in use' : 'warm') + '</div>';
+          instanceLine.appendChild(card);
+        }
+      }
+
+      function buildTimeline(demand, capacity, spike) {
+        timeline.innerHTML = '';
+        const max = Math.max(demand, capacity, 1);
+        const points = [0.45, 0.55, 0.7, 0.85, 1, 1 + spike * 0.003, 1.15 + spike * 0.003, 1 + spike * 0.002, 0.92, 0.8, 0.68, 0.55];
+        const capPoints = points.map((mult) => capacity * (0.72 + (mult - 0.45) * 0.28));
+
+        for (let i = 0; i < points.length; i++) {
+          const d = demand * points[i];
+          const c = capPoints[i];
+          const over = d > c;
+          const wrap = document.createElement('div');
+          wrap.className = 'bar-wrap';
+          const dBar = document.createElement('div');
+          dBar.className = 'bar' + (over ? ' over' : '');
+          dBar.style.height = Math.max(16, (d / max) * 150) + 'px';
+          const cBar = document.createElement('div');
+          cBar.className = 'bar capacity';
+          cBar.style.height = Math.max(14, (c / max) * 150) + 'px';
+          const label = document.createElement('div');
+          label.className = 'bar-label';
+          label.textContent = i === 5 ? 'spike' : String(i + 1);
+          wrap.appendChild(dBar);
+          wrap.appendChild(cBar);
+          wrap.appendChild(label);
+          timeline.appendChild(wrap);
+        }
+      }
+
+      function update() {
+        const mode = getMode();
+        const req = Number(workload.value);
+        const base = Number(baseInstances.value);
+        const selected = INSTANCE_TYPES[instanceType.value];
+        const min = clamp(Number(minInstances.value || 1), 1, 40);
+        const max = clamp(Number(maxInstances.value || 1), min, 40);
+        minInstances.value = min;
+        maxInstances.value = max;
+        const budgetHour = Number(budget.value);
+        const spike = Number(trafficBurst.value);
+
+        workloadValue.textContent = req.toLocaleString();
+        baseInstancesValue.textContent = base;
+        burstValue.textContent = pct(spike);
+        budgetValue.textContent = budgetHour.toFixed(2);
+
+        const typePower = selected.power;
+        const typeCost = selected.cost;
+
+        let horizontalInstances = clamp(base, min, max);
+        let verticalInstances = horizontalInstances;
+        let activeInstances = horizontalInstances;
+        let instancePower = typePower;
+        let hourlyCost = horizontalInstances * typeCost;
+        let modeLabel = 'Horizontal scaling';
+        let scaleText = 'Horizontal scaling adds more EC2 instances to the Auto Scaling Group.';
+
+        if (mode === 'vertical') {
+          activeInstances = clamp(Math.round(req / typePower), min, max);
+          activeInstances = clamp(activeInstances, min, max);
+          horizontalInstances = activeInstances;
+          verticalInstances = activeInstances;
+          instancePower = typePower;
+          hourlyCost = activeInstances * typeCost;
+          modeLabel = 'Vertical scaling';
+          scaleText = 'Vertical scaling changes the EC2 instance size. Fewer bigger instances can be enough for the same demand.';
+        } else if (mode === 'hybrid') {
+          const boostedType = req > 12000 ? INSTANCE_TYPES['m6i.2xlarge'] : req > 8000 ? INSTANCE_TYPES['c6i.xlarge'] : selected;
+          instancePower = boostedType.power;
+          verticalInstances = clamp(Math.ceil(req / boostedType.power), min, max);
+          horizontalInstances = clamp(Math.max(base, verticalInstances), min, max);
+          activeInstances = horizontalInstances;
+          hourlyCost = horizontalInstances * boostedType.cost;
+          modeLabel = 'Hybrid scaling';
+          scaleText = 'Hybrid scaling combines bigger instances with more EC2 capacity when demand rises.';
+        } else {
+          const needed = Math.ceil(req / typePower);
+          activeInstances = clamp(Math.max(base, needed), min, max);
+          horizontalInstances = activeInstances;
+          verticalInstances = activeInstances;
+          hourlyCost = activeInstances * typeCost;
+          modeLabel = 'Horizontal scaling';
+        }
+
+        const totalCapacity = activeInstances * instancePower;
+        const utilization = (req / totalCapacity) * 100;
+        const over = req > totalCapacity;
+        const underBudget = hourlyCost <= budgetHour;
+        const efficiencyGap = totalCapacity - req;
+        const spareText = efficiencyGap >= 0 ? '+' + efficiencyGap.toLocaleString() : efficiencyGap.toLocaleString();
+
+        const health = over ? 'Overloaded' : utilization > 80 ? 'Busy' : 'Healthy';
+        healthText.textContent = health;
+        healthChip.style.color = over ? 'var(--bad)' : utilization > 80 ? 'var(--warn)' : 'var(--good)';
+        healthChip.querySelector('.dot').style.background = over ? 'var(--bad)' : utilization > 80 ? 'var(--warn)' : 'var(--good)';
+
+        costOut.textContent = money(hourlyCost);
+        capacityOut.textContent = totalCapacity.toLocaleString();
+        utilOut.textContent = pct(Math.min(utilization, 999));
+        elasticityOut.textContent = over ? 'Needs more capacity' : utilization > 85 ? 'Elastic but tight' : 'Stable';
+        costSub.textContent = underBudget ? 'within budget' : 'above budget';
+
+        scaleBlurb.textContent = scaleText;
+        throughputHint.textContent = over ? 'Traffic is exceeding provisioned capacity. Add instances or choose a larger instance type.' : 'The application can absorb the spike without dropping requests.';
+
+        equation.textContent = 'Mode: ' + modeLabel + '\n' + 'Demand = ' + req.toLocaleString() + ' req/min\n' + 'Instance power = ' + instancePower.toLocaleString() + ' req/min\n' + 'Instances = ' + activeInstances + '\n' + 'Total capacity = ' + activeInstances.toLocaleString() + ' × ' + instancePower.toLocaleString() + ' = ' + totalCapacity.toLocaleString() + ' req/min\n' + 'Hourly cost = ' + activeInstances + ' × ' + money(mode === 'hybrid' ? (req > 12000 ? INSTANCE_TYPES['m6i.2xlarge'].cost : req > 8000 ? INSTANCE_TYPES['c6i.xlarge'].cost : selected.cost) : selected.cost) + ' = ' + money(hourlyCost);
+
+        results.innerHTML = '';
+        results.appendChild(resultRow('Capacity margin', spareText + ' req/min', over ? 'Insufficient' : 'Enough', over ? 'fail' : 'pass'));
+        results.appendChild(resultRow('Budget check', money(hourlyCost), underBudget ? 'OK' : 'Over', underBudget ? 'pass' : 'warn'));
+        results.appendChild(resultRow('Scaling behavior', modeLabel, over ? 'Scale up more' : 'Right-sized', over ? 'warn' : 'pass'));
+        results.appendChild(resultRow('AWS mapping', mode === 'horizontal' ? 'ASG desired count' : mode === 'vertical' ? 'EC2 instance type' : 'ASG + larger instances', 'Demo', 'pass'));
+
+        buildInstanceCards(activeInstances, selected, activeInstances);
+        buildTimeline(req, totalCapacity, spike);
+
+        const loadPercent = clamp((req / Math.max(req, totalCapacity)) * 100, 15, 100);
+        const capacityPercent = clamp((totalCapacity / Math.max(req, totalCapacity)) * 100, 15, 100);
+        loadFill.style.width = loadPercent + '%';
+        capacityFill.style.width = capacityPercent + '%';
+        loadFill.title = req.toLocaleString() + ' req/min';
+        capacityFill.title = totalCapacity.toLocaleString() + ' req/min';
+      }
+
+      function setPreset(type) {
+        if (type === 'cost') {
+          modeInputs.find((i) => i.value === 'horizontal').checked = true;
+          workload.value = 4500;
+          baseInstances.value = 2;
+          instanceType.value = 't3.small';
+          budget.value = 1.25;
+          trafficBurst.value = 35;
+          minInstances.value = 1;
+          maxInstances.value = 8;
+        } else if (type === 'balanced') {
+          modeInputs.find((i) => i.value === 'horizontal').checked = true;
+          workload.value = 7000;
+          baseInstances.value = 3;
+          instanceType.value = 't3.medium';
+          budget.value = 2.5;
+          trafficBurst.value = 60;
+          minInstances.value = 2;
+          maxInstances.value = 10;
+        } else {
+          modeInputs.find((i) => i.value === 'hybrid').checked = true;
+          workload.value = 14000;
+          baseInstances.value = 4;
+          instanceType.value = 'c6i.xlarge';
+          budget.value = 6;
+          trafficBurst.value = 90;
+          minInstances.value = 3;
+          maxInstances.value = 20;
+        }
+        update();
+      }
+
+      workload.addEventListener('input', update);
+      baseInstances.addEventListener('input', update);
+      instanceType.addEventListener('change', update);
+      minInstances.addEventListener('input', update);
+      maxInstances.addEventListener('input', update);
+      budget.addEventListener('input', update);
+      trafficBurst.addEventListener('input', update);
+      modeInputs.forEach((i) => i.addEventListener('change', update));
+
+      document.getElementById('presetCost').addEventListener('click', () => setPreset('cost'));
+      document.getElementById('presetBalanced').addEventListener('click', () => setPreset('balanced'));
+      document.getElementById('presetPerf').addEventListener('click', () => setPreset('perf'));
+      document.getElementById('resetDemo').addEventListener('click', () => {
+        modeInputs.find((i) => i.value === 'horizontal').checked = true;
+        workload.value = 6000;
+        baseInstances.value = 3;
+        instanceType.value = 't3.medium';
+        minInstances.value = 2;
+        maxInstances.value = 10;
+        budget.value = 2.5;
+        trafficBurst.value = 70;
+        update();
+      });
+
+      update();
+    </script>
+  </body>
+</html>
