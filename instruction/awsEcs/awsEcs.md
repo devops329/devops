@@ -1,172 +1,166 @@
-# Elastic Container Services (ECS)
+# Elastic Container Service (ECS)
 
 🔑 **Key points**
 
-- What is ECS?
-- Manually deploying containers with ECS Fargate.
-- Exposing containers with an EC2 load balancer.
-- Assigning DNS to point to ECS.
-- Deploying JWT Pizza Service to ECS.
+- Understanding ECS and its core components.
+- Manually deploying containers using AWS Fargate.
+- Exposing containers through an Application Load Balancer (ALB).
+- Configuring DNS records to point to an ECS service.
+- Deploying the JWT Pizza Service to ECS.
 
 ---
 
-📖 **Deeper dive reading**: [What is ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html)
+📖 **Deeper dive reading**: [What is Amazon ECS?](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html)
 
 ---
 
 ![Fargate logo](fargateLogo.png)
 
-The Elastic Container Service (ECS) provides the functionality necessary to deploy your Docker container image. After you have uploaded your image to [ECR](../awsEcr/awsEcr.md), you can create an ECS cluster and service to load your container onto either EC2 instances or AWS Fargate.
+Amazon Elastic Container Service (ECS) provides the orchestration necessary to deploy and manage Docker containers. Once you have uploaded your container image to [Amazon ECR](../awsEcr/awsEcr.md), you can create an ECS cluster and service to run your container on either EC2 instances or AWS Fargate.
 
-If you configure ECS to deploy to EC2 instances then you must launch, scale, and manage those EC2 instances. Alternatively, if you use **AWS Fargate**, Fargate will automatically handle the launching, scaling, and management of the containers. For our work in the course we will use AWS Fargate.
+If you configure ECS to deploy to **EC2 instances**, you are responsible for launching, scaling, and managing the underlying virtual machines. Alternatively, if you use **AWS Fargate**, AWS manages the infrastructure for you, automatically handling the provisioning and scaling of the resources required by your containers. For this course, we will use AWS Fargate to simplify infrastructure management.
 
-The basic pieces that ECS provides are as follows.
+The core components of ECS are:
 
 ![ECS overview](ecsOverview.png)
 
-- **Task definitions**: A task description defines the container image to execute, the amount of memory and vCPU to provide, and how to determine the health of the container. You can actually define multiple containers to run as a task. This is usually done when a single container is highly coupled with another container.
-- **Task**: A task represents the instantiation of a task definition. A running task is equivalent to running a Docker container, but it also has other characteristics that describe if the container is healthy.
-- **Scheduler**: Controlled by EC2 to handle the launching, scaling, and deleting of tasks.
-- **Service**: A service is a grouping of 1 or more tasks. For example, a blog service might have tasks representing containers for a web service, a business logic service, a memory cache, and a database. The service controls how many copies of a task are executing and replaces non-responsive tasks.
-- **Cluster**: A cluster is a collection of EC2 instances or Fargate controller. Clusters can span availability zones in order to make the application resilient to local failures.
+- **Task Definition**: A blueprint that defines the container image to execute, the required memory and vCPU, environment variables, and health check parameters. You can define multiple containers within a single task definition if they are highly coupled (e.g., a main application and a "sidecar" logging container).
+- **Task**: The instantiation of a task definition. A running task is the ECS equivalent of a running Docker container, including additional metadata regarding its health and network status.
+- **Scheduler**: The logic responsible for placing tasks on the cluster, ensuring the desired number of tasks are running, and rescheduling tasks if they fail.
+- **Service**: A configuration that maintains a specified number of simultaneous instances of a task definition in an ECS cluster. If a task fails or stops, the service scheduler launches another instance.
+- **Cluster**: A logical grouping of tasks or services. Clusters can span multiple Availability Zones (AZs) to ensure the application is resilient to localized infrastructure failures.
 
 > [!IMPORTANT]
 >
-> Make sure you are using the `us-east-1` AWS region for all your work in this course.
+> Ensure you are using the `us-east-1` (N. Virginia) AWS region for all work in this course.
 
-## Required roles and rights
+## Required roles and permissions
 
-Before you can configure Docker containers to run under ECS you need to authorize how the container executes. There are two roles that control the rights of an ECS task:
+Before running Docker containers in ECS, you must define the permissions the service and the containers will have. Two specific IAM roles control these permissions:
 
-1. **Task execution role** - This defines the rights necessary to deploy a task. This includes things like the ability to start up and getting an ECR image and setting up CloudWatch logging.
-1. **Task role** - This defines what rights the task has. This includes things like database access rights or reading from S3.
+1. **Task Execution Role**: Grants the ECS agent permission to make AWS API calls on your behalf. This includes pulling images from ECR and sending container logs to CloudWatch.
+2. **Task Role**: Defines the permissions for the application inside the container. This includes rights to access resources like S3 buckets or DynamoDB tables.
 
-We will not define a **Task role** at this time, but you will do this later if you add rights for the task to connect to your MySQL instance without providing explicit credentials.
+We will not define a **Task Role** immediately, but you may need one later if your application needs to connect to other AWS services (like RDS or S3) without using hardcoded credentials.
 
 ### Create an ECS task execution role
 
-Before you can create an ECS task, you must authorize AWS to let the ECS service take the actions on your behalf necessary to start up a task. This is done with the **Task execution role**. Take the following steps to create this IAM role.
+To allow ECS to start tasks and pull images, you must create a **Task Execution Role**.
 
-1. Open the AWS browser console and navigate to the Identity Management (IAM) service.
-1. Press `Roles` from the left side navigation panel.
-1. Press `Create role`.
-1. Select `AWS service` as the **Trusted entity type**.
-1. Under `Use case` select **Elastic Container Service** and then select **Elastic Container Service Task**.
+1. Sign in to the AWS Management Console and navigate to the **IAM** (Identity and Access Management) service.
+2. Select **Roles** from the left navigation panel.
+3. Click **Create role**.
+4. Select **AWS service** as the **Trusted entity type**.
+5. Under the **Use case** dropdown, select **Elastic Container Service**, then select the **Elastic Container Service Task** radio button.
 
    ![ECS use case](ecsUseCase.png)
 
-1. Press `Next`
-1. Select the `AmazonECSTaskExecutionRolePolicy`. This policy authorizes ECS to run a task on your behalf. Press `Next`.
-1. Provide the `Role name` of **jwt-pizza-ecs**.
+6. Click **Next**.
+7. Search for and select the policy named `AmazonECSTaskExecutionRolePolicy`. This policy provides the necessary permissions to run ECS tasks. Click **Next**.
+8. Set the **Role name** to `jwt-pizza-ecs`.
 
    ![Create task execution role](createTaskExecutionRole.png)
 
-1. Press `Create role`
+9. Click **Create role**.
 
 ## Create an ECS task definition
 
-Now you are ready to define the task that will execute your JWT Pizza backend. Take the following steps.
+Next, define the task that will run the JWT Pizza backend.
 
-1. Open the AWS browser console and navigate to the Elastic Container Service (ECS) service.
-1. Press `Task definitions` from the left side navigation panel.
-1. Press `Create new task definition`.
-1. Provide the name `jwt-pizza-service` for the `Task definition family`.
-1. Under `Infrastructure requirements`
-   1. Leave the `Launch type` as AWS Fargate.
-   1. Set the `Operating System` to be _Linux/ARM64_.
-   1. Select _.5 vCPU_ for CPU and _1 GB_ for Memory. This isn't very much computing power for a backend service but keeping things small like this will significantly reduce your AWS monthly bill.
-   1. Leave `Task role` blank. We will define this in later instruction.
-   1. Set the `Task execution role` to be the **jwt-pizza-ecs** execution role that you just created.
-1. Under `Container - 1`.
-   1. Provide the name `jwt-pizza-service`.
-   1. Set the `Image URI` to the URI that was generated when you uploaded the container image to ECR. You can find this under ECR properties for your uploaded image. Make sure that you specify **latest** as the version to select. This should be something like:
-      ```sh
+1. Navigate to the **Elastic Container Service (ECS)** service in the AWS Console.
+2. Select **Task definitions** from the left navigation panel.
+3. Click **Create new task definition** and choose **Create new task definition** from the dropdown.
+4. Set the **Task definition family** name to `jwt-pizza-service`.
+5. Under **Infrastructure requirements**:
+   1. Ensure the **Launch type** is set to **AWS Fargate**.
+   2. Set the **Operating system/Architecture** to **Linux/ARM64**.
+   3. Select **.5 vCPU** for CPU and **1 GB** for Memory. (Low settings help minimize AWS costs).
+   4. Leave **Task role** blank for now.
+   5. Set the **Task execution role** to the `jwt-pizza-ecs` role you created earlier.
+6. Under **Container - 1**:
+   1. Set the **Name** to `jwt-pizza-service`.
+   2. Set the **Image URI** to the URI generated when you pushed your image to ECR. It should look like this:
+      ```text
       1234567890.dkr.ecr.us-east-1.amazonaws.com/jwt-pizza-service:latest
       ```
-   1. Assign the `Container port` to 80 for the HTTP App protocol.
-1. Press `Create`.
+      *Ensure you include the `:latest` tag.*
+   3. Set the **Container port** to `80` with the protocol set to **HTTP**.
+7. Click **Create**.
 
 ## Create an ECS cluster
 
-A cluster represents a complete application where multiple services work in concert to provide a complete customer solution. The cluster can be defined to distribute services across multiple availability zones in order to protect against failures in a specific zone. To create a cluster take the following steps.
+A cluster is the logical group where your service will live.
 
-1. Open the AWS browser console and navigate to the Elastic Container Service (ECS) service.
-1. Press `Clusters` from the left side navigation panel.
-1. Press `Create cluster`.
-1. Provide `jwt-pizza-service` as the Cluster name.
-1. Under `Infrastructure` choose **Fargate only**.
-1. Press `Create`.
+1. In the ECS console, select **Clusters** from the left navigation panel.
+2. Click **Create cluster**.
+3. Set the **Cluster name** to `jwt-pizza-service`.
+4. Under **Infrastructure**, ensure **AWS Fargate (serverless)** is selected.
+5. Click **Create**.
 
-Wait until the cluster status changes from **Provisioning** to **Active** before you continue.
+Wait for the cluster status to change from **Provisioning** to **Active**.
 
 ## Create an ECS service
 
-The service contains one or more associated tasks. The tasks work together in order to provide a specific functional piece such as authorization, content management, or media processing. The service also controls deployment, monitoring, and failure management. Take the following steps to create a service. Note that as soon as you create a service, it will immediately deploy any tasks associated with the service. That means you will start paying for the allocated resources.
+The service manages the deployment and scaling of your tasks. When you create the service, ECS will immediately attempt to launch the tasks.
 
-1. Open the AWS browser console and navigate to the Elastic Container Service (ECS) service.
-1. Press `Clusters` from the left side navigation panel.
-1. Press the cluster you just created (`jwt-pizza-service`).
-1. Under the **Services** tab press `Create`.
+1. In the ECS console, select **Clusters** and click on the `jwt-pizza-service` cluster.
+2. Under the **Services** tab, click **Create**.
 
    ![Create service](createService.png)
 
-1. Under `Service details`
-   1. Select `jwt-pizza-service` from the `Family` dropdown. This selects the task definition that you created earlier.
-   1. Provide `jwt-pizza-service` as the `Service name`.
-1. Under `Environment` select `Launch type` since we don't want to utilize a capacity strategy at this point. A capacity strategy defines how the service should scale in order to meet customer demand.
-1. Leave all the `Deployment configuration` settings as the defaults. The **Replica** scheduling strategy will create copies of your container as necessary in order to handle your user request load. The **Rolling update** deployment strategy will replace the previous versions of your containers with a newer version one at a time.
-1. Under `Networking`
-   1. Select your VPC.
-   1. Change the `Subnets` so that it contains at least two public subnets as defined by your VPC.
-   1. If selected, remove any selected security groups. We don't want to accidentally inherit a security rule that we are not expecting.
-   1. Select the `jwt-pizza-service` security group that you created previously. This allows the container to accept incoming HTTP requests.
-   1. Select the option to auto assign a `Public IP` address. We will need this so you can test the running task by making HTTP requests from the internet.
-1. Under `Load balancing` select **Use load balancing**
-
-   1. Select `Application Load Balancer`
-   1. Select the `Container` for incoming traffic to be `jwt-pizza-service 80:80`
-   1. Create a new load balancer
-      1. Provide `jwt-pizza-service` as the `Load balancer name`.
-      1. Create a new listener on port 443 using HTTPS.
-      1. Select the **wildcard certificate** for the hostname that you created previously. This makes it so you can publically access your container using a secure HTTP connection.
-   1. Create a new target group.
-
-      1. Provide the name `jwt-pizza-service`.
-      1. Set the Protocol to HTTP.
-      1. Set the Health check path to `/api/docs`. The load balancer will make this request to your container to determine if it is running correctly.
+3. Under **Deployment configuration**:
+   1. Select **Service** as the application type.
+   2. Select `jwt-pizza-service` from the **Family** dropdown (under Task definition).
+   3. Set the **Service name** to `jwt-pizza-service`.
+   4. Set **Desired tasks** to `1`.
+4. Under **Networking**:
+   1. Select your **VPC**.
+   2. Ensure at least two **Subnets** are selected (standard for high availability).
+   3. Under **Security group**, click **Select existing security group** and choose the `jwt-pizza-service` security group you created previously. Ensure it allows port 80 and/or 443.
+   4. Ensure **Public IP** is turned **ON**.
+5. Under **Load balancing**:
+   1. Select **Application Load Balancer**.
+   2. For the **Load balancer name**, enter `jwt-pizza-service`.
+   3. Set the **Container to load balance** to `jwt-pizza-service 80:80`.
+   4. **Listener**: Create a new listener on port `443` using protocol **HTTPS**.
+   5. **Certificate**: Select the wildcard certificate you created in previous steps (ACM).
+   6. **Target group**: Create a new target group named `jwt-pizza-service`.
+      - **Protocol**: HTTP
+      - **Health check path**: `/api/docs` (The ALB uses this to verify the container is responsive).
 
       ![Load balancer config](loadBalancerConfig.png)
 
-1. Press `Create`.
+6. Click **Create**.
 
-This will take a few minutes for the service and associated load balancer to deploy. You can view the progress either on the CloudFormation or EC2 service.
+Deployment will take several minutes. You can monitor progress in the **Service** events tab or via the **CloudFormation** console.
 
 ![CloudFormation progress](cloudFormationProgress.png)
 
 ### Monitoring container deployment
 
-As your ECS cluster spins up it will deploy the service and the task representing your JWT pizza docker container. You can monitor the deployment process of the container by navigating to the ECS service dashboard, selecting your cluster and service, and then selecting the `Tasks` tab to view all the tasks that are running under the service. If everything is working correctly the **Last status** field should be **Running** for the service's task.
+To check if your container is running:
+1. Navigate to your ECS Cluster -> `jwt-pizza-service` service.
+2. Click the **Tasks** tab.
+3. The **Last status** should eventually show **Running**.
 
 ![ECS Service](ecsService.png)
 
-If it is not running correctly, or you just want to see the details for the task, you can click on the task and see its configuration, logs, and networking properties. The **Networking** tab will show you the public IP address of the container. The **Logs** tab will show you the console log messages that the container outputs. The following is an example of a properly running JWT Pizza Service container.
+If the task fails to start, click on the **Task ID** to view details. Check the **Logs** tab to see the application's console output, which is invaluable for debugging startup errors.
 
 ![ECS Task](ecsTask.png)
 
 ### Testing the load balancer
 
-Launching the service that is configured with a load balancer will automatically launch an EC2 Application load balancer that is configured to work with your ECS cluster. This takes several minutes to complete, but once it is done you should be able to make an HTTP request to your Docker container using the load balancer's public hostname.
+Once the service and load balancer are active, you can access the service via the ALB's DNS name.
 
-You can find the load balancer's public hostname by taking the following steps.
-
-1. Open the AWS browser console and navigate to the Elastic Cloud Computing (EC2) service.
-1. Press `Load Balancers` from the left side navigation panel.
-1. Press the `jwt-pizza-service` load balancer.
-1. Copy the `DNS name` for the load balancer
+1. Navigate to the **EC2** console.
+2. Select **Load Balancers** from the left menu.
+3. Select the `jwt-pizza-service` load balancer.
+4. Copy the **DNS name**.
 
 ![Load balancer details](loadBalancerDetails.png)
 
-In order to make a network request using the DNS name you have to tell Curl to use HTTPS, because that is all we opened up on the load balancer, but you also have to specify that you want to ignore an invalid certificate. You can do this with a command similar to the following.
+Since we are using a self-signed or specific domain certificate, you may need to use the `-k` (insecure) flag with `curl` if the DNS name doesn't match the certificate exactly yet:
 
 ```sh
 curl -k https://LOADBALANCER_DNSNAME_HERE
@@ -176,43 +170,40 @@ curl -k https://LOADBALANCER_DNSNAME_HERE
 
 ## Route 53
 
-The last step for configuring the scalable deployment of your backend, is to create a DNS record so that you can access the container through the load balancer using your domain name rather than the generated one for the load balancer.
+The final step is to map your custom domain to the load balancer so users can access the service via a friendly URL.
 
-1. Open the AWS browser console and navigate to the Route 53 service.
-1. Select the hosted zone for your hostname.
-1. Create a new record.
-1. Give the name `pizza-service` for the subdomain.
-1. Set the record type to a `CNAME` record.
-1. Set the value of the record to the DNS name for the application load balancer.
-1. Press the `Create records` button.
+1. Navigate to the **Route 53** service in the AWS Console.
+2. Select **Hosted zones** and click on your domain name.
+3. Click **Create record**.
+4. **Record name**: Enter `pizza-service` (creating the subdomain `pizza-service.yourdomain.com`).
+5. **Record type**: Select **CNAME**.
+6. **Value**: Paste the **DNS name** of your Application Load Balancer.
+7. Click **Create records**.
 
 ![Create load balancer DNS record](createLoadBalancerDnsRecord.png)
 
 > [!NOTE]
 >
-> The subdomain must be `pizza-service` in order for your deliverables to be graded.
+> The subdomain must be exactly `pizza-service` for your project deliverables to be validated correctly.
 
 ### Testing the DNS record
 
-You can use `dig` to see when your DNS record finishes propagating.
+Use the `dig` command to check if the DNS record has propagated:
 
 ```sh
-dig pizza-service.yourdomannamehere +noall +answer
-
-jwt-pizza-service-123456789.us-east-1.elb.amazonaws.com. 60 IN A 54.80.64.164
-jwt-pizza-service-123456789.us-east-1.elb.amazonaws.com. 60 IN A 3.221.165.37
+dig pizza-service.yourdomainnamehere.com +noall +answer
 ```
 
-Once the DNS record propagates you can open up your browser and hit your JWT Pizza Service by making an HTTPS request.
+Once propagated, you should see the CNAME pointing to the AWS load balancer. You can then navigate to `https://pizza-service.yourdomainnamehere.com` in your browser.
 
 ![Browser DNS request](browserDnsRequest.png)
 
 ## ☑ Exercise
 
-Create a JWT Pizza Service container using the instructions given above. This includes the following steps:
+Deploy the JWT Pizza Service container by completing the following:
 
-1. Create the required roles.
-1. Create the task definition.
-1. Create the ECS cluster.
-1. Create the ECS service using a load balancer.
-1. Create the DNS record
+1. **Create IAM Roles**: Set up the ECS Task Execution role.
+2. **Define the Task**: Create a task definition using your ECR image URI.
+3. **Provision the Cluster**: Create a Fargate cluster.
+4. **Deploy the Service**: Create an ECS service integrated with an Application Load Balancer and HTTPS.
+5. **Configure DNS**: Create a CNAME record in Route 53 pointing to your ALB.
