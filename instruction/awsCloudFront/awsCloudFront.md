@@ -146,8 +146,16 @@ Alternatively, you can create a CNAME record from your domain to the CloudFront 
 
 After a short while the DNS record should propagate, and you should be able to see the record pointing to CloudFront instead of GitHub with a console command like `dig` or `nslookup`. At that point your browser should also show the `Hello World` page.
 
-## Final result
-
 Once the DNS record has updated you should be able to use the subdomain you created to display the static content hosted by the CDN.
 
 ![Hello World](helloWorldHomePage.png)
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"3a6a9be3-45d3-435d-80e8-f002b9e7ea6f", "title":"AWS CloudFront", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The body of the webpage says 'Hello World!'" }
+Provide the URL of your publicly available CloudFront hosted website.
+
+_Example: pizza.mydomainname.click_
+```
