@@ -230,8 +230,8 @@ In the context of Docker, what is a primary architectural difference between a c
 
 - [ ] Containers provide hardware-level abstraction, ensuring that each instance has its own dedicated BIOS and virtual hardware.
 - [ ] Containers are essentially small virtual machines that require a Type-1 hypervisor like Xen or ESXi to operate.
-- [x] Containers share the host's operating system kernel, whereas each virtual machine runs its own full guest operating system.
 - [ ] Containers are strictly used for stateless code execution and lack the ability to interact with the host's file system or network.
+- [x] Containers share the host's operating system kernel, whereas each virtual machine runs its own full guest operating system.
 ```
 
 
