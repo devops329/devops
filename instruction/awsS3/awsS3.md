@@ -70,3 +70,9 @@ I was able to use S3 to:
 - [ ] Access the S3 service dashboard, but not create a bucket or upload a file
 - [ ] Unable to work on this exercise
 ```
+
+
+```masteryls
+{"id":"65725927-08ab-439d-92f4-68cbdd68d04f", "title":"S3 Bucket", "type":"file-submission"  }
+Attach a screen shot of your S3 bucket that displays your uploaded file.
+```
