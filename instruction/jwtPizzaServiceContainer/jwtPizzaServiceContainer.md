@@ -117,6 +117,13 @@ Once complete, your console history should reflect the build, list, and run comm
 
 ![Docker successful run](dockerSuccess.png)
 
+
+```masteryls
+{"id":"126355a7-4172-487f-b7e2-04447d8614d3", "title":"JWT Pizza container", "type":"file-submission"  }
+Upload a screenshot of your working container.
+```
+
+
 > [!IMPORTANT]
 > After completing this exercise, remember to revert the **host** in your `src/config.js` file back to `127.0.0.1`. This ensures that the service can still connect to your MySQL database when running natively (outside of Docker).
 >
