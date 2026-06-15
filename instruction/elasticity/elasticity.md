@@ -45,7 +45,7 @@ This built-in elasticity is a force multiplier for small DevOps teams. Once an a
 
 
 ```masteryls
-{"id":"5c59a5f4-f33b-4ace-bcd9-dceef8b9b928", "title":"Elasticity demo", "type":"web-page", "height":1100, "file":"elasticityDemo.html"}
+{"id":"5c59a5f4-f33b-4ace-bcd9-dceef8b9b928", "title":"Elasticity demo", "type":"web-page", "height":1200, "file":"elasticityDemo.html"}
 ```
 
 
