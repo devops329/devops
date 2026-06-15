@@ -61,7 +61,7 @@ Your bucket should now display the uploaded file.
 
 ```masteryls
 {"id":"65725927-08ab-439d-92f4-68cbdd68d04f", "title":"S3 Bucket", "type":"file-submission"  }
-Attach a screen shot of your S3 bucket that displays your uploaded file.
+Attach a screenshot of your S3 bucket that displays your uploaded file.
 ```
 
 Once you have confirmed the upload, you may delete the file and the bucket to avoid unnecessary storage.
