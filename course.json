@@ -671,7 +671,10 @@
           "title": "Docker",
           "path": "instruction/docker/docker.md",
           "id": "5b685acf-9331-44c4-87ac-935b5cdc5708",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "ba7a0b83-a971-4ae6-980a-6a4fe138366b"
+          ]
         },
         {
           "title": "Containers",
