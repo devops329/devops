@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dependency Injection Demo</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg: #f4f7fb;
+        --panel: #ffffff;
+        --border: #d7deea;
+        --border-2: #c7d3e6;
+        --ink: #1f2937;
+        --muted: #56657a;
+        --blue: #2b6de0;
+        --blue-2: #e8f0ff;
+        --blue-3: #dce9ff;
+        --good: #0f7c51;
+        --warn: #a15c00;
+        --bad: #b42318;
+        --shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+        --radius: 10px;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+      }
+
+      .container {
+        width: min(1180px, 94vw);
+        margin: 20px auto;
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: 16px;
+      }
+
+      .panel,
+      .stage-wrap {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .panel {
+        padding: 16px;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: 1.4rem;
+      }
+
+      .lede {
+        margin: 0 0 14px;
+        line-height: 1.45;
+        color: var(--muted);
+      }
+
+      .wiki-link {
+        font-size: 0.82rem;
+        color: #64748b;
+        text-decoration: none;
+      }
+
+      .wiki-link:hover {
+        color: #475569;
+        text-decoration: underline;
+      }
+
+      .control {
+        margin-bottom: 12px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 700;
+      }
+
+      .segmented {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .segmented input {
+        display: none;
+      }
+
+      .segmented label {
+        margin: 0;
+        padding: 8px 10px;
+        border: 1px solid #c9d9f1;
+        border-radius: 8px;
+        background: #fff;
+        text-align: center;
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      .segmented input:checked + label {
+        background: var(--blue-2);
+        border-color: #a7c4f6;
+        color: #123c8d;
+      }
+
+      input[type='text'],
+      select {
+        width: 100%;
+        border: 1px solid #c5d2e5;
+        border-radius: 8px;
+        padding: 8px 10px;
+        background: #fff;
+        color: var(--ink);
+        font-size: 0.9rem;
+      }
+
+      .value {
+        font-weight: 700;
+        color: #0044b3;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 10px 0 16px;
+      }
+
+      button {
+        border: 1px solid #bfd1ec;
+        background: var(--blue-2);
+        color: var(--ink);
+        border-radius: 8px;
+        padding: 8px 12px;
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      button:hover {
+        background: var(--blue-3);
+      }
+
+      .equation {
+        padding: 10px;
+        background: #f1f5fb;
+        border-radius: 8px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.86rem;
+        line-height: 1.45;
+        margin-bottom: 12px;
+        white-space: pre-line;
+      }
+
+      .results {
+        display: grid;
+        gap: 6px;
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 7px 8px;
+        background: #f8fbff;
+        border: 1px solid #e0e8f5;
+        border-radius: 6px;
+        font-size: 0.92rem;
+      }
+
+      .row strong {
+        white-space: nowrap;
+        font-weight: 400;
+        color: #0044b3;
+      }
+
+      .pass {
+        color: var(--good);
+        font-weight: 700;
+      }
+
+      .warn {
+        color: var(--warn);
+        font-weight: 700;
+      }
+
+      .fail {
+        color: var(--bad);
+        font-weight: 700;
+      }
+
+      .stage-wrap {
+        padding: 12px;
+      }
+
+      .stage {
+        min-height: 540px;
+        border-radius: 8px;
+        border: 2px dashed #bac7dc;
+        background: linear-gradient(135deg, #f8fbff, #edf3ff);
+        padding: 16px;
+        display: grid;
+        gap: 12px;
+        align-content: start;
+      }
+
+      .preview-card,
+      .legend-card {
+        border: 1px solid #d5deed;
+        border-radius: 10px;
+        padding: 14px;
+        background: #ffffff;
+      }
+
+      .hero {
+        display: grid;
+        gap: 10px;
+      }
+
+      .hero-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 999px;
+        border: 2px solid currentColor;
+        padding: 6px 12px;
+        font-weight: 700;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: currentColor;
+      }
+
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .metric {
+        border: 1px solid #dbe6f3;
+        border-radius: 10px;
+        padding: 10px;
+        background: #f9fcff;
+      }
+
+      .metric .label {
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin-bottom: 4px;
+      }
+
+      .metric .num {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .metric .sub {
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+
+      .topology {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        align-items: stretch;
+      }
+
+      .topo-block {
+        border: 1px solid #dbe6f3;
+        border-radius: 10px;
+        background: linear-gradient(180deg, #fbfdff, #f2f7ff);
+        padding: 12px;
+      }
+
+      .topo-title {
+        font-weight: 700;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+      }
+
+      .hint {
+        color: var(--muted);
+        font-size: 0.88rem;
+        margin: 8px 0 0;
+        line-height: 1.5;
+      }
+
+      .code-block {
+        background: #f1f5fb;
+        border: 1px solid #d5deed;
+        border-radius: 8px;
+        padding: 10px 12px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.78rem;
+        line-height: 1.6;
+        white-space: pre;
+        overflow-x: auto;
+        color: var(--ink);
+      }
+
+      .output-area {
+        display: grid;
+        gap: 8px;
+      }
+
+      .output-row {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        padding: 8px 10px;
+        background: #f8fbff;
+        border: 1px solid #e0e8f5;
+        border-radius: 8px;
+        font-size: 0.88rem;
+      }
+
+      .out-label {
+        font-weight: 700;
+        color: var(--muted);
+        font-size: 0.8rem;
+        min-width: 90px;
+        flex-shrink: 0;
+      }
+
+      .out-value {
+        font-family: 'Courier New', monospace;
+        color: var(--ink);
+        font-size: 0.85rem;
+        word-break: break-all;
+      }
+
+      .test-pass {
+        color: var(--good);
+        font-weight: 700;
+      }
+
+      .test-fail {
+        color: var(--bad);
+        font-weight: 700;
+      }
+
+      .footer-note {
+        font-size: 0.82rem;
+        color: #66738a;
+        margin-top: 10px;
+      }
+
+      @media (max-width: 940px) {
+        .container {
+          grid-template-columns: 1fr;
+        }
+
+        .summary-grid,
+        .topology {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .summary-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .segmented {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <!-- ── Left panel: controls ── -->
+      <section class="panel">
+        <h1>Dependency Injection Demo</h1>
+        <p class="lede">See how moving dependencies outward — from <strong>hardcoded</strong> internals to <strong>injected parameters</strong> to a <strong>DI container</strong> — reduces coupling and makes code testable.</p>
+        <p class="lede">
+          <a class="wiki-link" href="https://martinfowler.com/articles/injection.html" target="_blank" rel="noopener noreferrer">Martin Fowler: Inversion of Control Containers and the Dependency Injection pattern</a>
+        </p>
+
+        <div class="control">
+          <label>Coupling style</label>
+          <div class="segmented">
+            <div>
+              <input id="modeHardcoded" type="radio" name="mode" value="hardcoded" checked />
+              <label for="modeHardcoded">Hardcoded</label>
+            </div>
+            <div>
+              <input id="modeParam" type="radio" name="mode" value="param" />
+              <label for="modeParam">Param Inject</label>
+            </div>
+            <div>
+              <input id="modeCtor" type="radio" name="mode" value="ctor" />
+              <label for="modeCtor">Constructor DI</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="control">
+          <label for="inputText">Message to print</label>
+          <input id="inputText" type="text" value="Hello, World!" />
+        </div>
+
+        <div class="control">
+          <label for="formatterSel">Formatter</label>
+          <select id="formatterSel">
+            <option value="upper">UppercaseFormatter</option>
+            <option value="bold">BoldFormatter</option>
+            <option value="reverse">ReverseFormatter</option>
+            <option value="exclaim">ExclaimFormatter</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="writerSel">Writer</label>
+          <select id="writerSel">
+            <option value="console">ConsoleWriter (real)</option>
+            <option value="mock">MockWriter (test double)</option>
+            <option value="file">FileWriter (mock)</option>
+          </select>
+        </div>
+
+        <div class="actions">
+          <button id="resetBtn" type="button">Reset</button>
+        </div>
+
+        <div class="equation" id="equation">...</div>
+
+        <div class="results" id="results"></div>
+        <div class="footer-note">This page is intentionally self-contained and can be run locally.</div>
+      </section>
+
+      <!-- ── Right panel: visual stage ── -->
+      <section class="stage-wrap">
+        <div class="stage" aria-label="Dependency injection preview">
+          <!-- Hero: health chip + 4 metrics -->
+          <div class="preview-card hero">
+            <div class="hero-top">
+              <div>
+                <div style="font-size: 0.82rem; color: #66738a; font-weight: 700; letter-spacing: 0.02em">PRINTER COMPONENT</div>
+                <div style="font-size: 1.2rem; font-weight: 700; margin-top: 2px" id="stageTitle">Hardcoded Dependency</div>
+              </div>
+              <div class="chip" id="healthChip" role="img" aria-label="Coupling status">
+                <span class="dot" aria-hidden="true"></span>
+                <span id="healthText">Tightly Coupled</span>
+              </div>
+            </div>
+
+            <div class="summary-grid">
+              <div class="metric">
+                <div class="label">Coupling level</div>
+                <div class="num" id="couplingOut">High</div>
+                <div class="sub" id="couplingSub">hard dependency</div>
+              </div>
+              <div class="metric">
+                <div class="label">Testability</div>
+                <div class="num" id="testabilityOut">Hard</div>
+                <div class="sub" id="testabilitySub">must patch globals</div>
+              </div>
+              <div class="metric">
+                <div class="label">Flexibility</div>
+                <div class="num" id="flexOut">None</div>
+                <div class="sub" id="flexSub">formatter is fixed</div>
+              </div>
+              <div class="metric">
+                <div class="label">Output</div>
+                <div class="num" id="outputPreview" style="font-size: 0.85rem; font-family: 'Courier New', monospace; word-break: break-all">—</div>
+                <div class="sub">formatted result</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Topology: dependency graph + code pattern -->
+          <div class="preview-card topology">
+            <div class="topo-block">
+              <div class="topo-title">Dependency graph</div>
+              <svg id="diagramSvg" viewBox="0 0 300 160" width="100%" style="display: block; max-width: 300px; margin: 0 auto"></svg>
+              <p class="hint" id="diagramHint">The printer creates its own formatter — callers have no control.</p>
+            </div>
+            <div class="topo-block">
+              <div class="topo-title">Code pattern</div>
+              <div class="code-block" id="codeSnippet"></div>
+            </div>
+          </div>
+
+          <!-- Output + test result -->
+          <div class="legend-card">
+            <div class="output-area">
+              <div class="output-row">
+                <span class="out-label">Writer</span>
+                <span class="out-value" id="writerInfo">ConsoleWriter — output goes to browser console</span>
+              </div>
+              <div class="output-row">
+                <span class="out-label">Captured</span>
+                <span class="out-value" id="capturedOut">—</span>
+              </div>
+              <div class="output-row">
+                <span class="out-label">Test result</span>
+                <span class="out-value" id="testResult">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // ── Formatters ──────────────────────────────────────────────────────
+      class UppercaseFormatter {
+        format(s) {
+          return s.toUpperCase();
+        }
+      }
+      class BoldFormatter {
+        format(s) {
+          return '**' + s + '**';
+        }
+      }
+      class ReverseFormatter {
+        format(s) {
+          return s.split('').reverse().join('');
+        }
+      }
+      class ExclaimFormatter {
+        format(s) {
+          return s + '!!!';
+        }
+      }
+
+      function getFormatter(key) {
+        if (key === 'bold') return new BoldFormatter();
+        if (key === 'reverse') return new ReverseFormatter();
+        if (key === 'exclaim') return new ExclaimFormatter();
+        return new UppercaseFormatter();
+      }
+
+      function fmtLabel(key) {
+        return { upper: 'UppercaseFormatter', bold: 'BoldFormatter', reverse: 'ReverseFormatter', exclaim: 'ExclaimFormatter' }[key];
+      }
+
+      // ── Printer classes ─────────────────────────────────────────────────
+      class HardcodedPrinter {
+        print(content) {
+          const fmt = new UppercaseFormatter();
+          return fmt.format(content);
+        }
+      }
+
+      class PurePrinter {
+        print(content, formatter, writer) {
+          const out = formatter.format(content);
+          writer.log(out);
+          return out;
+        }
+      }
+
+      class InjectedPrinter {
+        constructor(formatter, writer) {
+          this.formatter = formatter;
+          this.writer = writer;
+        }
+        print(content) {
+          const out = this.formatter.format(content);
+          this.writer.log(out);
+          return out;
+        }
+      }
+
+      class PrinterContext {
+        constructor(formatter, writer) {
+          this.printer = new InjectedPrinter(formatter, writer);
+        }
+      }
+
+      // ── SVG dependency diagrams ─────────────────────────────────────────
+      const DIAG = {
+        hardcoded: `
+          <rect x="75" y="10" width="150" height="36" rx="7" fill="#fff0f0" stroke="#b42318"/>
+          <text x="150" y="33" text-anchor="middle" font-size="12" font-family="Arial,sans-serif" fill="#b42318">HardcodedPrinter</text>
+          <line x1="150" y1="46" x2="150" y2="74" stroke="#b42318" stroke-width="1.8" stroke-dasharray="5"/>
+          <polygon points="150,81 145,72 155,72" fill="#b42318"/>
+          <text x="168" y="64" font-size="10" font-family="Arial,sans-serif" fill="#b42318">new (internal)</text>
+          <rect x="60" y="84" width="180" height="34" rx="7" fill="#fff0f0" stroke="#b42318"/>
+          <text x="150" y="106" text-anchor="middle" font-size="12" font-family="Arial,sans-serif" fill="#b42318">UppercaseFormatter</text>
+          <text x="150" y="148" text-anchor="middle" font-size="10" font-family="Arial,sans-serif" fill="#56657a">formatter is fixed — cannot swap</text>`,
+
+        param: `
+          <rect x="14" y="10" width="72" height="34" rx="7" fill="#fff8e6" stroke="#a15c00"/>
+          <text x="50" y="32" text-anchor="middle" font-size="12" font-family="Arial,sans-serif" fill="#a15c00">Caller</text>
+          <line x1="86" y1="27" x2="116" y2="27" stroke="#a15c00" stroke-width="1.8"/>
+          <polygon points="123,27 114,22 114,32" fill="#a15c00"/>
+          <text x="102" y="20" font-size="9" font-family="Arial,sans-serif" fill="#a15c00">inject</text>
+          <rect x="124" y="10" width="152" height="34" rx="7" fill="#fff8e6" stroke="#a15c00"/>
+          <text x="200" y="32" text-anchor="middle" font-size="11" font-family="Arial,sans-serif" fill="#a15c00">PurePrinter.print(…)</text>
+          <line x1="168" y1="44" x2="138" y2="76" stroke="#a15c00" stroke-width="1.5" stroke-dasharray="4"/>
+          <polygon points="135,83 131,73 141,75" fill="#a15c00"/>
+          <line x1="232" y1="44" x2="248" y2="76" stroke="#a15c00" stroke-width="1.5" stroke-dasharray="4"/>
+          <polygon points="251,83 247,73 257,75" fill="#a15c00"/>
+          <rect x="72" y="86" width="108" height="32" rx="7" fill="#fff8e6" stroke="#a15c00"/>
+          <text x="126" y="107" text-anchor="middle" font-size="11" font-family="Arial,sans-serif" fill="#a15c00">«formatter»</text>
+          <rect x="194" y="86" width="96" height="32" rx="7" fill="#fff8e6" stroke="#a15c00"/>
+          <text x="242" y="107" text-anchor="middle" font-size="11" font-family="Arial,sans-serif" fill="#a15c00">«writer»</text>
+          <text x="150" y="148" text-anchor="middle" font-size="10" font-family="Arial,sans-serif" fill="#56657a">swappable — caller chooses each</text>`,
+
+        ctor: `
+          <rect x="100" y="8" width="100" height="34" rx="7" fill="#e6f9f0" stroke="#0f7c51"/>
+          <text x="150" y="30" text-anchor="middle" font-size="12" font-family="Arial,sans-serif" fill="#0f7c51">PrinterContext</text>
+          <line x1="132" y1="42" x2="100" y2="76" stroke="#0f7c51" stroke-width="1.8"/>
+          <polygon points="97,83 93,73 103,75" fill="#0f7c51"/>
+          <line x1="168" y1="42" x2="202" y2="76" stroke="#0f7c51" stroke-width="1.8"/>
+          <polygon points="205,83 201,73 211,75" fill="#0f7c51"/>
+          <rect x="30" y="86" width="112" height="32" rx="7" fill="#e6f9f0" stroke="#0f7c51"/>
+          <text x="86" y="107" text-anchor="middle" font-size="11" font-family="Arial,sans-serif" fill="#0f7c51">InjectedPrinter</text>
+          <rect x="156" y="86" width="112" height="32" rx="7" fill="#e6f9f0" stroke="#0f7c51"/>
+          <text x="212" y="107" text-anchor="middle" font-size="11" font-family="Arial,sans-serif" fill="#0f7c51">Formatter / Writer</text>
+          <line x1="142" y1="102" x2="156" y2="102" stroke="#0f7c51" stroke-width="1" stroke-dasharray="3"/>
+          <text x="150" y="148" text-anchor="middle" font-size="10" font-family="Arial,sans-serif" fill="#56657a">wired once — swap context for tests</text>`,
+      };
+
+      // ── Code snippets ───────────────────────────────────────────────────
+      const CODE = {
+        hardcoded: `class HardcodedPrinter {
+  print(content) {
+    // always UppercaseFormatter, always console
+    const fmt = new UppercaseFormatter();
+    console.log(fmt.format(content));
+  }
+}
+
+const p = new HardcodedPrinter();
+p.print("Hello, World!");`,
+
+        param: `class PurePrinter {
+  print(content, formatter, writer) {
+    // both dependencies injected as args
+    const out = formatter.format(content);
+    writer.log(out);
+  }
+}
+
+const p = new PurePrinter();
+p.print("Hello, World!",
+  new BoldFormatter(),
+  new MockWriter()); // testable!`,
+
+        ctor: `class InjectedPrinter {
+  constructor(formatter, writer) {
+    this.formatter = formatter; // wired once
+    this.writer    = writer;
+  }
+  print(content) {
+    this.writer.log(
+      this.formatter.format(content));
+  }
+}
+class PrinterContext { // the container
+  constructor(fmt, writer) {
+    this.printer =
+      new InjectedPrinter(fmt, writer);
+  }
+}`,
+      };
+
+      // ── Helpers ─────────────────────────────────────────────────────────
+      const modeInputs = [...document.querySelectorAll('input[name="mode"]')];
+
+      function getMode() {
+        return modeInputs.find((i) => i.checked)?.value || 'hardcoded';
+      }
+
+      function resultRow(label, value, verdict, cls) {
+        const d = document.createElement('div');
+        d.className = 'row';
+        d.innerHTML = '<span>' + label + '</span><span>' + value + '</span><span class="' + cls + '">' + verdict + '</span>';
+        return d;
+      }
+
+      // ── Main update function ─────────────────────────────────────────────
+      function update() {
+        const mode = getMode();
+        const text = document.getElementById('inputText').value || '';
+        const fmtKey = document.getElementById('formatterSel').value;
+        const wrtKey = document.getElementById('writerSel').value;
+        const fmt = getFormatter(fmtKey);
+
+        // Run the code and capture output
+        let output = '';
+        let captured = '';
+        let writerDesc = '';
+
+        if (mode === 'hardcoded') {
+          // ignores formatter/writer selections — that's the point
+          const p = new HardcodedPrinter();
+          output = p.print(text);
+          captured = output;
+          writerDesc = 'ConsoleWriter (hardcoded) — writer cannot be swapped';
+        } else {
+          const mockLog = [];
+          const writers = {
+            console: {
+              log: (c) => {
+                mockLog.push(c);
+              },
+              desc: 'ConsoleWriter — output goes to browser console',
+            },
+            mock: {
+              log: (c) => {
+                mockLog.push(c);
+              },
+              desc: 'MockWriter — captures output in memory for assertions',
+            },
+            file: {
+              log: (c) => {
+                mockLog.push(c);
+              },
+              desc: 'FileWriter (mock) — simulates writing to a file',
+            },
+          };
+          const writer = writers[wrtKey];
+          writerDesc = writer.desc;
+
+          if (mode === 'param') {
+            const p = new PurePrinter();
+            p.print(text, fmt, writer);
+          } else {
+            const ctx = new PrinterContext(fmt, writer);
+            ctx.printer.print(text);
+          }
+          captured = mockLog[0] || '';
+          output = captured;
+        }
+
+        // Per-mode metadata
+        const meta = {
+          hardcoded: {
+            coupling: 'High',
+            coupSub: 'hard dependency',
+            test: 'Hard',
+            testSub: 'must patch globals',
+            flex: 'None',
+            flexSub: 'formatter is fixed',
+            chip: 'Tightly Coupled',
+            chipColor: 'var(--bad)',
+            title: 'Hardcoded Dependency',
+          },
+          param: {
+            coupling: 'Medium',
+            coupSub: 'caller-provided',
+            test: 'Easy',
+            testSub: 'pass a mock',
+            flex: 'High',
+            flexSub: 'fully swappable',
+            chip: 'Parameter Injection',
+            chipColor: 'var(--warn)',
+            title: 'Parameter Injection',
+          },
+          ctor: {
+            coupling: 'Low',
+            coupSub: 'injected at init',
+            test: 'Easiest',
+            testSub: 'swap the context',
+            flex: 'Full',
+            flexSub: 'context-driven',
+            chip: 'Constructor DI',
+            chipColor: 'var(--good)',
+            title: 'Constructor DI + Container',
+          },
+        }[mode];
+
+        // Update hero
+        document.getElementById('stageTitle').textContent = meta.title;
+        document.getElementById('couplingOut').textContent = meta.coupling;
+        document.getElementById('couplingSub').textContent = meta.coupSub;
+        document.getElementById('testabilityOut').textContent = meta.test;
+        document.getElementById('testabilitySub').textContent = meta.testSub;
+        document.getElementById('flexOut').textContent = meta.flex;
+        document.getElementById('flexSub').textContent = meta.flexSub;
+        document.getElementById('outputPreview').textContent = output || '—';
+
+        const chip = document.getElementById('healthChip');
+        chip.style.color = meta.chipColor;
+        chip.querySelector('.dot').style.background = meta.chipColor;
+        document.getElementById('healthText').textContent = meta.chip;
+
+        // Update diagram + code
+        document.getElementById('diagramSvg').innerHTML = DIAG[mode];
+        document.getElementById('diagramHint').textContent = {
+          hardcoded: 'The printer creates its own formatter — callers have no control.',
+          param: 'Formatter and writer are passed in as arguments — any implementation works.',
+          ctor: 'The context wires all parts together at construction — swap it to change behavior.',
+        }[mode];
+        document.getElementById('codeSnippet').textContent = CODE[mode];
+
+        // Update output panel
+        document.getElementById('writerInfo').textContent = writerDesc;
+        document.getElementById('capturedOut').textContent = captured || '—';
+
+        // Test result
+        const testEl = document.getElementById('testResult');
+        if (mode === 'hardcoded') {
+          testEl.textContent = '✗ Cannot test without monkey-patching console.log globally';
+          testEl.className = 'out-value test-fail';
+        } else if (wrtKey === 'mock' || wrtKey === 'file') {
+          const expected = getFormatter(fmtKey).format(text);
+          const pass = captured === expected;
+          testEl.textContent = pass ? '✓ assert(captured === "' + expected + '") → PASS' : '✗ assert("' + captured + '" === "' + expected + '") → FAIL';
+          testEl.className = 'out-value ' + (pass ? 'test-pass' : 'test-fail');
+        } else {
+          testEl.textContent = 'Select MockWriter or FileWriter to run a test assertion';
+          testEl.className = 'out-value';
+          testEl.style.color = 'var(--muted)';
+        }
+
+        // Equation
+        const fmtName = mode === 'hardcoded' ? 'UppercaseFormatter (hardcoded)' : fmtLabel(fmtKey);
+        const wrtName = mode === 'hardcoded' ? 'console.log (hardcoded)' : { console: 'ConsoleWriter', mock: 'MockWriter', file: 'FileWriter' }[wrtKey];
+        document.getElementById('equation').textContent = 'Mode:      ' + meta.title + '\nFormatter: ' + fmtName + '\nWriter:    ' + wrtName + '\nInput:     "' + text + '"' + '\nOutput:    "' + output + '"';
+
+        // Result rows
+        const coupVerdicts = { High: 'Problem', Medium: 'Better', Low: 'Ideal' };
+        const coupCls = { High: 'fail', Medium: 'warn', Low: 'pass' };
+        const testVerdicts = { Hard: 'Risky', Easy: 'OK', Easiest: 'Best' };
+        const testCls = { Hard: 'fail', Easy: 'warn', Easiest: 'pass' };
+        const flexVerdicts = { None: 'Fixed', High: 'Flexible', Full: 'Maximum' };
+        const flexCls = { None: 'fail', High: 'warn', Full: 'pass' };
+
+        const r = document.getElementById('results');
+        r.innerHTML = '';
+        r.appendChild(resultRow('Coupling', meta.coupling, coupVerdicts[meta.coupling], coupCls[meta.coupling]));
+        r.appendChild(resultRow('Testability', meta.test, testVerdicts[meta.test], testCls[meta.test]));
+        r.appendChild(resultRow('Flexibility', meta.flex, flexVerdicts[meta.flex], flexCls[meta.flex]));
+        r.appendChild(resultRow('Can mock writer?', mode !== 'hardcoded' ? 'Yes' : 'No', mode !== 'hardcoded' ? 'Yes' : 'No', mode !== 'hardcoded' ? 'pass' : 'fail'));
+      }
+
+      // ── Reset button ─────────────────────────────────────────────────────
+      document.getElementById('resetBtn').addEventListener('click', () => {
+        modeInputs.find((i) => i.value === 'hardcoded').checked = true;
+        document.getElementById('inputText').value = 'Hello, World!';
+        document.getElementById('formatterSel').value = 'upper';
+        document.getElementById('writerSel').value = 'console';
+        update();
+      });
+
+      // ── Reactive listeners ───────────────────────────────────────────────
+      modeInputs.forEach((i) => i.addEventListener('change', update));
+      document.getElementById('inputText').addEventListener('input', update);
+      document.getElementById('formatterSel').addEventListener('change', update);
+      document.getElementById('writerSel').addEventListener('change', update);
+
+      update();
+    </script>
+  </body>
+</html>
