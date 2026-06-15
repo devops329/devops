@@ -2,12 +2,13 @@
 
 🔑 **Key points**
 
-- Deployment environments allow you to target specific customer requirements.
-- Common environments include production, staging, and development.
+- Deployment environments allow you to isolate development, testing, and production activities to meet specific technical and business requirements.
+- Common environments include development, staging, and production.
+- Using multiple environments reduces the risk of downtime and security vulnerabilities.
 
 ---
 
-To this point you have been deploying your code directly to your production environment using what is called a `reboot` strategy. If you look at your GitHub Actions CI workflow for `jwt-pizza` you will see something like the following step.
+To this point, you have been deploying your code directly to your production environment using what is often called a "reboot" or "in-place" strategy. If you look at your GitHub Actions CI workflow for `jwt-pizza`, you will see a step similar to the following:
 
 ```yml
 - name: Push to AWS S3
@@ -15,36 +16,44 @@ To this point you have been deploying your code directly to your production envi
     aws s3 cp dist s3://pizza.byucsstudent.click --recursive
 ```
 
-This has several problems. First, it just copies the deployment package files directly into the S3 location that CloudFront hosts to the world using your application URL. That means that old files that are no longer used by the application (and therefore will not be overwritten by copying) are still available for public access. This creates a security, as well as a maintenance problem.
+This approach has several flaws. First, it copies the deployment package files directly into the S3 bucket that CloudFront serves to the world. Because it only copies new files, old files that are no longer used by the application are not removed. These legacy files remain publicly accessible, creating both security risks and maintenance overhead.
 
-If you delete the old version before you copy up the new version, then this introduces the possibility of the customer getting a 404 error if they try to load the application between the deletion and the copying up of the new files.
+If you attempt to solve this by deleting the old version before copying the new one, you introduce a "race condition." Customers trying to load the application during that interval will receive 404 errors because the files are missing.
 
-Additionally, if you want to roll back to a previous version of the application, you would need to rerun your CI pipeline with a previous Git commit. This is not something that you are currently configured to easily do, and it would take several minutes to execute. That is not a good position to be in when a critical failure is occurring.
+Additionally, if you need to roll back to a previous version due to a bug, you would have to locate a previous Git commit and re-run your entire CI pipeline. This process is slow and unreliable—not a position you want to be in during a critical system failure.
 
-Finally, there is the problem that there is only one environment that hosts your entire application stack. You have a development environment where individual developers can create and experiment. You have a CI environment where a version is built, tested, and analyzed. But there is no place that you can go to see how the application actually works without doing that in the same place as your customers.
+Finally, relying on a single environment means you have no place to verify how the application actually works in a live setting without exposing those changes to your customers. While you have a local environment for development and a CI environment for testing, you lack a "pre-production" space for final validation.
 
-What you really need is a central repository of all the candidate versions that can be quickly deployed to different environments that each serve a specific purpose.
+To solve these issues, you need a central repository of versioned "build artifacts" that can be quickly deployed to different environments, each serving a specific purpose.
 
 ![Environments](environments.png)
 
-The above diagram shows three such possible environments. This includes a production, penetration, and staging environment. Each of these environments hosts the entire stack of the application, but may have different data, device configurations, or versions of the software. The environments may also have different access controls that limit who can access it, and from where.
+The diagram above illustrates three potential environments: production, penetration, and staging. Each environment hosts the entire application stack but may use different data, configurations, or software versions. Access controls can also be tailored to each environment to limit who can interact with them.
 
-Each environment has the same starting flow where the software is tested, analyzed, and cataloged to ensure quality and automated access, but the deployment environments themselves target different purposes.
+While every environment follows the same initial flow—where software is tested, analyzed, and cataloged—the deployment targets serve different goals:
 
-- **Development**: Commonly the machine that a software engineer does their work on is considered one of many development environments. Your team can formalize what that environment looks like, what tools are required, and how it is configured. Additionally, there are several cloud based development environments that you can choose from such as [AWS Cloud 9](https://aws.amazon.com/cloud9/), [GitHub Codespaces](https://github.com/features/codespaces), or [Replit](https://replit.com/). These types of tools have an advantage of creating uniformity across teams, sharing access and configuration, and being accessible from anywhere.
+- **Development**: This is typically the machine where a software engineer writes code. Teams can formalize these environments using specific toolsets and configurations. Cloud-based development environments like [AWS Cloud9](https://aws.amazon.com/cloud9/), [GitHub Codespaces](https://github.com/features/codespaces), or [Replit](https://replit.com/) provide uniformity across teams, making configurations easily shareable and accessible from anywhere.
 
-- **Production**: This environment is where the live application is hosted, accessible to end-users and customers. It must be highly reliable, secure, and performant since it directly impacts the user experience. Changes to this environment should be thoroughly tested and rolled out carefully to minimize downtime and avoid introducing new bugs.
+- **Production**: This is the live environment accessible to end-users. It must be highly reliable, secure, and performant. Changes to production should be thoroughly vetted and rolled out carefully to minimize downtime and prevent regressions.
 
-- **Staging**: A staging environment is a pre-production environment that mirrors the production environment as closely as possible. It is used to perform final testing before deploying to production. This environment allows you to catch any last-minute issues that might not have been caught in earlier testing phases. It ensures that the deployment process works smoothly and that the application behaves as expected in a production-like setting.
+- **Staging**: A staging environment is a pre-production area that mirrors the production environment as closely as possible. It is used for final "smoke testing" before a release. This allows you to catch environment-specific issues that might not appear in local development or CI tests, ensuring the deployment process itself works smoothly.
 
-- **Penetration**: This environment is dedicated to security testing, including penetration testing and vulnerability assessments. It is used to identify and fix security issues before they can be exploited in the production environment. This environment can simulate various attack scenarios to ensure that the application is secure against real-world threats. A key difference with this environment is that the data is not customer data and that a penetration tester is encouraged to bring the application down if possible.
+- **Penetration**: This environment is dedicated to security testing, such as vulnerability assessments and ethical hacking. It allows security professionals to simulate attack scenarios without risking customer data or production stability. In this environment, testers are often encouraged to try to crash the application to find weaknesses.
 
-- **Sales**: The sales environment is tailored specifically for demonstrations and presentations to potential customers and stakeholders. It allows the sales team to showcase the latest features and capabilities of the application in a controlled and polished setting. This environment often includes sample data and custom configurations that highlight the application's strengths and selling points, helping to create a compelling and impactful sales pitch. The data contained in this environment is created completely to tell a good sales story and can be reset after a demo.
+- **Sales**: A sales environment is tailored for demonstrations to potential customers and stakeholders. It allows the sales team to showcase features in a controlled, polished setting using curated sample data. This data can be easily reset after a demo to ensure a consistent experience for the next presentation.
 
-- **Single tenancy**: You may also want to create an environment to isolate a single customer. This can be done for security or performance reasons.
+- **Single tenancy**: In some cases, you may create an isolated environment for a specific high-value customer. This is often done to meet strict security requirements or to provide dedicated performance resources.
 
 ## Conclusion
 
-By adopting multiple deployment environments, you can improve the reliability, security, and overall quality of your application. You also provide for specialized uses like single tenancy or sales demos. Each environment serves a specific purpose, from ensuring smooth deployment and final testing in staging, to safeguarding against vulnerabilities in penetration testing, to providing a stable and performant user experience in production.
+Adopting multiple deployment environments improves the reliability, security, and overall quality of your application. It allows you to tailor the infrastructure to specific needs, from safeguarding production with a staging buffer to conducting rigorous security audits in a penetration environment.
 
-The key is that by automating your CI/CD pipeline it is easy to spin up new environments. This keeps you flexible to explore new business models as well as prevent, and recover from, system failures.
+By automating your CI/CD pipeline, spinning up new environments becomes a trivial task. This flexibility allows you to explore new business models and ensures you can quickly recover from or prevent system failures.
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"1a9938e0-b7ba-4313-98e3-04046c3862b6", "title":"Essay", "type":"essay", "gradingCriteria":"- A production system should at least have a staging and production environment" }
+What environment do you think you should provide for a production application like JWT Pizza?
+```
