@@ -651,7 +651,10 @@
           "title": "Elasticity",
           "path": "instruction/elasticity/elasticity.md",
           "id": "a4b167df-19f3-4e91-8076-ef89c42a3de2",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "72e16838-fab8-457e-a412-1114a28d58d8"
+          ]
         },
         {
           "title": "☑ AWS RDS MySQL",
