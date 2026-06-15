@@ -59,20 +59,9 @@ Your bucket should now display the uploaded file.
 
 ![Bucket with file](bucketWithFile.png)
 
-Once you have confirmed the upload, you may delete the file and the bucket to avoid unnecessary storage.
-
-
-```masteryls
-{"id":"b990215b-883b-4473-9f25-71ff502c971a", "title":"S3 Bucket", "type":"multiple-choice" }
-I was able to use S3 to:
-
-- [x] Create a bucket and upload a file
-- [ ] Access the S3 service dashboard, but not create a bucket or upload a file
-- [ ] Unable to work on this exercise
-```
-
-
 ```masteryls
 {"id":"65725927-08ab-439d-92f4-68cbdd68d04f", "title":"S3 Bucket", "type":"file-submission"  }
 Attach a screen shot of your S3 bucket that displays your uploaded file.
 ```
+
+Once you have confirmed the upload, you may delete the file and the bucket to avoid unnecessary storage.
