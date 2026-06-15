@@ -207,3 +207,11 @@ Deploy the JWT Pizza Service container by completing the following:
 3. **Provision the Cluster**: Create a Fargate cluster.
 4. **Deploy the Service**: Create an ECS service integrated with an Application Load Balancer and HTTPS.
 5. **Configure DNS**: Create a CNAME record in Route 53 pointing to your ALB.
+
+
+```masteryls
+{"id":"024757e7-e85c-4f79-97ac-bfd8c4772df8", "title":"AWS ECS", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The response is a JSON object with a message field that says 'welcome to JWT Pizza'" }
+Submit the URL to your JWT Pizza service.
+
+_Example: https://pizza-service.yourhostname.click_
+```
