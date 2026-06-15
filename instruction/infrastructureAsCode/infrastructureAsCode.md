@@ -2,32 +2,32 @@
 
 🔑 **Key points**
 
-- There are many benefits for IaC.
-- Creating Iac requires that you test it.
+- IaC enables automation, consistency, and scalability in infrastructure management.
+- Infrastructure code should be version-controlled and tested just like application code.
 
 ---
 
-📖 **Deeper dive reading**: [Iac at AWS](https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/infrastructure-as-code.html)
+📖 **Deeper dive reading**: [IaC at AWS](https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/infrastructure-as-code.html)
 
 ---
 
 ## What is infrastructure as code?
 
-Infrastructure as code (IaC) is the practice of treating your application infrastructure creation and management as just another part of your application code. This means that you use the same tools that you use to manage your application code to manage your infrastructure. This is a powerful concept because it allows you to automate the creation of your infrastructure.
+Infrastructure as code (IaC) is the practice of managing and provisioning application infrastructure through machine-readable definition files. Rather than manually configuring hardware or using interactive web consoles, you treat your infrastructure as part of the application code itself. This allows you to use the same tools and workflows—such as version control, automated testing, and CI/CD pipelines—to manage your servers, networks, and databases. This approach is powerful because it makes infrastructure deployment repeatable and predictable.
 
 ## Why is IaC important?
 
-As we have stressed previously, manual work, or toil, is the enemy of DevOps. We have been doing a lot of manual manipulation of AWS in order to set up our automated CI pipeline. It is easy to justify the work you did to set up your JWT Pizza cloud hosting environment as a one time effort. Furthermore, setting up automation takes effort. You are basically writing, or scripting, a program to allow for the automatic execution of your CI pipeline. However, there are some very good reasons to reduce toil and automate as much as you can.
+As previously discussed, manual work (or "toil") is the enemy of DevOps. It might be easy to justify the manual effort used to set up a small project—like a JWT Pizza cloud hosting environment—as a one-time task. However, manual processes are difficult to scale and prone to human error. While scripting and automating your infrastructure requires an initial investment of time, there are critical reasons to reduce toil:
 
-1. **Disaster recovery**: There is always the possibility of a significant system failure. Extreme weather can knock out data centers, human error can bring down networks for hours, and hardware simply degrades and eventually stops working. Having code that you can execute to immediately restore your critical infrastructure is one of the characteristics that differentiates world-class organizations from failing startups.
-1. **Creating new environments**: If you have automation that can rebuild your production environment, then it is an easy extension to use that automation to build new environments for things like staging, external auditing, penetration testing, or market testing. This makes your company more agile and responsive to market demands.
-1. **Documentation**: Chances are that you are not going working on the exact same system forever. You need to leave behind the kind of documentation for how the system works that you would like to have. Automation helps to fill this need. It serves as clear documentation of how the system is configured, and just like automated testing, it allows you to enhance your CI pipeline without introducing regression errors.
+1. **Disaster recovery**: System failures are inevitable. Extreme weather, human error, or hardware degradation can take down services at any time. Having code that can immediately and reliably restore your critical infrastructure is one of the characteristics that differentiate world-class organizations from those that struggle to recover.
+1. **Creating new environments**: If you have automation that can rebuild your production environment, you can easily spin up identical environments for staging, external auditing, penetration testing, or market research. This makes your organization more agile and ensures consistency across the entire development lifecycle.
+1. **Documentation**: You likely will not be working on the same system forever. IaC serves as living documentation of how the system is configured. Just like automated testing, it allows you to enhance your infrastructure without introducing regression errors, providing a clear history of changes for whoever maintains the system next.
 
-## How to do IaC
+## How to implement IaC
 
-Proper **IaC** begins with an automation mindset. Whenever you set up a system or process, immediately start thinking about how you can automate that work. This is usually only possible if you do it manually to begin with, but take careful notes about the steps that you take. Then turn those steps into an automated script, workflow, or simply a program that you code up in your favorite language.
+Proper IaC begins with an **automation mindset**. Whenever you set up a system or process, immediately consider how you can automate that work. Often, the best approach is to perform the task manually first while taking meticulous notes on every step. You then translate those steps into an automated script, a declarative configuration file (such as Terraform or CloudFormation), or a program written in a standard programming language.
 
-After you have code that can build your infrastructure, you need to test it. That means that you run it and build a parallel system to the one that your crafted manually. You can then compare the two and make sure they are equivalent. Once that all checks out, you tear down the twin and store your IaC along with the documentation for the system so that it is readily available at a moment's notice.
+Once you have written your infrastructure code, you must test it. This involves running the code to build a parallel "twin" of your manual system. You can then compare the two to ensure they are equivalent. Once the code is validated, you can decommission the temporary environment and store your IaC in a version control repository, ensuring it is ready for deployment at a moment's notice.
 
 ## A bit of fun
 
