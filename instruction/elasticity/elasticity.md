@@ -41,3 +41,17 @@ The following table shows how the services used by JWT Pizza provide elasticity:
 | **CloudFront** |    Yes    | Per GB & request      | Automatic global distribution and bandwidth management.                       |
 
 This built-in elasticity is a force multiplier for small DevOps teams. Once an architecture is correctly defined and deployed, the system's elasticity handles fluctuations automatically. Infrastructure management that once required a large team of engineers can now be handled by a single DevOps professional.
+
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"72e16838-fab8-457e-a412-1114a28d58d8","title":"Limitations of Elasticity","type":"multiple-choice"}
+In which of the following scenarios would implementing an automated elasticity strategy be **least** beneficial or potentially counterproductive?
+
+- [ ] A high-growth startup that experiences unpredictable viral spikes in traffic and needs to maintain high availability.
+- [ ] A data processing service that handles large batches of information at irregular intervals throughout the week.
+- [x] A legacy application with a steady, predictable workload that requires significant manual intervention to configure new instances.
+- [ ] An e-commerce platform that needs to scale out resources rapidly during seasonal sales events like Black Friday.
+```
