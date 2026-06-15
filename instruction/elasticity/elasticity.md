@@ -2,33 +2,42 @@
 
 🔑 **Key points**
 
-- Elasticity is vital in order to prevent failure and reduce costs
-- All AWS services are elastic
+- Elasticity is vital for preventing system failure and reducing operational costs.
+- Most AWS services are designed with elasticity as a core feature.
 
 ---
 
-An application is considered elastic if it can increase and decrease in capacity according to demand. This is critical for two reasons. First, it **prevents failing** when there are not enough resources to satisfy demand, and second, **reduces cost** when the system is over provisioned.
+An application is considered **elastic** if it can increase and decrease its resource capacity automatically to match fluctuating demand. This is critical for two primary reasons:
+
+1.  **Prevents failure:** It ensures there are enough resources to satisfy demand during traffic spikes.
+2.  **Reduces cost:** It eliminates waste by scaling down resources when the system is over-provisioned.
 
 ## An example
 
-It is very common for an application to have periods of high and low demand. Consider the JWT Pizza application. People want pizza at lunch and dinner time. Then from late evening until the next lunchtime there is very little demand for the application. Things get really crazy during the Superbowl when everyone wants a pizza and demand goes through the roof. The next day everyone is looking to eat salad and recover from their indulgence and so there are very few pizza orders.
+It is common for applications to experience predictable periods of high and low demand. Consider the **JWT Pizza** application. Demand typically peaks during lunch and dinner hours. From late evening until the following day's lunch hour, there is very little activity. Demand can also spike dramatically during major events, such as the Super Bowl, when pizza orders go through the roof. Conversely, the day after a big event, orders often plummet as customers opt for lighter meals.
 
 ![Pizza orders](pizzaOrders.png)
 
-This creates a significant problem for the management of the application. If you run your own data center then you have to purchase servers based on estimates of what your peak demand will be. Usually there is a buffer of maybe 30%. That means that most of the time you have as much as 50% of the servers sitting idle, during off hours you would have 80% idle, and when the Superbowl happens, your customers will experience significant latency in the best case, or complete system failure in the worst case.
+In a traditional on-premises data center, this volatility creates a significant management problem. You must purchase and maintain enough servers to handle your estimated **peak demand**, usually with an additional 30% buffer for safety. 
 
-Neither one of these scenarios are good for the business and this is why the idea of leasing resources by the hour in a cloud hosting environment becomes so attractive. The cloud provider can amortize the use of the servers across a diverse population of application types and geographical locations. What is crunch time for one application will be down time for another application. You may need to pay a small premium for an hourly lease, but you benefit from being able to scale up your application when needed and reduce the servers when the demand drops. Overall there are significant cost savings and no more outages just when business is getting good.
+This leads to two negative outcomes:
+- **During off-hours:** Up to 80% of your hardware sits idle, wasting money.
+- **During unexpected peaks:** If demand exceeds your estimates (like an unusually busy Super Bowl), customers will experience significant latency or total system failure.
+
+Cloud hosting solves this by allowing you to lease resources by the hour. Cloud providers can amortize the cost of their hardware across a diverse global population of users; peak usage for one application often coincides with downtime for another. While you might pay a small premium for an hourly lease, you benefit from the ability to scale up instantly when needed and scale down when demand drops. This results in significant cost savings and ensures your application remains available exactly when business is at its best.
 
 ## AWS Elasticity
 
-Almost every AWS service is built with elasticity in mind. This is important because all of your services need to scale together. If everything scales except your network bandwidth then your application is going down. The same goes for S3 requests or RDS queries. A single bottleneck is all it takes for the whole system to fail. The following table shows how each of the services we use for JWT Pizza provides elasticity.
+Most AWS services are built with elasticity in mind. This is important because an application is only as elastic as its weakest link. If your compute layer scales but your database or network bandwidth does not, the system will still fail. A single bottleneck is all it takes to cause an outage. 
+
+The following table shows how the services used by JWT Pizza provide elasticity:
 
 | Service    | Automatic | Pricing               | Elasticity                                                                    |
 | ---------- | :-------: | --------------------- | ----------------------------------------------------------------------------- |
-| S3         |    yes    | per GB & request      | Automatic storage allocation.                                                 |
-| RDS MySQL  |    no     | instance size         | Manual instance size adjustments. These usually take a few minutes to deploy. |
-| Fargate    |    yes    | instance size & count | Automatic deployment and reduction to satisfy desired parameters.             |
-| ALB        |    yes    | per GB & connection   | Automatic bandwidth management.                                               |
-| CloudFront |    yes    | per GB & request      | Automatic distribution and bandwidth management.                              |
+| **S3**         |    Yes    | Per GB & request      | Automatic storage and request capacity allocation.                             |
+| **RDS MySQL**  |    No     | Instance size         | Manual instance size adjustments or read replicas. Usually takes minutes.     |
+| **Fargate**    |    Yes    | Instance size & count | Automatically scales the number of containers to satisfy desired parameters.   |
+| **ALB**        |    Yes    | Per GB & connection   | Automatic bandwidth and throughput management.                                |
+| **CloudFront** |    Yes    | Per GB & request      | Automatic global distribution and bandwidth management.                       |
 
-This is all good news for small DevOps teams that are budget or size constrained. Once an architecture is defined and deployed, the automatic elasticity of the system mostly takes care of itself. What would have taken a team of a dozen engineers to deploy and manage can now be done by a single part-time DevOps engineer.
+This built-in elasticity is a force multiplier for small DevOps teams. Once an architecture is correctly defined and deployed, the system's elasticity handles fluctuations automatically. Infrastructure management that once required a large team of engineers can now be handled by a single DevOps professional.
