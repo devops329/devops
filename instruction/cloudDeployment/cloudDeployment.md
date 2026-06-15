@@ -16,8 +16,6 @@ Cloud deployment refers to the process of deploying an application through one o
 
 The primary purpose of cloud deployment is to provide **agility** and **elasticity**. In a traditional environment, scaling up required weeks of hardware procurement and installation. In the cloud, scaling is a matter of API calls or automated triggers. This allows applications to handle sudden spikes in traffic without manual intervention and, more importantly, to scale back down when the demand subsides, ensuring resources are not wasted.
 
-### Key Value Drivers
-
 The value proposition of cloud deployment is often categorized into several key pillars:
 
 *   **Cost Optimization:** Shifting from Capital Expenditure (CAPEX)—buying expensive hardware upfront—to Operational Expenditure (OPEX), where you pay only for what you use.
@@ -25,28 +23,20 @@ The value proposition of cloud deployment is often categorized into several key 
 *   **Reliability:** Built-in redundancy and failover mechanisms ensure that if one physical server fails, the application automatically migrates to another, maintaining high availability.
 *   **Speed to Market:** Developers can provision entire environments (testing, staging, production) instantly using Infrastructure as Code (IaC), significantly shortening the software development lifecycle (SDLC).
 
-### Deployment Workflow Comparison
 
-The following diagram illustrates the streamlined nature of cloud deployment compared to traditional infrastructure procurement:
 
-```mermaid
-graph TD
-    subgraph Traditional_Procurement
-    A[Identify Need] --> B[Budget Approval]
-    B --> C[Order Hardware]
-    C --> D[Shipping & Delivery]
-    D --> E[Rack & Stack]
-    E --> F[OS Installation]
-    end
+## The Case for Self-Hosting: Control, Compliance, and Cost
 
-    subgraph Cloud_Deployment
-    G[Identify Need] --> H[Define IaC Template]
-    H --> I[Cloud Provider API]
-    I --> J[Running Instance]
-    end
+While the "Cloud First" mantra dominates modern software development, there are specific scenarios where hosting your own solution—either on-premises or on private infrastructure—is the superior choice. The decision to move away from managed services (like AWS RDS or Google Kubernetes Engine) toward a self-hosted model usually centers on three pillars: **Data Sovereignty**, **Customization**, and **Long-term Cost Predictability**.
 
-    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
-```
+For many organizations, regulatory requirements dictate exactly where data resides and who has access to it. In industries like healthcare, defense, or high-finance, "Black Box" managed services can be a liability. Self-hosting allows an organization to audit the entire stack, from the physical hardware and networking layer to the operating system kernel. This level of transparency is often impossible with public cloud providers who operate on a shared responsibility model.
+
+The following list highlights the primary reasons an engineering team might opt for a self-hosted deployment:
+
+*   **Data Sovereignty & Compliance:** Strict laws (like GDPR or HIPAA) may require data to stay within specific geographic borders or on air-gapped hardware.
+*   **Hardware Specialization:** If your application requires specific GPU architectures, high-performance NVMe storage configurations, or FPGA integration that cloud providers don't offer or charge a massive premium for.
+*   **Cost at Scale:** While the cloud is cheaper to start, the "cloud tax" becomes significant at massive scales. For steady-state workloads with predictable traffic, owning the hardware often results in a lower Total Cost of Ownership (TCO) over a 3-5 year hardware lifecycle.
+*   **Legacy Integration:** Applications that need microsecond-latency access to local legacy mainframes or specialized industrial equipment often cannot tolerate the latency of a round-trip to a cloud data center.
 
 ## JWT cloud deployment
 
@@ -54,7 +44,7 @@ Specifically, you will deploy the `jwt-pizza` frontend to AWS S3 and the `jwt-pi
 
 ![Cloud deployment](cloudDeployment.png)
 
-## Architecture pieces
+### Architecture pieces
 
 We will eventually explore the details of each service in the architecture diagram above, including their specific functions, setup processes, and how to connect them. In the meantime, the following table provides a general overview of each service's role.
 
@@ -69,7 +59,7 @@ We will eventually explore the details of each service in the architecture diagr
 | ECS                 | Elastic Container Service; a container orchestration service that manages deployments and monitors system health.          |
 | Fargate             | A serverless compute engine for containers that manages scaling and infrastructure automatically as load increases.        |
 
-## Phased build-out
+### Phased build-out
 
 You will build this architecture by following these steps:
 
@@ -88,7 +78,7 @@ You will build this architecture by following these steps:
 
 Following this process will create a fully automated, cloud-scale architecture capable of supporting any level of growth JWT Pizza achieves.
 
-## Exercises
+## ☑ Exercise
 
 ```masteryls
 {"id":"6d7276ff-ea09-47e4-b91e-acc2a42bd301","title":"The Core Value of Cloud Deployment","type":"multiple-choice"}
@@ -98,6 +88,16 @@ What is the primary financial advantage of moving from on-premises deployment to
 - [x] It shifts costs from Capital Expenditure (CAPEX) to Operational Expenditure (OPEX), allowing for a pay-as-you-go model.
 - [ ] It guarantees that the total cost of ownership will always be lower, regardless of usage patterns.
 - [ ] It allows companies to own the physical hardware located in the provider's data center for tax depreciation.
+```
+
+```masteryls
+{"id":"7c29ab2b-fbe2-4754-8976-3264af25f583","title":"Identifying Self-Hosting Triggers","type":"multiple-choice"}
+An international bank is launching a new application that processes highly sensitive financial records. Due to national security laws, the data must be stored on physical servers located within the country's borders, and the bank must have the ability to perform physical audits of the server hardware. Which deployment model is most appropriate?
+
+- [x] A self-hosted solution on private infrastructure
+- [ ] A Multi-Cloud strategy using AWS and Azure
+- [ ] Serverless functions (FaaS) for maximum scalability
+- [ ] A managed SaaS (Software as a Service) platform
 ```
 
 
