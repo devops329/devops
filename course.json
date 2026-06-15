@@ -772,7 +772,10 @@
           "title": "Versioning",
           "path": "instruction/versioning/versioning.md",
           "id": "b1bfe9d0-47d5-4239-8daf-e357ae56c054",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "44106e2a-8351-4227-b6db-2e572380e89b"
+          ]
         },
         {
           "title": "Deployment strategies",
