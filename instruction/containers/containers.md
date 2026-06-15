@@ -221,6 +221,20 @@ You can also run a command on a running container with the `exec` command. Somet
 docker exec <container ID> ls -la
 ```
 
+## ☑ Exercise
+
+
+```masteryls
+{"id":"fdad2e7b-8f59-4c38-9f36-4421c7e4e850","title":"Containers vs. Virtual Machines","type":"multiple-choice"}
+In the context of Docker, what is a primary architectural difference between a container and a traditional virtual machine (VM)?
+
+- [ ] Containers provide hardware-level abstraction, ensuring that each instance has its own dedicated BIOS and virtual hardware.
+- [ ] Containers are essentially small virtual machines that require a Type-1 hypervisor like Xen or ESXi to operate.
+- [x] Containers share the host's operating system kernel, whereas each virtual machine runs its own full guest operating system.
+- [ ] Containers are strictly used for stateless code execution and lack the ability to interact with the host's file system or network.
+```
+
+
 ## Container practice
 
 Follow the instruction given above to create a container image and upload it to Docker Hub. It should look something like the following.
