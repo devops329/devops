@@ -1,55 +1,55 @@
-# AWS S3 deployment
+# AWS S3 Deployment
 
 🔑 **Key points**
 
-- You must authorize GitHub to have access to your AWS account.
-- You can use a GitHub Action workflow to execute AWS CLI commands.
-- You will create a workflow that uploads a file to your S3 bucket.
+- You must authorize GitHub to access your AWS account.
+- You can use a GitHub Actions workflow to execute AWS CLI commands.
+- You will create a workflow that builds your project and uploads files to your S3 bucket.
 
 ---
 
-In order to use CI to deploy our static frontend content to S3 you need to create a trust relationship between GitHub and AWS. This is done by using the Open ID Connection (OIDC) protocol to dynamically obtain an authentication token whenever you want to call the S3 endpoints for copying files. Using OIDC to authenticate with AWS makes it so that you don't ever have to store credentials in your CI pipeline.
+To use Continuous Integration (CI) to deploy static frontend content to S3, you must create a trust relationship between GitHub and AWS. This is done using the OpenID Connect (OIDC) protocol to dynamically obtain an authentication token whenever you call S3 endpoints. Using OIDC to authenticate with AWS eliminates the need to store long-lived AWS credentials (like Access Keys) in your CI pipeline.
 
 ![S3 Deployment](s3Deployment.png)
 
 > [!IMPORTANT]
 >
-> Make sure you are using the `us-east-1` AWS region for all your work in this course.
+> Ensure you are using the `us-east-1` AWS region for all your work in this course.
 
-### Setting up Open ID Connect (OIDC)
+### Setting up OpenID Connect (OIDC)
 
-You establish a trust relationship between GitHub and AWS by configuring AWS to use GitHub as an OIDC identity provider, associating a OIDC identity with an AWS IAM role that allows access to S3, and configuring a GitHub Actions workflow to use the identity.
+You establish a trust relationship between GitHub and AWS by configuring AWS to use GitHub as an OIDC identity provider, associating that identity with an AWS IAM role that allows S3 access, and configuring a GitHub Actions workflow to use that role.
 
-### Create and OIDC identity provider for GitHub
+### Create an OIDC identity provider for GitHub
 
-First you need to set up AWS to use GitHub as an OIDC provider.
+First, you need to set up AWS to recognize GitHub as a trusted OIDC provider.
 
-1. Open the AWS IAM service console
-1. Choose `Identity providers`
-1. Press `Add provider`
-1. Choose the provider type of `OpenID Connect`
+1. Open the **AWS IAM** service console.
+1. Choose **Identity providers** from the left sidebar.
+1. Click **Add provider**.
+1. Select the provider type **OpenID Connect**.
 
    ![Create OIDC Provider](createOIDCProvider.png)
 
-1. Give the GitHub URL for the provider URL, and allow AWS Security Token Service as the audience.
-   1. **provider URL**: `https://token.actions.githubusercontent.com`
+1. Enter the following details:
+   1. **Provider URL**: `https://token.actions.githubusercontent.com`
    1. **Audience**: `sts.amazonaws.com`
-1. Press `Add provider`
-1. Click on the newly created identity provider to display its properties.
+1. Click **Get thumbprint** to verify the provider URL.
+1. Click **Add provider**.
+1. Click on the newly created identity provider in the list to display its properties.
 
    ![OIDC properties](identityProperties.png)
 
-1. You will reference the identity provider ARN when you create the IAM role.
+1. Note the **Provider ARN**; you will reference this when you create the IAM role.
 
 ### Create the IAM policy
 
-We want to be careful which AWS services and resources we expose through the credentials we are creating, so we need to create an AWS IAM policy that only provides what is necessary to update your S3 deployment bucket and invalidate the files that the CloudFront distribution is hosting.
+To follow the principle of least privilege, you must create an IAM policy that only provides the permissions necessary to update your S3 bucket and invalidate CloudFront cache files.
 
-1. Open the AWS IAM service console.
-1. Choose `Policies`.
-1. Press `Create policy`.
-1. Press `JSON` in order to define the policy with JSON.
-1. Paste the following policy
+1. In the IAM console, choose **Policies**.
+1. Click **Create policy**.
+1. Select the **JSON** tab to define the policy.
+1. Paste the following JSON, replacing the placeholders with your specific resource IDs:
 
 ```json
 {
@@ -77,66 +77,64 @@ We want to be careful which AWS services and resources we expose through the cre
 }
 ```
 
-1. Replace `BUCKET_NAME_HERE` with the name of the S3 bucket you created (e.g. pizza.yourhostname).
-1. Replace `AWS_ACCOUNT_HERE` with your AWS account ID number (e.g. 882352824274).
-1. Replace `DISTRIBUTION_HERE` with the CloudFront distribution ID (e.g. F3A3ZL6IF7XCE1).
-1. Press `Next`.
+1. Replace `BUCKET_NAME_HERE` with your S3 bucket name (e.g., `pizza.yourhostname`).
+1. Replace `AWS_ACCOUNT_HERE` with your 12-digit AWS account ID.
+1. Replace `DISTRIBUTION_HERE` with your CloudFront distribution ID (e.g., `F3A3ZL6IF7XCE1`).
+1. Click **Next**.
 1. Name the policy `jwt-pizza-ci-deployment`.
-1. Press `Create policy`.
+1. Click **Create policy**.
 
 ### Create the IAM role
 
-Now we can create the AWS IAM role that allows access to S3.
+Now, create the IAM role that GitHub Actions will assume.
 
-1. Open the AWS IAM service console.
-1. Choose `Roles`.
-1. Press `Create role`.
-1. Choose `Web identity`.
-1. Select the identity provider that you just created for GitHub.
+1. In the IAM console, choose **Roles**.
+1. Click **Create role**.
+1. Select **Web identity**.
+1. Select the identity provider you created for GitHub.
 
    ![Create role](createRole.png)
 
-1. Add the `Audience` to be sts.amazonaws.com from the dropdown.
-1. Add the `GitHub organization` to be your GitHub account name.
-1. Add the `GitHub repository` for your fork of the `jwt-pizza` repository.
-1. Add the `GitHub branch` to be main.
+1. Select `sts.amazonaws.com` from the **Audience** dropdown.
+1. Enter your **GitHub organization** (your GitHub username).
+1. Enter the **GitHub repository** name for your fork of the `jwt-pizza` repository.
+1. Enter `main` for the **GitHub branch**.
 
    ![Web identity](webIdentity.png)
 
-1. Press `Next`.
-1. Add permissions by entering the name of the policy you created (e.g. `jwt-pizza-ci-deployment`).
+1. Click **Next**.
+1. Under **Permissions policies**, search for and select the policy you just created (`jwt-pizza-ci-deployment`).
 
    ![Policy permissions](policyPermissions.png)
 
-1. Press `Next`.
+1. Click **Next**.
 1. Name the role `github-ci`.
-1. Press `Create role`.
+1. Click **Create role**.
 
 ### Configure GitHub Actions
 
-The final step is to create a GitHub Actions workflow that deploys to the S3 bucket using the OIDC credentials that you just created.
+The final step is to create a GitHub Actions workflow that deploys to S3 using the OIDC credentials.
 
 #### Storing secrets
 
-Your repository is public and so you want to make sure that you keep secret anything that would give an advantage to a nefarious party. This includes your AWS Account ID, IAM role, S3 Bucket name, and the CloudFront distribution ID.
-
-You can hide these secrets by creating [repository secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) and then referencing the secrets in your workflow.
+Since your repository is public, you must hide sensitive information like your AWS Account ID and resource names. Use [GitHub Repository Secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) to store these values.
 
 ![Actions secrets](actionsSecrets.png)
 
-Go ahead and create the following secrets.
+Create the following secrets in your GitHub repository settings (**Settings > Secrets and variables > Actions**):
 
 | Secret          | Description                                                 | Example              |
 | --------------- | ----------------------------------------------------------- | -------------------- |
-| AWS_ACCOUNT     | Your AWS account ID number                                  | 343243424            |
-| CI_IAM_ROLE     | The IAM user with rights to deploy your application         | github-ci            |
-| APP_BUCKET      | The S3 bucket hosting your static deployment files          | pizza.ilovebyu.click |
-| DISTRIBUTION_ID | The CloudFront Distribution ID for your frontend deployment | F3GRFXFEBQ8EEU       |
+| AWS_ACCOUNT     | Your 12-digit AWS account ID                                | 123456789012         |
+| CI_IAM_ROLE     | The name of the IAM role you created                        | github-ci            |
+| APP_BUCKET      | The S3 bucket name hosting your frontend                    | pizza.yourname.click |
+| DISTRIBUTION_ID | The CloudFront Distribution ID                              | F3GRFXFEBQ8EEU       |
 
-#### Steps
+#### Create the workflow
 
-1. In the repository that you specified when you created your identity provider, create a GitHub Actions workflow file named `testS3Deploy.yml` in your project's `.github/workflows` directory. This will contain the workflow to copy files to your S3 bucket.
-1. Paste the following template into the `testS3Deploy.yml` file.
+1. In your local repository, create a directory named `.github/workflows` if it doesn't already exist.
+1. Create a new file named `testS3Deploy.yml` in that directory.
+1. Paste the following configuration into the file:
 
    ```yml
    name: Test S3 Deploy
@@ -146,19 +144,25 @@ Go ahead and create the following secrets.
        branches:
          - main
      workflow_dispatch:
+
    permissions:
-     id-token: write
+     id-token: write # Required for requesting the JWT
+     contents: read  # Required for actions/checkout
 
    jobs:
      deploy-s3:
        runs-on: ubuntu-latest
        steps:
+         - name: Checkout repository
+           uses: actions/checkout@v4
+
          - name: Create OIDC token to AWS
            uses: aws-actions/configure-aws-credentials@v4
            with:
              audience: sts.amazonaws.com
              aws-region: us-east-1
              role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT }}:role/${{ secrets.CI_IAM_ROLE }}
+
          - name: Push to AWS S3
            run: |
              mkdir dist
@@ -167,9 +171,11 @@ Go ahead and create the following secrets.
              aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
    ```
 
-1. Save the file, commit, and push.
+1. Save the file, commit it, and push it to GitHub.
 
-The interesting pieces of the workflow include the request for OIDC authorization using the supplied role.
+### How it works
+
+The workflow uses the `aws-actions/configure-aws-credentials` action to request a temporary token from AWS using OIDC:
 
 ```yml
 - name: Create OIDC token to AWS
@@ -180,7 +186,7 @@ The interesting pieces of the workflow include the request for OIDC authorizatio
     role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT }}:role/${{ secrets.CI_IAM_ROLE }}
 ```
 
-If this is successful then you can execute any AWS CLI commands that the role allows. In our case it allows the commands to copy the `dist` directory to our S3 bucket and invalidate the CloudFront distribution cache. If we didn't invalidate the cache then your new files would not show up until the cache expired 24 hours later.
+Once authorized, the workflow can execute AWS CLI commands permitted by the IAM role. It copies the `dist` directory contents to S3 and triggers a CloudFront invalidation. Invalidation is necessary because CloudFront caches your files; without it, updates would not appear until the cache expires (typically 24 hours).
 
 ```yml
 aws s3 cp dist s3://${{ secrets.APP_BUCKET }} --recursive
@@ -189,8 +195,8 @@ aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID
 
 ## Result
 
-After following the above steps you should see the resulting `index.html` page when you view your website.
+After the workflow runs successfully, visit your website URL. You should see the updated `index.html` page.
 
 ![Final result](finalResult.png)
 
-Once you are done, you can disable this workflow on the GitHub Actions page, or simply delete it since you repeat what you have done here with the JWT Pizza frontend code in a future assignment, and you don't want this to run every time you commit your code.
+Once you have confirmed the deployment works, you can disable or delete this test workflow. You will implement a similar deployment process for the actual JWT Pizza frontend code in a later assignment.
