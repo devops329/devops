@@ -2,8 +2,9 @@
 
 🔑 **Key points**
 
-- CloudFormation enables IaC.
-- Deploy an S3 bucket using CloudFormation.
+- CloudFormation enables Infrastructure as Code (IaC).
+- Templates use JSON or YAML to define AWS resources.
+- Stacks allow you to manage a collection of resources as a single unit.
 
 ---
 
@@ -13,17 +14,17 @@
 
 ## CloudFormation
 
-CloudFormation is AWS's primary IaC and automation tool. With CloudFormation you can create a parameterized JSON file, called a **CloudFormation Template**, that describes each AWS resource that you want to create. You then use the template to create a CloudFormation stack. A stack represents the instantiation of all the resources defined by the template. You can also delete all the resources represented by the stack with a single button press.
+CloudFormation is AWS's primary IaC and automation tool. With CloudFormation, you create a declaration file called a **CloudFormation Template** (in JSON or YAML format) that describes every AWS resource you want to create. You then use that template to create a **CloudFormation stack**. A stack represents the instantiation of all the resources defined by the template. You can also delete all the resources represented by the stack with a single action.
 
-- **Resource**: An AWS object such as an S3 Bucket or EC2 instance.
-- **Template**: A JSON script that defines resources to deploy.
-- **Stack**: The deployed resources.
+- **Template**: A JSON or YAML script that defines the resources to be deployed.
+- **Resource**: An AWS object defined in the template, such as an S3 bucket or an EC2 instance.
+- **Stack**: The collection of actual AWS resources deployed and managed as a single unit.
 
-With CloudFormation, you can easily experiment with alternative architectures, reproduce existing architectures, and execute disaster recovery drills.
+With CloudFormation, you can easily experiment with alternative architectures, reproduce existing environments, and execute disaster recovery drills with high consistency.
 
 ## Creating your first CloudFormation stack
 
-The following is a basic CloudFormation template that creates an S3 bucket with a parameterized unique name and then outputs the Amazon Resource Name (ARN) for the resulting bucket.
+The following is a basic CloudFormation template in JSON format. It creates an S3 bucket with a parameterized unique name and then outputs the Amazon Resource Name (ARN) for the resulting bucket.
 
 ```json
 {
@@ -46,11 +47,11 @@ The following is a basic CloudFormation template that creates an S3 bucket with 
     }
   },
   "Outputs": {
-    "MyBucketsArn": {
+    "MyBucketArn": {
       "Value": {
         "Fn::GetAtt": ["S3Bucket", "Arn"]
       },
-      "Description": "The arn for the newly created bucket."
+      "Description": "The ARN for the newly created bucket."
     }
   }
 }
@@ -58,7 +59,7 @@ The following is a basic CloudFormation template that creates an S3 bucket with 
 
 ### Obtaining template parameters
 
-The `Parameters` section defines the input parameters necessary to create the stack. When the stack is created, the user will be prompted for the required parameters. You can define as many parameters as you would like. You then use them later in the script with a `Ref` field. You can see the unique bucket name referenced in the _Resources_ section later in the script.
+The `Parameters` section defines the input values necessary to create the stack. When the stack is created, the user is prompted to provide these values. You can define as many parameters as needed and reference them later in the script using the `Ref` function. In this example, the unique bucket name is referenced in the `Resources` section.
 
 ```json
 "Parameters": {
@@ -69,13 +70,13 @@ The `Parameters` section defines the input parameters necessary to create the st
 }
 ```
 
-### Definition resources to create
+### Defining resources to create
 
-The `Resources` section may contain one or more resources to create. In this case we are creating an S3 bucket. We start by specifying a template ID for the resource with the value of `S3Bucket`. The ID is only meaningful in the context of the template so that it can be referenced for creation, deletion, and use by other resources contained in the template. The type of the resource is defined by the [Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) value of [AWS::S3::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html). If you review the documentation for this type, you will see that it has several properties that you can set, such as the BucketName, BucketEncryption, AccessControl, and LifecycleConfiguration. Basically, you can create any AWS object, and you are in complete control of how the object is defined.
+The `Resources` section contains the AWS objects you want to provision. In this case, we are creating an S3 bucket. We start by specifying a **Logical ID** for the resource: `S3Bucket`. This ID is used within the template to reference the resource for creation, deletion, or use by other objects.
 
-For this example, we defined the _BucketName_ to be the value of the template parameter **MyBucketName**.
+The resource type is defined by the `Type` value: [AWS::S3::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html). If you review the [Resource Type Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html), you will see various properties you can set, such as `BucketEncryption`, `AccessControl`, and `LifecycleConfiguration`. 
 
-We also supply a general template _DeletionPolicy_ option to delete this object if the resulting CloudFormation stack is deleted.
+For this example, we set the `BucketName` property to the value of the `MyBucketName` parameter. We also supply a `DeletionPolicy` of `Delete` to ensure the bucket is removed if the stack is deleted.
 
 ```json
 "Resources": {
@@ -93,59 +94,60 @@ We also supply a general template _DeletionPolicy_ option to delete this object 
 
 ### Template outputs
 
-The last part of the script is the `Outputs`. These are displayed to the person who created the stack using this template. We can define these to be whatever we want. In this case we output the resulting Amazon Resource Name (ARN) for the newly created bucket.
+The final section is `Outputs`. These values are displayed in the AWS Management Console after the stack is created. In this case, we output the Amazon Resource Name (ARN) of the new bucket using the `Fn::GetAtt` intrinsic function.
 
 ```json
 "Outputs": {
-  "MyBucketsArn": {
+  "MyBucketArn": {
     "Value": {
       "Fn::GetAtt": ["S3Bucket", "Arn"]
     },
-    "Description": "The arn for the newly created bucket."
+    "Description": "The ARN for the newly created bucket."
   }
 }
 ```
 
 ## Creating a stack with the template
 
-Let's take the template defined above and use it to build a stack that creates a single S3 bucket.
+Follow these steps to use the template to build a stack that creates an S3 bucket.
 
 ![CloudFormation flow](cloudFormationFlow.png)
 
 ### Creating a template bucket
 
-Before we can execute a template we need to put the template file in a location where CloudFormation can access it. You have three options.
+Before CloudFormation can execute a template, the file must be accessible to the service. You generally have three options:
 
-1. Specify a file on disk and let CloudFormation automatically create an S3 bucket to put the template in.
-1. Create your own S3 bucket to host all of your templates.
-1. Give CloudFormation access to your Git repository that contains your templates.
+1. Upload a file from your local disk (CloudFormation will automatically create a temporary S3 bucket for you).
+2. Manually upload the template to your own S3 bucket.
+3. Connect CloudFormation to a Git repository containing your templates.
 
-Let's choose the option to create our own S3 bucket so that we can keep everything in one place that we specify. To make this happen, we just need to create a bucket to hold all our templates and copy the templates into it.
+For this exercise, we will manually create an S3 bucket to host our templates.
 
-1. Open the AWS browser console and navigate to the S3 service.
-1. Create a new bucket named something unique such as `YOURNAMEHERE-cloudformation-templates`.
-1. Save the above example to a file named `create-bucket.json` in your development environment and then upload it to the S3 bucket you just created.
-1. Copy the URL for the file you just uploaded so that you can use it when you create your CloudFormation stack.
+1. Open the AWS Management Console and navigate to the **S3** service.
+2. Create a new bucket with a unique name, such as `<your-name>-cloudformation-templates`.
+3. Save the JSON code provided above into a file named `create-bucket.json` on your computer.
+4. Upload `create-bucket.json` to the S3 bucket you just created.
+5. Select the file in the S3 console and copy its **S3 URL** (e.g., `https://...s3.amazonaws.com/create-bucket.json`).
 
 ### Creating the stack
 
 Now you are ready to use the template to create a CloudFormation stack.
 
-1. Open the AWS browser console and navigate to the CloudFormation service.
-1. Press `Stacks` from the left side navigation panel.
-1. Press `Create stack` and select the option **With new resources**.
-1. Select `Amazon S3 URL` and supply the Amazon S3 URL you copied earlier.
-1. Press `Next`.
-1. Give the stack the name `testcf`.
-1. Provide the input parameter for **MyBucketName** as something unique like `YOURNAMEHERE-byu329test`.
-1. Press `Next`.
-1. Leave the stack configuration with all the defaults and press `Next`.
-1. Review the setup and press `Submit`.
-1. Watch the events for the newly created stack as it deploys all the resources defined in the template. When it is done you will have a nice new bucket.
-1. Switch over to the S3 service console and admire your bucket.
+1. Open the AWS Management Console and navigate to the **CloudFormation** service.
+2. Select **Stacks** from the left navigation panel.
+3. Click **Create stack** and select **With new resources (standard)**.
+4. Under **Specify template**, select **Amazon S3 URL** and paste the URL you copied earlier.
+5. Click **Next**.
+6. Enter a **Stack name**, such as `test-cf-stack`.
+7. Under **Parameters**, provide a unique name for **MyBucketName** (e.g., `<your-name>-cf-test-bucket`).
+8. Click **Next**.
+9. Leave the **Configure stack options** at their default settings and click **Next**.
+10. Review your settings and click **Submit**.
+11. Monitor the **Events** tab. When the status changes to `CREATE_COMPLETE`, your resources are ready.
+12. Navigate to the S3 service console to verify that your new bucket has been created.
 
 ![Creating a stack](creatingAStack.gif)
 
 ### Deleting the stack
 
-One of the great things about creating a CloudFormation stack is that it is easy to tear down everything that you create. We can delete our S3 bucket, and all other resources defined by the stack template, by simply pressing the `Delete` button for the stack. After a few seconds it will all be gone.
+One of the primary benefits of CloudFormation is the ease of cleanup. You can delete the S3 bucket and all other resources defined in the template by simply selecting the stack and clicking the **Delete** button. Within moments, CloudFormation will tear down the infrastructure it created.
