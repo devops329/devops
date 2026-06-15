@@ -615,7 +615,10 @@
           "title": "AWS S3 deployment",
           "path": "instruction/awsS3Deployment/awsS3Deployment.md",
           "id": "c8fd04a3-b9ae-420a-96e9-583015d6e979",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "c91dadd0-8920-4247-b944-e37cfc91dae4"
+          ]
         },
         {
           "title": "Deployment environments",
