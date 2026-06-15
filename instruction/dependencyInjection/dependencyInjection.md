@@ -150,6 +150,13 @@ ctx.printer.print('Hello, World!');
 
 This generates the same result as before, but it moves the coupling to the initialization phase. To change the behavior for a test, you simply provide a different context.
 
+
+```masteryls
+{"id":"0dc81db5-1119-48d5-9cfa-4fa26e737090", "title":"Web page", "type":"web-page", "height":1000, "file":"injectionDemo.html"}
+```
+
+
+
 ## Dependency injection frameworks
 
 Most modern languages have mature dependency injection frameworks that automate the process of creating and "injecting" these objects.
