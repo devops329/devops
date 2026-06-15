@@ -151,3 +151,11 @@ Now you are ready to use the template to create a CloudFormation stack.
 ### Deleting the stack
 
 One of the primary benefits of CloudFormation is the ease of cleanup. You can delete the S3 bucket and all other resources defined in the template by simply selecting the stack and clicking the **Delete** button. Within moments, CloudFormation will tear down the infrastructure it created.
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"20aabf6e-0ed8-4fca-a1c0-3c03eb2c376f", "title":"AWS Cloud Formation", "type":"file-submission"  }
+Upload a screenshot of the successful execution of your Cloud Formation stack.
+```
