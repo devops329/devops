@@ -29,6 +29,20 @@ Proper IaC begins with an **automation mindset**. Whenever you set up a system o
 
 Once you have written your infrastructure code, you must test it. This involves running the code to build a parallel "twin" of your manual system. You can then compare the two to ensure they are equivalent. Once the code is validated, you can decommission the temporary environment and store your IaC in a version control repository, ensuring it is ready for deployment at a moment's notice.
 
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"7431a086-5f7a-4053-bf10-7c312ee91dfe","title":"The Purpose of IaC","type":"multiple-choice"}
+What is the primary objective of implementing Infrastructure as Code (IaC) within a DevOps environment?
+
+- [ ] To replace automated provisioning with manual, GUI-based configurations to ensure human oversight of every resource.
+- [ ] To create a static documentation library that describes hardware components without interacting with the actual cloud environment.
+- [x] To manage and provision infrastructure through machine-readable definition files, ensuring consistency and repeatability across different environments.
+- [ ] To eliminate the need for version control systems by storing configuration settings directly within the physical hardware's firmware.
+```
+
 ## A bit of fun
 
 ![XKCD The General Problem](xkcdTheGeneralProblem.png)
