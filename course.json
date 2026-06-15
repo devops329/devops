@@ -743,7 +743,10 @@
           "title": "Infrastructure as code",
           "path": "instruction/infrastructureAsCode/infrastructureAsCode.md",
           "id": "dce3a500-8ce3-4ddb-8edd-c9cba4f743eb",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "7431a086-5f7a-4053-bf10-7c312ee91dfe"
+          ]
         },
         {
           "title": "AWS Cloud Formation",
