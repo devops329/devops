@@ -686,13 +686,15 @@
           ]
         },
         {
-          "title": "☑ JWT Pizza Service container",
+          "title": "JWT Pizza Service container",
+          "type": "instruction",
           "path": "instruction/jwtPizzaServiceContainer/jwtPizzaServiceContainer.md",
           "id": "cc1ba4e0-1f63-45de-8078-98fde375ab07",
           "state": "published",
           "interactions": [
             "126355a7-4172-487f-b7e2-04447d8614d3"
-          ]
+          ],
+          "description": ""
         },
         {
           "title": "AWS ECR",
