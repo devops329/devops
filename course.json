@@ -752,7 +752,10 @@
           "title": "AWS Cloud Formation",
           "path": "instruction/awsCloudFormation/awsCloudFormation.md",
           "id": "fdbf841a-b6b2-4f46-bdbd-9463ee784b06",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "20aabf6e-0ed8-4fca-a1c0-3c03eb2c376f"
+          ]
         },
         {
           "title": "☑ JWT Pizza Service infrastructure automation",
