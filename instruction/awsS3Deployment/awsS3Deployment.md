@@ -200,3 +200,14 @@ After the workflow runs successfully, visit your website URL. You should see the
 ![Final result](finalResult.png)
 
 Once you have confirmed the deployment works, you can disable or delete this test workflow. You will implement a similar deployment process for the actual JWT Pizza frontend code in a later assignment.
+
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"c91dadd0-8920-4247-b944-e37cfc91dae4","title":"AWS CloudFront","type":"url-submission","syncGrade":false,"autoGrade":false,"validateUrl":true,"gradingCriteria":"- The body of the webpage says 'CloudFront deployment with GitHub Actions'"}
+Provide the URL of your publicly available CloudFront hosted website that was deployed using your CI pipeline.
+
+_Example: pizza.mydomainname.click_
+```
