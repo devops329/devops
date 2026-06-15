@@ -2,104 +2,107 @@
 
 🔑 **Key points**
 
-- There are many tools and strategies that you can use to deploy your code.
-- Version compatibility and roll back is a key part of your strategy.
+- There are many tools and strategies available for deploying code.
+- Version compatibility and rollback procedures are essential components of a deployment strategy.
 
 ---
 
-There are many deployment strategies you can use when deploying your application. Each of the different strategies address a specific system of complexities. All strategies require some concept of a version, and they usually require some level of compatibility between deployed versions.
+There are many deployment strategies you can use when releasing an application. Each strategy addresses a specific set of complexities. All strategies require a concept of versioning and usually necessitate some level of compatibility between deployed versions.
 
 ## Branches
 
-Git branches can serve as a foundational piece of your deployment strategy. It is very common for teams to use either the main branch or a production branch as the sole source for all production releases. New features and fixes are done on separate branches that are named after the feature, or as the anticipated next version number. All testing happens on the feature branch and changes are only merged to the main branch once they have been thoroughly tested.
+Git branches serve as a foundational piece of a deployment strategy. It is common for teams to use either a `main` branch or a `production` branch as the sole source for all production releases. New features and fixes are developed on separate branches named after the feature or the anticipated version number. Testing occurs on the feature branch, and changes are merged to the main branch only after thorough verification.
 
 ![Branches](branches.png)
 
-You can also use branches as the source for different deployment environments. For example, the `main` branch goes to production, the `next` branch goes to staging, and the `experimental` branch goes to the research team environment.
+Branches can also serve as the source for different deployment environments. For example:
+- The `main` branch deploys to production.
+- The `next` branch deploys to staging.
+- The `experimental` branch deploys to a research or development environment.
 
 ## Rollback
 
-You must also consider the possibility that you need to roll your application back as well as rolling forward. This happens when a bug has slipped through the quality assurance process. When it is necessary to roll back a deployment, it is usually critical to do it quickly. You cannot wait to rebuild an older version from your Git commit chain, or for significant resources to be allocated in order to support the unexpected deployment.
+You must consider the need to roll an application back as well as roll it forward. Rollbacks occur when a bug slips through the quality assurance process. When a rollback is necessary, speed is critical. You cannot afford to wait for an older version to be rebuilt from the Git commit chain or for significant resources to be allocated to support an emergency deployment.
 
 ## Version compatibility
 
-An important consideration for deploying a new version is its compatibility with previous and future versions. In an ideal world, all versions of the software would be compatible with all other versions. In reality, that is hard to deliver. Database schemas change, old features are dropped, and new ones added. Parameters for endpoints also change. If you are not careful this can trigger significant failures and even destroy customer or application data.
+A critical consideration when deploying a new version is its compatibility with previous and future versions. Ideally, all software versions would be compatible with one another; however, this is difficult to achieve in practice. Database schemas change, old features are deprecated, and new parameters are added to API endpoints. Without careful planning, version mismatches can trigger significant failures or even corrupt customer data.
 
-A common strategy is to keep N-1 compatibility. This means that the new version is always compatible with the previous version. The new version can add new functionality, but it always has code that handles how things were done previously. In the most problematic cases this code usually takes the form of a conditional that creates a shim for the old functionality that makes it appear like the new functionality.
+A common strategy is to maintain **N-1 compatibility**. This means the new version (N) is always compatible with the immediately preceding version (N-1). The new version can introduce new functionality, but it must include code to handle legacy data formats or logic. In complex cases, this often involves creating a "shim" or conditional logic that makes old data appear compatible with the new system.
 
 ![N - 1 compatible](n-1compatible.png)
 
-Once you have deployed the new version, the next version can remove the shims because version N+1 does not have to be compatible with version N-1.
+Once the new version is successfully deployed, the subsequent version (N+1) can remove these shims, as version N+1 only needs to be compatible with version N, not N-1.
 
-The danger with this strategy is that if you discover a problem after you have rolled multiple versions ahead, you will not simply be able to roll back to the stable version since that may introduce data corruption. However, assuming that your release cycles are something around a week apart, the likelihood of multi-version roll back becomes small.
+The risk of this strategy is that if a problem is discovered after several subsequent deployments, you may not be able to roll back to a known stable version without risking data corruption. However, if release cycles are frequent (e.g., once a week), the likelihood of needing a multi-version rollback is significantly reduced.
 
 ### Forward and backward compatibility
 
-| version | data                   | code                                                                                                                  |
+| Version | Data                   | Code                                                                                                                  |
 | ------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| v1      | {name}                 | `use name`</br>ignores email                                                                                          |
-| v2      | {name, email:optional} | `use name`</br>require >= v2 users provide email</br>ask < v2 users provide email</br>`use email` or default fallback |
-| v3      | {name, email}          | require < v3 users provide email</br>`use name`</br>`use email`                                                       |
+| v1      | {name}                 | Uses `name`; ignores `email`.                                                                                         |
+| v2      | {name, email:optional} | Uses `name`; requires `email` for new users; prompts existing users for `email`; uses `email` with a default fallback. |
+| v3      | {name, email}          | Requires `email` for all users; uses `name`; uses `email`.                                                            |
 
 ## Deployment resources
 
-An important consideration of application deployment is the required resources. Common strategies include:
+The resources required for deployment vary by strategy. Common approaches include:
 
-- **In situ**: Replace the old application using existing resources as each one is temporarily taken offline. This requires no new resources, but it does reduce capacity during the deployment.
-- **Rolling**: Allocate a small percentage of new resources, take the same percentage offline and replace it with the new version. Then use the old resources that were just removed to be the next replacement block. The advantage of this approach is that you never decrease in capacity during the deployment.
-- **Immutable**: Allocate up entirely new resources, switch, and then throw away the old resources. This doubles the amount of required resources, but it has no impact on capacity and can be immediately reversed.
+- **In situ**: Replace the old application using existing resources by taking instances offline one by one. This requires no new hardware but reduces total capacity during the deployment process.
+- **Rolling**: Allocate a small percentage of new resources, take an equivalent percentage of old resources offline, and replace them with the new version. The old resources are then reused for the next batch. This ensures that capacity never decreases during deployment.
+- **Immutable**: Allocate an entirely new set of resources, switch traffic over, and then decommission the old resources. While this temporarily doubles the required resources, it has no impact on capacity and allows for an immediate rollback.
 
-With the advent of cloud computing, it is so easy and cheap to spin up new resources that the **immutable** strategy is very attractive. This is especially true since it is closely related to strategies for increasing elasticity due to changes in customer demand. It is also easy to roll back as long as you keep the old version's resources around until you are confident that the system is stable.
+With the advent of cloud computing, spinning up new resources is easy and cost-effective, making the **immutable** strategy highly attractive. It aligns well with elasticity strategies and simplifies rollbacks—as long as the old resources are kept until the new system is confirmed stable.
 
 ## Strategies
 
-The following is a list of common deployment strategies. There is no perfect strategy that works for all situations, and you can even combine strategies to handle complex architectures that have multiple levels of deployment concerns.
+The following are common deployment strategies. No single strategy works for every situation; complex architectures often combine multiple strategies to handle different layers of the stack.
 
 ### Reboot
 
-Drain, stop, delete, replace, and restart each resource. This has the advantage of being very simple and removing all possible dependencies between versions as long as requests are sticky to a specific resource. It also requires a minimal amount of resources since you simply reuse everything that was already deployed. However, it takes time to move through the resources one by one, it is slow to roll back, and it decreases the capacity of the application during deployment.
+This involves draining, stopping, deleting, replacing, and restarting each resource. This is simple and removes dependencies between versions (provided requests are "sticky" to a specific resource). It requires minimal resources because it reuses existing infrastructure. However, it is slow to execute, slow to roll back, and decreases application capacity during the update.
 
 ![Reboot strategy](reboot.png)
 
 ### Canary
 
-This strategy is called a canary because, like the coal mines of old, a canary is used to see if there is a looming failure awaiting you. You start by exposing the new version to a few users. You can make the requests sticky so that a specific customer only sees one version, or allow all the customers to bounce back and forth in order to determine that the versions are compatible with each other. If all of your observability metrics show that things are going well with the canary, you can increase the number of customers on the new version. When a significant percentage of customers are successfully using the canary, you switch everyone over.
+Named after the "canary in a coal mine," this strategy tests the waters to see if a failure is imminent. You begin by exposing the new version to a small subset of users. You can use sticky sessions so a specific customer only sees one version, or allow traffic to fluctuate to ensure version compatibility. If observability metrics remain healthy, you gradually increase the percentage of users on the new version until the transition is complete.
 
 ### Rolling
 
-The rolling strategy partitions the resources into equal parts. Each partition is then successively taken offline and replaced with the new version and put back online. As the process continues a greater percentage of the application is running the new version.
+The rolling strategy divides resources into equal batches. Each batch is successively taken offline, updated to the new version, and returned to service. As the process continues, an increasing percentage of the application runs the new version until the entire fleet is updated.
 
 ![Rolling strategy](rolling.png)
 
 ### Blue/Green
 
-With the blue/green strategy you allocate two equal sets of resources. The green set represents the new version and the blue represents the old version. You then drain all users off from the blue version and move them to the green version. If there is problem then you simply switch the load back. With this strategy you can allocate an entirely new set of resources every time you deploy, or you can keep the green set around and use it as your staging environment. Once you make the swap then the blue environment is upgraded to the latest code, and it becomes both your new green and staging environment. The advantage of this strategy is that your staging environment has the exact same hardware configuration as your production environment.
+In a blue/green deployment, you maintain two identical sets of resources. The "green" set represents the new version, and the "blue" set represents the current production version. You route traffic from the blue environment to the green environment. If a problem occurs, you simply switch the load balancer back to the blue environment. This strategy allows the idle environment to serve as a staging area that exactly matches the production hardware configuration.
 
 ![Blue/green strategy](blueGreen.png)
 
 ### A/B testing
 
-With A/B testing you have two versions running at the same time, but traffic is routed by the load balancer based upon some trigger such as an assigned cookie, URL parameter, geographic location, or IP address range. This is commonly used to determine the success of a new feature. Once the test is over the alternative version is drained and all of its traffic is moved back to the core version. Note that sometimes A/B testing doesn't actually require a different version of the application to be deployed. The switch can simply be a gate within a single deployed version.
+In A/B testing, two versions run simultaneously, but traffic is routed based on specific triggers such as cookies, URL parameters, geography, or IP ranges. This is primarily used to measure the success of a new feature. Once the test concludes, traffic is consolidated back to the primary version. Note that A/B testing does not always require different deployments; it can often be managed via "feature gates" or flags within a single version of the application.
 
 ### Continuous
 
-Continuous deployment (CD) immediately deploys a version as soon as the automated tests complete. This is in contrast to continuous delivery which creates new versions that are usually deployed as part of a schedule or human trigger. For continuous deployment to be successful your architecture must automatically alert on any anomalies and have the ability to roll back quickly. Otherwise, your customers become your quality assurance team and that usually doesn't go very well for very long.
+**Continuous Deployment (CD)** automatically deploys a version as soon as it passes automated tests. This differs from **Continuous Delivery**, where new versions are staged but require a human trigger or schedule to go live. For CD to be successful, the architecture must include automated alerting for anomalies and the ability to roll back instantly. Otherwise, customers effectively become the quality assurance team, which can quickly damage a brand's reputation.
 
 ### Serverless
 
-Serverless deployment takes the idea of elastic deployment of resources to a new level. The system will automatically allocate resources as demand increases and release them as it decreases. Resources may be allocated for each specific request, but usually, in the name of performance, a resource is initially allocated and then kept around for a time in anticipation of future use. The serverless system manager has to handle the deployment of new versions. This is usually done with a pattern that allows current requests to drain off the old version and new requests are allocated with the new version.
+Serverless deployment takes elasticity to its logical extreme. The system automatically allocates resources as demand increases and releases them as it decreases. While resources can be allocated for every specific request, they are usually kept "warm" for a short period to improve performance. The serverless manager handles versioning by draining old requests from the previous version while directing new requests to the updated version.
 
 ## Deployment strategies for JWT Pizza
 
 #### JWT Pizza Service
 
-The JWT Pizza backend uses an **Immutable** strategy that is managed by ECS and the EC2 application load balancer. When a new version is created, EC2 spins up the required number of containers and creates a new load balancer cluster. The old cluster is drained as all the new traffic is moved to the new cluster. Once all the traffic has been moved over and the health of the cluster is deemed to be acceptable, the old cluster is destroyed. If during the deployment, the health of the cluster is unacceptable, then the traffic is returned to the old cluster and the new cluster is destroyed.
+The JWT Pizza backend uses an **Immutable** strategy managed by Amazon ECS and an EC2 Application Load Balancer. When a new version is created, ECS spins up the required number of containers and creates a new target group. Traffic is drained from the old cluster as it is moved to the new one. Once the new cluster is deemed healthy, the old cluster is destroyed. If the new cluster fails health checks during deployment, traffic is reverted to the old cluster.
 
-#### JWT Pizza
+#### JWT Pizza Frontend
 
-The JWT Pizza frontend currently uses an **In Situ** strategy that is executed by your CI workflow. As soon as the S3 copy command is executed the new version files are available. Because the copy is not atomic, and the resource is never taken out of service, there may be situations where only some application files are present. However, CloudFront does cache files for a period of time and so only customers who experience a cache timeout during the deployment are likely to see a partially deployed application.
+The JWT Pizza frontend currently uses an **In Situ** strategy executed by a CI workflow. As soon as the S3 copy command runs, the new files are available. Because S3 copies are not atomic and the resource is never taken out of service, users might occasionally encounter a mix of old and new files. While CloudFront caching mitigates this, users experiencing a cache timeout during deployment may see a partially deployed or broken application.
 
-For a production system, the situation for the JWT Pizza frontend is not really acceptable. Not only that, but it is difficult to roll back since it requires a new build and deployment of the files. That is something that could take 10 minutes or more, during which the application could be down. For this reason, we will move the frontend deployment to a strategy where the files are deployed atomically and can be quickly rolled back.
+For a production system, this "In Situ" approach is not ideal. Rollbacks are difficult because they require a full rebuild and redeployment, which can take ten minutes or more. To improve this, the frontend deployment will be moved to a strategy where files are deployed atomically, allowing for near-instant rollbacks.
 
 ## A bit of fun
 
