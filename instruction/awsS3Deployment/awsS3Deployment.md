@@ -193,7 +193,7 @@ aws s3 cp dist s3://${{ secrets.APP_BUCKET }} --recursive
 aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
 ```
 
-## Result
+### Result
 
 After the workflow runs successfully, visit your website URL. You should see the updated `index.html` page.
 
