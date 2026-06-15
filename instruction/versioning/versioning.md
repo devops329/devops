@@ -2,93 +2,91 @@
 
 🔑 **Key points**
 
-- Version identification is a critical piece of any deployment architecture.
-- There are many schemes that you can use for representing versions.
+- Version identification is a critical component of any deployment architecture.
+- Various schemes exist for representing versions, each serving different needs.
 
 ---
 
-When building production software, it is vital that you make use of version identifiers that uniquely represent each component that is used by a customer. The version ID makes it so you know what code was used when features were introduced, bugs were discovered, or a failure occurred. Without the version ID it would be very difficult to reproduce a problem, or to say with any certainty that the problem has been remedied.
+When building production software, it is vital to use version identifiers that uniquely represent each component used by a customer. A version ID allows you to identify exactly which code was in use when features were introduced, bugs were discovered, or failures occurred. Without a version ID, it is difficult to reproduce problems or confirm with certainty that a specific issue has been resolved.
 
-The most critical requirement for a version ID is that it can be used to uniquely reference an immutable copy of the deliverable package, or the source code that can be used to rebuild the deliverable package. Preferably, you want both. The source code is necessary for debugging, and sometimes it is impossible to reproduce the actual deliverable package. This happens when the CI workflow or tools necessary to build the package no longer exist.
+The most critical requirement for a version ID is that it can uniquely reference an immutable copy of the deliverable package, the source code used to build it, or preferably both. Access to source code is necessary for debugging, especially in cases where it is impossible to reproduce the original deliverable package—such as when the CI workflow or build tools used at the time no longer exist.
 
-If you cannot reliably correlate what a customer sees to the code changes that resulted in the behavior, then a version ID loses much of its value.
+If you cannot reliably correlate a customer's experience with the specific code changes that caused that behavior, the version ID loses much of its value.
 
-A good version ID is consistent in its representation and will contain the following information.
+A high-quality version ID is consistent in its representation and provides the following:
 
-- Uniquely identifies the source codebase.
-- Uniquely identifies the deliverable package.
-- Represents when the version was created.
-- Readily describes the magnitude of the change.
-- Provides a detailed description of the changes.
-- Is comparable to other version IDs.
+- Unique identification of the source codebase.
+- Unique identification of the deliverable package.
+- An indication of when the version was created.
+- A description of the magnitude of the change.
+- A link to a detailed description of the changes.
+- Comparability to other version IDs.
 
 ## Supplemental information
 
-Putting everything you would like to know into a single version ID is an impossible task. For that reason, it is good to put a reasonable amount of information into the ID while still keeping it concise in its representation. You then use the ID to reference more detailed information such as:
+Including every detail in a single version ID is impossible. Instead, a version ID should contain a reasonable amount of information while remaining concise. You then use that ID to reference more detailed supplemental information, such as:
 
-- The location of the production package.
-- The source code repository ID.
-- Deployment documentation that describe what changes were made and what impact it will have on the customer.
-- The accessibility of the version (e.g. public, internal, specific parties).
-- Metrics associated with the testing of the version.
+- The storage location of the production package.
+- The source code repository ID (e.g., a Git commit hash).
+- Deployment documentation describing what changed and the impact on the customer.
+- The accessibility of the version (e.g., public, internal, or restricted to specific parties).
+- Metrics and logs associated with the testing of that version.
 
 ![Supplemental info](suplementalInformation.png)
 
 ## Version schemes
 
-There are lots of different thoughts about how to represent everything that went into the creation of a software deliverable with a simple concise version ID. The following describe some of the most commonly used methods.
+There are many ways to represent the history and contents of a software deliverable within a concise ID. The following sections describe some of the most common methods.
 
 ### Incremental versioning
 
-One simple scheme for version IDs is to simply increment a number each time a candidate production package is built. The version ID only conveys a sequential relationship between versions. This has the nice characteristic of being easy to understand and is representable in almost any context. The downside of this approach is that it doesn't convey much information itself. You must always correlate the number to some other table in order to gain any meaning other than if it is newer than some other version.
+A simple scheme for version IDs is to increment a number sequentially each time a candidate production package is built. This ID conveys only the order of releases. While this approach is easy to understand and represent in almost any context, it provides little inherent meaning. You must correlate the number to an external table or database to understand the scope or content of the changes.
 
 ### Semantic versioning
 
-A common versioning scheme is to use an ID that has a syntax of `major.minor.patch`. Each piece in the version ID represents an increasing number. Each number represents the following.
+A widely used scheme is Semantic Versioning (SemVer), which follows a `major.minor.patch` syntax. Each segment is a number that increments based on the type of change:
 
-- **Major**: Incremented for incompatible feature changes.
-- **Minor**: Incremented for backward-compatible feature changes.
+- **Major**: Incremented for incompatible API or feature changes.
+- **Minor**: Incremented for backward-compatible feature additions.
 - **Patch**: Incremented for backward-compatible bug fixes.
 
-For example, 3.4.0 would represent that this is the 4th feature improvement of the 3rd incompatible release of the component. A subsequent version ID of 3.4.1 would indicate that a problem was found in the last release, and that the fix doesn't cause any backward compatibility issues.
-
-This scheme focuses on describing the order of releases and also how disruptive the release is.
+For example, `3.4.0` represents the fourth feature improvement of the third major release. A subsequent version of `3.4.1` would indicate a bug fix that maintains backward compatibility. This scheme focuses on release order and the potential disruptiveness of the update.
 
 ### Date versioning
 
-Date versions focus on representing when the production package was created. A common scheme is to use the syntax `YYYY.MMDD.HHmmSS`. For example:
+Date-based versioning focuses on when the production package was created. A common syntax is `YYYY.MMDD.HHmmSS`. For example:
 
 ```txt
 2052.0212.121011
 ```
 
-This clearly conveys how recent the package is and also is easily comparable to other deployments. The downside is that it doesn't convey how disruptive the release is, or why the release was made.
+This clearly conveys the age of the package and is easily comparable to other deployments to determine which is newer. However, it does not describe the magnitude of the changes or the purpose of the release.
 
 ### Referential versioning
 
-This scheme simply supplies an identifier for another system. Common representations include a Git SHA or Jira ticket ID. This makes it easy to correlate the version with another system that has significant representational power. For example, the Git SHA will tell you exactly what the code was built from, issues associated with the build, the CI pipeline that was used, and the team members who worked on the release.
+This scheme uses an identifier from another system, such as a Git SHA or a Jira ticket ID. This makes it easy to correlate the version with a system that holds significant metadata. For instance, a Git SHA points to the exact source code, associated pull requests, CI pipeline results, and the contributors involved.
 
-The downside of this versioning scheme is that it lacks any information in the ID itself. You cannot even tell how this version compares sequentially with other versions.
+The downside of referential versioning is that the ID itself lacks human-readable information. Without looking it up in the external system, you cannot determine the release order or the scope of the changes.
 
 ## Examples
 
 #### Apple macOS
 
-Apple uses a semantic versioning ID for their OS versions as described above, with a `major.minor.patch` structure.
+Apple uses a semantic versioning structure for its operating system versions, following the `major.minor.patch` format.
 
 ![MacOS version](macOsVersion.png)
 
 #### Google Chrome
 
-[Chrome](https://www.chromium.org/developers/version-numbers/) uses a semantic versioning ID that has four parts. Beyond the standard major, minor, patch parts there is an additional part that represents a sequential build number. The patch number represents a release candidate, rather than a bug fix. The following version indicates that this is the 6422 build of Chrome, with 142 candidate releases. The sequential patch number is what is usually referenced when people talk about Chrome releases.
+[Chrome](https://www.chromium.org/developers/version-numbers/) uses a four-part versioning scheme. In addition to the standard major, minor, and patch segments, it includes a sequential build number. In Chrome's case, the patch number represents a release candidate rather than a simple bug fix. For example, a version might indicate the 6,422nd build of Chrome with 142 candidate releases.
 
-Notice the supplemental information (i.e. official build, architecture) that is not represented in the release number, but is included in the display.
+Note that while the version number is concise, the "About" screen includes supplemental information such as the build type (e.g., "Official Build") and the system architecture.
 
 ![Chrome version](chromeVersion.png)
 
 #### Agilix Dawn
 
-This software website represents three related version numbers. First is a date version that represents when the version was built, and then two component versions that reference repository IDs. This makes it easy to correlate how recent the release is to the code that actually produced the production deliverable.
+This software display represents three related version identifiers. First is a date version representing the build time, followed by two component versions that reference specific repository commit IDs. This allows developers to quickly see how recent a release is while maintaining a direct link to the exact code in the server and client repositories.
 
 ```json
 {
@@ -102,7 +100,7 @@ This software website represents three related version numbers. First is a date 
 
 ## JWT Pizza versions
 
-JWT Pizza uses a date version scheme with the day in the first position and the time in the second one. UTC time must be used. The version is stored in the `version.json` file in the root of the application source code and can be found in the footer of all views.
+JWT Pizza uses a date-based versioning scheme with the date in the first segment and the time in the second, using UTC. This version is stored in a `version.json` file in the root of the source code and is displayed in the footer of the application.
 
 ```sh
 ➜  curl -s https://pizza.cs329.click/version.json | jq '.'
@@ -113,13 +111,13 @@ JWT Pizza uses a date version scheme with the day in the first position and the 
 
 ![JWT Pizza](jwtPizzaVersion.png)
 
-The use of a date makes it cumbersome to tie the version to a Git commit; however, using the date represented by the version makes it is easy to find the CI execution that created the version and then get the Git SHA for the version.
+While a date does not inherently point to a Git commit, it makes it easy to find the specific CI execution that occurred at that time, which in turn provides the Git SHA for that version.
 
 ### Package archive
 
-Based on how you set up your GitHub Actions pipeline you have the ability to create an artifact that represents the deployed version.
+By configuring a GitHub Actions pipeline, you can create artifacts that represent the specific binaries deployed for a version.
 
-For example, in your Actions workflow, if you have a step that uploads an artifact then you can always retrieve the exact binaries that were deployed.
+For example, adding a step to upload an artifact allows you to retrieve the exact files that were deployed:
 
 ```yml
 - name: Update pages artifact
@@ -129,6 +127,6 @@ For example, in your Actions workflow, if you have a step that uploads an artifa
     path: dist/
 ```
 
-Note however, that GitHub will only store the artifact for as long as your repository defines. By default, this is 90 days. This setting is found in your repository `Settings > Actions > General` view.
+Note that GitHub stores these artifacts according to your repository's retention policy (90 days by default). This setting is located in `Settings > Actions > General`.
 
 ![Artifact retention](artifactRetention.png)
