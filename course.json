@@ -698,7 +698,10 @@
           "title": "☑ AWS ECR",
           "path": "instruction/awsEcr/awsEcr.md",
           "id": "55da3b7e-e017-4a91-b46c-37dbce6dfd0e",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "5d8c6ed6-ec21-4ade-b51d-bcb37983a4c0"
+          ]
         },
         {
           "title": "☑ AWS ECS",
