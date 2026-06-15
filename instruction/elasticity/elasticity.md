@@ -43,6 +43,12 @@ The following table shows how the services used by JWT Pizza provide elasticity:
 This built-in elasticity is a force multiplier for small DevOps teams. Once an architecture is correctly defined and deployed, the system's elasticity handles fluctuations automatically. Infrastructure management that once required a large team of engineers can now be handled by a single DevOps professional.
 
 
+
+```masteryls
+{"id":"5c59a5f4-f33b-4ace-bcd9-dceef8b9b928", "title":"Elasticity demo", "type":"web-page", "height":1000, "file":"elasticityDemo.html"}
+```
+
+
 ## ☑ Exercise
 
 
