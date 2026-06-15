@@ -790,7 +790,10 @@
           "title": "☑ GitHub releases",
           "path": "instruction/gitHubReleases/gitHubReleases.md",
           "id": "912296be-c38a-46d7-ab7a-f84cd51fc5eb",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "f1f444dc-fdad-4ce1-98a1-68fae0fe06ed"
+          ]
         }
       ]
     },
