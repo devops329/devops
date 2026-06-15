@@ -287,4 +287,13 @@ Once this is all working, your GitHub URL to the CloudFormation template file sh
 https://github.com/youraccountnamehere/jwt-pizza-service/blob/main/cloudFormation/jwt-pizza-service.json
 ```
 
+
+```masteryls
+{"id":"6370aa82-b543-43f2-9cd6-e6bd83285b79", "title":"CloudFormation deployment", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The file is a AWS CloudFormation script to deploy an applicaiton using ALB and ECS.", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the `cloudFormation/jwt-pizza-service.json` file." }
+Submit the url to your JWT Pizza Service.
+
+_Example: https://github.com/youraccountnamehere/jwt-pizza-service_
+```
+
+
 💡 A great creativity report would be to dig into CloudFormation and figure out how you could also automate the deployment of your RDS MySQL database or S3/CloudFront infrastructure.
