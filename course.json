@@ -661,7 +661,9 @@
           "path": "instruction/awsRdsMysql/awsRdsMysql.md",
           "id": "2ee7df35-7f44-4622-85d0-f1fe49282f56",
           "state": "published",
-          "interactions": []
+          "interactions": [
+            "b365b915-dbff-4687-aa7b-ce69a074d77a"
+          ]
         },
         {
           "title": "Docker",
