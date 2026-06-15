@@ -106,3 +106,11 @@ This workflow allows you to containerize **any** application. Once you create an
 Your terminal should look similar to the following:
 
 ![Running a container](runningAContainer.png)
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"ba7a0b83-a971-4ae6-980a-6a4fe138366b", "title":"Docker", "type":"teaching" }
+Help me understand what **Docker** is and why I should consider using it. Are there any downsides?
+```
