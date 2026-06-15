@@ -607,7 +607,9 @@
           "path": "instruction/awsCloudFront/awsCloudFront.md",
           "id": "0fdb0e78-7dfd-4dd9-8aed-2e754fa6626a",
           "state": "published",
-          "interactions": []
+          "interactions": [
+            "3a6a9be3-45d3-435d-80e8-f002b9e7ea6f"
+          ]
         },
         {
           "title": "AWS S3 deployment",
