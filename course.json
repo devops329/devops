@@ -595,7 +595,10 @@
           "title": "☑ AWS S3",
           "path": "instruction/awsS3/awsS3.md",
           "id": "b227be1b-cdfc-4071-b760-5d0a152835c7",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "b990215b-883b-4473-9f25-71ff502c971a"
+          ]
         },
         {
           "title": "AWS CloudFront",
