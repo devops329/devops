@@ -624,7 +624,10 @@
           "title": "Deployment environments",
           "path": "instruction/deploymentEnvironments/deploymentEnvironments.md",
           "id": "7e7a99cb-2445-4f85-8cf8-32633389ece9",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "1a9938e0-b7ba-4313-98e3-04046c3862b6"
+          ]
         },
         {
           "title": "GitHub environments",
