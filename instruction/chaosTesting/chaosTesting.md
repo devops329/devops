@@ -2,69 +2,69 @@
 
 🔑 **Key points**
 
-- You don't know how a system will fail unless you test it to failure.
-- Inject chaos into the JWT Pizza service and validate your alerting.
+- You cannot truly know how a system will fail until you test it to failure.
+- Inject chaos into the JWT Pizza service to validate your observability and alerting.
 
 ---
 
 📖 **Deeper dive reading**: [Netflix's original post on Chaos testing](https://netflixtechblog.com/the-netflix-simian-army-16e57fbab116)
 
-The idea of intentionally injecting failure into an environment, including the production environment, was popularized by Netflix. The logic is that you never want to have a single point of failure, and you can never be sure that your system won't fail unless you test it to failure. The motivation for Netflix to explore paradigms of testing came in 2010 when they moved their monolithic application out of their data center to a microservice architecture hosted in AWS. AWS was an attractive prospect because they pioneered the idea of significant layers of redundancy for all critical resources, all within an on demand, or elastic, cloud environment. This included some of the following:
+The practice of intentionally injecting failure into an environment—including production—was popularized by Netflix. Their philosophy is that you should never have a single point of failure, and you can never be certain your system is resilient unless you proactively test its breaking points. 
 
-1. **Data center**: Multiple availability zones in every region, with multiple regions on every continent.
-1. **Network**: Route 53 geolocation routing, different availability zone subnets, regional network failover, and load balancers.
-1. **Compute**: Scale groups to automatically respond to changes in load. Efficient vertical (size of device) and horizontal (number of devices) scaling.
-1. **Database**: Automatic backups, efficient restores, and scalability.
-1. **Storage**: Massive scale and redundancy with efficient failover for writers and readers.
+Netflix began exploring these testing paradigms in 2010 during their transition from a monolithic data center architecture to a microservices architecture hosted on AWS. AWS offered significant layers of redundancy for critical resources within an on-demand, elastic cloud environment. This included:
 
-As Netflix moved their application to AWS they took advantage of all this redundancy and pushed all the boundaries in order to create a system that was unlikely to have a failure that would impact the customer. A key element of their testing was to introduce a controlled failure, monitor the automated response, and then improve the automation. This spawned a whole new field of testing called **Chaos testing**, which follows this pattern:
+1. **Data center**: Multiple Availability Zones (AZs) in every region, with multiple regions across every continent.
+1. **Network**: Route 53 geolocation routing, AZ-specific subnets, regional network failover, and load balancers.
+1. **Compute**: Auto-scaling groups that respond to load changes, supporting both vertical scaling (increasing instance size) and horizontal scaling (increasing the number of instances).
+1. **Database**: Automatic backups, efficient restores, and high availability.
+1. **Storage**: Massive scale and redundancy with automated failover for readers and writers.
 
-1. **Stabilize the application**: Make sure that the system is considered stable. Usually this means that you are not deploying new features during a chaos test and that there are no critical incidents currently being investigated.
-1. **Hypothesize points of failure**: Theoretically probe the current state of the system. Look explicitly for single points of failure. Ask the questions:
-   1. If component `X` fails, what will happen?
-   1. Does it cause a cascade into other components?
-   1. Does it have any redundancy?
-   1. Does it have a fallback replacement?
-   1. How quickly can it be repaired?
-   1. Does it require a human or an automated response?
-1. **Deploy metrics and logging**: Once you have a candidate for chaos testing, you need to document your assumptions for how the system will respond and ensure that you have metrics and logs that will immediately visualize and validate your assumptions. If you do not have the necessary observability, then you need to instrument the code before you continue.
-1. **Ensure minimal customer impact**: The idea with chaos testing is to test the production system without harming the customer. If during the hypothesis phase there was any question that a customer would be reasonably impacted, then you need to first alter your code so that there is an automated mitigation for the impact.
-1. **Inject chaos**: With the metrics and plan in place, you unleash the chaos. Initial tests should be done when the team is on duty and ready to respond. Later tests can be done without preparation to validate any assumptions concerning manual interaction.
-1. **Monitor the response**: Validate that the chaos was immediately observed, and the automated response was completed as expected.
-1. **Take evasive action or celebrate**: If things are not handled as expected, then you must move quickly to correct the problem and reduce significant customer impact. Then you need to return to the drawing board, check where your assumptions went wrong, deploy new failure handling automation, and increase your observability. Otherwise, if the chaos was handled as expected, then you can celebrate and repeat the cycle with the next prioritized point of failure on your list.
+As Netflix migrated to AWS, they leveraged this redundancy to build a system highly resistant to customer-impacting failures. A core element of their strategy was introducing controlled failures, monitoring the automated response, and iteratively improving that automation. This evolved into the field of **Chaos testing**, which generally follows this pattern:
+
+1. **Stabilize the application**: Ensure the system is currently stable. Do not perform chaos tests during new feature deployments or while investigating existing critical incidents.
+2. **Hypothesize points of failure**: Theoretically probe the system for weaknesses. Look specifically for single points of failure by asking:
+   - If component `X` fails, what happens?
+   - Does the failure cascade into other components?
+   - Is there existing redundancy?
+   - Is there a fallback mechanism?
+   - How quickly can the component be repaired?
+   - Does recovery require a human, or is it automated?
+3. **Deploy metrics and logging**: Before testing, document your assumptions about how the system will respond. Ensure you have the metrics and logs necessary to visualize and validate those assumptions in real time. If you lack observability, instrument the code before proceeding.
+4. **Ensure minimal customer impact**: The goal is to test the production system without harming the user experience. If your hypothesis suggests a high likelihood of customer impact, you must first implement automated mitigations or fallbacks.
+5. **Inject chaos**: With monitoring in place, unleash the failure. Initial tests should be conducted while the team is on duty and ready to intervene. Later tests can be automated or unannounced to validate manual response times and procedures.
+6. **Monitor the response**: Verify that the failure was immediately detected and that the automated recovery protocols functioned as expected.
+7. **Take action or celebrate**: If the system fails to recover as expected, move quickly to manually resolve the issue and minimize impact. Return to the design phase to correct your assumptions, improve automation, and increase observability. If the chaos was handled correctly, celebrate the system's resilience and move to the next prioritized failure point.
 
 ## Chaos Monkey
 
 ![Chaos monkey icon](chaosMonkeyIcon.png)
 
-The system that Netflix built to inject chaos into the application is called the `Chaos Monkey`. There are different forms of monkeys that each focus on a type of possible failure. These include:
+The toolset Netflix built to inject chaos is known as the `Simian Army`. Different "monkeys" focus on specific types of failure:
 
-- **Chaos Monkey**: Randomly disables production resources.
-- **Latency Monkey**: Artificially delay network or database responses.
-- **Conformity Monkey**: Removes instances that don’t conform to required practices.
-- **Doctor Monkey**: Checks metrics for signs of unhealthy components and removes them.
-- **Janitor Monkey**: Cleans up and removes unused resources.
-- **Security Monkey**: Scans for security violations and vulnerabilities and terminates offending instances.
-- **10-18 Monkey**: Scans and reports usability violations (l10n localization, i18n internationalization).
-- **Chaos Gorilla**: Simulates an entire Amazon availability zone outage.
+- **Chaos Monkey**: Randomly terminates production instances to ensure the system survives individual node failures.
+- **Latency Monkey**: Artificially introduces delays in network or database responses to test service timeouts.
+- **Conformity Monkey**: Shuts down instances that do not adhere to best practices or required configurations.
+- **Doctor Monkey**: Checks for unhealthy components and removes them if they are not functioning correctly.
+- **Janitor Monkey**: Identifies and removes unused or wasted resources to keep the environment clean.
+- **Security Monkey**: Scans for security vulnerabilities or misconfigurations and terminates non-compliant instances.
+- **10-18 Monkey**: (Named for L-10-N and I-18-N) Detects configuration and usability issues related to localization and internationalization.
+- **Chaos Gorilla**: Simulates an entire Amazon Availability Zone outage to test regional failover.
 
 ## What about you?
 
-Even if you never inject chaos into your production systems, the exercise of considering where the single points of failure are, and what the impact of those failures will be, is an important one. One of my favorite sayings is:
+Even if you don't immediately inject chaos into your production systems, the mental exercise of identifying single points of failure is invaluable. As Lee S. Jensen noted in 2012:
 
-> A system that has not been tested to failure is a system that is going to fail.
->
-> _Lee S Jensen, 2012_
+> "A system that has not been tested to failure is a system that is going to fail."
 
-It is always better to know what your system will do, rather than hope that it will turn out for the best when a failure happens.
+It is always better to know exactly how your system behaves under stress than to hope for the best when an inevitable failure occurs.
 
-At a minimum you should be conducting chaos testing in your staging and other non-customer facing environments. Once you are confident that those systems are handling chaos correctly, you might have the confidence to apply the chaos test to your production system.
+At a minimum, you should conduct chaos testing in staging or other non-customer-facing environments. Once you are confident that your automated recovery and observability are robust, you can move toward testing in production.
 
 ## ☑ Exercise
 
-Experiment with chaos testing by doing the following:
+Experiment with chaos testing by performing the following steps:
 
-1. Add a chaos injection endpoint to your fork of the `jwt-pizza-service` code that causes the pizza order endpoint to randomly fail. Only allow an admin to execute the chaos endpoint.
+1. Add a chaos injection endpoint to your fork of the `jwt-pizza-service`. This endpoint should cause the pizza order endpoint to fail randomly. Ensure only users with the `Admin` role can toggle this state.
 
    ```js
    let enableChaos = false;
@@ -88,29 +88,27 @@ Experiment with chaos testing by doing the following:
    });
    ```
 
-1. Test that your chaos endpoint works
+1. Verify that your chaos endpoint works as expected:
 
    ```sh
    host=localhost:3000
 
+   # Login as admin to get a token
    response=$(curl -s -X PUT $host/api/auth -d '{"email":"a@jwt.com", "password":"admin"}' -H 'Content-Type: application/json')
-
    token=$(echo $response | jq -r '.token')
 
-   curl -X PUT $host/api/order/chaos/true  -H "Authorization: Bearer $token"
+   # Enable chaos
+   curl -X PUT $host/api/order/chaos/true -H "Authorization: Bearer $token"
 
-   curl -s -X POST $host/api/order -H 'Content-Type: application/json' -d '{"franchiseId": 1, "storeId":1, "items":[{ "menuId": 1, "description": "Veggie", "price": 0.05 }]}'  -H "Authorization: Bearer $token"
+   # Attempt to place an order (repeat to see random 500 errors)
+   curl -s -X POST $host/api/order -H 'Content-Type: application/json' -d '{"franchiseId": 1, "storeId":1, "items":[{ "menuId": 1, "description": "Veggie", "price": 0.05 }]}' -H "Authorization: Bearer $token"
    ```
 
-1. Make sure you have metrics that will display the chaos.
-1. Create an OnCall alert that will trigger based on chaos.
-1. Deploy your JWT Pizza Service to production.
-1. Simulate traffic to the service. (See the _Curl commands_ found in the [simulating traffic](simulatingTraffic/simulatingTraffic.md) instruction for examples of how to do this.)
-1. Trigger the chaos.
-1. Wait for, acknowledge, and resolve the alert.
+1. Ensure you have a dashboard or metrics view that clearly displays the increase in error rates during chaos.
+1. Create an On-Call alert that triggers when the error rate spikes due to the chaos injection.
+1. Deploy your updated JWT Pizza Service to production.
+1. Simulate baseline traffic to the service. (Refer to the [simulating traffic](simulatingTraffic/simulatingTraffic.md) guide for examples.)
+1. Trigger the chaos via the API.
+1. Wait for the alert to trigger, then acknowledge and resolve it.
 
 ![Alert history](alertHistory.png)
-
-```
-
-```
