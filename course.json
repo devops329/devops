@@ -821,7 +821,10 @@
           "title": "Metrics",
           "path": "instruction/metrics/metrics.md",
           "id": "fda68fc5-2285-431b-b782-a83d02085324",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "45430638-d394-4b7f-a14f-5cacb7b7dc7a"
+          ]
         },
         {
           "title": "☑ Grafana",
