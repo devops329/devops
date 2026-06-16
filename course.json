@@ -918,7 +918,10 @@
           "title": "☑ Grafana annotations",
           "path": "instruction/grafanaAnnotations/grafanaAnnotations.md",
           "id": "acca3798-9261-4b9e-aeef-f4821480d106",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "afe37413-ccc0-4996-bc06-d97831bab8ae"
+          ]
         },
         {
           "title": "Status",
