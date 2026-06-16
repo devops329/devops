@@ -956,7 +956,10 @@
           "title": "Load testing",
           "path": "instruction/loadTesting/loadTesting.md",
           "id": "9deaffa6-eb2d-463b-bd34-4c4e97309f1d",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "2fe84494-417b-41c0-8a1d-0ab3619af125"
+          ]
         },
         {
           "title": "Grafana K6",
