@@ -2,71 +2,71 @@
 
 🔑 **Key points**
 
-- Failure is inevitable, you can only plan for it and try to mitigate it.
-- There are many types of failure.
-- There are common strategies for dealing with failure.
+- Failure is inevitable; the goal is to plan for it and mitigate its impact.
+- Failure can occur at multiple levels, from hardware to software.
+- Effective failure management utilizes both proactive and reactive strategies.
 
 ---
 
-Failure happens. There is no way to avoid it. You can only anticipate and prepare for contingencies to mitigate the impact of the failure, so that the customer impact is minimal or even non-existent.
+Failure is inevitable. It cannot be entirely avoided; it can only be anticipated. Success lies in preparing contingencies to mitigate the impact of failure so that customer disruption is minimal or non-existent.
 
-You can either be **proactive** or **reactive** to your failure management:
+Failure management is generally categorized into two approaches: **proactive** and **reactive**.
 
-Being **proactive** requires you to pay an upfront cost to theorize, design, and implement a failure management system. However, if done correctly, it will decrease customer frustration and preserve the reputation of your company's offerings.
+Being **proactive** involves an upfront investment to theorize, design, and implement failure management systems before issues occur. When executed correctly, this approach decreases customer frustration and preserves the company's reputation.
 
-Being **reactive** works as a viable failure management solution, if you can react quickly before the failure has any significant impact. This usually means that you have invested significantly in the observability of the system, system automation that can be deployed quickly, or that you can quickly revert problematic deploy or configuration changes.
+Being **reactive** is a viable solution if you can respond before the failure causes significant impact. This requires significant investment in system observability, rapid automation, and the ability to quickly revert problematic deployments or configuration changes.
 
-Usually, a successful DevOps engineer will use both proactive and reactive approaches when designing a system. Proactive approaches are attractive when the cost of repair is high, such as losing vital customer data or deploying the system to a completely different environment. Reactive approaches are attractive when the failure can easily be isolated, and it is sufficient to simply automatically pull out a bad component and redeploy a replacement. The bad component is then analyzed, and the system improved to avoid future failure.
+Effective DevOps engineers utilize a combination of both proactive and reactive approaches. Proactive strategies are essential when the cost of repair is high, such as the loss of vital customer data. Reactive strategies are effective when a failure can be easily isolated, allowing the system to automatically remove a faulty component and redeploy a replacement. Once isolated, the faulty component is analyzed to improve the system and prevent recurrence.
 
 ## Levels of failure
 
-Failure can happen at any level. Just because you work for a software company does not mean that you can ignore the possibility of failure at the hardware or network level. You need to evaluate the possibility and impact of each level.
+Failure can occur at any level of the stack. Working for a software company does not mean you can ignore hardware or network-level risks. You must evaluate the possibility and impact of failure at every level.
 
-| Level    | Considerations                                                      | Mitigation                                                                                            |
+| Level    | Considerations                                                      | Mitigation Strategies                                                                                 |
 | -------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| Hardware | System hardware including servers, storage, and memory.             | Redirect to redundant hardware. Throttle single user consumption until resolution.                    |
-| Network  | Internal and external communication networks.                       | Redirect to redundant networks. Deploy additional bandwidth. Limit single user bandwidth consumption. |
-| Service  | Internal and external service dependencies.                         | Fallback on secondary services. Deploy additional service capacity.                                   |
-| Software | Bugs, incompatibilities, changes in assumptions.                    | Rollback to previous version. Fallback to limited functionality.                                      |
-| Device   | Incompatibility with customer devices or operating system upgrades. | Identification of root cause and automatic deployment of corrected version.                           |
+| Hardware | Physical infrastructure including servers, storage, and memory.      | Failover to redundant hardware; implement resource quotas to prevent exhaustion.                       |
+| Network  | Internal and external communication channels.                       | Implement redundant network paths; scale bandwidth; limit per-user consumption (rate limiting).       |
+| Service  | Internal and external service dependencies (APIs, databases).       | Implement fallbacks to secondary services; deploy additional service capacity.                        |
+| Software | Bugs, version incompatibilities, or logic errors.                   | Roll back to previous versions; implement "graceful degradation" (limited functionality).             |
+| Device   | Incompatibility with customer hardware or OS updates.               | Root cause identification and rapid deployment of software patches or updates.                        |
 
 ## Failure considerations
 
-Building the perfect system is usually not possible or desired due to cost and resource constraints. However, you should consider the impact of each possible failure along the following dimensions.
+Building a "perfect" system is rarely possible or cost-effective. Instead, you should evaluate the impact of potential failures across several dimensions to prioritize your efforts.
 
-| Dimension               | Description                                                                                                                                               |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Immediate monetary cost | How much will the failure cost your company? Will it put you out of business, incur a higher operating bill, or require significant resources to resolve? |
-| Customer impact         | Will customers be so dissatisfied that retention decreases? Will customers lose data, be harmed monetarily, socially, or physically?                      |
-| Legal impact            | Does the failure create the possibility of criminal or civil fines and/or lawsuits?                                                                       |
-| Performance impact      | Does the performance of the system degrade such that it becomes unusable or that observability becomes hampered?                                          |
-| Complexity              | Is the failure a part of the system that is difficult to diagnose, replace, or is so fragile that a mitigation might have a cascading effect?             |
-| Image                   | Will the failure damage the reputation for the company as technically inept, unsecure, or uncaring?                                                       |
-| Prevention cost         | How much will it cost to prevent the failure?                                                                                                             |
-| Likelihood              | How likely is the failure to happen?                                                                                                                      |
+| Dimension               | Description                                                                                                                                           |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Immediate monetary cost | The direct cost of the failure, including lost revenue, increased operating bills, or the resources required for resolution.                          |
+| Customer impact         | The effect on user retention and trust. Could customers lose data or be harmed financially, socially, or physically?                                  |
+| Legal impact            | The risk of criminal or civil fines, breach of contract, or lawsuits.                                                                                 |
+| Performance impact      | The degree to which system performance degrades, potentially rendering the system unusable or hindering observability.                                |
+| Complexity              | The difficulty of diagnosing and replacing the failed component, and the risk of mitigation causing cascading effects.                                |
+| Image                   | The damage to the company’s reputation (e.g., being perceived as technically inept, insecure, or indifferent).                                        |
+| Prevention cost         | The total investment (time, money, and complexity) required to prevent the failure.                                                                   |
+| Likelihood              | The statistical probability of the failure occurring.                                                                                                 |
 
-You can simplify the equations down to three main factors: 1) Impact, 2) Cost, and 3) Likelihood. You can then calculate the priority of any failure case with a simple equation and then use that to determine where you should put your mitigation efforts.
+You can simplify these factors into three main variables: **Impact**, **Likelihood**, and **Prevention Cost**. Use these to determine where to focus your mitigation efforts using the following priority equation:
 
 ![priority equation](priorityEquation.png)
 
 ## Load failure
 
-It is common for startup companies to focus on functionality and proof of concepts before they realize the impact of exponential success. Unless your system is designed with a path for scalability, you will immediately destroy any traction your application gains with a system that immediately crashes when it has significant load. Sometimes a popular overloaded system can make the news and gain a publicity bonus because everyone want to use the greatest new application (e.g. OpenAI/ChatGPT), but that will only last a short time as customers become upset and dissuaded about the reality of your offering. It is much better to give your customer a phenomenal experience from the start and let the viral effect of their success drive your growth.
+Startups often focus on functionality and proof-of-concept before realizing the impact of exponential success. Unless a system is designed for scalability, sudden popularity can cause crashes that destroy the application's traction. While some overloaded systems occasionally gain a "publicity bonus" because of high demand (e.g., the early days of ChatGPT), this is short-lived; customers quickly become frustrated. It is far better to provide a seamless experience from the start and let that success drive growth.
 
-With today's cloud infrastructure it is not difficult to design your application with scalability built in from the beginning. Utilizing AWS EC2, S3, RDS, ALB, ECS, and CloudFront services is a great place to start. What used to take an entire team of IT specialists years of planning to build can now be spun up and maintained by a single capable DevOps engineer in a couple hours.
+Modern cloud infrastructure makes it easier to build scalability into an application from the beginning. Utilizing services like AWS EC2, S3, RDS, ALB, ECS, and CloudFront provides a strong foundation. What once required a large team of IT specialists and years of planning can now be deployed and maintained by a single capable DevOps engineer in a matter of hours.
 
 ## Security failure
 
-Sometimes failure has nothing to do with any inherent internal shortcoming. There are bad actors who will profit from your failure; they must be considered in your failure management and mitigation strategy. This can include things like DDoS (distributed denial of service) attacks, ransomware, intellectual property theft, or identity theft. These types of failures have taken down companies with solid business and technical ability. To avoid this happening to you, you must be aware of and actively prevent common and developing threats. As with any type of failure, it is not a matter of if a security failure will happen, but when!
+Failure is not always the result of internal shortcomings; external bad actors may actively seek to profit from your system's vulnerabilities. Security failures—including DDoS (Distributed Denial of Service) attacks, ransomware, intellectual property theft, or identity theft—have destroyed otherwise successful companies. You must assume that a security event is not a matter of *if*, but *when*.
 
-Make sure you prevent against security failures with some of these best practices:
+Defend against security failures by implementing these best practices:
 
-1. **Education**: Every team member must be aware that they are a potential source of failure. This includes the code they write, the features they request, or the phone calls and emails they respond to. Educating the team concerning common attacks is a foundational piece of denying attacks.
-1. **Layering**: Never rely on a single layer of security. Slow down an attacker by forcing them to penetrate multiple levels before they gain any value. This will allow you to detect the threat before it escalates out of control.
-1. **Isolation**: Put important resources in isolated environments that are accessible only to parties (hopefully automated ones) that have the need to access them. This makes it difficult to manually manage a system, but automated observability and correction should be the focus of critical systems, rather than allowing a rogue developer to SSH into any server and tweak a setting. By completely isolating your production, billing, and logging environment you gain confidence by knowing that your inability to access the system makes it more difficult for a nefarious party to gain access.
-1. **Observability**: You cannot prevent security failure, but you can instrument the system such that it is discovered quickly. This includes automatic notifications and automated responses to detected intrusions or unusual behavior. You must also make sure that your observability data is immutable. This keeps an attacker from hiding their tracks.
-1. **Testing**: Regular component penetration testing is a vital part of preventing security failure. You cannot be confident in your security until you know that earnest attempts have failed.
-1. **Audits**: Automated audits of network access control, open ports, credential management, encryption, components, and configuration are essential to keeping your system in compliance. It is common to manually audit your system once a year, only to discover that security holes have developed since the last audit. It is much better to automate the checks and disallow bad security practices from being deployed in the first place.
+1. **Education**: Every team member must understand that they are a potential source of failure. This includes the code they write, the features they request, and the communications they handle. Training the team on social engineering and common attack vectors is a foundational element of defense.
+2. **Layering**: Never rely on a single security measure. Implement "defense in depth" by forcing attackers to penetrate multiple layers. This increases the chance of detecting a threat before it escalates.
+3. **Isolation**: Place critical resources in isolated environments accessible only to the parties or automated processes that require them. By isolating production, billing, and logging environments, you ensure that even if one area is compromised, the entire system is not at risk.
+4. **Observability**: Instrument your system to ensure security breaches are discovered quickly. This includes automated notifications and responses to unusual behavior. Ensure your logging data is immutable so that attackers cannot hide their tracks.
+5. **Testing**: Regular penetration testing is vital. You cannot be confident in your security posture until it has been tested against earnest attack simulations.
+6. **Audits**: Automate audits of network access controls, open ports, credential management, encryption, and configurations. While annual manual audits are common, automated checks prevent insecure practices from being deployed in the first place.
 
 ## A bit of fun
 
