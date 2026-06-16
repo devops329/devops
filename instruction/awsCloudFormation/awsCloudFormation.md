@@ -74,7 +74,7 @@ The `Parameters` section defines the input values necessary to create the stack.
 
 The `Resources` section contains the AWS objects you want to provision. In this case, we are creating an S3 bucket. We start by specifying a **Logical ID** for the resource: `S3Bucket`. This ID is used within the template to reference the resource for creation, deletion, or use by other objects.
 
-The resource type is defined by the `Type` value: [AWS::S3::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html). If you review the [Resource Type Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html), you will see various properties you can set, such as `BucketEncryption`, `AccessControl`, and `LifecycleConfiguration`. 
+The resource type is defined by the `Type` value: [AWS::S3::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html). If you review the [Resource Type Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html), you will see various properties you can set, such as `BucketEncryption`, `AccessControl`, and `LifecycleConfiguration`.
 
 For this example, we set the `BucketName` property to the value of the `MyBucketName` parameter. We also supply a `DeletionPolicy` of `Delete` to ensure the bucket is removed if the stack is deleted.
 
@@ -154,8 +154,7 @@ One of the primary benefits of CloudFormation is the ease of cleanup. You can de
 
 ## ☑ Exercise
 
-
 ```masteryls
-{"id":"20aabf6e-0ed8-4fca-a1c0-3c03eb2c376f", "title":"AWS Cloud Formation", "type":"file-submission"  }
-Upload a screenshot of the successful execution of your Cloud Formation stack.
+{"id":"20aabf6e-0ed8-4fca-a1c0-3c03eb2c376f", "title":"AWS CloudFormation", "type":"file-submission", "gradingCriteria":"successful execution of an AWS CloudFormation stack"  }
+Upload a screenshot of the successful execution of your CloudFormation stack.
 ```

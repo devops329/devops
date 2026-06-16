@@ -228,8 +228,7 @@ Deploy a container image of your JWT Pizza Service to ECR. This includes the fol
 1. Modify the CI pipeline workflow to build the container and push it to ECR.
 1. Execute the pipeline and verify the newly created image in the ECR console.
 
-
 ```masteryls
-{"id":"5d8c6ed6-ec21-4ade-b51d-bcb37983a4c0", "title":"ECR upload", "type":"file-submission"  }
+{"id":"5d8c6ed6-ec21-4ade-b51d-bcb37983a4c0", "title":"ECR upload", "type":"file-submission", "gradingCriteria":"AWS ECR showing an uploaded docker image"  }
 Submit a screenshot of your AWS ECR dashboard displaying your uploaded docker image.
 ```
