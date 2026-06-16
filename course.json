@@ -1055,7 +1055,10 @@
           "title": "Self healing",
           "path": "instruction/selfHealing/selfHealing.md",
           "id": "72952ea3-e414-4000-b402-b1299d548668",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "bc2eb95e-0cd1-4764-a59b-eb9b2f8ecb62"
+          ]
         },
         {
           "title": "☑ Chaos testing",
