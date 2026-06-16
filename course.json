@@ -1023,7 +1023,7 @@
           ]
         },
         {
-          "title": "Grafana Alerts",
+          "title": "Grafana OnCall",
           "type": "instruction",
           "path": "instruction/grafanaOnCall/grafanaOnCall.md",
           "id": "a14f016d-f868-4ef8-aa4d-3601c04d0d62",
