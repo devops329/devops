@@ -34,6 +34,8 @@ Successful penetration testing requires you to think like an attacker. It is alm
 
 It often helps to gamify the process. If it is an application you wrote, you are essentially playing a game of chess against yourself. Otherwise, you need to get into the head of the application's author to identify their blind spots.
 
+![penetrationTestingVisualization.jpg](penetrationTestingVisualization.jpg)
+
 Remember that you have a responsibility to disclose whatever vulnerabilities you are able to exploit to the application author so they can mitigate them. If you discovered a flaw, it is likely that a "black hat" will also discover it, or perhaps already has. It is better to make it public and get it fixed, whatever the cost, than to leave it lurking in the shadows.
 
 ## Automation
@@ -154,3 +156,11 @@ Here is a list of questions based on the OWASP Top 10 to help you find vulnerabi
 | Software and Data Integrity Failures       | Can I discover credentials or configurations by observing the CI/CD pipeline? |
 | Software Logging and Monitoring Failures   | Can I overload or disable metrics and logging to hide my tracks?             |
 | Server-Side Request Forgery (SSRF)         | Can I execute a fetch or console command with the server's execution rights?  |
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"89ffa9c4-e686-4b72-8c69-ee6f9379fa57", "title":"Penetration testing", "type":"teaching" }
+How do I get started with penetration testing?
+```
