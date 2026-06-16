@@ -2,70 +2,70 @@
 
 🔑 **Key points**
 
-- Security is a critical skill for any software engineer.
-- There are many aspects of security that you should be familiar with.
+- Security is a foundational skill for every software engineer.
+- Modern software development requires familiarity with many different aspects of security.
 
 ---
 
-Now that you are preparing to deploy your application with a cloud service provider, it is important that we take a moment to discuss security. Security should be a foundational piece of your application design. An application that is not secure is an application that will eventually do more harm than good. It doesn't matter that your application provides hours of entertainment, increases your customer's financial wealth, or obtains world peace if it eventually leads to compromised credentials, the loss of personal information, or monetary theft.
+Now that you are preparing to deploy your application with a cloud service provider, it is vital to discuss security. Security should be a foundational piece of your application design, not an afterthought. An application that is not secure will eventually do more harm than good. It matters little if your application provides hours of entertainment, increases your customers' financial wealth, or promotes world peace if it eventually leads to compromised credentials, the loss of personal information, or monetary theft.
 
-You should seriously consider that God has given you talents that are meant to do eternal good. That includes watching out for those who have been entrusted to your care. Providing for their security is an important part of the responsibility.
+Consider that God has given you talents meant to do eternal good. This includes watching out for those who have been entrusted to your care. Providing for their security is an important part of that responsibility.
 
-## Security minded development
+## Security-minded development
 
-There are four major themes that you should consider when building a secure application.
+There are four major themes you should consider when building a secure application:
 
-1. **Education**: Become familiar with common and current attacks. Know industry best practices. Help educate all the members of your team.
+1. **Education**: Become familiar with common and current attacks. Learn industry best practices and help educate all members of your team.
 1. **Prevention**: Instrument your code to reduce the attack surface area, secure credentials, encrypt data, authorize access, harden configurations, validate dependencies, and prevent injections.
 1. **Detection**: Log usage, track metrics, and alert on anomalies.
 1. **Remediation**: Deploy corrections quickly, notify impacted customers, report penetrations, and share attack vectors and vulnerabilities.
 
-The important thing is that you are constantly including these themes in your design discussion and implementing them in your architectures. Hopefully you will see these themes repeatedly occurring throughout this course.
+The goal is to constantly include these themes in your design discussions and implement them in your architectures. You will see these themes recurring throughout this course.
 
-In order to make the concept of security more concrete, let's go ahead and review some specific topics.
+To make the concept of security more concrete, let's review some specific topics.
 
 ### Layers
 
-No system is completely immune to a persistent, dedicated, well funded team of attackers. The best you can do is hope to stay ahead of them as you play a game of cat and mouse. One proven technique for staying ahead of your opponent is to create layers to your security. For example, consider the credentials stored in your database.
+No system is completely immune to a persistent, dedicated, and well-funded team of attackers. The best you can do is stay ahead of them in a constant game of cat and mouse. A proven technique for staying ahead of your opponent is to create **layers** of security (often called "Defense in Depth"). For example, consider the credentials stored in your database:
 
-1. Passwords are hashed using properly configured, modern cryptographic algorithms, and flavored with salt and pepper.
-1. The database files are encrypted.
-1. The database is immutably backed up hourly to an encrypted location that is only accessible for restoration purposes.
-1. Only port 3306 is open to network requests.
-1. The database server is on a private network.
+1. Passwords are hashed using properly configured, modern cryptographic algorithms, flavored with salt and pepper.
+1. The database files themselves are encrypted at rest.
+1. The database is immutably backed up hourly to an encrypted location accessible only for restoration.
+1. Only the specific port required (e.g., 3306) is open to network requests.
+1. The database server resides on a private network.
 1. Only authorized devices can access the server over the network.
-1. Authorized devices can only make requests using an encrypted protocol.
-1. The authorized devices' credentials are rotated hourly.
-1. The types of SQL query that the device can make are restricted and can only return the amount of data that is required for their role.
-1. All authentication and query requests to the database are immutably logged. Anomalies trigger an alert.
-1. Database metrics are immutably tracked. Anomalies trigger an alert.
-1. A honeypot database exists on the network with similar protections, but will immediately trigger an alert for any unexpected requests.
+1. Authorized devices can only make requests using an encrypted protocol (TLS).
+1. The authorized devices' credentials are rotated frequently.
+1. The types of SQL queries a device can make are restricted to the minimum data required for its role.
+1. All authentication and query requests are immutably logged, and anomalies trigger alerts.
+1. Database metrics are immutably tracked, and anomalies trigger alerts.
+1. A "honeypot" database exists on the network with similar protections to trigger an immediate alert upon any unexpected request.
 
-Are all these layers enough to stop an attacker? Probably not, but it will probably slow them down enough for you to notice the intrusion and take direct action.
+Are all these layers enough to stop an attacker? Perhaps not, but they will slow them down enough for you to notice the intrusion and take direct action.
 
 ![Security onion](securityOnion.png)
 
 ### Encryption
 
-Public networks are insecure by definition; you should never send unencrypted data across them. Even internal private networks should be considered suspicious since they can be penetrated. If you are sending unencrypted data across any network it can be a rich source that allows an attacker to grab passwords and other credentials.
+Public networks are insecure by definition; you should never send unencrypted data across them. Even internal private networks should be considered suspicious, as they can be penetrated. Sending unencrypted data across any network provides a rich source for attackers to grab passwords and other credentials.
 
-The same is true for data that is stored on disk, or in other words, at rest. Once an attacker penetrates the operating system's security, unencrypted files on disk become a treasure trove of information. High value targets include log files, password files, configuration files, and command histories. It is best if each file has its own encryption and that the entire storage device is encrypted.
+The same applies to data stored on disk, known as **data at rest**. Once an attacker penetrates an operating system's security, unencrypted files on disk become a treasure trove of information. High-value targets include log files, password files, configuration files, and command histories. Ideally, each sensitive file should have its own encryption, and the entire storage device should be encrypted.
 
 ### Network security
 
-Beyond encrypting the data that is transmitted over the network, you want to take advantage of the protections provided by web application firewalls, load balancers, private networks, firewalls (called security groups in AWS), and network access control lists (ACLs). These protections create perimeter barriers that help to keep out, or slow down an attack. The goal is to reduce the surface area of the attack to the smallest possible.
+Beyond encrypting data in transit, you should take advantage of protections provided by web application firewalls (WAFs), load balancers, private networks, firewalls (called **Security Groups** in AWS), and network access control lists (ACLs). These protections create perimeter barriers that help keep out or slow down an attack. The goal is to reduce the attack surface area to the smallest possible size.
 
 ![Network security layers](networkSecurityLayers.png)
 
 ### Protecting credentials
 
-Credentials allow access to protected resources and data. You never want any credential to show up in a log entry or appear in any code. It is best if you never persist credentials. You can do this by taking advantage of AWS Roles, Secrets Manager, and Security groups.
+Credentials allow access to protected resources and data. You never want a credential to show up in a log entry or appear in your source code. Ideally, you should never persist long-term credentials locally. You can achieve this by taking advantage of AWS Roles, Secrets Manager, and Security Groups.
 
 #### JWT Pizza logs
 
-Several occurrences of passwords showing up in log files have happened at even major companies such as [X](https://www.digitalguardian.com/blog/twitter-urges-all-users-change-password-following-internal-bug) and [GitHub](https://www.bleepingcomputer.com/news/security/github-accidentally-recorded-some-plaintext-passwords-in-its-internal-logs/). While the presence of a password in a log file doesn't necessarily trigger a breach it does provide an opportunity for internal abuse and makes an attractive target for attackers.
+Several instances of passwords showing up in log files have occurred even at major companies like [X](https://www.digitalguardian.com/blog/twitter-urges-all-users-change-password-following-internal-bug) and [GitHub](https://www.bleepingcomputer.com/news/security/github-accidentally-recorded-some-plaintext-passwords-in-its-internal-logs/). While a password in a log file doesn't necessarily trigger a breach, it provides an opportunity for internal abuse and makes an attractive target for attackers.
 
-The JWT Pizza Service attempts to keep passwords out of log files with code such as the following. However, these simplistic attempts are not foolproof, and it is probably best to come up with something that is more reliable.
+The JWT Pizza Service attempts to keep passwords out of log files with code like the following. However, these simplistic attempts are not foolproof, and it is better to implement a more reliable, systemic solution.
 
 ```js
   sanitize(logData) {
@@ -79,19 +79,21 @@ The JWT Pizza Service attempts to keep passwords out of log files with code such
 
 #### JWT Pizza database password
 
-The JWT Pizza Service is currently defined to store the database password in a local configuration file. If that file is ever accidentally posted to GitHub, or located on a compromised storage device, then it will give an attacker an essential piece to your security puzzle. Instead of storing the password in clear text in the configuration file, several other options could have been used.
+The JWT Pizza Service is currently configured to store the database password in a local configuration file. If that file is ever accidentally committed to GitHub or found on a compromised storage device, it gives an attacker an essential piece of your security puzzle. Instead of storing the password in cleartext, several other options could be used:
 
-1. Encrypt the password in the configuration file. Require a private key to decrypt the password which is only obtainable if the device is executing with a given role in the AWS environment.
-1. Retrieve the password from the AWS secrets manager when the service starts up. Only allow the key to be retrieved from a device with a given role in the AWS environment.
-1. Configure RDS database access to not require a password if the request comes from a device with a given role in the AWS environment.
+1. **Encryption**: Encrypt the password in the configuration file. Require a private key to decrypt it, which is only obtainable if the device is executing with a specific AWS role.
+2. **Secrets Manager**: Retrieve the password from AWS Secrets Manager when the service starts. Only allow the key to be retrieved by a device with a specific role.
+3. **IAM Authentication**: Configure RDS database access to not require a password at all if the request comes from a device with a specific AWS role.
 
 ### Hardening
 
-Consider a device that allows the entire world to make an unauthenticated SSH connection on any network port, and then gives them root access to the device. This is an obvious security violation, but an only slightly less egregious example includes letting anyone access to port 22, but requiring a textual password for the root user. What you really want is to only allow network access from an approved list, a white list, of IP addresses, where a user is authenticated by a named account using a cryptographically secure private key. The user is then restricted to only have access to the storage, memory, and applications necessary for them to accomplish their job.
+Consider a device that allows the entire world to make an unauthenticated SSH connection on any port and grants root access. This is an obvious security violation. A slightly less egregious (but still dangerous) example is allowing anyone access to port 22 but requiring a simple password for the root user.
 
-This process of going from being extremely open to allowing only the very smallest window necessary to accomplish a task is called hardening. When developing a system it is often necessary to be liberal with access until you can figure out what exact access is required. However, you must make sure that you restrict that access once the system definition has matured.
+Ideally, you should only allow network access from a **whitelist** of approved IP addresses, where users are authenticated via named accounts using cryptographically secure private keys. Users should then be restricted to the specific storage, memory, and applications necessary for their jobs.
 
-For example, while setting up your JWT Pizza Service on AWS it is tempting to supply liberal permissions to your CI pipeline so that it can deploy containers to the AWS container registry, ECR. This might look like the following.
+This process of moving from an open state to the most restrictive window necessary is called **hardening**. When developing a system, it is often necessary to be liberal with access until you determine exactly what is required. However, you must restrict that access once the system definition matures.
+
+For example, while setting up your JWT Pizza Service on AWS, it is tempting to supply liberal permissions to your CI pipeline so it can deploy containers to the AWS Elastic Container Registry (ECR):
 
 ```json
 {
@@ -102,7 +104,7 @@ For example, while setting up your JWT Pizza Service on AWS it is tempting to su
 }
 ```
 
-However, once you have the deployment working correctly you want to restrict this policy so that it can only push to certain locations from certain locations.
+Once the deployment is working, you should harden this policy so it can only perform specific actions on specific resources:
 
 ```json
 {
@@ -113,27 +115,27 @@ However, once you have the deployment working correctly you want to restrict thi
 }
 ```
 
-Failing to harden your application exposes a larger attack surface area and makes you more likely to be attacked or to miss that a penetration has occurred.
+Failing to harden your application leaves a large attack surface and makes it more likely that you will be breached or miss the signs of a penetration.
 
 ### Removing default settings
 
-Often times devices or software packages come with default configurations that allow anyone to gain administrative access. Home network routers are notorious for this. Immediately after installing the device or package, you should remove any default configuration that might cause a security threat. This includes default credentials, but it can also include liberal port access, administration utilities that are unnecessary, or verbose logging.
+Oftentimes, devices or software packages come with default configurations that allow administrative access. Home network routers are notorious for this. Immediately after installing a device or package, you should remove any default configuration that might pose a threat. This includes default credentials, liberal port access, unnecessary administration utilities, or overly verbose logging.
 
-### Store credentials with a third party
+### Third-party credentials
 
-It is common for cloud services to require or provide credentials in order to use their services. Historically, this took the form of API Keys that were tied to some role and would never expire. This was problematic because when the 3rd party was hacked they exposed all of their customer's credentials. This is exactly what happened to [CircleCI](https://circleci.com/blog/jan-4-2023-incident-report/).
+Cloud services often require credentials to use their APIs. Historically, these were long-lived API keys. This is problematic because if the third party is hacked, your credentials are exposed. This is exactly what happened to [CircleCI](https://circleci.com/blog/jan-4-2023-incident-report/).
 
-Instead of storing credentials it is much better to create a trust relationship between providers using standards such as OAuth to create temporary access. That is the process that you will use to give GitHub Actions the authorization to execute commands for your AWS account.
+Instead of storing long-lived credentials, it is much better to create a **trust relationship** between providers using standards like OAuth or OIDC to create temporary access. This is the process you will use to authorize GitHub Actions to execute commands on your AWS account.
 
-On the other hand, the JWT Pizza Factory will issue you an API Token that you will use to make pizzas. If your token becomes compromised then an attacker will be able to make pizzas on your behalf, and you will be responsible for the cost of those pizzas.
+Conversely, the JWT Pizza Factory issues an API Token for making pizzas. If your token is compromised, an attacker can make pizzas on your behalf, and you will be responsible for the cost.
 
 ### Roles
 
-Identifying a user is called **Authentication**, defining what they can do is called **Authorization**. A role serves to formally define what a user's authorization is. Without that formal definition, the role is usually scattered across the application code. That makes it easy for an attacker to exploit subtle inconsistencies in the code.
+Identifying a user is called **Authentication**; defining what they can do is called **Authorization**. A **role** formally defines a user's authorization. Without a formal definition, authorization logic is often scattered across application code, making it easy for attackers to exploit subtle inconsistencies.
 
 #### JWT Pizza Roles
 
-The JWT Pizza Service does a reasonable job of defining roles in the database. It follows a `subject/predicate/object` pattern where a specific user is given a role for a specific object.
+The JWT Pizza Service defines roles in the database using a `subject/predicate/object` pattern, where a specific user is given a role for a specific object.
 
 ```sql
   `CREATE TABLE IF NOT EXISTS userRole (
@@ -143,7 +145,7 @@ The JWT Pizza Service does a reasonable job of defining roles in the database. I
   )`,
 ```
 
-Specific roles are then defined in the code base.
+Specific roles are defined in the codebase:
 
 ```js
 const Role = {
@@ -153,7 +155,7 @@ const Role = {
 };
 ```
 
-This helps to formalize the definition of the possible roles. All the secure endpoints then use the express middleware `setAuthUser` and `authenticateToken` to validate that a user is authenticated.
+The application uses Express middleware (`setAuthUser` and `authenticateToken`) to validate that a user is authenticated:
 
 ```js
 async function setAuthUser(req, res, next) {
@@ -175,7 +177,7 @@ authRouter.authenticateToken = (req, res, next) => {
 };
 ```
 
-However, it is then left to the endpoint to actually check a role before authorizing access.
+However, it is currently left to individual endpoints to check roles:
 
 ```js
 if (!req.user.isRole(Role.Admin)) {
@@ -183,24 +185,22 @@ if (!req.user.isRole(Role.Admin)) {
 }
 ```
 
-While this makes it flexible for the endpoint to granularly provide access, it tends to sprinkle the enforcement throughout the code. It would be much better if an endpoint declaration contained the required role. That way it would be easy to audit all the endpoints in one place and less likely that a programmer would forget a single `if` or `else` statement.
-
-You want to carefully study the role security model for JWT Pizza so that you can properly exploit it when you do your penetration testing.
+While flexible, this "sprinkles" enforcement throughout the code. It would be better if endpoint declarations explicitly required a role. This makes it easier to audit endpoints and ensures a developer doesn't forget a single `if` statement.
 
 > [!NOTE]
 >
-> It is important to note that the JWT Service enforces the roles and not the frontend client. The frontend should limit customer access to restricted views, but in the end it must be the backend service that restricts to data and functionality.
+> It is important to note that the backend service enforces roles, not the frontend client. While the frontend should limit access to restricted views for a better user experience, the backend must be the final authority for data and functionality.
 
 #### AWS roles
 
-The AWS IAM service has an extremely powerful authorization model. Roles are assumed by entities (users or services) to gain temporary permissions defined by an attached policy. Policies are defined by the following elements:
+AWS Identity and Access Management (IAM) has a powerful authorization model. Roles are assumed by entities (users or services) to gain temporary permissions defined by policies. Policies consist of:
 
-- **Effect**: Specifies whether the statement allows or denies access (either "Allow" or "Deny").
-- **Action**: Specifies the actions that are allowed or denied. These are usually AWS service operations (e.g., s3:PutObject, ec2:StartInstances).
-- **Resource**: Specifies the AWS resources to which the actions apply. Resources are identified using Amazon Resource Names (ARNs).
-- **Condition** (Optional): Specifies conditions that must be met for the policy to apply. Conditions use keys, values, and operators (e.g., StringEquals, IpAddress).
+- **Effect**: "Allow" or "Deny".
+- **Action**: Specific operations (e.g., `s3:PutObject`).
+- **Resource**: Specific resources identified by Amazon Resource Names (ARNs).
+- **Condition**: Optional constraints (e.g., requiring a specific IP address).
 
-The key is to harden the policy so that it only contains what the role actually needs. This is called the **Principle of Least Privilege** (PoLP). The following is a blatant violation of PoLP for a role that only needs to copy objects to a specific S3 bucket from a specific IP address.
+The key is to follow the **Principle of Least Privilege** (PoLP). The following policy is a blatant violation of PoLP:
 
 ```json
 {
@@ -210,7 +210,7 @@ The key is to harden the policy so that it only contains what the role actually 
 }
 ```
 
-A better policy would be:
+A hardened policy would look like this:
 
 ```json
 {
@@ -225,37 +225,17 @@ A better policy would be:
 }
 ```
 
-You want to make sure that you understand the AWS IAM permissions model so that when you start allocating AWS resources you don't expose anything more than is required for your CI pipeline's needs.
-
 ### Package security
 
-Sometimes it is tempting to think that code downloaded from a popular repository is safe to use. Unfortunately that is the exact opposite attitude that you should have. Popular repositories and packages are high value targets for attackers. You should be very careful about what you download and include in your code. When you do download code, you need to thoroughly review it in order to make sure it only does exactly what you want it to do. You also need to repeat your review every time you update the package to make sure that your assumptions still are valid.
+It is tempting to assume that code from a popular repository is safe. However, popular packages are high-value targets for attackers. You must be careful about what you download. Security-minded companies often require external software to be vetted by a security team before being hosted in an internal package manager.
 
-Most security minded software companies will not allow you to download and use 3rd party software. Instead, external software must be downloaded, examined, and vetted by their security team. It is then placed in an internal package manager where it can be used internally for your application.
-
-In many ways it is better to avoid external code projects, and many times this is easy to do. For example, later on in this course you will need to upload logs from the JWT Pizza application to the Grafana Cloud hosting service. The Grafana documentation suggests that you install a 3rd party package and use it. The package has 2 stars and has been downloaded a few hundred times. The author, [蛭田 海斗](https://github.com/miketako3), appears to work for a company named LY Corporation and has 11 followers on GitHub. That doesn't sound like a nefarious hacker.
-
-The package also looks really easy to use. All you have to do is install the package, give it your API Token and then make a logger call.
+Sometimes it is better to avoid external dependencies entirely. For example, later in this course, you will upload logs to Grafana Cloud. The documentation suggests a third-party package with few stars and followers. 
 
 ```sh
 npm i @miketako3/cloki
 ```
 
-```js
-import { Cloki } from '@miketako3/cloki';
-
-const logger = getLokiLogger({
-  lokiHost: 'Host URL (e.g. logs-xxx-yyy.grafana.net)',
-  lokiUser: 'User (e.g. 123456)',
-  lokiToken: 'Generated API Token',
-});
-
-await logger.info({ message: 'Hello World!' });
-```
-
-The average software engineer would grab the package and start logging without a second thought. A security minded software engineer never consider such a thing. What are you going to do?
-
-I would hope that you would pull the source code and start walking through it. What you will find is that the code boils down to a single function that has any value.
+A security-minded engineer would examine the source code. In this case, the package's value boils down to a single function:
 
 ```js
 async function sendToLoki(config: LokiConfig, lokiMessage: LokiMessage) {
@@ -274,46 +254,45 @@ async function sendToLoki(config: LokiConfig, lokiMessage: LokiMessage) {
 }
 ```
 
-In this case it is much safer to just copy the ten lines of code and forget the security risk associated with the 3rd party package.
+In this situation, it is much safer to copy those ten lines of code into your project rather than taking on the security risk and maintenance of a third-party dependency.
 
-### Logging and Metric
+### Logging and Metrics
 
-Your logs and metrics are a foundational piece of your security architecture. They alert you to anomalous behavior that can indicate an intruder's presence, and provide the forensic evidence necessary to determine the attacker's target and strategy. In order for your logs to be useful, they must be immutable, aggregated, accessible, and highly searchable.
+Logs and metrics are foundational to security architecture. They alert you to anomalous behavior and provide the forensic evidence necessary to determine an attacker's target and strategy. To be useful, logs must be immutable, aggregated, accessible, and highly searchable.
 
 ## Common attacks
 
-There are many creative ways to exploit a software system. Each has their own specific target, attack vector, and clever name. Take some time to become familiar with each of these exploits.
+Familiarize yourself with these common exploits:
 
-- **Phishing**: Attempting to acquire sensitive information such as usernames, passwords, and credit card details by masquerading as a trustworthy entity in electronic communications.
-- **Malware**: Malicious software designed to harm, exploit, or otherwise compromise computer systems. Types of malware include viruses, worms, Trojans, ransomware, and spyware.
-- **Ransomware**: A type of malware that encrypts the victim's files and demands a ransom payment to restore access to the data.
-- **Denial of Service (DoS) and Distributed Denial of Service (DDoS)**: Attacks aimed at making a system, service, or network resource unavailable to its intended users by overwhelming it with a flood of illegitimate requests.
-- **Man-in-the-Middle (MitM)**: An attacker intercepts and possibly alters the communication between two parties who believe they are directly communicating with each other.
-- **SQL Injection**: A code injection technique that exploits a security vulnerability in a website's software by injecting malicious SQL statements into an entry field for execution.
-- **Cross-Site Scripting (XSS)**: A security vulnerability typically found in web applications that allows attackers to inject malicious scripts into webpages viewed by other users.
-- **Password Attacks**: Attempts to obtain or guess passwords through various methods, including brute force, dictionary attacks, and credential stuffing.
-- **Zero-Day Exploit**: An attack that targets a previously unknown vulnerability in software or hardware, which has not yet been patched or disclosed.
-- **Insider Threats**: Attacks originating from within the organization, carried out by employees, contractors, or others with internal access.
-- **Social Engineering**: Manipulating individuals into divulging confidential information or performing actions that compromise security, often through deception and psychological manipulation.
-- **Advanced Persistent Threat (APT)**: A prolonged and targeted cyberattack in which an intruder gains access to a network and remains undetected for an extended period.
-- **Drive-by Download**: The unintentional download of malicious software onto a user’s computer when they visit a compromised or malicious website.
-- **Eavesdropping**: Intercepting and listening to private communications, such as network traffic, without the consent of the communicating parties.
-- **Session Hijacking**: Taking over a user session by obtaining or predicting the session ID, enabling the attacker to assume the identity of the user.
+- **Phishing**: Acquiring sensitive information by masquerading as a trustworthy entity.
+- **Malware**: Software designed to compromise systems (viruses, worms, Trojans, ransomware).
+- **Ransomware**: Malware that encrypts files and demands payment for the decryption key.
+- **DoS and DDoS**: Overwhelming a service with illegitimate requests to make it unavailable.
+- **Man-in-the-Middle (MitM)**: Intercepting and potentially altering communication between two parties.
+- **SQL Injection**: Injecting malicious SQL statements into entry fields to manipulate a database.
+- **Cross-Site Scripting (XSS)**: Injecting malicious scripts into webpages viewed by other users.
+- **Password Attacks**: Brute force, dictionary attacks, or credential stuffing to guess passwords.
+- **Zero-Day Exploit**: Attacking a previously unknown vulnerability before a patch exists.
+- **Insider Threats**: Attacks originating from within an organization (employees or contractors).
+- **Social Engineering**: Manipulating individuals into divulging confidential information.
+- **Advanced Persistent Threat (APT)**: A prolonged, targeted attack where an intruder remains undetected for a long period.
+- **Drive-by Download**: Unintentional download of malicious software just by visiting a website.
+- **Session Hijacking**: Taking over a user session by stealing or predicting a session ID.
 
 ## Non-software security concerns
 
-In addition to securing your software application, it is important that your organization is familiar with non-software associated attacks. This includes:
+Organizational security involves more than just code:
 
-- **Social engineering attacks**: Human subversion of security controls and practices based on emotional appeal.
-- **Insider threats**: Insufficient hiring practices, periodic reviews of internal staff, automated auditing controls, restriction of access to least privilege, or consensus access controls (where multiple independent parties are required to provide credentials for access).
-- **Physical security**: Insufficient physical controls to sensitive infrastructure or workspaces.
-- **Improper data management**: Allowing confidential data to be accessed without authorization or to be transported outside the security parameter.
-- **Insecure network topology**: Allowing non-authorized, or insecure devices, within the security parameter.
+- **Social Engineering**: Human subversion of controls based on emotional appeal or deception.
+- **Insider Threats**: Mitigated by hiring practices, periodic reviews, and the Principle of Least Privilege.
+- **Physical Security**: Controls for sensitive infrastructure and workspaces.
+- **Data Management**: Preventing unauthorized transport of confidential data.
+- **Network Topology**: Ensuring unauthorized devices cannot connect to the internal network.
 
-In many ways these attacks are the most dangerous because they exploit your system behind your wall of trust. Having a hardened, secure, architecture is pointless if one of your team members gives out the administrative password to someone who contacts them from the "operations team" with a desperate need to correct a "critical emergency" that is threatening to take the company down in the next few minutes.
+A hardened architecture is useless if a team member gives an administrative password to someone claiming to be from the "operations team" during a manufactured "critical emergency."
 
 ## Parting thoughts
 
-Security is a massive topic that deserves your serious consideration. Gone are the days when a programmer could just focus on an algorithm without having to consider how that code could be exploited to steal someone's life. The more valuable your code, the more likely it is that you will be a high value target that will attract attention from all sorts of ill-intentioned individuals, gangs, terrorists, Gadianton robbers, and state-sponsored criminals. The better you are educated and engaged, the less chance the trust your customers place in you will be violated.
+Security is a massive topic that deserves your serious consideration. Gone are the days when a programmer could focus solely on an algorithm without considering how that code could be exploited. The more valuable your code, the more likely it is to attract attention from ill-intentioned individuals, gangs, terrorists, Gadianton robbers, and state-sponsored criminals. The more educated and engaged you are, the less likely it is that the trust your customers place in you will be violated.
 
-💡 Hopefully the security topics covered in this instruction have set your curiosity senses tingling. There are many subjects that you can dig into as part of your curiosity report.
+💡 Hopefully these topics have piqued your curiosity. There are many subjects here that you can explore as part of your curiosity report.
