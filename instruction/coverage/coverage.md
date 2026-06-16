@@ -16,6 +16,8 @@ Here is an example of a code coverage report that represents several coverage me
 
 ## Types of Code Coverage
 
+![coverageTypes.jpg](coverageTypes.jpg)
+
 There are several types of code coverage. This includes:
 
 - **Line**: The percentage of lines that have been executed in the program. Usually this only counts lines of code. Comments and whitespace are not counted.
