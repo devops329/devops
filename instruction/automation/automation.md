@@ -38,6 +38,8 @@ Automation removes the possibility of human error. Some of the most expensive sy
 
 Automation creates documentation and a historical trail. When humans alter a system, they open up a command console and start typing away, changing configurations, running tools, starting new services, and installing and updating software. There are no records of what was done and for what reason. If something goes wrong, it requires a forensic experiment to look into the minds of the team in an attempt to guess what was going on. Additionally, team members change, or worse, quit, and the collective knowledge goes with them. With automation, the code is the documentation. It clearly describes how a process works and leaves a clear trail to unwind when a failure happens. Likewise, you can easily fix a failure by simply changing the parameters.
 
+![automationBenefits.jpg](automationBenefits.jpg)
+
 ## Viewing DevOps as a coding task
 
 The whole point of computers and software is to generalize tasks into repeatable instructions in order to quickly and reproducibly complete a task. We should not constrain our vision of what automation can do. If we are willing to reduce the toil of computing the digits of Pi or a Fibonacci sequence, then why not automate the deployment of where the software is used? Why not automate the recording of failures and the collection of performance metrics? These likewise are coding tasks, and the benefits of automating them are just as real as any other coding problem.
