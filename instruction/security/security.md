@@ -298,3 +298,17 @@ A hardened architecture is useless if a team member gives an administrative pass
 Security is a massive topic that deserves your serious consideration. Gone are the days when a programmer could focus solely on an algorithm without considering how that code could be exploited. The more valuable your code, the more likely it is to attract attention from ill-intentioned individuals, gangs, terrorists, Gadianton robbers, and state-sponsored criminals. The more educated and engaged you are, the less likely it is that the trust your customers place in you will be violated.
 
 💡 Hopefully these topics have piqued your curiosity. There are many subjects here that you can explore as part of your curiosity report.
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"0967ba86-5617-4230-beae-7d19a239f956","title":"Identifying Evidence-Based Security","type":"multiple-choice"}
+Security theater refers to measures that provide a false sense of safety without significantly reducing actual risk. Which approach is most effective for an organization looking to transition from security theater to evidence-based security?
+
+- [ ] Implementing highly visible security protocols primarily to reassure stakeholders and employees, even if the underlying technical vulnerabilities remain unaddressed.
+
+- [ ] Mandating complex password requirements and frequent periodic rotations to demonstrate a public commitment to rigorous access control.
+- [ ] Deploying a wide array of specialized security tools to ensure that every category of the security software market is represented in the organization's tech stack.
+- [x] Prioritizing security investments based on a formal threat model and validating the effectiveness of controls through objective testing and metrics.
+```
