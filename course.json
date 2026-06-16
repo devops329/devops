@@ -928,7 +928,9 @@
           "path": "instruction/statusReporting/statusReporting.md",
           "id": "c12c055e-5494-4b22-8654-34ae9287ea9f",
           "state": "published",
-          "interactions": []
+          "interactions": [
+            "73a6e15f-1e5a-40cd-a2de-6f1cae8d6534"
+          ]
         }
       ]
     },
