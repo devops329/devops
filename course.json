@@ -1125,7 +1125,10 @@
           "title": "Penetration testing",
           "path": "instruction/penetrationTesting/penetrationTesting.md",
           "id": "4badf658-3697-4b61-993d-f60a3be8b070",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "89ffa9c4-e686-4b72-8c69-ee6f9379fa57"
+          ]
         },
         {
           "title": "☑ Burp Suite",
