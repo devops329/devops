@@ -1107,7 +1107,10 @@
           "title": "Security",
           "path": "instruction/security/security.md",
           "id": "3d8ea8c2-8f2d-4355-84c0-278f081fa93e",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "0967ba86-5617-4230-beae-7d19a239f956"
+          ]
         },
         {
           "title": "Security Community",
