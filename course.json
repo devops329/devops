@@ -1023,10 +1023,12 @@
           ]
         },
         {
-          "title": "☑ Grafana OnCall",
+          "title": "Grafana Alerts",
+          "type": "instruction",
           "path": "instruction/grafanaOnCall/grafanaOnCall.md",
           "id": "a14f016d-f868-4ef8-aa4d-3601c04d0d62",
-          "state": "published"
+          "state": "published",
+          "description": ""
         },
         {
           "title": "Playbooks",
