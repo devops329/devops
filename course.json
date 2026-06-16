@@ -1066,6 +1066,9 @@
           "path": "instruction/chaosTesting/chaosTesting.md",
           "id": "73bbdaef-3c25-477a-9651-8366a246f86b",
           "state": "published",
+          "interactions": [
+            "fdbffc08-8d93-4d38-bd35-8da5a54cd428"
+          ],
           "description": ""
         },
         {
