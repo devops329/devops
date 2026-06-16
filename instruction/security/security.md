@@ -13,6 +13,8 @@ Consider that God has given you talents meant to do eternal good. This includes 
 
 ## Security-minded development
 
+![security.png](security.png)
+
 There are four major themes you should consider when building a secure application:
 
 1. **Education**: Become familiar with common and current attacks. Learn industry best practices and help educate all members of your team.
