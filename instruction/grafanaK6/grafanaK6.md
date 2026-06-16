@@ -237,3 +237,11 @@ Using variables ensures that your test uses the specific data generated during t
 ## Wrap up
 
 Congratulations! You have successfully created and analyzed your first load test. Mastering tools like K6 is a vital part of DevOps, as it allows you to use automation to ensure system reliability and performance before real users ever encounter a bottleneck.
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"f63caa8c-6e31-472e-a0e5-170c165cead8", "title":"File submission", "type":"file-submission"  }
+Submit a screenshot of the K6 execution graph over the entire duration of your test.
+```
