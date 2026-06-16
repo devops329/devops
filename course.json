@@ -630,7 +630,10 @@
           "title": "GitHub environments",
           "path": "instruction/gitHubEnvironments/gitHubEnvironments.md",
           "id": "ec097b7f-bf83-4054-8530-c4635d79cb85",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "5babfac3-9271-4e18-9914-ddf8c71e06d0"
+          ]
         },
         {
           "title": "⭐ ⓺ Frontend deployment: JWT Pizza",
