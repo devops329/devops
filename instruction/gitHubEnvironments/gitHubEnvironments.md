@@ -98,3 +98,17 @@ deploy:
 ```
 
 The `url` property is optional but highly recommended; it creates a link on the GitHub Actions run page and the repository homepage, making it easy to jump directly to your deployed application. Update the URL to match your actual JWT Pizza hostname.
+
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"5babfac3-9271-4e18-9914-ddf8c71e06d0","title":"Purpose of GitHub Environments","type":"multiple-choice"}
+What is the primary reason for using GitHub Environments within a CI/CD workflow?
+
+- [x] To define deployment protection rules, such as required reviewers, and manage secrets specific to a deployment target
+- [ ] To provide a cloud-hosted integrated development environment (IDE) for writing and debugging code directly in the browser
+- [ ] To organize repository files into logical directories based on the runtime requirements of the application
+- [ ] To isolate different git branches and prevent developers from pushing code directly to the main branch
+```
