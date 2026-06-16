@@ -1,58 +1,62 @@
-# Grafana logging
+# Grafana Logging
 
 🔑 **Key points**
 
-- You can generate logs using Curl or code with HTTP requests.
-- The Grafana Explorer provides the ability to review and search logs.
-- Create a simple service that logs requests.
-- Simulate requests that generate logs with Curl.
+- Generate logs using Curl or application code via HTTP requests.
+- Use Grafana Explore to review, search, and filter logs.
+- Build a simple Node.js service to automate request logging.
+- Simulate log-generating traffic using Curl loops.
 
 ---
 
 ![Loki logo](lokiLogo.png)
 
-Grafana Cloud provides a service called Loki that makes it easy to harness the full power of logging.
+Grafana Cloud provides a service called **Loki**, a log-aggregation system inspired by Prometheus. Loki is designed to be cost-effective and easy to operate because it does not index the contents of the logs, but rather indexes a set of labels for each log stream.
 
-Your application sends log events over HTTP to the Loki service which stores the log events persistently. A data source then represents the logs and allows you to create visualizations on your Grafana dashboard.
+Your application sends log events over HTTP to the Loki service, which stores them persistently. A Grafana data source then connects to Loki, allowing you to search logs and create visualizations on your dashboard.
 
 ![Logging overview](loggingOverview.png)
 
 ## Inserting logs using HTTP
 
-For this exercise you will use the `Logs HTTP` connector to insert data into a data service hosted on Grafana Cloud and exposed using the `grafana-youraccountnamehere-logs` data source that Grafana created by default when you set up your account.
+In this exercise, you will use the **Loki** (sometimes listed as **Logs**) connection to insert data into Grafana Cloud. You will use a data source typically named `grafanacloud-youraccountnamehere-logs` that is created by default when you set up your account.
 
-In order to send logs over HTTP you will need an API key.
+To send logs over HTTP, you need an Access Policy token (API key).
 
-1. Open up your Grafana Cloud dashboard.
-1. Select the `Connections` option from the left home menu and press `Add new connection`.
-1. In the connection search box enter `Logs HTTP` and press enter
-1. This will display the template necessary to obtain the API Key for uploading logs to the Grafana Cloud Loki service.
-1. Supply the name `jwt-pizza-logs` for the `Access Policy token name`.
-1. Press `Create token`.
-1. Note the section titled `Anatomy of your Loki log`. This defines how to format the data that you upload to Loki.
-1. Note the section titled `Send logs from your application code`. This gives you examples of how to upload a log event using things like Curl, Node.js, or Go. The example contains your API Key, your account ID, and endpoint URL.
+1. Open your Grafana Cloud dashboard.
+2. Select **Connections** from the left-hand menu and click **Add new connection**.
+3. Search for **Loki** or **Logs** and select it.
+4. This page provides the details and templates necessary to send logs to your Loki instance.
+5. Under the section for creating a token, provide the name `jwt-pizza-logs` for the **Access Policy token name**.
+6. Click **Create token**.
+7. Review the section titled **Anatomy of your Loki log**. This defines the JSON structure required to upload data to Loki.
+8. Review the section titled **Send logs from your application code**. This provides examples for Curl, Node.js, or Go. The example contains your specific API key, Account ID, and Endpoint URL.
 
    ```sh
    curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer 1032529:glc_222222222222" -d '{"streams": [{"stream": {"Language": "Curl", "source": "Shell"},"values": [["'"$(($(date +%s)*1000000000))"'", "This is my log line"]]}]}' https://logs-prod-006.grafana.net/loki/api/v1/push
    ```
 
-1. Extract the **account ID**, **API key**, and **endpoint URL** out of the example Curl command. The Account ID is a seven digit number, the API key is a much longer string and will start with glc. The endpoint url is the target of the curl request. Assign these to command shell variables like the following:
+9. Extract the **Account ID**, **API Key**, and **Endpoint URL** from the example Curl command.
+    - The **Account ID** is typically a seven-digit number.
+    - The **API Key** is a long string starting with `glc_`.
+    - The **Endpoint URL** is the target URL (e.g., `https://logs-prod-006.grafana.net/loki/api/v1/push`).
+10. Assign these to shell variables for easier use:
 
    ```sh
    endpoint_url="https://logs-prod-006.grafana.net/loki/api/v1/push"
-
    api_key="glc_222222222222"
-
    account_id="1032529"
    ```
 
-1. You will want to save these values **to a secure location**. You will need them to upload logs.
+11. **Save these values in a secure location.** You will need them to configure your application later.
 
 ### Loki JSON log syntax
 
-The HTTP body of the logging request follows the [HTTP Loki log syntax](https://grafana.com/docs/loki/latest/reference/loki-http-api/#ingest-logs), and is what you will use when you generate log messages.
+The HTTP body of a logging request must follow the [Loki HTTP API syntax](https://grafana.com/docs/loki/latest/reference/loki-http-api/#ingest-logs).
 
-Each message is composed of one or more streams. Each **stream** contains the labels (e.g. tags) for the log messages represented by the stream. This is followed by one or more **values** that represent that actual log message. You can also include an optional **metadata** object that defines one or more metadata values. Note that labels are indexed and searchable, while metadata is not indexed but can still be used for filtering log messages. You should not include labels that have high cardinality, or lots of different values. That will cause Loki queries to perform poorly.
+Each request is composed of one or more **streams**. A stream contains **labels** (metadata tags) and a list of **values**. Each value is an array containing a nanosecond-precision timestamp, the log message string, and an optional metadata object.
+
+**Note on Labels:** Labels are indexed and searchable. Metadata is not indexed but can be used for filtering. Avoid using labels with high cardinality (fields with many unique values, like User IDs), as this significantly degrades Loki's performance.
 
 The general syntax looks like this:
 
@@ -63,20 +67,24 @@ The general syntax looks like this:
       "stream": {
         "label": "value"
       },
-      "values": [["<unix epoch in nanoseconds>", "<log line>", { "<metadata label>": "<metadata value>" }]]
+      "values": [
+        ["<unix epoch in nanoseconds>", "<log line>", { "<metadata label>": "<metadata value>" }]
+      ]
     }
   ]
 }
 ```
 
-If you were going to create a log message that described a login HTTP request, you might create a message that looked like this:
+Example log message for an HTTP request:
 
 ```json
 {
   "streams": [
     {
       "stream": { "component": "jwt-pizza-service", "level": "info", "type": "http-req" },
-      "values": [["1717627004763", "{\"name\":\"pizza diner\", \"email\":\"d@jwt.com\", \"password\":\"****\"}", { "userID": "32", "traceID": "0242ac120002" }]]
+      "values": [
+        ["1717627004763000000", "{\"name\":\"pizza diner\", \"email\":\"d@jwt.com\"}", { "traceID": "0242ac120002" }]
+      ]
     }
   ]
 }
@@ -84,13 +92,11 @@ If you were going to create a log message that described a login HTTP request, y
 
 ### Using Curl to insert logs
 
-Using the example command and your newly minted API key, you can now insert data into Loki. Make sure you replace the Grafana account number and API key with your account number and API key. Ensure the Loki URL matches that given in the curl example Grafana gave you; your subdomain may differ from `logs-prod-006`.
+Using your credentials, you can now manually insert a log entry. Ensure your URL matches the one provided in your Grafana dashboard, as the subdomain (e.g., `logs-prod-006`) varies by region.
 
 ```sh
 endpoint_url="https://logs-prod-006.grafana.net/loki/api/v1/push"
-
 api_key="glc_222222222222"
-
 account_id="1032529"
 
 curl -X POST \
@@ -100,17 +106,13 @@ curl -X POST \
   $endpoint_url
 ```
 
-When you execute this command it will log a JSON body as the log event. Notice a few interesting things that are going on with the log event.
+Key aspects of this log event:
+1. **Labels:** `component`, `level`, and `type` are indexed for efficient searching.
+2. **JSON Body:** By sending the log line as a JSON string, Loki and Grafana can automatically parse fields for filtering.
+3. **Dynamic Timestamp:** The `date` command generates the current Unix timestamp in nanoseconds.
+4. **Security:** The password field is manually masked (`****`). Never store raw passwords in logs.
 
-1. Labels are provided for component, level, and type. This allows you to efficiently search and filter based on these labels.
-1. JSON is used for the body of the log event. Grafana Loki can automatically parse the JSON fields for display and filtering.
-1. The date is automatically inserted using the `date` shell command.
-   ```sh
-   '"$(($(date +%s)*1000000000))"'
-   ```
-1. The password field in hidden. This is a critical security practice so that you do not store user's passwords in the logs.
-
-Go ahead and wrap the curl command in a for loop that randomly sets the message level, and let it run while you set up a visualization.
+To generate a stream of data for visualization, run this loop in your terminal:
 
 ```sh
 for i in {1..100}; do
@@ -126,68 +128,60 @@ for i in {1..100}; do
 done
 ```
 
-This should generate enough log data to make a visualization interesting.
+## Using Grafana Explore
 
-## Using the Grafana Explorer
+The **Explore** tool allows you to query and examine your data sources without creating permanent dashboard panels.
 
-Grafana comes with a data explorer tool that allows you to examine a data source without creating a visualization panel.
-
-1. Open up your Grafana Cloud dashboard.
-1. Open the Home menu, click on Explore. This will display the empty explore interface where you can enter a query.
-1. Select the data source to be your Grafana Cloud log data source. This should follow the pattern **grafanacloud-youraccountnamehere-logs**.
-1. For `Label filters`, enter **component** and **jwt-pizza-service** as the value.
+1. Open your Grafana Cloud dashboard.
+2. Click **Explore** in the left-hand menu.
+3. Select your log data source (e.g., `grafanacloud-youraccountname-logs`).
+4. In the **Label filters**, select `component` and set the value to `jwt-pizza-service`.
    ![Specifying a query](specifyingQuery.png)
-1. Click on the hint to `add json parser`.
-1. Press the blue `Run Query` button to see the results.
+5. Click the suggestion to **add json parser** (or manually add `| json` to your query).
+6. Click **Run Query**.
 
-This will display the log messages for the past 30 minutes. You can adjust the time range by either clicking and dragging over the `Logs volume` pane, or by changing the time range specified on the top navigation bar next to the `Run Query` button.
+The results show log messages from the selected time range. You can adjust the range using the time picker or by dragging across the **Logs volume** histogram.
 
-Because you chose the JSON parser, the log message was automatically parsed into fields, and it is visually differentiating based on the **level** field.
+Because you applied the JSON parser, Grafana identifies fields within the log line and color-codes entries based on the `level` field.
 
 ![Log format](logFormat.png)
 
-Switch from viewing the "logs" view to the "table" view. By default, there will be a column for Time and Line.
+Switch from the **Logs** view to the **Table** view to see the data in a structured format.
 
 ![log events](logEvents.png)
 
-You can select which columns you want to see by manipulating the selected fields displayed on the left. Here is the same data with different fields displayed in the graph.
+You can customize which columns appear by selecting fields from the sidebar.
 
 ![Selecting fields](selectingFields.png)
 
-Take some time and play around with the Explorer. It has tons of functionality for transforming and filtering your data. The better you understand how to use it, the better you will be able to find trends, performance problems, and failures in your application.
+### Creating a visualization
 
-#### Creating a visualization
+Once your query in Explore is refined:
+1. Click the **Add** button at the top and select **Add to dashboard**.
+   ![Add to dashboard](addToDashboard.png)
+2. Choose **Existing dashboard**, select your **Pizza Dashboard**, and click **Open in new tab**.
+   ![Specify dashboard](specifyDashboard.png)
+3. Arrange and save the new panel on your dashboard.
 
-Once you have the Explorer displaying your logs exactly as you would like, press the `Add` button on the top navigation and select the option to **Add to dashboard**.
-
-![Add to dashboard](addToDashboard.png)
-
-Change the option to add to an **Existing dashboard** and then select your **Pizza Dashboard** and press `Open in new tab`.
-
-![Specify dashboard](specifyDashboard.png)
-
-This should create a new panel on your dashboard. Configure the panel as you would like and then save the dashboard.
-
-You can stop your curl command from generating logs by directly calling the Grafana logging endpoint, because you are now going to generate them with code.
+You can now stop the Curl loop in your terminal. Next, you will generate logs directly from application code.
 
 ## Sending logs from code
 
-In order to demonstrate how to generate logs from your code, we need a simple Express service ([code found here](exampleCode). Create the service by doing the following.
+To demonstrate programmatic logging, we will create a simple Node.js Express service.
 
-1. Open your command console.
-1. Execute the commends:
+1. Create a new directory and initialize the project:
    ```sh
    mkdir loggingExample && cd loggingExample
    npm init -y
    npm install express
    ```
-1. Modify the `package.json` file to include a start script.
+2. Add a start script to `package.json`:
    ```json
      "scripts": {
        "start": "node index.js"
      },
    ```
-1. Create a `config.js` file to include your Grafana credentials. Replace the values with the ones that were supplied when you created the data source connection. Make sure you include this in your `.gitignore` file if you push this code to GitHub so that you don't publicly post your Grafana API key.
+3. Create a `config.js` file for your credentials. **Important:** Add this file to your `.gitignore` to prevent leaking your API key to GitHub.
 
    ```js
    module.exports = {
@@ -198,11 +192,10 @@ In order to demonstrate how to generate logs from your code, we need a simple Ex
    };
    ```
 
-1. Create a `logger.js` file that at the basic level does the same thing that the curl command was doing. However, there are some additions.
-   - The configuration is read from the `config.json` file.
-   - The `httpLogger` function provides an Express custom middleware to handle all the HTTP request and response logging in one place.
-   - The `log` function can be called directly if you want to log additional information.
-   - The `sanitize` function keeps any confidential information from entering the logs.
+4. Create `logger.js`. This module mirrors the Curl logic but adds features like:
+    - **Middleware:** `httpLogger` captures request and response data automatically.
+    - **Sanitization:** The `sanitize` function masks sensitive data using regex.
+    - **Level Mapping:** Converts HTTP status codes to log levels (e.g., 500 -> error).
 
    ```js
    const config = require('./config');
@@ -267,7 +260,7 @@ In order to demonstrate how to generate logs from your code, we need a simple Ex
    module.exports = new Logger();
    ```
 
-1. Create an `index.js` that contains your simple demonstration service. Most of the code in the service provides example endpoints. The interesting part is the use of the `logger.httpLogger` middleware that handles all the HTTP logging. This keeps the main code clean while still providing significant value.
+5. Create `index.js`. This service uses the `logger.httpLogger` middleware to handle logging globally.
 
    ```js
    const express = require('express');
@@ -302,51 +295,51 @@ In order to demonstrate how to generate logs from your code, we need a simple Ex
    });
    ```
 
-1. Start up the service.
-
+6. Start the service:
    ```sh
-   npm run start
+   npm start
    ```
-
-1. Run a curl command to repeatedly hit the **hello** endpoint.
+7. In a separate terminal, trigger the endpoint:
    ```sh
    while true; do curl localhost:3000/hello/Torkel; sleep 1; done;
    ```
 
-You should be able to now go back to your dashboard and see the log entries flowing in.
+Check your Grafana dashboard to see the real-time log entries.
 
 ![Hello Torkel logs](helloTorkelLogs.png)
 
-### Generating lots of log events
+### Generating diverse log events
 
-With the service in place you can use other curl commands to call all the service endpoints and generate different log messages.
+Test different scenarios to see how the logger handles various statuses and sensitive data:
 
 ```sh
+# Post request with sensitive data
 while true; do curl -X POST localhost:3000/hello -H "Content-Type:application/json" -H "Authorization: Bearer xyz" -d '{"name":"loki", "password":"toomanysecrets"}' ; sleep 3; done;
 
+# Trigger 500 Error
 while true; do curl localhost:3000/error ; sleep 30; done;
 
+# Trigger 404 Not Found
 while true; do curl localhost:3000/typo ; sleep 17; done;
 ```
 
-This results in lots of data to analyze using your newly acquired logging abilities. Notice the following:
-
-1. Authorization is reported correctly.
-1. The HTTP method, path, and status codes are represented.
-1. The request and response bodies are present.
-1. The passwords are sanitized.
+In Grafana, you will observe:
+1. Correct reporting of Authorization headers.
+2. Accurate HTTP methods, paths, and status codes.
+3. Full request/response bodies.
+4. Properly sanitized passwords.
 
 ![Logging visualization](loggingVisualization.png)
 
 ## ☑ Exercise
 
-Do the following:
+Complete the following:
 
-1. Build the example logging application.
-1. Generate log messages by calling it with curl.
-1. Explore the logs using the Grafana Cloud Explore functionality.
-1. Insert the resulting visualization to your dashboard.
+1. Build the example Node.js logging application.
+2. Generate log messages by calling the service endpoints with Curl.
+3. Use the **Explore** tool to filter logs by component and level.
+4. Add a log visualization panel to your primary dashboard.
 
-Once you have completed the above tasks you should have a dashboard that looks something like the following.
+Upon completion, your dashboard should display a live feed of application logs similar to the one below.
 
 ![Dashboard with logging](dashboardWithLogging.png)
