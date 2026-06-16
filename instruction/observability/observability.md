@@ -102,3 +102,17 @@ The DevOps mindset shifts response from human intervention to automated correcti
 Incident response is increasingly driven by AI and Machine Learning (AIOps). AI systems can sift through massive volumes of logs to find subtle anomalies that humans might miss. Today, many low-to-mid-level failures are handled automatically by AI, which then generates a post-mortem report for human review. This cycle allows for long-term system improvements and greater overall stability.
 
 💡 **Activity**: Researching how AI can be used to detect "log anomalies" or "outlier detection" in metrics to trigger self-healing workflows is an excellent way to explore the future of DevOps.
+
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"04ffb66a-bd89-4e22-9737-ff27eba52837","title":"Defining Golden Signals","type":"multiple-choice"}
+According to the Google Site Reliability Engineering (SRE) handbook, which of the "Four Golden Signals" measures how "full" your service is, typically by tracking the utilization of the system's most constrained resources?
+
+- [ ] Latency
+- [ ] Traffic
+- [x] Saturation
+- [ ] Errors
+```
