@@ -1,236 +1,213 @@
-a# Grafana OnCall
+# Grafana OnCall
 
 🔑 **Key points**
 
-- Grafana provides significant alerting infrastructure.
-- Infrastructure includes metrics, triggers, and on call scheduling.
-- You must create and trigger an alert.
+- Grafana provides a robust alerting infrastructure.
+- This infrastructure includes metrics, triggers, and on-call scheduling.
+- This guide covers how to create, configure, and trigger alerts.
 
 ---
 
 ![OnCall icon](onCallIcon.png)
 
-📖 **Deeper dive reading**: [Grafana OnCall](https://grafana.com/docs/oncall)
+📖 **Deeper dive reading**: [Grafana OnCall Documentation](https://grafana.com/docs/oncall)
 
-Grafana can generate alerts based on metric thresholds that we define as part of a metric visualization definition. Those alerts can trigger a wide variety of notification types. For example, they can send emails, post to a Discord server, activate PagerDuty, invoke AWS Simple Notification System, or invoke an HTTP endpoint. Grafana also provides a more complex alerting system, named `OnCall`, that allows us to set up teams, rotation schedules, and incident management.
+Grafana generates alerts based on metric thresholds defined within a visualization. These alerts can trigger a wide variety of notification types, including emails, Discord posts, PagerDuty incidents, AWS Simple Notification Service (SNS) messages, or generic HTTP webhooks. Grafana also provides a sophisticated incident management system named **OnCall**, which facilitates team management, rotation schedules, and complex escalation policies.
 
 ## Simple Grafana alerts
 
-Let's first take a look at the simple alerting system. There are two steps involved. First we define a contact point, then we associate the contact with an alert definition. When the alert triggers it sends the notification to whatever the contact point is defined to use.
+To understand Grafana's alerting capabilities, let's first examine the basic alerting system. This involves two primary steps: defining a **contact point** and associating that contact point with an **alert rule**. When the alert triggers, it sends a notification to the configured destination.
 
 ![Simple alerts](simpleAlerts.png)
 
 ### Creating an email contact point
 
-We create a contact point by opening our Grafana Cloud dashboard and selecting `Alerts & IRM > Alerting > Contact points`. This will display all of our currently defined contact points. If we haven't created any contact points then the `grafana-default-email` contact will be the only thing in the list. Let's create a new contact point by pressing the `Create contact point` button. This will give us the option to provide a name and define the integration for notification. Provide the name **JWT Pizza Email** with an integration choice of **Email** and an email address that you can access. For this example I used the throw away _Mailinator_ email service.
+1. Open your Grafana Cloud dashboard and navigate to **Alerts & IRM > Alerting > Contact points**.
+2. This page displays all currently defined contact points. If none have been created, `grafana-default-email` will be the only entry.
+3. Click the **Create contact point** button.
+4. Provide a name, such as **JWT Pizza Email**.
+5. Set the **Integration** to **Email**.
+6. Enter an email address you can access. For testing, you might use a disposable service like *Mailinator*.
 
 ![Define contact point](defineContactPoint.png)
 
-We then press the `Test` button and check our email. There we find the notification message. We can use the Contact Point optional email settings to configure the format and what the message says.
+7. Click the **Test** button and check your inbox for a notification message. You can use the optional email settings to customize the message format and content.
 
 ![Notification email](notificationEmail.png)
 
-Save the contact point.
+8. Click **Save contact point**.
 
-### Create an email alert
+### Creating an email alert
 
-Now that we have a contact point we can attach it to an alert. We can define the alert directly from the main menu using `Alerting > Alert rules` navigation, or by editing the visualization that we want to trigger the alert. Let's use the visualization from our `Pizza Dashboard` that displays the current number of active users. From the visualization panel we can define an alert by editing the visualization, selecting the alerts tab, and pressing `New alert rule`.
+With a contact point established, you can now attach it to an alert rule. You can create rules via the **Alerting > Alert rules** menu or directly from a visualization.
+
+1. Open your **Pizza Dashboard** and locate the visualization for "Active Users."
+2. Click the panel title and select **Edit**.
+3. Select the **Alert** tab and click **Create alert rule from this panel**.
 
 ![Add alert on visualization](addAlertOnVisualization.png)
 
-This displays the alert dialog with everything preset to trigger based on the state of the _Active users_ visualization. This includes the PromQL query that selects the metric data. In this case it is querying the current count of pizza users from the JWT Pizza Service.
+The alert dialog will open with the PromQL query automatically populated based on the visualization's data source.
 
 ![Alert configure condition](alertConfigureCondition.png)
 
-As we scroll the settings for the alert, we see that it is reducing the metric data to only select the last value. Other options include things such as selecting the _average_ or the _sum_ of the data. The threshold for triggering the alert is customizable with predicates such as _above_, _below_, or a specific _range_. We set the value for the threshold to anything above 1.
+4. **Define the condition**: As you scroll down, you will see the data reduction settings. By default, it usually selects the `last` value. Other options include `average` or `sum`. 
+5. **Set the threshold**: Set the threshold to trigger when the value is **above 1**.
 
 ![Alert configure threshold](alertConfigureThreshold.png)
 
-If we press the `Preview` button it will display that the threshold is **Firing**.
-
-Next we define what happens when the event triggers. This includes where the rule should be stored, how this rule should be grouped with other rules, and how long we want to be in the alerting state before the rule triggers. Set the folder to the **GrafanaCloud** folder that was created along with your account. Create a new evaluation group named **jwt-pizza**. Leave the `Pending period` set to **1m**.
+6. Click **Preview** to see if the rule would currently be in a **Firing** state.
+7. **Set evaluation behavior**: 
+    - Set the **Folder** to the default **GrafanaCloud** folder.
+    - Create a new **Evaluation group** named **jwt-pizza**.
+    - Set the **Pending period** to **1m** (this requires the condition to be met for one minute before the alert fires).
 
 ![Alert configure behavior](alertConfigureBehavior.png)
 
-Our last alert configuration step specifies the contact point. Specify the contact point that we created previously.
+8. **Configure notifications**: In the **Contact point** section, select the **JWT Pizza Email** contact point created earlier.
 
 ![Alert configure notification](alertConfigureNotification.png)
 
-That is enough configuration to get started. Now press the `Save rule and exit` button. This will return us to the panel visualization, where our newly defined alert is displayed. Initially the state will appear as **Normal**, but as the pending period expires it will move to **Pending** and then **Firing**.
+9. Click **Save rule and exit**. 
+
+You will return to the dashboard. The alert state will initially show as **Normal**, transitioning to **Pending** and then **Firing** if the threshold is exceeded.
 
 ![Alert state](alertState.png)
 
 ### Responding to the alert
 
-Once the alert triggers it should initiate the notification to the contact point. If we check our email we will see the notification.
+When the alert triggers, check your email for the notification.
 
 ![Alert email notification](alertEmailNotification.png)
 
-Normally we would investigate the problem and figure out what is causing the notification. In this case we can solve the problem by setting our trigger threshold to be higher. To do this we edit the rule by pressing the pencil icon and changing the threshold to be **100**. Press the `Preview` button, and it should display that the alert is back to **Normal**.
+In a production environment, you would investigate the root cause. For this exercise, resolve the alert by adjusting the threshold:
+1. Edit the rule by clicking the **pencil icon**.
+2. Change the threshold to **above 100**.
+3. Click **Preview** to confirm the state is now **Normal**.
+4. Click **Save rule and exit**.
 
-![Threshold preview](thresholdPreview.png)
-
-Press `Save rule and exit`. This takes us back to the visualization panel where we can see that Grafana has automatically added annotations that show when the alert was detected, when it fired, and when it was resolved. There is also a nice little green heart next to the visualization title that shows everything is good.
+Grafana automatically adds annotations to the visualization showing when the alert was detected, when it fired, and when it was resolved. A green heart icon next to the panel title indicates a healthy state.
 
 ![Alert annotation](alertAnnotation.png)
 
 ## OnCall
 
-Grafana's simple alerting functionality is good for a single person, but if we have a team of DevOps engineers that need to schedule their availability, coordinate their response, and generate incident reports, we might consider Grafana's `OnCall` service.
+While simple alerts work for individuals, teams of DevOps engineers require advanced coordination. Grafana **OnCall** provides several enterprise-level features:
 
-Here is a list of the functionality that OnCall provides above the simple notification ability provided by metric alerting.
-
-- **Escalation chains**: Prioritized action paths that escalate the management of an alert until it is resolved.
-- **Teams**: Any number of specialized teams can be created and associated with escalation chains or alerts.
-- **Scheduling**: Individuals or teams can be scheduled for being _on call_. When an event is triggered, the escalation chain attempts to notify the scheduled team members first.
-- **Alert groups**: Associate related alerts and serve as a history for responses and resolutions.
-- **Incident management**: Provides long-running tracking, managing, and reporting of an incident that results from an alert.
-- **Notifications**: Convenient email, text message, and push notification.
-- **Mobile application integration**: A full mobile app for team members that allows them to adjust their schedule, respond to alerts, and define their desired notification chain.
+- **Escalation chains**: Prioritized paths that escalate an alert until someone acknowledges it.
+- **Teams**: Specialized groups associated with specific escalation chains.
+- **Scheduling**: Management of on-call rotations to ensure 24/7 coverage.
+- **Alert groups**: Logic to group related alerts and maintain response history.
+- **Incident management**: Tools for long-term tracking and reporting of major issues.
+- **Multi-channel notifications**: Support for SMS, phone calls, and mobile push notifications.
+- **Mobile app**: A dedicated app for managing schedules and responding to alerts on the go.
 
 ![OnCall alerts](onCallAlerts.png)
 
 ## OnCall setup
 
-In order to use OnCall, some significant initial configuration is needed. This may seem like a lot of overhead, but each piece is an important part of an enterprise incident management system.
+Setting up OnCall requires a few configuration steps to establish the incident management workflow.
 
-Here are steps you need to go through.
-
-1. Define communication preferences
-1. Create and associate yourself with a team
-1. Schedule yourself for an OnCall shift
-1. Create an escalation chain that describes how events should be handled
-1. Create an integration between a Grafana alert contact point and the escalation chain
-
-Let's discuss each of these steps in detail.
+1. Define communication preferences.
+2. Create and join a team.
+3. Schedule an on-call shift.
+4. Create an escalation chain.
+5. Integrate a Grafana alert contact point with the escalation chain.
 
 ### Define communication preferences
 
-To define communication preferences, use the Grafana Cloud main navigation menu for `Alerts & IRM > IRM > Users`. There you should see your name listed as the only user in your account. Press the `Edit` button.
-
-Add your phone number and verify it using the steps found on the `Phone Verification` tab.
+1. Navigate to **Alerts & IRM > IRM > Users**. 
+2. Click **Edit** next to your username.
+3. **Phone Verification**: Add your phone number and verify it to enable SMS and voice notifications.
 
 ![Phone verification](phoneVerification.png)
 
-Install the OnCall Mobile app using the steps found on the `Mobile App Connection` tab. Make sure that after you have installed the application, you allow it to make audible notifications. Use the `Test push` buttons to verify you have it all set up correctly.
+4. **Mobile App**: Install the Grafana OnCall mobile app and connect it to your account. Ensure notifications are enabled and use the **Test push** button to verify the connection.
 
 ![Mobile connection](mobileConnection.png)
 
-You can also associate your Slack account or integrate your Google Calendar if you desire.
-
-After navigating to your user's **Notification rules**, set up your `Default Notification rules` so that you receive notifications both for the **Default** and **Important** levels of events. You can specify to notify you with SMS, email, phone calls, or mobile push notifications. Intersperse the notifications with appropriate wait periods as you desire.
-
-The different steps in the notifications will each successively trigger until you finally acknowledge that you have received the notification. The idea is that you want things to get gradually louder and more annoying until you finally respond.
-
-![Notification options](notificationOptions.png)
-
-The following user configuration specifies that first an SMS message is sent and then if no response is acknowledged after 1 minute then a mobile push notification is sent. The **Mobile push** alert is much more muted than the **Mobile push important** alert.
+5. **Notification Rules**: Under your user profile, configure your **Notification rules**. Set up different behaviors for **Default** and **Important** events. For example, you might want an immediate push notification for "Important" events, but a delayed SMS for "Default" ones.
 
 ![User configuration](userConfiguration.png)
 
 ### Create and associate yourself with a team
 
-Create a Grafana Cloud team so that you can define on-call schedules and notification priorities.
-
-Use the Grafana Cloud main navigation menu for `Administration > Users and access > Teams`. Press the `New team` button and provide the `Name` of **JWT Pizza DevOps**. Select the roles for alerting, annotations, dashboards, data sources, and folders.
+1. Navigate to **Administration > Users and access > Teams**.
+2. Click **New team** and name it **JWT Pizza DevOps**.
+3. Assign appropriate roles (Alerting, Dashboards, etc.) and click **Create**. You should be automatically added as the team admin.
 
 ![Create team](createTeam.png)
 
-Press the `Create` button. This should automatically add you as the admin for the team.
-
 ### Schedule yourself for an OnCall shift
 
-Create an on-call schedule so that unless escalated, only on-call team members are notified of events.
-
-To create a schedule, use the Grafana Cloud main navigation menu for `Alerts & IRM > IRM > Schedules`. Press the `New Schedule` button. Press the `Set up on-call rotation schedule` create button. Name the schedule `JWT Pizza` and assign the team to the **JWT Pizza DevOps** that you just created. Press the `Create Schedule` button.
-
-This will show an empty schedule with the quality marked in red as **Bad**. That is because no one is currently assigned. Fix this by pressing the `Add` button and selecting **New layer with rotation**.
-
-![New schedule layer](newScheduleLayer.png)
-
-Leave everything as the defaults and add yourself as a `User`. Press the `Create` button. This will add you as the only team member and put you on call 24 hours a day, 7 days a week. The quality of the schedule will now turn green and be marked as **Great**. Obviously this is not an ideal team schedule, but until JWT Pizza really takes off, it will have to do.
+1. Navigate to **Alerts & IRM > IRM > Schedules**.
+2. Click **New Schedule** and select **Set up on-call rotation schedule**.
+3. Name it **JWT Pizza** and assign the **JWT Pizza DevOps** team.
+4. Initially, the schedule quality will be marked as **Bad** because it is empty.
+5. Click **Add** and select **New layer with rotation**.
+6. Add yourself as the user and click **Create**. This places you on-call 24/7, turning the schedule status to **Great**.
 
 ![Schedule](schedule.png)
 
-### Create an escalation chain that describes how events should be handled
+### Create an escalation chain
 
-An escalation chain defines an ordered list of notification quests that should progressively increase in both audience and volume until someone acknowledges the event and begins the process of resolution.
+An escalation chain defines the steps taken until an alert is acknowledged.
 
-To create an escalation chain, use the Grafana Cloud main navigation menu for `Alerts & IRM > IRM > Escalation chains`. Press the `New escalation chain` button.
-
-Assign the **JWT Pizza DevOps** team and give the name `JWT Pizza` for the chain. Press the `Create Escalation Chain` button.
-
-Add the following steps:
-
-1.  **Notify users from on-call schedule** and then specify the **JWT Pizza, JWT Pizza DevOps** schedule. This should send a default level notification to the team member who is on-call. This should resolve to be you since you are always on-call.
-
-    ![Step types](stepTypes.png)
-
-1.  **Wait** for 5 minutes. This will pause for a minute before moving on to the next escalation step.
-1.  **Notify users from on-call schedule** and then specify the **JWT Pizza, JWT Pizza DevOps** schedule. Change the notification from **Default** to **Important**. This will send out an important level notification to the team member who is on-call. Once again this will be you, but this should use your preference for important notifications.
-1.  **Wait** for 5 minutes.
-1.  **Notify all team members** and then specify **JWT Pizza DevOps**. This will send a notification to everyone on your team.
-1.  **Wait** for 5 minutes.
-1.  **Notify users** and specify your name as a user. Change the notification from **Default** to **Important**.
-
-The escalation chain should look something like the following when you are done. If this doesn't wake you up when an alert is triggered, then I don't think anything will.
+1. Navigate to **Alerts & IRM > IRM > Escalation chains** and click **New escalation chain**.
+2. Name it **JWT Pizza** and assign it to your team.
+3. Add the following steps:
+    - **Notify users from on-call schedule**: Select the **JWT Pizza** schedule (Default level).
+    - **Wait**: 5 minutes.
+    - **Notify users from on-call schedule**: Select the **JWT Pizza** schedule (Important level).
+    - **Wait**: 5 minutes.
+    - **Notify all team members**: Select **JWT Pizza DevOps**.
 
 ![Escalation chain](escalationChain.png)
 
-### Create an integration between a Grafana alert contact point and the escalation chain
+### Create the integration
 
-Now we need to define the contact and integration that will connect the escalation chain to a Grafana alert.
+Now, connect the Grafana Alerting system to the IRM (OnCall) system.
 
-To create a contact point, use the Grafana Cloud main navigation menu for `Alerts & IRM > Alerting > Contact points`. Press the `Create contact point` button and supply the name **JWT Pizza DevOps**. Select the `Grafana IRM` integration, select **New IRM integration** as the connection method, and provide `jwt-pizza` as the new integration name. Press `Save contact point`.
-
-![Contact point](contactPoint.png)
-
-This will create both the contact point and the integration, but you need to associate your team with the integration, so we need to edit the integration.
-
-To edit an integration, use the Grafana Cloud main navigation menu for `Alerts & IRM > IRM > Integrations`. Edit the `jwt-pizza` integration by pushing the triple dot button and selecting `Integration settings`. Specify **JWT Pizza DevOps** as the team and press `Update integration`.
-
-![Edit integration](editIntegration.png)
-
-The last thing we need to do is modify the route that the integration executes when triggered. Go back to the integrations view and click on the `jwt-pizza` name to bring up its configuration.
-
-Click on the default route and specify the `JWT Pizza, JWT Pizza DevOps` escalation chain.
+1. Navigate to **Alerts & IRM > Alerting > Contact points**.
+2. Click **Create contact point**.
+3. Name it **JWT Pizza DevOps Contact**.
+4. Select **Grafana IRM** as the integration.
+5. Choose **New IRM integration** and name it **jwt-pizza**.
+6. Save the contact point.
+7. Navigate to **Alerts & IRM > IRM > Integrations**.
+8. Edit the **jwt-pizza** integration settings to ensure it is assigned to the **JWT Pizza DevOps** team.
+9. Click on the integration name to view its routes. Set the **Default route** to use the **JWT Pizza** escalation chain.
 
 ![Integration route](integration.png)
 
-Like we said earlier, that is a lot of configuration to perform. However, with all of that in place, you can now easily add alerts that will utilize an extensive escalation and notification system for an entire DevOps team.
-
 ## Testing OnCall
 
-With all the configuration in place you are ready to test it out. Back on the integration configuration page for `jwt-pizza` there is a `Send demo alert` button in the top right corner. Press the button.
-
-If you configured everything correctly, an event is created and your escalation chain is executed as defined by your on-call schedule and team definition.
-
-After a minute you should get an SMS message on your phone. Don't respond to it. Wait another minute and you should get a mobile push notification. If you continue to wait you should get several other notifications.
-
-When the mobile push notification arrives, you can click on it, and it will display the OnCall application with the event information.
+1. On the **jwt-pizza** integration page, click **Send demo alert** in the top right.
+2. If configured correctly, an event will be created and the escalation chain will begin.
+3. Check your phone for SMS or push notifications.
+4. Open the mobile app, view the alert details, and press **Acknowledge**.
 
 ![Mobile alert detail](mobileAlertDetails.png)
 
-Press the `Acknowledge` button.
-
-In your browser, use the Grafana Cloud main navigation menu for `Alerts & IRM > IRM > Alert groups` to view the information for the generated alert. Click on the alert title to see the detail. This should display the timeline of the alert with the final entry being your acknowledgement of the alert.
+In the Grafana web UI, navigate to **Alerts & IRM > IRM > Alert groups**. You can see the timeline of the alert, including when you acknowledged it.
 
 ![Alert details](alertDetails.png)
 
-At this point you would start talking with your team, perhaps create an incident to track the conversation and important details, add additional participants, and eventually resolve the problem by pressing the `Resolve` button.
-
 ## Triggering a real alert
 
-Now that you know how to create alerts and manage them with a simple contact point, or one that interacts with the OnCall service, it is time to hook those two together and use your metrics to generate an OnCall notification.
+Finally, connect your actual metric metrics to the OnCall system.
 
-Go back to your alert rule definition for the `Active users` and change the contact point for the notification from **JWT Pizza Email** to **JWT Pizza DevOps**. Then change the Threshold for the rule back down to 1 instead of 100. Press `Save rule and exit`.
+1. Edit your **Active users** alert rule.
+2. Change the **Contact point** from the email contact to the **JWT Pizza DevOps Contact**.
+3. Change the threshold back to **above 1**.
+4. **Save rule and exit**.
 
-Assuming that you actually have more than one active user the alert should get triggered, and after a few minutes, your phone notified. Play around with the OnCall functionality and eventually resolve the alert.
+When the alert triggers, it will now follow the OnCall escalation chain, notifying your phone and allowing you to manage the incident through the IRM dashboard.
 
 ## ☑ Exercise
 
-Complete the above tutorial. This should generate an alert from one of your actual metrics using Grafana OnCall. Capture a screenshot of the resolved alert from the `Alerts & IRM > IRM > Alert groups` view.
+Complete the tutorial above to generate a live alert from your metrics using Grafana OnCall. 
 
-Once you are done, it should look something like the following.
+**Deliverable**: Capture a screenshot of the resolved alert from the **Alerts & IRM > IRM > Alert groups** view. The timeline should show the alert firing, being acknowledged, and finally being resolved.
 
 ![Resolved alert](resolvedAlert.png)
