@@ -1027,7 +1027,10 @@
           "type": "instruction",
           "path": "instruction/grafanaAlerts/grafanaAlerts.md",
           "id": "b24f016d-f868-4ef8-aa4d-3601c04d0d73",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "710420a1-836d-49dc-9a38-43543f24c9f5"
+          ]
         },
         {
           "title": "Grafana OnCall",
