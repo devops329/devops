@@ -1,172 +1,162 @@
-# K6
+# Grafana K6
 
 🔑 **Key points**
 
-- Grafana has significant support for load testing with K6.
-- Create a K6 load test by recording browser requests.
-- Analyze the results of the load test.
+- Grafana provides robust support for load testing with K6.
+- You can create a K6 load test by recording browser requests or writing scripts.
+- Analyzing metrics like P99 latency helps identify performance bottlenecks.
 
 ---
 
 ![K6 logo](k6Logo.png)
 
-K6 automates load testing by playing back requests you make from a browser or writing HTTP request commands using JavaScript. K6 executes the HTTP requests concurrently with the number of simulated users that you define. Given enough computational power and network bandwidth you can simulate realistic customer load so that you can gain confidence that the system won't fail when handling real traffic.
+K6 automates load testing by playing back browser requests or executing HTTP commands written in JavaScript. K6 runs these requests concurrently using a defined number of simulated users. Given sufficient computational power and network bandwidth, you can simulate realistic traffic to ensure your system remains stable under heavy load.
 
 ### History
 
-In 2000, a pair of developers were working on a multiplayer game that required significant load testing in order to simulate real usage. Taking what they learned from building internal load tools, they started a consulting company to help other developers benefit from their expertise. In 2016, they took the next step and coded all the best practices they had learned into an open source SaaS offering named K6. In 2021, K6 was acquired by Grafana Labs and became part of Grafana Cloud.
+In 2000, two developers working on a multiplayer game needed to simulate high usage to test their system. Using the insights gained from building internal tools, they founded a consulting company to help others with load testing. In 2016, they codified their best practices into an open-source tool and SaaS offering named K6. In 2021, Grafana Labs acquired K6, integrating it into the Grafana Cloud ecosystem.
 
-This is a great example of a small team doing what they love, building something useful, and making a good living in the process.
+This story is a classic example of a small team identifying a niche need, building a high-quality tool, and scaling it into an industry standard.
 
 > [!NOTE]
 >
-> Fun fact: The creators of K6 actually had a pet alligator in the office.
+> Fun fact: The creators of K6 actually kept a pet alligator in their office.
 
 ## An example run
 
-The following results are based upon a load test against the JWT Pizza application that simulates a simple login, look at the menu, and purchase a pizza scenario. K6 generates an impressive amount of metrics and visualizations that help to understand how well the application responded to the simulated load. The following graph shows 10 concurrent virtual users (VU), making a maximum of 3.33 requests per second, with an average 95th percentile response time of 118ms.
+The following results are based on a load test against the JWT Pizza application. The test simulates a user logging in, browsing the menu, and purchasing a pizza. K6 generates comprehensive metrics and visualizations to help you understand application performance. 
+
+The graph below shows 10 concurrent virtual users (VUs) making a maximum of 3.33 requests per second, with an average 95th percentile (P95) response time of 118ms.
 
 ![K6 example test graph](k6ExampleTestGraph.png)
 
-You can see the breakdown of metrics for each endpoint. This includes how many requests were made and the different latency statistics. This demonstrates that the login (api/auth) request takes an average of 108 ms. That seems understandable since it creates a cryptographically signed JWT. The pizza creation call (api/order) takes 48 ms on average. Since making a pizza requires a call to the JWT Pizza Headquarters, that seems reasonable.
+K6 provides a breakdown of metrics for each endpoint, including request counts and latency statistics. In this example, the login request (`api/auth`) takes an average of 108ms. This is expected, as the server must create a cryptographically signed JWT. The pizza creation call (`api/order`) averages 48ms, which is reasonable given that it requires an external call to the JWT Pizza Headquarters.
 
 ![K6 example test metrics](k6ExampleTestMetrics.png)
 
-When looking at latency metrics the important values are often found in the upper percentiles. These include the top 1% or even the top 0.1% of slow requests. Here we see that even though login usually only takes 108 ms, 1% (P99) of the requests took 143 ms with a standard deviation of 17 ms. That isn't too bad, but sometimes you will have results where the average in something like 10 ms, but the p99 is 3000 ms. On the surface this might not feel like a big deal since only 1 in 100 customers will have to wait 3 seconds to log in, but with complex applications there tends to be a layering effect where the login request will make a dozen or so endpoint requests in series. If each of those 12 requests have a 1% chance of taking 3 seconds you may end up with 10% of your customers always waiting multiple seconds. Now a small fraction becomes a noticeable delay that drives down retention and impacts the business.
+When evaluating performance, the most critical values are often found in the upper percentiles, such as the top 1% (P99) or 0.1% (P99.9) of requests. Here, while the average login time is 108ms, the P99 is 143ms with a standard deviation of 17ms. 
 
-By simulating load and experimenting with changes in the architecture, you can quickly remove bottlenecks that otherwise would have had significant impact.
+In complex applications, a "layering effect" can occur. If a single user action triggers 12 separate endpoint requests in sequence, and each request has a 1% chance of taking 3 seconds, roughly 10% of your customers will experience a significant delay. By simulating load and experimenting with architectural changes, you can identify and remove these bottlenecks before they impact real users.
 
 ## Setting up a K6 test
 
-You will create your first K6 load against your JWT Pizza production deployment. Normally you would not load test a production system. Instead, you would spin up an environment specifically for load testing using your CloudFormation automation template, but since spinning up hardware costs money, and you don't have any customers hitting your production environment yet, you will use production for now. Take the following steps.
+You will create your first K6 load test against your JWT Pizza production deployment. 
+
+> [!WARNING]
+> Normally, you should not load test a production system. Standard practice is to spin up a dedicated environment using automation templates (like CloudFormation). However, since your current production environment has no active traffic and no additional cost for hardware, we will use it for this exercise.
 
 ### Creating the project and test
 
-1.  Open up your Grafana Cloud dashboard.
-1.  Open the Home menu, click `Testing & synthetics > Performance > Projects`.
-1.  Click the button to `Start testing`.
+1.  Open your Grafana Cloud dashboard.
+1.  Navigate to the Home menu and click **Testing & synthetics > Performance > Projects**.
+1.  Click the **Start testing** button.
 
     ![Start testing](startTesting.png)
 
-    This will display the default project that was created along with your account. You can create a new project if you desire, but for now the default will do.
+    This displays the default project created with your account. You can create a new project or use the default.
 
     ![Default K6 project](defaultProject.png)
 
-1.  Click on the `Default project` name in order to create a new test. This might display some tutorial documentation that you can read or dismiss. You should then see a `Create new test` button.
+1.  Click the **Default project** name, then click **Create new test**. 
+1.  You will see several options for creating a test:
+    1.  **K6 CLI**: Build tests locally in your development environment.
+    2.  **Script Editor**: Write a JavaScript testing script directly in Grafana Cloud.
+    3.  **Test Builder**: Use a GUI to construct tests (the fastest way to start).
+    4.  **Record user flow**: Record actions directly in the browser.
 
-1.  Press the `Create new test` button. This will display the new test and give you different options for how you can create it. There are several options.
-    1. Download and use the **K6 CLI** to build a test in your development environment
-    1. write a JavaScript testing script in the Grafana Cloud K6 **Script Editor**
-    1. use the Grafana Cloud K6 **Test Builder**
-    1. or record user flow.
-
-    Using the Test Builder is the fastest way to get up and running, so we will use that.
-
-1.  Press the `Start Building` button.
-1.  This will display the **Test Builder** interface.
+1.  Click **Start Building** to use the **Test Builder**.
 
     ![Test builder](testBuilder.png)
 
-    If you use the `RECORD A SCENARIO` button you will need to install a Chrome extension that will create a script based upon your actions in Google Chrome. Feel free to do this if you would like. However, I like to keep the things I install in my development environment to a minimum. Instead, we will record and upload a HTTP Archive (HAR) file that Chrome can easily build for you.
+    While you can record a scenario using a Chrome extension, we will instead record and upload an HTTP Archive (HAR) file, which requires no additional installations.
 
 1.  Rename the test from the default to `Login and order pizza`.
 
 ### Recording a HAR file
 
-You can use the Google Chrome developer tools to easily record and export a HTTP Archive (HAR) file. A HAR file contains all of the HTTP requests and responses made made that are recorded on the DevTools network tab.
+A HAR file contains all HTTP requests and responses captured by the browser.
 
-Before you begin, you may need to enable the ability to export sensitive data so that your HAR file contains authorization tokens. Open DevTools, select the `gear icon (⚙️)` on the top right corner, select `Preferences` and in the `Network` section enable **Allow to generate HAR with sensitive data**.
+**Note:** Before recording, you must enable the export of sensitive data so the HAR file includes authorization tokens. In Chrome DevTools, click the **Settings (gear icon)** > **Preferences** > **Network** and check **Allow to generate HAR with sensitive data**.
 
-![alt text](enableSensitiveHarExport.png)
+![Enable Sensitive HAR Export](enableSensitiveHarExport.png)
 
-1. Open Google Chrome and navigate to your JWT Pizza production website. Make sure you are logged out of the website so that you can have a clean start. You also want to clear the browser cache so that don't supply any HTTP cache headers in your requests.
-1. Open the developer tools. Switch the developer tools to the network tab. This is where everything gets recorded and where you will eventually export the HAR file from.
-1. Select the `Preserve log` button so that your entire sequence of requests are saved. Clear the recorded requests if it isn't already blank.
+1.  Open Chrome and navigate to your JWT Pizza website. Ensure you are logged out and clear your browser cache to avoid sending cached headers.
+1.  Open DevTools and go to the **Network** tab.
+1.  Select **Preserve log** and clear any existing recorded requests.
 
    ![Record HAR](recordHar.gif)
 
-1. Refresh the browser so that the first request for JWT Pizza is recorded. Go through the process of logging in, selecting a pizza from the menu, buying the pizza, and then verifying that the pizza is valid.
-1. Save the HAR file representing all the displayed requests on the Network tab by pressing the download icon. Name the file `buyPizza`. This will save the HAR file to your computer.
-
-💡 If your curiosity sense is tingling then go ahead and examine the contents of the HAR file and take some time to read about HAR files. This would make a great Curiosity project.
+1.  Refresh the page. Log in, select a pizza, complete the purchase, and verify the order.
+1.  Click the **Export HAR** (download arrow) icon in the Network tab. Name the file `buyPizza.har`.
 
 ### Initializing the test with the HAR file
 
-Now you are ready to use the HAR file to create your K6 load test.
-
-1. Navigate back to the test that you previously created and click on the `IMPORT A HAR FILE` button.
-1. Drag the `buyPizza.har` file from your file explorer onto the **Import HAR** target area.
+1.  Return to the Grafana Test Builder and click **IMPORT A HAR FILE**.
+1.  Drag your `buyPizza.har` file into the upload area.
 
    ![Upload HAR](uploadHar.gif)
 
-   As part of the import process you want to _Correlate the request and response_ data, **not** include _Static assets_ (unless you want to know how long it takes to download things like images), and automatically _Generate sleep_. Inserting the sleep steps is important because you want to simulate what a real customer would do. The sleep times that are inserted reflect the actual pauses between requests when the network requests were recorded.
-
-   When you upload the HAR file you will need to disable the filtering on other necessary domains such as `pizza-factory.cs239.click` so that your pizza validation request is included in the test script.
+1.  During import, select **Correlate the request and response data**. Do **not** include **Static assets** (like images) unless you specifically want to test their download speeds. Select **Generate sleep** to simulate realistic user pauses.
+1.  Disable filtering on necessary domains (e.g., `pizza-factory.cs239.click`) to ensure all relevant requests are included.
 
    ![Import HAR options](importHarOptions.png)
 
-This results in a series of test steps. You can click on each one to see what they do. It should show you everything about the requests. That includes the path, headers, and query commands. The recording will contain several HTTP OPTION requests. These are important for simulating real traffic, but for now you can remove them in order to simplify the test. Click on each one and press the trash can icon.
+The builder will generate a list of test steps. Review the requests (path, headers, and query parameters). You may see several `HTTP OPTIONS` requests; you can delete these using the trash icon to simplify the script.
 
 ### Finalizing the test
 
-Take some time and examine each step in the test. You can give a name to each HTTP request step so that you can easily identify what is going on in the script. When you are all done you should have a series of about 10 requests.
+Review each step and provide descriptive names for the requests. You should have approximately 10 steps.
 
 ![Test steps](testSteps.png)
 
-Now you need to define how the test will execute. On the left-hand menu, click the `SCENARIO_1 -> Options` navigation. This will display how the test scenario will execute. By default, it will gradually ramp up from 0 to 20 virtual users over a 1-minute period. These users will make the requests represented by the requests you just defined over and over again. For the next 3 and a half minutes the 20 users will keep making the requests. Then over a period of 1 minute the users will trickle down until there are none left.
+Next, define the execution scenario. In the left-hand menu, click **SCENARIO_1 -> Options**. By default, K6 ramps up from 0 to 20 VUs over 1 minute, stays at 20 VUs for 3.5 minutes, and then ramps down. 
 
-![Default scenario](defaultScenario.png)
-
-You can change this to be whatever you want, but remember that this will generate real traffic to your production environment. Make sure you consider how having a significant number of requests over a long duration will impact your AWS bill.
-
-In order to get a feel for how controlling the scenario works, go ahead and manipulate the target VUs and duration until it looks like the following.
+**Note:** High-volume tests generate real traffic and can impact AWS costs. For this exercise, adjust the target VUs and duration to match the following:
 
 ![Altered scenario](alertedScenario.png)
 
-When you are done, press the `+ Create` button.
+When finished, click **Create**.
 
 ## Running a test
 
-With your test created, the next step is to start it and let the results flow in.
+Open your test and click **Run**. You can also **Set up a schedule** if you prefer to run tests during off-peak hours.
 
-Open up the test and press the `Run` button. Notice that there is an option to **Set up a schedule**. You can use this if you want your test to run when the target environment is not being used. That way you can use your production environment without having to stay up all night.
-
-It will take a few minutes for K6 to spin up the servers that make your requests and start ramping up your script. However, it shouldn't be long before the results start getting displayed.
+It takes a few minutes for K6 to provision the load-generation servers and begin the script. Results will begin to populate in real time.
 
 ![Running test](runningTest.png)
 
-You defined the test to run for two and a half minutes. As that time elapses you should see the request rates decreasing and eventually the test will display as finished. If the test is not running as you expected then you can press the `Stop Test` button to abort the run.
+As the test completes, the request rates will decrease. If the test behaves unexpectedly, you can click **Stop Test** at any time.
 
 ## Analyzing the results
 
-Once the test is completed you will see all the resulting metrics.
+Once the test finishes, examine the metrics.
 
 ![Finished test](finishedTest.png)
 
-Notice that this test recorded a few failures with the **login** (8 of 41) and **order** (8 of 41) requests. If you click on the request line it will expand to show where the errors occurred.
+In this example, the **login** and **order** requests show several failures. Clicking a request line expands it to show the specific error codes.
 
 ![Error graph](errorGraph.png)
 
-The login requests return 500, while the order requests returned 401. That makes sense because if you didn't authenticate then you won't be able to order a pizza. We can fix that in a minute, but let's continue looking at the results.
+Here, login requests returned a `500` error, while order requests returned a `401`. This is logical: if the authentication fails, the subsequent order will be unauthorized.
 
-If you click on the other options under the `PERFORMANCE INSIGHTS` you will see lots of detailed information. For example, the `ANALYSIS` tab contains graphs that help to understand the performance characteristics of the test. Take some time and explore the meaning of each of the graphs. Notice that you can change the aggregation to be things like the average or a certain percentile.
+Explore the **PERFORMANCE INSIGHTS** and the **ANALYSIS** tab. These graphs help you understand performance trends. You can toggle between average values and specific percentiles to see how the system handles outliers.
 
 ![Analysis](analysis.png)
 
 ### Adding a check
 
-We can make it so that the script doesn't continue if there was a login failure. To do this we add a check on the request.
+To prevent the script from continuing after a login failure, add a validation check.
 
-1. Open up and edit the test.
-1. Click on the login step ([PUT] /api/auth) and select the `Checks` tab.
-1. Press the `ADD NEW CHECK` button.
-1. Specify the check type to be **HTTP status code**, set the `Condition` to `Equals`, with a value of 200.
+1.  Edit the test.
+1.  Select the login step (`[PUT] /api/auth`) and go to the **Checks** tab.
+1.  Click **ADD NEW CHECK**.
+1.  Set the type to **HTTP status code**, the condition to **Equals**, and the value to `200`.
 
 ![Add HTTP 200 check](addCheck.png)
 
-This will cause a check to be inserted into the script and the results will display the number of failed checks. If you switch the view of the scenario to **Script** from **Builder** by pressing the `View` slider you can see the resulting script and the insertion of the check in the login request.
+If you toggle the view from **Builder** to **Script**, you can see the generated JavaScript code for the check:
 
-```js
+```javascript
 response = http.put('https://pizza-service.cs329.click/api/auth', '{"email":"d@jwt.com","password":"a"}', {
   headers: {
     accept: '*/*',
@@ -179,45 +169,41 @@ response = http.put('https://pizza-service.cs329.click/api/auth', '{"email":"d@j
 check(response, { 'status equals 200': (response) => response.status.toString() === '200' });
 ```
 
-However, we want the iteration to stop executing the following steps if the check fails. To make that happen we need to get out of the test Builder and create a test that is driven by a script that you write.
-
 ## Editing the test script
 
-While you are looking at the script in the Builder, make a copy of it. Then navigate back to the root of the Default project and press the `Create new test` button like you did to build the original test, but this time select the `Script Editor`. Replace the default script that is displayed with the one you created using the Builder.
+To stop the iteration immediately upon failure, we must move from the visual Builder to the **Script Editor**.
 
-You now need to make a couple modifications. First, add the `fail` function to the items imported from the `k6` module.
+1.  Copy the current script from the Builder.
+1.  Return to the project root, click **Create new test**, and select **Script Editor**.
+1.  Paste your script.
+1.  Modify the `k6` import to include the `fail` function:
 
-```sh
-import { sleep, check, group, fail } from 'k6'
+```javascript
+import { sleep, check, group, fail } from 'k6';
 ```
 
-Next modify the check code so that it fails the iteration if the HTTP status is not 200 and output the body to the console.
+5. Update the check logic to stop execution if the status is not 200:
 
-```sh
+```javascript
   if (!check(response, { 'status equals 200': response => response.status.toString() === '200' })) {
     console.log(response.body);
     fail('Login was *not* 200');
   }
 ```
 
-Now you can press the `Create` button and you will see that you have two tests. One created with the visual Test Builder and one that is driven directly by the script that you just created with the Script Editor. If you run the newly created script version, you will still get the occasional login error, but the test will stop the execution of the instance whenever the check fails. That means that all the order errors are gone.
+6. Click **Create** and run the script.
+
+The test will now abort the current iteration whenever a login fails, preventing "cascading" errors in the order requests.
 
 ![Script run results](scriptRunResults.png)
 
-If you look at the logs tab for the execution you will see that the return body for when the request was 500 shows that there is a problem with the same user trying to log in concurrently. That means there is no problem with the test, but there is an issue with the JWT Pizza Service that needs to be resolved.
-
-```json
-{
-  "message": "Duplicate entry 'qAjm-F_SYmJczs82ToQUJbvNE5VoauNxIGA9O3u7KpI' for key 'auth.PRIMARY'",
-  "stack": "Error: Duplicate entry 'qAjm-F_SYmJczs82ToQUJbvNE5VoauNxIGA9O3u7KpI' for key 'auth.PRIMARY'\n    at DB.query (/home/ubuntu/services/jwt-pizza-service/database/database.js:288:40)\n    at DB.loginUser (/home/ubuntu/services/jwt-pizza-service/database/database.js:103:18)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async setAuth (/home/ubuntu/services/jwt-pizza-service/routes/authRouter.js:120:3)\n    at async /home/ubuntu/services/jwt-pizza-service/routes/authRouter.js:86:18"
-}
-```
+If you check the **Logs** tab, a `500` error might reveal a "Duplicate entry" message. This indicates a bottleneck in the JWT Pizza Service database handling concurrent logins for the same user—a valuable finding for your performance report.
 
 ## Using variables
 
-Hopefully, by this point you realize that K6 is executing JavaScript code that you can manipulate. One key point for successfully manipulating your K6 script is the introduction of variables. It is likely that when you created your login script from a HAR file that K6 created a variable to represent the authentication token obtained during the authorization request so that it can be used in later requests. You can see this demonstrated in the following code snippet where `vars.authToken` is set to the token found in the response.
+K6 uses standard JavaScript, allowing you to use variables for dynamic data. When importing a HAR file, K6 often automatically creates variables for authentication tokens.
 
-```js
+```javascript
 const vars = {};
 
 // login
@@ -229,12 +215,13 @@ response = http.put('https://pizza-service.byucsstudent.click/api/auth', '{"emai
 });
 check(response, { 'status equals 200': (response) => response.status.toString() === '200' });
 
+// Store the token from the response
 vars.authToken = response.json().token;
 ```
 
-The authToken variable is then used for all the following endpoint requests.
+This `authToken` is then passed into subsequent requests:
 
-```js
+```javascript
 // Get menu
 response = http.get('https://pizza-service.byucsstudent.click/api/order/menu', {
   headers: {
@@ -245,8 +232,8 @@ response = http.get('https://pizza-service.byucsstudent.click/api/order/menu', {
 });
 ```
 
-You will want to exploit this pattern when you build your own load testing scripts. For example, when you acquire a pizza Json Web Token (JWT) during the purchase endpoint request and then supply it later on with the pizza verification call. If you don't do this then you will be verifying the pizza that was created when you created your HAR file and not the pizzas generated during the load test.
+Using variables ensures that your test uses the specific data generated during that session (like a new pizza ID or a fresh JWT) rather than stale data from the original recording.
 
 ## Wrap up
 
-Congratulations! You have created your first load test. That is a big step in your DevOps mastery. K6 is a great example how the need for automation drives the creation of powerful tools that benefit everyone.
+Congratulations! You have successfully created and analyzed your first load test. Mastering tools like K6 is a vital part of DevOps, as it allows you to use automation to ensure system reliability and performance before real users ever encounter a bottleneck.
