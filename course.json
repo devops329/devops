@@ -1075,7 +1075,10 @@
           "title": "Incident report",
           "path": "instruction/incidentReport/incidentReport.md",
           "id": "90bf3744-8b79-4e8b-b096-f4e18407375c",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "331b33de-f844-429a-84f3-fd219f5376d8"
+          ]
         },
         {
           "title": "⭐ ⑪ Chaos testing: JWT Pizza",
