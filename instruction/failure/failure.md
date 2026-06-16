@@ -68,6 +68,19 @@ Defend against security failures by implementing these best practices:
 5. **Testing**: Regular penetration testing is vital. You cannot be confident in your security posture until it has been tested against earnest attack simulations.
 6. **Audits**: Automate audits of network access controls, open ports, credential management, encryption, and configurations. While annual manual audits are common, automated checks prevent insecure practices from being deployed in the first place.
 
+## ☑ Exercise
+
+
+```masteryls
+{"id":"99167dac-a89d-4169-a015-6d14a96436ea","title":"Proactive vs. Reactive Failure Management","type":"multiple-choice"}
+In the context of maintaining high-availability software systems, which of the following scenarios best illustrates a **proactive** approach to failure management?
+
+- [ ] Increasing server memory and CPU limits immediately after a service crashes due to an unexpected spike in user traffic.
+- [ ] Conducting a detailed post-mortem meeting to identify the root cause of a database outage that occurred the previous night.
+- [x] Implementing automated chaos engineering experiments to intentionally inject latency and observe how the system handles degraded dependencies.
+- [ ] Configuring an automated alerting system that pages the on-call engineer as soon as the service's error rate exceeds 5%.
+```
+
 ## A bit of fun
 
 ![XKCD](bugReport.png)
