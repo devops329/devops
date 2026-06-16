@@ -241,3 +241,10 @@ Install Burp Suite and execute a brute force attack against your JWT Pizza websi
 When you are done, it should look something like the following.
 
 ![Intruder results](intruderResults.png)
+
+
+```masteryls
+{"id":"2381964a-44eb-444e-857b-aab2f8b1ed6e","title":"","type":"multiple-choice"}
+Submit a screenshot of your intruder execution result.
+```
+
