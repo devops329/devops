@@ -997,7 +997,10 @@
           "title": "Failure",
           "path": "instruction/failure/failure.md",
           "id": "59dad582-52f1-46dc-8339-0e163229395a",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "99167dac-a89d-4169-a015-6d14a96436ea"
+          ]
         },
         {
           "title": "Backup and Recovery",
