@@ -52,8 +52,7 @@ By automating your CI/CD pipeline, spinning up new environments becomes a trivia
 
 ## ☑ Exercise
 
-
 ```masteryls
-{"id":"1a9938e0-b7ba-4313-98e3-04046c3862b6", "title":"Essay", "type":"essay", "gradingCriteria":"- A production system should at least have a staging and production environment" }
+{"id":"1a9938e0-b7ba-4313-98e3-04046c3862b6", "title":"Deployment environments", "type":"essay", "gradingCriteria":"- A production system should at least have a staging and production environment" }
 What environment do you think you should provide for a production application like JWT Pizza?
 ```
