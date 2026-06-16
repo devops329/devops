@@ -9,7 +9,7 @@
 
 A critical piece of any observability architecture is the automatic notification of problems that require human intervention. Without automated alerts, issues may persist for hours, days, or even months before resolution. Counterintuitively, as the volume of observability data increases, the likelihood of missing a problem during manual dashboard reviews also rises.
 
-![Alerting](alerting.png)
+![Alerting](alterting.png)
 
 An effective alerting system consists of the following components:
 
@@ -74,6 +74,18 @@ When an alert is triggered, the system must initiate the appropriate response. T
 - **Informational alerts**: Retained for later review. These are commonly analyzed as an aggregated digest during monthly operational meetings.
 
 Once an alert is triggered and the appropriate party is notified, the system typically requires an acknowledgment. If no acknowledgment is received, the system escalates the alert to additional parties until a response is recorded. Once the incident is resolved, the responder closes the alert to prevent further escalation.
+
+
+```masteryls
+{"id":"9ba09a6f-2224-447f-b866-2e6d348b0156","title":"Cluster CPU Alerting Strategy","type":"multiple-choice"}
+When determining the appropriate CPU threshold for an alert on a cluster of servers, which approach best ensures high availability while minimizing "alert fatigue"?
+
+- [ ] Trigger a critical alert immediately whenever any single node in the cluster exceeds 90% CPU utilization for more than 30 seconds.
+- [ ] Set a static threshold at 50% average cluster utilization to ensure administrators have ample time to provision new hardware.
+- [x] Set a threshold based on the cluster's "N+1" redundancy, alerting when utilization reaches a point where the remaining nodes could not handle the traffic if one node failed.
+- [ ] Configure alerts to trigger only when the CPU utilization reaches 100% and the system begins to experience packet loss or request queuing.
+```
+
 
 ## A bit of fun
 
