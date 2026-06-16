@@ -86,3 +86,13 @@ In a production environment, you would investigate the root cause. For this exer
 Grafana automatically adds annotations to the visualization showing when the alert was detected, when it fired, and when it was resolved. A green heart icon next to the panel title indicates a healthy state.
 
 ![Alert annotation](alertAnnotation.png)
+
+
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"710420a1-836d-49dc-9a38-43543f24c9f5", "title":"Grafana alerts", "type":"file-submission", "gradingCriteria":"Grafana metric panel displays annotations that an alert has fired and resolved"  }
+Simple a screenshot of your dashboard panel with annotations that an alert has fired and been resolved.
+```
