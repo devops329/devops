@@ -965,7 +965,10 @@
           "title": "Grafana K6",
           "path": "instruction/grafanaK6/grafanaK6.md",
           "id": "8537ce59-b427-4389-8f86-2adee79b3a80",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "f63caa8c-6e31-472e-a0e5-170c165cead8"
+          ]
         },
         {
           "title": "⭐ ⓾ Load testing: JWT Pizza Service",
