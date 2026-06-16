@@ -2,44 +2,52 @@
 
 🔑 **Key points**
 
-- Logs provide the details that are missing in metrics.
-- Your logging design makes a big difference.
+- Logs provide the context and granular detail that metrics lack.
+- Logging architecture significantly impacts application performance and reliability.
 
 ---
 
-Metrics give you a good overview of how well the system is operating, but sometimes you need to dig into the details to fully understand what is going on. For example, you might see that your request latency is going up unexpectedly. However, the latency metric only tells you that the overall system latency is increasing. It doesn't tell you why it is increasing. Is it a really long single request? Is it requests from a specific user? Or is it requests being handled by a specific server?
+Metrics provide a high-level overview of system health, but you often need to dig into specific details to understand the root cause of an issue. For example, metrics might show that request latency is increasing, but they won't explain *why*. Is the delay caused by a single long-running request, a specific user's activity, or a bottleneck on a particular server?
 
-A good logging system gives you a record of individual events that are tagged with information that you can use to aggregate similar events. You can also use the timestamp of the events to see what is going on in the system at the same time.
+A robust logging system records individual events, tagging them with metadata that allows you to aggregate and filter related data. By using timestamps, you can correlate events across different parts of the system to reconstruct the sequence of actions leading up to an issue.
 
 ![Grafana log explorer](grafanaLogExplorer.png)
 
-Many of the topics that are important when considering what makes a good logging system were already covered in the [Observability](../observability/observability.md) topic and include the following: centralized aggregation, immutability, removal of credentials and personally identifiable information, and a performant search system. These should all be considered when deciding on how you acquire and persist your logs.
+Many essential logging characteristics were introduced in the [Observability](../observability/observability.md) topic, including centralized aggregation, immutability, the removal of sensitive information (credentials and PII), and performant search capabilities. These factors should guide how you acquire and persist your logs.
 
 ## The impact of logging design
 
-One topic that we haven't discussed is the actual mechanism for capturing, normalizing, and transmitting logs in a way that doesn't overly impact the actual processing of the application without creating serious lag in the reporting of events.
+An often overlooked aspect of observability is the mechanism used to capture, normalize, and transmit logs. The goal is to report events with minimal lag without degrading the performance of the application itself.
 
-You will soon use a very simple system for reporting log events to the observability system. Basically every time a log event is triggered, the generation and transmission of the log record happens synchronously with the triggered event. For example, when an HTTP request is received the log event will be sent to the logging system over the network as part of the processing of the HTTP request. To be fair, the log event is actually sent asynchronously, but there is still a very real possibility that the act of logging will detrimentally impact the latency of customer requests.
+In many simple implementations, log generation and transmission happen synchronously with the event. For example, when an HTTP request is received, the application might attempt to send a log record over the network as part of that request's processing cycle. Even if the transmission is technically handled by a background thread (asynchronously), the overhead of creating the log object and managing the network buffer can still increase customer request latency.
 
-There are lots of things that we can do to remedy this situation. One possibility is to cache multiple log events in memory and send them in bulk at periodic intervals. For example, you could have a 500 KB buffer that sends when it gets full or when 15 seconds have passed. This reduces the overhead of communication a single log event at a time and gains efficiency because the bulk delivery can be compressed more efficiently and thereby decreasing the cost of transmission significantly.
+There are several strategies to mitigate this impact:
 
-Another alternative to the logging design could be to store the logs locally on disk instead of memory and have a separate process transmit the logs asynchronously. The logging process could be set at a lower priority so that it only transmits when there is excess CPU available. There are several dangers with this design. First off, you are actually incurring additional processing overhead by writing and reading from and to disk. Second, you run a real danger of consuming too much disk space, which would kill the operating system, or dropping logs because you could not report them within the disk space allocated. Finally, the logging process might never be allocated CPU time in situations where the application service is struggling. That is the time when you need your logs the most.
+### Buffering and batching
+Instead of sending every log entry individually, you can cache multiple events in memory and transmit them in bulk. For example, you might configure a 500 KB buffer that flushes when it is full or after 15 seconds have passed. This reduces network overhead and allows for better compression, significantly decreasing transmission costs.
 
-In some ways, critical log events are as important as processing user requests. Knowing that requests rates are spiking so that you can elastically allocate additional resources is the only way that you can continue serving the customer in a satisfactory way.
+### Out-of-process transmission
+Another approach is to write logs to local disk or a local pipe, then use a separate process (a "logging agent" or "daemon") to transmit them to the central server. This allows the logging process to run at a lower CPU priority. However, this design has risks:
+1. **I/O Overhead:** Writing to and reading from a disk adds processing and latency.
+2. **Resource Exhaustion:** If the logging agent falls behind, logs could consume all available disk space, potentially causing the operating system to crash.
+3. **CPU Starvation:** If the application is struggling and consuming all CPU resources, the logging process might never get the time it needs to report data—exactly when you need those logs the most.
 
-This leads to an additional strategy that you might consider for your logging, or metrics, system. You can prioritize your metric and log events. When resources are constrained only report a percentage of events, or only report the ones that are most vital to trigger actions that will resolve the resource bottleneck.
+### Prioritization and sampling
+Critical log events are often as important as the user requests themselves. For instance, knowing that request rates are spiking is the only way to trigger the elastic scaling required to maintain service. 
+
+To balance visibility with performance, you can prioritize events. When resources are constrained, you might choose to drop low-priority "Info" logs and only report "Error" logs, or use sampling to report only a percentage of successful events while capturing 100% of failures.
 
 ## Additional considerations
 
-Here is a list of additional things that you should consider in your logging design.
+When designing your logging strategy, consider the following:
 
-- How often?
-- How much?
-- In bulk?
-- Synchronously or asynchronously?
-- As part of your application, or as part of an out of process daemon?
-- Can you transform or normalize the data to reduce overhead while still providing value?
-- What format do you use?
-- Are you transmitting redundant information that could be assumed or derived?
+- **Frequency:** How often are events generated?
+- **Volume:** How much data is being produced per second?
+- **Batching:** Should logs be sent individually or in bulk?
+- **Concurrency:** Is logging synchronous (blocking) or asynchronous (non-blocking)?
+- **Architecture:** Should logging be handled within the application process or by an external daemon?
+- **Transformation:** Can you normalize or truncate data to reduce overhead while maintaining its value?
+- **Format:** Are you using a structured format (like JSON) that is easy for machines to parse?
+- **Efficiency:** Are you transmitting redundant information that could be derived elsewhere?
 
-Whatever your design is, the most important thing is that you start logging. You can always enhance the system as your application grows, but without some sort of reasonable logging information you will not know how to enhance or protect your application from failure or attack.
+Regardless of the specific design, the most important step is to start logging. You can refine the system as your application grows, but without a baseline of log data, you cannot effectively protect your application from failure or security threats.
