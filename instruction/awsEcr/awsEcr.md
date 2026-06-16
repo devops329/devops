@@ -215,7 +215,7 @@ You should now be able to commit and push the modified workflow script to GitHub
 
 ## Set up a lifecycle rule
 
-When you push a container image to ECR with a tag that already exists (like `latest`), ECR untags the previous image and leaves it in the repository as an "untagged" image. To clean these up and avoid exceeding the 500 MB free tier, you can create a **Lifecycle policy** that removes images without a tag after 1 day. You can also set up a rule that only keeps the last $N$ images.
+When you push a container image to ECR with a tag that already exists (like `latest`), ECR untags the previous image and leaves it in the repository as an "untagged" image. To clean these up and avoid exceeding the 500 MB free tier, you can create a **Lifecycle policy** that removes images without a tag after 1 day. You can also set up a rule that only keeps the last `N` images.
 
 ![Lifecycle rule](lifecycleRule.png)
 
