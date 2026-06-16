@@ -855,7 +855,10 @@
           "title": "Simulating traffic",
           "path": "instruction/simulatingTraffic/simulatingTraffic.md",
           "id": "5d2ae79e-07bb-479e-9b6a-41c237141d17",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "0142ee9c-d109-40af-81fe-30d7fafde63a"
+          ]
         },
         {
           "title": "⭐ ⓼ Metrics: JWT Pizza Service",
