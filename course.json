@@ -839,7 +839,10 @@
           "title": "Grafana metrics",
           "path": "instruction/grafanaMetrics/grafanaMetrics.md",
           "id": "252ec8fa-24cf-4aae-937b-1b9d736ca34d",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "9c7eb5d7-4391-4f84-b0a3-f926cb4ff55b"
+          ]
         },
         {
           "title": "☑ Visualizing metrics",
