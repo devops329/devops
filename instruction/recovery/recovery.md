@@ -98,6 +98,22 @@ Advanced database engines like Amazon Aurora automatically replicate data across
 
 While redundancy increases infrastructure costs, those costs are often much lower than the financial and reputational damage caused by an extended outage.
 
+## ☑ Exercise
+
+
+```masteryls
+{"id":"69a2b0e5-8666-4687-bdc1-35811f774677","title":"Calculating RTO and RPO Metrics","type":"multiple-choice"}
+An organization experiences a critical server failure at 1:00 PM. The IT department successfully restores the service, and the system is back online at 5:00 PM. To complete the restoration, the team used the most recent available backup, which was taken at 11:00 AM the same day.
+
+In this scenario, what were the actual recovery metrics achieved?
+
+- [ ] The Recovery Time (RT) was 2 hours, and the Recovery Point (RP) was 4 hours.
+- [ ] The Recovery Time (RT) was 4 hours, and the Recovery Point (RP) was 6 hours.
+- [ ] The Recovery Time (RT) was 6 hours, and the Recovery Point (RP) was 4 hours.
+- [x] The Recovery Time (RT) was 4 hours, and the Recovery Point (RP) was 2 hours.
+```
+
+
 ## A bit of fun
 
 ![XKCD Automation](xkcdFixingProblems.png)
