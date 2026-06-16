@@ -37,16 +37,16 @@ To send logs over HTTP, you need an Access Policy token (API key).
    ```
 
 9. Extract the **Account ID**, **API Key**, and **Endpoint URL** from the example Curl command.
-    - The **Account ID** is typically a seven-digit number.
-    - The **API Key** is a long string starting with `glc_`.
-    - The **Endpoint URL** is the target URL (e.g., `https://logs-prod-006.grafana.net/loki/api/v1/push`).
+   - The **Account ID** is typically a seven-digit number.
+   - The **API Key** is a long string starting with `glc_`.
+   - The **Endpoint URL** is the target URL (e.g., `https://logs-prod-006.grafana.net/loki/api/v1/push`).
 10. Assign these to shell variables for easier use:
 
-   ```sh
-   endpoint_url="https://logs-prod-006.grafana.net/loki/api/v1/push"
-   api_key="glc_222222222222"
-   account_id="1032529"
-   ```
+```sh
+endpoint_url="https://logs-prod-006.grafana.net/loki/api/v1/push"
+api_key="glc_222222222222"
+account_id="1032529"
+```
 
 11. **Save these values in a secure location.** You will need them to configure your application later.
 
@@ -67,9 +67,7 @@ The general syntax looks like this:
       "stream": {
         "label": "value"
       },
-      "values": [
-        ["<unix epoch in nanoseconds>", "<log line>", { "<metadata label>": "<metadata value>" }]
-      ]
+      "values": [["<unix epoch in nanoseconds>", "<log line>", { "<metadata label>": "<metadata value>" }]]
     }
   ]
 }
@@ -82,9 +80,7 @@ Example log message for an HTTP request:
   "streams": [
     {
       "stream": { "component": "jwt-pizza-service", "level": "info", "type": "http-req" },
-      "values": [
-        ["1717627004763000000", "{\"name\":\"pizza diner\", \"email\":\"d@jwt.com\"}", { "traceID": "0242ac120002" }]
-      ]
+      "values": [["1717627004763000000", "{\"name\":\"pizza diner\", \"email\":\"d@jwt.com\"}", { "traceID": "0242ac120002" }]]
     }
   ]
 }
@@ -107,6 +103,7 @@ curl -X POST \
 ```
 
 Key aspects of this log event:
+
 1. **Labels:** `component`, `level`, and `type` are indexed for efficient searching.
 2. **JSON Body:** By sending the log line as a JSON string, Loki and Grafana can automatically parse fields for filtering.
 3. **Dynamic Timestamp:** The `date` command generates the current Unix timestamp in nanoseconds.
@@ -157,6 +154,7 @@ You can customize which columns appear by selecting fields from the sidebar.
 ### Creating a visualization
 
 Once your query in Explore is refined:
+
 1. Click the **Add** button at the top and select **Add to dashboard**.
    ![Add to dashboard](addToDashboard.png)
 2. Choose **Existing dashboard**, select your **Pizza Dashboard**, and click **Open in new tab**.
@@ -193,9 +191,9 @@ To demonstrate programmatic logging, we will create a simple Node.js Express ser
    ```
 
 4. Create `logger.js`. This module mirrors the Curl logic but adds features like:
-    - **Middleware:** `httpLogger` captures request and response data automatically.
-    - **Sanitization:** The `sanitize` function masks sensitive data using regex.
-    - **Level Mapping:** Converts HTTP status codes to log levels (e.g., 500 -> error).
+   - **Middleware:** `httpLogger` captures request and response data automatically.
+   - **Sanitization:** The `sanitize` function masks sensitive data using regex.
+   - **Level Mapping:** Converts HTTP status codes to log levels (e.g., 500 -> error).
 
    ```js
    const config = require('./config');
@@ -324,6 +322,7 @@ while true; do curl localhost:3000/typo ; sleep 17; done;
 ```
 
 In Grafana, you will observe:
+
 1. Correct reporting of Authorization headers.
 2. Accurate HTTP methods, paths, and status codes.
 3. Full request/response bodies.
@@ -344,8 +343,7 @@ Upon completion, your dashboard should display a live feed of application logs s
 
 ![Dashboard with logging](dashboardWithLogging.png)
 
-
 ```masteryls
-{"id":"f8cee810-66ac-4d00-ac2c-2087febad5e8", "title":"Grafana logging", "type":"file-submission"  }
-Submit a screenshot of your Grafana dashbaord that includes your logging panel.
+{"id":"f8cee810-66ac-4d00-ac2c-2087febad5e8", "title":"Grafana logging", "type":"file-submission", "gradingCriteria":"Grafana dashboard containing a panel that represents log events" }
+Submit a screenshot of your Grafana dashboard that includes your logging panel.
 ```

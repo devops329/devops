@@ -15,24 +15,23 @@ In one sense, synthetic testing is the most authentic form of testing because it
 
 A robust synthetic testing system seeks to recreate real-world usage. This means it must simulate requests from different devices and various geographical locations. This exercises factors that are usually outside the control of the application developer—such as hardware, bandwidth, and network connectivity—but are just as vital to the application's utility as functional correctness and database resilience.
 
-
 ### When Synthetic Testing is Appropriate
 
 Synthetic testing is most effective for verifying the "golden paths" of an application. It is the preferred choice for:
 
-*   **Availability Monitoring:** Ensuring your site is "up" and reachable from different global regions (e.g., checking latency from Tokyo vs. New York).
-*   **SLA Verification:** Providing objective data to prove that a service provider is meeting uptime and performance requirements.
-*   **Critical Path Validation:** Testing essential business functions like "Add to Cart," "User Login," or "Password Reset" around the clock.
-*   **Pre-deployment Smoke Testing:** Running the same synthetic scripts against a staging environment to catch breaking changes before they reach production.
+- **Availability Monitoring:** Ensuring your site is "up" and reachable from different global regions (e.g., checking latency from Tokyo vs. New York).
+- **SLA Verification:** Providing objective data to prove that a service provider is meeting uptime and performance requirements.
+- **Critical Path Validation:** Testing essential business functions like "Add to Cart," "User Login," or "Password Reset" around the clock.
+- **Pre-deployment Smoke Testing:** Running the same synthetic scripts against a staging environment to catch breaking changes before they reach production.
 
 ### When to Avoid Synthetic Testing
 
 While powerful, synthetic testing is not a silver bullet. It should not be used in the following scenarios:
 
-*   **Measuring Real User Experience:** It cannot account for the "long tail" of real-world performance issues caused by diverse hardware, low-end mobile devices, or spotty cellular networks.
-*   **Highly Complex Exploratory Testing:** Scripts are rigid. They will not find bugs in features they aren't specifically programmed to touch.
-*   **High-Volume Load Testing:** While you can run many synthetic tests, their primary goal is functional health and baseline latency, not stressing the system to its breaking point.
-*   **Data-Sensitive Environments:** If a workflow requires unique, one-time-use production data that cannot be easily cleaned or mocked, synthetic scripts may cause data corruption or security risks.
+- **Measuring Real User Experience:** It cannot account for the "long tail" of real-world performance issues caused by diverse hardware, low-end mobile devices, or spotty cellular networks.
+- **Highly Complex Exploratory Testing:** Scripts are rigid. They will not find bugs in features they aren't specifically programmed to touch.
+- **High-Volume Load Testing:** While you can run many synthetic tests, their primary goal is functional health and baseline latency, not stressing the system to its breaking point.
+- **Data-Sensitive Environments:** If a workflow requires unique, one-time-use production data that cannot be easily cleaned or mocked, synthetic scripts may cause data corruption or security risks.
 
 ### Example: A Basic Synthetic Script
 
@@ -53,7 +52,7 @@ test('Synthetic Login Check', async ({ page }) => {
   // 3. Verify the outcome
   const dashboardHeader = page.locator('h1');
   await expect(dashboardHeader).toContainText('Welcome Back');
-  
+
   // If any step fails or times out, the monitor triggers an alert.
 });
 ```
@@ -145,6 +144,7 @@ In a later section, you will learn how to define rules for triggering alerts and
 Grafana Cloud provides a limited number of free synthetic testing checks. Once you have finished experimenting with this functionality, you should reduce the frequency of your checks to ensure you stay within the free tier.
 
 To reduce the number of checks:
+
 1. Edit the check you just created.
 2. Navigate to the **Execution** view.
 3. Change the **Frequency** to **60 minutes**.
@@ -156,9 +156,7 @@ To reduce the number of checks:
 1. Observe the metrics over a short period of time to ensure they are recording correctly.
 1. Decrease the frequency of the tests to once per hour to conserve your Grafana Cloud credits.
 
-
-
 ```masteryls
-{"id":"cb2d8e87-a446-45bd-a3a4-4e724cc0e9db", "title":"Synthetic testing", "type":"file-submission"  }
+{"id":"cb2d8e87-a446-45bd-a3a4-4e724cc0e9db", "title":"Synthetic testing", "type":"file-submission", "gradingCriteria":"Successful display of Grafana Synthetic testing for jwt pizza"  }
 Submit a screenshot of your synthetic test running in Grafana.
 ```

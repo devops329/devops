@@ -20,6 +20,7 @@ AWS RDS manages configuration, backups, monitoring, and restoration for you. Add
 ## Creating VPC security groups
 
 Before creating your database instance, you must define the security groups that control network traffic. You will define two groups:
+
 1. **jwt-pizza-service**: A group for the application service.
 2. **jwt-pizza-db**: A group for the database that only allows traffic from the application service.
 
@@ -50,7 +51,7 @@ Initially, the `jwt-pizza-service` group will allow public traffic. Once a load 
 1. **Security group name**: `jwt-pizza-db`.
 1. **Description**: `JWT Pizza Service Database`.
 1. Under **Inbound rules**, click **Add rule**:
-   1. **Type**: `MySQL/Aurora`. This auto-populates port 3306. 
+   1. **Type**: `MySQL/Aurora`. This auto-populates port 3306.
    1. **Source**: Select the `jwt-pizza-service` security group you just created. As you type `jwt-pizza-service` in the source box, the console should suggest the corresponding Security Group ID.
 
    ![Pizza service database security group](pizzaServiceDbSecurityGroup.png)
@@ -123,8 +124,7 @@ Deploy a MySQL server in your AWS account following the steps outlined above:
 2. Provision the MySQL RDS instance within the `jwt-pizza-db` security group.
 3. Add the database endpoint, username, and password to your `jwt-pizza-service` GitHub Actions secrets.
 
-
 ```masteryls
-{"id":"b365b915-dbff-4687-aa7b-ce69a074d77a", "title":"MySQL RDS", "type":"file-submission"  }
+{"id":"b365b915-dbff-4687-aa7b-ce69a074d77a", "title":"MySQL RDS", "type":"file-submission", "gradingCriteria":"AWS RDS running MySql"  }
 Submit a screenshot of your MySQL database running on AWS RDS.
 ```

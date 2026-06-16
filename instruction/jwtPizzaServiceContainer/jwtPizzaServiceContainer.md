@@ -24,7 +24,7 @@ Now that you understand the basics of Docker, you will create a container image 
     CMD ["node", "index.js", "80"]
     ```
 
-3.  **Configure the database host:** Modify or create the `src/config.js` file. To allow the code inside the container to connect to the MySQL server running on your host machine, set the database host to `host.docker.internal`. 
+3.  **Configure the database host:** Modify or create the `src/config.js` file. To allow the code inside the container to connect to the MySQL server running on your host machine, set the database host to `host.docker.internal`.
 
     > [!WARNING]
     > Add `config.js` to your `.gitignore` file to ensure you do not accidentally push sensitive credentials to your repository.
@@ -53,6 +53,7 @@ Now that you understand the basics of Docker, you will create a container image 
     ```
 
 4.  **Prepare the distribution directory:** Create a `dist` directory and copy the necessary files into it. This simulates a clean build environment.
+
     ```sh
     mkdir dist
     cp Dockerfile dist
@@ -61,11 +62,13 @@ Now that you understand the basics of Docker, you will create a container image 
     ```
 
 5.  **Navigate to the distribution directory:**
+
     ```sh
     cd dist
     ```
 
 6.  **Build the image:** Use the `docker build` command to create an image named `jwt-pizza-service`.
+
     ```sh
     docker build -t jwt-pizza-service .
     ```
@@ -117,12 +120,10 @@ Once complete, your console history should reflect the build, list, and run comm
 
 ![Docker successful run](dockerSuccess.png)
 
-
 ```masteryls
-{"id":"126355a7-4172-487f-b7e2-04447d8614d3", "title":"JWT Pizza container", "type":"file-submission"  }
+{"id":"126355a7-4172-487f-b7e2-04447d8614d3", "title":"JWT Pizza container", "type":"file-submission", "gradingCriteria":"Successful docker run command for jwt-pizza-service" }
 Upload a screenshot of your working container.
 ```
-
 
 > [!IMPORTANT]
 > After completing this exercise, remember to revert the **host** in your `src/config.js` file back to `127.0.0.1`. This ensures that the service can still connect to your MySQL database when running natively (outside of Docker).

@@ -305,12 +305,9 @@ With that change your visualization should show clearly what your CPU, requests,
 
 ![alt text](metricWithRateVisualization.png)
 
-
 ## ☑ Exercise
 
-
 ```masteryls
-{"id":"9c7eb5d7-4391-4f84-b0a3-f926cb4ff55b", "title":"Grafana metrics", "type":"file-submission"  }
+{"id":"9c7eb5d7-4391-4f84-b0a3-f926cb4ff55b", "title":"Grafana metrics", "type":"file-submission", "gradingCriteria":"Grafana dashboard that represents metrics for CPU, request count, and request latency"  }
 Submit a screenshot of your metrics dashboard.
 ```
-

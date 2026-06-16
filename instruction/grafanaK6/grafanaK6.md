@@ -24,7 +24,7 @@ This story is a classic example of a small team identifying a niche need, buildi
 
 ## An example run
 
-The following results are based on a load test against the JWT Pizza application. The test simulates a user logging in, browsing the menu, and purchasing a pizza. K6 generates comprehensive metrics and visualizations to help you understand application performance. 
+The following results are based on a load test against the JWT Pizza application. The test simulates a user logging in, browsing the menu, and purchasing a pizza. K6 generates comprehensive metrics and visualizations to help you understand application performance.
 
 The graph below shows 10 concurrent virtual users (VUs) making a maximum of 3.33 requests per second, with an average 95th percentile (P95) response time of 118ms.
 
@@ -34,13 +34,13 @@ K6 provides a breakdown of metrics for each endpoint, including request counts a
 
 ![K6 example test metrics](k6ExampleTestMetrics.png)
 
-When evaluating performance, the most critical values are often found in the upper percentiles, such as the top 1% (P99) or 0.1% (P99.9) of requests. Here, while the average login time is 108ms, the P99 is 143ms with a standard deviation of 17ms. 
+When evaluating performance, the most critical values are often found in the upper percentiles, such as the top 1% (P99) or 0.1% (P99.9) of requests. Here, while the average login time is 108ms, the P99 is 143ms with a standard deviation of 17ms.
 
 In complex applications, a "layering effect" can occur. If a single user action triggers 12 separate endpoint requests in sequence, and each request has a 1% chance of taking 3 seconds, roughly 10% of your customers will experience a significant delay. By simulating load and experimenting with architectural changes, you can identify and remove these bottlenecks before they impact real users.
 
 ## Setting up a K6 test
 
-You will create your first K6 load test against your JWT Pizza production deployment. 
+You will create your first K6 load test against your JWT Pizza production deployment.
 
 > [!WARNING]
 > Normally, you should not load test a production system. Standard practice is to spin up a dedicated environment using automation templates (like CloudFormation). However, since your current production environment has no active traffic and no additional cost for hardware, we will use it for this exercise.
@@ -57,7 +57,7 @@ You will create your first K6 load test against your JWT Pizza production deploy
 
     ![Default K6 project](defaultProject.png)
 
-1.  Click the **Default project** name, then click **Create new test**. 
+1.  Click the **Default project** name, then click **Create new test**.
 1.  You will see several options for creating a test:
     1.  **K6 CLI**: Build tests locally in your development environment.
     2.  **Script Editor**: Write a JavaScript testing script directly in Grafana Cloud.
@@ -84,7 +84,7 @@ A HAR file contains all HTTP requests and responses captured by the browser.
 1.  Open DevTools and go to the **Network** tab.
 1.  Select **Preserve log** and clear any existing recorded requests.
 
-   ![Record HAR](recordHar.gif)
+![Record HAR](recordHar.gif)
 
 1.  Refresh the page. Log in, select a pizza, complete the purchase, and verify the order.
 1.  Click the **Export HAR** (download arrow) icon in the Network tab. Name the file `buyPizza.har`.
@@ -94,12 +94,12 @@ A HAR file contains all HTTP requests and responses captured by the browser.
 1.  Return to the Grafana Test Builder and click **IMPORT A HAR FILE**.
 1.  Drag your `buyPizza.har` file into the upload area.
 
-   ![Upload HAR](uploadHar.gif)
+![Upload HAR](uploadHar.gif)
 
 1.  During import, select **Correlate the request and response data**. Do **not** include **Static assets** (like images) unless you specifically want to test their download speeds. Select **Generate sleep** to simulate realistic user pauses.
 1.  Disable filtering on necessary domains (e.g., `pizza-factory.cs239.click`) to ensure all relevant requests are included.
 
-   ![Import HAR options](importHarOptions.png)
+![Import HAR options](importHarOptions.png)
 
 The builder will generate a list of test steps. Review the requests (path, headers, and query parameters). You may see several `HTTP OPTIONS` requests; you can delete these using the trash icon to simplify the script.
 
@@ -109,7 +109,7 @@ Review each step and provide descriptive names for the requests. You should have
 
 ![Test steps](testSteps.png)
 
-Next, define the execution scenario. In the left-hand menu, click **SCENARIO_1 -> Options**. By default, K6 ramps up from 0 to 20 VUs over 1 minute, stays at 20 VUs for 3.5 minutes, and then ramps down. 
+Next, define the execution scenario. In the left-hand menu, click **SCENARIO_1 -> Options**. By default, K6 ramps up from 0 to 20 VUs over 1 minute, stays at 20 VUs for 3.5 minutes, and then ramps down.
 
 **Note:** High-volume tests generate real traffic and can impact AWS costs. For this exercise, adjust the target VUs and duration to match the following:
 
@@ -185,10 +185,10 @@ import { sleep, check, group, fail } from 'k6';
 5. Update the check logic to stop execution if the status is not 200:
 
 ```javascript
-  if (!check(response, { 'status equals 200': response => response.status.toString() === '200' })) {
-    console.log(response.body);
-    fail('Login was *not* 200');
-  }
+if (!check(response, { 'status equals 200': (response) => response.status.toString() === '200' })) {
+  console.log(response.body);
+  fail('Login was *not* 200');
+}
 ```
 
 6. Click **Create** and run the script.
@@ -240,8 +240,7 @@ Congratulations! You have successfully created and analyzed your first load test
 
 ## ☑ Exercise
 
-
 ```masteryls
-{"id":"f63caa8c-6e31-472e-a0e5-170c165cead8", "title":"Grafana K6", "type":"file-submission", "gradingCriteria":"Must contain a representation of a Grafana K6 execution of a load test"  }
-Submit a screenshot of the K6 execution graph over the entire duration of your test.
+{"id":"f63caa8c-6e31-472e-a0e5-170c165cead8", "title":"Grafana K6", "type":"file-submission", "gradingCriteria":"Must contain a representation of a Grafana K6 execution of a load test", "gradingCriteria":"Grafana K6 load test execution timeline"  }
+Submit a screenshot of the K6 execution timeline over the entire duration of your test.
 ```

@@ -45,6 +45,7 @@ https://youraccount.grafana.net/d/xyz123/jwt-pizza?orgId=1&viewPanel=14
 ```
 
 In the example above:
+
 - The **Dashboard UID** is `xyz123`.
 - The **Panel ID** is `14`.
 
@@ -57,9 +58,9 @@ curl -X POST https://YOUR-GRAFANA-CLOUD-DOMAIN.grafana.net/api/annotations \
 -H "Authorization: Bearer YOUR-SERVICE-ACCOUNT-TOKEN" \
 -H "Content-Type: application/json" \
 -d '{
-  "dashboardUID":"YOUR-DASHBOARD-UID", 
-  "panelId":YOUR-PANEL-ID, 
-  "text":"Your annotation text" 
+  "dashboardUID":"YOUR-DASHBOARD-UID",
+  "panelId":YOUR-PANEL-ID,
+  "text":"Your annotation text"
 }'
 ```
 
@@ -92,10 +93,10 @@ When you view your dashboard, the annotation will appear as a vertical line or a
 Now that you can manually trigger annotations, integrate this process into your CI/CD workflow.
 
 1. Add a new **Repository Secret** to your GitHub repository named `GRAFANA_ACCESS_TOKEN` using the service account token you generated earlier.
-2. Add a step to your GitHub Actions workflow similar to the one below. 
-3. Ensure you replace the hostname, dashboard UID, and panel ID with your specific values. 
+2. Add a step to your GitHub Actions workflow similar to the one below.
+3. Ensure you replace the hostname, dashboard UID, and panel ID with your specific values.
 
-*Note: This example assumes you have a version number assigned to an environment variable named `$version`.*
+_Note: This example assumes you have a version number assigned to an environment variable named `$version`._
 
 ```yml
 - name: Annotate deployment in Grafana
@@ -106,8 +107,7 @@ Now that you can manually trigger annotations, integrate this process into your 
     -d '{"dashboardUID":"xyz123", "panelId":15, "tags":["backend","production"], "text":"Version '"$version"' deployed" }'
 ```
 
-
 ```masteryls
-{"id":"afe37413-ccc0-4996-bc06-d97831bab8ae", "title":"Grafana annotations", "type":"file-submission"  }
+{"id":"afe37413-ccc0-4996-bc06-d97831bab8ae", "title":"Grafana annotations", "type":"file-submission", "gradingCriteria":"A Grafana metric panel that contains an annotation"  }
 Submit a screenshot of your dashboard displaying your deployment annotation.
 ```

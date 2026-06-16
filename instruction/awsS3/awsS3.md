@@ -60,7 +60,7 @@ Your bucket should now display the uploaded file.
 ![Bucket with file](bucketWithFile.png)
 
 ```masteryls
-{"id":"65725927-08ab-439d-92f4-68cbdd68d04f", "title":"S3 Bucket", "type":"file-submission"  }
+{"id":"65725927-08ab-439d-92f4-68cbdd68d04f", "title":"S3 Bucket", "type":"file-submission", "gradingCriteria":"AWS S3 bucket showing at least one uploaded file"  }
 Attach a screenshot of your S3 bucket that displays your uploaded file.
 ```
 

@@ -79,8 +79,7 @@ Once completed, your repository's release history should look similar to this:
 
 ![Automatic release](automaticRelease.png)
 
-
 ```masteryls
-{"id":"f1f444dc-fdad-4ce1-98a1-68fae0fe06ed", "title":"GitHub releases", "type":"file-submission"  }
+{"id":"f1f444dc-fdad-4ce1-98a1-68fae0fe06ed", "title":"GitHub releases", "type":"file-submission", "gradingCriteria":"GitHub Release including the text: 🚀 Changes"  }
 Submit a screenshot of your released version as displayed in GitHub.
 ```
