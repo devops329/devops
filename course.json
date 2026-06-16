@@ -879,7 +879,10 @@
           "title": "Logging",
           "path": "instruction/logging/logging.md",
           "id": "b8a591a9-d4e8-4cc7-a28c-8ebe749de39b",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "fc0b7743-74ac-45f2-a6a6-fd4e4fc4b265"
+          ]
         },
         {
           "title": "☑ Grafana logging",
