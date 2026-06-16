@@ -1136,6 +1136,9 @@
           "path": "instruction/burpSuite/burpSuite.md",
           "id": "c0324543-c478-4597-889c-5cd9b84f79ff",
           "state": "published",
+          "interactions": [
+            "2381964a-44eb-444e-857b-aab2f8b1ed6e"
+          ],
           "description": ""
         },
         {
