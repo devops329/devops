@@ -7,11 +7,64 @@
 
 ---
 
-Synthetic testing, sometimes called _end-user testing_, exercises an application from the user's perspective. It serves as a valuable smoke test that helps you discover problems before your customers notice or report them. This is critical because every time a customer discovers an issue, it erodes their confidence and encourages them to look elsewhere for a more stable solution.
+Synthetic testing, often referred to as _active monitoring_, is a method of monitoring software applications by simulating user behavior through automated scripts. Unlike Real User Monitoring (RUM), which captures data from actual visitors, synthetic testing uses "probes" or "bots" to traverse critical paths at regular intervals (e.g., every 1 or 5 minutes) from various geographic locations. This approach allows teams to identify outages, performance regressions, and broken workflows before a single real user is impacted. This is critical because every time a customer discovers an issue, it erodes their confidence and encourages them to look elsewhere for a more stable solution.
 
 In one sense, synthetic testing is the most authentic form of testing because it uses the actual production environment that your customers use. If your synthetic tests fail, it almost certainly means that your users are currently experiencing problems.
 
 A robust synthetic testing system seeks to recreate real-world usage. This means it must simulate requests from different devices and various geographical locations. This exercises factors that are usually outside the control of the application developer—such as hardware, bandwidth, and network connectivity—but are just as vital to the application's utility as functional correctness and database resilience.
+
+
+### When Synthetic Testing is Appropriate
+
+Synthetic testing is most effective for verifying the "golden paths" of an application. It is the preferred choice for:
+
+*   **Availability Monitoring:** Ensuring your site is "up" and reachable from different global regions (e.g., checking latency from Tokyo vs. New York).
+*   **SLA Verification:** Providing objective data to prove that a service provider is meeting uptime and performance requirements.
+*   **Critical Path Validation:** Testing essential business functions like "Add to Cart," "User Login," or "Password Reset" around the clock.
+*   **Pre-deployment Smoke Testing:** Running the same synthetic scripts against a staging environment to catch breaking changes before they reach production.
+
+### When to Avoid Synthetic Testing
+
+While powerful, synthetic testing is not a silver bullet. It should not be used in the following scenarios:
+
+*   **Measuring Real User Experience:** It cannot account for the "long tail" of real-world performance issues caused by diverse hardware, low-end mobile devices, or spotty cellular networks.
+*   **Highly Complex Exploratory Testing:** Scripts are rigid. They will not find bugs in features they aren't specifically programmed to touch.
+*   **High-Volume Load Testing:** While you can run many synthetic tests, their primary goal is functional health and baseline latency, not stressing the system to its breaking point.
+*   **Data-Sensitive Environments:** If a workflow requires unique, one-time-use production data that cannot be easily cleaned or mocked, synthetic scripts may cause data corruption or security risks.
+
+### Example: A Basic Synthetic Script
+
+Modern synthetic testing often uses tools like Playwright or Puppeteer. Below is a conceptual example of a synthetic check written in Playwright that verifies a login flow:
+
+```javascript
+const { test, expect } = require('@playwright/test');
+
+test('Synthetic Login Check', async ({ page }) => {
+  // 1. Navigate to the site
+  await page.goto('https://example.com/login');
+
+  // 2. Perform actions
+  await page.fill('#username', 'synthetic_monitor_user');
+  await page.fill('#password', process.env.MONITOR_PASSWORD);
+  await page.click('#login-button');
+
+  // 3. Verify the outcome
+  const dashboardHeader = page.locator('h1');
+  await expect(dashboardHeader).toContainText('Welcome Back');
+  
+  // If any step fails or times out, the monitor triggers an alert.
+});
+```
+
+```masteryls
+{"id":"6fe6f6c4-a049-4194-aae9-e5970ac89488","title":"Identifying Synthetic Testing Use Cases","type":"multiple-choice"}
+In which of the following scenarios is synthetic testing the most appropriate tool to use?
+
+- [ ] Debugging a performance issue reported by a specific user on an old Android device
+- [ ] Analyzing the click-through rate of a new marketing banner
+- [ ] Stress-testing the database by simulating 50,000 concurrent user sessions
+- [x] Verifying that the "Checkout" flow is functional every 5 minutes from multiple global regions
+```
 
 ## Grafana synthetic testing
 
@@ -100,3 +153,10 @@ To reduce the number of checks:
 1. Follow the instructions above to create a synthetic test for your JWT Pizza deployment.
 1. Observe the metrics over a short period of time to ensure they are recording correctly.
 1. Decrease the frequency of the tests to once per hour to conserve your Grafana Cloud credits.
+
+
+
+```masteryls
+{"id":"cb2d8e87-a446-45bd-a3a4-4e724cc0e9db", "title":"Synthetic testing", "type":"file-submission"  }
+Submit a screenshot of your synthetic test running in Grafana.
+```
