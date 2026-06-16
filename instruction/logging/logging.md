@@ -15,6 +15,8 @@ A robust logging system records individual events, tagging them with metadata th
 
 Many essential logging characteristics were introduced in the [Observability](../observability/observability.md) topic, including centralized aggregation, immutability, the removal of sensitive information (credentials and PII), and performant search capabilities. These factors should guide how you acquire and persist your logs.
 
+![loggingFactors.jpg](loggingFactors.jpg)
+
 ## The impact of logging design
 
 An often overlooked aspect of observability is the mechanism used to capture, normalize, and transmit logs. The goal is to report events with minimal lag without degrading the performance of the application itself.
