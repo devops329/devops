@@ -343,3 +343,9 @@ Complete the following:
 Upon completion, your dashboard should display a live feed of application logs similar to the one below.
 
 ![Dashboard with logging](dashboardWithLogging.png)
+
+
+```masteryls
+{"id":"f8cee810-66ac-4d00-ac2c-2087febad5e8", "title":"Grafana logging", "type":"file-submission"  }
+Submit a screenshot of your Grafana dashbaord that includes your logging panel.
+```
