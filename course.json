@@ -847,11 +847,13 @@
           ]
         },
         {
-          "title": "☑ Visualizing metrics",
+          "title": "Visualizing metrics",
+          "type": "instruction",
           "path": "instruction/visualizingMetrics/visualizingMetrics.md",
           "id": "2db82108-3c93-445b-bcdb-dcfdd1477c36",
           "state": "published",
-          "interactions": []
+          "interactions": [],
+          "description": ""
         },
         {
           "title": "Simulating traffic",
