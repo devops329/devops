@@ -114,3 +114,9 @@ Experiment with chaos testing by performing the following steps:
 1. Wait for the alert to trigger, then acknowledge and resolve it.
 
 ![Alert history](alertHistory.png)
+
+
+```masteryls
+{"id":"fdbffc08-8d93-4d38-bd35-8da5a54cd428", "title":"JWT Pizza Chaos", "type":"file-submission", "gradingCriteria":"A grafana alert dashboard showing that an alert has been resolved"  }
+Submit a snapshot of your Grafana alert.
+```
