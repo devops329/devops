@@ -36,9 +36,7 @@
           "path": "README.md",
           "id": "ea40e6cf-0e42-4310-847e-3e55592a4d5b",
           "state": "published",
-          "interactions": [
-            "c4a3c902-38d2-4e23-ac1a-8b1695c61b75"
-          ],
+          "interactions": ["c4a3c902-38d2-4e23-ac1a-8b1695c61b75"],
           "externalRefs": {
             "canvasPageId": 1576571
           }
@@ -48,9 +46,7 @@
           "path": "instruction/syllabus/syllabus.md",
           "id": "49e4ad88-06a3-4a57-9d55-77ffb9310b6e",
           "state": "published",
-          "interactions": [
-            "cae08349-d561-4c4b-9a84-208fab172b36"
-          ],
+          "interactions": ["cae08349-d561-4c4b-9a84-208fab172b36"],
           "externalRefs": {
             "canvasPageId": 1576572
           }
@@ -60,9 +56,7 @@
           "path": "instruction/latePolicy/latePolicy.md",
           "id": "47a43704-6388-4424-ae59-663695fcd800",
           "state": "published",
-          "interactions": [
-            "1b064a7a-2ff0-43ac-899e-f226b7a90a35"
-          ]
+          "interactions": ["1b064a7a-2ff0-43ac-899e-f226b7a90a35"]
         }
       ]
     },
@@ -78,10 +72,7 @@
           "path": "instruction/overview/overview.md",
           "id": "db884190-7b79-4e77-b8d3-b253c24e80e5",
           "state": "published",
-          "interactions": [
-            "b4f01e8a-d99f-4f51-a8e4-1dd8a77bfa09",
-            "60d98115-3f79-4d55-a0b5-3787be46ffca"
-          ],
+          "interactions": ["b4f01e8a-d99f-4f51-a8e4-1dd8a77bfa09", "60d98115-3f79-4d55-a0b5-3787be46ffca"],
           "description": ""
         },
         {
@@ -89,27 +80,21 @@
           "path": "instruction/history/history.md",
           "id": "121fc17a-264a-403a-84e1-fd6331f546e3",
           "state": "published",
-          "interactions": [
-            "544e5344-9e3a-4375-b868-6475363aec74"
-          ]
+          "interactions": ["544e5344-9e3a-4375-b868-6475363aec74"]
         },
         {
           "title": "Terminology",
           "path": "instruction/terminology/terminology.md",
           "id": "111da672-fce7-42a8-ba91-8b6cbe1b29a3",
           "state": "published",
-          "interactions": [
-            "8dd7f991-4900-43c9-988e-06164fa46e6c"
-          ]
+          "interactions": ["8dd7f991-4900-43c9-988e-06164fa46e6c"]
         },
         {
           "title": "🍕 JWT Pizza",
           "path": "instruction/jwtPizza/jwtPizza.md",
           "id": "3e1aceaa-90d4-413b-835d-ba6ba7139f40",
           "state": "published",
-          "interactions": [
-            "7484c679-2e00-47aa-90be-dffd8a0df1f1"
-          ]
+          "interactions": ["7484c679-2e00-47aa-90be-dffd8a0df1f1"]
         },
         {
           "title": "JWT Pizza Factory",
@@ -117,10 +102,7 @@
           "path": "instruction/jwtPizzaFactory/jwtPizzaFactory.md",
           "id": "f259807a-505b-4992-8d58-73a30ad33ed5",
           "state": "published",
-          "interactions": [
-            "21f11851-8df8-49ec-a137-48db2bb0746e",
-            "ddf00844-13df-4764-8947-8e973f375b29"
-          ],
+          "interactions": ["21f11851-8df8-49ec-a137-48db2bb0746e", "ddf00844-13df-4764-8947-8e973f375b29"],
           "description": ""
         },
         {
@@ -128,9 +110,7 @@
           "path": "instruction/aws/aws.md",
           "id": "433873f1-561c-4f13-92d7-e8e68a38687d",
           "state": "published",
-          "interactions": [
-            "1ebcaea8-9988-4cd6-9f46-b110b6c6bcc0"
-          ]
+          "interactions": ["1ebcaea8-9988-4cd6-9f46-b110b6c6bcc0"]
         },
         {
           "title": "AWS Account",
@@ -138,9 +118,7 @@
           "path": "instruction/awsAccount/awsAccount.md",
           "id": "f582c3b6-5dd7-4cdb-9168-ba89afd56707",
           "state": "published",
-          "interactions": [
-            "216569e1-63d8-4e0a-a050-48b10d6ea910"
-          ],
+          "interactions": ["216569e1-63d8-4e0a-a050-48b10d6ea910"],
           "description": ""
         },
         {
@@ -148,29 +126,21 @@
           "path": "instruction/awsRoute53/awsRoute53.md",
           "id": "4f47535e-ca37-452a-ac3f-7f50053e134b",
           "state": "published",
-          "interactions": [
-            "e79da2b6-2e44-43d2-9011-47c1573d1435"
-          ]
+          "interactions": ["e79da2b6-2e44-43d2-9011-47c1573d1435"]
         },
         {
           "title": "GitHub",
           "path": "instruction/gitHub/gitHub.md",
           "id": "cbfaf177-9b44-4ce1-9b47-d6e0eec135bc",
           "state": "published",
-          "interactions": [
-            "e9908551-09d4-4426-95a7-5b793891a852",
-            "f2c953c8-eee7-4ceb-9be1-0e6249f453a0",
-            "11cc437f-a7bc-4f12-8b1b-477ea1745743"
-          ]
+          "interactions": ["e9908551-09d4-4426-95a7-5b793891a852", "f2c953c8-eee7-4ceb-9be1-0e6249f453a0", "11cc437f-a7bc-4f12-8b1b-477ea1745743"]
         },
         {
           "title": "Commit History",
           "path": "instruction/commitHistory/commitHistory.md",
           "id": "843efb19-aa29-4b19-91be-3410c5b3900e",
           "state": "published",
-          "interactions": [
-            "cec9307b-6cb3-484b-bc4f-f2f447d24219"
-          ]
+          "interactions": ["cec9307b-6cb3-484b-bc4f-f2f447d24219"]
         },
         {
           "title": "⭐ Christlike learning",
@@ -179,9 +149,7 @@
           "path": "instruction/christlikeLearning/christlikeLearning.md",
           "id": "aeedacf1-bfe8-4dca-a576-fb7e1d3723b4",
           "state": "published",
-          "interactions": [
-            "ad9f8fcc-e180-430a-aef1-9cce645bad04"
-          ],
+          "interactions": ["ad9f8fcc-e180-430a-aef1-9cce645bad04"],
           "description": "",
           "externalRefs": {
             "canvasAssignmentId": 1367571
@@ -194,9 +162,7 @@
           "path": "instruction/curiosityReport/curiosityReport.md",
           "id": "f00a356a-1ccf-4638-9315-f3a55ca61231",
           "state": "published",
-          "interactions": [
-            "9778d76b-fad6-4c91-aba0-7bf564af9c50"
-          ],
+          "interactions": ["9778d76b-fad6-4c91-aba0-7bf564af9c50"],
           "description": "",
           "externalRefs": {
             "canvasAssignmentId": 1367572
@@ -208,9 +174,7 @@
           "path": "instruction/askingQuestions/askingQuestions.md",
           "id": "fa89e6e1-cfcf-48ac-a782-08f35918d612",
           "state": "published",
-          "interactions": [
-            "374d7f41-ae33-4715-8edf-e7ccd8a987c9"
-          ],
+          "interactions": ["374d7f41-ae33-4715-8edf-e7ccd8a987c9"],
           "description": ""
         },
         {
@@ -233,9 +197,7 @@
           "path": "instruction/jwtPizzaService/jwtPizzaService.md",
           "id": "03dbf5d6-fe43-4276-8457-91bba880dfda",
           "state": "published",
-          "interactions": [
-            "58c26abd-ce8a-4f9c-b65a-55e4992f208f"
-          ],
+          "interactions": ["58c26abd-ce8a-4f9c-b65a-55e4992f208f"],
           "description": ""
         },
         {
@@ -244,9 +206,7 @@
           "path": "instruction/jwtPizzaData/jwtPizzaData.md",
           "id": "2179e37d-e6ce-494c-9fc5-6baeec9df25a",
           "state": "published",
-          "interactions": [
-            "c3085596-1b52-4c30-98ff-34c0142eb862"
-          ],
+          "interactions": ["c3085596-1b52-4c30-98ff-34c0142eb862"],
           "description": ""
         },
         {
@@ -255,9 +215,7 @@
           "path": "instruction/jwtPizzaClient/jwtPizzaClient.md",
           "id": "a6b06eb5-9fc1-49fa-b120-b00af13fe727",
           "state": "published",
-          "interactions": [
-            "d6ea467d-336b-4f3c-bd43-bbe38bb5efc6"
-          ],
+          "interactions": ["d6ea467d-336b-4f3c-bd43-bbe38bb5efc6"],
           "description": ""
         },
         {
@@ -265,18 +223,14 @@
           "path": "instruction/fullStackDebugging/fullStackDebugging.md",
           "id": "7e4bb341-0ca1-4dcd-af39-d7d69f22642d",
           "state": "published",
-          "interactions": [
-            "c86eb274-bd44-472c-8d73-1e4dc9d348c2"
-          ]
+          "interactions": ["c86eb274-bd44-472c-8d73-1e4dc9d348c2"]
         },
         {
           "title": "Merge conflicts",
           "path": "instruction/mergeConflicts/mergeConflicts.md",
           "id": "fee37f51-a612-49da-b308-a4cb25f86d2b",
           "state": "published",
-          "interactions": [
-            "5b2bcb09-4ed8-43dd-935b-ec6e8640d2d5"
-          ]
+          "interactions": ["5b2bcb09-4ed8-43dd-935b-ec6e8640d2d5"]
         },
         {
           "title": "⭐ ⓵ Development deployment: JWT Pizza",
@@ -285,9 +239,7 @@
           "path": "instruction/deliverable1DevelopmentDeploy/deliverable1DevelopmentDeploy.md",
           "id": "72583959-ac00-419e-9c08-df275ee59828",
           "state": "published",
-          "interactions": [
-            "4261e0b4-655b-4740-9f3b-52f50d1fa29f"
-          ],
+          "interactions": ["4261e0b4-655b-4740-9f3b-52f50d1fa29f"],
           "description": "",
           "externalRefs": {
             "canvasAssignmentId": 1367573
@@ -298,20 +250,14 @@
           "path": "instruction/automation/automation.md",
           "id": "9d48b24f-e28e-4528-bb11-c8d5b847cbf2",
           "state": "published",
-          "interactions": [
-            "7de16112-5e71-4864-aa86-0104f12525fc",
-            "904cd549-9614-4540-9000-0bde1ac2d211"
-          ]
+          "interactions": ["7de16112-5e71-4864-aa86-0104f12525fc", "904cd549-9614-4540-9000-0bde1ac2d211"]
         },
         {
           "title": "Continuous integration (CI)",
           "path": "instruction/continuousIntegration/continuousIntegration.md",
           "id": "2e19fd54-0b4f-4f61-a019-aa4791197edd",
           "state": "published",
-          "interactions": [
-            "d0d5489e-5640-49d2-8cfe-5f7c76b5be1e",
-            "3be2d962-6f38-4e35-a4fc-c99d51cd6c90"
-          ]
+          "interactions": ["d0d5489e-5640-49d2-8cfe-5f7c76b5be1e", "3be2d962-6f38-4e35-a4fc-c99d51cd6c90"]
         },
         {
           "title": "GitHub Actions",
@@ -319,9 +265,7 @@
           "path": "instruction/gitHubActions/gitHubActions.md",
           "id": "d6053d1c-bbea-4dfa-a087-0905614ea63d",
           "state": "published",
-          "interactions": [
-            "3b49bdd9-c1ad-41e4-9367-d257bae73490"
-          ],
+          "interactions": ["3b49bdd9-c1ad-41e4-9367-d257bae73490"],
           "description": ""
         },
         {
@@ -329,9 +273,7 @@
           "path": "instruction/staticDeployment/staticDeployment.md",
           "id": "2022e6f1-0137-4e98-b38a-b7e57b2d5ac1",
           "state": "published",
-          "interactions": [
-            "c42e5169-4462-4001-b8a0-dda9046a5245"
-          ]
+          "interactions": ["c42e5169-4462-4001-b8a0-dda9046a5245"]
         },
         {
           "title": "GitHub Pages",
@@ -339,9 +281,7 @@
           "path": "instruction/gitHubPages/gitHubPages.md",
           "id": "98a15d03-5143-46bb-94ca-36f509c8ddf2",
           "state": "published",
-          "interactions": [
-            "6d5b693b-70eb-4aa9-90ee-e32d512185cb"
-          ],
+          "interactions": ["6d5b693b-70eb-4aa9-90ee-e32d512185cb"],
           "description": ""
         },
         {
@@ -351,9 +291,7 @@
           "path": "instruction/deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md",
           "id": "7a775575-c63b-4d63-8210-b4b231832fb3",
           "state": "published",
-          "interactions": [
-            "86fcd4b4-0b56-4c6b-8e23-9bb967f9c061"
-          ],
+          "interactions": ["86fcd4b4-0b56-4c6b-8e23-9bb967f9c061"],
           "description": "",
           "externalRefs": {
             "canvasAssignmentId": 1367574
@@ -380,46 +318,35 @@
           "path": "instruction/testing/testing.md",
           "id": "19b89f40-f56e-4a68-aa12-a13082d3e533",
           "state": "published",
-          "interactions": [
-            "7d6ec40a-e0f0-4841-82a6-61411fc573db",
-            "41af55fd-ccbc-4dfb-bef1-9e4ec3547aa6"
-          ]
+          "interactions": ["7d6ec40a-e0f0-4841-82a6-61411fc573db", "41af55fd-ccbc-4dfb-bef1-9e4ec3547aa6"]
         },
         {
           "title": "Testing categories",
           "path": "instruction/testingCategories/testingCategories.md",
           "id": "50e24a98-cbdf-41b8-8ec0-7144d786039d",
           "state": "published",
-          "interactions": [
-            "c022b6e5-09b9-4fc6-a05a-e036d4e7c14d"
-          ]
+          "interactions": ["c022b6e5-09b9-4fc6-a05a-e036d4e7c14d"]
         },
         {
           "title": "Coverage",
           "path": "instruction/coverage/coverage.md",
           "id": "dd013921-f09a-4987-b32e-b66ed853b093",
           "state": "published",
-          "interactions": [
-            "e0bb8306-483c-43f2-a9cd-dccbc7fb02f3"
-          ]
+          "interactions": ["e0bb8306-483c-43f2-a9cd-dccbc7fb02f3"]
         },
         {
           "title": "Jest basics",
           "path": "instruction/jestBasics/jestBasics.md",
           "id": "8a376585-ab52-4670-a3d2-1fc7c46218e1",
           "state": "published",
-          "interactions": [
-            "4a033259-057d-494d-9c3a-380dc7c45ded"
-          ]
+          "interactions": ["4a033259-057d-494d-9c3a-380dc7c45ded"]
         },
         {
           "title": "AI unit testing",
           "path": "instruction/aiUnitTesting/aiUnitTesting.md",
           "id": "5b05aead-7a34-4953-bc44-8ce50a982282",
           "state": "published",
-          "interactions": [
-            "be4e744f-23b6-402d-9445-40e0087ec47d"
-          ]
+          "interactions": ["be4e744f-23b6-402d-9445-40e0087ec47d"]
         },
         {
           "title": "Jest advanced",
@@ -427,9 +354,7 @@
           "path": "instruction/jestAdvanced/jestAdvanced.md",
           "id": "5a861a8f-55be-4f48-b46b-9cbe8f45dfed",
           "state": "published",
-          "interactions": [
-            "8dc7f6f6-5a65-49bb-8b35-01fa9a5b92d6"
-          ],
+          "interactions": ["8dc7f6f6-5a65-49bb-8b35-01fa9a5b92d6"],
           "description": ""
         },
         {
@@ -438,9 +363,7 @@
           "path": "instruction/serviceTesting/serviceTesting.md",
           "id": "a579710b-bf81-46fa-8062-92da3447bbd2",
           "state": "published",
-          "interactions": [
-            "342db483-1cba-4d11-9d6c-d1cc72c2a86a"
-          ],
+          "interactions": ["342db483-1cba-4d11-9d6c-d1cc72c2a86a"],
           "description": ""
         },
         {
@@ -449,9 +372,7 @@
           "path": "instruction/lint/lint.md",
           "id": "5d8bdd55-b01b-4271-a0da-e0900cc40bd7",
           "state": "published",
-          "interactions": [
-            "b9220ac6-b738-44e3-bb1f-6c19c1d35230"
-          ],
+          "interactions": ["b9220ac6-b738-44e3-bb1f-6c19c1d35230"],
           "description": ""
         },
         {
@@ -459,9 +380,7 @@
           "path": "instruction/unitTestingJwtPizzaService/unitTestingJwtPizzaService.md",
           "id": "60e72fcd-259f-4e78-88ff-f9a3a2c90aca",
           "state": "published",
-          "interactions": [
-            "22fd06c4-9b69-4c3b-92a6-a35ff5201d05"
-          ]
+          "interactions": ["22fd06c4-9b69-4c3b-92a6-a35ff5201d05"]
         },
         {
           "title": "⭐ ⓷ Unit testing CI: JWT Pizza Service",
@@ -470,9 +389,7 @@
           "path": "instruction/deliverable3UnitTesting/deliverable3UnitTesting.md",
           "id": "b7266538-3a60-41ff-9106-0e731013b6f8",
           "state": "published",
-          "interactions": [
-            "57ca73af-feb2-4abb-8e37-1c542c7f4fb9"
-          ],
+          "interactions": ["57ca73af-feb2-4abb-8e37-1c542c7f4fb9"],
           "description": "",
           "externalRefs": {
             "canvasAssignmentId": 1367575
@@ -491,9 +408,7 @@
           "path": "instruction/uiTesting/uiTesting.md",
           "id": "d1a8bbc1-70be-4136-b5ef-b7bc319aa3f1",
           "state": "published",
-          "interactions": [
-            "8de29cc1-603b-4f49-bc02-481a9939d02b"
-          ]
+          "interactions": ["8de29cc1-603b-4f49-bc02-481a9939d02b"]
         },
         {
           "title": "Playwright",
@@ -501,9 +416,7 @@
           "path": "instruction/playwright/playwright.md",
           "id": "2b272056-45df-4d02-8d47-3b9d69c79291",
           "state": "published",
-          "interactions": [
-            "c2d59460-aeaf-4c2e-b4bb-3a78e1c7ed7c"
-          ],
+          "interactions": ["c2d59460-aeaf-4c2e-b4bb-3a78e1c7ed7c"],
           "description": ""
         },
         {
@@ -513,9 +426,7 @@
           "path": "instruction/deliverable4UiTesting/deliverable4UiTesting.md",
           "id": "1feab954-5b76-416c-b558-210acae8b055",
           "state": "published",
-          "interactions": [
-            "20b2c9ef-5f27-4aa9-bc34-bfc8cdd04199"
-          ],
+          "interactions": ["20b2c9ef-5f27-4aa9-bc34-bfc8cdd04199"],
           "description": "",
           "externalRefs": {
             "canvasAssignmentId": 1367576
@@ -534,18 +445,14 @@
           "path": "instruction/dependencyInjection/dependencyInjection.md",
           "id": "8845e562-9dda-4e78-9ae3-6d4104f47bd3",
           "state": "published",
-          "interactions": [
-            "65edaa97-7d70-4e3d-9e18-7aed4c6067c7"
-          ]
+          "interactions": ["65edaa97-7d70-4e3d-9e18-7aed4c6067c7"]
         },
         {
           "title": "Integration testing",
           "path": "instruction/integrationTesting/integrationTesting.md",
           "id": "34b4c084-f487-4eb8-8737-a9849f6960cf",
           "state": "published",
-          "interactions": [
-            "6e6925ac-fed4-4532-97c6-48703215e391"
-          ]
+          "interactions": ["6e6925ac-fed4-4532-97c6-48703215e391"]
         },
         {
           "title": "Test driven development (TDD)",
@@ -553,9 +460,7 @@
           "path": "instruction/tdd/tdd.md",
           "id": "e5c54d40-6742-4f3a-976d-5f4693c2a9de",
           "state": "published",
-          "interactions": [
-            "643d3b23-0990-4ae0-a56c-65d8c72da21f"
-          ],
+          "interactions": ["643d3b23-0990-4ae0-a56c-65d8c72da21f"],
           "description": ""
         },
         {
@@ -565,9 +470,7 @@
           "path": "instruction/deliverable5Tdd/deliverable5Tdd.md",
           "id": "06b8c571-e160-4be2-be14-db93ec649203",
           "state": "published",
-          "interactions": [
-            "8c1b8dfa-32a0-4b1e-a455-e8f0c0713c16"
-          ],
+          "interactions": ["8c1b8dfa-32a0-4b1e-a455-e8f0c0713c16"],
           "description": "",
           "externalRefs": {
             "canvasAssignmentId": 1367577
@@ -586,10 +489,7 @@
           "path": "instruction/cloudDeployment/cloudDeployment.md",
           "id": "d9cbf5b2-3e07-4666-b9fb-c0a371ceccab",
           "state": "published",
-          "interactions": [
-            "6d7276ff-ea09-47e4-b91e-acc2a42bd301",
-            "7c29ab2b-fbe2-4754-8976-3264af25f583"
-          ]
+          "interactions": ["6d7276ff-ea09-47e4-b91e-acc2a42bd301", "7c29ab2b-fbe2-4754-8976-3264af25f583"]
         },
         {
           "title": "AWS S3",
@@ -597,9 +497,7 @@
           "path": "instruction/awsS3/awsS3.md",
           "id": "b227be1b-cdfc-4071-b760-5d0a152835c7",
           "state": "published",
-          "interactions": [
-            "65725927-08ab-439d-92f4-68cbdd68d04f"
-          ],
+          "interactions": ["65725927-08ab-439d-92f4-68cbdd68d04f"],
           "description": ""
         },
         {
@@ -607,18 +505,14 @@
           "path": "instruction/awsCloudFront/awsCloudFront.md",
           "id": "0fdb0e78-7dfd-4dd9-8aed-2e754fa6626a",
           "state": "published",
-          "interactions": [
-            "3a6a9be3-45d3-435d-80e8-f002b9e7ea6f"
-          ]
+          "interactions": ["3a6a9be3-45d3-435d-80e8-f002b9e7ea6f"]
         },
         {
           "title": "AWS S3 deployment",
           "path": "instruction/awsS3Deployment/awsS3Deployment.md",
           "id": "c8fd04a3-b9ae-420a-96e9-583015d6e979",
           "state": "published",
-          "interactions": [
-            "c91dadd0-8920-4247-b944-e37cfc91dae4"
-          ]
+          "interactions": ["c91dadd0-8920-4247-b944-e37cfc91dae4"]
         },
         {
           "title": "Deployment environments",
@@ -631,9 +525,7 @@
           "path": "instruction/gitHubEnvironments/gitHubEnvironments.md",
           "id": "ec097b7f-bf83-4054-8530-c4635d79cb85",
           "state": "published",
-          "interactions": [
-            "5babfac3-9271-4e18-9914-ddf8c71e06d0"
-          ]
+          "interactions": ["5babfac3-9271-4e18-9914-ddf8c71e06d0"]
         },
         {
           "title": "⭐ ⓺ Frontend deployment: JWT Pizza",
@@ -642,9 +534,7 @@
           "path": "instruction/deliverable6FrontendDeployment/deliverable6FrontendDeployment.md",
           "id": "d50c35c8-5940-4aac-aa8c-893298510af3",
           "state": "published",
-          "interactions": [
-            "837b0841-1061-45bb-ae57-47337885f8cd"
-          ],
+          "interactions": ["837b0841-1061-45bb-ae57-47337885f8cd"],
           "description": "",
           "externalRefs": {
             "canvasAssignmentId": 1367578
@@ -655,9 +545,7 @@
           "path": "instruction/elasticity/elasticity.md",
           "id": "a4b167df-19f3-4e91-8076-ef89c42a3de2",
           "state": "published",
-          "interactions": [
-            "72e16838-fab8-457e-a412-1114a28d58d8"
-          ]
+          "interactions": ["72e16838-fab8-457e-a412-1114a28d58d8"]
         },
         {
           "title": "AWS RDS MySQL",
@@ -665,9 +553,7 @@
           "path": "instruction/awsRdsMysql/awsRdsMysql.md",
           "id": "2ee7df35-7f44-4622-85d0-f1fe49282f56",
           "state": "published",
-          "interactions": [
-            "b365b915-dbff-4687-aa7b-ce69a074d77a"
-          ],
+          "interactions": ["b365b915-dbff-4687-aa7b-ce69a074d77a"],
           "description": ""
         },
         {
@@ -675,18 +561,14 @@
           "path": "instruction/docker/docker.md",
           "id": "5b685acf-9331-44c4-87ac-935b5cdc5708",
           "state": "published",
-          "interactions": [
-            "ba7a0b83-a971-4ae6-980a-6a4fe138366b"
-          ]
+          "interactions": ["ba7a0b83-a971-4ae6-980a-6a4fe138366b"]
         },
         {
           "title": "Containers",
           "path": "instruction/containers/containers.md",
           "id": "f2270b66-6119-4a1c-813b-bac46fdcc52c",
           "state": "published",
-          "interactions": [
-            "fdad2e7b-8f59-4c38-9f36-4421c7e4e850"
-          ]
+          "interactions": ["fdad2e7b-8f59-4c38-9f36-4421c7e4e850"]
         },
         {
           "title": "JWT Pizza Service container",
@@ -694,9 +576,7 @@
           "path": "instruction/jwtPizzaServiceContainer/jwtPizzaServiceContainer.md",
           "id": "cc1ba4e0-1f63-45de-8078-98fde375ab07",
           "state": "published",
-          "interactions": [
-            "126355a7-4172-487f-b7e2-04447d8614d3"
-          ],
+          "interactions": ["126355a7-4172-487f-b7e2-04447d8614d3"],
           "description": ""
         },
         {
@@ -705,9 +585,7 @@
           "path": "instruction/awsEcr/awsEcr.md",
           "id": "55da3b7e-e017-4a91-b46c-37dbce6dfd0e",
           "state": "published",
-          "interactions": [
-            "5d8c6ed6-ec21-4ade-b51d-bcb37983a4c0"
-          ],
+          "interactions": ["5d8c6ed6-ec21-4ade-b51d-bcb37983a4c0"],
           "description": ""
         },
         {
@@ -716,9 +594,7 @@
           "path": "instruction/awsEcs/awsEcs.md",
           "id": "b2271809-f1a3-4b58-a61f-07789d25d5f2",
           "state": "published",
-          "interactions": [
-            "024757e7-e85c-4f79-97ac-bfd8c4772df8"
-          ],
+          "interactions": ["024757e7-e85c-4f79-97ac-bfd8c4772df8"],
           "description": ""
         },
         {
@@ -728,9 +604,7 @@
           "path": "instruction/deliverable7BackendDeployment/deliverable7BackendDeployment.md",
           "id": "b27b7084-42f8-4fa1-80cd-b4cb73318a03",
           "state": "published",
-          "interactions": [
-            "21790c67-c8b2-479f-ab30-e6397159b329"
-          ],
+          "interactions": ["21790c67-c8b2-479f-ab30-e6397159b329"],
           "description": "",
           "externalRefs": {
             "canvasAssignmentId": 1367579
@@ -749,18 +623,14 @@
           "path": "instruction/infrastructureAsCode/infrastructureAsCode.md",
           "id": "dce3a500-8ce3-4ddb-8edd-c9cba4f743eb",
           "state": "published",
-          "interactions": [
-            "7431a086-5f7a-4053-bf10-7c312ee91dfe"
-          ]
+          "interactions": ["7431a086-5f7a-4053-bf10-7c312ee91dfe"]
         },
         {
           "title": "AWS Cloud Formation",
           "path": "instruction/awsCloudFormation/awsCloudFormation.md",
           "id": "fdbf841a-b6b2-4f46-bdbd-9463ee784b06",
           "state": "published",
-          "interactions": [
-            "20aabf6e-0ed8-4fca-a1c0-3c03eb2c376f"
-          ]
+          "interactions": ["20aabf6e-0ed8-4fca-a1c0-3c03eb2c376f"]
         },
         {
           "title": "JWT Pizza Service infrastructure automation",
@@ -768,9 +638,7 @@
           "path": "instruction/jwtPizzaServiceInfrastructureAutomation/jwtPizzaServiceInfrastructureAutomation.md",
           "id": "893a10b3-b1be-4516-8e25-e7b54dbef5c6",
           "state": "published",
-          "interactions": [
-            "6370aa82-b543-43f2-9cd6-e6bd83285b79"
-          ],
+          "interactions": ["6370aa82-b543-43f2-9cd6-e6bd83285b79"],
           "description": ""
         },
         {
@@ -778,18 +646,14 @@
           "path": "instruction/versioning/versioning.md",
           "id": "b1bfe9d0-47d5-4239-8daf-e357ae56c054",
           "state": "published",
-          "interactions": [
-            "44106e2a-8351-4227-b6db-2e572380e89b"
-          ]
+          "interactions": ["44106e2a-8351-4227-b6db-2e572380e89b"]
         },
         {
           "title": "Deployment strategies",
           "path": "instruction/deploymentStrategies/deploymentStrategies.md",
           "id": "732cccf0-b0c9-4049-a3bd-a8497b9999fd",
           "state": "published",
-          "interactions": [
-            "b3ef9f02-00c5-47eb-a531-df38b6e651fa"
-          ]
+          "interactions": ["b3ef9f02-00c5-47eb-a531-df38b6e651fa"]
         },
         {
           "title": "GitHub releases",
@@ -797,9 +661,7 @@
           "path": "instruction/gitHubReleases/gitHubReleases.md",
           "id": "912296be-c38a-46d7-ab7a-f84cd51fc5eb",
           "state": "published",
-          "interactions": [
-            "f1f444dc-fdad-4ce1-98a1-68fae0fe06ed"
-          ],
+          "interactions": ["f1f444dc-fdad-4ce1-98a1-68fae0fe06ed"],
           "description": ""
         }
       ]
@@ -815,18 +677,14 @@
           "path": "instruction/observability/observability.md",
           "id": "c819aabe-4749-4984-9e29-1fc683a59dd3",
           "state": "published",
-          "interactions": [
-            "04ffb66a-bd89-4e22-9737-ff27eba52837"
-          ]
+          "interactions": ["04ffb66a-bd89-4e22-9737-ff27eba52837"]
         },
         {
           "title": "Metrics",
           "path": "instruction/metrics/metrics.md",
           "id": "fda68fc5-2285-431b-b782-a83d02085324",
           "state": "published",
-          "interactions": [
-            "45430638-d394-4b7f-a14f-5cacb7b7dc7a"
-          ]
+          "interactions": ["45430638-d394-4b7f-a14f-5cacb7b7dc7a"]
         },
         {
           "title": "Grafana",
@@ -834,9 +692,7 @@
           "path": "instruction/grafana/grafana.md",
           "id": "bbc952fb-6890-4b10-8703-0b3e2dc1ae36",
           "state": "published",
-          "interactions": [
-            "f00f31f8-76c6-43c2-87f8-c05684e28fe8"
-          ],
+          "interactions": ["f00f31f8-76c6-43c2-87f8-c05684e28fe8"],
           "description": ""
         },
         {
@@ -844,9 +700,7 @@
           "path": "instruction/grafanaMetrics/grafanaMetrics.md",
           "id": "252ec8fa-24cf-4aae-937b-1b9d736ca34d",
           "state": "published",
-          "interactions": [
-            "9c7eb5d7-4391-4f84-b0a3-f926cb4ff55b"
-          ]
+          "interactions": ["9c7eb5d7-4391-4f84-b0a3-f926cb4ff55b"]
         },
         {
           "title": "Visualizing metrics",
@@ -862,9 +716,7 @@
           "path": "instruction/simulatingTraffic/simulatingTraffic.md",
           "id": "5d2ae79e-07bb-479e-9b6a-41c237141d17",
           "state": "published",
-          "interactions": [
-            "0142ee9c-d109-40af-81fe-30d7fafde63a"
-          ]
+          "interactions": ["0142ee9c-d109-40af-81fe-30d7fafde63a"]
         },
         {
           "title": "⭐ ⓼ Metrics: JWT Pizza Service",
@@ -873,9 +725,7 @@
           "path": "instruction/deliverable8Metrics/deliverable8Metrics.md",
           "id": "4a96dfb7-c892-4dac-bee9-c14f5cba5059",
           "state": "published",
-          "interactions": [
-            "ed3699cd-7a05-47e6-8383-8c31ba6b18a5"
-          ],
+          "interactions": ["ed3699cd-7a05-47e6-8383-8c31ba6b18a5"],
           "description": "",
           "externalRefs": {
             "canvasAssignmentId": 1367580
@@ -886,9 +736,7 @@
           "path": "instruction/logging/logging.md",
           "id": "b8a591a9-d4e8-4cc7-a28c-8ebe749de39b",
           "state": "published",
-          "interactions": [
-            "fc0b7743-74ac-45f2-a6a6-fd4e4fc4b265"
-          ]
+          "interactions": ["fc0b7743-74ac-45f2-a6a6-fd4e4fc4b265"]
         },
         {
           "title": "Grafana logging",
@@ -896,9 +744,7 @@
           "path": "instruction/grafanaLogging/grafanaLogging.md",
           "id": "09871e69-7956-4da0-beb3-1a062feeb9b5",
           "state": "published",
-          "interactions": [
-            "f8cee810-66ac-4d00-ac2c-2087febad5e8"
-          ],
+          "interactions": ["f8cee810-66ac-4d00-ac2c-2087febad5e8"],
           "description": ""
         },
         {
@@ -908,9 +754,7 @@
           "path": "instruction/deliverable9Logging/deliverable9Logging.md",
           "id": "cdb8f6cb-ce37-43f7-8d53-7dd065a28bba",
           "state": "published",
-          "interactions": [
-            "7ed20ebf-7a25-4550-a977-bbf7ce055c60"
-          ],
+          "interactions": ["7ed20ebf-7a25-4550-a977-bbf7ce055c60"],
           "description": "",
           "externalRefs": {
             "canvasAssignmentId": 1367581
@@ -921,18 +765,14 @@
           "path": "instruction/grafanaAnnotations/grafanaAnnotations.md",
           "id": "acca3798-9261-4b9e-aeef-f4821480d106",
           "state": "published",
-          "interactions": [
-            "afe37413-ccc0-4996-bc06-d97831bab8ae"
-          ]
+          "interactions": ["afe37413-ccc0-4996-bc06-d97831bab8ae"]
         },
         {
           "title": "Status",
           "path": "instruction/statusReporting/statusReporting.md",
           "id": "c12c055e-5494-4b22-8654-34ae9287ea9f",
           "state": "published",
-          "interactions": [
-            "73a6e15f-1e5a-40cd-a2de-6f1cae8d6534"
-          ]
+          "interactions": ["73a6e15f-1e5a-40cd-a2de-6f1cae8d6534"]
         }
       ]
     },
@@ -948,10 +788,7 @@
           "path": "instruction/syntheticTesting/syntheticTesting.md",
           "id": "f996d436-3c43-490d-9f05-7ad16faa4448",
           "state": "published",
-          "interactions": [
-            "6fe6f6c4-a049-4194-aae9-e5970ac89488",
-            "cb2d8e87-a446-45bd-a3a4-4e724cc0e9db"
-          ],
+          "interactions": ["6fe6f6c4-a049-4194-aae9-e5970ac89488", "cb2d8e87-a446-45bd-a3a4-4e724cc0e9db"],
           "description": ""
         },
         {
@@ -959,18 +796,14 @@
           "path": "instruction/loadTesting/loadTesting.md",
           "id": "9deaffa6-eb2d-463b-bd34-4c4e97309f1d",
           "state": "published",
-          "interactions": [
-            "2fe84494-417b-41c0-8a1d-0ab3619af125"
-          ]
+          "interactions": ["2fe84494-417b-41c0-8a1d-0ab3619af125"]
         },
         {
           "title": "Grafana K6",
           "path": "instruction/grafanaK6/grafanaK6.md",
           "id": "8537ce59-b427-4389-8f86-2adee79b3a80",
           "state": "published",
-          "interactions": [
-            "f63caa8c-6e31-472e-a0e5-170c165cead8"
-          ]
+          "interactions": ["f63caa8c-6e31-472e-a0e5-170c165cead8"]
         },
         {
           "title": "⭐ ⓾ Load testing: JWT Pizza Service",
@@ -979,9 +812,7 @@
           "path": "instruction/deliverable10LoadTesting/deliverable10LoadTesting.md",
           "id": "ec9512c5-1fe8-4f21-be64-366f86ce1813",
           "state": "published",
-          "interactions": [
-            "69839e67-9763-4434-a6d8-4e0713380a08"
-          ],
+          "interactions": ["69839e67-9763-4434-a6d8-4e0713380a08"],
           "description": "",
           "externalRefs": {
             "canvasAssignmentId": 1367582
@@ -1000,31 +831,31 @@
           "path": "instruction/failure/failure.md",
           "id": "59dad582-52f1-46dc-8339-0e163229395a",
           "state": "published",
-          "interactions": [
-            "99167dac-a89d-4169-a015-6d14a96436ea"
-          ]
+          "interactions": ["99167dac-a89d-4169-a015-6d14a96436ea"]
         },
         {
           "title": "Backup and Recovery",
           "path": "instruction/recovery/recovery.md",
           "id": "3c9248ae-2de2-441a-a3be-5ac165a3ad44",
           "state": "published",
-          "interactions": [
-            "69a2b0e5-8666-4687-bdc1-35811f774677"
-          ]
+          "interactions": ["69a2b0e5-8666-4687-bdc1-35811f774677"]
         },
         {
           "title": "Alerts",
           "path": "instruction/alerting/alerting.md",
           "id": "16c64557-76a7-497c-b4dc-69c52181ce78",
           "state": "published",
-          "interactions": [
-            "9ba09a6f-2224-447f-b866-2e6d348b0156"
-          ]
+          "interactions": ["9ba09a6f-2224-447f-b866-2e6d348b0156"]
+        },
+        {
+          "title": "Grafana Alerts",
+          "type": "instruction",
+          "path": "instruction/grafanaAlerts/grafanaAlerts.md",
+          "id": "b24f016d-f868-4ef8-aa4d-3601c04d0d73",
+          "state": "published"
         },
         {
           "title": "Grafana OnCall",
-          "type": "instruction",
           "path": "instruction/grafanaOnCall/grafanaOnCall.md",
           "id": "a14f016d-f868-4ef8-aa4d-3601c04d0d62",
           "state": "published",
@@ -1061,9 +892,7 @@
           "path": "instruction/deliverable11ChaosTesting/deliverable11ChaosTesting.md",
           "id": "109aac9b-5942-4acf-badb-0a70ceb93ae9",
           "state": "published",
-          "interactions": [
-            "0fc6c832-d9b7-470f-a3b5-f09b675079f2"
-          ],
+          "interactions": ["0fc6c832-d9b7-470f-a3b5-f09b675079f2"],
           "description": "",
           "externalRefs": {
             "canvasAssignmentId": 1367583
@@ -1108,9 +937,7 @@
           "path": "instruction/deliverable12PenetrationTesting/deliverable12PenetrationTesting.md",
           "id": "e1023bf5-69db-4d7b-a249-944f41404039",
           "state": "published",
-          "interactions": [
-            "088a9049-e569-4f36-9ee7-aca2ce343435"
-          ],
+          "interactions": ["088a9049-e569-4f36-9ee7-aca2ce343435"],
           "description": "",
           "externalRefs": {
             "canvasAssignmentId": 1367584
@@ -1131,9 +958,7 @@
           "path": "instruction/christlikeLearningConclusion/christlikeLearningConclusion.md",
           "id": "c411e1bf-87ab-497c-ae5c-4e5d79244369",
           "state": "published",
-          "interactions": [
-            "e144e3cc-c7da-412a-9814-914e96955809"
-          ],
+          "interactions": ["e144e3cc-c7da-412a-9814-914e96955809"],
           "description": "",
           "externalRefs": {
             "canvasAssignmentId": 1367585
@@ -1144,9 +969,7 @@
           "path": "instruction/wrapUp/wrapUp.md",
           "id": "8cfd04f3-ec28-40e8-b747-67e50fa6ef5a",
           "state": "published",
-          "interactions": [
-            "431d3154-c324-48e7-b2a4-da857e3281b1"
-          ],
+          "interactions": ["431d3154-c324-48e7-b2a4-da857e3281b1"],
           "externalRefs": {
             "canvasPageId": 1576573
           }
