@@ -41,3 +41,17 @@ Another valuable contribution that you can derive from metrics is their aid to r
 Keeping detailed metrics at the per second level is expensive. In a system that tracks 1000 metrics every second, you will accumulate _86 million_ values every day. 1000 metrics seems like a lot, but if you have 10 servers each reporting system values (easily 20 metrics), individual endpoint counts (another 50), and other service values such as purchases, authentication attempts, errors, and HTTP status codes (another 30), you will easily get to 100 metrics per server. Not to press the point, but for a large scale system 10 servers is a very small number.
 
 When you throw the costs of storing metrics on top of that, things can get expensive really quickly. One way to deal with this expense is to decrease the granularity of the stored metrics as time goes on. For example, keeping the metrics at one second as they are reported for the last 15 days, and then sampling down the metrics that are stored to one minute for the last 6 months, and then finally sampling down to 15 minutes for metrics that are stored for the past 10 years. This gives you the greatest granularity for the period that you are likely to need it, without incurring significant cost when you are more interested in broad historical trends.
+
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"45430638-d394-4b7f-a14f-5cacb7b7dc7a","title":"Determining Metric Volume","type":"multiple-choice"}
+When designing a monitoring or performance measurement framework, what is the most effective strategy for determining the quantity of metrics to capture?
+
+- [ ] Capture every possible data point available to ensure that any potential issue can be diagnosed through retrospective analysis.
+- [x] Focus on a concise set of actionable metrics that align with specific goals and provide clear signals for decision-making.
+- [ ] Maintain a strict limit of exactly five metrics per system to ensure consistency and simplicity across the organization.
+- [ ] Only collect metrics related to system failures or errors to minimize data noise and reduce storage costs.
+```
