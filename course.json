@@ -1061,10 +1061,12 @@
           ]
         },
         {
-          "title": "☑ Chaos testing",
+          "title": "Chaos testing",
+          "type": "instruction",
           "path": "instruction/chaosTesting/chaosTesting.md",
           "id": "73bbdaef-3c25-477a-9651-8366a246f86b",
-          "state": "published"
+          "state": "published",
+          "description": ""
         },
         {
           "title": "Incident report",
