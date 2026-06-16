@@ -53,3 +53,17 @@ When designing your logging strategy, consider the following:
 - **Efficiency:** Are you transmitting redundant information that could be derived elsewhere?
 
 Regardless of the specific design, the most important step is to start logging. You can refine the system as your application grows, but without a baseline of log data, you cannot effectively protect your application from failure or security threats.
+
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"fc0b7743-74ac-45f2-a6a6-fd4e4fc4b265","title":"Determining Log Volume","type":"multiple-choice"}
+When determining the appropriate volume of data to include in application logs, which principle best balances the needs of observability with system constraints?
+
+- [ ] Log every variable change and function entry/exit point in production to ensure total visibility into the execution flow.
+- [ ] Only log critical errors and stack traces to minimize storage costs and avoid any impact on application performance.
+- [ ] Include full request and response payloads for every transaction to facilitate the reproduction of user-reported issues.
+- [x] Log enough context to reconstruct the application state during an event while excluding sensitive information and redundant high-frequency data.
+```
