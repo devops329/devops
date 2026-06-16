@@ -123,6 +123,15 @@ A common mistake for DevOps teams is to create a playbook and then let it sit id
 
 The common DevOps phrase "test your system to failure" should always be coupled with "test your system to recovery."
 
+## ☑ Exercise
+
+
+```masteryls
+{"id":"9818347a-729c-4d46-8017-ffbde34b450d", "title":"Playbooks", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+Describe the essential components of a incident response playbook.
+```
+
+
 ## A bit of fun
 
 ![XKCD override](xkcdOverride.png)
