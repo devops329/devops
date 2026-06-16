@@ -151,3 +151,10 @@ Feel free to edit the panel and experiment with both the scenario and visualizat
 ## ☑ Exercise
 
 Follow the provided instruction to set up your Grafana Cloud account and create a dashboard with at least four visualizations using the TestData data source.
+
+
+```masteryls
+{"id":"f00f31f8-76c6-43c2-87f8-c05684e28fe8", "title":"Grafana metrics", "type":"file-submission"  }
+Submit a screenshot of your practice dashboard containing the four required metrics.
+```
+
