@@ -812,7 +812,10 @@
           "title": "Observability",
           "path": "instruction/observability/observability.md",
           "id": "c819aabe-4749-4984-9e29-1fc683a59dd3",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "04ffb66a-bd89-4e22-9737-ff27eba52837"
+          ]
         },
         {
           "title": "Metrics",
