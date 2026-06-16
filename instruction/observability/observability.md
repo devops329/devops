@@ -37,6 +37,8 @@ As defined in the [Google SRE Handbook](https://sre.google/sre-book/monitoring-d
 -   **Errors**: The rate of requests that fail, whether explicitly (e.g., HTTP 500s), implicitly (e.g., HTTP 200 but with the wrong content), or by policy (e.g., exceeding a timeout).
 -   **Saturation**: A measure of how "full" your service is, emphasizing the resources that are most constrained (e.g., memory or I/O).
 
+![goldenSignals.jpg](goldenSignals.jpg)
+
 Each signal indicates a different aspect of system health. For instance, a system might respond quickly (low latency) while generating a high volume of errors. Alternatively, error counts might seem high in isolation but represent a very low percentage of total traffic.
 
 ## Vital observability characteristics
