@@ -105,3 +105,9 @@ Now that you can manually trigger annotations, integrate this process into your 
     -H "Content-Type: application/json" \
     -d '{"dashboardUID":"xyz123", "panelId":15, "tags":["backend","production"], "text":"Version '"$version"' deployed" }'
 ```
+
+
+```masteryls
+{"id":"afe37413-ccc0-4996-bc06-d97831bab8ae", "title":"Grafana annotations", "type":"file-submission"  }
+Submit a screenshot of your dashboard displaying your deployment annotation.
+```
