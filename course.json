@@ -1008,7 +1008,10 @@
           "title": "Backup and Recovery",
           "path": "instruction/recovery/recovery.md",
           "id": "3c9248ae-2de2-441a-a3be-5ac165a3ad44",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "69a2b0e5-8666-4687-bdc1-35811f774677"
+          ]
         },
         {
           "title": "Alerts",
