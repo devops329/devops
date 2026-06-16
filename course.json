@@ -1131,10 +1131,12 @@
           ]
         },
         {
-          "title": "☑ Burp Suite",
+          "title": "Burp Suite",
+          "type": "instruction",
           "path": "instruction/burpSuite/burpSuite.md",
           "id": "c0324543-c478-4597-889c-5cd9b84f79ff",
-          "state": "published"
+          "state": "published",
+          "description": ""
         },
         {
           "title": "⭐ ⑫ Penetration testing: JWT Pizza",
