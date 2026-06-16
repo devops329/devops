@@ -830,7 +830,10 @@
           "title": "☑ Grafana",
           "path": "instruction/grafana/grafana.md",
           "id": "bbc952fb-6890-4b10-8703-0b3e2dc1ae36",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "f00f31f8-76c6-43c2-87f8-c05684e28fe8"
+          ]
         },
         {
           "title": "Grafana metrics",
