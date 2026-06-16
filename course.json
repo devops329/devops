@@ -1046,7 +1046,10 @@
           "title": "Playbooks",
           "path": "instruction/playbooks/playbooks.md",
           "id": "e21d54fb-f916-4844-bf20-13197a140edf",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "9818347a-729c-4d46-8017-ffbde34b450d"
+          ]
         },
         {
           "title": "Self healing",
