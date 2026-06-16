@@ -9,6 +9,8 @@
 
 Synthetic testing, often referred to as _active monitoring_, is a method of monitoring software applications by simulating user behavior through automated scripts. Unlike Real User Monitoring (RUM), which captures data from actual visitors, synthetic testing uses "probes" or "bots" to traverse critical paths at regular intervals (e.g., every 1 or 5 minutes) from various geographic locations. This approach allows teams to identify outages, performance regressions, and broken workflows before a single real user is impacted. This is critical because every time a customer discovers an issue, it erodes their confidence and encourages them to look elsewhere for a more stable solution.
 
+![syntheticTesting.jpg](syntheticTesting.jpg)
+
 In one sense, synthetic testing is the most authentic form of testing because it uses the actual production environment that your customers use. If your synthetic tests fail, it almost certainly means that your users are currently experiencing problems.
 
 A robust synthetic testing system seeks to recreate real-world usage. This means it must simulate requests from different devices and various geographical locations. This exercises factors that are usually outside the control of the application developer—such as hardware, bandwidth, and network connectivity—but are just as vital to the application's utility as functional correctness and database resilience.
