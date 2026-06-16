@@ -11,6 +11,8 @@
 
 The practice of intentionally injecting failure into an environment—including production—was popularized by Netflix. Their philosophy is that you should never have a single point of failure, and you can never be certain your system is resilient unless you proactively test its breaking points. 
 
+![netflixChaos.jpg](netflixChaos.jpg)
+
 Netflix began exploring these testing paradigms in 2010 during their transition from a monolithic data center architecture to a microservices architecture hosted on AWS. AWS offered significant layers of redundancy for critical resources within an on-demand, elastic cloud environment. This included:
 
 1. **Data center**: Multiple Availability Zones (AZs) in every region, with multiple regions across every continent.
@@ -48,8 +50,8 @@ The toolset Netflix built to inject chaos is known as the `Simian Army`. Differe
 - **Janitor Monkey**: Identifies and removes unused or wasted resources to keep the environment clean.
 - **Security Monkey**: Scans for security vulnerabilities or misconfigurations and terminates non-compliant instances.
 - **10-18 Monkey**: (Named for L-10-N and I-18-N) Detects configuration and usability issues related to localization and internationalization.
-- **Chaos Gorilla**: Simulates an entire Amazon Availability Zone outage to test regional failover.
-
+- **Chaos Gorilla**: Simulates an entire Amazon Availability Zone outage to test zone failover.
+- **Chaos Kong**: Simulates an entire AWS Region to test regional failover.
 ## What about you?
 
 Even if you don't immediately inject chaos into your production systems, the mental exercise of identifying single points of failure is invaluable. As Lee S. Jensen noted in 2012:
