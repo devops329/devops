@@ -60,6 +60,15 @@ Later in this module, you will have the opportunity to create your own incident 
 - [Template incident report](templateIncidentReport.md) for use with your chaos incident reporting.
 - [Example incident report](exampleIncidentReport.md) regarding the time Unix Time impacted internet services.
 
+## ☑ Exercise
+
+
+```masteryls
+{"id":"331b33de-f844-429a-84f3-fd219f5376d8", "title":"Essay", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+Create a customer facing summary paragraph for an incident report.
+```
+
+
 ## A bit of fun
 
 ![XKCD Automation](xkcdExistentialBugReports.png)
