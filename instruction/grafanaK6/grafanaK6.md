@@ -242,6 +242,6 @@ Congratulations! You have successfully created and analyzed your first load test
 
 
 ```masteryls
-{"id":"f63caa8c-6e31-472e-a0e5-170c165cead8", "title":"File submission", "type":"file-submission", "gradingCriteria":"Must contain a representation of a Grafana K6 execution of a load test"  }
+{"id":"f63caa8c-6e31-472e-a0e5-170c165cead8", "title":"Grafana K6", "type":"file-submission", "gradingCriteria":"Must contain a representation of a Grafana K6 execution of a load test"  }
 Submit a screenshot of the K6 execution graph over the entire duration of your test.
 ```
