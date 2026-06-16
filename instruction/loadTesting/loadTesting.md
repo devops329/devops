@@ -13,7 +13,9 @@
 
 Load testing is a non-functional testing technique designed to evaluate how a system performs under both normal and anticipated peak conditions. Unlike stress testing, which aims to find the "breaking point" of an application, load testing focuses on whether the system can handle a specific volume of transactions while maintaining acceptable response times. The primary goal is to identify performance bottlenecks before they affect end-users in a production environment.
 
-For example, if you expect 1,000 concurrent customers but your server can only handle 100, it is vital to know this before launch. You don't want to wait until your application is successful to realize it cannot handle the weight of that success.
+![loadTesting.jpg](loadTesting.jpg)
+
+For example, if you expect 1,000 concurrent customers but your server can only handle 100, it is vital to know this before launch. You don't want to wait until your application is growing in popularity to realize it cannot handle the weight of that success.
 
 
 ### Why We Load Test
