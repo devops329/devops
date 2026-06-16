@@ -2,84 +2,81 @@
 
 🔑 **Key points**
 
-- Metric based alerts significantly decrease response times.
-- Alerts are defined by triggering thresholds and responding parties.
+- Metric-based alerts significantly decrease response times.
+- Alerts are defined by triggering thresholds and designated responding parties.
 
 ---
 
-A critical piece of any observability architecture is the automatic notification of a problem that needs human intervention. Without an alert, a problem may persist for hours, days, or even months before it is resolved. Counterintuitively, the more observability data you acquire and store, the more likely it is that a problem will be missed by manual review of a metric dashboard.
+A critical piece of any observability architecture is the automatic notification of problems that require human intervention. Without automated alerts, issues may persist for hours, days, or even months before resolution. Counterintuitively, as the volume of observability data increases, the likelihood of missing a problem during manual dashboard reviews also rises.
 
-![Alerting](alterting.png)
+![Alerting](alerting.png)
 
-An effective alerting system consists of the following parts:
+An effective alerting system consists of the following components:
 
 1. Critical metrics identification
-1. Alert rule definition
-1. Notification infrastructure
-1. On call staff
-1. Escalation procedure
+2. Alert rule definition
+3. Notification infrastructure
+4. On-call staff
+5. Escalation procedures
 
 ## Defining alerts
 
-Before you can enable actionable alerts, you need to identify the metrics that signify a problem in the system. Some metrics are obvious, such as running out of memory or storage space. Other metrics require you to spend time reviewing code, architecture, and reported values of existing metrics.
+Before enabling actionable alerts, you must identify the metrics that signify a system problem. Some metrics are obvious, such as exhausted memory or storage space. Others require careful review of code, architecture, and the historical values of existing metrics.
 
-Keep a prioritized list of metrics that you believe have a direct impact on the system, and then review their historical values to see if they correlate with significant incidents. When an incident does occur, review the metrics and find the key indicators that would have led to a prompt resolution.
+Maintain a prioritized list of metrics that have a direct impact on the system, and review their historical values to see if they correlate with significant incidents. When an incident occurs, analyze the metrics to identify the key indicators that would have led to a prompter resolution.
 
 ### Common critical alerts
 
-- **Security**: Increased authentication attempts, abnormal traffic from an individual user, access from concurrent geolocations, common vulnerability requests, and traffic increases during off hours.
-- **Resource exhaustion**: CPU, storage, memory, bandwidth capacity is nearing critical levels.
+- **Security**: Increased authentication failures, abnormal traffic from an individual user, access from concurrent geolocations, common vulnerability probes, and traffic spikes during off-hours.
+- **Resource exhaustion**: CPU, storage, memory, or bandwidth capacity nearing critical limits.
 - **Request latency**: Slow response times for customer requests.
-- **Excessive load**: Usage increases that exceed the elastic properties of the system.
+- **Excessive load**: Usage increases that exceed the elastic scaling properties of the system.
 
 ### Defining thresholds
 
-For each critical metric that you define, you need to define the threshold at which the metric needs attention. For example, with a metric such as CPU you never want it to get close to 100%. Your system should be automatically alerting and adjusting the compute capacity when it consistently falls into the 80% range.
+For each critical metric, you must define the threshold at which the system requires attention. For example, you should never allow CPU utilization to reach 100%. Instead, the system should automatically alert and adjust compute capacity when utilization consistently reaches the 80% range.
 
 ![Alert thresholds](alertThresholds.png)
 
-With some metrics, such as request latency, you need to carefully consider outliers. If your request latency averages at 50ms you might consider that as successful. However, if you inspect the 99.9th percentile you might discover that those requests are taking 30,000ms. That means that 1 in 1000 requests are prohibitively expensive. Even then you might not consider this a problem until you realize that in order to render a web page you must make dozens of endpoint requests. If one in ten page renderings hit the slow endpoint, that means 10% of your customers are having an extremely poor experience.
+When monitoring metrics like request latency, consider outliers carefully. While an average request latency of 50ms may seem successful, inspecting the 99.9th percentile might reveal that some requests take 30,000ms. This means 1 in 1,000 requests is prohibitively slow. If rendering a single web page requires dozens of endpoint requests, 10% of your customers could experience an extremely poor load time.
 
-## Alert Rules
+## Alert rules
 
-Once you have identified the critical metrics you are ready to define your alerting rules. Rules can be triggered by anything, but usually they are triggered either by metrics or logs. A rule usually has the following fields.
+Once you have identified critical metrics, you can define alerting rules. While rules can be triggered by various conditions, they are most commonly based on metrics or logs. A standard rule includes the following fields:
 
-| Field       | Description                                                                                                    | Example            |
-| ----------- | -------------------------------------------------------------------------------------------------------------- | ------------------ |
-| **Name**    | A clear, unique, descriptive name                                                                              | Available storage  |
-| **Metric**  | The metric, or metrics, the rule examines                                                                      | Server disk space  |
-| **Trigger** | The metric threshold that causes the rule to trigger. A trigger will often combine a threshold and a duration. | <10% for 5 minutes |
-| **Level**   | The level of alert it triggers. Critical, Warning, or Informational.                                           | Warning            |
+| Field | Description | Example |
+| :--- | :--- | :--- |
+| **Name** | A clear, unique, and descriptive name | Available storage |
+| **Metric** | The specific metric(s) the rule examines | Server disk space |
+| **Trigger** | The threshold and duration that trigger the alert | Less than 10% for 5 minutes |
+| **Level** | The severity of the alert: Critical, Warning, or Informational | Warning |
 
-### Metrics based alerts
+### Metric-based alerts
 
-Metrics based alerts are triggered based on the values of metrics.
-Within this category, we can have alerts triggered by state conditions or metric thresholds. The state conditions are things like a container being down, or the number of instances being less than a certain number. The metric thresholds are things like the available memory being less than 5% for more than 5 minutes.
+Metric-based alerts are triggered by specific values or states. Within this category, alerts are usually triggered by state conditions or numerical thresholds. State conditions include events like a container crashing or the instance count falling below a required minimum. Metric thresholds involve values such as available memory dropping below 5% for more than five minutes.
 
 ![Low memory](lowMemoryMetric.png)
 
-### Log based alerts
+### Log-based alerts
 
-Log based alerts are triggered based on the contents of logs. For example, if the logs contain the word "error" more than 10 times in a minute, then an alert is triggered.
+Log-based alerts are triggered by the contents of system logs. For example, if logs contain the word "error" more than 10 times in a single minute, an alert is triggered.
 
-The following show an attacker attempting to probe our Pizza Service for known security holes. They have bypassed the DNS name of the service and have obtained the public IP address directly. In this case you might trigger an information alert if the probe traffic exceeds a certain level, or if the same source IP address is later used in a legitimate request.
+The following example shows an attacker attempting to probe a "Pizza Service" for known security vulnerabilities. They have bypassed the service's DNS name and are accessing the public IP address directly. In this scenario, you might trigger an informational alert if probe traffic exceeds a certain threshold or if that source IP address is later used in a legitimate request.
 
 ![Security violation logs](securityViolationLogs.png)
 
 ## Handling alerts
 
-When an alert is triggered the appropriate response must be initiated. The [Google SRE handbook](https://sre.google/sre-book/practical-alerting/) gives a basic structure for handling alerts.
+When an alert is triggered, the system must initiate the appropriate response. The [Google SRE Handbook](https://sre.google/sre-book/practical-alerting/) provides a basic structure for categorizing and handling alerts:
 
-- **Critical** alerts are sent to the On-Call team, a team who is scheduled to be available for immediate response. This team has the access and capabilities required to resolve or escalate the incident.
-- **Sub-critical** alerts are inserted into a ticketing system for team members to handle during normal working hours.
-- **Informational** alerts are retained for review when convenient. This is commonly reviewed as an aggregated digest in a monthly operational meeting.
+- **Critical alerts**: Sent to the on-call team—staff scheduled for immediate response. This team has the access and authorization required to resolve or escalate the incident.
+- **Sub-critical alerts**: Recorded in a ticketing system for team members to address during normal working hours.
+- **Informational alerts**: Retained for later review. These are commonly analyzed as an aggregated digest during monthly operational meetings.
 
-Once an alert has triggered and the appropriate party notified, the alerting system will require an acknowledgement. If no acknowledgement is given then the system will escalate the alert to additional parties until an acknowledgement is received.
-
-Once the incident is resolved the handling party will close the incident with the alerting system. This prevents the system from escalating the incident further.
+Once an alert is triggered and the appropriate party is notified, the system typically requires an acknowledgment. If no acknowledgment is received, the system escalates the alert to additional parties until a response is recorded. Once the incident is resolved, the responder closes the alert to prevent further escalation.
 
 ## A bit of fun
 
 ![XKCD Automation](xkcdPhone.png)
 
-> _source: [XKCD](https://xkcd.com/1802/)_
+> _Source: [XKCD](https://xkcd.com/1802/)_
