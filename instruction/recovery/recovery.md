@@ -23,6 +23,8 @@ Regardless of the resolution, you should deploy an **immediate** fix to restore 
 
 Two main metrics guide the design of backup and recovery systems: **RTO** (Recovery Time Objective) and **RPO** (Recovery Point Objective). Defining and testing these objectives allows your organization and customers to set realistic expectations for service availability.
 
+![rpoRto.jpg](rpoRto.jpg)
+
 ### Recovery Point Objective (RPO)
 
 **RPO** is the maximum acceptable amount of data loss measured in time. It represents the point in time to which data must be recovered to resume acceptable operations. 
@@ -38,6 +40,7 @@ An RPO of 5 minutes means that a failure should result in no more than 5 minutes
 **RTO** is the maximum duration of time allowed to restore a system to functional health after a failure. While the system is "up" once the RTO is met, it does not guarantee that all historical data is immediately accessible (which is the concern of the RPO).
 
 RTO determines the level of architectural redundancy required to replace failing components quickly.
+
 
 #### Example
 
