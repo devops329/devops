@@ -889,13 +889,15 @@
           ]
         },
         {
-          "title": "☑ Grafana logging",
+          "title": "Grafana logging",
+          "type": "instruction",
           "path": "instruction/grafanaLogging/grafanaLogging.md",
           "id": "09871e69-7956-4da0-beb3-1a062feeb9b5",
           "state": "published",
           "interactions": [
             "f8cee810-66ac-4d00-ac2c-2087febad5e8"
-          ]
+          ],
+          "description": ""
         },
         {
           "title": "⭐ ⓽ Logging: JWT Pizza Service",
