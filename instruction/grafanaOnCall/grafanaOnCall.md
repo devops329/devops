@@ -90,7 +90,25 @@ Grafana automatically adds annotations to the visualization showing when the ale
 
 ![Alert annotation](alertAnnotation.png)
 
+
+## ☑ Exercise
+
+Complete the tutorial above to generate a live alert from your metrics using Grafana OnCall. 
+
+**Deliverable**: Capture a screenshot of the resolved alert from the **Alerts & IRM > IRM > Alert groups** view. The timeline should show the alert firing, being acknowledged, and finally being resolved.
+
+![Resolved alert](resolvedAlert.png)
+
+<br/>
+<br/>
+
+---
+
 ## OnCall
+
+> [!NOTE]
+>
+> Grafana OnCall is meant for enterprise level application support. The following information describes how an enterprise support team would operate. However, there is no expectation that you actually implement OnCall for your JWT Pizza applicaiton.
 
 While simple alerts work for individuals, teams of DevOps engineers require advanced coordination. Grafana **OnCall** provides several enterprise-level features:
 
@@ -203,11 +221,3 @@ Finally, connect your actual metric metrics to the OnCall system.
 4. **Save rule and exit**.
 
 When the alert triggers, it will now follow the OnCall escalation chain, notifying your phone and allowing you to manage the incident through the IRM dashboard.
-
-## ☑ Exercise
-
-Complete the tutorial above to generate a live alert from your metrics using Grafana OnCall. 
-
-**Deliverable**: Capture a screenshot of the resolved alert from the **Alerts & IRM > IRM > Alert groups** view. The timeline should show the alert firing, being acknowledged, and finally being resolved.
-
-![Resolved alert](resolvedAlert.png)
