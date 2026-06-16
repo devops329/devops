@@ -1017,7 +1017,10 @@
           "title": "Alerts",
           "path": "instruction/alerting/alerting.md",
           "id": "16c64557-76a7-497c-b4dc-69c52181ce78",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "9ba09a6f-2224-447f-b866-2e6d348b0156"
+          ]
         },
         {
           "title": "☑ Grafana OnCall",
