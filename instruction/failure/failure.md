@@ -16,6 +16,8 @@ Being **proactive** involves an upfront investment to theorize, design, and impl
 
 Being **reactive** is a viable solution if you can respond before the failure causes significant impact. This requires significant investment in system observability, rapid automation, and the ability to quickly revert problematic deployments or configuration changes.
 
+
+
 Effective DevOps engineers utilize a combination of both proactive and reactive approaches. Proactive strategies are essential when the cost of repair is high, such as the loss of vital customer data. Reactive strategies are effective when a failure can be easily isolated, allowing the system to automatically remove a faulty component and redeploy a replacement. Once isolated, the faulty component is analyzed to improve the system and prevent recurrence.
 
 ## Levels of failure
@@ -58,6 +60,8 @@ Modern cloud infrastructure makes it easier to build scalability into an applica
 ## Security failure
 
 Failure is not always the result of internal shortcomings; external bad actors may actively seek to profit from your system's vulnerabilities. Security failures—including DDoS (Distributed Denial of Service) attacks, ransomware, intellectual property theft, or identity theft—have destroyed otherwise successful companies. You must assume that a security event is not a matter of *if*, but *when*.
+
+![securityFailure.jpg](securityFailure.jpg)
 
 Defend against security failures by implementing these best practices:
 
