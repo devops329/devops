@@ -11,11 +11,13 @@
 
 📖 **Deeper dive reading**: [Grafana OnCall Documentation](https://grafana.com/docs/oncall)
 
-Grafana generates alerts based on metric thresholds defined within a visualization. These alerts can trigger a wide variety of notification types, including emails, Discord posts, PagerDuty incidents, AWS Simple Notification Service (SNS) messages, or generic HTTP webhooks. Grafana also provides a sophisticated incident management system named **OnCall**, which facilitates team management, rotation schedules, and complex escalation policies.
 
-> [!NOTE]
+> [!IMPORTANT]
 >
 > Grafana OnCall is meant for enterprise level application support. The following information describes how an enterprise support team would operate. However, there is no expectation that you actually implement OnCall for your JWT Pizza applicaiton.
+
+
+Grafana generates alerts based on metric thresholds defined within a visualization. These alerts can trigger a wide variety of notification types, including emails, Discord posts, PagerDuty incidents, AWS Simple Notification Service (SNS) messages, or generic HTTP webhooks. Grafana also provides a sophisticated incident management system named **OnCall**, which facilitates team management, rotation schedules, and complex escalation policies.
 
 While simple alerts work for individuals, teams of DevOps engineers require advanced coordination. Grafana **OnCall** provides several enterprise-level features:
 
@@ -132,3 +134,18 @@ When the alert triggers, it will now follow the OnCall escalation chain, notifyi
 When the alert is resolved it will move into the **Resolved** state.
 
 ![Resolved alert](resolvedAlert.png)
+
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"17af209d-f2a3-469f-8cb6-86a98ac677e1","title":"OnCall vs. Standard Alerting","type":"multiple-choice"}
+While standard Grafana dashboard alerts can notify a team when a metric threshold is crossed, what primary advantage does Grafana OnCall offer for managing complex incident response?
+
+- [ ] It allows users to write more complex PromQL and LogQL queries that are not supported by the standard Grafana alerting engine.
+- [ ] It automatically executes infrastructure-as-code scripts to restart failing services before a human is notified.
+- [x] It provides sophisticated scheduling and escalation chains to ensure alerts are routed to the correct person based on a rotation.
+- [ ] It increases the visual resolution of dashboard panels to provide more granular detail during a system outage.
+```
+
