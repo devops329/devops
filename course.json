@@ -944,7 +944,11 @@
           "title": "☑ Synthetic testing",
           "path": "instruction/syntheticTesting/syntheticTesting.md",
           "id": "f996d436-3c43-490d-9f05-7ad16faa4448",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "6fe6f6c4-a049-4194-aae9-e5970ac89488",
+            "cb2d8e87-a446-45bd-a3a4-4e724cc0e9db"
+          ]
         },
         {
           "title": "Load testing",
