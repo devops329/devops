@@ -304,3 +304,13 @@ rate(latency_milliseconds_total[1m])
 With that change your visualization should show clearly what your CPU, requests, and latency are as they change over time.
 
 ![alt text](metricWithRateVisualization.png)
+
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"9c7eb5d7-4391-4f84-b0a3-f926cb4ff55b", "title":"Grafana metrics", "type":"file-submission"  }
+Submit a screenshot of your metrics dashboard.
+```
+
