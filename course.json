@@ -566,7 +566,7 @@
           "id": "06b8c571-e160-4be2-be14-db93ec649203",
           "state": "published",
           "interactions": [
-            "8c1b8dfa-32a0-4b1e-a455-e8f0c0713c16"
+            "6c137756-4306-431c-bec8-bc44706cff71"
           ],
           "description": "",
           "externalRefs": {
@@ -624,7 +624,10 @@
           "title": "Deployment environments",
           "path": "instruction/deploymentEnvironments/deploymentEnvironments.md",
           "id": "7e7a99cb-2445-4f85-8cf8-32633389ece9",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "1a9938e0-b7ba-4313-98e3-04046c3862b6"
+          ]
         },
         {
           "title": "GitHub environments",
