@@ -1181,6 +1181,14 @@
           "interactions": [
             "431d3154-c324-48e7-b2a4-da857e3281b1"
           ]
+        },
+        {
+          "title": "Final - Job Interview",
+          "type": "interview",
+          "points": 100,
+          "path": "instruction/final-job-interview/final-job-interview.md",
+          "id": "d3848a4e-c0a3-4f61-8ecc-4b2f9673f65d",
+          "description": ""
         }
       ]
     }
