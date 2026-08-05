@@ -11,11 +11,11 @@ This course provides you with the experience and skills necessary to deploy, man
 
 ## Outcomes
 
-- **Automation** - Design and implement automated testing and delivery workflows, valuing disciplined practices that foster trust, quality, and continuous improvement.|
-- **Observability** - Analyze software systems using evidence and metrics, cultivating intellectual humility and informed judgment.|
-- **Collaboration** - Collaborate effectively with peers to improve software quality and delivery, developing habits of respect, accountability, and Christlike service.|
-- **Leadership** - Evaluate the practical and ethical implications of QA and DevOps decisions, strengthening integrity and responsible stewardship of technology and its impact on others.|
-- **Learning** - Assess emerging tools and practices in quality assurance and DevOps, fostering lifelong learning, curiosity, and creativity while magnifying the ability to serve and bless others.|
+- **Automation** - Design and implement automated testing and delivery workflows, valuing disciplined practices that foster trust, quality, and continuous improvement.
+- **Observability** - Analyze software systems using evidence and metrics, cultivating intellectual humility and informed judgment.
+- **Collaboration** - Collaborate effectively with peers to improve software quality and delivery, developing habits of respect, accountability, and Christlike service.
+- **Leadership** - Evaluate the practical and ethical implications of QA and DevOps decisions, strengthening integrity and responsible stewardship of technology and its impact on others.
+- **Learning** - Assess emerging tools and practices in quality assurance and DevOps, fostering lifelong learning, curiosity, and creativity while magnifying the ability to serve and bless others.
 
 ```masteryls
 {"id":"c4a3c902-38d2-4e23-ac1a-8b1695c61b75", "title":"Where are you?", "type":"likert", "showResults":"editor", "required":"true"}
