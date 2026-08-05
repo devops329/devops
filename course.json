@@ -27,9 +27,6 @@
   "modules": [
     {
       "title": "Course info",
-      "externalRefs": {
-        "canvasModuleId": 402803
-      },
       "topics": [
         {
           "title": "Home",
@@ -38,10 +35,7 @@
           "state": "published",
           "interactions": [
             "c4a3c902-38d2-4e23-ac1a-8b1695c61b75"
-          ],
-          "externalRefs": {
-            "canvasPageId": 1616685
-          }
+          ]
         },
         {
           "title": "Syllabus",
@@ -66,7 +60,7 @@
     {
       "title": "Getting started",
       "externalRefs": {
-        "canvasModuleId": 402804
+        "canvasModuleId": 402434
       },
       "topics": [
         {
@@ -181,7 +175,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1407728
+            "canvasAssignmentId": 1406150
           }
         },
         {
@@ -196,7 +190,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1407729
+            "canvasAssignmentId": 1406151
           }
         },
         {
@@ -221,7 +215,7 @@
     {
       "title": "Simple deployment",
       "externalRefs": {
-        "canvasModuleId": 402805
+        "canvasModuleId": 402435
       },
       "topics": [
         {
@@ -287,7 +281,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1407731
+            "canvasAssignmentId": 1406152
           }
         },
         {
@@ -353,7 +347,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1407732
+            "canvasAssignmentId": 1406153
           }
         },
         {
@@ -369,7 +363,7 @@
     {
       "title": "Quality assurance",
       "externalRefs": {
-        "canvasModuleId": 402806
+        "canvasModuleId": 402436
       },
       "topics": [
         {
@@ -472,7 +466,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1407733
+            "canvasAssignmentId": 1406154
           }
         },
         {
@@ -515,7 +509,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1407734
+            "canvasAssignmentId": 1406155
           }
         },
         {
@@ -567,7 +561,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1407735
+            "canvasAssignmentId": 1406156
           }
         }
       ]
@@ -575,7 +569,7 @@
     {
       "title": "Cloud deployment",
       "externalRefs": {
-        "canvasModuleId": 402807
+        "canvasModuleId": 402437
       },
       "topics": [
         {
@@ -647,7 +641,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1407736
+            "canvasAssignmentId": 1406157
           }
         },
         {
@@ -733,7 +727,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1407737
+            "canvasAssignmentId": 1406158
           }
         },
         {
@@ -807,7 +801,7 @@
     {
       "title": "Observability",
       "externalRefs": {
-        "canvasModuleId": 402808
+        "canvasModuleId": 402438
       },
       "topics": [
         {
@@ -878,7 +872,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1407738
+            "canvasAssignmentId": 1406159
           }
         },
         {
@@ -913,7 +907,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1407739
+            "canvasAssignmentId": 1406160
           }
         },
         {
@@ -939,7 +933,7 @@
     {
       "title": "E2E testing",
       "externalRefs": {
-        "canvasModuleId": 402809
+        "canvasModuleId": 402439
       },
       "topics": [
         {
@@ -984,7 +978,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1407740
+            "canvasAssignmentId": 1406161
           }
         }
       ]
@@ -992,7 +986,7 @@
     {
       "title": "Failure testing",
       "externalRefs": {
-        "canvasModuleId": 402810
+        "canvasModuleId": 402440
       },
       "topics": [
         {
@@ -1092,7 +1086,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1407741
+            "canvasAssignmentId": 1406162
           }
         }
       ]
@@ -1100,7 +1094,7 @@
     {
       "title": "Penetration testing",
       "externalRefs": {
-        "canvasModuleId": 402811
+        "canvasModuleId": 402441
       },
       "topics": [
         {
@@ -1153,7 +1147,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1407742
+            "canvasAssignmentId": 1406163
           }
         }
       ]
@@ -1161,7 +1155,7 @@
     {
       "title": "Conclusion",
       "externalRefs": {
-        "canvasModuleId": 402812
+        "canvasModuleId": 402442
       },
       "topics": [
         {
@@ -1176,19 +1170,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1407743
-          }
-        },
-        {
-          "title": "⭐ Wrap up",
-          "path": "instruction/wrapUp/wrapUp.md",
-          "id": "8cfd04f3-ec28-40e8-b747-67e50fa6ef5a",
-          "state": "published",
-          "interactions": [
-            "431d3154-c324-48e7-b2a4-da857e3281b1"
-          ],
-          "externalRefs": {
-            "canvasPageId": 1616686
+            "canvasAssignmentId": 1406164
           }
         },
         {
@@ -1197,10 +1179,19 @@
           "points": 100,
           "path": "instruction/final-job-interview/final-job-interview.md",
           "id": "d3848a4e-c0a3-4f61-8ecc-4b2f9673f65d",
-          "description": "",
-          "externalRefs": {
-            "canvasAssignmentId": 1407744
-          }
+          "state": "published",
+          "description": ""
+        },
+        {
+          "title": "Wrap up",
+          "type": "instruction",
+          "path": "instruction/wrapUp/wrapUp.md",
+          "id": "8cfd04f3-ec28-40e8-b747-67e50fa6ef5a",
+          "state": "published",
+          "interactions": [
+            "431d3154-c324-48e7-b2a4-da857e3281b1"
+          ],
+          "description": ""
         }
       ]
     }
