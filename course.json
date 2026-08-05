@@ -35,7 +35,10 @@
           "state": "published",
           "interactions": [
             "c4a3c902-38d2-4e23-ac1a-8b1695c61b75"
-          ]
+          ],
+          "externalRefs": {
+            "canvasPageId": 1616685
+          }
         },
         {
           "title": "Syllabus",
@@ -175,7 +178,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1406150
+            "canvasAssignmentId": 1407728
           }
         },
         {
@@ -190,7 +193,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1406151
+            "canvasAssignmentId": 1407729
           }
         },
         {
@@ -281,7 +284,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1406152
+            "canvasAssignmentId": 1407731
           }
         },
         {
@@ -347,7 +350,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1406153
+            "canvasAssignmentId": 1407732
           }
         },
         {
@@ -466,7 +469,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1406154
+            "canvasAssignmentId": 1407733
           }
         },
         {
@@ -509,7 +512,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1406155
+            "canvasAssignmentId": 1407734
           }
         },
         {
@@ -561,7 +564,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1406156
+            "canvasAssignmentId": 1407735
           }
         }
       ]
@@ -641,7 +644,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1406157
+            "canvasAssignmentId": 1407736
           }
         },
         {
@@ -727,7 +730,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1406158
+            "canvasAssignmentId": 1407737
           }
         },
         {
@@ -872,7 +875,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1406159
+            "canvasAssignmentId": 1407738
           }
         },
         {
@@ -907,7 +910,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1406160
+            "canvasAssignmentId": 1407739
           }
         },
         {
@@ -978,7 +981,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1406161
+            "canvasAssignmentId": 1407740
           }
         }
       ]
@@ -1086,7 +1089,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1406162
+            "canvasAssignmentId": 1407741
           }
         }
       ]
@@ -1147,7 +1150,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1406163
+            "canvasAssignmentId": 1407742
           }
         }
       ]
@@ -1170,7 +1173,7 @@
           ],
           "description": "",
           "externalRefs": {
-            "canvasAssignmentId": 1406164
+            "canvasAssignmentId": 1407743
           }
         },
         {
@@ -1180,7 +1183,10 @@
           "path": "instruction/final-job-interview/final-job-interview.md",
           "id": "d3848a4e-c0a3-4f61-8ecc-4b2f9673f65d",
           "state": "published",
-          "description": ""
+          "description": "",
+          "externalRefs": {
+            "canvasAssignmentId": 1407744
+          }
         },
         {
           "title": "Wrap up",
