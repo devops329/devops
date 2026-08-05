@@ -1174,13 +1174,15 @@
           }
         },
         {
-          "title": "⭐ Wrap up",
+          "title": "Wrap up",
+          "type": "instruction",
           "path": "instruction/wrapUp/wrapUp.md",
           "id": "8cfd04f3-ec28-40e8-b747-67e50fa6ef5a",
           "state": "published",
           "interactions": [
             "431d3154-c324-48e7-b2a4-da857e3281b1"
-          ]
+          ],
+          "description": ""
         },
         {
           "title": "Final - Job Interview",
@@ -1188,6 +1190,7 @@
           "points": 100,
           "path": "instruction/final-job-interview/final-job-interview.md",
           "id": "d3848a4e-c0a3-4f61-8ecc-4b2f9673f65d",
+          "state": "published",
           "description": ""
         }
       ]
