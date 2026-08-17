@@ -1,10 +1,6 @@
 {
   "title": "Quality Assurance & DevOps",
   "links": {},
-  "externalRefs": {
-    "canvasCourseId": "33932",
-    "canvasScheduleFileId": "fc1847c8-59b7-4692-ab93-d1f0bc2dee23"
-  },
   "schedule": {
     "id": "4cf43677-b255-424e-854f-e2a9418ddb5c",
     "files": [
@@ -35,10 +31,7 @@
           "state": "published",
           "interactions": [
             "c4a3c902-38d2-4e23-ac1a-8b1695c61b75"
-          ],
-          "externalRefs": {
-            "canvasPageId": 1616685
-          }
+          ]
         },
         {
           "title": "Syllabus",
@@ -62,9 +55,6 @@
     },
     {
       "title": "Getting started",
-      "externalRefs": {
-        "canvasModuleId": 402434
-      },
       "topics": [
         {
           "title": "Overview",
@@ -176,10 +166,7 @@
           "interactions": [
             "ad9f8fcc-e180-430a-aef1-9cce645bad04"
           ],
-          "description": "",
-          "externalRefs": {
-            "canvasAssignmentId": 1407728
-          }
+          "description": ""
         },
         {
           "title": "⭐ Curiosity report",
@@ -191,10 +178,7 @@
           "interactions": [
             "9778d76b-fad6-4c91-aba0-7bf564af9c50"
           ],
-          "description": "",
-          "externalRefs": {
-            "canvasAssignmentId": 1407729
-          }
+          "description": ""
         },
         {
           "title": "Asking Questions",
@@ -217,9 +201,6 @@
     },
     {
       "title": "Simple deployment",
-      "externalRefs": {
-        "canvasModuleId": 402435
-      },
       "topics": [
         {
           "title": "JWT Pizza Service",
@@ -282,10 +263,7 @@
           "interactions": [
             "4261e0b4-655b-4740-9f3b-52f50d1fa29f"
           ],
-          "description": "",
-          "externalRefs": {
-            "canvasAssignmentId": 1407731
-          }
+          "description": ""
         },
         {
           "title": "Automation",
@@ -348,10 +326,7 @@
           "interactions": [
             "86fcd4b4-0b56-4c6b-8e23-9bb967f9c061"
           ],
-          "description": "",
-          "externalRefs": {
-            "canvasAssignmentId": 1407732
-          }
+          "description": ""
         },
         {
           "title": "⓶ Video",
@@ -365,9 +340,6 @@
     },
     {
       "title": "Quality assurance",
-      "externalRefs": {
-        "canvasModuleId": 402436
-      },
       "topics": [
         {
           "title": "Testing",
@@ -467,10 +439,7 @@
           "interactions": [
             "57ca73af-feb2-4abb-8e37-1c542c7f4fb9"
           ],
-          "description": "",
-          "externalRefs": {
-            "canvasAssignmentId": 1407733
-          }
+          "description": ""
         },
         {
           "title": "⓷ Video",
@@ -510,10 +479,7 @@
           "interactions": [
             "20b2c9ef-5f27-4aa9-bc34-bfc8cdd04199"
           ],
-          "description": "",
-          "externalRefs": {
-            "canvasAssignmentId": 1407734
-          }
+          "description": ""
         },
         {
           "title": "⓸ Video",
@@ -562,18 +528,12 @@
           "interactions": [
             "6c137756-4306-431c-bec8-bc44706cff71"
           ],
-          "description": "",
-          "externalRefs": {
-            "canvasAssignmentId": 1407735
-          }
+          "description": ""
         }
       ]
     },
     {
       "title": "Cloud deployment",
-      "externalRefs": {
-        "canvasModuleId": 402437
-      },
       "topics": [
         {
           "title": "Cloud deployment",
@@ -642,10 +602,7 @@
           "interactions": [
             "837b0841-1061-45bb-ae57-47337885f8cd"
           ],
-          "description": "",
-          "externalRefs": {
-            "canvasAssignmentId": 1407736
-          }
+          "description": ""
         },
         {
           "title": "Elasticity",
@@ -728,10 +685,7 @@
           "interactions": [
             "21790c67-c8b2-479f-ab30-e6397159b329"
           ],
-          "description": "",
-          "externalRefs": {
-            "canvasAssignmentId": 1407737
-          }
+          "description": ""
         },
         {
           "title": "⓻ Video",
@@ -803,9 +757,6 @@
     },
     {
       "title": "Observability",
-      "externalRefs": {
-        "canvasModuleId": 402438
-      },
       "topics": [
         {
           "title": "Observability",
@@ -873,10 +824,7 @@
           "interactions": [
             "ed3699cd-7a05-47e6-8383-8c31ba6b18a5"
           ],
-          "description": "",
-          "externalRefs": {
-            "canvasAssignmentId": 1407738
-          }
+          "description": ""
         },
         {
           "title": "Logging",
@@ -908,10 +856,7 @@
           "interactions": [
             "7ed20ebf-7a25-4550-a977-bbf7ce055c60"
           ],
-          "description": "",
-          "externalRefs": {
-            "canvasAssignmentId": 1407739
-          }
+          "description": ""
         },
         {
           "title": "☑ Grafana annotations",
@@ -935,9 +880,6 @@
     },
     {
       "title": "E2E testing",
-      "externalRefs": {
-        "canvasModuleId": 402439
-      },
       "topics": [
         {
           "title": "Synthetic testing",
@@ -979,18 +921,12 @@
           "interactions": [
             "69839e67-9763-4434-a6d8-4e0713380a08"
           ],
-          "description": "",
-          "externalRefs": {
-            "canvasAssignmentId": 1407740
-          }
+          "description": ""
         }
       ]
     },
     {
       "title": "Failure testing",
-      "externalRefs": {
-        "canvasModuleId": 402440
-      },
       "topics": [
         {
           "title": "Failure",
@@ -1087,18 +1023,12 @@
           "interactions": [
             "0fc6c832-d9b7-470f-a3b5-f09b675079f2"
           ],
-          "description": "",
-          "externalRefs": {
-            "canvasAssignmentId": 1407741
-          }
+          "description": ""
         }
       ]
     },
     {
       "title": "Penetration testing",
-      "externalRefs": {
-        "canvasModuleId": 402441
-      },
       "topics": [
         {
           "title": "Security",
@@ -1148,18 +1078,12 @@
           "interactions": [
             "088a9049-e569-4f36-9ee7-aca2ce343435"
           ],
-          "description": "",
-          "externalRefs": {
-            "canvasAssignmentId": 1407742
-          }
+          "description": ""
         }
       ]
     },
     {
       "title": "Conclusion",
-      "externalRefs": {
-        "canvasModuleId": 402442
-      },
       "topics": [
         {
           "title": "⭐ Christlike learning conclusion",
@@ -1171,10 +1095,7 @@
           "interactions": [
             "e144e3cc-c7da-412a-9814-914e96955809"
           ],
-          "description": "",
-          "externalRefs": {
-            "canvasAssignmentId": 1407743
-          }
+          "description": ""
         },
         {
           "title": "Final - Job Interview",
@@ -1183,10 +1104,7 @@
           "path": "instruction/final-job-interview/final-job-interview.md",
           "id": "d3848a4e-c0a3-4f61-8ecc-4b2f9673f65d",
           "state": "published",
-          "description": "",
-          "externalRefs": {
-            "canvasAssignmentId": 1407744
-          }
+          "description": ""
         },
         {
           "title": "Wrap up",
