@@ -6,8 +6,8 @@
 
 This course provides you with the experience and skills necessary to deploy, manage, and ensure the quality of a modern software application. This includes automated testing at all levels, continuous integration, deployment pipelines, application monitoring, failure detection, alerting, and elastic application scaling.
 
-- [Overview](instruction/overview/overview.md)
-- 🍕 [JWT Pizza](instruction/jwtPizza/jwtPizza.md) - Course mastery project
+- [Overview](/course/45a4c26f-c3f9-4023-90ee-85a2e193500e/topic/db884190-7b79-4e77-b8d3-b253c24e80e5)
+- [🍕 JWT Pizza](/course/45a4c26f-c3f9-4023-90ee-85a2e193500e/topic/3e1aceaa-90d4-413b-835d-ba6ba7139f40) - Course mastery project
 
 ## Outcomes
 
