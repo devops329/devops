@@ -28,7 +28,7 @@ After you have provided and verified your information you can use the Vendor Das
 
 > [!IMPORTANT]
 >
-> Creating your JWT Pizza Factory account is a prerequisite for all course deliverables. Please take the time to create you account as soon as you have created your GitHub repository and have leased your DNS domain.
+> Creating your JWT Pizza Factory account is a prerequisite for all course deliverables. Please take the time to create your account as soon as you have created your GitHub repository and have leased your DNS domain.
 
 ## ☑ Exercise
 
