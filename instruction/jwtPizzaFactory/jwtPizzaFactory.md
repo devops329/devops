@@ -1,10 +1,10 @@
 # JWT Pizza Factory
 
-The JWT Pizza Factory is controlled by JWT Pizza Headquarters and provides two major functionalities. First, it creates the pizzas that are served up by your JWT Pizza application. Second, it manages your JWT pizza vendor account.
+The JWT Pizza Factory is managed by JWT Pizza Headquarters and serves two primary functions: it creates the pizzas served by your JWT Pizza application and manages your JWT Pizza vendor account.
 
-Before your do any work in the class you must setup your Vendor account with the [JWT Pizza Factory](https://pizza-factory.cs329.click). Register with your **BYU ID** and provide information such as your name, contact information, GitHub repository, and the URL of your pizza service website.
+Before starting any coursework, you must set up your vendor account at the [JWT Pizza Factory](https://pizza-factory.cs329.click). Register using your **BYU ID** and provide your name, contact information, GitHub repository, and the URL of your pizza service website.
 
-The URL for your pizza website should include the `pizza` subdomain for the DNS hostname. This can be an hosthame you already own, or one that you plan to lease. For example,
+The URL for your pizza website must include a `pizza` subdomain. This can be a domain you already own or one you plan to lease. For example:
 
 ```
 pizza.byucsstudent.click
@@ -12,33 +12,33 @@ pizza.byucsstudent.click
 
 > [!NOTE]
 >
-> You will finish setting up the `pizza` subdomain in Deliverable 2, and you can edit this URL in your JWT Pizza Factory account at any time to match.
+> You will finalize the `pizza` subdomain setup in Deliverable 2. You can update this URL in your JWT Pizza Factory account settings at any time to match your actual domain.
 
-![alt text](createAccount.png)
+![Create Account](createAccount.png)
 
-It is important that you provide accurate contact information for a location that you check frequently because this is what your peers will use to connect with you. Without proper information you may not be able to complete key deliverables.
+It is important to provide accurate contact information that you check frequently, as your peers will use this to connect with you. Without valid contact information, you may be unable to complete key deliverables.
 
-After you have provided and verified your information you can use the Vendor Dashboard to take the actions necessary to complete the course. This allows you to do the following:
+Once you have provided and verified your information, you can use the Vendor Dashboard to perform the actions necessary to complete the course. This allows you to:
 
 1. Create badges for display in your CI pipelines.
 1. Request chaos testing.
 1. Find partners for activities such as penetration testing.
 
-![alt text](vendorDashboard.png)
+![Vendor Dashboard](vendorDashboard.png)
 
 > [!IMPORTANT]
 >
-> Creating your JWT Pizza Factory account is a prerequisite for all course deliverables. Please take the time to create your account as soon as you have created your GitHub repository and have leased your DNS domain.
+> Creating your JWT Pizza Factory account is a prerequisite for all course deliverables. Please create your account as soon as you have established your GitHub repository and leased your DNS domain.
 
 ## ☑ Exercise
 
 ```masteryls
 {"id":"21f11851-8df8-49ec-a137-48db2bb0746e", "title":"Pizza factory account", "type":"multiple-select" }
-I have done the following.
+I have completed the following:
 
-- [x] Created my [JWT Pizza Factory account](https://pizza-factory.cs329.click)
-- [x] Provided my correct Net ID, Phone number, email.
-- [x] Provided my DNS hostname. **Note**: _If you don't have a hostname, then provide the name you plan on leasing soon. You can change it in the future if you get a different hostname._
+- [x] Created my [JWT Pizza Factory account](https://pizza-factory.cs329.click).
+- [x] Provided my correct BYU Net ID, phone number, and email.
+- [x] Provided my DNS hostname. **Note**: _If you do not have a hostname yet, provide the name you plan to lease. You can update this in the future if your hostname changes._
 - [x] Provided my GitHub account.
 ```
 
