@@ -184,44 +184,6 @@ In this spirit, BYU Online aspires to improve web accessibility for users. While
 
 The first injunction of the Honor Code is the call to _be honest_. Students come to the university not only to improve their minds, gain knowledge, and develop skills that will assist them in their life's work, but also to build character. "President David O. McKay taught that character is the highest aim of education" ("The Aims of a BYU Education," p. 6). It is the purpose of the BYU Academic Honesty Policy to assist in fulfilling that aim. BYU students should seek to be totally honest in their dealings with others. They should complete their own work and be evaluated based on that work. They should avoid academic dishonesty and misconduct in all its forms, including but not limited to plagiarism, fabrication or falsification, cheating, and other academic misconduct.
 
-### Online Exams and Proctoring (If Applicable)
-
-Maintaining academic integrity is a fundamental expectation at BYU and in this course, and all students are required to uphold honesty and ethical behavior in their work. To ensure a fair and secure testing environment, this course may utilize remote online proctoring software to monitor and record online exams. The proctoring software is designed to verify your identity, monitor the testing environment, and ensure no unauthorized materials or supports are used during the exam.
-
-By taking this course, you agree to comply with the proctoring guidelines and all BYU Academic policies. It is the student’s responsibility to ensure a quiet, distraction-free environment during exams and to adhere to all rules and instructions provided. Please be aware that any violations of academic honesty, including but not limited to cheating or the use of unauthorized resources, will be addressed and may result in penalties, including failing the exam or course in accordance with the BYU's Academic Honesty Policy.
-
-**Honorlock**
-
-If your course has online proctored exams, your course will utilize Honorlock to proctor these exams.  Honorlock provides remote proctoring services that uses artificial intelligence (AI) software and live proctors. The blend of AI remote proctoring software and live proctors aim to protect academic integrity and to support students through a successful completion of the exam. If the AI detects potential issues, it alerts a live test proctor to review the situation and intervene if needed.
-
-**Preparing for your exam**
-
-Honorlock does not require students to create an account, download a separate web browser, or schedule an appointment with Honorlock in advance. Students are responsible for ensuring their computer, browser and internet meet the [minimum system requirement](https://honorlock.com/support)s necessary for the completion of the online exam.
-
-Before you begin your exam, you will be required to have the following:
-
-- Computer or Chromebook
-- Working webcam and microphone
-- Stable internet connection
-- Google Chrome browser
-- Download the Honorlock Browser Extenstion
-- Some form of picture ID (e.g. School ID, driver’s license, etc.)
-
-When you are ready to complete your exam Honorlock will walk you through an authentication process which includes the following:
-
-- Taking a picture of yourself and showing some form of ID
-- Complete a 360-degree room scan of your testing environment
-
-Honorlock records your exam session through your webcam, microphone, and recording your screen. Honorlock can detect violations on exam rules and instructions, suspicious eye movement, dual monitors and search-engine use.
-
-**Proctoring Acknowledgement Quiz**
-
-Before accessing the academic course exams, you will complete a "Proctoring Acknowledgement" quiz. You will be required to acknowledge that you have read and understand the [BYU Academic Honesty Policy](https://policy.byu.edu/view/academic-honesty-policy) as well as exam rules and guidelines. The acknowledgment quiz will also serve as an opportunity to help you navigate taking your exam through Honorlock.
-
-**Honorlock Support and Resources**
-
-Honorlock support is available 24/7/365. If you encounter any issues, you may contact them through live chat on the [support page](https://honorlock.com/support 'https://honorlock.com/support') or within the exam itself. Some guides you should review are [Honorlock System Requirements](https://honorlock.kb.help/minimum-system-requirements/ 'https://honorlock.kb.help/minimum-system-requirements/'), [Honorlock FAQs for Test Takers](https://honorlock.kb.help/honorlock-faqs-for-test-takers/ 'https://honorlock.kb.help/honorlock-faqs-for-test-takers/'), and [How to Use Honorlock](https://honorlock.kb.help/how-to-use-honorlock-test-takers/ 'https://honorlock.kb.help/how-to-use-honorlock-test-takers/').
-
 ### Plagiarism
 
 Intentional plagiarism is a form of intellectual theft that violates widely recognized principles of academic integrity as well as the Honor Code. Such plagiarism may subject the student to appropriate disciplinary action administered through the university Honor Code Office, in addition to academic sanctions that may be applied by an instructor. Inadvertent plagiarism, which may not be a violation of the Honor Code, is nevertheless a form of intellectual carelessness that is unacceptable in the academic community. Plagiarism of any kind is completely contrary to the established practices of higher education where all members of the university are expected to acknowledge the original intellectual work of others that is included in their own work. In some cases, plagiarism may also involve violations of copyright law. Intentional plagiarism is the deliberate act of representing the words, ideas, or data of another as one's own without providing proper attribution to the author through quotation, reference, or footnote. Inadvertent plagiarism involves the inappropriate, but non-deliberate, use of another's words, ideas, or data without proper attribution. Inadvertent plagiarism usually results from an ignorant failure to follow established rules for documenting sources or from simply not being sufficiently careful in research and writing. Although not a violation of the Honor Code, inadvertent plagiarism is a form of academic misconduct for which an instructor can impose appropriate academic sanctions. Students who are in doubt as to whether they are providing proper attribution have the responsibility to consult with their instructor and obtain guidance. Examples of plagiarism include the following:
