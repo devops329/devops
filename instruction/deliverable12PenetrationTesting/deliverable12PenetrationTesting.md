@@ -127,12 +127,12 @@ This will do an initial check of your submission and then pass it on for final g
 >
 > If you did not collaborate with a peer as required by following prerequisites then do not submit for this deliverable.
 
-| Percent | Item                                                                                      |
-| ------- | ----------------------------------------------------------------------------------------- |
-| Prereq  | Connect with a peer before the connection deadline provided on the course schedule        |
-| Prereq  | Meet with you peer on or before the day after the connection deadline and work out a plan |
-| 25%     | Self attack. **At least five different attacks made and documented**.                     |
-| 50%     | Peer attack. **At least five different attacks made and documented**.                     |
-| 25%     | Combined summary of learnings and star rating applied for peer                            |
+| Percent | Item                                                                                       |
+| ------- | ------------------------------------------------------------------------------------------ |
+| Prereq  | Connect with a peer before the connection deadline provided on the course schedule.        |
+| Prereq  | Meet with you peer on or before the day after the connection deadline and work out a plan. |
+| 25%     | Self attack. **At least five different attacks made and documented**.                      |
+| 50%     | Peer attack. **At least five different attacks made and documented**.                      |
+| 25%     | Combined summary of learnings and star rating applied for peer.                            |
 
 **Congratulations!** You have enhanced the security of your application. Time to go celebrate. I'm thinking hamburgers 🍔.
