@@ -145,6 +145,30 @@ The following grading standards will be used in this class:
 | D-    | < 63.0 % to 60.0% |
 | F     | < 60.0 % to 0.0%  |
 
+## Grade Breakdown
+
+You are graded purely on the following assignments:
+| Assignment                                                 | Points | % of Grade |
+| :--------------------------------------------------------- | :----- | :--------- |
+| ⭐ Christlike learning                                     | 100    | 6.33 %     |
+| ⭐ ⓵ Development deployment: JWT Pizza                     | 100    | 6.33 %     |
+| ⭐ ⓶ Automated deployment: JWT Pizza                       | 100    | 6.33 %     |
+| ⭐ ⓷ Unit testing CI: JWT Pizza Service                    | 100    | 6.33 %     |
+| ⭐ ⓸ User interface testing: JWT Pizza                     | 100    | 6.33 %     |
+| ⭐ ⓹ Test driven development                               | 100    | 6.33 %     |
+| ⭐ ⓺ Frontend deployment: JWT Pizza                        | 100    | 6.33 %     |
+| ⭐ ⓻ Backend deployment: JWT Pizza Service                 | 100    | 6.33 %     |
+| ⭐ ⓼ Metrics: JWT Pizza Service                            | 100    | 6.33 %     |
+| ⭐ ⓽ Logging: JWT Pizza Service                            | 100    | 6.33 %     |
+| ⭐ ⓾ Load testing: JWT Pizza Service                       | 100    | 6.33 %     |
+| ⭐ ⑪ Chaos testing: JWT Pizza                              | 100    | 6.33 %     |
+| ⭐ ⑫ Penetration testing: JWT Pizza                        | 100    | 6.33 %     |
+| Final - Job Interview                                      | 100    | 6.33 %     |
+| Reading interactions                                       | 80     | 5.06 %     |
+| Total                                                      | 1580   | 100 %      |
+
+
+
 ##  BYU Online Policies
 
 ### Statement on Belonging 
