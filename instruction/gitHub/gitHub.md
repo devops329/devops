@@ -21,7 +21,7 @@
 
 ---
 
-You should already be familiar with the basics of Git and GitHub. If you do not feel comfortable using Git or GitHub then you should spend sometime learning about and experimenting with the functionality that they provide.
+You should already be familiar with the basics of Git and GitHub. If you do not feel comfortable using Git or GitHub then you should spend some time learning about and experimenting with the functionality that they provide.
 
 For this course we will be using GitHub for the following purposes:
 
