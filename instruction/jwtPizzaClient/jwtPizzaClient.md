@@ -60,6 +60,24 @@ Here are the steps to take:
    npm run dev
    ```
 
+## Environment configuration
+
+The JWT Pizza project uses `.env` files to specify the endpoints for the pizza service and factory. There are two `.env` files located in the root of the project. One for **development** (.env.development) and one for **production** (.env.production). Both environment configuration use the corporate pizza factory service to generate your pizza JWTs.
+
+The development environment is configured to use your local JWT Pizza Service that you setup in the previous [JWT Pizza Service](../jwtPizzaService/jwtPizzaService.md) instruction.
+
+```env
+VITE_PIZZA_SERVICE_URL=http://localhost:3000
+VITE_PIZZA_FACTORY_URL=https://pizza-factory.cs329.click
+```
+
+ The production environment is configured to use the corporate JWT Pizza Service hosted at https://pizza-service.cs329.click. Later in the course will change this to point to your production service deployment. 
+
+```env
+VITE_PIZZA_SERVICE_URL=https://pizza-service.cs329.click
+VITE_PIZZA_FACTORY_URL=https://pizza-factory.cs329.click
+```
+
 ## Keep in sync
 
 As the application team makes changes to the frontend code you will need to sync your fork of the repository. As long as you are only adding tests and not changing the core code, you shouldn't have to merge any code.
