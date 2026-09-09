@@ -29,7 +29,7 @@ Open a command console window in your development environment and navigate to th
 git remote add upstream https://github.com/devops329/jwt-pizza.git
 ```
 
-Now, when every you need to resolve a merge conflict you can use the following commands.
+Now, when ever you need to resolve a merge conflict you can use the following commands.
 
 ```sh
 cd jwt-pizza # Substitute the location of your clone
