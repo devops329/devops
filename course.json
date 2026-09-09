@@ -1,5 +1,5 @@
 {
-  "title": "Quality Assurance & DevOps",
+  "title": "CS 329 Quality Assurance & DevOps",
   "links": {},
   "externalRefs": {
     "canvasCourseId": "38082",
@@ -226,6 +226,17 @@
       },
       "topics": [
         {
+          "title": "JWT Pizza Client",
+          "type": "instruction",
+          "path": "instruction/jwtPizzaClient/jwtPizzaClient.md",
+          "id": "a6b06eb5-9fc1-49fa-b120-b00af13fe727",
+          "state": "published",
+          "interactions": [
+            "d6ea467d-336b-4f3c-bd43-bbe38bb5efc6"
+          ],
+          "description": ""
+        },
+        {
           "title": "JWT Pizza Service",
           "type": "instruction",
           "path": "instruction/jwtPizzaService/jwtPizzaService.md",
@@ -244,17 +255,6 @@
           "state": "published",
           "interactions": [
             "c3085596-1b52-4c30-98ff-34c0142eb862"
-          ],
-          "description": ""
-        },
-        {
-          "title": "JWT Pizza Client",
-          "type": "instruction",
-          "path": "instruction/jwtPizzaClient/jwtPizzaClient.md",
-          "id": "a6b06eb5-9fc1-49fa-b120-b00af13fe727",
-          "state": "published",
-          "interactions": [
-            "d6ea467d-336b-4f3c-bd43-bbe38bb5efc6"
           ],
           "description": ""
         },
