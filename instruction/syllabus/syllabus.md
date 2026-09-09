@@ -84,7 +84,7 @@ In summary, TAs are here to help but not to hold your hand and take away the lea
 
 All deliverables must be your own work. You are encouraged to study with other students, discuss concepts, ideas, and general approaches. However, you may not submit someone else's solution as your deliverable or provide your solution to other students.
 
-You may use AI at the partner level as defined by the [Computer Science Department Policy on AI](https://test-cs.prod.brigham-young.psdops.com/department/ai-policy).
+You may use AI at the partner level as defined by the [Computer Science Department Policy on AI](https://cs.byu.edu/department/ai-policy).
 
 In order to demonstrate original authorship, you must:
 
