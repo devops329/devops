@@ -261,7 +261,7 @@ test('get orders', async () => {
 
 ```masteryls
 {"id":"7d6ec40a-e0f0-4841-82a6-61411fc573db","title":"Primary Benefits of Testing","type":"multiple-select"}
-What is the primary benefit of incorporating a robust testing strategy early in the software development lifecycle?
+What is/are the primary benefit(s) of incorporating a robust testing strategy early in the software development lifecycle?
 
 - [ ] It provides a formal guarantee that the software is entirely free of bugs and security vulnerabilities.
 - [x] It complements documentation and architectural planning.
