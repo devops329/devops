@@ -2,7 +2,7 @@
 
 🔑 **Key points**
 
-- Fork the [JWT Pizza](https://github.com/devops329/jwt-pizza-service) service.
+- Fork the [JWT Pizza Service](https://github.com/devops329/jwt-pizza-service) repository.
 - Study the code.
 
 ---
