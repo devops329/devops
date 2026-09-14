@@ -20,7 +20,7 @@ You shouldn't assume that the external development engineers have done a perfect
 
 ## Deliverables
 
-Each of the follow deliverables will take JWT Pizza from a simple program code to an enterprise deployed, resilient, secure application that you can have confidence in.
+Each of the following deliverables will take JWT Pizza from a simple program code to an enterprise deployed, resilient, secure application that you can have confidence in.
 
 | 🍕 Deliverable                                                                               | Video                              | Description                                                                |
 | -------------------------------------------------------------------------------------------- | ---------------------------------- | -------------------------------------------------------------------------- |
@@ -28,7 +28,7 @@ Each of the follow deliverables will take JWT Pizza from a simple program code t
 | [⓶ Automated deploy](../deliverable2AutomatedDeploy/deliverable2AutomatedDeploy.md)          | [🎥](https://youtu.be/MID8dL4gppE) | Deploy frontend to GitHub Pages using GitHub Actions                       |
 | [⓷ Unit test](../deliverable3UnitTesting/deliverable3UnitTesting.md)                         | [🎥](https://youtu.be/PKiRH2ZKZeM) | Backend unit testing and analysis using Jest and GitHub Actions automation |
 | [⓸ UI test](../deliverable4UiTesting/deliverable4UiTesting.md)                               | [🎥](https://youtu.be/qvf1kaT_wr0) | User interface unit testing using Playwright and GitHub Actions automation |
-| [⓹ Test driven development](../deliverable5Tdd/deliverable5Tdd.md)                           |                                    | Deploy frontend to AWS CloudFront                                          |
+| [⓹ Test driven development](../deliverable5Tdd/deliverable5Tdd.md)                           |                                    | Add user management features using test driven development                 |
 | [⓺ Frontend deployment](../deliverable6FrontendDeployment/deliverable6FrontendDeployment.md) |                                    | Deploy frontend to AWS CloudFront                                          |
 | [⓻ Backend deployment](../deliverable7BackendDeployment/deliverable7BackendDeployment.md)    | [🎥](https://youtu.be/mhFmGVfFA8c) | Deploy backend to AWS Fargate and RDS MySQL                                |
 | [⓼ Metrics](../deliverable8Metrics/deliverable8Metrics.md)                                   |                                    | Provide metrics with Grafana Prometheus                                    |
