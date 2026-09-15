@@ -57,7 +57,7 @@ Add the `test` script to `package.json` so that it knows to use Jest for testing
 
 ```json
   "scripts": {
-    "run": "cd src && node index.js",
+    "start": "cd src && node index.js",
     "test": "jest"
   },
 ```
@@ -111,7 +111,7 @@ Now you get to start writing all the tests necessary to get at least 80% coverag
 - [Jest](../jestBasics/jestBasics.md)
 - [Service Testing](../serviceTesting/serviceTesting.md)
 
-Let's write the first test together. Replace the `hello world` test found in `src/authRouter.test.js` with the following.
+Let's write the first test together. Replace the `hello world` test found in `src/routes/authRouter.test.js` with the following.
 
 ```js
 const request = require('supertest');
