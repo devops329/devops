@@ -134,9 +134,9 @@ In a global market, applications must conform to local expectations, including l
 
 ![Arabic website](arabicStage1.png)
 
-Supporting localization requires significant testing to ensure translations are accurate and the UI remains functional across different languages (like Chinese, shown below).
+Supporting localization requires significant testing to ensure translations are accurate and the UI remains functional across different languages (like Japanese, shown below).
 
-![Chinese website](chineseStage1.png)
+![Japanese website](japaneseStage1.png)
 
 This often requires a mix of automated UI testing and manual QA by native speakers to ensure the application is culturally and idiomatically appropriate.
 
