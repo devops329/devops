@@ -53,7 +53,7 @@ For your CI workflow to access AWS using the IAM role you created previously, yo
 
 1. Open the **IAM dashboard** in the AWS Console.
 2. Locate and edit the `github-ci` role.
-3. Update the `Condition` object in the **Trust relationship** to include the `environment:production` string in the `sub` (subject) claim.
+3. Confirm the `Condition` object in the **Trust relationship** matches the following. The wildcard at the end of each subject already covers the `environment:production` claim that your workflow sends once it runs in the production environment.
 
 ```json
 {
@@ -67,11 +67,12 @@ For your CI workflow to access AWS using the IAM role you created previously, yo
       "Action": "sts:AssumeRoleWithWebIdentity",
       "Condition": {
         "StringEquals": {
-          "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
+          "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+        },
+        "StringLike": {
           "token.actions.githubusercontent.com:sub": [
-            "repo:YOURGITHUBACCOUNTNAME/jwt-pizza:environment:production",
-            "repo:YOURGITHUBACCOUNTNAME/jwt-pizza:ref:refs/heads/main",
-            "repo:YOURGITHUBACCOUNTNAME/jwt-pizza-service:ref:refs/heads/main"
+            "repo:YOURGITHUBACCOUNT@YOURACCOUNTID/jwt-pizza@JWTPIZZAREPOID:*",
+            "repo:YOURGITHUBACCOUNT@YOURACCOUNTID/jwt-pizza-service@JWTPIZZASERVICEREPOID:*"
           ]
         }
       }
