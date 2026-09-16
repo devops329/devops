@@ -138,9 +138,9 @@ Following the instructions above, you should have already forked and cloned the 
 
 ```masteryls
 {"id":"d6ea467d-336b-4f3c-bd43-bbe38bb5efc6","title":"JWT Pizza Frontend Repository","type":"url-submission","syncGrade":false,"autoGrade":false,"validateUrl":true,"gradingCriteria":"- The heading '🍕 jwt-pizza' exists","urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file."}
-After you have cloned the JWT Pizza repository to your account, submit the URL of your pizza repository for review.
+After you have forked the JWT Pizza repository to your account, submit the URL of your pizza repository for review.
 
-_Example: https://github.com/youracountname/jwt-pizza_
+_Example: https://github.com/youraccountname/jwt-pizza_
 ```
 
 Now you can build and start the JWT Pizza frontend in your development environment and explore the code.
@@ -150,7 +150,7 @@ Now you can build and start the JWT Pizza frontend in your development environme
    cd jwt-pizza
    npm install
    ```
-1. Start the JWT Pizza backend by following the [JWT Pizza Service](../jwtPizzaService/) instructions.
+1. Start the JWT Pizza backend by following the [JWT Pizza Service](../jwtPizzaService/jwtPizzaService.md) instructions.
 1. Start the JWT Pizza frontend by running `npm run dev`. You should be able to access the application in your browser at `http://localhost:5173`.
 
 ![alt text](jwtPizzaHomepage.png)
