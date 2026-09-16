@@ -73,48 +73,32 @@ If you can do this, then you know your database is working, your username and pa
 
 ### Updating Trust Relationship
 
-In the rare case you have changed your GitHub username, you'll need to update the `Trust relationship` for your IAM role.
+If your IAM role was created before the [S3 deployment instruction](../awsS3Deployment/awsS3Deployment.md#set-the-trust-policy-subject) began setting repository IDs, or you have renamed your GitHub account or your fork since, the `Trust relationship` for your IAM role needs updating.
 
-If you currently deploy, you'll see an error in the `Create OIDC token to AWS`
+You will see this error in the `Create OIDC token to AWS` step:
 
 ```Error: Could not assume role with OIDC: Not authorized to perform sts:AssumeRoleWithWebIdentity```
 
 This is because GitHub includes stable numeric IDs in the subject claim to prevent future impersonation if the old username is ever reclaimed by someone else.
 
-In order to fix this, you'll need to add the following to Trust relationship of your IAM Role.
+Find both IDs by opening the following URL in your browser, replacing `YOURACCOUNTHERE` with your GitHub account name.
 
-1. Your GitHub account ID
-1. Your `jwt-pizza` repository ID
+- https://api.github.com/repos/YOURACCOUNTHERE/jwt-pizza
 
-#### GitHub Id
+The repository ID is the `id` field at the top of the page. Your account ID is the `id` field inside `owner`.
 
-1. Go to the following URL and replace YOURACCOUNTHERE with your current GitHub account (i.e. byucsstudent)
-- https://api.github.com/users/YOURACCOUNTHERE
-2. From there, find the "id" section and copy it.
-- i.e. ```"id": 159643410```
+With both IDs, go to AWS -> IAM -> Roles. Open your role (i.e. `github-ci`), select `Trust relationships`, and click `Edit trust policy`. The subject claim needs to carry both IDs, and it has to sit under `StringLike` rather than `StringEquals`, because `StringEquals` treats the trailing `*` as a literal character and never matches.
 
-#### Repository ID
-
-1. Go to your `jwt-pizza` repository on GitHub and on the main page (i.e. https://github.com/byucsstudent/jwt-pizza)
-1. Right click and select `View page source`
-1. Use Ctrl-F to and find "repository:"
-1. Copy the 10-digit ID that is in the meta tag
-- ```<meta name="hovercard-subject-tag" content="repository:1355254320" data-turbo-transient>```
-
-#### Updating Trust Relationship
-
-With both IDs, go to AWS -> IAM -> Roles. Go to the recently created role (i.e. `github-ci`). Then navigate to `Trust relationships`.
-
-In the JSON, look for the section called `StringEquals`, specifically in the `token.actions.githubusercontent.com:sub` section.
-The current format follows `repo:OWNER/REPO:ref:refs/heads/BRANCH`.
-
-Click `Edit trust policy`.
-
-You need to include your GitHub id and repository id to these sections so it appears like this
-
-`repo:owner@id/repo@repo-id:re:refs/heads/BRANCH`
-
-Example: `repo:byucsstudent@159643410/jwt-pizza@1355254320:ref:refs/head/main`
+```json
+"Condition": {
+  "StringEquals": {
+    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+  },
+  "StringLike": {
+    "token.actions.githubusercontent.com:sub": "repo:byucsstudent@159643410/jwt-pizza@1355254320:*"
+  }
+}
+```
 
 Click `Update policy`.
 
