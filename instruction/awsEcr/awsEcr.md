@@ -45,12 +45,14 @@ In order for the `jwt-pizza-service` CI workflow to make requests over the OIDC-
 1. Select the `github-ci` role that you created when you set up `jwt-pizza` to deploy to S3.
 1. Select the **Trust relationships** tab.
 1. Click **Edit trust policy**.
-1. Replace the `token.actions.githubusercontent.com:sub` value with the following array. This allows both of your source repositories to make an OIDC connection. Replace `YOURGITHUBACCOUNTHERE` with your actual GitHub username.
+1. Replace the `StringLike` condition with the following so that both of your source repositories can make an OIDC connection. Fill in your account name and account ID, and the repository ID of each fork. You can read each one from `https://api.github.com/repos/YOURGITHUBACCOUNT/jwt-pizza` and `https://api.github.com/repos/YOURGITHUBACCOUNT/jwt-pizza-service`.
    ```json
-   "token.actions.githubusercontent.com:sub": [
-     "repo:YOURGITHUBACCOUNTHERE/jwt-pizza:ref:refs/heads/main",
-     "repo:YOURGITHUBACCOUNTHERE/jwt-pizza-service:ref:refs/heads/main"
-   ],
+   "StringLike": {
+     "token.actions.githubusercontent.com:sub": [
+       "repo:YOURGITHUBACCOUNT@YOURACCOUNTID/jwt-pizza@JWTPIZZAREPOID:*",
+       "repo:YOURGITHUBACCOUNT@YOURACCOUNTID/jwt-pizza-service@JWTPIZZASERVICEREPOID:*"
+     ]
+   },
    ```
 1. Click the **Update policy** button.
 
