@@ -70,3 +70,52 @@ MySQL [pizza]> show tables;
 ```
 
 If you can do this, then you know your database is working, your username and password are correct, and that your security group is good. If you don't see the pizza database that means your service has never connected to the database. At this point, most likely, you have put the wrong password, username, or hostname in your GitHub secrets.
+
+### Updating Trust Relationship
+
+In the rare case you have changed your GitHub username, you'll need to update the `Trust relationship` for your IAM role.
+
+If you currently deploy, you'll see an error in the `Create OIDC token to AWS`
+
+```Error: Could not assume role with OIDC: Not authorized to perform sts:AssumeRoleWithWebIdentity```
+
+This is because GitHub includes stable numeric IDs in the subject claim to prevent future impersonation if the old username is ever reclaimed by someone else.
+
+In order to fix this, you'll need to add the following to Trust relationship of your IAM Role.
+
+1. Your GitHub account ID
+1. Your `jwt-pizza` repository ID
+
+#### GitHub Id
+
+1. Go to the following URL and replace YOURACCOUNTHERE with your current GitHub account (i.e. byucsstudent)
+- https://api.github.com/users/YOURACCOUNTHERE
+2. From there, find the "id" section and copy it.
+- i.e. ```"id": 159643410```
+
+#### Repository ID
+
+1. Go to your `jwt-pizza` repository on GitHub and on the main page (i.e. https://github.com/byucsstudent/jwt-pizza)
+1. Right click and select `View page source`
+1. Use Ctrl-F to and find "repository:"
+1. Copy the 10-digit ID that is in the meta tag
+- ```<meta name="hovercard-subject-tag" content="repository:1355254320" data-turbo-transient>```
+
+#### Updating Trust Relationship
+
+With both IDs, go to AWS -> IAM -> Roles. Go to the recently created role (i.e. `github-ci`). Then navigate to `Trust relationships`.
+
+In the JSON, look for the section called `StringEquals`, specifically in the `token.actions.githubusercontent.com:sub` section.
+The current format follows `repo:OWNER/REPO:ref:refs/heads/BRANCH`.
+
+Click `Edit trust policy`.
+
+You need to include your GitHub id and repository id to these sections so it appears like this
+
+`repo:owner@id/repo@repo-id:re:refs/heads/BRANCH`
+
+Example: `repo:byucsstudent@159643410/jwt-pizza@1355254320:ref:refs/head/main`
+
+Click `Update policy`.
+
+Now it should be working as intended!
