@@ -23,8 +23,6 @@ Before you start work on this deliverable make sure you have read all of the pre
 - ☑ [Jest Advanced](../jestAdvanced/jestAdvanced.md)
 - ☑ [Service testing](../serviceTesting/serviceTesting.md)
 - ☑ [Lint](../lint/lint.md)
-- [Dependency injection](../dependencyInjection/dependencyInjection.md)
-- [Integration testing](../integrationTesting/integrationTesting.md)
 - ☑ [JWT Pizza Service](../jwtPizzaService/jwtPizzaService.md)
 - [JWT Pizza data](../jwtPizzaData/jwtPizzaData.md)
 - [Unit testing: JWT Pizza Service](../unitTestingJwtPizzaService/unitTestingJwtPizzaService.md)
@@ -93,7 +91,7 @@ Using the GitHub Repository dashboard for your fork of `jwt-pizza-service`, sele
 
 ![Create repo secret](createRepoSecret.png)
 
-Enter the name `FACTORY_API_KEY` and then enter the value you received for making calls to the factory. Press `Save key`, and then it is ready to be used in your workflow with the template placeholder of `${{ secrets.FACTORY_API_KEY }}`.
+Enter the name `FACTORY_API_KEY` and then enter the value you received for making calls to the factory. Press `Add secret`, and then it is ready to be used in your workflow with the template placeholder of `${{ secrets.FACTORY_API_KEY }}`.
 
 ![Factory secret](factorySecret.png)
 
@@ -192,7 +190,7 @@ In order to publicly display your coverage, you will create a badge that display
 
 > [!NOTE]
 >
-> You need to add the `FACTORY_API_KEY` and `NET_ID` to the Action secrets so that you can reference them when you build your coverage badge. If you need a refresher on how to do this, refer back to the [unit testing deliverable](../deliverable3UnitTesting/deliverable3UnitTesting.md#storing-secrets).
+> You need to add the `FACTORY_API_KEY` and `NET_ID` to the Action secrets so that you can reference them when you build your coverage badge. If you need a refresher on how to do this, see [Storing secrets](#storing-secrets) above.
 
 To make your coverage badge appear in your README.md file, you will need to add the following markdown image reference to the **JWT Pizza Factory Badge** service URL representing the coverage badge that your CI pipeline created. Make sure you replace the placeholder with your BYU Net ID.
 

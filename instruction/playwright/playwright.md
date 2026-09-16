@@ -289,7 +289,7 @@ node_modules
 .nyc_output
 ```
 
-Modify `vite.config.js` to include the Istanbul plugin. This ensures that the code served during tests contains the necessary instrumentation.
+Create or modify `vite.config.js` to include the Istanbul plugin. This ensures that the code served during tests contains the necessary instrumentation.
 
 ```js
 import { defineConfig } from 'vite';
@@ -341,7 +341,7 @@ Run your new coverage script:
 ```sh
 npm run test:coverage
 
-ERROR: Coverage for lines (44.44%) does not meet global threshold (80%)
+ERROR: Coverage for lines (44.44%) does not meet global threshold (100%)
 ...
 -----------|---------|----------|---------|---------|-------------------
 File       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s

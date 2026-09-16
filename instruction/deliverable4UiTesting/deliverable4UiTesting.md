@@ -110,7 +110,7 @@ npm run start
 
 ## Recording a test
 
-Creating a test from scratch can be time consuming. Instead, we can use the VS Code Playwright extension `Record at cursor` functionality to give us a jump start on writing our tests. Open your `pizza.spec.js` file and add a new empty test.
+Creating a test from scratch can be time consuming. Instead, we can use the VS Code Playwright extension `Record at cursor` functionality to give us a jump start on writing our tests. Open your `pizza.spec.ts` file and add a new empty test.
 
 ```ts
 test('purchase with login', async ({ page }) => {});
@@ -189,7 +189,7 @@ This shows us that we made four requests. After we simplify them, we have the fo
 
 > [!NOTE]
 >
-> To access endpoints that an require admin user, you will need to change your `.env.development` file so that it references your local JWT Pizza Service, instead of the headquarters' service. Then you can log in with the default admin credentials.
+> To access endpoints that require an admin user, run your local JWT Pizza Service and log in with the default admin credentials. Your `.env.development` file already points to it.
 
 ### Create the mocks
 
@@ -279,6 +279,10 @@ test('login', async ({ page }) => {
 Here is a final version of the basic login tests with all the mocks placed in a utility function. Note that there are a few things that were altered from the original recording to clean things up a bit.
 
 ```ts
+import { Page } from '@playwright/test';
+import { test, expect } from 'playwright-test-coverage';
+import { Role, User } from '../src/service/pizzaService';
+
 async function basicInit(page: Page) {
   let loggedInUser: User | undefined;
   const validUsers: Record<string, User> = { 'd@jwt.com': { id: '3', name: 'Kai Chen', email: 'd@jwt.com', password: 'a', roles: [{ role: Role.Diner }] } };
@@ -423,7 +427,7 @@ Running the test requires that you first install the desired Playwright browser 
 
 ### Reporting coverage
 
-You can then parse the coverage output to build a new coverage badge just like you did for the JWT Pizza Service.
+You can then parse the coverage output to build a new coverage badge just like you did for the JWT Pizza Service. First add the `NET_ID` and `FACTORY_API_KEY` Actions secrets to your jwt-pizza fork, the same way you did for jwt-pizza-service. Secrets don't carry over from one repository to another.
 
 ```yml
 - name: Update coverage
