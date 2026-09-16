@@ -111,6 +111,37 @@ Now, create the IAM role that GitHub Actions will assume.
 1. Name the role `github-ci`.
 1. Click **Create role**.
 
+### Set the trust policy subject
+
+The role wizard writes the subject claim using your account and repository names alone. GitHub also includes immutable numeric IDs in that claim for every repository created after July 15, 2026, and for any account or repository renamed after that date. Without the IDs the claim will not match and your deployment fails with `Not authorized to perform sts:AssumeRoleWithWebIdentity`.
+
+Find both IDs by opening the following URL in your browser, replacing `YOURGITHUBACCOUNT` with your GitHub account name.
+
+```txt
+https://api.github.com/repos/YOURGITHUBACCOUNT/jwt-pizza
+```
+
+The repository ID is the `id` field at the top. Your account ID is the `id` field inside `owner`.
+
+1. In the IAM console, open the `github-ci` role.
+1. Select the **Trust relationships** tab and click **Edit trust policy**.
+1. Replace the `Condition` object with the following, filling in your account name, account ID, and repository ID.
+
+   ```json
+   "Condition": {
+     "StringEquals": {
+       "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+     },
+     "StringLike": {
+       "token.actions.githubusercontent.com:sub": "repo:YOURGITHUBACCOUNT@YOURACCOUNTID/jwt-pizza@JWTPIZZAREPOID:*"
+     }
+   }
+   ```
+
+1. Click **Update policy**.
+
+The subject has to sit under `StringLike` rather than `StringEquals`, because `StringEquals` treats the trailing `*` as a literal character and never matches. That wildcard covers whichever branch or environment the workflow runs under. Both IDs stay the same even if you rename your account or your fork.
+
 ### Configure GitHub Actions
 
 The final step is to create a GitHub Actions workflow that deploys to S3 using the OIDC credentials.
