@@ -56,11 +56,11 @@ Using your domain name take the following steps in order to associate it to your
    record value: byucsstudent.github.io
    ```
 
-   If you are using Route 53 then you would open the Hosted zone for your domain name and add a `CNAME` record by pressing on the **Create record** button. Then provide `pizza` as the subdomain, change the **Record type** to `CNAME`, and put your GitHub URL as the record value. For the example values given above, this would look like the following:
+   If you are using Route 53 then you would open the Hosted zone for your domain name and add a `CNAME` record by pressing on the **Create record** button. Then provide `pizza` as the subdomain, change the **Record type** to `CNAME`, and put your GitHub URL as the record value. Make sure that you follow the format `byucsstudent.github.io` and do NOT include a path such as `/jwt-pizza` with your URL. Also, do not include `https://` at the beginning. For the example values given above, this would look like the following:
 
    ![create DNS record](createRecord.png)
 
-1. Wait for the newly created record to propagate. You can use `nslookup` or `dig` to verify that it is available.
+1. Wait for the newly created record to propagate. You can use `nslookup` or `dig` to verify that it is available. This may take up to half an hour.
 
    ```sh
    nslookup pizza.byucsstudent.click
@@ -75,7 +75,7 @@ Using your domain name take the following steps in order to associate it to your
 
    ![Custom domain entry](customDomain.png)
 
-1. Check the box to `Enforce HTTPS`.
+1. Check the box to `Enforce HTTPS`. Initially, this box may say `Enforce HTTPS — Unavailable for your site because a certificate has not yet been issued for your domain`. If this is the case, just wait a bit and the box should become available. You may continue on with the other steps while you wait for this to happen.
 
    💡 It is interesting to consider how GitHub is able to generate a certificate for your domain. Perhaps this would make a great curiosity report.
 
