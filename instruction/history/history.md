@@ -23,6 +23,10 @@ When the internet boomed in the late 1990s, software hosting moved back to the v
 
 In this model, application engineers were charged with adding value through new features, while Quality Assurance (QA) and operations staff were responsible for ensuring the application remained stable and accessible. This created a natural conflict of interest: application engineers wanted to deploy new code quickly, while operations teams wanted to minimize changes to maintain stability. Changes often broke existing functionality, while a focus on stability slowed the deployment of enhancements, security updates, and bug fixes.
 
+<img src="mordac.png" alt="Mordac the preventer of information services" width="600" />
+
+> _www.dilbert.com - (c) 2007 Scott Adams_
+
 When these competing goals became entrenched in organizational bureaucracy, they created a software delivery bottleneck that harmed both customer satisfaction and vendor profits.
 
 ## Agile and the birth of DevOps and Quality Assurance
