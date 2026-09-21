@@ -109,12 +109,12 @@ jobs:
       version: ${{ steps.set_version.outputs.version }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: '22.x'
+          node-version: '24.x'
 
       - name: set version
         id: set_version
@@ -129,7 +129,7 @@ jobs:
           cp dist/index.html dist/404.html
 
       - name: Update pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5.0.0
         with:
           path: dist/
   deploy:
@@ -144,7 +144,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5.0.1
 ```
 
 Once you have made the change, commit and push. This should trigger Vite to bundle the source code and then deploy the `dist` directory to the repository's GitHub Pages URL.
@@ -187,16 +187,16 @@ The first step in the **build** job does a checkout of the repository.
 ```yml
 steps:
   - name: Checkout repo
-    uses: actions/checkout@v4
+    uses: actions/checkout@v7
 ```
 
 Then it installs Node.js.
 
 ```yml
 - name: Setup Node
-  uses: actions/setup-node@v4
+  uses: actions/setup-node@v7
   with:
-    node-version: '22.x'
+    node-version: '24.x'
 ```
 
 We then create our version number, set it in a GitHub Action output variable that will make it available to other jobs, and persistently store it in a file named `version.json`.
@@ -223,7 +223,7 @@ Finally, it packages up the `dist` directory and stores it as an artifact for th
 
 ```yml
 - name: Update pages artifact
-  uses: actions/upload-pages-artifact@v3
+  uses: actions/upload-pages-artifact@v5.0.0
   with:
     path: dist/
 ```
@@ -252,7 +252,7 @@ The final step deploys the contents of the artifact that was created in the prev
 ```yml
 - name: Deploy to GitHub Pages
   id: deployment
-  uses: actions/deploy-pages@v4
+  uses: actions/deploy-pages@v5.0.1
 ```
 
 ## Adding a status badge
