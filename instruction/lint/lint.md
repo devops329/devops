@@ -42,6 +42,27 @@ During the configuration process, select the following options:
 
 This will add ESLint as a development dependency and create a configuration file named `eslint.config.mjs`. This file specifies the default linting rules, the target environment (Node.js), and the files to analyze.
 
+
+## Configuring Your Linter
+
+Configuring a linter is the process of defining the specific rules, style guides, and environments that your tool should enforce. Most linters do not come with a "one-size-fits-all" policy; instead, they provide a flexible framework where you can toggle individual rules on or off, or adjust their severity. This customization ensures that the linter aligns with your team's specific coding standards without being overly restrictive or too permissive.
+
+### Example: ESLint Configuration
+
+The following example shows a typical `eslint.config.mjs` file that extends a recommended set while overriding a specific rule to suit a project's needs. You can also load information for libraries that are used in your code. For example, `globals.jest` is loaded so that lint knows about the functions that jest defines.
+
+```json
+import js from '@eslint/js';
+import globals from 'globals';
+import { defineConfig } from 'eslint/config';
+
+export default defineConfig([
+  { files: ['**/*.{js,mjs,cjs}'], plugins: { js }, extends: ['js/recommended'], languageOptions: { globals: globals.node } },
+  { files: ['**/*.js'], languageOptions: { sourceType: 'commonjs' } },
+  { files: ['**/*.test.js'], languageOptions: { globals: globals.jest } },
+]);
+```
+
 ## Configure the project
 
 Update your `package.json` file to include a script for running ESLint.
