@@ -53,12 +53,12 @@ jobs:
       version: ${{ steps.set_version.outputs.version }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: '22.x'
+          node-version: '24.x'
 
       - name: Install dependencies
         run: npm ci
@@ -244,12 +244,12 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: '22.x'
+          node-version: '24.x'
 
       - name: Install dependencies
         run: npm ci
