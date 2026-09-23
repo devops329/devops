@@ -49,7 +49,7 @@ Configuring a linter is the process of defining the specific rules, style guides
 
 ### Example: ESLint Configuration
 
-The following example shows a typical `eslint.config.mjs` file that extends a recommended set while overriding a specific rule to suit a project's needs. You can also load information for libraries that are used in your code. For example, `globals.jest` is loaded so that lint knows about the functions that jest defines.
+The following example shows a typical `eslint.config.mjs` file that extends a recommended set while overriding a specific rule to suit a project's needs. You can also load information for libraries that are used in your code. For example, `globals.jest` is loaded so that lint knows about the functions that jest defines. The **Error on missing Simicolon** rule is also enabled.
 
 ```js
 import js from '@eslint/js';
@@ -60,6 +60,8 @@ export default defineConfig([
   { files: ['**/*.{js,mjs,cjs}'], plugins: { js }, extends: ['js/recommended'], languageOptions: { globals: globals.node } },
   { files: ['**/*.js'], languageOptions: { sourceType: 'commonjs' } },
   { files: ['**/*.test.js'], languageOptions: { globals: globals.jest } },
+
+  { rules: { semi: 'error' } }
 ]);
 ```
 
