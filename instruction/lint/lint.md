@@ -51,7 +51,7 @@ Configuring a linter is the process of defining the specific rules, style guides
 
 The following example shows a typical `eslint.config.mjs` file that extends a recommended set while overriding a specific rule to suit a project's needs. You can also load information for libraries that are used in your code. For example, `globals.jest` is loaded so that lint knows about the functions that jest defines.
 
-```json
+```js
 import js from '@eslint/js';
 import globals from 'globals';
 import { defineConfig } from 'eslint/config';
