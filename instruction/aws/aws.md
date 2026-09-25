@@ -12,7 +12,7 @@ Amazon Web Services (AWS) is the dominant leader in the cloud infrastructure spa
 
 When AWS first launched in 2006 it was hosted in one regional area located in the US state of Virginia. That region contained three independent data centers that were located a few miles from each other. As of 2024, AWS has 33 regional centers with an expected total of 123 data centers deployed by the end of 2026. Additionally, there are over 600 edge locations that enable accelerated network access and caching. This global coverage allows you to easily deploy an application that is available to every corner of the planet.
 
-![alt text](awsRegions.png)
+![alt text](awsDataCenters.png)
 
 > [!IMPORTANT]
 >
