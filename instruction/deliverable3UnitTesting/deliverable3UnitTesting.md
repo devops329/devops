@@ -306,7 +306,7 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 1. Add the creation of a version file named `src/version.json`.
 
 ```masteryls
-{"id":"57ca73af-feb2-4abb-8e37-1c542c7f4fb9", "title":"⓷ Unit testing CI submission", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The page contains a coverage link with the alt text of `Coverage badge`\n- The coverage link does not contain pizza-factory.cs329.click\n- There is a level one heading with the exact text of `🍕 jwt-pizza-service`", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
+{"id":"57ca73af-feb2-4abb-8e37-1c542c7f4fb9", "title":"⓷ Unit testing CI submission", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The page contains a coverage link with the alt text of `Coverage badge`\n- The coverage link does not contain: `accountId`\n- There is a level one heading with the exact text of `🍕 jwt-pizza-service`", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
 
 
 Once you have completed this deliverable, submit the URL of your JWT Pizza Service repository.
