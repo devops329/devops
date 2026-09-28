@@ -289,7 +289,7 @@ node_modules
 .nyc_output
 ```
 
-Create or modify `vite.config.js` to include the Istanbul plugin. This ensures that the code served during tests contains the necessary instrumentation.
+Create or modify `vite.config.mjs` to include the Istanbul plugin. This ensures that the code served during tests contains the necessary instrumentation.
 
 ```js
 import { defineConfig } from 'vite';
