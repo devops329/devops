@@ -1205,6 +1205,13 @@
           "externalRefs": {
             "canvasPageId": 1649207
           }
+        },
+        {
+          "title": "AI in DevOps",
+          "type": "instruction",
+          "path": "instruction/ai-in-devops/ai-in-devops.md",
+          "id": "bccc3d5f-f701-429c-ab4b-ac74e7b547a3",
+          "description": "How is AI impacting DevOps and SRE. What are the best practices, possabilites, and pitfalls."
         }
       ]
     }
