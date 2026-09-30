@@ -412,6 +412,56 @@ test('purchase with login', async ({ page }) => {
 
 This should be enough to get you started. Your goal is to get at least 80% line coverage by creating meaningful tests that assure the quality of the frontend code.
 
+## Reporting service calls
+
+If your goal is to mock out all services calls it is helpful to having testing code that will report when an un-mocked service request is being made. You can do this by wrapping the page requests by creating a utility named **testSetup.js** with code like the following.
+
+```js
+import { test as base, expect } from 'playwright-test-coverage';
+
+interface Violation {
+  method: string;
+  url: string;
+  body: string | null;
+}
+
+const test = base.extend({
+  page: async ({ page }, use) => {
+    const violations: Violation[] = [];
+
+    await page.route('**/*', async (route) => {
+      const request = route.request();
+      const url = request.url();
+
+      // Real requests to the backend service are not allowed; everything else passes through.
+      if (url.startsWith('http://localhost:3000')) {
+        const violation = { method: request.method(), url, body: request.postData() };
+        violations.push(violation);
+        console.log(`Blocked request to http://localhost:3000 -> ${violation.method} ${violation.url} ${violation.body}`);
+        await route.abort();
+        return;
+      }
+
+      await route.continue();
+    });
+
+    await use(page);
+
+    expect(violations, 'Unexpected request(s) made to http://localhost:3000').toEqual([]);
+  },
+});
+
+export { test, expect };
+```
+
+You then can replace your playwright import with your wrapper so that it gets used on every page request.
+
+```js
+import { test, expect } from './testSetup';
+```
+
+With this in place your tests will fail if a service call is make.
+
 ## Testing CI
 
 With your automated tests in place, you can now update the GitHub Actions script that you created previously to include the execution of the tests and to publicly report your coverage.
