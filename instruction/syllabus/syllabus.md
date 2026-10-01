@@ -55,6 +55,8 @@ In order to receive accommodations beyond the existing late policy you must comp
 1. Submit a request for each assignment you are seeking accommodations for.
 1. Make a comment when you submit so that the TA knows you applied for an accommodation.
 
+Note that grace days are always used before accommodations apply.
+
 ## Resubmissions
 
 When you work on a deliverable you should follow this basic pattern:
