@@ -118,14 +118,6 @@ In order to demonstrate original authorship, you must:
 
 **Rule of thumb**: You are co-creating, not delegating.
 
-
-```masteryls
-{"id":"cae08349-d561-4c4b-9a84-208fab172b36", "title":"Acknowledgement", "type":"multiple-select" }
-
-
-- [x] I have read this syllabus
-```
-
 ##   Grade Scheme
 
 The following grading standards will be used in this class:
@@ -166,6 +158,15 @@ You are graded purely on the following assignments:
 | Final - Job Interview                                      | 100    | 6.33 %     |
 | Reading interactions                                       | 80     | 5.06 %     |
 | Total                                                      | 1580   | 100 %      |
+
+
+
+```masteryls
+{"id":"cae08349-d561-4c4b-9a84-208fab172b36", "title":"Acknowledgement", "type":"multiple-select" }
+
+
+- [x] I have read this syllabus
+```
 
 
 
