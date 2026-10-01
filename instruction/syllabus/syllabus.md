@@ -118,7 +118,7 @@ In order to demonstrate original authorship, you must:
 
 **Rule of thumb**: You are co-creating, not delegating.
 
-##   Grade Scheme
+## Grade Scheme
 
 The following grading standards will be used in this class:
 
