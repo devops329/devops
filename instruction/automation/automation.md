@@ -203,8 +203,8 @@ aws cloudformation create-stack --stack-name load-balancer --template-body file:
 ## ☑ Exercise
 
 ```masteryls
-{"id":"7de16112-5e71-4864-aa86-0104f12525fc", "title":"Automation Benefits", "type":"essay", "gradingCriteria":"- Must discuss speed, safety, and Reproducibility" }
-What are some of the major benefits of automation?
+{"id":"7de16112-5e71-4864-aa86-0104f12525fc", "title":"Automation Benefits", "type":"essay", "gradingCriteria":"- Must discuss speed and reproducibility" }
+In the context of software engineering, what are some of the major benefits of automation?
 ```
 
 ```masteryls
