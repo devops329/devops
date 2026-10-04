@@ -164,10 +164,13 @@ You are graded purely on the following assignments:
 
 
 ```masteryls
-{"id":"cae08349-d561-4c4b-9a84-208fab172b36", "title":"Acknowledgement", "type":"multiple-select" }
+{"id":"cae08349-d561-4c4b-9a84-208fab172b36", "title":"Acknowledgement", "type":"multiple-choice" }
 
 
 - [x] I have read this syllabus
+  Great job! That is a lot to review, but it will save you time in the future.
+- [ ] I'm going to skip this for now and then have a hard time later.
+  I get it. Sometimes you just got to skim. But there is some good stuff in here you don't want to miss.
 ```
 
 
