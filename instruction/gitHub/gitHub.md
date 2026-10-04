@@ -130,9 +130,13 @@ In this class, if you notice something in the instruction that needs to be enhan
 When contributing to a repository on GitHub, which of the following commit messages follows the industry best practice of being concise, descriptive, and written in the imperative mood?
 
 - [ ] I fixed the bug in the navigation bar that was causing the links to overlap.
+  You’re clearly describing the change, which is useful, but the message uses the past tense and includes more detail than needed. The hint is to write a concise command in the imperative mood, such as “Fix navigation bar overlap on mobile viewports.” For further study, practice naming the scope and action in one short line.
 - [x] Fix navigation bar overlap on mobile viewports
+  You correctly chose a concise, descriptive imperative message. The key hint is the opening command “Fix,” followed by the specific problem and scope. This gives future readers a clear summary of the commit without unnecessary narrative.
 - [ ] Fixed the issue with the header and updated the readme file
+  You’re right to mention both changes, but the past tense and vague wording make the commit harder to scan. The hint is to use imperative verbs and describe the specific outcome; if the changes are unrelated, consider separate commits. For further study, practice writing messages that name the affected component.
 - [ ] Minor changes and bug fixes
+  You’re keeping the message brief, which is a good instinct, but it is too vague to help someone understand the commit later. The hint is to state the concrete action and affected area in the imperative mood. For improvement, replace generic wording with a specific summary of what changed.
 ```
 
 ```masteryls
@@ -140,9 +144,13 @@ When contributing to a repository on GitHub, which of the following commit messa
 You have finished modifying a file in your local project and want to share these changes with your team on a remote GitHub repository. Which of the following correctly describes the sequence and purpose of the commands required?
 
 - [ ] Use `git commit` to move changes from the working directory to the staging area, then `git push` to update the remote repository.
+  You’re correctly remembering that commit and push are part of sharing work, but `git add` moves changes to the staging area; `git commit` records the staged snapshot locally. The hint is to follow the sequence add, commit, then push. Review the purpose of each Git area.
 - [ ] Use `git push` to stage your files and `git pull` to sync those staged files with the remote GitHub repository.
+  You’re right that synchronization with GitHub matters, but `git push` does not stage files and `git pull` downloads and integrates remote changes rather than uploading yours. The hint is to distinguish local preparation from remote publication. For further study, practice the add–commit–push workflow.
 - [x] Use `git add` to move changes to the staging area, `git commit` to save a snapshot to the local repository, and `git push` to upload those changes to the remote repository.
+  You correctly identified both the sequence and purpose of the commands. The key hint is the movement of work from the working tree, to staging, to the local repository, and finally to the remote repository. This workflow gives you a review point before publishing changes.
 - [ ] Use `git add` to save changes directly to the local repository and `git commit` to upload the local history to the remote server.
+  You’re correctly identifying the commands involved, but their responsibilities are reversed. The hint is that `git add` stages changes, `git commit` records them locally, and `git push` sends them to the remote repository. For further study, inspect `git status` between each step.
 ```
 
 ```masteryls
@@ -150,9 +158,13 @@ You have finished modifying a file in your local project and want to share these
 When working with GitHub, what is the primary difference between **forking** a repository and **cloning** a repository?
 
 - [ ] A fork creates a new version of the repository on your local computer, while a clone creates a copy of the repository on the GitHub server.
+  You’re correctly thinking about two ways to copy a repository, but the locations are reversed. The hint is server-side versus local: a fork appears under your GitHub account, while a clone is downloaded to your machine. Review how the two copies support contribution and local development.
 - [ ] Cloning is the specific process used to propose changes to an upstream project, while forking is the process used to download those changes for local testing.
+  You’re right that forks and clones often appear together in contribution workflows, but cloning downloads a repository locally and forking creates your server-side copy. The hint is to identify where each operation creates the copy. For further study, trace the fork–clone–branch–pull-request sequence.
 - [x] A fork creates a personal copy of a repository on your GitHub account (server-side), while a clone creates a local copy of a repository on your machine.
+  You correctly identified the primary difference between forking and cloning. The key hint is the copy’s location: the fork lives on GitHub under your account, while the clone gives you a local working repository. That distinction explains why many GitHub contribution workflows use both.
 - [ ] A fork is a Git command used to merge two different repositories together, while a clone is a GitHub feature used to create a backup of a single branch.
+  You’re correctly associating both terms with repository collaboration, but a fork is a hosting-service copy and a clone is a Git operation that copies repository history locally. Neither definition describes merging repositories or backing up one branch. Review where each copy is created and why.
 ```
 
 ## A bit of fun

@@ -65,9 +65,13 @@ If you are not security-minded in the design and deployment of your systems, you
 In the context of the security community and vulnerability management, which of the following best describes the fundamental difference between Common Weakness Enumeration (CWE) and Common Vulnerabilities and Exposures (CVE)?
 
 - [ ] CWE is a scoring system used to calculate the severity and impact of a security breach, while CVE is the database used to store the names of the researchers who discovered the breach.
+  You’re correctly looking for a distinction between two security resources, but CWE is not a severity score and CVE records vulnerability identities rather than researcher names. The hint is to separate a general flaw category from a specific documented vulnerability. Review how the two identifiers are used together in vulnerability management.
 - [ ] CVE identifies the root cause types of software flaws (such as "Buffer Overflow"), while CWE tracks the specific patches and version numbers released to fix those flaws.
+  You’re thinking about causes and fixes, which are both important, but the definitions are reversed. The hint is that CWE describes classes of weaknesses such as buffer overflows, while a CVE describes a specific vulnerability in a product or system. For further study, compare one CWE category with a CVE record that references it.
 - [x] CWE identifies types or classes of software security flaws (the "what"), while CVE identifies specific, documented instances of vulnerabilities in particular products or systems (the "where").
+  You correctly distinguished the general weakness from the specific vulnerability instance. The key hint is “what” versus “where”: CWE describes the flaw pattern, while CVE identifies a documented occurrence in a particular product or system. This distinction helps organize vulnerability research and remediation.
 - [ ] CWE is a private list maintained by software vendors for internal bug tracking, while CVE is a public list managed by government agencies for national infrastructure defense.
+  You’re right to consider who maintains security information, but CWE and CVE are not private vendor lists with those limited purposes. The hint is to focus on their content: CWE catalogs weakness types, and CVE catalogs specific public vulnerability instances. Review how these community resources support shared vulnerability language.
 ```
 
 

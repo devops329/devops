@@ -274,7 +274,11 @@ What is/are the primary benefit(s) of incorporating a robust testing strategy ea
 When beginners start writing unit tests, they often create "brittle" tests that break frequently during refactoring. Which of the following actions is a primary cause of this problem?
 
 - [ ] Organizing tests using the **Arrange-Act-Assert** pattern, which creates too much overhead for simple logic
+  You’re right to consider how test structure affects maintenance, but Arrange-Act-Assert usually clarifies a test rather than making it brittle. The hint is to focus on what the test depends on: public behavior is more stable than internal implementation details. For further study, practice keeping each test’s setup and assertion focused.
 - [ ] Mocking a database connection to ensure that the unit tests can run quickly and in isolation from the infrastructure
+  You’re correctly recognizing why mocks can be useful for isolation and speed. Mocking a database is not inherently the cause of brittleness when the mock follows a stable boundary. The hint is to look for assertions tied to private implementation details. Review when a mock represents a meaningful external dependency.
 - [x] Asserting against the internal implementation details of a class rather than its public API and observable behavior
+  You correctly identified a primary cause of brittle tests. The key hint is to assert what a class promises through its public API and observable outcomes, not how it happens to achieve them internally. Tests built around behavior can survive refactoring while still protecting the contract.
 - [ ] Writing tests that only verify the final return value of a function instead of inspecting every local variable change
+  You’re right to focus on observable results: checking a function’s public return value is often a resilient testing practice. Inspecting every local variable would tie tests to implementation details and make them more brittle. The hint is to prefer behavior over internals; review which outcomes are part of the public contract.
 ```

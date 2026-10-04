@@ -85,9 +85,13 @@ Following this process will create a fully automated, cloud-scale architecture c
 What is the primary financial advantage of moving from on-premises deployment to a cloud deployment model?
 
 - [ ] It eliminates the need for any operational spending (OPEX).
+  You’re correctly looking for a financial benefit, but cloud deployment does not eliminate operational spending; it changes how infrastructure is purchased and consumed. The hint is to compare upfront CAPEX with ongoing OPEX. For further study, list which costs remain variable in a pay-as-you-go model.
 - [x] It shifts costs from Capital Expenditure (CAPEX) to Operational Expenditure (OPEX), allowing for a pay-as-you-go model.
+  You correctly identified the primary financial shift. The key hint is that cloud services turn large upfront hardware purchases into ongoing operating costs that can scale with usage. Remember that this model improves flexibility, but it does not guarantee the lowest total cost in every situation.
 - [ ] It guarantees that the total cost of ownership will always be lower, regardless of usage patterns.
+  You’re appropriately considering total cost of ownership, but cloud pricing does not guarantee savings under every workload or usage pattern. The hint is to focus on the CAPEX-to-OPEX shift and pay-as-you-go flexibility, then evaluate actual demand and management costs. For further study, compare steady high utilization with variable workloads.
 - [ ] It allows companies to own the physical hardware located in the provider's data center for tax depreciation.
+  You’re correctly thinking about ownership and depreciation, but cloud customers generally rent provider-managed resources rather than owning the physical hardware. The hint is to focus on the financial model: cloud deployment shifts hardware investment toward operating expenditure. Review the difference between provider ownership and customer usage.
 ```
 
 ```masteryls
@@ -95,9 +99,13 @@ What is the primary financial advantage of moving from on-premises deployment to
 An international bank is launching a new application that processes highly sensitive financial records. Due to national security laws, the data must be stored on physical servers located within the country's borders, and the bank must have the ability to perform physical audits of the server hardware. Which deployment model is most appropriate?
 
 - [x] A self-hosted solution on private infrastructure
+  You correctly matched the deployment model to the bank’s constraints. The key hint is the combination of in-country physical storage, direct hardware audits, and control over sensitive records; private infrastructure provides that level of custody and compliance control.
 - [ ] A Multi-Cloud strategy using AWS and Azure
+  You’re correctly considering geographic resilience and provider choice, but multi-cloud does not automatically provide physical custody or the required in-country hardware audits. The hint is to prioritize the legal and physical-control requirements over scalability. For further study, compare provider-managed infrastructure with private infrastructure.
 - [ ] Serverless functions (FaaS) for maximum scalability
+  You’re right that serverless can scale efficiently, but it does not give the bank direct control over physical servers or guarantee the required audit and residency conditions. The hint is to identify the model that keeps infrastructure under the organization’s control. Review when compliance requirements outweigh operational convenience.
 - [ ] A managed SaaS (Software as a Service) platform
+  You’re correctly recognizing that SaaS reduces operational work, but the provider controls the platform and underlying hardware, which conflicts with physical audit and residency requirements. The hint is to look for private infrastructure managed directly by the bank. For further study, compare control, compliance, and convenience across deployment models.
 ```
 
 

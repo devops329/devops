@@ -126,7 +126,11 @@ New software engineers attempt to avoid leaning this critical skill by simply gu
 You are debugging a React application where a specific UI component fails to display data expected from a Node.js API. The frontend is running, but the screen remains blank without any visual errors. Which of the following actions is the most effective first step to determine if the issue resides in the frontend logic or the backend API?
 
 - [ ] Add a `console.log()` inside the React component's `render` method to check if the state variable is an empty array or `null`.
+  You’re correctly thinking about inspecting frontend state, but that step assumes the request succeeded and may not reveal whether the backend returned usable data. The hint is to first inspect the browser’s Network tab for the request status and response body. For further study, trace the data path from request to rendered state.
 - [ ] Restart the Node.js server with the `--inspect` flag and attach a debugger to step through the database controller logic.
+  You’re correctly considering backend debugging, but stepping into database code is premature before confirming that the API request was sent and what it returned. The hint is to start at the boundary between frontend and backend: inspect the browser request. For improvement, narrow the fault domain before using a deeper debugger.
 - [x] Open the browser's **Network** tab, trigger the action, and inspect the status code and response body of the specific API request.
+  You correctly chose the most effective first step. The key hint is to inspect the boundary between the React client and Node.js API: the status code and response body quickly show whether the backend responded correctly or whether the frontend must be investigated next. This keeps the debugging process focused.
 - [ ] Check the `package.json` file in the React project to ensure the `proxy` field correctly matches the local URL of the Node.js server.
+  You’re correctly identifying a proxy mismatch as a possible cause, but checking configuration first may miss a more direct piece of evidence. The hint is to inspect the actual network request and response in the browser. For further study, use the request URL and status code to decide whether proxy configuration needs attention.
 ```

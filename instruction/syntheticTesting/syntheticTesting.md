@@ -62,9 +62,13 @@ test('Synthetic Login Check', async ({ page }) => {
 In which of the following scenarios is synthetic testing the most appropriate tool to use?
 
 - [ ] Debugging a performance issue reported by a specific user on an old Android device
+  You’re correctly focusing on a real performance problem, but reproducing one user’s device-specific issue calls for targeted debugging or real-device testing. The hint is to look for a scripted check that runs repeatedly from controlled locations. For further study, compare synthetic monitoring with user-session investigation.
 - [ ] Analyzing the click-through rate of a new marketing banner
+  You’re right that user behavior can be measured, but click-through rate is an analytics or experiment question rather than a synthetic test. The hint is to identify a repeatable script that verifies a technical user journey. Review the difference between business analytics and availability monitoring.
 - [ ] Stress-testing the database by simulating 50,000 concurrent user sessions
+  You’re correctly recognizing the value of simulating users, but 50,000 concurrent sessions describes load or stress testing, not a small scheduled synthetic check. The hint is to look for a scripted journey run periodically from multiple locations. For further study, compare test scale and purpose.
 - [x] Verifying that the "Checkout" flow is functional every 5 minutes from multiple global regions
+  You correctly identified a strong synthetic-testing use case. The key hint is the repeatable scripted transaction run on a schedule from several locations. It verifies availability and user experience proactively, even when no real customer has recently reported a problem.
 ```
 
 ## Grafana synthetic testing

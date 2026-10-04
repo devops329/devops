@@ -42,9 +42,13 @@ You can view your available balance in the `Grace Days` assignment in Canvas.
 You have 3 grace days when you turn in an assignment on Tuesday that was due the previous Friday. According to the policy, what is the result?
 
 - [ ] You receive a zero and you still have 3 grace days
+  You’re correctly tracking that grace days affect the submission, but using the three days means they are consumed. The hint is to count from the previous Friday to Tuesday: the assignment remains eligible for grading, but the available grace balance reaches zero. Review how the policy counts days.
 - [ ] You receive a zero and you have 0 grace days 
+  You’re right that all three grace days are used, but a submission within the available grace period is still graded rather than receiving a zero. The hint is to separate the grade consequence from the remaining balance. For further study, work through the due date and submission date one day at a time.
 - [x] Your assignment is graded and you have 0 grace days
+  You correctly applied both parts of the policy. The key hint is that Tuesday is three days after the Friday deadline, so the assignment is still covered by the grace days and all three are consumed. Keep checking both eligibility and remaining balance in policy questions.
 - [ ] Your assignment is graded and you have 1 grace day
+  You’re correctly recognizing that the assignment is graded, but the Tuesday submission uses all three grace days, leaving none. The hint is to count Friday-to-Tuesday as three days rather than two. For improvement, write the dates in sequence before calculating the remaining balance.
 ```
 
 

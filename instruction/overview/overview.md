@@ -152,5 +152,7 @@ What do you want to accomplish from this course and what will you do to obtain i
 We often send out critical notifications for the course using Canvas announcements. Log into the Canvas course and check to make sure you have the correct email address and notification settings associated with your account.
 
 - [x] My email address is associated with Canvas and I check for notifications frequently.
+  You correctly confirmed both parts of the notification habit: a valid Canvas email address and regular checking. The key hint is that course announcements are time-sensitive, so reliable contact information and an intentional notification routine help you respond before deadlines or changes are missed.
 - [ ] I want to stay in the dark and miss important notifications.
+  It’s good that you’re acknowledging the risk of missing course information. The hint is to verify your Canvas email address and notification settings, then check announcements regularly. For improvement, make notification checking part of your normal course routine so important updates do not depend on chance.
 ```

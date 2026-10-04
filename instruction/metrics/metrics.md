@@ -49,7 +49,11 @@ When you factor in the cost of long-term storage, expenses can rise quickly. One
 When designing a monitoring or performance measurement framework, what is the most effective strategy for determining the quantity of metrics to capture?
 
 - [ ] Capture every possible data point available to ensure that any potential issue can be diagnosed through retrospective analysis.
+  You’re correctly valuing diagnostic detail, but collecting everything creates noise, storage cost, and more difficult analysis. The hint is to choose metrics that answer a specific operational question and support a decision. For further study, compare actionable signals with unused telemetry.
 - [x] Focus on a concise set of actionable metrics that align with specific goals and provide clear signals for decision-making.
+  You correctly chose a goal-driven and actionable metric strategy. The key hint is to ask what decision each metric supports and whether it clearly signals a meaningful change. A concise set helps teams notice important behavior without being overwhelmed by data.
 - [ ] Maintain a strict limit of exactly five metrics per system to ensure consistency and simplicity across the organization.
+  You’re appropriately seeking simplicity, but there is no universal number of metrics that fits every system. The hint is to align metrics with goals and actionable decisions rather than an arbitrary count. For improvement, justify each metric by the question it helps answer.
 - [ ] Only collect metrics related to system failures or errors to minimize data noise and reduce storage costs.
+  You’re correctly trying to reduce noise and cost, but failure metrics alone cannot show demand, latency, capacity, or healthy performance trends. The hint is to select a concise set of actionable signals across the system’s goals. For further study, review how baseline metrics help identify problems before failure.
 ```

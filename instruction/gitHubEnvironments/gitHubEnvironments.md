@@ -109,7 +109,11 @@ The `url` property is optional but highly recommended; it creates a link on the 
 What is the primary reason for using GitHub Environments within a CI/CD workflow?
 
 - [x] To define deployment protection rules, such as required reviewers, and manage secrets specific to a deployment target
+  You correctly identified the main purpose of GitHub Environments. The key hint is that an environment represents a deployment target with its own secrets, variables, approvals, and protection rules. This lets a workflow apply different controls to targets such as staging and production.
 - [ ] To provide a cloud-hosted integrated development environment (IDE) for writing and debugging code directly in the browser
+  You’re correctly associating GitHub with browser-based development, but that is the role of tools such as Codespaces, not Environments. The hint is to focus on deployment targets, approvals, and target-specific secrets. For further study, compare repository development tools with deployment controls.
 - [ ] To organize repository files into logical directories based on the runtime requirements of the application
+  You’re right that organization helps a project, but GitHub Environments do not create repository directories. The hint is to think about what happens during deployment: environments protect targets and supply target-specific configuration. Review how the repository’s file structure is managed separately.
 - [ ] To isolate different git branches and prevent developers from pushing code directly to the main branch
+  You’re correctly thinking about protecting production changes, but Environments do not isolate Git branches or replace branch protection. The hint is to focus on deployment approvals and secrets associated with a target. For further study, distinguish branch rules from environment protection rules.
 ```

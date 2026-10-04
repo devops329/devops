@@ -108,9 +108,13 @@ jobs:
 In the context of a Continuous Integration (CI) pipeline, what is the primary "integration" occurring?
 
 - [ ] The deployment of fully validated application builds into a live production environment
+  You’re correctly connecting CI with a broader delivery pipeline, but deployment to production is generally associated with continuous delivery or deployment. The hint is to focus on what gets combined in CI: code changes from multiple developers entering a shared repository. Review the boundary between CI and CD.
 - [ ] The manual merging of major feature branches only at the conclusion of a development sprint
+  You’re right that merging is central to integration, but waiting until the end of a sprint creates large, risky changes and defeats CI’s frequent-feedback goal. The hint is to look for regular integration into a shared repository. For further study, compare short-lived branches with long-lived feature branches.
 - [x] The frequent merging of code changes from multiple developers into a shared central repository
+  You correctly identified the integration in Continuous Integration: many developers’ changes are merged frequently into a shared repository. The key hint is that this keeps the codebase continuously tested and exposes conflicts while they are still small. That feedback loop is the foundation of CI.
 - [ ] The synchronization of high-level project requirements with the current state of the source code
+  You’re correctly thinking about keeping project work aligned, but requirements synchronization is not the primary integration in CI. The hint is to focus on source-code changes being merged into a shared repository and validated automatically. Review how CI connects version control to builds and tests.
 ```
 
 ```masteryls
@@ -118,7 +122,11 @@ In the context of a Continuous Integration (CI) pipeline, what is the primary "i
 To effectively minimize integration friction and identify bugs early, which practice should a development team follow within a Continuous Integration (CI) workflow?
 
 - [ ] Postpone merging code to the main branch until the entire feature has been manually smoke-tested in a local environment to ensure stability.
+  You’re correctly trying to protect stability, but waiting for a complete local smoke test delays shared feedback and makes integration conflicts larger. The hint is to integrate small changes frequently and let automated checks provide rapid feedback. For improvement, practice breaking work into small, testable increments.
 - [x] Integrate code changes into the shared repository frequently, ideally at least once a day, to keep the delta between versions small and manageable.
+  You correctly chose frequent integration. The key hint is that small, regular changes reduce merge conflicts and make failures easier to isolate. A healthy CI workflow pairs these integrations with automated builds and tests so the shared repository remains trustworthy.
 - [ ] Trigger automated builds and test suites only during off-peak hours to prevent slowing down the development environment for other engineers.
+  You’re thoughtfully considering resource usage, but delaying builds and tests also delays feedback about broken changes. The hint is that CI should respond promptly to integrations, with appropriate infrastructure or parallel execution to manage load. For further study, review how fast feedback supports small-batch development.
 - [ ] Allow the build to remain in a "failed" state if the errors are related to non-critical components, as long as the core functionality is still working.
+  You’re correctly recognizing that not every failure has equal business impact, but leaving a shared build failed hides integration problems and reduces trust in CI. The hint is to investigate and repair failures promptly, even when they affect a secondary component. Review build-health practices and failure ownership.
 ```

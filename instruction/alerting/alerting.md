@@ -81,9 +81,13 @@ Once an alert is triggered and the appropriate party is notified, the system typ
 When determining the appropriate CPU threshold for an alert on a cluster of servers, which approach best ensures high availability while minimizing "alert fatigue"?
 
 - [ ] Trigger a critical alert immediately whenever any single node in the cluster exceeds 90% CPU utilization for more than 30 seconds.
+  You’re right to consider sustained CPU usage rather than a brief spike. However, one node exceeding 90% does not necessarily threaten availability if the other nodes can handle the workload. As you continue, consider how the cluster would respond if one node failed. A threshold based on **N+1 redundancy** provides an earlier, more meaningful warning.
 - [ ] Set a static threshold at 50% average cluster utilization to ensure administrators have ample time to provision new hardware.
+  You’re thinking productively about giving administrators time to respond. However, a fixed 50% threshold may create unnecessary alerts because it does not reflect the cluster’s redundancy or actual capacity. For improvement, compare fixed thresholds with capacity-based thresholds. The key hint is to consider whether the remaining nodes could handle traffic after one node fails.
 - [x] Set a threshold based on the cluster's "N+1" redundancy, alerting when utilization reaches a point where the remaining nodes could not handle the traffic if one node failed.
+  You correctly connected the threshold to the cluster’s failover capacity. The key hint is **N+1 redundancy**: the cluster should have enough spare capacity to continue serving traffic after one node fails. Alerting when that safety margin disappears supports high availability without creating unnecessary alerts.
 - [ ] Configure alerts to trigger only when the CPU utilization reaches 100% and the system begins to experience packet loss or request queuing.
+  You’re correctly recognizing that packet loss and request queuing indicate serious system stress. However, waiting until CPU reaches 100% means the system may already be failing. As you review this concept, focus on preserving capacity before failure occurs. The hint is to alert when the remaining nodes could no longer handle traffic after one node failed.
 ```
 
 

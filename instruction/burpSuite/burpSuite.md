@@ -242,9 +242,11 @@ When you are done, it should look something like the following.
 
 ![Intruder results](intruderResults.png)
 
-
 ```masteryls
 {"id":"2381964a-44eb-444e-857b-aab2f8b1ed6e","title":"","type":"multiple-choice"}
 Submit a screenshot of your intruder execution result.
+- [x] Done
+  Good job! Make sure the screenshot clearly shows the Burp Suite Intruder execution and its results. Include enough request or response context for someone reviewing your work to verify what you tested and what you discovered.
+- [ ] I'm still thinking about it.
+  No problem. We are here for you when you are ready.
 ```
-

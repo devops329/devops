@@ -112,7 +112,11 @@ Incident response is increasingly driven by AI and Machine Learning (AIOps). AI 
 According to the Google Site Reliability Engineering (SRE) handbook, which of the "Four Golden Signals" measures how "full" your service is, typically by tracking the utilization of the system's most constrained resources?
 
 - [ ] Latency
+  You’re correctly thinking about an important service signal, but latency measures how long requests take rather than how full the system is. The hint is to focus on constrained-resource utilization. Review the four golden signals and what each one tells you.
 - [ ] Traffic
+  You’re right that traffic is a core golden signal, but it measures demand or request volume, not resource fullness. The hint is to look for the signal that shows how close constrained resources are to capacity. For further study, compare traffic with saturation on a busy service.
 - [x] Saturation
+  You correctly identified saturation. The key hint is that saturation describes how “full” a service is by tracking utilization of its constrained resources, such as CPU, memory, or queue capacity. It can reveal that a system is approaching a limit before errors appear.
 - [ ] Errors
+  You’re correctly recognizing errors as a key reliability signal, but errors measure failed requests or operations rather than resource fullness. The hint is to identify the signal that tracks how close constrained resources are to capacity. Review how errors and saturation complement each other.
 ```

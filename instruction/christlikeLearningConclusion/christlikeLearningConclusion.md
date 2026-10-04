@@ -24,5 +24,7 @@ I have completed the **Christlike Learning conclusion** deliverable, including r
 
 
 - [x] Deliverable complete
+  You’ve confirmed that you completed the conclusion deliverable. The key reminder is to connect your recording to gratitude, seeking help, and using your talents for good in daily life. As you move on, keep those reflections connected to specific actions and experiences.
 - [ ] I'm **not** going to complete this deliverable
+  You’ve honestly identified a point where the work is unfinished. The hint is to return to the deliverable requirements: record how you will show gratitude, plead for help, and use your talents for good. For improvement, break the recording into those three topics and ask for course help if you are unsure how to proceed.
 ```

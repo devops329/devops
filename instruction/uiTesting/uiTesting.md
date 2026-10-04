@@ -124,7 +124,11 @@ To combat flakiness:
 What is the primary reason for performing UI testing that directly drives a web browser rather than relying solely on unit or integration tests?
 
 - [ ] It significantly reduces the overall execution time of the test suite because browsers can process JavaScript faster than isolated runtime environments.
+  You’re right to consider test-suite speed, but browser-driven tests usually take longer because they start a browser and exercise more of the system. The hint is to focus on what a real user experiences across the frontend, backend, and environment. For further study, compare the strengths of unit, integration, and UI tests.
 - [ ] It is the most efficient method for achieving 100% code coverage across the backend's internal business logic and database schemas.
+  You’re thinking about thorough coverage, which is valuable. However, UI tests are not the most efficient way to cover backend internals or database logic. The hint is that browser testing validates an end-to-end user path, while unit and integration tests cover internal behavior more directly. Review which testing level best fits each type of coverage.
 - [x] It validates the entire application stack from the user's perspective, ensuring that the frontend, backend, and environment integrate correctly.
+  You correctly recognized the defining strength of browser-driven UI testing: it checks the application as a user encounters it, including integration among the frontend, backend, and runtime environment. As you continue, use this user-perspective and end-to-end coverage as the key clue when distinguishing UI tests from lower-level tests.
 - [ ] It allows developers to bypass the user interface to test private server-side methods that are not exposed to the network.
+  You correctly noticed that server-side behavior matters, but browser-driven testing intentionally goes through the user interface rather than bypassing it. The hint is to ask whether the test follows a real user action through the whole stack. For further study, use unit tests for private logic and UI tests for observable user behavior.
 ```

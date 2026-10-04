@@ -63,7 +63,11 @@ Regardless of the specific design, the most important step is to start logging. 
 When determining the appropriate volume of data to include in application logs, which principle best balances the needs of observability with system constraints?
 
 - [ ] Log every variable change and function entry/exit point in production to ensure total visibility into the execution flow.
+  You’re aiming for complete visibility, which is a useful goal. However, logging every detail can create noise, storage cost, performance overhead, and privacy risk. The hint is to capture enough context to reconstruct an event without recording redundant high-frequency data. For further study, review log levels, sampling, and redaction.
 - [ ] Only log critical errors and stack traces to minimize storage costs and avoid any impact on application performance.
+  You’re correctly considering storage and performance constraints, but errors alone omit warnings, important state changes, and successful events needed to understand an incident. The hint is to balance useful context with volume and sensitivity. Improve your approach by defining which events support diagnosis and measuring their value.
 - [ ] Include full request and response payloads for every transaction to facilitate the reproduction of user-reported issues.
+  You’re thinking about reproducing issues, which is important. However, recording every payload can expose sensitive data and produce excessive volume. The hint is to capture selective, redacted context rather than complete transactions. For further study, review privacy-safe logging and structured fields that identify a request without storing its contents.
 - [x] Log enough context to reconstruct the application state during an event while excluding sensitive information and redundant high-frequency data.
+  You correctly balanced diagnostic context with system, cost, and privacy constraints. The hint is to ask whether each field helps reconstruct an event and whether it is safe and useful to retain. This principle leads to logs that support investigation without overwhelming the people and systems consuming them.
 ```

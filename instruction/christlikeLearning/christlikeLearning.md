@@ -77,6 +77,7 @@ I have completed the **Christlike Learning** deliverable, including recording ho
 
 
 - [x] Deliverable complete
+  You’ve confirmed completion of the Christlike Learning deliverable. The key hint is to connect gratitude, pleading for help, and using your talents for good to concrete choices in your life. Carry those examples forward as you reflect on the course.
 - [ ] I'm **not** going to complete this deliverable
+  It’s good that you’re being honest about the unfinished work. The hint is to return to the three required themes—gratitude, asking for help, and using your talents for good—and record a brief reflection for each. For improvement, schedule a small work session and contact your TA if any part of the deliverable is unclear.
 ```
-

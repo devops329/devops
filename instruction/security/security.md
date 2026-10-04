@@ -307,8 +307,12 @@ Security is a massive topic that deserves your serious consideration. Gone are t
 Security theater refers to measures that provide a false sense of safety without significantly reducing actual risk. Which approach is most effective for an organization looking to transition from security theater to evidence-based security?
 
 - [ ] Implementing highly visible security protocols primarily to reassure stakeholders and employees, even if the underlying technical vulnerabilities remain unaddressed.
+  You’re correctly recognizing the appearance of security as a concern, but this is an example of security theater because it does not reduce the underlying risk. The hint is to ask whether the control addresses a modeled threat and whether its effect can be tested. For further study, distinguish visible assurance from measurable protection.
 
 - [ ] Mandating complex password requirements and frequent periodic rotations to demonstrate a public commitment to rigorous access control.
+  You’re right that authentication strength matters, but complexity and frequent rotation alone do not demonstrate that risk is being reduced. The hint is to start with a threat model and validate controls with objective evidence. For improvement, evaluate password policies alongside practical attack data and account-protection metrics.
 - [ ] Deploying a wide array of specialized security tools to ensure that every category of the security software market is represented in the organization's tech stack.
+  You’re correctly thinking about broad coverage, but having many tools does not prove that important threats are controlled and can increase complexity. The hint is to prioritize controls from a formal threat model and measure their effectiveness. For further study, focus on risk reduction rather than tool count.
 - [x] Prioritizing security investments based on a formal threat model and validating the effectiveness of controls through objective testing and metrics.
+  You correctly chose the evidence-based approach. The key hint is the cycle of modeling threats, selecting controls, and testing whether those controls measurably reduce risk. This replaces reassuring appearances with evidence that security investments work.
 ```

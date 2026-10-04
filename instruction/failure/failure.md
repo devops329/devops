@@ -80,9 +80,13 @@ Defend against security failures by implementing these best practices:
 In the context of maintaining high-availability software systems, which of the following scenarios best illustrates a **proactive** approach to failure management?
 
 - [ ] Increasing server memory and CPU limits immediately after a service crashes due to an unexpected spike in user traffic.
+  You’re correctly thinking about restoring capacity after an incident, but this action happens after the crash, so it is reactive. The hint is to look for an action taken before failure to test or strengthen resilience. For further study, compare preventive experiments with post-incident remediation.
 - [ ] Conducting a detailed post-mortem meeting to identify the root cause of a database outage that occurred the previous night.
+  You’re right that a post-mortem can produce valuable learning, but it analyzes an event that has already occurred. The hint is to identify work that intentionally tests the system before a real outage. Use post-mortem findings to guide future proactive experiments.
 - [x] Implementing automated chaos engineering experiments to intentionally inject latency and observe how the system handles degraded dependencies.
+  You correctly identified a proactive practice: chaos experiments create controlled failure conditions before users encounter them. The key hint is the intentional injection of latency and observation of system behavior, which reveals weaknesses while there is time to improve resilience.
 - [ ] Configuring an automated alerting system that pages the on-call engineer as soon as the service's error rate exceeds 5%.
+  You’re correctly focusing on early detection, but an alert responds after the error rate has already crossed the threshold. The hint is to look for deliberately testing resilience before an outage, such as injecting latency or dependency failures. For further study, distinguish monitoring and response from proactive failure experiments.
 ```
 
 ## A bit of fun

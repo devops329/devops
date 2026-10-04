@@ -217,7 +217,11 @@ We are not going to use a formal dependency injection framework in JWT Pizza, bu
 Which of the following best describes the relationship and difference between Dependency Injection (DI) and the Dependency Inversion Principle (DIP)?
 
 - [ ] Dependency Injection is the high-level architectural principle, while Dependency Inversion is the specific implementation of using a Service Locator to find dependencies.
+  You’re correctly noticing that one term describes design and the other describes implementation, but the roles are reversed. The hint is that DIP is the principle about depending on abstractions, while DI is one way to provide the needed objects. For further study, compare constructor injection with the broader dependency-inversion goal.
 - [x] Dependency Inversion is a design principle that suggests high-level modules should depend on abstractions, whereas Dependency Injection is a technique for providing those dependencies to a class.
+  You correctly separated the architectural principle from the implementation technique. The key hint is to remember that DIP shapes what a module should depend on, while DI supplies that dependency from outside the class. This separation makes code easier to test and replace.
 - [ ] Dependency Inversion is a technique used to instantiate objects via reflection, while Dependency Injection is a principle stating that low-level modules must always inherit from high-level modules.
+  You’re connecting the terms to object creation and module relationships, which are relevant areas, but both definitions are inaccurate. The hint is that DIP favors abstractions and DI provides concrete implementations; neither requires reflection or inheritance in that direction. Review examples using interfaces and constructor injection.
 - [ ] There is no functional difference; Dependency Injection is simply the modern name for the original Dependency Inversion Principle.
+  You’re right that DI and DIP are closely related, but they are not interchangeable names. The hint is to distinguish a guiding design principle from a concrete technique: DIP says what dependencies should look like, and DI says how they can be supplied. For further study, trace one dependency from an abstraction to its injected implementation.
 ```

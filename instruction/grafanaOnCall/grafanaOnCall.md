@@ -144,8 +144,11 @@ When the alert is resolved it will move into the **Resolved** state.
 While standard Grafana dashboard alerts can notify a team when a metric threshold is crossed, what primary advantage does Grafana OnCall offer for managing complex incident response?
 
 - [ ] It allows users to write more complex PromQL and LogQL queries that are not supported by the standard Grafana alerting engine.
+  You’re correctly thinking about alert configuration and query capabilities, but query complexity is not Grafana OnCall’s primary advantage. The hint is to focus on what happens after an alert fires: scheduling and escalation determine who should receive it and when. For further study, compare alert evaluation with incident routing.
 - [ ] It automatically executes infrastructure-as-code scripts to restart failing services before a human is notified.
+  You’re thinking about reducing recovery time through automation, which is useful. However, OnCall primarily coordinates people and escalation; it does not inherently run infrastructure-as-code remediation before notification. The hint is to look for scheduling, rotations, and escalation chains. Review which tools handle automated remediation separately.
 - [x] It provides sophisticated scheduling and escalation chains to ensure alerts are routed to the correct person based on a rotation.
+  You correctly identified the key advantage: Grafana OnCall connects alerts to schedules, rotations, and escalation paths. The hint is to think beyond detecting a threshold and consider who must respond next if the first person does not acknowledge the incident. That routing makes complex on-call operations manageable.
 - [ ] It increases the visual resolution of dashboard panels to provide more granular detail during a system outage.
+  You’re correctly recognizing that detailed dashboards can help during an outage, but visual resolution is unrelated to OnCall’s incident-management role. The hint is to focus on routing and escalation rather than presentation. For further study, separate observability visualization from the process of assigning responders.
 ```
-

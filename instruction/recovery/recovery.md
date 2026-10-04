@@ -108,9 +108,13 @@ An organization experiences a critical server failure at 1:00 PM. The IT departm
 In this scenario, what were the actual recovery metrics achieved?
 
 - [ ] The Recovery Time (RT) was 2 hours, and the Recovery Point (RP) was 4 hours.
+  You’re correctly working with the two recovery measurements, but the intervals are reversed and the restoration duration is miscalculated. The hint is to calculate RTO from 1:00 PM to 5:00 PM, and RPO from the 11:00 AM backup to the 1:00 PM failure. For improvement, write both timelines separately.
 - [ ] The Recovery Time (RT) was 4 hours, and the Recovery Point (RP) was 6 hours.
+  You correctly calculated the four-hour restoration interval, but the recovery point is measured from the failure back to the most recent backup, which is two hours—not six. The hint is to subtract 11:00 AM from 1:00 PM for RPO. Review the difference between time to restore and data age.
 - [ ] The Recovery Time (RT) was 6 hours, and the Recovery Point (RP) was 4 hours.
+  You’re correctly separating recovery time from recovery point, but both intervals need to be recalculated. The hint is that RTO runs from the 1:00 PM failure to the 5:00 PM restoration, while RPO runs from the 11:00 AM backup to the failure. For improvement, mark the three timestamps on a timeline.
 - [x] The Recovery Time (RT) was 4 hours, and the Recovery Point (RP) was 2 hours.
+  You correctly calculated both recovery metrics. The key hint is to use the failure-to-restoration interval for recovery time—four hours—and the failure-to-backup interval for recovery point—two hours of potentially lost data. Keeping those timelines separate prevents the common mix-up.
 ```
 
 

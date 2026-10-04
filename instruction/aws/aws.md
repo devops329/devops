@@ -75,7 +75,11 @@ Make sure you monitor you billing by selecting the **Billing and cost management
 A developer needs to run a short-lived script that automatically processes images every time they are uploaded to an Amazon S3 bucket. The developer wants to avoid managing virtual servers and only pay for the exact duration the code executes. Which AWS service is the most appropriate for this use case?
 
 - [x] AWS Lambda
+  You correctly chose AWS Lambda. The key hint is the combination of an S3 event trigger, short-lived execution, no server management, and billing based on execution time. Lambda is designed for this event-driven serverless pattern.
 - [ ] Amazon EC2
+  You’re correctly identifying a compute service, but EC2 requires you to provision and manage virtual servers, which conflicts with the goal of avoiding server administration and paying only for execution. The hint is to look for event-driven serverless compute. For further study, compare EC2’s instance model with Lambda’s function model.
 - [ ] Amazon Lightsail
+  You’re right that Lightsail simplifies hosting, but it still provides managed virtual servers or other persistent resources rather than short-lived, S3-triggered function execution. The hint is to look for a service that runs code in response to events without server management. Review Lambda’s S3 integration.
 - [ ] Amazon RDS
+  You’re correctly considering an AWS managed service, but RDS is for relational databases, not event-triggered image-processing scripts. The hint is to match the workload to serverless compute that runs for the exact duration of each invocation. For further study, review the main purpose of RDS versus Lambda.
 ```

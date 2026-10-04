@@ -212,9 +212,13 @@ In the context of software engineering, what are some of the major benefits of a
 When determining which business processes to automate first, which combination of factors typically yields the highest Return on Investment (ROI) and success rate?
 
 - [x] High-volume, repetitive tasks that follow stable, rule-based logic
+  You correctly identified the strongest starting point for automation. The key hint is the combination of frequent repetition, predictable rules, and enough volume for time savings to compound. These characteristics usually make benefits measurable and maintenance manageable.
 - [ ] Tasks that are performed once a year but involve a high degree of creative decision-making
+  You’re correctly recognizing that creative work can be valuable, but infrequent, judgment-heavy tasks are usually poor first automation targets. The hint is to look for repeatable rules and meaningful volume. For further study, identify routine steps that could be automated while preserving human judgment for creative decisions.
 - [ ] Highly complex processes that undergo frequent structural changes and logic updates
+  You’re right that complex processes may consume time, but frequent structural changes make automation expensive to maintain and difficult to stabilize. The hint is to begin with stable, rule-based work. For improvement, look for a smaller repeatable sub-process before automating the entire workflow.
 - [ ] Low-frequency tasks that require significant emotional intelligence and subjective judgment
+  You’re correctly noticing that these tasks may be difficult to automate, but their low frequency and human-centered judgment also limit early ROI. The hint is to prioritize high-volume, repetitive work with stable rules. For further study, consider automation as support for human decisions rather than replacement of them.
 ```
 
 ## A bit of fun

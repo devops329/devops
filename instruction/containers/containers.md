@@ -229,9 +229,13 @@ docker exec <container ID> ls -la
 In the context of Docker, what is a primary architectural difference between a container and a traditional virtual machine (VM)?
 
 - [ ] Containers provide hardware-level abstraction, ensuring that each instance has its own dedicated BIOS and virtual hardware.
+  You’re correctly associating virtual machines with hardware abstraction, but dedicated virtual hardware is a VM characteristic rather than a container characteristic. The hint is to ask what the two technologies share: containers use the host kernel, while VMs include a full guest operating system. Review the layers each isolates.
 - [ ] Containers are essentially small virtual machines that require a Type-1 hypervisor like Xen or ESXi to operate.
+  You’re right that both containers and VMs provide isolation, but containers are not small VMs and do not require a Type-1 hypervisor. The hint is to focus on the operating-system kernel: containers share it with the host, while VMs run guest operating systems. For further study, compare startup time and resource overhead.
 - [ ] Containers are strictly used for stateless code execution and lack the ability to interact with the host's file system or network.
+  You’re correctly considering isolation and state, but containers can run stateful workloads and interact with filesystems and networks through controlled interfaces. The hint is to focus on kernel sharing, which is the primary architectural distinction in this question. Review volumes and container networking for examples.
 - [x] Containers share the host's operating system kernel, whereas each virtual machine runs its own full guest operating system.
+  You correctly identified the architectural difference. The key hint is the kernel boundary: containers isolate processes while sharing the host kernel, whereas each VM includes a complete guest operating system. That difference explains much of the efficiency and startup-speed advantage of containers.
 ```
 
 

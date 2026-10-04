@@ -38,9 +38,13 @@ Once you have written your infrastructure code, you must test it. This involves 
 What is the primary objective of implementing Infrastructure as Code (IaC) within a DevOps environment?
 
 - [ ] To replace automated provisioning with manual, GUI-based configurations to ensure human oversight of every resource.
+  You’re correctly thinking about oversight, but IaC is intended to reduce inconsistent manual configuration through automation. The hint is to focus on machine-readable definitions that can be reviewed and applied repeatedly. For further study, compare manual drift with version-controlled provisioning.
 - [ ] To create a static documentation library that describes hardware components without interacting with the actual cloud environment.
+  You’re right that IaC definitions document infrastructure, but their main purpose is to actively provision and manage resources, not merely describe them. The hint is to look for repeatable execution from machine-readable files. Review how IaC tools apply and update those definitions.
 - [x] To manage and provision infrastructure through machine-readable definition files, ensuring consistency and repeatability across different environments.
+  You correctly identified the primary objective of IaC. The key hint is the combination of machine-readable definitions, version control, and repeatable execution; together they make environments more consistent and easier to recreate. This also helps teams review infrastructure changes like code.
 - [ ] To eliminate the need for version control systems by storing configuration settings directly within the physical hardware's firmware.
+  You’re correctly considering where configuration is stored, but IaC depends on version-controlled definition files rather than eliminating version control or embedding settings in hardware. The hint is to think of infrastructure configuration as reproducible code. For further study, review how history and review improve infrastructure changes.
 ```
 
 ## A bit of fun

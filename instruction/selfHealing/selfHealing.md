@@ -79,7 +79,11 @@ The integration of AI and Machine Learning (ML) is further expanding these capab
 In an infrastructure environment utilizing **Roll-Forward Immutable Healing**, what is the standard procedure when a specific service instance is detected as unhealthy or failing?
 
 - [ ] The system triggers an automated configuration management agent to identify and repair the specific corrupted files on the existing live instance.
+  You’re correctly thinking about automated repair, but immutable healing avoids modifying a potentially corrupted live instance. The hint is to look for replacement from a trusted source rather than in-place repair. For further study, compare mutable configuration management with immutable infrastructure.
 - [x] The failing instance is terminated and a brand-new instance is provisioned from the current, validated "golden" image or container specification.
+  You correctly identified the roll-forward immutable procedure. The key hint is replace rather than repair: terminate the unhealthy instance and provision a fresh one from the current validated image or specification. This removes unknown drift and restores a known-good state.
 - [ ] The system performs a global version reversal, reverting all healthy and unhealthy nodes to the previous stable software release.
+  You’re correctly recognizing that version control can support recovery, but a global rollback is a roll-back strategy, not roll-forward immutable healing. The hint is to focus on replacing only the unhealthy instance with the current golden image. Review the difference between rollback and replacement.
 - [ ] The unhealthy instance is placed into a "frozen" state while an automated debugger attempts to restart the specific failed process within the original environment.
+  You’re thinking about preserving evidence and restarting a process, but immutable healing does not keep repairing the original instance. The hint is to replace the unhealthy unit with a fresh instance built from a validated specification. For further study, review why immutable replacement limits configuration drift.
 ```

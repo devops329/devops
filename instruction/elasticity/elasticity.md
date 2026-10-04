@@ -57,7 +57,11 @@ This built-in elasticity is a force multiplier for small DevOps teams. Once an a
 In which of the following scenarios would implementing an automated elasticity strategy be **least** beneficial or potentially counterproductive?
 
 - [ ] A high-growth startup that experiences unpredictable viral spikes in traffic and needs to maintain high availability.
+  You’re correctly recognizing a workload that changes quickly, but that is exactly where automated elasticity is valuable. The hint is to look for demand that is steady and predictable, where scaling automation adds little benefit or creates unnecessary complexity. Compare bursty traffic with the legacy scenario.
 - [ ] A data processing service that handles large batches of information at irregular intervals throughout the week.
+  You’re right to notice that irregular batches create changing resource needs, which can benefit from automated scaling. The hint is to identify the case where demand is predictable and manual configuration is costly but rarely needed. For further study, consider how elasticity follows workload demand.
 - [x] A legacy application with a steady, predictable workload that requires significant manual intervention to configure new instances.
+  You correctly identified the least beneficial scenario. The key hint is the steady, predictable workload: automatic elasticity may add complexity without meaningful benefit, especially when the legacy application is difficult to reconfigure. Evaluate modernization and capacity planning before adding scaling automation.
 - [ ] An e-commerce platform that needs to scale out resources rapidly during seasonal sales events like Black Friday.
+  You’re correctly recognizing a workload with sharp, predictable seasonal demand, which is a strong use case for elasticity. The hint is to choose the scenario where automated scaling helps match resources to changing traffic. For further study, distinguish predictable scaling schedules from constant overprovisioning.
 ```

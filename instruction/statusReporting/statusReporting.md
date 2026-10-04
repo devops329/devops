@@ -62,7 +62,11 @@ Rather than building a custom solution from scratch, you can use one of many ava
 Why is maintaining a public-facing status page considered an essential practice for modern software-as-a-service (SaaS) providers?
 
 - [ ] It acts as an automated load balancer that redirects user traffic away from degraded components during a failure.
+  You’re correctly connecting reliability communication with failure handling, but a status page does not redirect traffic or act as a load balancer. The hint is to focus on its audience: it communicates current service health to customers and stakeholders. For further study, distinguish traffic management from incident communication.
 - [ ] It provides the engineering team with the specific logs and metrics needed to debug the underlying code during an incident.
+  You’re right that logs and metrics support incident response, but a public status page is not an engineering diagnostics system. The hint is to ask what customers need during an outage: a trustworthy summary of service health and updates. Review the separate roles of dashboards, logs, and status pages.
 - [x] It fosters transparency and reduces support ticket volume by providing a single, reliable source of truth for system health.
+  You correctly identified the communication value of a public status page. The key hint is that customers can check one trusted source for availability and incident updates, which builds transparency and reduces repetitive support requests. Keep this audience and purpose in mind when designing status communications.
 - [ ] It ensures that competitors cannot track service reliability or historical uptime performance.
+  You’re thinking about how public information affects the business, but a status page is designed to increase transparency rather than hide reliability information. The hint is to focus on customer trust and a shared source of truth during incidents. For improvement, consider what information helps users make decisions when a service is degraded.
 ```

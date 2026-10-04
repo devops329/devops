@@ -81,7 +81,11 @@ In later lessons, you will learn how to deploy your own JWT Pizza Service and da
 What is the primary technical characteristic that distinguishes a static deployment from a dynamic server-side deployment?
 
 - [x] Static deployments serve pre-built files directly to the user without requiring a server to execute code or query a database during the request-response cycle.
+  You correctly identified the defining characteristic of static deployment. The key hint is that the files are built ahead of time and served directly, so the server does not generate page content or query a database for each request. This model also works well with CDNs and edge locations.
 - [ ] Static deployments are restricted to HTML and CSS only and cannot execute client-side JavaScript or interact with external APIs.
+  You’re correctly noticing that static sites serve pre-built files, but they can still include client-side JavaScript and call external APIs. The hint is to focus on whether server-side code runs during the request, not on what the browser can execute. For further study, separate static hosting from frontend capability.
 - [ ] Static deployments require a server-side runtime environment like Node.js or Python to generate the page content every time a user visits the URL.
+  You’re right that dynamic applications often use a server-side runtime, but that describes the contrast rather than static deployment. The hint is that static files are generated before deployment and served without per-request code execution. Review the request path for static and dynamic sites.
 - [ ] Static deployments must be hosted on a local physical server and are incompatible with modern edge computing or Content Delivery Networks (CDNs).
+  You’re correctly thinking about hosting architecture, but static files are especially compatible with object storage, CDNs, and edge delivery. The hint is to focus on pre-built content rather than physical hosting location. For further study, compare local servers with globally distributed static hosting.
 ```
