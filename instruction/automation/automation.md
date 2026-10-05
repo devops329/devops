@@ -87,7 +87,7 @@ As a DevOps engineer, you can never really automate everything and so it is impo
 impact = (monthly frequency * duration) * value
 ```
 
-The next part of the puzzle is to give the task a **complexity** score that is based on how difficult the task is to automate. If you can automate it with a single line of shell script then give it a complexity score of 1. If it requires entirely new service providers or the development of a whole new code base then give it a score of 8. If it is also difficult to deploy and initiate, then give it a score of 10.
+The next part of the puzzle is to give the task a **complexity** score that is based on how difficult the task is to automate. If you can automate it with a single line of shell script then give it a complexity score of 1. If it requires entirely new service providers or the development of a whole new code base then give it a score of 8. If it is also difficult to deploy and initiate, then give it a score of 10. Tasks that follow stable, well-defined rules tend to have low complexity and stay automated once the code is written. Processes that change frequently, or that depend on subjective judgment, have high complexity because the automation must be reworked whenever the process changes.
 
 ```
 priority = impact/complexity
@@ -212,13 +212,32 @@ In the context of software engineering, what are some of the major benefits of a
 When determining which business processes to automate first, which combination of factors typically yields the highest Return on Investment (ROI) and success rate?
 
 - [x] High-volume, repetitive tasks that follow stable, rule-based logic
-  You correctly identified the strongest starting point for automation. The key hint is the combination of frequent repetition, predictable rules, and enough volume for time savings to compound. These characteristics usually make benefits measurable and maintenance manageable.
+  **Nice work!** You picked the tasks where automation pays off fastest.
+
+  Think about the lesson's formula. **Impact** grows with *monthly frequency × duration*, so high-volume work scores high. **Complexity** stays low when the logic is stable and rule-based, because the automation is easy to write and rarely needs rework. High impact divided by low complexity gives the highest priority.
+
+  When you look for your next automation target, look for that same combination.
+
 - [ ] Tasks that are performed once a year but involve a high degree of creative decision-making
-  You’re correctly recognizing that creative work can be valuable, but infrequent, judgment-heavy tasks are usually poor first automation targets. The hint is to look for repeatable rules and meaningful volume. For further study, identify routine steps that could be automated while preserving human judgment for creative decisions.
+  You're right that some tasks feel important enough to deserve attention, and that's a fair instinct.
+
+  Automation pays off through repetition, though. A task done once a year adds very little to the *monthly frequency × duration* part of the impact score. Creative decision-making is also hard to express as code, which raises the complexity score.
+
+  Revisit *How to choose what to automate next* and work through the priority equation for this task.
+
 - [ ] Highly complex processes that undergo frequent structural changes and logic updates
-  You’re right that complex processes may consume time, but frequent structural changes make automation expensive to maintain and difficult to stabilize. The hint is to begin with stable, rule-based work. For improvement, look for a smaller repeatable sub-process before automating the entire workflow.
+  It's reasonable to think the hardest processes would benefit most from automation, and complexity does make manual work painful.
+
+  The catch is the *frequent structural changes*. Every time the process changes, the automation must be rewritten, so its complexity score stays high and the payoff keeps getting pushed back.
+
+  Review how the lesson's **complexity** score affects priority. Then consider what kind of process stays automated once you've written the code.
+
 - [ ] Low-frequency tasks that require significant emotional intelligence and subjective judgment
-  You’re correctly noticing that these tasks may be difficult to automate, but their low frequency and human-centered judgment also limit early ROI. The hint is to prioritize high-volume, repetitive work with stable rules. For further study, consider automation as support for human decisions rather than replacement of them.
+  You're thinking about which tasks need a human touch, and that's a useful question to ask.
+
+  The same features that make these tasks human make them poor first candidates. They happen rarely, so automating them saves little time. Subjective judgment is also very hard to encode as rules.
+
+  Try scoring this task with the lesson's **impact** and **complexity** formulas, and then compare it with a task that happens many times a day.
 ```
 
 ## A bit of fun

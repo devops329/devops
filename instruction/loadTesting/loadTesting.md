@@ -118,11 +118,26 @@ When testing JWT Pizza, we will focus on basic load testing using a normal expec
 What is the primary distinction between general load testing and stress testing?
 
 - [x] Load testing validates performance under expected peak volume, while stress testing pushes the system beyond its limits to observe how it fails.
-  You correctly distinguished normal capacity validation from deliberately exceeding capacity. The hint is to compare expected peak traffic with traffic beyond the system’s safe limits: load testing measures whether the system meets performance goals, while stress testing explores failure behavior.
+  **Nice work!** You captured the difference in purpose.
+
+  A **load test** asks, "Can we handle the traffic we expect, with acceptable response times?" A **stress test** asks, "Where does the system break, and how does it fail?" You need both: one confirms you're ready for normal peaks, and the other reveals your bottleneck and failure behavior.
+
 - [ ] Load testing determines the absolute breaking point of a system, while stress testing checks for SLA compliance.
-  You’re right that both approaches can inform reliability decisions, but their definitions are reversed here. The hint is to associate load testing with expected peak demand and stress testing with pushing past the limit. Review how each test supports capacity planning and failure analysis.
+  You've correctly connected these tests to finding a breaking point and to checking SLAs, so the right ideas are there.
+
+  They're attached to the wrong tests, though. Reread the opening paragraph of the lesson and the *Types of load testing* table. Notice which test measures performance at expected volume and which one deliberately goes beyond it.
+
 - [ ] Load testing is performed by developers, while stress testing is only performed by QA engineers.
-  You’re correctly thinking about who may participate in testing, but team ownership does not define the difference between load and stress testing. The hint is to focus on the intensity of the simulated workload, not the job title of the person running it. Review the goals of performance tests.
+  You're thinking about who owns testing, which is a real consideration for teams.
+
+  The difference between these tests isn't about job titles, though. Developers, QA engineers, and DevOps engineers might run either one. The difference is **how much load** is applied and **what question** the test answers.
+
+  Review the *Load* and *Stress* rows in the *Types of load testing* table.
+
 - [ ] Load testing ignores response times and only focuses on whether the server crashes.
-  You’re right that crashes matter, but load testing also measures response times, throughput, error rates, and resource use under expected demand. The hint is that load testing checks normal peak performance, while stress testing examines behavior beyond capacity. For further study, review common load-test success criteria.
+  Good effort. Checking whether a server stays up is part of the picture.
+
+  Response time is central to load testing, though. The lesson lists *Measure Response Times* as a primary goal, and the example k6 script checks that each transaction completes in under 500 ms.
+
+  Reread *Why We Load Test*, and then compare load and stress testing in the *Types of load testing* table.
 ```

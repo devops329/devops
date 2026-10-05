@@ -42,6 +42,8 @@ The following table shows how the services used by JWT Pizza provide elasticity:
 
 This built-in elasticity is a force multiplier for small DevOps teams. Once an architecture is correctly defined and deployed, the system's elasticity handles fluctuations automatically. Infrastructure management that once required a large team of engineers can now be handled by a single DevOps professional.
 
+Elasticity delivers the most value when demand fluctuates and new resources can be provisioned automatically. If a workload is steady and predictable, or if each new instance requires manual configuration before it can serve traffic, automated scaling adds cost and complexity with little benefit.
+
 
 
 ```masteryls
@@ -57,11 +59,30 @@ This built-in elasticity is a force multiplier for small DevOps teams. Once an a
 In which of the following scenarios would implementing an automated elasticity strategy be **least** beneficial or potentially counterproductive?
 
 - [ ] A high-growth startup that experiences unpredictable viral spikes in traffic and needs to maintain high availability.
-  You’re correctly recognizing a workload that changes quickly, but that is exactly where automated elasticity is valuable. The hint is to look for demand that is steady and predictable, where scaling automation adds little benefit or creates unnecessary complexity. Compare bursty traffic with the legacy scenario.
+  You're thinking carefully about which workloads elasticity suits, and that's the right question to ask.
+
+  This scenario is actually a strong match for elasticity, though. Unpredictable spikes are hard to plan for, and automatic scaling keeps the startup available without paying for peak capacity all the time.
+
+  Reread the two reasons elasticity matters at the top of the lesson, and then look for the scenario where neither one applies.
+
 - [ ] A data processing service that handles large batches of information at irregular intervals throughout the week.
-  You’re right to notice that irregular batches create changing resource needs, which can benefit from automated scaling. The hint is to identify the case where demand is predictable and manual configuration is costly but rarely needed. For further study, consider how elasticity follows workload demand.
+  Good effort. Batch processing does feel different from serving web traffic.
+
+  Irregular batches are a strong case *for* elasticity, though. The system can scale up while a batch runs and scale back down afterward, so you don't pay for idle capacity between jobs.
+
+  Think about the **Reduces cost** benefit in the lesson. Then look for a scenario where demand barely changes or new capacity can't be added automatically.
+
 - [x] A legacy application with a steady, predictable workload that requires significant manual intervention to configure new instances.
-  You correctly identified the least beneficial scenario. The key hint is the steady, predictable workload: automatic elasticity may add complexity without meaningful benefit, especially when the legacy application is difficult to reconfigure. Evaluate modernization and capacity planning before adding scaling automation.
+  **Great reasoning!** Elasticity pays off when demand changes and new capacity can be added automatically. This legacy application has neither.
+
+  With a steady workload, there's little to scale. Because each new instance needs manual setup, automated scaling couldn't add capacity quickly anyway. Building elasticity here adds cost and complexity without much benefit.
+
+  A better first step might be modernizing the application so that its instances can be provisioned automatically.
+
 - [ ] An e-commerce platform that needs to scale out resources rapidly during seasonal sales events like Black Friday.
-  You’re correctly recognizing a workload with sharp, predictable seasonal demand, which is a strong use case for elasticity. The hint is to choose the scenario where automated scaling helps match resources to changing traffic. For further study, distinguish predictable scaling schedules from constant overprovisioning.
+  You're right to think about large seasonal events. They put real pressure on a system.
+
+  This is a classic case *for* elasticity, though. Black Friday traffic can be many times normal levels. Elastic scaling lets the platform handle the surge and then scale back down, instead of paying for peak hardware all year.
+
+  Revisit the JWT Pizza Super Bowl example, and then look for the scenario that lacks fluctuating demand.
 ```

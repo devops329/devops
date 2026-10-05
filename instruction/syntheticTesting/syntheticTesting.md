@@ -62,13 +62,32 @@ test('Synthetic Login Check', async ({ page }) => {
 In which of the following scenarios is synthetic testing the most appropriate tool to use?
 
 - [ ] Debugging a performance issue reported by a specific user on an old Android device
-  You’re correctly focusing on a real performance problem, but reproducing one user’s device-specific issue calls for targeted debugging or real-device testing. The hint is to look for a scripted check that runs repeatedly from controlled locations. For further study, compare synthetic monitoring with user-session investigation.
+  You're thinking about real-world device diversity, which matters a lot for user experience.
+
+  The lesson specifically lists this as a case where you should **avoid** synthetic testing, though. Scripted probes can't reproduce the long tail of real devices and networks that a single user's experience depends on.
+
+  Reread *When to Avoid Synthetic Testing*.
+
 - [ ] Analyzing the click-through rate of a new marketing banner
-  You’re right that user behavior can be measured, but click-through rate is an analytics or experiment question rather than a synthetic test. The hint is to identify a repeatable script that verifies a technical user journey. Review the difference between business analytics and availability monitoring.
+  Good effort. Measuring how users respond to a new feature is valuable work.
+
+  Click-through rates come from *real* user behavior, though. A synthetic bot clicks wherever its script tells it to, so its clicks say nothing about how appealing a banner is.
+
+  Revisit what synthetic testing is designed to verify in *When Synthetic Testing is Appropriate*.
+
 - [ ] Stress-testing the database by simulating 50,000 concurrent user sessions
-  You’re correctly recognizing the value of simulating users, but 50,000 concurrent sessions describes load or stress testing, not a small scheduled synthetic check. The hint is to look for a scripted journey run periodically from multiple locations. For further study, compare test scale and purpose.
+  You're right that synthetic tests simulate users, so this option is understandably tempting.
+
+  Pushing a system to its limits is a job for **load or stress testing**, though. The lesson notes that synthetic testing focuses on functional health and baseline latency, not on stressing the system to its breaking point.
+
+  Reread *When to Avoid Synthetic Testing*, especially the point about high-volume testing.
+
 - [x] Verifying that the "Checkout" flow is functional every 5 minutes from multiple global regions
-  You correctly identified a strong synthetic-testing use case. The key hint is the repeatable scripted transaction run on a schedule from several locations. It verifies availability and user experience proactively, even when no real customer has recently reported a problem.
+  **Spot on!** This is exactly what synthetic testing is built for.
+
+  A scripted probe runs a **critical path** like checkout around the clock from multiple **regions**. It catches outages and regional problems, often before any real customer reports them.
+
+  You'll set up the same kind of check for JWT Pizza with Grafana later in this lesson.
 ```
 
 ## Grafana synthetic testing

@@ -246,7 +246,12 @@ When you are done, it should look something like the following.
 {"id":"2381964a-44eb-444e-857b-aab2f8b1ed6e","title":"","type":"multiple-choice"}
 Submit a screenshot of your intruder execution result.
 - [x] Done
-  Good job! Make sure the screenshot clearly shows the Burp Suite Intruder execution and its results. Include enough request or response context for someone reviewing your work to verify what you tested and what you discovered.
+  **Well done!** Running an Intruder brute force attack shows you how quickly an automated tool can try thousands of passwords against a login endpoint.
+
+  Think about what your results revealed about JWT Pizza. Then consider which defenses, such as rate limiting, account lockout, or strong password requirements, would make the attack fail. And remember to use these tools only against applications you have permission to test.
+
 - [ ] I'm still thinking about it.
-  No problem. We are here for you when you are ready.
+  No worries. Burp Suite has a lot of moving parts, and it's normal for your first attack to take a few tries.
+
+  Go back through the lesson step by step. Make sure the login request appears in the Proxy history, send it to Intruder, and mark the password in the `Payload positions` input before adding your candidate passwords. Once you have a result, capture a screenshot and come back to finish this exercise.
 ```

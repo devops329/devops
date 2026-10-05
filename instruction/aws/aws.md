@@ -48,6 +48,8 @@ Other popular AWS services include:
 | DynamoDB   | Managed NoSQL databases      |
 | CloudWatch | Monitoring and logging       |
 
+Lambda is especially useful for short tasks triggered by events, such as a file upload to S3. You don't manage any servers, and you pay only for the time your code runs. In contrast, EC2 and its simplified counterpart, Lightsail, provide virtual servers that you manage and pay for as long as they are running.
+
 You should to take some time to read about, and get familiar, with what each of these services offer and how they work. One of the great things about Cloud Computing is that you can experiment without any significant long term impact or expense. You can simply start something up, play with it for a while, and then tear it down.
 
 ## AWS Dashboard
@@ -75,11 +77,32 @@ Make sure you monitor you billing by selecting the **Billing and cost management
 A developer needs to run a short-lived script that automatically processes images every time they are uploaded to an Amazon S3 bucket. The developer wants to avoid managing virtual servers and only pay for the exact duration the code executes. Which AWS service is the most appropriate for this use case?
 
 - [x] AWS Lambda
-  You correctly chose AWS Lambda. The key hint is the combination of an S3 event trigger, short-lived execution, no server management, and billing based on execution time. Lambda is designed for this event-driven serverless pattern.
+  **Exactly right!** Lambda is AWS's serverless compute service, and it fits this scenario well:
+
+  - It runs your code in response to an event, such as a file upload to S3.
+  - There are no servers for you to provision or patch.
+  - You pay only for the time your code actually executes.
+
+  Look for this pattern whenever work is short-lived and triggered by events.
+
 - [ ] Amazon EC2
-  You’re correctly identifying a compute service, but EC2 requires you to provision and manage virtual servers, which conflicts with the goal of avoiding server administration and paying only for execution. The hint is to look for event-driven serverless compute. For further study, compare EC2’s instance model with Lambda’s function model.
+  Good thinking. EC2 can certainly run an image-processing script, and it's one of AWS's core compute services.
+
+  EC2 gives you virtual servers, though, and the developer wants to avoid managing servers. With EC2, you also pay for the instance the whole time it's running, not just while the script executes.
+
+  Take another look at the services described in the lesson and find the one that runs code without a server for you to manage.
+
 - [ ] Amazon Lightsail
-  You’re right that Lightsail simplifies hosting, but it still provides managed virtual servers or other persistent resources rather than short-lived, S3-triggered function execution. The hint is to look for a service that runs code in response to events without server management. Review Lambda’s S3 integration.
+  You're on the right track looking for something simpler than full server management.
+
+  Lightsail is a simplified way to launch virtual private servers. It's still a server you run and pay for continuously, so it doesn't meet the requirement to pay only while the code runs.
+
+  Reread the description of AWS compute options in the lesson. Focus on which one avoids servers entirely and is triggered by events.
+
 - [ ] Amazon RDS
-  You’re correctly considering an AWS managed service, but RDS is for relational databases, not event-triggered image-processing scripts. The hint is to match the workload to serverless compute that runs for the exact duration of each invocation. For further study, review the main purpose of RDS versus Lambda.
+  It's good that you're considering services from the lesson's tables. RDS is one of the most popular.
+
+  RDS is a **managed relational database**, though. It stores and queries data; it doesn't run your image-processing code. The scenario calls for a compute service that runs code on demand.
+
+  Look back at the *Other popular AWS services* table and match each service to the kind of work it does.
 ```

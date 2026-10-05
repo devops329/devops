@@ -36,6 +36,8 @@ Maintain a prioritized list of metrics that have a direct impact on the system, 
 
 For each critical metric, you must define the threshold at which the system requires attention. For example, you should never allow CPU utilization to reach 100%. Instead, the system should automatically alert and adjust compute capacity when utilization consistently reaches the 80% range.
 
+When a cluster is designed with **N+1 redundancy**, it has one more node than the load requires so that it can survive the loss of any single node. Thresholds for such a cluster should account for that redundancy: utilization should never grow beyond what the remaining nodes could handle if one node failed.
+
 ![Alert thresholds](alertThresholds.png)
 
 When monitoring metrics like request latency, consider outliers carefully. While an average request latency of 50ms may seem successful, inspecting the 99.9th percentile might reveal that some requests take 30,000ms. This means 1 in 1,000 requests is prohibitively slow. If rendering a single web page requires dozens of endpoint requests, 10% of your customers could experience an extremely poor load time.
@@ -81,13 +83,37 @@ Once an alert is triggered and the appropriate party is notified, the system typ
 When determining the appropriate CPU threshold for an alert on a cluster of servers, which approach best ensures high availability while minimizing "alert fatigue"?
 
 - [ ] Trigger a critical alert immediately whenever any single node in the cluster exceeds 90% CPU utilization for more than 30 seconds.
-  You’re right to consider sustained CPU usage rather than a brief spike. However, one node exceeding 90% does not necessarily threaten availability if the other nodes can handle the workload. As you continue, consider how the cluster would respond if one node failed. A threshold based on **N+1 redundancy** provides an earlier, more meaningful warning.
+  You're right to want an alert before a node is completely overwhelmed. That instinct to act early is a good one.
+
+  The trouble is **scope and duration**. One node running hot for 30 seconds is often just normal load balancing or a short burst, and the rest of the cluster can absorb it. Paging the on-call team for every short spike leads to *alert fatigue*, and people start ignoring the alerts that really matter.
+
+  Look again at the **Trigger** field in the alert rules table and how it pairs a threshold with a duration. Then ask what level of cluster-wide load actually puts availability at risk.
+
 - [ ] Set a static threshold at 50% average cluster utilization to ensure administrators have ample time to provision new hardware.
-  You’re thinking productively about giving administrators time to respond. However, a fixed 50% threshold may create unnecessary alerts because it does not reflect the cluster’s redundancy or actual capacity. For improvement, compare fixed thresholds with capacity-based thresholds. The key hint is to consider whether the remaining nodes could handle traffic after one node fails.
+  Building in plenty of lead time shows good operational thinking. Early warning is valuable.
+
+  A 50% threshold, though, will fire during ordinary busy periods even when the cluster is perfectly healthy. Alerts that fire often without needing action teach the team to tune them out. That's the alert fatigue this question asks you to avoid.
+
+  The threshold also isn't tied to how the cluster is built. Revisit the *Defining thresholds* section and think about what failure the alert should protect against. A good threshold comes from the system's real capacity limits, not a comfortable round number.
+
 - [x] Set a threshold based on the cluster's "N+1" redundancy, alerting when utilization reaches a point where the remaining nodes could not handle the traffic if one node failed.
-  You correctly connected the threshold to the cluster’s failover capacity. The key hint is **N+1 redundancy**: the cluster should have enough spare capacity to continue serving traffic after one node fails. Alerting when that safety margin disappears supports high availability without creating unnecessary alerts.
+  **Excellent reasoning!** You tied the alert threshold to what the cluster is actually built to survive.
+
+  In an N+1 design, the cluster should keep serving customers even if one node fails. If you have four nodes, the surviving three must carry the whole load. Once average utilization goes above about **75%**, losing one node would overload the rest. That's the point where a human needs to act.
+
+  This approach meets both goals:
+
+  - **High availability:** you're warned while the cluster can still survive a failure.
+  - **Low noise:** the alert fires only when the risk is real, not on every spike.
+
+  Keep thinking this way. Alert thresholds work best when they come from your architecture's failure modes.
+
 - [ ] Configure alerts to trigger only when the CPU utilization reaches 100% and the system begins to experience packet loss or request queuing.
-  You’re correctly recognizing that packet loss and request queuing indicate serious system stress. However, waiting until CPU reaches 100% means the system may already be failing. As you review this concept, focus on preserving capacity before failure occurs. The hint is to alert when the remaining nodes could no longer handle traffic after one node failed.
+  You're clearly trying to avoid false alarms, and cutting noise is a worthy goal.
+
+  Waiting for 100% utilization means the alert fires only *after* customers are already affected. By the time requests are queuing or packets are dropping, the incident has already started. The lesson warns specifically that you should **never** let CPU reach 100%.
+
+  Re-read the *Defining thresholds* section and notice why the example alerts in the 80% range. Think about how much warning a responder needs to act before availability suffers.
 ```
 
 

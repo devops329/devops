@@ -81,11 +81,28 @@ In later lessons, you will learn how to deploy your own JWT Pizza Service and da
 What is the primary technical characteristic that distinguishes a static deployment from a dynamic server-side deployment?
 
 - [x] Static deployments serve pre-built files directly to the user without requiring a server to execute code or query a database during the request-response cycle.
-  You correctly identified the defining characteristic of static deployment. The key hint is that the files are built ahead of time and served directly, so the server does not generate page content or query a database for each request. This model also works well with CDNs and edge locations.
+  **Correct!** In a static deployment, the server's only job is to deliver files. It doesn't run your code or query a database when a page is requested.
+
+  That's why static sites are so inexpensive and easy to scale through a CDN. The browser can still do a lot with JavaScript and API calls to third-party services, as the Supabase example shows.
+
 - [ ] Static deployments are restricted to HTML and CSS only and cannot execute client-side JavaScript or interact with external APIs.
-  You’re correctly noticing that static sites serve pre-built files, but they can still include client-side JavaScript and call external APIs. The hint is to focus on whether server-side code runs during the request, not on what the browser can execute. For further study, separate static hosting from frontend capability.
+  Good effort. You're right that static deployments start with simple files like HTML and CSS.
+
+  They can include JavaScript too, though, and they can do powerful things in the browser. The audio mixer demo and the WebAssembly examples run entirely on the client, and static apps can also call external APIs.
+
+  Reread *Calling non-static services* and the key points at the top of the lesson.
+
 - [ ] Static deployments require a server-side runtime environment like Node.js or Python to generate the page content every time a user visits the URL.
-  You’re right that dynamic applications often use a server-side runtime, but that describes the contrast rather than static deployment. The hint is that static files are generated before deployment and served without per-request code execution. Review the request path for static and dynamic sites.
+  Good effort. Generating pages on each request with Node.js or Python is a real and common approach.
+
+  That approach describes a **dynamic** server-side deployment, though, the opposite of a static one. Static files are built ahead of time and delivered as-is.
+
+  Reread the first key point of the lesson and how it describes what happens on the backend.
+
 - [ ] Static deployments must be hosted on a local physical server and are incompatible with modern edge computing or Content Delivery Networks (CDNs).
-  You’re correctly thinking about hosting architecture, but static files are especially compatible with object storage, CDNs, and edge delivery. The hint is to focus on pre-built content rather than physical hosting location. For further study, compare local servers with globally distributed static hosting.
+  You're thinking about where static files are hosted, which is a practical consideration.
+
+  Static deployments are actually *ideal* for CDNs and edge networks, though. Because the files don't change between requests, they can be cached and served from locations around the world.
+
+  Reread the paragraph that explains why static deployments are so desirable.
 ```

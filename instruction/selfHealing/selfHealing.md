@@ -79,11 +79,30 @@ The integration of AI and Machine Learning (ML) is further expanding these capab
 In an infrastructure environment utilizing **Roll-Forward Immutable Healing**, what is the standard procedure when a specific service instance is detected as unhealthy or failing?
 
 - [ ] The system triggers an automated configuration management agent to identify and repair the specific corrupted files on the existing live instance.
-  You’re correctly thinking about automated repair, but immutable healing avoids modifying a potentially corrupted live instance. The hint is to look for replacement from a trusted source rather than in-place repair. For further study, compare mutable configuration management with immutable infrastructure.
+  Good effort. Repairing the broken files directly is a reasonable traditional approach.
+
+  Roll-forward healing deliberately avoids patching a running node, though. In-place fixes cause **configuration drift** and can leave hidden corruption behind.
+
+  Reread *The "Roll-Forward" Immutable Healing* section and notice how it treats a degraded node.
+
 - [x] The failing instance is terminated and a brand-new instance is provisioned from the current, validated "golden" image or container specification.
-  You correctly identified the roll-forward immutable procedure. The key hint is replace rather than repair: terminate the unhealthy instance and provision a fresh one from the current validated image or specification. This removes unknown drift and restores a known-good state.
+  **Great job!** Immutable healing treats instances as disposable.
+
+  Instead of diagnosing and patching a sick node, the system stops routing traffic to it and replaces it with a fresh instance built from a verified golden image. The replacement exactly matches the known-good state, with no leftover corruption in memory or on disk.
+
+  You can see this pattern in action when ECS replaces an unhealthy container behind the ALB.
+
 - [ ] The system performs a global version reversal, reverting all healthy and unhealthy nodes to the previous stable software release.
-  You’re correctly recognizing that version control can support recovery, but a global rollback is a roll-back strategy, not roll-forward immutable healing. The hint is to focus on replacing only the unhealthy instance with the current golden image. Review the difference between rollback and replacement.
+  Good effort. Reverting to a stable release is a valid tool, especially when a bad deployment causes widespread problems.
+
+  This question is about a *single* unhealthy instance, though. Rolling back every node, including the healthy ones, is a rollback rather than a roll-forward, and it disrupts the whole system to fix one failure.
+
+  Revisit how the roll-forward mechanism responds to one faulty node.
+
 - [ ] The unhealthy instance is placed into a "frozen" state while an automated debugger attempts to restart the specific failed process within the original environment.
-  You’re thinking about preserving evidence and restarting a process, but immutable healing does not keep repairing the original instance. The hint is to replace the unhealthy unit with a fresh instance built from a validated specification. For further study, review why immutable replacement limits configuration drift.
+  Wanting to understand *why* an instance failed is valuable, and examining failed resources does help improve a system.
+
+  Roll-forward healing doesn't try to revive the instance in place, though. Restarting a process inside the original environment keeps any corrupted state around.
+
+  Reread the mechanism described in the roll-forward section. Notice what happens to the faulty node and where its replacement comes from.
 ```

@@ -19,6 +19,8 @@ Your main tool for working with containers is the Docker CLI. It allows you to r
 
 The following image depicts the standard container flow. You set up an application in your development environment and build an image. You then push that image to a container registry. The container is then pulled down to some environment and run.
 
+Unlike a virtual machine (VM), which uses a hypervisor to emulate hardware and runs its own full guest operating system, a container shares the host's operating system kernel. The container isolates only the application's processes, file system, and network, which makes it much smaller and faster to start than a VM.
+
 ![Container flow](containerFlow.png)
 
 ## Run a standard Linux container
@@ -229,13 +231,32 @@ docker exec <container ID> ls -la
 In the context of Docker, what is a primary architectural difference between a container and a traditional virtual machine (VM)?
 
 - [ ] Containers provide hardware-level abstraction, ensuring that each instance has its own dedicated BIOS and virtual hardware.
-  You’re correctly associating virtual machines with hardware abstraction, but dedicated virtual hardware is a VM characteristic rather than a container characteristic. The hint is to ask what the two technologies share: containers use the host kernel, while VMs include a full guest operating system. Review the layers each isolates.
+  You're right that both containers and VMs provide isolation, and isolation is a good place to start comparing them.
+
+  This option describes a **virtual machine**, though. Hardware-level abstraction, including a virtual BIOS and virtual devices, is exactly what makes VMs heavier. Containers isolate at the operating system level instead.
+
+  Reread the comparison of containers and VMs near the start of the lesson and focus on what each one virtualizes.
+
 - [ ] Containers are essentially small virtual machines that require a Type-1 hypervisor like Xen or ESXi to operate.
-  You’re right that both containers and VMs provide isolation, but containers are not small VMs and do not require a Type-1 hypervisor. The hint is to focus on the operating-system kernel: containers share it with the host, while VMs run guest operating systems. For further study, compare startup time and resource overhead.
+  It's a common mental model to think of containers as "lightweight VMs," so it makes sense to start there.
+
+  Containers don't need a hypervisor, though. Docker runs containers as isolated processes directly on the host's operating system. Hypervisors like Xen or ESXi are what *virtual machines* use to emulate hardware.
+
+  Revisit the comparison of containers and VMs in the lesson and notice what a container shares with its host.
+
 - [ ] Containers are strictly used for stateless code execution and lack the ability to interact with the host's file system or network.
-  You’re correctly considering isolation and state, but containers can run stateful workloads and interact with filesystems and networks through controlled interfaces. The hint is to focus on kernel sharing, which is the primary architectural distinction in this question. Review volumes and container networking for examples.
+  You've noticed that containers are often used for stateless services, and that's a common pattern.
+
+  It isn't a limitation, though. In this lesson, you mapped a container's port to your host with `-p 3000:3000` and reached it with Curl. Containers can also mount host directories.
+
+  Look back at the `docker container run` example, and then think about what truly differs from a VM.
+
 - [x] Containers share the host's operating system kernel, whereas each virtual machine runs its own full guest operating system.
-  You correctly identified the architectural difference. The key hint is the kernel boundary: containers isolate processes while sharing the host kernel, whereas each VM includes a complete guest operating system. That difference explains much of the efficiency and startup-speed advantage of containers.
+  **Spot on!** This is the key architectural difference.
+
+  A container shares the host's operating system **kernel** and isolates only the application's processes, file system, and network. A virtual machine runs a complete guest operating system on top of virtualized hardware.
+
+  That's why containers start in seconds, take up megabytes instead of gigabytes, and can be packed densely onto a single host. It's what makes the build, push, pull, and run flow in this lesson practical.
 ```
 
 

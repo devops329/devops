@@ -119,7 +119,12 @@ Take some time playing around with the JWT Pizza application. Register yourself 
 Head on over to [JWT Pizza](https://pizza.cs329.click). Make an account and buy a pizza.
 
 - [x] I successfully ordered a `Charred Leopard`.
-  You correctly confirmed that you completed the hands-on ordering task. The key hint is that the exercise is meant to help you navigate the JWT Pizza application as a real user, from creating an account through placing the specified order. Keep track of any behavior you notice as you explore.
+  **Enjoy your pizza!** Ordering a `Charred Leopard` walked you through registration, the menu, payment, and delivery.
+
+  Keep that flow in mind. You'll test, deploy, and monitor these same pages throughout the course, so the more familiar you are with JWT Pizza now, the easier those deliverables will be.
+
 - [ ] I couldn't figure out how to buy a pizza.
-  It’s good that you’re acknowledging where you need help rather than guessing. The hint is to create an account, browse the menu, and complete the order for a `Charred Leopard`. For improvement, retrace those steps, note where the process stops, and ask your TA or course community about the specific obstacle.
+  Thanks for trying. Exploring an unfamiliar app takes some patience.
+
+  Start on the home page and register a new account. Then open the menu, choose a `Charred Leopard`, and continue through checkout. The sitemap in the lesson shows how the Menu, Payment, and Delivery pages connect. If you're still stuck, ask on Discord. Someone has probably hit the same snag.
 ```

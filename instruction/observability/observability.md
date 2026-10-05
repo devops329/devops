@@ -112,11 +112,28 @@ Incident response is increasingly driven by AI and Machine Learning (AIOps). AI 
 According to the Google Site Reliability Engineering (SRE) handbook, which of the "Four Golden Signals" measures how "full" your service is, typically by tracking the utilization of the system's most constrained resources?
 
 - [ ] Latency
-  You’re correctly thinking about an important service signal, but latency measures how long requests take rather than how full the system is. The hint is to focus on constrained-resource utilization. Review the four golden signals and what each one tells you.
+  Good effort. Latency is one of the four golden signals and often the first one users notice.
+
+  Latency measures how long a request takes, though, not how full the system is. A system can respond quickly right up until a resource runs out.
+
+  Reread the definitions in the *Golden signals* section and find the one that focuses on constrained resources such as memory or I/O.
+
 - [ ] Traffic
-  You’re right that traffic is a core golden signal, but it measures demand or request volume, not resource fullness. The hint is to look for the signal that shows how close constrained resources are to capacity. For further study, compare traffic with saturation on a busy service.
+  You're close. Traffic and fullness are related, since more demand tends to fill a system up.
+
+  Traffic measures the **demand** placed on the system, such as requests per second, though. The same traffic might fill a small server but barely touch a large cluster.
+
+  Revisit the *Golden signals* list and look for the signal that describes how close resources are to their limits.
+
 - [x] Saturation
-  You correctly identified saturation. The key hint is that saturation describes how “full” a service is by tracking utilization of its constrained resources, such as CPU, memory, or queue capacity. It can reveal that a system is approaching a limit before errors appear.
+  **Correct!** Saturation tells you how close your most constrained resources, such as memory, CPU, or I/O, are to their limits.
+
+  It's often a leading indicator. Latency and errors usually climb only *after* saturation gets high, so watching it gives you a chance to scale or shed load before customers notice.
+
 - [ ] Errors
-  You’re correctly recognizing errors as a key reliability signal, but errors measure failed requests or operations rather than resource fullness. The hint is to identify the signal that tracks how close constrained resources are to capacity. Review how errors and saturation complement each other.
+  Good effort. Errors are a crucial golden signal, and they often rise when a system gets overloaded.
+
+  Errors measure the rate of **failed requests**, though, not how full the service is. A system can be nearly out of resources while still returning successful responses.
+
+  Reread the *Golden signals* definitions and find the one about how "full" the service is.
 ```

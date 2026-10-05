@@ -109,11 +109,32 @@ The `url` property is optional but highly recommended; it creates a link on the 
 What is the primary reason for using GitHub Environments within a CI/CD workflow?
 
 - [x] To define deployment protection rules, such as required reviewers, and manage secrets specific to a deployment target
-  You correctly identified the main purpose of GitHub Environments. The key hint is that an environment represents a deployment target with its own secrets, variables, approvals, and protection rules. This lets a workflow apply different controls to targets such as staging and production.
+  **Well done!** Environments let you attach safeguards to a specific deployment target:
+
+  - **Required reviewers** add a human approval gate.
+  - **Deployment branches** ensure that only `main` can deploy to production.
+  - **Environment secrets** keep production credentials separate from staging.
+
+  Together, these reduce the risk of an accidental or unauthorized production release.
+
 - [ ] To provide a cloud-hosted integrated development environment (IDE) for writing and debugging code directly in the browser
-  You’re correctly associating GitHub with browser-based development, but that is the role of tools such as Codespaces, not Environments. The hint is to focus on deployment targets, approvals, and target-specific secrets. For further study, compare repository development tools with deployment controls.
+  It's an easy mix-up, since GitHub does offer a cloud-hosted development environment called Codespaces.
+
+  GitHub *Environments* are a different feature, though. They represent deployment targets, such as `production`, in a CI/CD workflow, and they control *how* and *when* code can be deployed there.
+
+  Reread the opening paragraph and the list of safeguards you can configure.
+
 - [ ] To organize repository files into logical directories based on the runtime requirements of the application
-  You’re right that organization helps a project, but GitHub Environments do not create repository directories. The hint is to think about what happens during deployment: environments protect targets and supply target-specific configuration. Review how the repository’s file structure is managed separately.
+  You're thinking about how runtime requirements shape a project, and that's a useful perspective.
+
+  Environments don't affect your repository's file structure, though. They're configured in the repository settings and referenced by workflow jobs that deploy somewhere.
+
+  Review the *Creating an environment* section and notice what you actually configure there.
+
 - [ ] To isolate different git branches and prevent developers from pushing code directly to the main branch
-  You’re correctly thinking about protecting production changes, but Environments do not isolate Git branches or replace branch protection. The hint is to focus on deployment approvals and secrets associated with a target. For further study, distinguish branch rules from environment protection rules.
+  You've spotted that environments can involve branch restrictions, which is a sharp observation.
+
+  Those restrictions control which branch may *deploy* to an environment, though, not who can push code to `main`. Preventing direct pushes is the job of branch protection rules, a separate feature.
+
+  Reread the **Deployment branches** safeguard, and then consider the other safeguards that make environments useful.
 ```

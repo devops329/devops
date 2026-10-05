@@ -6,6 +6,8 @@ Knowing how to properly debug a full stack application is a critical skill for Q
 
 As the user interacts with the frontend interface the React application running in the browser will make HTTP fetch requests to the backend service and then send a response that the frontend will process and display to the user. That front to back execution flow will require you to keep both debuggers running at the same time and carefully understand what code is currently executing.
 
+Because the frontend and backend communicate only through HTTP requests, the **Network** tab in the browser's dev tools is a powerful place to start. Inspecting a request's status code and response body shows you exactly what the backend returned, which tells you which of the two applications to debug.
+
 ## Getting started and debugging tools
 
 Most debuggers have a standard set of tools that allow you to examine the source code, view where the current execution point is, examine the current value of variables, and step into, out of, or over code.
@@ -126,11 +128,30 @@ New software engineers attempt to avoid leaning this critical skill by simply gu
 You are debugging a React application where a specific UI component fails to display data expected from a Node.js API. The frontend is running, but the screen remains blank without any visual errors. Which of the following actions is the most effective first step to determine if the issue resides in the frontend logic or the backend API?
 
 - [ ] Add a `console.log()` inside the React component's `render` method to check if the state variable is an empty array or `null`.
-  You’re correctly thinking about inspecting frontend state, but that step assumes the request succeeded and may not reveal whether the backend returned usable data. The hint is to first inspect the browser’s Network tab for the request status and response body. For further study, trace the data path from request to rendered state.
+  Checking the component's state is a reasonable instinct, and it might show you that the data is empty.
+
+  It won't tell you *why* the data is empty, though. The backend might have returned nothing, or the frontend might have mishandled a good response. The lesson also notes that scattering log statements around is inferior to using your debugging tools.
+
+  Think about where the frontend and backend meet, and look for a tool that shows exactly what crossed that boundary.
+
 - [ ] Restart the Node.js server with the `--inspect` flag and attach a debugger to step through the database controller logic.
-  You’re correctly considering backend debugging, but stepping into database code is premature before confirming that the API request was sent and what it returned. The hint is to start at the boundary between frontend and backend: inspect the browser request. For improvement, narrow the fault domain before using a deeper debugger.
+  Using a real debugger shows good habits. The lesson strongly encourages stepping through code rather than guessing.
+
+  Jumping straight into the database logic assumes the problem is on the backend, though, and you haven't confirmed that yet. You could spend a long time stepping through code that works perfectly.
+
+  Start by narrowing the problem down. Reread the paragraph near the start of the lesson about how the frontend and backend communicate.
+
 - [x] Open the browser's **Network** tab, trigger the action, and inspect the status code and response body of the specific API request.
-  You correctly chose the most effective first step. The key hint is to inspect the boundary between the React client and Node.js API: the status code and response body quickly show whether the backend responded correctly or whether the frontend must be investigated next. This keeps the debugging process focused.
+  **Great choice!** The Network tab sits right at the boundary between the two applications.
+
+  If the request returns an error status or an empty body, the problem is on the backend. If it returns the correct data, the backend did its job, and the bug is in how the frontend handles the response. Either way, you now know which debugger to open next.
+
+  Splitting the problem in half like this saves a lot of time in full-stack debugging.
+
 - [ ] Check the `package.json` file in the React project to ensure the `proxy` field correctly matches the local URL of the Node.js server.
-  You’re correctly identifying a proxy mismatch as a possible cause, but checking configuration first may miss a more direct piece of evidence. The hint is to inspect the actual network request and response in the browser. For further study, use the request URL and status code to decide whether proxy configuration needs attention.
+  Checking configuration is a smart idea, because a misconfigured proxy can break communication between the two applications.
+
+  It's a guess, though, not a measurement. You'd be checking one possible cause without first confirming where the failure happens.
+
+  Think about a tool that shows you the actual request and response, and reread how the lesson describes communication between the frontend and backend.
 ```

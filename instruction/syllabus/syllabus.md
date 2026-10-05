@@ -168,9 +168,14 @@ You are graded purely on the following assignments:
 
 
 - [x] I have read this syllabus
-  Great job! That is a lot to review, but it will save you time in the future.
+  **Thanks for reading!** The syllabus spells out how the course is graded, what each deliverable is worth, and how course policies work.
+
+  Bookmark it. When a question comes up about deadlines, grading, or expectations, the answer is often already here.
+
 - [ ] I'm going to skip this for now and then have a hard time later.
-  I get it. Sometimes you just got to skim. But there is some good stuff in here you don't want to miss.
+  We appreciate your honesty, and the syllabus does have a lot to take in.
+
+  Take a few minutes to go through it now, though. Knowing how deliverables are weighted and how the course policies work can save you from losing points later. Start with the grading table, and then skim the rest.
 ```
 
 

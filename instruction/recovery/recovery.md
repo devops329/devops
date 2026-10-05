@@ -108,13 +108,33 @@ An organization experiences a critical server failure at 1:00 PM. The IT departm
 In this scenario, what were the actual recovery metrics achieved?
 
 - [ ] The Recovery Time (RT) was 2 hours, and the Recovery Point (RP) was 4 hours.
-  You’re correctly working with the two recovery measurements, but the intervals are reversed and the restoration duration is miscalculated. The hint is to calculate RTO from 1:00 PM to 5:00 PM, and RPO from the 11:00 AM backup to the 1:00 PM failure. For improvement, write both timelines separately.
+  Good effort. You worked with the right timestamps, but the two measurements are swapped.
+
+  Recovery **time** measures downtime, from the moment of failure until service is restored. Recovery **point** measures data loss, from the last backup until the failure.
+
+  Reread the RPO and RTO definitions in the lesson, and then recompute each one.
+
 - [ ] The Recovery Time (RT) was 4 hours, and the Recovery Point (RP) was 6 hours.
-  You correctly calculated the four-hour restoration interval, but the recovery point is measured from the failure back to the most recent backup, which is two hours—not six. The hint is to subtract 11:00 AM from 1:00 PM for RPO. Review the difference between time to restore and data age.
+  Nice work. Your recovery time is correct: the system was down from 1:00 PM to 5:00 PM.
+
+  The recovery point, though, measures how much data was lost. That runs from the last backup up to the moment of failure, not up to the moment of recovery.
+
+  Revisit the RPO definition and its example. Then recalculate using the time of the backup and the time of the failure.
+
 - [ ] The Recovery Time (RT) was 6 hours, and the Recovery Point (RP) was 4 hours.
-  You’re correctly separating recovery time from recovery point, but both intervals need to be recalculated. The hint is that RTO runs from the 1:00 PM failure to the 5:00 PM restoration, while RPO runs from the 11:00 AM backup to the failure. For improvement, mark the three timestamps on a timeline.
+  Good effort. You're working with the right timestamps, but each metric is measured between different points in time.
+
+  Recovery time starts at the **failure**, not at the backup. Recovery point is measured from the **backup** to the **failure**.
+
+  Reread the RPO and RTO sections and the diagram that compares them. Then sketch a timeline of the scenario.
+
 - [x] The Recovery Time (RT) was 4 hours, and the Recovery Point (RP) was 2 hours.
-  You correctly calculated both recovery metrics. The key hint is to use the failure-to-restoration interval for recovery time—four hours—and the failure-to-backup interval for recovery point—two hours of potentially lost data. Keeping those timelines separate prevents the common mix-up.
+  **Well done!** You measured each metric from the right starting point:
+
+  - **Recovery time:** 1:00 PM failure to 5:00 PM restoration = **4 hours** of downtime.
+  - **Recovery point:** 11:00 AM backup to 1:00 PM failure = **2 hours** of lost data.
+
+  To improve the recovery point, back up more often or add a read replica. To improve the recovery time, automate the restoration or keep a warm or hot standby.
 ```
 
 

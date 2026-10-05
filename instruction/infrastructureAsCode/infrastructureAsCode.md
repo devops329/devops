@@ -38,13 +38,30 @@ Once you have written your infrastructure code, you must test it. This involves 
 What is the primary objective of implementing Infrastructure as Code (IaC) within a DevOps environment?
 
 - [ ] To replace automated provisioning with manual, GUI-based configurations to ensure human oversight of every resource.
-  You’re correctly thinking about oversight, but IaC is intended to reduce inconsistent manual configuration through automation. The hint is to focus on machine-readable definitions that can be reviewed and applied repeatedly. For further study, compare manual drift with version-controlled provisioning.
+  It's good to value human oversight. Reviewing infrastructure changes is important.
+
+  IaC moves in the opposite direction, though. It replaces manual, console-based configuration with code. Oversight comes from reviewing that code in version control, not from clicking through dialogs.
+
+  Reread *What is infrastructure as code?* and notice what IaC replaces.
+
 - [ ] To create a static documentation library that describes hardware components without interacting with the actual cloud environment.
-  You’re right that IaC definitions document infrastructure, but their main purpose is to actively provision and manage resources, not merely describe them. The hint is to look for repeatable execution from machine-readable files. Review how IaC tools apply and update those definitions.
+  You're right that IaC serves as documentation. The lesson lists it as one of IaC's key benefits.
+
+  IaC is *living* documentation, though. The same files actually create and modify the infrastructure. A static description that never touches the environment would quickly drift out of date.
+
+  Revisit the **Documentation** benefit and the description of IaC as machine-readable definition files.
+
 - [x] To manage and provision infrastructure through machine-readable definition files, ensuring consistency and repeatability across different environments.
-  You correctly identified the primary objective of IaC. The key hint is the combination of machine-readable definitions, version control, and repeatable execution; together they make environments more consistent and easier to recreate. This also helps teams review infrastructure changes like code.
+  **Great job!** IaC treats infrastructure the same way you treat application code.
+
+  Because your servers, networks, and databases are described in versioned definition files, you can rebuild production after a disaster, create identical staging or test environments, and review every change. Consistency and repeatability are exactly what manual setup can't guarantee.
+
 - [ ] To eliminate the need for version control systems by storing configuration settings directly within the physical hardware's firmware.
-  You’re correctly considering where configuration is stored, but IaC depends on version-controlled definition files rather than eliminating version control or embedding settings in hardware. The hint is to think of infrastructure configuration as reproducible code. For further study, review how history and review improve infrastructure changes.
+  Good effort. You're thinking about where configuration should live.
+
+  IaC actually depends *on* version control. The lesson stresses storing infrastructure code in a repository so that it can be reviewed, tested, and restored. Firmware settings would be hard to track and impossible to reproduce elsewhere.
+
+  Reread the key points and the *How to implement IaC* section.
 ```
 
 ## A bit of fun

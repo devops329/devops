@@ -65,13 +65,30 @@ If you are not security-minded in the design and deployment of your systems, you
 In the context of the security community and vulnerability management, which of the following best describes the fundamental difference between Common Weakness Enumeration (CWE) and Common Vulnerabilities and Exposures (CVE)?
 
 - [ ] CWE is a scoring system used to calculate the severity and impact of a security breach, while CVE is the database used to store the names of the researchers who discovered the breach.
-  You’re correctly looking for a distinction between two security resources, but CWE is not a severity score and CVE records vulnerability identities rather than researcher names. The hint is to separate a general flaw category from a specific documented vulnerability. Review how the two identifiers are used together in vulnerability management.
+  Good effort. Scoring severity is a real part of vulnerability management.
+
+  Neither definition matches the lesson, though. CWE isn't a scoring system, and CVE doesn't track researcher names. Both are catalogs, but they catalog different things.
+
+  Reread the **Description** for each list. Notice whether each one describes a *kind* of flaw or a *specific* occurrence.
+
 - [ ] CVE identifies the root cause types of software flaws (such as "Buffer Overflow"), while CWE tracks the specific patches and version numbers released to fix those flaws.
-  You’re thinking about causes and fixes, which are both important, but the definitions are reversed. The hint is that CWE describes classes of weaknesses such as buffer overflows, while a CVE describes a specific vulnerability in a product or system. For further study, compare one CWE category with a CVE record that references it.
+  You've got the right two ideas: one list covers root-cause types of flaws, and the other covers specific cases.
+
+  Check which name goes with which idea, though. CVE entries also identify vulnerabilities rather than tracking patches and version numbers.
+
+  Compare the two examples in the lesson: *Path Traversal* and the specific SolarWinds Serv-U vulnerability. Which list does each one come from?
+
 - [x] CWE identifies types or classes of software security flaws (the "what"), while CVE identifies specific, documented instances of vulnerabilities in particular products or systems (the "where").
-  You correctly distinguished the general weakness from the specific vulnerability instance. The key hint is “what” versus “where”: CWE describes the flaw pattern, while CVE identifies a documented occurrence in a particular product or system. This distinction helps organize vulnerability research and remediation.
+  **Exactly right!** CWE describes *kinds* of weaknesses, such as path traversal or SQL injection. CVE records *specific* vulnerabilities found in real products.
+
+  The lesson's examples show how they connect. The SolarWinds Serv-U vulnerability (a CVE) is an instance of the path traversal weakness (CWE-22). Learning the common CWEs helps you avoid creating new CVEs in your own code.
+
 - [ ] CWE is a private list maintained by software vendors for internal bug tracking, while CVE is a public list managed by government agencies for national infrastructure defense.
-  You’re right to consider who maintains security information, but CWE and CVE are not private vendor lists with those limited purposes. The hint is to focus on their content: CWE catalogs weakness types, and CVE catalogs specific public vulnerability instances. Review how these community resources support shared vulnerability language.
+  Good effort. You're right that government agencies are involved in vulnerability tracking.
+
+  Both lists are public, community resources, though. MITRE manages them, and NIST runs the National Vulnerability Database. Neither is a private vendor bug tracker.
+
+  Reread the **Managed by** and **Description** entries for each list.
 ```
 
 

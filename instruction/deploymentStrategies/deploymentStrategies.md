@@ -112,13 +112,32 @@ For a production system, this "In Situ" approach is not ideal. Rollbacks are dif
 In a blue-green deployment strategy, how is the transition from the current production version to the new version typically executed?
 
 - [ ] By incrementally updating individual nodes within a single cluster until all instances run the new version.
-  You’re correctly describing a gradual deployment pattern, but updating nodes incrementally is characteristic of a rolling deployment. The hint is to look for two complete environments and a traffic switch between them. For further study, compare rolling, canary, and blue-green strategies.
+  You're describing a real and widely used deployment approach, so you clearly know your strategies.
+
+  Updating nodes batch by batch within one cluster is the **rolling** strategy, though. Blue/green works differently because it keeps two complete, separate environments.
+
+  Compare the *Rolling* and *Blue/Green* sections of the lesson. Focus on how many environments each one uses and how traffic moves between them.
+
 - [x] By reconfiguring a load balancer or router to point traffic from the current environment to an identical idle environment containing the new code.
-  You correctly identified the blue-green transition. The key hint is that the new version is deployed to a separate, idle environment and traffic is switched at the routing layer. This makes the cutover fast and makes rollback easier if the new environment has problems.
+  **Exactly right!** Blue/green relies on two identical environments.
+
+  The new version is deployed to the idle environment and verified. Then the load balancer is switched so that all traffic flows to it. If something goes wrong, you switch the load balancer back, which makes rollback nearly instant.
+
+  The trade-off is temporarily running twice the resources, which cloud elasticity makes affordable.
+
 - [ ] By routing a small percentage of users to the new environment to monitor performance before a full rollout.
-  You’re correctly thinking about limiting exposure while observing a new version, but routing a small percentage of users is the defining pattern of a canary deployment. The hint is to look for an all-at-once traffic switch between two complete environments. Review how rollout scope differs across strategies.
+  You're thinking about reducing deployment risk by limiting exposure, and that's a valuable idea.
+
+  Gradually shifting a small percentage of users to the new version describes a **canary** deployment, though. Blue/green moves traffic between two full environments in a single switch.
+
+  Reread the *Canary* and *Blue/Green* sections and note how the traffic shift differs.
+
 - [ ] By taking the current environment offline to perform an in-place upgrade of the application and its dependencies.
-  You’re right that an in-place upgrade changes the production environment, but blue-green deployment prepares a separate environment so the current one can keep serving traffic. The hint is to look for a router or load balancer switch rather than an offline upgrade. For further study, compare rollback risk in both approaches.
+  Good effort. Upgrading in place is a real approach, and it needs no extra hardware.
+
+  Taking the environment offline for an in-place upgrade matches the **in situ** and **reboot** approaches, though. Those reduce capacity and make rollback slow. Blue/green avoids downtime by keeping the current version running until the new one is ready.
+
+  Revisit the *Deployment resources* section and compare it with *Blue/Green*.
 ```
 
 

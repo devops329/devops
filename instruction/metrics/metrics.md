@@ -42,6 +42,8 @@ Keeping detailed metrics at a per-second level is expensive. In a system that tr
 
 When you factor in the cost of long-term storage, expenses can rise quickly. One way to manage this is to decrease the granularity of stored metrics over time, a process known as downsampling. For example, you might keep per-second metrics for 15 days, downsample them to one-minute intervals for six months, and finally store them at 15-minute intervals for up to 10 years. This provides high granularity for immediate troubleshooting without incurring significant costs for broad historical trend analysis.
 
+Because every metric carries a storage and attention cost, each one you collect should support a specific goal, such as detecting a problem, diagnosing a failure, or planning capacity. Metrics that don't inform a decision add noise and expense.
+
 ## ☑ Exercise
 
 ```masteryls
@@ -49,11 +51,30 @@ When you factor in the cost of long-term storage, expenses can rise quickly. One
 When designing a monitoring or performance measurement framework, what is the most effective strategy for determining the quantity of metrics to capture?
 
 - [ ] Capture every possible data point available to ensure that any potential issue can be diagnosed through retrospective analysis.
-  You’re correctly valuing diagnostic detail, but collecting everything creates noise, storage cost, and more difficult analysis. The hint is to choose metrics that answer a specific operational question and support a decision. For further study, compare actionable signals with unused telemetry.
+  It's understandable to want every data point available for a later investigation.
+
+  The lesson shows how quickly that becomes expensive, though. Just 1,000 metrics per second produce 86 million values a day. Too many metrics also bury the important signals.
+
+  Reread *The cost of metrics* and think about how to decide which metrics earn their place.
+
 - [x] Focus on a concise set of actionable metrics that align with specific goals and provide clear signals for decision-making.
-  You correctly chose a goal-driven and actionable metric strategy. The key hint is to ask what decision each metric supports and whether it clearly signals a meaningful change. A concise set helps teams notice important behavior without being overwhelmed by data.
+  **Well done!** Good metrics are chosen on purpose.
+
+  A focused set of metrics tied to clear goals, such as detecting failures, diagnosing problems, or planning capacity, gives you signals you can act on. It also keeps storage costs under control and makes dashboards easier to read.
+
+  As you instrument JWT Pizza, ask what decision each metric will help you make.
+
 - [ ] Maintain a strict limit of exactly five metrics per system to ensure consistency and simplicity across the organization.
-  You’re appropriately seeking simplicity, but there is no universal number of metrics that fits every system. The hint is to align metrics with goals and actionable decisions rather than an arbitrary count. For improvement, justify each metric by the question it helps answer.
+  You're right that simplicity and consistency are valuable when designing metrics.
+
+  An arbitrary fixed number doesn't fit every system, though. A small service might need only a few metrics, while a large distributed system needs many more. The right number depends on what you need to observe and decide.
+
+  Revisit the end of *The cost of metrics* and think about what should determine whether a metric is worth collecting.
+
 - [ ] Only collect metrics related to system failures or errors to minimize data noise and reduce storage costs.
-  You’re correctly trying to reduce noise and cost, but failure metrics alone cannot show demand, latency, capacity, or healthy performance trends. The hint is to select a concise set of actionable signals across the system’s goals. For further study, review how baseline metrics help identify problems before failure.
+  Reducing noise and storage costs are both good goals.
+
+  Collecting only failure metrics leaves big gaps, though. The lesson uses latency, log events, active users, and CPU together to rule out a false alarm, and historical usage metrics drive **resource planning**.
+
+  Reread the diagnosis example and the *Resource planning* section.
 ```

@@ -51,11 +51,28 @@ git push
 When collaborating on projects that may eventually require resolving merge conflicts, it is essential to understand how you access the code. What is the primary difference between a **fork** and a **clone**?
 
 - [ ] A fork is a core Git command used to manage local branches, while a clone is a platform-specific feature used to delete remote repositories.
-  You’re right to distinguish Git operations from hosting-platform features, but the roles are reversed and deleting repositories is unrelated. The hint is to ask where each copy is created: a fork lives on the hosting service, while a clone is made on your local machine. Review the GitHub collaboration workflow that uses both.
+  Good effort. You've recognized that one of these is closely tied to Git and the other to the hosting platform.
+
+  The details are off, though. Forking is a feature of hosting services like GitHub, not a Git command, and cloning doesn't delete anything.
+
+  Reread the opening of the lesson, which describes the three copies of the repository you created by forking and cloning.
+
 - [ ] A clone provides a way to resolve merge conflicts automatically on the server, whereas a fork requires all conflicts to be handled via the command line interface.
-  You’re correctly connecting forks and clones with collaboration, but neither operation automatically resolves merge conflicts. The hint is to focus on location: forking creates a server-side copy under your account, while cloning downloads a local working copy. For further study, review where conflict resolution actually occurs.
+  You're connecting forks and clones to merge conflicts, which is exactly the context of this lesson.
+
+  Neither one resolves conflicts automatically, though. In this lesson, you resolve conflicts yourself in your *local* repository by fetching and merging from upstream, and then you push the result to your fork.
+
+  Review the *Merging your fork* steps and notice where each command runs.
+
 - [ ] Forking is the process of downloading a repository's history as a static ZIP file, while cloning establishes a live connection for real-time peer-to-peer coding.
-  You’re thinking about different ways to copy repository contents, but a fork is not a ZIP download and a clone is not a live peer-to-peer connection. The hint is that a fork is a hosting-service copy and a clone is a local Git repository with history. Review the purpose of each in a pull-request workflow.
+  Good effort. Thinking about how code moves between places is the right instinct.
+
+  Neither description fits, though. A fork is a full repository with its own history, not a ZIP file. A clone is a complete local repository that you can work in offline, not a live, peer-to-peer coding session.
+
+  Reread the first paragraph of the lesson and the diagram showing how your repositories relate.
+
 - [x] A fork creates a copy of the repository on the hosting service (server-side) under your account, while a clone creates a local copy of the repository on your physical machine.
-  You correctly identified the location and purpose of both copies. The key hint is the server-side versus local distinction: a fork lets you work under your own hosting account, and a clone lets you edit and run that repository on your machine. This distinction will help when you later synchronize changes and open pull requests.
+  **Exactly!** Your fork lives on GitHub under your account, and your clone lives on your machine.
+
+  That's why the lesson describes **three** copies: the upstream course repository, your fork (`origin`), and your local clone. You resolve merge conflicts in the clone after fetching from `upstream`, and then you push the result to `origin`. Knowing which copy you're working with makes those commands much easier to follow.
 ```

@@ -24,6 +24,8 @@ There are four major themes you should consider when building a secure applicati
 
 The goal is to constantly include these themes in your design discussions and implement them in your architectures. You will see these themes recurring throughout this course.
 
+Be wary of **security theater**: measures that look reassuring but do little to reduce real risk. Evidence-based security starts with a **threat model** that identifies who is likely to attack your system and how. You then focus on the controls that address those threats and verify that they work through testing and metrics.
+
 To make the concept of security more concrete, let's review some specific topics.
 
 ### Layers
@@ -307,12 +309,28 @@ Security is a massive topic that deserves your serious consideration. Gone are t
 Security theater refers to measures that provide a false sense of safety without significantly reducing actual risk. Which approach is most effective for an organization looking to transition from security theater to evidence-based security?
 
 - [ ] Implementing highly visible security protocols primarily to reassure stakeholders and employees, even if the underlying technical vulnerabilities remain unaddressed.
-  You’re correctly recognizing the appearance of security as a concern, but this is an example of security theater because it does not reduce the underlying risk. The hint is to ask whether the control addresses a modeled threat and whether its effect can be tested. For further study, distinguish visible assurance from measurable protection.
+  You're right that confidence matters to stakeholders and employees.
+
+  This option *is* the definition of security theater, though. It reassures people while the real vulnerabilities stay open, and attackers don't care how visible your protocols are.
+
+  Reread the paragraph on security theater near the start of the lesson, and then think about how you would *prove* that a control works.
 
 - [ ] Mandating complex password requirements and frequent periodic rotations to demonstrate a public commitment to rigorous access control.
-  You’re right that authentication strength matters, but complexity and frequent rotation alone do not demonstrate that risk is being reduced. The hint is to start with a threat model and validate controls with objective evidence. For improvement, evaluate password policies alongside practical attack data and account-protection metrics.
+  Good effort. Strong access control is important, and passwords are a common target.
+
+  The phrase *to demonstrate a public commitment* gives it away, though. Forced complexity and frequent rotations often push people toward predictable patterns or written-down passwords, so their benefit is questionable unless evidence shows that they reduce your actual risk.
+
+  Revisit how the lesson contrasts security theater with evidence-based security.
+
 - [ ] Deploying a wide array of specialized security tools to ensure that every category of the security software market is represented in the organization's tech stack.
-  You’re correctly thinking about broad coverage, but having many tools does not prove that important threats are controlled and can increase complexity. The hint is to prioritize controls from a formal threat model and measure their effectiveness. For further study, focus on risk reduction rather than tool count.
+  Good effort. Using the right tools is part of a strong security program.
+
+  Buying a tool for every category is driven by coverage on paper, though, not by your actual threats. Unvalidated tools can create a false sense of safety and add complexity to manage.
+
+  Reread the lesson's description of evidence-based security, and think about what should decide where you invest.
+
 - [x] Prioritizing security investments based on a formal threat model and validating the effectiveness of controls through objective testing and metrics.
-  You correctly chose the evidence-based approach. The key hint is the cycle of modeling threats, selecting controls, and testing whether those controls measurably reduce risk. This replaces reassuring appearances with evidence that security investments work.
+  **Excellent!** Evidence-based security starts with a **threat model**: understanding who might attack you, what they want, and how they would get in.
+
+  You then invest in the controls that address those threats and **verify** that they work through penetration tests, audits, and metrics. This keeps your effort focused on real risk instead of on appearances.
 ```

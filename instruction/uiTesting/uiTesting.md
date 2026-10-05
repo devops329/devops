@@ -124,11 +124,28 @@ To combat flakiness:
 What is the primary reason for performing UI testing that directly drives a web browser rather than relying solely on unit or integration tests?
 
 - [ ] It significantly reduces the overall execution time of the test suite because browsers can process JavaScript faster than isolated runtime environments.
-  You’re right to consider test-suite speed, but browser-driven tests usually take longer because they start a browser and exercise more of the system. The hint is to focus on what a real user experiences across the frontend, backend, and environment. For further study, compare the strengths of unit, integration, and UI tests.
+  Good effort. Speed matters a lot in a test suite.
+
+  Browser-driven tests are actually the *slowest* kind, though. They have to launch a browser, render pages, and simulate user interactions. That's why the lesson mentions headless mode as a way to speed them up.
+
+  Reread the opening of the lesson and focus on *what* UI tests validate rather than how fast they run.
+
 - [ ] It is the most efficient method for achieving 100% code coverage across the backend's internal business logic and database schemas.
-  You’re thinking about thorough coverage, which is valuable. However, UI tests are not the most efficient way to cover backend internals or database logic. The hint is that browser testing validates an end-to-end user path, while unit and integration tests cover internal behavior more directly. Review which testing level best fits each type of coverage.
+  You're thinking about coverage, which is a useful measure of how much code your tests exercise.
+
+  UI tests are a poor tool for covering backend internals, though. Unit tests reach business logic far more directly and efficiently. UI tests aim at something unit tests can't reach on their own.
+
+  Revisit the lesson's opening paragraphs on why UI tests are so valuable.
+
 - [x] It validates the entire application stack from the user's perspective, ensuring that the frontend, backend, and environment integrate correctly.
-  You correctly recognized the defining strength of browser-driven UI testing: it checks the application as a user encounters it, including integration among the frontend, backend, and runtime environment. As you continue, use this user-perspective and end-to-end coverage as the key clue when distinguishing UI tests from lower-level tests.
+  **Exactly!** Browser-driven tests see your application the way a user does.
+
+  By clicking through real pages in a real browser, they confirm that the frontend, backend, network calls, and environment all work together. Unit and integration tests can pass individually while that end-to-end flow is still broken, which is why UI tests are worth their extra cost and flakiness.
+
 - [ ] It allows developers to bypass the user interface to test private server-side methods that are not exposed to the network.
-  You correctly noticed that server-side behavior matters, but browser-driven testing intentionally goes through the user interface rather than bypassing it. The hint is to ask whether the test follows a real user action through the whole stack. For further study, use unit tests for private logic and UI tests for observable user behavior.
+  Good effort. Testing server-side methods directly is a legitimate goal.
+
+  UI testing does the opposite, though. It goes *through* the user interface rather than around it, exercising only what a real user can reach. Testing private server methods is the job of unit tests.
+
+  Reread the definition of UI testing at the start of the lesson.
 ```

@@ -23,6 +23,8 @@ The value proposition of cloud deployment is often categorized into several key 
 *   **Reliability:** Built-in redundancy and failover mechanisms ensure that if one physical server fails, the application automatically migrates to another, maintaining high availability.
 *   **Speed to Market:** Developers can provision entire environments (testing, staging, production) instantly using Infrastructure as Code (IaC), significantly shortening the software development lifecycle (SDLC).
 
+Some organizations go further with a **multi-cloud** strategy, spreading workloads across more than one provider to avoid depending on a single vendor. Others use **serverless** functions, sometimes called Function as a Service (FaaS), where the provider runs individual pieces of code on demand and you never manage a server at all.
+
 
 
 ## The Case for Self-Hosting: Control, Compliance, and Cost
@@ -85,13 +87,30 @@ Following this process will create a fully automated, cloud-scale architecture c
 What is the primary financial advantage of moving from on-premises deployment to a cloud deployment model?
 
 - [ ] It eliminates the need for any operational spending (OPEX).
-  You’re correctly looking for a financial benefit, but cloud deployment does not eliminate operational spending; it changes how infrastructure is purchased and consumed. The hint is to compare upfront CAPEX with ongoing OPEX. For further study, list which costs remain variable in a pay-as-you-go model.
+  You've correctly linked cloud deployment to a change in how costs are spent. That's the heart of this question.
+
+  The cloud doesn't eliminate operational spending, though. It *is* operational spending. You pay a provider on an ongoing basis for the resources you use, so OPEX usually goes up while upfront hardware purchases go down.
+
+  Reread the **Cost Optimization** pillar and pay attention to which kind of expense moves where.
+
 - [x] It shifts costs from Capital Expenditure (CAPEX) to Operational Expenditure (OPEX), allowing for a pay-as-you-go model.
-  You correctly identified the primary financial shift. The key hint is that cloud services turn large upfront hardware purchases into ongoing operating costs that can scale with usage. Remember that this model improves flexibility, but it does not guarantee the lowest total cost in every situation.
+  **Great job!** You identified the key financial shift.
+
+  On premises, you buy servers upfront (**CAPEX**) and size them for peak demand, even if they sit idle much of the time. In the cloud, you rent capacity as an ongoing operating cost (**OPEX**) and pay only for what you use. Combined with elasticity, this lets your spending rise and fall with real demand.
+
 - [ ] It guarantees that the total cost of ownership will always be lower, regardless of usage patterns.
-  You’re appropriately considering total cost of ownership, but cloud pricing does not guarantee savings under every workload or usage pattern. The hint is to focus on the CAPEX-to-OPEX shift and pay-as-you-go flexibility, then evaluate actual demand and management costs. For further study, compare steady high utilization with variable workloads.
+  It's true that the cloud often saves money, and noticing that shows you're thinking about total cost.
+
+  *Always* and *regardless of usage patterns* go too far, though. The lesson's self-hosting section explains that for steady, predictable workloads at large scale, owning hardware can cost less over a three-to-five-year lifecycle.
+
+  Compare the **Cost Optimization** pillar with the **Cost at Scale** point to see when each model wins.
+
 - [ ] It allows companies to own the physical hardware located in the provider's data center for tax depreciation.
-  You’re correctly thinking about ownership and depreciation, but cloud customers generally rent provider-managed resources rather than owning the physical hardware. The hint is to focus on the financial model: cloud deployment shifts hardware investment toward operating expenditure. Review the difference between provider ownership and customer usage.
+  You're thinking about the accounting side of infrastructure, which is a smart angle.
+
+  In a cloud model, though, the provider owns the hardware. You rent capacity instead of buying assets. Owning equipment you can depreciate is a feature of capital spending, which is what the cloud helps you move away from.
+
+  Review the difference between CAPEX and OPEX in the **Cost Optimization** pillar.
 ```
 
 ```masteryls
@@ -99,13 +118,32 @@ What is the primary financial advantage of moving from on-premises deployment to
 An international bank is launching a new application that processes highly sensitive financial records. Due to national security laws, the data must be stored on physical servers located within the country's borders, and the bank must have the ability to perform physical audits of the server hardware. Which deployment model is most appropriate?
 
 - [x] A self-hosted solution on private infrastructure
-  You correctly matched the deployment model to the bank’s constraints. The key hint is the combination of in-country physical storage, direct hardware audits, and control over sensitive records; private infrastructure provides that level of custody and compliance control.
+  **Excellent!** You matched the requirements to the right model.
+
+  The bank needs **data sovereignty**, meaning the data must stay within the country's borders. It also needs to **physically audit the hardware**. Public cloud providers work on a shared responsibility model and rarely let customers inspect their machines. Self-hosting on private infrastructure gives the bank full control over where the servers live and who can audit them.
+
+  This is one of the clearest cases where self-hosting beats the cloud.
+
 - [ ] A Multi-Cloud strategy using AWS and Azure
-  You’re correctly considering geographic resilience and provider choice, but multi-cloud does not automatically provide physical custody or the required in-country hardware audits. The hint is to prioritize the legal and physical-control requirements over scalability. For further study, compare provider-managed infrastructure with private infrastructure.
+  You're thinking about resilience and avoiding dependence on one vendor, which are real strengths of a multi-cloud strategy.
+
+  Using two public clouds doesn't solve this bank's problem, though. Both providers still own and control the physical hardware, and the bank can't walk into their data centers to audit the servers.
+
+  Revisit *The Case for Self-Hosting* and focus on the **Data Sovereignty & Compliance** point.
+
 - [ ] Serverless functions (FaaS) for maximum scalability
-  You’re right that serverless can scale efficiently, but it does not give the bank direct control over physical servers or guarantee the required audit and residency conditions. The hint is to identify the model that keeps infrastructure under the organization’s control. Review when compliance requirements outweigh operational convenience.
+  Scalability is a great benefit to think about, and serverless functions do scale very well.
+
+  This scenario isn't about scale, though. It's about **control**. With serverless functions, you never even see the servers your code runs on, much less audit their hardware or guarantee where they sit.
+
+  Reread the requirements in the question, and then compare them with the reasons for self-hosting listed in the lesson.
+
 - [ ] A managed SaaS (Software as a Service) platform
-  You’re correctly recognizing that SaaS reduces operational work, but the provider controls the platform and underlying hardware, which conflicts with physical audit and residency requirements. The hint is to look for private infrastructure managed directly by the bank. For further study, compare control, compliance, and convenience across deployment models.
+  You're right that a managed platform reduces the operational work for the bank's team. That's often a big advantage.
+
+  A SaaS platform gives the bank the *least* control, though. The vendor owns the infrastructure and the software, and it often decides where the data lives. That's the opposite of what physical audits and national data-residency laws require.
+
+  Review why the lesson calls managed services a possible "Black Box" liability in regulated industries.
 ```
 
 

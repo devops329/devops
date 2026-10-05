@@ -21,6 +21,8 @@ No product is ever completely free of defects. While you should do everything wi
 
 A common way to communicate with customers is to host a [status](https://github.com/ivbeg/awesome-status-pages?tab=readme-ov-file#public-status-pages) subdomain that serves as a centralized information hub during incidents.
 
+Because customers can check the status page for themselves, it also reduces the number of support requests your team must handle during an incident.
+
 #### status.openai.com
 
 The [OpenAI status](https://status.openai.com) page is a prime example.
@@ -62,11 +64,30 @@ Rather than building a custom solution from scratch, you can use one of many ava
 Why is maintaining a public-facing status page considered an essential practice for modern software-as-a-service (SaaS) providers?
 
 - [ ] It acts as an automated load balancer that redirects user traffic away from degraded components during a failure.
-  You’re correctly connecting reliability communication with failure handling, but a status page does not redirect traffic or act as a load balancer. The hint is to focus on its audience: it communicates current service health to customers and stakeholders. For further study, distinguish traffic management from incident communication.
+  Good effort. Routing traffic away from failures is an important resilience technique.
+
+  That's the job of load balancers and failover systems, though, not a status page. A status page *communicates* system health to customers; it doesn't change how traffic flows.
+
+  Reread the opening of the lesson and notice which approach to maintaining customer trust a status page supports.
+
 - [ ] It provides the engineering team with the specific logs and metrics needed to debug the underlying code during an incident.
-  You’re right that logs and metrics support incident response, but a public status page is not an engineering diagnostics system. The hint is to ask what customers need during an outage: a trustworthy summary of service health and updates. Review the separate roles of dashboards, logs, and status pages.
+  You're right that engineers need detailed information during an incident.
+
+  Logs and metrics belong in internal observability tools, though. A public status page is written for customers, and exposing internal debugging data there could even create security risks.
+
+  Revisit who the status page examples in the lesson are written for and what information they share.
+
 - [x] It fosters transparency and reduces support ticket volume by providing a single, reliable source of truth for system health.
-  You correctly identified the communication value of a public status page. The key hint is that customers can check one trusted source for availability and incident updates, which builds transparency and reduces repetitive support requests. Keep this audience and purpose in mind when designing status communications.
+  **Exactly!** A status page gives customers one trustworthy place to check during an incident.
+
+  Instead of discovering an outage on social media, customers see that you know about the problem and are working on it. Because they can check the status themselves, fewer of them need to open support tickets.
+
+  Remember to host it on a separate stack so that it stays up when your application doesn't.
+
 - [ ] It ensures that competitors cannot track service reliability or historical uptime performance.
-  You’re thinking about how public information affects the business, but a status page is designed to increase transparency rather than hide reliability information. The hint is to focus on customer trust and a shared source of truth during incidents. For improvement, consider what information helps users make decisions when a service is degraded.
+  Good effort. Thinking about how competitors view your reliability is a smart business instinct.
+
+  A public status page actually makes uptime history *more* visible, though, to customers and competitors alike. Its value comes from openness, not secrecy.
+
+  Reread the paragraph on **communication** and the status page examples. Think about what customers gain from that transparency.
 ```

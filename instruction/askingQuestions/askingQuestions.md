@@ -65,7 +65,12 @@ Figure out who your assigned TA is by reviewing the [TA schedule](https://docs.g
 When I need help during this course:
 
 - [x] I joined the discord server, sent my TA a DM, know where to go, and how to get answers
-  You’ve identified the support channels and know how to reach help when you need it. The key hint is to use those channels early: Discord and your TA can help you clarify the next step before a small question becomes a larger obstacle.
+  **You're all set!** Joining Discord and introducing yourself to your TA means you'll know exactly where to turn when you get stuck.
+
+  Remember the order in the lesson: try it yourself, search, check with peers, and then reach out to your TA or instructor. When you do ask, give plenty of background and a reproduction path so people can help you quickly.
+
 - [ ] I still am unclear about what I should do
-  It’s good that you’re recognizing the uncertainty instead of silently getting stuck. The next hint is to join the course Discord or message your TA with the specific step that is unclear. For improvement, write down what you tried, include any error message, and ask a focused question so you can get useful guidance quickly.
+  Thanks for being honest. Recognizing that you're unsure is the first step toward getting unstuck.
+
+  Start with the exercise: join the Discord server, change your display name, and find your assigned TA in the TA schedule using the first letter of your last name. Then send them a friend request and a DM. If anything is still unclear, ask in Discord. That's exactly what it's there for.
 ```

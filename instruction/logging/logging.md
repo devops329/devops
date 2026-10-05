@@ -63,11 +63,30 @@ Regardless of the specific design, the most important step is to start logging. 
 When determining the appropriate volume of data to include in application logs, which principle best balances the needs of observability with system constraints?
 
 - [ ] Log every variable change and function entry/exit point in production to ensure total visibility into the execution flow.
-  You’re aiming for complete visibility, which is a useful goal. However, logging every detail can create noise, storage cost, performance overhead, and privacy risk. The hint is to capture enough context to reconstruct an event without recording redundant high-frequency data. For further study, review log levels, sampling, and redaction.
+  Wanting complete visibility makes sense. More data can feel safer.
+
+  In production, though, logging every variable and function call creates huge volume, raises costs, and slows the application. The lesson warns that logging overhead can increase customer request latency, and the important events become harder to find.
+
+  Revisit *The impact of logging design* and the considerations about frequency, volume, and efficiency.
+
 - [ ] Only log critical errors and stack traces to minimize storage costs and avoid any impact on application performance.
-  You’re correctly considering storage and performance constraints, but errors alone omit warnings, important state changes, and successful events needed to understand an incident. The hint is to balance useful context with volume and sensitivity. Improve your approach by defining which events support diagnosis and measuring their value.
+  You're right to be concerned about cost and performance. Those are real constraints.
+
+  Logging only errors goes too far the other way, though. Without context about what happened *before* an error, you can't reconstruct the sequence of events or spot problems such as rising traffic or suspicious login attempts.
+
+  Reread how the lesson suggests *prioritizing and sampling* events instead of dropping everything except errors.
+
 - [ ] Include full request and response payloads for every transaction to facilitate the reproduction of user-reported issues.
-  You’re thinking about reproducing issues, which is important. However, recording every payload can expose sensitive data and produce excessive volume. The hint is to capture selective, redacted context rather than complete transactions. For further study, review privacy-safe logging and structured fields that identify a request without storing its contents.
+  Being able to reproduce user issues is a worthy goal, and context really does help.
+
+  Full request and response payloads often contain passwords, tokens, and personal data, though, and they add enormous volume. The lesson stresses removing sensitive information, such as credentials and PII, from logs.
+
+  Revisit the logging characteristics carried over from the Observability topic, especially the guidance on sensitive data.
+
 - [x] Log enough context to reconstruct the application state during an event while excluding sensitive information and redundant high-frequency data.
-  You correctly balanced diagnostic context with system, cost, and privacy constraints. The hint is to ask whether each field helps reconstruct an event and whether it is safe and useful to retain. This principle leads to logs that support investigation without overwhelming the people and systems consuming them.
+  **Well balanced!** You described logging that is useful without being wasteful.
+
+  Enough context lets you reconstruct what happened during an event. Excluding sensitive data protects your customers. Dropping redundant, high-frequency data keeps cost and performance overhead under control.
+
+  This is the balance the lesson aims for with prioritization, sampling, and asking whether you're sending information that could be derived elsewhere.
 ```

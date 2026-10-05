@@ -234,6 +234,10 @@ test('get menu', async () => {
 
 You are writing a program to test your program. This is more code that you will need to maintain. If you write useless tests, duplicate tests, or tests that exercise paths a consumer will never use, the value of the tests will not justify the investment.
 
+### Brittle tests
+
+Tests that assert against a class's internal implementation details, such as private fields or the order of internal calls, break whenever that code is refactored, even when its behavior hasn't changed. Write tests against the public interface and the results a consumer can observe.
+
 ### Incomprehensible tests
 
 It is common to properly design production software while neglecting the design of the tests. Watch out for these red flags in test code:
@@ -274,11 +278,28 @@ What is/are the primary benefit(s) of incorporating a robust testing strategy ea
 When beginners start writing unit tests, they often create "brittle" tests that break frequently during refactoring. Which of the following actions is a primary cause of this problem?
 
 - [ ] Organizing tests using the **Arrange-Act-Assert** pattern, which creates too much overhead for simple logic
-  You’re right to consider how test structure affects maintenance, but Arrange-Act-Assert usually clarifies a test rather than making it brittle. The hint is to focus on what the test depends on: public behavior is more stable than internal implementation details. For further study, practice keeping each test’s setup and assertion focused.
+  Good effort. It's fair to ask whether a structure is worth it for very simple tests.
+
+  The lesson calls Arrange-Act-Assert the gold standard, though. A clear structure makes tests *easier* to maintain; it doesn't cause them to break during refactoring.
+
+  Reread *Brittle tests* in the *When testing goes wrong* section and look at what makes a test break when the code it tests still works.
+
 - [ ] Mocking a database connection to ensure that the unit tests can run quickly and in isolation from the infrastructure
-  You’re correctly recognizing why mocks can be useful for isolation and speed. Mocking a database is not inherently the cause of brittleness when the mock follows a stable boundary. The hint is to look for assertions tied to private implementation details. Review when a mock represents a meaningful external dependency.
+  You're right that mocking can cause problems. The lesson warns about "mocking lies" when mocks drift from reality.
+
+  Mocking an infrastructure dependency like a database so that unit tests run quickly and in isolation is a common, healthy practice, though. It isn't what makes tests break when you refactor a class's internals.
+
+  Reread *Brittle tests* and consider what the test is coupled to.
+
 - [x] Asserting against the internal implementation details of a class rather than its public API and observable behavior
-  You correctly identified a primary cause of brittle tests. The key hint is to assert what a class promises through its public API and observable outcomes, not how it happens to achieve them internally. Tests built around behavior can survive refactoring while still protecting the contract.
+  **Well done!** Brittle tests are tied to *how* the code works instead of *what* it does.
+
+  When a test checks private fields or the exact sequence of internal calls, any refactor breaks it, even when the behavior hasn't changed. Testing through the public interface lets you restructure the code freely while the tests still catch real regressions.
+
 - [ ] Writing tests that only verify the final return value of a function instead of inspecting every local variable change
-  You’re right to focus on observable results: checking a function’s public return value is often a resilient testing practice. Inspecting every local variable would tie tests to implementation details and make them more brittle. The hint is to prefer behavior over internals; review which outcomes are part of the public contract.
+  Good effort. You're thinking about how thorough a test should be.
+
+  Checking the final return value is actually the *healthier* approach, though, because it tests observable behavior. Inspecting every local variable would tie the test tightly to the implementation, which is what makes tests fragile.
+
+  Reread *Brittle tests* in the *When testing goes wrong* section.
 ```
