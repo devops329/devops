@@ -484,7 +484,7 @@ To demonstrate mastery of these concepts, complete the following:
 1. Report the coverage by creating a coverage badge in the `README.md` file.
 
 ```masteryls
-{"id":"20b2c9ef-5f27-4aa9-bc34-bfc8cdd04199", "title":"⓸ User interface testing submission", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The page contains an image link with the alt text of `Coverage badge` and a level one heading with the exact text of `🍕 JWT Pizza`", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
+{"id":"20b2c9ef-5f27-4aa9-bc34-bfc8cdd04199", "title":"⓸ User interface testing submission", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The page contains a image link with the alt text of `Coverage badge` and a level one heading with the exact text of `🍕 JWT Pizza`", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
 ```
 
 Once you have completed this deliverable, submit the URL of your JWT Pizza repository.
