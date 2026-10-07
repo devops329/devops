@@ -60,7 +60,7 @@ Using your domain name take the following steps in order to associate it to your
 
    ![create DNS record](createRecord.png)
 
-1. Wait for the newly created record to propagate. You can use `nslookup` or `dig` to verify that it is available.
+1. Wait for the newly created record to propagate and for caching layers to update. You can use `nslookup` or `dig` to verify that it is available. Once dig shows the correct record your browser might still be caching old information. You can verify this by using a different browser or flushing your browser's cache.
 
    ```sh
    nslookup pizza.byucsstudent.click
@@ -75,8 +75,7 @@ Using your domain name take the following steps in order to associate it to your
 
    ![Custom domain entry](customDomain.png)
 
-1. Check the box to `Enforce HTTPS`.
-
+1. Check the box to `Enforce HTTPS`. If the option is unavailable because your domain certificate hasn’t been issued, wait a few minutes and try again.
    💡 It is interesting to consider how GitHub is able to generate a certificate for your domain. Perhaps this would make a great curiosity report.
 
 1. After the check completes you can navigate your browser to your subdomain and verify that "Hello GitHub Pages" is still being displayed.
