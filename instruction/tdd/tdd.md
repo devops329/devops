@@ -273,6 +273,23 @@ function fibonacci(pos) {
 
 Running the tests again confirms our refactored code still works perfectly.
 
+
+## AI-Augmented Test Driven Development
+
+The emergence of Large Language Models (LLMs) has significantly transformed the Test-Driven Development (TDD) workflow. While TDD has traditionally been a manual, disciplined process, AI tools like GitHub Copilot, ChatGPT, and Claude act as "AI Pair Programmers" that can accelerate the Red-Green-Refactor cycle. The core strength of combining AI with TDD lies in the fact that TDD provides the necessary constraints and validation to ensure that AI-generated code is both correct and maintainable.
+
+In a traditional TDD cycle, the developer writes a failing test, writes the minimum code to pass, and then refactors. With AI, the developer's role shifts toward **prompt engineering** and **verification**. The developer describes the desired behavior to the AI to generate the test case (Red), then provides the failing test to the AI to generate the implementation (Green).
+
+### Best Practices for AI-Assisted TDD
+
+To get the most out of AI during TDD, consider these strategies:
+
+1.  **Iterative Prompting**: Don't ask the AI to build the entire feature at once. Ask for a single test case for a specific edge case, solve it, and move to the next.
+2.  **The "Validation Loop"**: Use the AI's speed to generate multiple test variations (boundary tests, error handling) that you might otherwise skip due to time constraints.
+3.  **Code Explanation**: If a test fails and you aren't sure why, paste the test and the error message into the AI. It is excellent at identifying logical mismatches between the test expectation and the implementation.
+4.  **Refactoring Safety**: Use AI to identify "code smells" and suggest cleaner patterns. Since you already have your tests in place, you can apply AI-suggested refactors with high confidence.
+
+
 ## Final thoughts
 
 TDD allows you to discover architectural problems early, speed up development by reducing manual debugging, and provides the confidence to change code without fear of breaking existing functionality.
