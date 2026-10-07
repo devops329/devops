@@ -7,12 +7,17 @@
 - Mastery of TDD comes through consistent practice.
 
 ---
-
 Test-driven development ([TDD](https://en.wikipedia.org/wiki/Test-driven_development)) was popularized in the late 1990s as a core practice of [Extreme Programming (XP)](https://en.wikipedia.org/wiki/Extreme_programming). The methodology shifts the focus: instead of writing code and then testing it, you begin by creating tests that define the intended behavior of your software. You then use these tests to drive the implementation. When the tests pass, you have verification that your code meets the requirements.
 
 Research suggests that TDD can add approximately 15% to initial development time. However, this investment yields significant long-term benefits: it encourages better abstractions, produces accurate domain models, provides "living" documentation through examples, results in fewer bugs, and creates a safety net that prevents regressions (introducing new bugs while fixing old ones).
 
-TDD enhances the development process by integrating testing into the coding workflow. This forces you to focus first on *what* the code is supposed to do rather than *how* you will implement it. TDD works best as a continuous "conversation" between the implementation and the tests. You stub out a function, write a test case, implement just enough code to make it pass, and then repeat. This approach ensures your code is usable, satisfies the requirements, and remains stable as the codebase grows.
+TDD enhances the development process by integrating testing into the coding workflow. This forces you to focus first on *what* the code is supposed to do rather than *how* you will implement it. TDD works best as a continuous "conversation" between the implementation and the tests, centered around the **Red-Green-Refactor** cycle:
+
+1.  **Red**: Write a test for a small bit of functionality and watch it fail.
+2.  **Green**: Write the minimum amount of code necessary to make the test pass.
+3.  **Refactor**: Clean up the new code, ensuring it remains "green" by passing the tests.
+
+This iterative approach ensures your code is usable, satisfies the requirements, and remains stable as the codebase grows.
 
 Today, TDD is a standard industry practice. While it takes effort to learn how to write effective and efficient tests, making TDD a foundational part of your workflow will provide a significant advantage in your professional career.
 
