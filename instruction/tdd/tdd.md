@@ -174,7 +174,7 @@ test('fibonacci position large', () => {
 });
 ```
 
-This test causes the process to hang. The recursive implementation has a time complexity of $O(2^n)$, requiring roughly $1.26 \times 10^{30}$ operations for the 100th position. To fix this, we must refactor to an iterative approach.
+This test causes the process to hang. The recursive implementation has a time complexity of O(2^n), requiring roughly 1.2676506e+30 operations for the 100th position. To fix this, we must refactor to an iterative approach.
 
 ```js
 function fibonacci(pos) {
