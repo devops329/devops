@@ -84,7 +84,7 @@ A HAR file contains all HTTP requests and responses captured by the browser.
 1.  Open DevTools and go to the **Network** tab.
 1.  Select **Preserve log** and clear any existing recorded requests.
 
-![Record HAR](recordHar.gif)
+<video controls preload="metadata" playsinline aria-label="Record HAR"><source src="recordHar.mp4" type="video/mp4"></video>
 
 1.  Refresh the page. Log in, select a pizza, complete the purchase, and verify the order.
 1.  Click the **Export HAR** (download arrow) icon in the Network tab. Name the file `buyPizza.har`.
@@ -94,7 +94,7 @@ A HAR file contains all HTTP requests and responses captured by the browser.
 1.  Return to the Grafana Test Builder and click **IMPORT A HAR FILE**.
 1.  Drag your `buyPizza.har` file into the upload area.
 
-![Upload HAR](uploadHar.gif)
+<video controls preload="metadata" playsinline aria-label="Upload HAR"><source src="uploadHar.mp4" type="video/mp4"></video>
 
 1.  During import, select **Correlate the request and response data**. Do **not** include **Static assets** (like images) unless you specifically want to test their download speeds. Select **Generate sleep** to simulate realistic user pauses.
 1.  Disable filtering on necessary domains (e.g., `pizza-factory.cs239.click`) to ensure all relevant requests are included.

@@ -290,7 +290,7 @@ You can figure out what went wrong by either:
 
 My preference is usually debugging the test because I can set breakpoints, let the test repeatedly drive the action, and easily observe where my assumptions failed.
 
-![Debug test](debugTest.gif)
+<video controls preload="metadata" playsinline aria-label="Debug test"><source src="debugTest.mp4" type="video/mp4"></video>
 
 As the above debugging session shows, the test failed because the user information passed to the **DinerDashboard** component is still the old data. That is because we never actually persisted the data on the backend. We only modified the React user property managed by the **App** component. The next time we load the information from the backend, it will still be the old data.
 
