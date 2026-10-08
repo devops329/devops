@@ -459,7 +459,15 @@ Parse the coverage output to build a coverage badge. First, add the `NET_ID` and
   run: |
     coverage=$(jq '.total.lines.pct' coverage/coverage-summary.json)
     color=$(echo "$coverage < 80" | bc | awk '{if ($1) print "red"; else print "green"}')
-    curl -s -X POST "https://pizza-factory.cs329.click/api/badge/${{ secrets.NET_ID }}/jwtpizzacoverage?label=Coverage&value=$coverage%25&color=$color" -H "authorization: bearer ${{ secrets.FACTORY_API_KEY }}"
+    res=$(curl -s -X POST "https://pizza-factory.cs329.click/api/badge/${{ secrets.NET_ID }}/jwtpizzacoverage?label=Coverage&value=$coverage%25&color=$color" \
+      -H "authorization: bearer ${{ secrets.FACTORY_API_KEY }}")
+
+    echo "$res"
+
+    if [[ ! "$res" =~ https?://[^\"[:space:]]+ ]]; then
+      echo "Badge update failed: no URL in response"
+      exit 1
+    fi
 ```
 
 Modify the `README.md` file to reference the generated coverage badge:
