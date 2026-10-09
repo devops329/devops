@@ -60,7 +60,7 @@ Once you have created your AWS account you can access the AWS browser console. O
 
 For example, if I wanted to use the S3 service to upload my frontend files to the storage service S3, I would first make sure I was in the N. Virginia region and then search for **S3**. That will open to the console display for that service and allow me to interact with the storage buckets defined there, or create new buckets.
 
-<video controls preload="metadata" playsinline aria-label="AWS browser console"><source src="awsBrowserConsol.mp4" type="video/mp4"></video>
+![AWS browser console](awsBrowserConsol.gif)
 
 ## Billing
 

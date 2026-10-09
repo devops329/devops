@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { spawnSync } from 'node:child_process';
-import { access, readdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
+import { copyFile, readdir, readFile, rename, rm } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -43,27 +43,13 @@ if (check.error || check.status !== 0) {
 }
 
 const files = await markdownFiles(courseDirectory);
-const imagePattern = /(!\[([^\]]*)\]\()([^\s)]+\.gif)(\))/gi;
-const videoSourcePattern = /<source\s+src=["']([^"']+\.mp4)["']/gi;
-const documents = [];
+const imagePattern = /!\[([^\]]*)\]\(([^\s)]+\.gif)\)/gi;
 const referencedGifs = new Map();
-const existingVideos = new Set();
 
 for (const markdownPath of files) {
-  const original = await readFile(markdownPath, 'utf8');
-  for (const match of original.matchAll(videoSourcePattern)) {
-    const videoPath = match[1];
-    if (/^(?:[a-z]+:|\/\/|\/)/i.test(videoPath)) continue;
-    const resolvedVideo = path.resolve(path.dirname(markdownPath), videoPath);
-    if (resolvedVideo.startsWith(`${courseDirectory}${path.sep}`)) existingVideos.add(resolvedVideo);
-  }
-
-  const matches = [...original.matchAll(imagePattern)];
-  if (matches.length === 0) continue;
-
-  let updated = original;
-  for (const match of matches) {
-    const relativeGif = match[3];
+  const markdown = await readFile(markdownPath, 'utf8');
+  for (const match of markdown.matchAll(imagePattern)) {
+    const relativeGif = match[2];
     if (/^(?:[a-z]+:|\/\/|\/)/i.test(relativeGif)) continue;
 
     const gifPath = path.resolve(path.dirname(markdownPath), relativeGif);
@@ -71,32 +57,11 @@ for (const markdownPath of files) {
       throw new Error(`GIF reference escapes the course directory: ${relativeGif} in ${markdownPath}`);
     }
 
-    const relativeMp4 = relativeGif.replace(/\.gif$/i, '.mp4');
-    const mp4Path = path.resolve(path.dirname(markdownPath), relativeMp4);
-    referencedGifs.set(gifPath, mp4Path);
-
-    const replacement = `<video controls preload="metadata" playsinline aria-label="${match[2].replaceAll('&', '&amp;').replaceAll('"', '&quot;')}"><source src="${relativeMp4}" type="video/mp4"></video>`;
-    updated = updated.replace(match[0], replacement);
+    referencedGifs.set(gifPath, gifPath.replace(/\.gif$/i, '.mp4'));
   }
-  if (updated !== original) documents.push({ markdownPath, original, updated });
 }
 
 if (referencedGifs.size === 0) {
-  let removed = 0;
-  for (const videoPath of existingVideos) {
-    const sourceGif = videoPath.replace(/\.mp4$/i, '.gif');
-    try {
-      await access(videoPath);
-      await rm(sourceGif);
-      removed += 1;
-    } catch (error) {
-      if (error.code !== 'ENOENT') throw error;
-    }
-  }
-  if (removed > 0) {
-    console.log(`Removed ${removed} GIF(s) already replaced by referenced MP4 videos.`);
-    process.exit(0);
-  }
   console.log('No local GIF references found in Markdown.');
   process.exit(0);
 }
@@ -110,13 +75,14 @@ try {
     runFfmpeg(ffmpeg, gifPath, temporaryOutput);
   }
 
-  for (const output of stagedOutputs) await rename(output.temporaryOutput, output.mp4Path);
-  for (const document of documents) await writeFile(document.markdownPath, document.updated, 'utf8');
-  for (const gifPath of referencedGifs.keys()) await rm(gifPath);
+  for (const { temporaryOutput, mp4Path } of stagedOutputs) {
+    await copyFile(temporaryOutput, mp4Path);
+    await rm(temporaryOutput);
+  }
 } catch (error) {
   await Promise.all(stagedOutputs.map(({ temporaryOutput }) => rm(temporaryOutput, { force: true })));
   console.error(`Conversion stopped: ${error.message}`);
   process.exit(1);
 }
 
-console.log(`Converted ${referencedGifs.size} GIF(s), updated ${documents.length} Markdown file(s), and removed the replaced GIFs.`);
+console.log(`Converted ${referencedGifs.size} GIF(s) to MP4. Original GIFs and Markdown references were kept.`);

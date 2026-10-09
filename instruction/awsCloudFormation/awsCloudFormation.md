@@ -146,7 +146,7 @@ Now you are ready to use the template to create a CloudFormation stack.
 11. Monitor the **Events** tab. When the status changes to `CREATE_COMPLETE`, your resources are ready.
 12. Navigate to the S3 service console to verify that your new bucket has been created.
 
-<video controls preload="metadata" playsinline aria-label="Creating a stack"><source src="creatingAStack.mp4" type="video/mp4"></video>
+![Creating a stack](creatingAStack.gif)
 
 ### Deleting the stack
 

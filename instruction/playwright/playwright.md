@@ -197,7 +197,7 @@ npx playwright test --ui
 
 This opens a window where you can run tests individually, watch a time-lapse of the browser execution, and inspect the DOM at every step of the test.
 
-> <video controls preload="metadata" playsinline aria-label="Playwright UI"><source src="playwrightUi.mp4" type="video/mp4"></video>
+> ![Playwright UI](playwrightUi.gif)
 
 ## Configuring to test with Vite
 
@@ -381,7 +381,7 @@ Let's write a comprehensive test for our pizza application.
 
 Use the "Record new" feature in the Playwright sidebar. This opens a browser window where your interactions (clicks, typing) are automatically converted into test code.
 
-> <video controls preload="metadata" playsinline aria-label="Playwright record test"><source src="playwrightRecordTest.mp4" type="video/mp4"></video>
+> ![Playwright record test](playwrightRecordTest.gif)
 
 ### Examining the test
 
@@ -426,7 +426,7 @@ test('test', async ({ page }) => {
 
 If a test fails, you can set a breakpoint in VS Code and step through the execution. This allows you to inspect the state of the app in the browser and the variables in your test code simultaneously.
 
-<video controls preload="metadata" playsinline aria-label="Playwright debug"><source src="playwrightDebug.mp4" type="video/mp4"></video>
+![Playwright debug](playwrightDebug.gif)
 
 ### Mocking
 
