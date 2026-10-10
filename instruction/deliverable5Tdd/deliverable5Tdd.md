@@ -289,8 +289,8 @@ You can figure out what went wrong by either:
 1. Debugging the test.
 
 My preference is usually debugging the test because I can set breakpoints, let the test repeatedly drive the action, and easily observe where my assumptions failed.
-<video controls width="800px">
 
+<video controls width="800px">
   <source src="debugTest.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
