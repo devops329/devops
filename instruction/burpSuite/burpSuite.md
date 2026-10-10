@@ -116,7 +116,10 @@ The decoder tool allows you to interactively decode and encode text from differe
 
 It supports many formats including URL, HTML, Base64, Hex, and Gzip. You can also apply most of the major hash code operations.
 
-![Comparer tool](comparerTool.gif)
+<video controls width="800px">
+  <source src="comparerTool.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## Comparer
 

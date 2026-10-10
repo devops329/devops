@@ -65,6 +65,7 @@ To demonstrate how to use Playwright, we first need to create an example project
     </html>
     ```
 5.  **Create a `src` directory** and add a file named `index.jsx` with the following content:
+
     ```jsx
     import React from 'react';
     import ReactDOM from 'react-dom/client';
@@ -83,7 +84,7 @@ To demonstrate how to use Playwright, we first need to create an example project
             <li key={i}>
               {item.title} - {item.description}
             </li>
-          ))
+          )),
         );
       }
 
@@ -197,7 +198,10 @@ npx playwright test --ui
 
 This opens a window where you can run tests individually, watch a time-lapse of the browser execution, and inspect the DOM at every step of the test.
 
-> ![Playwright UI](playwrightUi.gif)
+<video controls width="800px">
+  <source src="playwrightUi.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## Configuring to test with Vite
 
@@ -358,6 +362,7 @@ A 44% coverage rate is a good start for a single test. Next, we will use the VS 
 The [VS Code extension for Playwright](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) is a powerful tool. It allows you to run tests directly from the **Testing** (beaker icon) sidebar.
 
 Key features include:
+
 - Generating locators by clicking elements in the browser
 - Debugging tests with breakpoints
 - Recording new tests based on your interactions
@@ -381,7 +386,10 @@ Let's write a comprehensive test for our pizza application.
 
 Use the "Record new" feature in the Playwright sidebar. This opens a browser window where your interactions (clicks, typing) are automatically converted into test code.
 
-> ![Playwright record test](playwrightRecordTest.gif)
+<video controls width="800px">
+  <source src="playwrightRecordTest.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ### Examining the test
 
@@ -426,7 +434,10 @@ test('test', async ({ page }) => {
 
 If a test fails, you can set a breakpoint in VS Code and step through the execution. This allows you to inspect the state of the app in the browser and the variables in your test code simultaneously.
 
-![Playwright debug](playwrightDebug.gif)
+<video controls width="800px">
+  <source src="playwrightDebug.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ### Mocking
 
@@ -458,7 +469,7 @@ test('pizza app flow', async ({ page }) => {
 
   await page.goto('http://localhost:5173/');
   await expect(page.getByText('Pizza')).toBeVisible();
-  
+
   const expected = '🍕🍕🍕🍕🍕';
   await page.getByRole('button', { name: '+' }).click({ clickCount: [...expected].length - 1 });
   await expect(page.getByText(expected)).toHaveText(expected);
@@ -480,39 +491,39 @@ Review the [Playwright documentation](https://playwright.dev/docs/writing-tests)
 
 Locators are the central piece of Playwright's auto-waiting and retry-ability.
 
-| Locator | Description |
-| --- | --- |
-| `page.getByRole()` | Locate by accessibility attributes (button, heading, etc.). |
-| `page.getByText()` | Locate by visible text content. |
-| `page.getByLabel()` | Locate a form control by its label text. |
-| `page.getByPlaceholder()` | Locate an input by its placeholder text. |
-| `page.getByAltText()` | Locate an element (usually an image) by its alt text. |
-| `page.getByTestId()` | Locate an element by its `data-testid` attribute. |
+| Locator                   | Description                                                 |
+| ------------------------- | ----------------------------------------------------------- |
+| `page.getByRole()`        | Locate by accessibility attributes (button, heading, etc.). |
+| `page.getByText()`        | Locate by visible text content.                             |
+| `page.getByLabel()`       | Locate a form control by its label text.                    |
+| `page.getByPlaceholder()` | Locate an input by its placeholder text.                    |
+| `page.getByAltText()`     | Locate an element (usually an image) by its alt text.       |
+| `page.getByTestId()`      | Locate an element by its `data-testid` attribute.           |
 
 ### Actions
 
 Actions simulate user interaction.
 
-| Action | Description |
-| --- | --- |
-| `locator.click()` | Click the element. |
-| `locator.fill()` | Clear the field and type text. |
-| `locator.check()` | Check a checkbox or radio button. |
-| `locator.hover()` | Hover the mouse over the element. |
-| `locator.press()` | Press a specific keyboard key. |
+| Action                   | Description                                |
+| ------------------------ | ------------------------------------------ |
+| `locator.click()`        | Click the element.                         |
+| `locator.fill()`         | Clear the field and type text.             |
+| `locator.check()`        | Check a checkbox or radio button.          |
+| `locator.hover()`        | Hover the mouse over the element.          |
+| `locator.press()`        | Press a specific keyboard key.             |
 | `locator.selectOption()` | Select an option in a `<select>` dropdown. |
 
 ### Assertions
 
 The `expect` function provides many built-in matchers.
 
-| Assertion | Description |
-| --- | --- |
-| `expect(locator).toBeVisible()` | Element is visible on the page. |
-| `expect(locator).toBeEnabled()` | Form control is not disabled. |
-| `expect(locator).toContainText()` | Element contains specific text. |
-| `expect(locator).toHaveValue()` | Input element has a specific value. |
-| `expect(page).toHaveURL()` | The browser is at the expected URL. |
+| Assertion                         | Description                         |
+| --------------------------------- | ----------------------------------- |
+| `expect(locator).toBeVisible()`   | Element is visible on the page.     |
+| `expect(locator).toBeEnabled()`   | Form control is not disabled.       |
+| `expect(locator).toContainText()` | Element contains specific text.     |
+| `expect(locator).toHaveValue()`   | Input element has a specific value. |
+| `expect(page).toHaveURL()`        | The browser is at the expected URL. |
 
 ## ☑ Exercise
 
@@ -540,7 +551,7 @@ function App() {
         <li key={i}>
           {item.title} - {item.description}
         </li>
-      ))
+      )),
     );
   }
 
@@ -552,16 +563,16 @@ function App() {
     <div>
       <h1>Pizza</h1>
       <p>{'🍕'.repeat(count) || '👨‍🍳'}</p>
-      <label htmlFor='pizza-type'>Pizza:</label>
+      <label htmlFor="pizza-type">Pizza:</label>
       <div>
-        <input type='text' id='pizza-type' value={pizzaType} placeholder='type' onChange={(e) => setPizzaType(e.target.value)} />
+        <input type="text" id="pizza-type" value={pizzaType} placeholder="type" onChange={(e) => setPizzaType(e.target.value)} />
         &nbsp;<button onClick={() => setCount(count + 1)}>+1</button>
         &nbsp;
         <button disabled={!count || !pizzaType} onClick={handleOrder}>
           Order
         </button>
       </div>
-      <div id='orderValue'>
+      <div id="orderValue">
         <i>{order}</i>
       </div>
       <button disabled={!!menu.length} onClick={getMenu}>
@@ -576,7 +587,6 @@ function App() {
 When finished, your coverage report should look like this:
 
 ![Playwright coverage](playwrightCoverage.png)
-
 
 ```masteryls
 {"id":"c2d59460-aeaf-4c2e-b4bb-3a78e1c7ed7c", "title":"Playwright", "type":"essay", "gradingCriteria":"100% line coverage represented" }

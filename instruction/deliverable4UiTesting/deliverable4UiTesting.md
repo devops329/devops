@@ -118,7 +118,10 @@ test('purchase with login', async ({ page }) => {});
 
 Put your cursor in the body of the test function, open the `Test Explorer` tab, and press the `Record at cursor` action. This will start the recording. Then, go through the steps of ordering a pizza and logging in as prompted.
 
-![Playwright test record](playwrightTestRecord.gif)
+<video controls width="800px">
+  <source src="playwrightTestRecord.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 After you finish, you should have a test that looks something like this:
 
@@ -176,7 +179,10 @@ Follow these steps to use Trace Viewer to identify network requests:
 1. Sort by 'Content Type' to move fetch requests to the top.
 1. Examine the requests to see the URL, HTTP method, request bodies, and response bodies.
 
-![TraceViewer](traceViewer.gif)
+<video controls width="800px">
+  <source src="traceViewer.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 This shows that four requests were made. Simplified, they are:
 
@@ -495,8 +501,8 @@ This will perform an initial check and then pass your submission on for final gr
 
 ### Rubric
 
-| Percent | Item                                                                               |
-| ------- | ---------------------------------------------------------------------------------- |
-| 30%     | Successful execution of GitHub Actions to run tests on commit                      |
-| 65%     | At least 80% line coverage as documented by workflow execution                     |
-| 5%      | Coverage status badge displayed on your JWT Pizza **README.md** home page          |
+| Percent | Item                                                                      |
+| ------- | ------------------------------------------------------------------------- |
+| 30%     | Successful execution of GitHub Actions to run tests on commit             |
+| 65%     | At least 80% line coverage as documented by workflow execution            |
+| 5%      | Coverage status badge displayed on your JWT Pizza **README.md** home page |

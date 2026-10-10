@@ -289,8 +289,11 @@ You can figure out what went wrong by either:
 1. Debugging the test.
 
 My preference is usually debugging the test because I can set breakpoints, let the test repeatedly drive the action, and easily observe where my assumptions failed.
+<video controls width="800px">
 
-![Debug test](debugTest.gif)
+  <source src="debugTest.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 As the above debugging session shows, the test failed because the user information passed to the **DinerDashboard** component is still the old data. That is because we never actually persisted the data on the backend. We only modified the React user property managed by the **App** component. The next time we load the information from the backend, it will still be the old data.
 
@@ -471,9 +474,7 @@ _Example: https://github.com/myaccount/jwt-pizza_
 This will do an initial check of your frontend submission code and then pass it on for final grading.
 
 **Note**: The necessary backend code will also be reviewed during the final grading process.
-```       
-
-
+```
 
 > [!NOTE]
 >
