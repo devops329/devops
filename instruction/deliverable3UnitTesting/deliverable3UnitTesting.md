@@ -178,14 +178,15 @@ Before you run your new workflow you need to add a version number and report on 
 
 You can report your coverage publicly by creating a coverage badge that is displayed in your README.md file and updating it every time your CI pipeline executes.
 
-In order to publicly display your coverage, you will create a badge that displays your coverage percentage. We use the **JWT Pizza Factory Badge** service to create, store, and retrieve badges that you then display in your **README.md** file. You supply your `BYU Net ID` and your `JWT Pizza API token` to authorize the creation of a badge. Make sure both of those values are represented in your GitHub Actions secrets.
+In order to publicly display your coverage, you will create a badge that displays your coverage percentage. We use the **JWT Pizza Factory Badge** service to create, store, and retrieve badges that you then display in your **README.md** file. You supply your `BYU Net ID` and your `JWT Pizza API token` to authorize the creation of a badge. Make sure both of those values are represented in your GitHub Actions secrets. If the badge fails to generate, probably because of bad parameters, the pipeline will exit.
 
 ```yml
 - name: Update coverage
   run: |
     coverage=$(jq '.total.lines.pct' coverage/coverage-summary.json)
     color=$(echo "$coverage < 80" | bc | awk '{if ($1) print "red"; else print "green"}')
-    curl -s -X POST "https://pizza-factory.cs329.click/api/badge/${{ secrets.NET_ID }}/jwtpizzaservicecoverage?label=Coverage&value=$coverage%25&color=$color" -H "authorization: bearer ${{ secrets.FACTORY_API_KEY }}"
+    result=$(curl -s -X POST "https://pizza-factory.cs329.click/api/badge/${{ secrets.NET_ID }}/jwtpizzaservicecoverage?label=Coverage&value=$coverage%25&color=$color" -H "authorization: bearer ${{ secrets.FACTORY_API_KEY }}")
+    [[ "$result" == 200 ]] || { echo "Badge generation failed: HTTP $result" >&2; exit 1; }
 ```
 
 > [!NOTE]
