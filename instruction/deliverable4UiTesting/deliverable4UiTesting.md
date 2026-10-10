@@ -118,10 +118,7 @@ test('purchase with login', async ({ page }) => {});
 
 Put your cursor in the body of the test function, open the `Test Explorer` tab, and press the `Record at cursor` action. This will start the recording. Then, go through the steps of ordering a pizza and logging in as prompted.
 
-<video controls width="800px">
-  <source src="playwrightTestRecord.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<video controls width="800px"><source src="playwrightTestRecord.mp4" type="video/mp4"></video>
 
 After you finish, you should have a test that looks something like this:
 
@@ -179,10 +176,7 @@ Follow these steps to use Trace Viewer to identify network requests:
 1. Sort by 'Content Type' to move fetch requests to the top.
 1. Examine the requests to see the URL, HTTP method, request bodies, and response bodies.
 
-<video controls width="800px">
-  <source src="traceViewer.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<video controls width="800px"><source src="traceViewer.mp4" type="video/mp4"></video>
 
 This shows that four requests were made. Simplified, they are:
 

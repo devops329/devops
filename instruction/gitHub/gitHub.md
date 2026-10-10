@@ -100,11 +100,7 @@ As simple as this process of committing, branching, and merging may appear, hope
 ### Visualizing branches
 
 You can recreate the scenario that is described above with the [git-school.github.io](https://git-school.github.io/visualizing-git/) visualization tool. Take some time executing branch, commit, and merge commands until you get the model completely in your head.
-<video controls width="800px">
-
-  <source src="essentialsBranching.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<video controls width="800px"><source src="essentialsBranching.mp4" type="video/mp4"></video>
 
 ## Forks
 

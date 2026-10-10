@@ -105,17 +105,10 @@ To learn more about billing alerts refer to the [AWS documentation](https://docs
 
 It is easy to set up an alert that will track your spending and send you a notification if things are out of line with your budget. To create a budget, access the AWS dashboard and navigate to `Billing and Cost Management > Budgets`. Then create new budget **Monthly Budget**. Give it a name and the amount that you are expecting to spend over the month. Provide your email address and press `Create Budget`.
 
-<video controls width="800px">
-  <source src="budgetSetup.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<video controls width="800px"><source src="budgetSetup.mp4" type="video/mp4"></video>
 
 When your spending exceeds your budget, alerts will display on the Budget display and you will receive an email from AWS warning you that you are over budget.
-<video controls width="800px">
-
-  <source src="budgetAlert.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<video controls width="800px"><source src="budgetAlert.mp4" type="video/mp4"></video>
 
 ### Cost anomaly detector
 
@@ -123,10 +116,7 @@ The **Cost Anomaly Detection Monitor** provides notifications for when your spen
 
 To create a monitor, access the AWS dashboard and navigate to `Billing and Cost Management > Cost Anomaly Detection`. Choose the option to `Create monitor` and then provide the desired parameters.
 
-<video controls width="800px">
-  <source src="costMonitor.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<video controls width="800px"><source src="costMonitor.mp4" type="video/mp4"></video>
 
 ## ☑ Exercise
 
