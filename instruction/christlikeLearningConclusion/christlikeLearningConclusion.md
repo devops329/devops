@@ -19,16 +19,16 @@ Write in your journal the answer to the following questions:
 
 
 ```masteryls
-{"id":"e144e3cc-c7da-412a-9814-914e96955809", "title":"Christlike learning conclusion deliverable", "type":"multiple-choice", "syncGrade":true, "autoGrade":true }
-I have completed the **Christlike Learning conclusion** deliverable, including recording how to show gratitude, plead for help, and use my talents for good in all aspects of my life.
+{"id":"e144e3cc-c7da-412a-9814-914e96955809", "title":"Christlike learning conclusion assignment", "type":"multiple-choice", "syncGrade":true, "autoGrade":true }
+I have completed the **Christlike Learning conclusion** assignment, including recording how to show gratitude, plead for help, and use my talents for good in all aspects of my life.
 
 
-- [x] Deliverable complete
+- [x] Assignment complete
   **Thank you for completing this reflection.** Looking back on how gratitude, the Spirit, and righteous action shaped your work this semester helps you carry these principles into your career.
 
   Consider comparing this entry with the one you wrote at the start of the course. Notice what has changed in how you learn and how you use your talents.
 
-- [ ] I'm **not** going to complete this deliverable
+- [ ] I'm **not** going to complete this assignment
   Thanks for letting us know. The end of a semester is busy, and it's easy to let a reflective assignment slip.
 
   This one is worth a few minutes, though. Reread the journal entry you wrote at the start of the course, and then answer the three questions in the assignment. Seeing how you've grown can be one of the most rewarding parts of the semester.
