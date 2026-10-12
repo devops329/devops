@@ -72,17 +72,17 @@ Write in your journal the answer to the following questions:
 Ponder on this as you seek to master and apply the concepts of this course. You will repeat this same exercise at the conclusion of the course.
 
 ```masteryls
-{"id":"ad9f8fcc-e180-430a-aef1-9cce645bad04", "title":"Christlike learning deliverable", "type":"multiple-choice", "syncGrade":true, "autoGrade":true }
-I have completed the **Christlike Learning** deliverable, including recording how to show gratitude, plead for help, and use my talents for good in all aspects of my life.
+{"id":"ad9f8fcc-e180-430a-aef1-9cce645bad04", "title":"Christlike learning", "type":"multiple-choice", "syncGrade":true, "autoGrade":true }
+I have completed the **Christlike Learning** assignment, including recording how to show gratitude, plead for help, and use my talents for good in all aspects of my life.
 
 
-- [x] Deliverable complete
+- [x] Assignment complete
   **Thank you for taking the time to reflect.** Writing down how you'll show gratitude, seek inspiration, and act on what you learn gives you something concrete to return to throughout the semester.
 
   Keep your journal entry handy. You'll repeat this exercise at the end of the course, and comparing the two entries will show how these principles shaped your learning.
 
-- [ ] I'm **not** going to complete this deliverable
-  Thanks for being honest about where you are. This deliverable is a chance to pause and think about *why* you're learning, not just *what* you're learning.
+- [ ] I'm **not** going to complete this assignment
+  Thanks for being honest about where you are. This assignment is a chance to pause and think about *why* you're learning, not just *what* you're learning.
 
   Consider setting aside a few quiet minutes to answer the three journal questions in the assignment. Even short answers about gratitude, inspiration, and action can shape how you approach the rest of the course.
 ```
