@@ -82,7 +82,7 @@ I have completed the **Christlike Learning** assignment, including recording how
   Keep your journal entry handy. You'll repeat this exercise at the end of the course, and comparing the two entries will show how these principles shaped your learning.
 
 - [ ] I'm **not** going to complete this assignment
-  Thanks for being honest about where you are. This assignment is a chance to pause and think about *why* you're learning, not just *what* you're learning.
+  Thanks for being honest about where you are. This assignment is a chance to pause and think about **why** and **how** you're learning, not just **what** you're learning.
 
   Consider setting aside a few quiet minutes to answer the three journal questions in the assignment. Even short answers about gratitude, inspiration, and action can shape how you approach the rest of the course.
 ```
