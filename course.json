@@ -21,7 +21,9 @@
         "title": "Fall 2026",
         "path": "schedule/fall-2026.md",
         "default": true,
-        "state": "published"
+        "state": "published",
+        "startDate": "2026-09-02",
+        "endDate": "2026-12-17"
       }
     ]
   },
@@ -1170,6 +1172,7 @@
           "type": "instruction",
           "path": "instruction/ai-in-devops/ai-in-devops.md",
           "id": "bccc3d5f-f701-429c-ab4b-ac74e7b547a3",
+          "state": "published",
           "description": "How is AI impacting DevOps and SRE. What are the best practices, possabilites, and pitfalls."
         },
         {
