@@ -68,9 +68,9 @@ Before the last few weeks of the course you must do the following:
 | 20%     | What you learned. |
 
 ```masteryls
-{"id":"9778d76b-fad6-4c91-aba0-7bf564af9c50","title":"Curiosity report deliverable","type":"url-submission","syncGrade":true,"autoGrade":false,"validateUrl":true,"gradingCriteria":"The report clearly contains the following:\n- What topic the learner found curious.\n- What research they did to explore the topic\n- What is the current state of art with the topic\n- Experiments the learner conducted\n- Detailed reproduction instruction on how to reproduce what the learner did","urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the 'curiosityReport.md' file."}
+{"id":"9778d76b-fad6-4c91-aba0-7bf564af9c50","title":"Curiosity report","type":"url-submission","syncGrade":true,"autoGrade":false,"validateUrl":true,"gradingCriteria":"The report clearly contains the following:\n- What topic the learner found curious.\n- What research they did to explore the topic\n- What is the current state of art with the topic\n- Experiments the learner conducted\n- Detailed reproduction instruction on how to reproduce what the learner did","urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the 'curiosityReport.md' file."}
 
-Once you have completed this deliverable, submit the URL of your JWT Pizza repository. Your repository should have a `curiosityReport.md` file located in the root.
+Once you have completed this report, submit the URL of your JWT Pizza repository. Your repository should have a `curiosityReport.md` file located in the root.
 
 _Example: https://github.com/youraccountname/jwt-pizza
 
