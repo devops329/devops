@@ -632,6 +632,15 @@
           ]
         },
         {
+          "title": "Elasticity",
+          "path": "instruction/elasticity/elasticity.md",
+          "id": "a4b167df-19f3-4e91-8076-ef89c42a3de2",
+          "state": "published",
+          "interactions": [
+            "72e16838-fab8-457e-a412-1114a28d58d8"
+          ]
+        },
+        {
           "title": "AWS S3 deployment",
           "path": "instruction/awsS3Deployment/awsS3Deployment.md",
           "id": "c8fd04a3-b9ae-420a-96e9-583015d6e979",
@@ -654,15 +663,6 @@
           "externalRefs": {
             "canvasAssignmentId": 1440440
           }
-        },
-        {
-          "title": "Elasticity",
-          "path": "instruction/elasticity/elasticity.md",
-          "id": "a4b167df-19f3-4e91-8076-ef89c42a3de2",
-          "state": "published",
-          "interactions": [
-            "72e16838-fab8-457e-a412-1114a28d58d8"
-          ]
         },
         {
           "title": "AWS RDS MySQL",
