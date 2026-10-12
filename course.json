@@ -614,15 +614,6 @@
           ]
         },
         {
-          "title": "AWS S3 deployment",
-          "path": "instruction/awsS3Deployment/awsS3Deployment.md",
-          "id": "c8fd04a3-b9ae-420a-96e9-583015d6e979",
-          "state": "published",
-          "interactions": [
-            "c91dadd0-8920-4247-b944-e37cfc91dae4"
-          ]
-        },
-        {
           "title": "Deployment environments",
           "path": "instruction/deploymentEnvironments/deploymentEnvironments.md",
           "id": "7e7a99cb-2445-4f85-8cf8-32633389ece9",
@@ -638,6 +629,15 @@
           "state": "published",
           "interactions": [
             "5babfac3-9271-4e18-9914-ddf8c71e06d0"
+          ]
+        },
+        {
+          "title": "AWS S3 deployment",
+          "path": "instruction/awsS3Deployment/awsS3Deployment.md",
+          "id": "c8fd04a3-b9ae-420a-96e9-583015d6e979",
+          "state": "published",
+          "interactions": [
+            "c91dadd0-8920-4247-b944-e37cfc91dae4"
           ]
         },
         {
