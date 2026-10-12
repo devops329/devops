@@ -159,5 +159,5 @@ Once the DNS record has updated you should be able to use the subdomain you crea
 {"id":"3a6a9be3-45d3-435d-80e8-f002b9e7ea6f", "title":"AWS CloudFront", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The body of the webpage says 'Hello World!'" }
 Provide the URL of your publicly available CloudFront hosted website.
 
-_Example: pizza.mydomainname.click_
+_Example: https://pizza.mydomainname.click_
 ```
