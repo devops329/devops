@@ -14,7 +14,9 @@
         "title": "Winter 2026",
         "path": "schedule/schedule.md",
         "default": false,
-        "state": "published"
+        "state": "published",
+        "startDate": "2026-01-05",
+        "endDate": "2026-04-17"
       },
       {
         "id": "fc1847c8-59b7-4692-ab93-d1f0bc2dee23",
