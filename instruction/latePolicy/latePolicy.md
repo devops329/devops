@@ -10,36 +10,40 @@ Late submissions receive **zero** points. For the purpose of calculating latenes
 
 ## Grace Days
 
-Each student begins the semester with **two grace days**. Grace days allow you to submit a deliverable past the assigned due date for full credit. Each grace day covers one day of lateness, excluding Sundays. For each submitted deliverable, any grace days used will be deducted when the assignment is graded.
+Grace days allow you to submit a deliverable past the assigned due date for full credit. Each grace day covers one day of lateness, excluding Sundays. For each submitted deliverable, any grace days used will be deducted when the deliverable is graded.
 
-The grader applies grace days to every late submission, including those that earn only partial credit. If you resubmit an assignment, the grace days previously deducted for that specific assignment still apply. This means you can resubmit multiple times on the same day without being charged additional grace days.
 
-If the number of days late exceeds your available grace days, you will receive a **zero** for that submission. In this case, your remaining grace days will not be deducted and will remain available for future assignments. For example, if you have two grace days but submit an assignment three days late, you will receive zero points, but you will still have two grace days available for a later date.
+### Earning Grace Days
 
-The grace day policy only applies to project deliverables and does not apply after the **university deadline on the last day of instruction**. All work must be submitted by this time; any work missing after this deadline will receive a **zero**.
-
-We encourage you to submit all work even if it is late and you receive no credit. Most deliverables depend on previous ones to be successful, and you will receive helpful feedback on every submission, regardless of the score.
-
-## Earning Grace Days
-
-To encourage you to stay ahead and to provide a buffer for life's surprises—such as illness, emergencies, or even a "powder day"—you can earn additional grace days.
+Each student begins the semester with **two grace days**.
+To encourage you to stay ahead and to provide a buffer for life's surprises, such as illness, emergencies, or even a "powder day", you can earn additional grace days.
 
 You earn **one grace day** for every day (excluding Sundays) that a deliverable is submitted early, provided the submission receives a score of **100%**.
 
 You can view your available balance in the `Grace Days` assignment in Canvas.
 
-## Examples
+### Using Gracer Days
 
-1. **Using a day:** You have 2 grace days. You turn in an assignment 1 day late and receive full credit. You now have 1 grace day remaining.
-2. **Earning days:** You have 2 grace days. You turn in an assignment 3 days early and score 100%. You now have 5 grace days.
-3. **Exceeding balance:** You have 2 grace days. You turn in an assignment 3 days late. You receive no credit, but you still have 2 grace days.
-4. **The Sunday rule (Late):** You have 2 grace days. The assignment is due on Saturday, and you turn it in on Monday. Because Sunday and Monday count as one day, you are 1 day late. You now have 1 grace day.
-5. **The Sunday rule (Early):** You have 2 grace days. The assignment is due on Monday, and you turn it in on Saturday. You are 1 day early. If you score 100%, you now have 3 grace days.
+The grader applies grace days to every late submission, including those that earn only partial credit. If you resubmit a deliverable, the grace days are calculated for the last day you submitted.
+
+If the number of days late exceeds your available grace days, you will receive a **zero** for that submission. In this case, your remaining grace days will not be deducted and will remain available for future deliverables. For example, if you have two grace days but submit a deliverable three days late, you will receive zero points, but you will still have two grace days available for a later date.
+
+You can **only** earn grace days for core project deliverables and not for other graded deliverables. Core project deliverables are semester long project phases. Also note that grace days cannot be used after the **university deadline on the last day of instruction**. All work must be submitted by the last day of class; any work missing after this deadline will receive a **zero**.
+
+We encourage you to submit all work even if it is late and you receive no credit. Most deliverables depend on previous ones to be successful, and you will receive helpful feedback on every submission, regardless of the score.
+
+### Grace Days Examples
+
+1. **Using a day:** You have 2 grace days. You turn in a deliverable 1 day late and receive full credit. You now have 1 grace day remaining.
+2. **Earning days:** You have 2 grace days. You turn in a deliverable 3 days early and score 100%. You now have 5 grace days.
+3. **Exceeding balance:** You have 2 grace days. You turn in a deliverable 3 days late. You receive no credit, but you still have 2 grace days.
+4. **The Sunday rule (Late):** You have 2 grace days. The deliverable is due on Saturday, and you turn it in on Monday. Because Sunday and Monday count as one day, you are 1 day late. You now have 1 grace day.
+5. **The Sunday rule (Early):** You have 2 grace days. The deliverable is due on Monday, and you turn it in on Saturday. You are 1 day early. If you score 100%, you now have 3 grace days.
 
 
 ```masteryls
 {"id":"1b064a7a-2ff0-43ac-899e-f226b7a90a35", "title":"Grace days", "type":"multiple-choice" }
-You have 3 grace days when you turn in an assignment on Tuesday that was due the previous Friday. According to the policy, what is the result?
+You have 3 grace days when you turn in a deliverable on Tuesday that was due the previous Friday. According to the policy, what is the result?
 
 - [ ] You receive a zero and you still have 3 grace days
   You correctly remembered that a submission later than your grace days allow earns a zero without using up your grace days.
@@ -53,13 +57,13 @@ You have 3 grace days when you turn in an assignment on Tuesday that was due the
 
   Reread the paragraph about exceeding your grace days. Then count the days late from Friday to Tuesday, treating Sunday and Monday as one day.
 
-- [x] Your assignment is graded and you have 0 grace days
+- [x] Your deliverable is graded and you have 0 grace days
   **Correct!** Saturday is 1 day late, Sunday and Monday together count as 1 more, and Tuesday adds 1, for a total of 3 days late.
 
-  You have exactly 3 grace days, so they cover the lateness. The assignment is graded normally, and your balance drops to 0. Remember that you can earn grace days back by submitting early with a score of 100%.
+  You have exactly 3 grace days, so they cover the lateness. The deliverable is graded normally, and your balance drops to 0. Remember that you can earn grace days back by submitting early with a score of 100%.
 
-- [ ] Your assignment is graded and you have 1 grace day
-  You're right that the assignment gets graded, so your grace days do cover this submission.
+- [ ] Your deliverable is graded and you have 1 grace day
+  You're right that the deliverable gets graded, so your grace days do cover this submission.
 
   Recount the days late, though. Saturday, the combined Sunday and Monday, and Tuesday each count as one day. Compare your total with the Sunday rule examples in the lesson to check how many grace days are used.
 ```
