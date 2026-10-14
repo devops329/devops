@@ -3,6 +3,7 @@
 🔑 **Key points**
 
 - Deploy your JWT Pizza frontend using S3, CloudFront, and GitHub Actions
+- Securely deploy to AWS using OIDC
 
 ---
 
