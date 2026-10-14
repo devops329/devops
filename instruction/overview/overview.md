@@ -6,7 +6,7 @@ This course covers the essential processes required to take an application from 
 
 ![DevOps Cycle](devopsCycle.png)
 
-> _Source: [wikimedia.org](https://commons.wikimedia.org/wiki/File:Devops-toolchain.svg)_
+_Source: [wikimedia.org](https://commons.wikimedia.org/wiki/File:Devops-toolchain.svg)_
 
 Beyond building the core application, two distinct roles are required to deliver software effectively to a customer:
 
