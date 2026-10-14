@@ -124,14 +124,14 @@ https://api.github.com/repos/YOURGITHUBACCOUNT/jwt-pizza
 
 ```json
 {
-  "id": 1363255187, <-- Account ID
+  "id": 1363255187, <--  JWTPIZZAREPOID
   "node_id": "R_kgDOUUGfkw",
   "name": "jwt-pizza",
   "full_name": "byucsstudent/jwt-pizza",
   "private": false,
   "owner": {
-    "login": "byucsstudent",
-    "id": 10098820, <-- Repo ID
+    "login": "byucsstudent", <-- YOURGITHUBLOGIN
+    "id": 10098820, <-- YOURACCOUNTID
     "node_id": "MDQ6VXNlcjEwMDk4ODIw",
     "avatar_url": "https://avatars.githubusercontent.com/u/10098820?v=4",
     "gravatar_id": "",
@@ -143,7 +143,7 @@ The repository ID is the `id` field at the top. Your account ID is the `id` fiel
 
 1. In the IAM console, open the `github-ci` role.
 1. Select the **Trust relationships** tab and click **Edit trust policy**.
-1. Replace the `Condition` object with the following, filling in your account name, account ID, and repository ID.
+1. Replace the `Condition` object with the following, filling in your account login, account ID, and repository ID.
 
    ```json
    "Condition": {
@@ -151,7 +151,7 @@ The repository ID is the `id` field at the top. Your account ID is the `id` fiel
        "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
      },
      "StringLike": {
-       "token.actions.githubusercontent.com:sub": "repo:YOURGITHUBACCOUNT@YOURACCOUNTID/jwt-pizza@JWTPIZZAREPOID:*"
+       "token.actions.githubusercontent.com:sub": "repo:YOURGITHUBLOGIN@YOURACCOUNTID/jwt-pizza@JWTPIZZAREPOID:*"
      }
    }
    ```
