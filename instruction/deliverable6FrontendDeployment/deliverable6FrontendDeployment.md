@@ -49,7 +49,7 @@ First off, you need to modify the **build** job to use the generic `upload-artif
 
 ```yml
 - name: Update pages artifact
-  uses: actions/upload-pages-artifact@v3
+  uses: actions/upload-pages-artifact@v5.0.0
   with:
     path: dist/
 ```
@@ -58,7 +58,7 @@ with this action:
 
 ```yml
 - name: Update dist artifact
-  uses: actions/upload-artifact@v4
+  uses: actions/upload-artifact@v7.0.2
   with:
     name: package
     path: dist/
