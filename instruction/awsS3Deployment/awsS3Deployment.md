@@ -34,7 +34,6 @@ First, you need to set up AWS to recognize GitHub as a trusted OIDC provider.
 1. Enter the following details:
    1. **Provider URL**: `https://token.actions.githubusercontent.com`
    1. **Audience**: `sts.amazonaws.com`
-1. Click **Get thumbprint** to verify the provider URL.
 1. Click **Add provider**.
 1. Click on the newly created identity provider in the list to display its properties.
 
@@ -113,7 +112,7 @@ Now, create the IAM role that GitHub Actions will assume.
 
 ### Set the trust policy subject
 
-The role wizard writes the subject claim using your account and repository names alone. GitHub also includes immutable numeric IDs in that claim for every repository created after July 15, 2026, and for any account or repository renamed after that date. Without the IDs the claim will not match and your deployment fails with `Not authorized to perform sts:AssumeRoleWithWebIdentity`.
+The role wizard writes the subject claim using your account and repository names alone. GitHub also includes immutable numeric IDs. Without the IDs, the claim will not match and your deployment fails with `Not authorized to perform sts:AssumeRoleWithWebIdentity`.
 
 Find both IDs by opening the following URL in your browser, replacing `YOURGITHUBACCOUNT` with your GitHub account name.
 
