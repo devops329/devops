@@ -254,7 +254,7 @@ After the workflow runs successfully, visit your website URL. You should see the
 {"id":"c91dadd0-8920-4247-b944-e37cfc91dae4","title":"AWS CloudFront","type":"url-submission","syncGrade":false,"autoGrade":false,"validateUrl":true,"gradingCriteria":"- The body of the webpage says 'CloudFront deployment with GitHub Actions'"}
 Provide the URL of your publicly available CloudFront hosted website that was deployed using your CI pipeline.
 
-_Example: pizza.mydomainname.click_
+_Example: https://pizza.mydomainname.click_
 ```
 
 
