@@ -12,7 +12,6 @@
 
 Before you start work on this deliverable make sure you have read all of the preceding instruction topics and have completed all of the dependent exercises (topics marked with a ☑). This includes:
 
-- [Security](../security/security.md)
 - [Cloud deployment](../cloudDeployment/cloudDeployment.md)
 - ☑ [AWS S3](../awsS3/awsS3.md)
 - [AWS CloudFront](../awsCloudFront/awsCloudFront.md)
