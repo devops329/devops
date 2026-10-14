@@ -37,7 +37,7 @@ Set up your AWS S3 and CloudFront configuration as described in the [AWS CloudFr
 Once completed, your DNS entry should point to your CloudFront endpoint. You can verify this with the `dig` or `nslookup` utility.
 
 ```sh
-dig +short CNAME pizza.byucsstudent.click
+dig +short pizza.byucsstudent.click
 
 d3pl23dqq9jlpy.cloudfront.net.
 ```
