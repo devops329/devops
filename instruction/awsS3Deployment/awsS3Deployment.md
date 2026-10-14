@@ -203,10 +203,10 @@ Create the following secrets in your GitHub repository settings (**Settings > Se
        runs-on: ubuntu-latest
        steps:
          - name: Checkout repository
-           uses: actions/checkout@v4
+           uses: actions/checkout@v7
 
          - name: Create OIDC token to AWS
-           uses: aws-actions/configure-aws-credentials@v4
+           uses: aws-actions/configure-aws-credentials@v6.3.0
            with:
              audience: sts.amazonaws.com
              aws-region: us-east-1
