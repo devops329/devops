@@ -6,7 +6,6 @@
 - Containers are more efficient and lightweight than virtual machines.
 - Docker provides the tools to build, share, and run containerized applications.
 
----
 
 📖 **Deeper dive reading**: [What is a Container?](https://www.docker.com/resources/what-container/)
 
