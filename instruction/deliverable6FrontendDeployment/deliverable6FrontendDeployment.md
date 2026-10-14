@@ -42,7 +42,7 @@ d3pl23dqq9jlpy.cloudfront.net.
 
 ## Secure deployment
 
-Alter your GitHub Actions deployment process using the [AWS S3 Deployment](../awsS3Deployment/awsS3Deployment.md) instruction such that it updates S3 when files are pushed to your fork of `jwt-pizza`. Your GitHub CI pipeline deploys your frontend code through a secure connection that is authenticated using OIDC that follows the principle of least privilege, by exposing only the necessary access.
+Based upon the changes you made to your GitHub Actions deployment process using the [AWS S3 Deployment](../awsS3Deployment/awsS3Deployment.md) instruction, you now want to deploy your JWT Pizza frontend using your GitHub CI pipeline.
 
 First off, make sure you have added the proper permissions for acquiring the OIDC JWT token.
 
@@ -52,7 +52,7 @@ permissions:
   contents: read # Required for actions/checkout
 ```
 
-Next, you need to modify the **build** job to use the generic `upload-artifact` action instead of the GitHub Pages specific `upload-pages-artifact` action. To do this replace what is currently there:
+Next, you need to modify the **build** job to use the generic `upload-artifact` action instead of the GitHub Pages specific `upload-pages-artifact` action. To do this, replace what is currently there:
 
 ```yml
 - name: Update pages artifact
