@@ -112,12 +112,29 @@ Now, create the IAM role that GitHub Actions will assume.
 
 ### Set the trust policy subject
 
-The role wizard writes the subject claim using your account and repository names alone. GitHub also includes immutable numeric IDs. Without the IDs, the claim will not match and your deployment fails with `Not authorized to perform sts:AssumeRoleWithWebIdentity`.
+The role wizard writes the subject claim using your account and repository names alone. GitHub also includes immutable numeric IDs for your account and repository. Without the numeric IDs, the claim will not match what GitHub provides and your deployment fails with `Not authorized to perform sts:AssumeRoleWithWebIdentity`.
 
-Find both IDs by opening the following URL in your browser, replacing `YOURGITHUBACCOUNT` with your GitHub account name.
+You can obtain the numeric IDs by opening the following URL in your browser, and replacing `YOURGITHUBACCOUNT` with your GitHub account name.
 
 ```txt
 https://api.github.com/repos/YOURGITHUBACCOUNT/jwt-pizza
+```
+
+```json
+{
+  "id": 1363255187, <-- Account ID
+  "node_id": "R_kgDOUUGfkw",
+  "name": "jwt-pizza",
+  "full_name": "byucsstudent/jwt-pizza",
+  "private": false,
+  "owner": {
+    "login": "byucsstudent",
+    "id": 10098820, <-- Repo ID
+    "node_id": "MDQ6VXNlcjEwMDk4ODIw",
+    "avatar_url": "https://avatars.githubusercontent.com/u/10098820?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/byucsstudent",
+  },
 ```
 
 The repository ID is the `id` field at the top. Your account ID is the `id` field inside `owner`.
@@ -139,7 +156,7 @@ The repository ID is the `id` field at the top. Your account ID is the `id` fiel
 
 1. Click **Update policy**.
 
-The subject has to sit under `StringLike` rather than `StringEquals`, because `StringEquals` treats the trailing `*` as a literal character and never matches. That wildcard covers whichever branch or environment the workflow runs under. Both IDs stay the same even if you rename your account or your fork.
+We use `StringLike` with a wildcard so that any branch or environment in the repository will match. This might display a warning when you edit the trust policy, but by restricting the repository we are protecting our access with resonable granularity.
 
 ### Configure GitHub Actions
 
