@@ -44,7 +44,15 @@ d3pl23dqq9jlpy.cloudfront.net.
 
 Alter your GitHub Actions deployment process using the [AWS S3 Deployment](../awsS3Deployment/awsS3Deployment.md) instruction such that it updates S3 when files are pushed to your fork of `jwt-pizza`. Your GitHub CI pipeline deploys your frontend code through a secure connection that is authenticated using OIDC that follows the principle of least privilege, by exposing only the necessary access.
 
-First off, you need to modify the **build** job to use the generic `upload-artifact` action instead of the GitHub Pages specific `upload-pages-artifact` action. To do this replace what is currently there:
+First off, make sure you have added the proper permissions for acquiring the OIDC JWT token.
+
+```yml
+permissions:
+  id-token: write # Required for requesting the JWT
+  contents: read # Required for actions/checkout
+```
+
+Next, you need to modify the **build** job to use the generic `upload-artifact` action instead of the GitHub Pages specific `upload-pages-artifact` action. To do this replace what is currently there:
 
 ```yml
 - name: Update pages artifact
@@ -75,14 +83,14 @@ deploy:
     version: ${{needs.build.outputs.version}}
   steps:
     - name: Create OIDC token to AWS
-      uses: aws-actions/configure-aws-credentials@v4
+      uses: aws-actions/configure-aws-credentials@v6.3.0
       with:
         audience: sts.amazonaws.com
         aws-region: us-east-1
         role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT }}:role/${{ secrets.CI_IAM_ROLE }}
 
     - name: Download dist artifact
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v8.0.2
       with:
         name: package
         path: dist/
