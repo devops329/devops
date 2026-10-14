@@ -31,8 +31,7 @@ Now that we know how to deploy static content using CloudFront and S3 using GitH
 
 Set up your AWS S3 and CloudFront configuration as described in the [AWS CloudFront](../awsCloudFront/awsCloudFront.md) instruction. Your AWS configuration should consist of a private S3 bucket that contains the simple `Hello CloudfFront` HTML file from the previous exercise. You will use this CloudFront distribution to host your JWT Pizza frontend to the world.
 
-### Demonstrating completion
-
+### CloudFront DNS test
 Once completed, your DNS entry should point to your CloudFront endpoint. You can verify this with the `dig` or `nslookup` utility.
 
 ```sh
