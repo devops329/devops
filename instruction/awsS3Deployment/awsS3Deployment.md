@@ -170,7 +170,7 @@ Since your repository is public, you must hide sensitive information like your A
 
 ![Actions secrets](actionsSecrets.png)
 
-Create the following secrets in your GitHub repository settings (**Settings > Secrets and variables > Actions**):
+Create the following secrets in your jwt-pizza GitHub repository settings (**Settings > Secrets and variables > Actions**):
 
 | Secret          | Description                                                 | Example              |
 | --------------- | ----------------------------------------------------------- | -------------------- |
@@ -181,30 +181,21 @@ Create the following secrets in your GitHub repository settings (**Settings > Se
 
 #### Create the workflow
 
-1. In your local repository, create a directory named `.github/workflows` if it doesn't already exist.
-1. Create a new file named `testS3Deploy.yml` in that directory.
-1. Paste the following configuration into the file:
+1. The jwt-pizza repository should already have a CI workflow named `.github/workflows/ci.yml` from your work running tests and deploying to GitHub Pages.
+1. Modify the file to include permissions to use OIDC tokens.
 
    ```yml
-   name: Test S3 Deploy
-
-   on:
-     push:
-       branches:
-         - main
-     workflow_dispatch:
-
    permissions:
      id-token: write # Required for requesting the JWT
      contents: read  # Required for actions/checkout
+    ```
 
-   jobs:
-     deploy-s3:
+1. Replay the `deploy` job with one that creates a simple index.html file in your S3 bucket and invalidate the CloudFront cache.
+
+   ```yml
+     deploy:
        runs-on: ubuntu-latest
        steps:
-         - name: Checkout repository
-           uses: actions/checkout@v7
-
          - name: Create OIDC token to AWS
            uses: aws-actions/configure-aws-credentials@v6.3.0
            with:
