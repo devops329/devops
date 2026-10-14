@@ -40,7 +40,8 @@ The first step we need to take is to create an S3 bucket to host the static file
    ```
 1. Click on the newly created bucket to open it up.
 1. Drag the `index.html` file into the bucket and press the `Upload` button.
-   > ![S3 Upload](s3Upload.png)
+   
+   ![S3 Upload](s3Upload.png)
 
 For this tutorial, the _Hello World_ page will serve as a representation of all the frontend static content.
 
@@ -62,7 +63,7 @@ You want your static content to be securely hosted. AWS offers a free service fo
 
    For example:
 
-   > ![create Certificate](createCert.png)
+   ![create Certificate](createCert.png)
 
    Press `Request` and give a bit of time to generate.
 
