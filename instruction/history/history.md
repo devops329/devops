@@ -90,6 +90,6 @@ What are the primary factors that lead to the creation of Development Operations
 
 ## A bit of fun
 
-![XKCD Old days 2](xkcdOldDays2.png)
+<img alt="XKCD Old days 2" src="xkcdOldDays2.png" width=500 />
 
 > _source: [XKCD](https://xkcd.com/2324/)_
