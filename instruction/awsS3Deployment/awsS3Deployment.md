@@ -106,6 +106,8 @@ Now, create the IAM role that GitHub Actions will assume.
 
    ![Policy permissions](policyPermissions.png)
 
+1. In the rare situation where your AWS account is owned by an organization like BYU, you might need set the **Permissions boundary** to comply with the organizations security policy. You do this by adding the boundary: `iamRolePermissionBoundary`. As a student with your own AWS account you can ignore this step.
+
 1. Click **Next**.
 1. Name the role `github-ci`.
 1. Click **Create role**.
