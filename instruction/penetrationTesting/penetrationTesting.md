@@ -9,6 +9,8 @@
 
 📖 **Deeper dive reading**: [PortSwigger Academy](https://portswigger.net/web-security/all-topics)
 
+---
+
 Penetration testing focuses on preventing actions that would:
 
 1.  Allow abnormal execution of the application
