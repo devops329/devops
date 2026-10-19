@@ -64,6 +64,12 @@ After that last command you won't be able to do much else since you just deleted
 
 To close the pseudo terminal type `CTRL-C CTRL-D`. That will kill the shell and terminate the container.
 
+Try the following if you want to see a more visually compelling container example.
+
+```sh
+docker run --rm -it wernight/funbox sh -c "nyancat"
+```
+
 ## Building a container image
 
 Now let's build an image that runs a simple Node.js web server. Make a directory and change into that directory.
