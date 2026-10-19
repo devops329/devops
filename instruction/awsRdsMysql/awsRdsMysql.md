@@ -5,6 +5,7 @@
 - AWS RDS provides managed database support, handling maintenance and backups.
 - Security groups act as virtual firewalls to protect database access.
 - Credentials must be stored securely using environment variables or secrets.
+- Using the Aurora MySQL serverless service will make your database elastic and only charge you for what you use.
 - Deploying an RDS MySQL instance is a core step for the JWT Pizza Service infrastructure.
 
 ---
@@ -64,36 +65,36 @@ Initially, the `jwt-pizza-service` group will allow public traffic. Once a load 
 With the network security configured, you can now provision the MySQL server instance.
 
 1. Open the AWS Management Console and navigate to the **RDS** service. 
-1. Navigate to the **Databases** view from the left side navigation bar. (**Do not** use the _Express_ configuration.)
-1. Click **Create database**.
-1. Choose **Standard create**.
-1. **Engine options**: Select `MySQL`.
-1. **Templates**: Choose `Free tier`. (If Free tier is unavailable, select `Dev/Test`).
+1. Navigate to the **Databases** view from the left side navigation bar. **Do not** use the _Express_ or _Easy create_ configuration. These will setup your instance in a way that doesn't minimize cost.
+1. Click **Create database** and select **Full configuration**.
+1. **Engine options**: Select `Aurora (MySQL Compatible)`. This gives you a serverless implementation where you only pay for what you use.
+1. **Database creation method**: Choose `Full configuration`. (If Free tier is unavailable, select `Dev/Test`). This will allow you to specify the most cost effective options.
+1. **Cluster scalability type**: Chose `Aurora serverless`. Specify **0 ACUs** for minimum capacity, **1 ACUs** for maximum capacity, and **5 minutes** for pause after inactivity. This will give you the lowest cost footprint.
 1. **Settings**:
+   1. **Engine version**: The suggested `Aurora MySQL1 version that is compatible with MySQL 8.
    1. **DB instance identifier**: `jwt-pizza-service-db`.
    1. **Master username**: `admin`.
    1. **Credentials management**: Select `Self managed`.
    1. **Master password**: Specify a strong password.
 
       ⚠️ **Warning:** Avoid using special characters (like `@`, `:`, or `/`) in your password. Since this password is often passed within a URL connection string, certain punctuation marks can cause the connection to fail. It is safest to use alphanumeric characters.
-
-1. **Instance configuration**:
-   1. Ensure **Burstable classes** is selected.
-   1. Select `db.t4g.micro` (or the current free-tier eligible equivalent).
-
-      ![RDS instance configuration](rdsInstanceConfiguration.png)
-
+1. **Cluster storage**: Select `Aurora Standard. This will reduce cost.
+1. **Availability & durability**: Don't create an Aurora Replica. You pay for every replica.
 1. **Connectivity**:
    1. **Public access**: Select **No**.
    1. **VPC security group**: Select **Choose existing**.
       1. Select the `jwt-pizza-db` security group.
-      1. Remove the `default` security group.
+      1. Remove the `default` security group if selected.
    1. **Availability Zone**: Select any available zone (e.g., `us-east-1a`).
+1. **Monitoring**:
+   1. Choose `Database Insights - Standard`.
+   1. Disable collecting detailed per-query metrics
+   1. Disable Enhanced Monitoring
 1. Click **Create database**.
 
 The database may take several minutes to provision. Once the status is **Available**, click on the instance name and copy the **Endpoint**. You will use this as your DB hostname.
 
-![database properties](databaseProperties.png)
+![rdsAuroraConfig.png](rdsAuroraConfig.png)
 
 ## Securing your database
 
