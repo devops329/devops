@@ -120,10 +120,10 @@ Update your GitHub repository secrets with the following values:
 
 ## ☑ Exercise
 
-Deploy a MySQL server in your AWS account following the steps outlined above:
+Deploy a Aurora MySQL serverless database in your AWS account following the steps outlined above:
 
 1. Create the application and database security groups.
-2. Provision the MySQL RDS instance within the `jwt-pizza-db` security group.
+2. Provision the Aurora MySQL RDS instance within the `jwt-pizza-db` security group.
 3. Add the database endpoint, username, and password to your `jwt-pizza-service` GitHub Actions secrets.
 
 ```masteryls
