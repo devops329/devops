@@ -106,6 +106,8 @@ Security is often a trade-off between convenience and protection. DevOps automat
 
 By keeping the database on a private network (Public access: No), you protect high-value user data from direct internet exposure. The JWT Pizza Service will be able to reach the database because you configured the `jwt-pizza-db` security group to explicitly allow traffic from the `jwt-pizza-service` security group.
 
+You could make your database public so that you can use it from your development environment and make it easy to maintain your database from anywhere. That does make it easier to use, but also makes it an easy target for attack.
+
 ### DB credentials
 
 To provide credentials to the application securely, you will store them as **GitHub Actions secrets**. During the CI/CD workflow, these secrets will be injected into the service's environment variables.
@@ -117,6 +119,8 @@ Update your GitHub repository secrets with the following values:
 | DB_HOSTNAME | The production endpoint for the database            | jwt-pizza-service-db.xxxx.us-east-1.rds.amazonaws.com |
 | DB_USERNAME | The production username for the database            | admin                                                 |
 | DB_PASSWORD | The production password used to access the database | your-alphanumeric-password                            |
+
+You can also alternatively use a IAM Role for your DB and then allow your JWT Pizza Service the rights to assume the role. That would allow the service to assume access to the database without providing credentials. This has the benefit of making our authentication completely dynamic and remove the attack surface created with a persistent credential string.
 
 ## ☑ Exercise
 
