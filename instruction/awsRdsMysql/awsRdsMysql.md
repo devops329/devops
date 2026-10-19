@@ -63,7 +63,8 @@ Initially, the `jwt-pizza-service` group will allow public traffic. Once a load 
 
 With the network security configured, you can now provision the MySQL server instance.
 
-1. Open the AWS Management Console and navigate to the **RDS** service.
+1. Open the AWS Management Console and navigate to the **RDS** service. 
+1. Navigate to the **Databases** view from the left side navigation bar. (**Do not** use the _Express_ configuration.)
 1. Click **Create database**.
 1. Choose **Standard create**.
 1. **Engine options**: Select `MySQL`.
