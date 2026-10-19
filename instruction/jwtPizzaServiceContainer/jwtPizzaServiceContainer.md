@@ -14,7 +14,7 @@ Now that you understand the basics of Docker, you will create a container image 
 2.  **Create the Dockerfile:** Create a file named `Dockerfile` (case-sensitive) in the project root with the following content:
 
     ```dockerfile
-    ARG NODE_VERSION=22
+    ARG NODE_VERSION=24
 
     FROM node:${NODE_VERSION}-alpine
     WORKDIR /usr/src/app
