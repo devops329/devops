@@ -219,7 +219,7 @@ The workflow uses the `aws-actions/configure-aws-credentials` action to request 
 
 ```yml
 - name: Create OIDC token to AWS
-  uses: aws-actions/configure-aws-credentials@v4
+  uses: aws-actions/configure-aws-credentials@v6.3.0
   with:
     audience: sts.amazonaws.com
     aws-region: us-east-1
