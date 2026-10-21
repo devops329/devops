@@ -42,7 +42,7 @@ In order for the `jwt-pizza-service` CI workflow to make requests over the OIDC-
 
 To get the IDs you need use this URL just like you did with the S3 service.
 ```txt
-https://api.github.com/repos/YOURGITHUBACCOUNT/jwt-pizza
+https://api.github.com/repos/YOURGITHUBACCOUNT/jwt-pizza-service
 ```
 
 1. Open the AWS IAM service console.
