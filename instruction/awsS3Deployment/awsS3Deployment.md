@@ -16,7 +16,7 @@ To use Continuous Integration (CI) to deploy static frontend content to S3, you 
 >
 > Ensure you are using the `us-east-1` AWS region for all your work in this course.
 
-### Setting up OpenID Connect (OIDC)
+## Setting up OpenID Connect (OIDC)
 
 You establish a trust relationship between GitHub and AWS by configuring AWS to use GitHub as an OIDC identity provider, associating that identity with an AWS IAM role that allows S3 access, and configuring a GitHub Actions workflow to use that role.
 
@@ -160,11 +160,11 @@ The repository ID is the `id` field at the top. Your account ID is the `id` fiel
 
 We use `StringLike` with a wildcard so that any branch or environment in the repository will match. This might display a warning when you edit the trust policy, but by restricting the repository we are protecting our access with resonable granularity.
 
-### Configure GitHub Actions
+## Configure GitHub Actions
 
 The final step is to create a GitHub Actions workflow that deploys to S3 using the OIDC credentials.
 
-#### Storing secrets
+### Storing secrets
 
 Since your repository is public, you must hide sensitive information like your AWS Account ID and resource names. Use [GitHub Repository Secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) to store these values.
 
@@ -179,7 +179,7 @@ Create the following secrets in your jwt-pizza GitHub repository settings (**Set
 | APP_BUCKET      | The S3 bucket name hosting your frontend                    | pizza.yourname.click |
 | DISTRIBUTION_ID | The CloudFront Distribution ID                              | F3GRFXFEBQ8EEU       |
 
-#### Create the workflow
+### Create the workflow
 
 1. The jwt-pizza repository should already have a CI workflow named `.github/workflows/ci.yml` from your work running tests and deploying to GitHub Pages.
 1. Modify the file to include permissions to use OIDC tokens.
