@@ -138,7 +138,7 @@ Previously, the workflow stopped after the tests were finished and the coverage 
 
    ```yml
    - name: Update distribution artifact
-     uses: actions/upload-artifact@v4
+     uses: actions/upload-artifact@v5.0.0
      with:
        name: package
        path: dist/
@@ -163,7 +163,7 @@ Next, add a **deploy** job that builds the container and pushes it to ECR.
    ```yml
    steps:
      - name: Download distribution artifact
-       uses: actions/download-artifact@v4
+       uses: actions/download-artifact@v7.0.2
        with:
          name: package
    ```
@@ -172,7 +172,7 @@ Next, add a **deploy** job that builds the container and pushes it to ECR.
 
    ```yml
    - name: Create OIDC token to AWS
-     uses: aws-actions/configure-aws-credentials@v4
+     uses: aws-actions/configure-aws-credentials@v6.3.0
      with:
        audience: sts.amazonaws.com
        aws-region: us-east-1
