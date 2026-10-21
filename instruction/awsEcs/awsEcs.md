@@ -109,20 +109,20 @@ The service manages the deployment and scaling of your tasks. When you create th
 
    ![Create service](createService.png)
 
+4. Under **Environment**:
+   1. Set the **Compute options** to be `Launch type`. This is where you could define exactly how much capacity you want available. We will keep it simple and let Fargate define this.
 3. Under **Deployment configuration**:
-   1. Select **Service** as the application type.
-   2. Select `jwt-pizza-service` from the **Family** dropdown (under Task definition).
-   3. Set the **Service name** to `jwt-pizza-service`.
-   4. Set **Desired tasks** to `1`.
+   1. Set **Desired tasks** to `1`. This will keep your costs at a minimum and scale up with customer usage.
+   1. Note the deployment options where you can specify how you want to deploy when new versions are released.
 4. Under **Networking**:
    1. Select your **VPC**.
    2. Ensure at least two **Subnets** are selected (standard for high availability).
    3. Under **Security group**, click **Select existing security group** and choose the `jwt-pizza-service` security group you created previously. Ensure it allows port 80 and/or 443.
-   4. Ensure **Public IP** is turned **ON**.
+   4. Ensure **Public IP** is turned **ON**. We leave this open for now so that you can test the service without going through the load balancer. Eventually you will want to turn that off.
 5. Under **Load balancing**:
    1. Select **Application Load Balancer**.
-   2. For the **Load balancer name**, enter `jwt-pizza-service`.
    3. Set the **Container to load balance** to `jwt-pizza-service 80:80`.
+   2. For the **Load balancer name**, enter `jwt-pizza-service`.
    4. **Listener**: Create a new listener on port `443` using protocol **HTTPS**.
    5. **Certificate**: Select the wildcard certificate you created in previous steps (ACM).
    6. **Target group**: Create a new target group named `jwt-pizza-service`.
