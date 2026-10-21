@@ -40,6 +40,11 @@ With your ECR repository created, you are ready to automate the building and upl
 
 In order for the `jwt-pizza-service` CI workflow to make requests over the OIDC-authorized connection, you must alter the [previously configured](../awsS3Deployment/awsS3Deployment.md#create-the-iam-role) `github-ci` IAM role so that the `jwt-pizza-service` GitHub repository is also part of the trust relationship.
 
+To get the IDs you need use this URL just like you did with the S3 service.
+```txt
+https://api.github.com/repos/YOURGITHUBACCOUNT/jwt-pizza
+```
+
 1. Open the AWS IAM service console.
 1. Choose **Roles**.
 1. Select the `github-ci` role that you created when you set up `jwt-pizza` to deploy to S3.
@@ -138,7 +143,7 @@ Previously, the workflow stopped after the tests were finished and the coverage 
 
    ```yml
    - name: Update distribution artifact
-     uses: actions/upload-artifact@v7.0.2
+     uses: actions/upload-artifact@v4
      with:
        name: package
        path: dist/
@@ -163,7 +168,7 @@ Next, add a **deploy** job that builds the container and pushes it to ECR.
    ```yml
    steps:
      - name: Download distribution artifact
-       uses: actions/download-artifact@v8.0.2
+       uses: actions/download-artifact@v4
        with:
          name: package
    ```
@@ -172,7 +177,7 @@ Next, add a **deploy** job that builds the container and pushes it to ECR.
 
    ```yml
    - name: Create OIDC token to AWS
-     uses: aws-actions/configure-aws-credentials@v6.3.0
+     uses: aws-actions/configure-aws-credentials@v4
      with:
        audience: sts.amazonaws.com
        aws-region: us-east-1
@@ -191,10 +196,10 @@ Next, add a **deploy** job that builds the container and pushes it to ECR.
 
    ```yml
    - name: Set up machine emulation
-     uses: docker/setup-qemu-action@v4.4.0
+     uses: docker/setup-qemu-action@v3
 
    - name: Set up Docker build
-     uses: docker/setup-buildx-action@v4.4.1
+     uses: docker/setup-buildx-action@v3
    ```
 
 1. Build and push the Docker container. We use the `--push` parameter to automatically push the container image to ECR once it finishes building. We also define an output variable that contains the name of the image that was pushed for future reference.
