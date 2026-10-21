@@ -138,7 +138,7 @@ Previously, the workflow stopped after the tests were finished and the coverage 
 
    ```yml
    - name: Update distribution artifact
-     uses: actions/upload-artifact@v5.0.0
+     uses: actions/upload-artifact@v7.0.2
      with:
        name: package
        path: dist/
@@ -163,7 +163,7 @@ Next, add a **deploy** job that builds the container and pushes it to ECR.
    ```yml
    steps:
      - name: Download distribution artifact
-       uses: actions/download-artifact@v7.0.2
+       uses: actions/download-artifact@v8.0.2
        with:
          name: package
    ```
@@ -191,10 +191,10 @@ Next, add a **deploy** job that builds the container and pushes it to ECR.
 
    ```yml
    - name: Set up machine emulation
-     uses: docker/setup-qemu-action@v3
+     uses: docker/setup-qemu-action@v4.4.0
 
    - name: Set up Docker build
-     uses: docker/setup-buildx-action@v3
+     uses: docker/setup-buildx-action@v4.4.1
    ```
 
 1. Build and push the Docker container. We use the `--push` parameter to automatically push the container image to ECR once it finishes building. We also define an output variable that contains the name of the image that was pushed for future reference.
