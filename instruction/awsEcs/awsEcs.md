@@ -48,16 +48,17 @@ We will not define a **Task Role** immediately, but you may need one later if yo
 To allow ECS to start tasks and pull images, you must create a **Task Execution Role**.
 
 1. Sign in to the AWS Management Console and navigate to the **IAM** (Identity and Access Management) service.
-2. Select **Roles** from the left navigation panel.
-3. Click **Create role**.
-4. Select **AWS service** as the **Trusted entity type**.
-5. Under the **Use case** dropdown, select **Elastic Container Service**, then select the **Elastic Container Service Task** radio button.
+1. Select **Roles** from the left navigation panel.
+1. Click **Create role**.
+1. Select **AWS service** as the **Trusted entity type**.
+1. Under the **Use case** dropdown, select **Elastic Container Service**, then select the **Elastic Container Service Task** radio button.
 
    ![ECS use case](ecsUseCase.png)
 
-6. Click **Next**.
-7. Search for and select the policy named `AmazonECSTaskExecutionRolePolicy`. This policy provides the necessary permissions to run ECS tasks. Click **Next**.
-8. Set the **Role name** to `jwt-pizza-ecs`.
+1. Click **Next**.
+1. Search for and select the policy named `AmazonECSTaskExecutionRolePolicy`. This policy provides the necessary permissions to run ECS tasks. Click **Next**.
+1. In the rare situation where your AWS account is owned by an organization like BYU, you might need set the **Permissions boundary** to comply with the organizations security policy. You do this by adding the boundary: `iamRolePermissionBoundary`. As a student with your own AWS account you can ignore this step.
+1. Set the **Role name** to `jwt-pizza-ecs`.
 
    ![Create task execution role](createTaskExecutionRole.png)
 
