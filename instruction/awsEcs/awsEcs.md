@@ -84,7 +84,7 @@ Next, define the task that will run the JWT Pizza backend.
       ```text
       1234567890.dkr.ecr.us-east-1.amazonaws.com/jwt-pizza-service:latest
       ```
-      *Ensure you include the `:latest` tag.*
+      ⚠️ *Ensure you include the `:latest` tag.*
    3. Set the **Container port** to `80` with the protocol set to **HTTP**.
 7. Click **Create**.
 
