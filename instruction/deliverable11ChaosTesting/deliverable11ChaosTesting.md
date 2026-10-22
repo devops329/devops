@@ -83,7 +83,7 @@ incidentReports/
 
 Once you have completed this deliverable, submit the URL of your JWT Pizza repository. Your repository must have a `incidentReports/incident-1.md` file representing your full incident report.
 
-_Example: https://github.com/youraccountname/jwt-pizza
+_Example: https://github.com/youraccountname/jwt-pizza_
 
 This will do an initial check of your submission and then pass it on for final grading.
 ```
