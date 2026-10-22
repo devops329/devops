@@ -67,7 +67,7 @@ You want your static content to be securely hosted. AWS offers a free service fo
 
    Press `Request` and give a bit of time to generate.
 
-1. When it displays with the status of `Pending validation` press on the `Create records in Route 53` to automatically add the required DNS validation record if this domain is hosted in Route 53, or choose the option to export the `CSV` file to obtain the entries that you need to add your DNS registry for the domain. If you are **not** using Route53 then you **must** export the entries and manually add them to your chosen DNS registry.
+1. When it displays with the status of `Pending validation` press on the `Create records in Route 53` to automatically add the required DNS validation record if this domain is hosted in Route 53 (if you got your domain on AWS, it is hosted in Route53), or choose the option to export the `CSV` file to obtain the entries that you need to add your DNS registry for the domain. (If you are **not** using Route53 then you **must** export the entries and manually add them to your chosen DNS registry.)
 
    ![dnsvalidation.png](dnsvalidation.png)
 
