@@ -46,7 +46,7 @@ Follow the steps described in the [Grafana K6](../grafanaK6/grafanaK6.md) instru
 
 Once you have completed this deliverable, submit the URL of your JWT Pizza repository. Your repository should have a `loadTests/loginAndOrder.js` file representing your load test code and a `loadTests/testRun.png` image file representing a load test run result.
 
-_Example: https://github.com/youraccountname/jwt-pizza
+_Example: https://github.com/youraccountname/jwt-pizza_
 
 This will do an initial check of your submission and then pass it on for final grading.
 ```
