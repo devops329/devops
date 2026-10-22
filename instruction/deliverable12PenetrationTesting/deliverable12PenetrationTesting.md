@@ -116,7 +116,7 @@ Complete the penetration tests defined above and produce the penetration report 
 
 Once you have completed this deliverable, submit the URL of your JWT Pizza repository. Your repository should have a `penetrationTests/peerTest.md` file that details the results from the penetration test.
 
-_Example: https://github.com/youraccountname/jwt-pizza
+_Example: https://github.com/youraccountname/jwt-pizza_
 
 This will do an initial check of your submission and then pass it on for final grading.
 ```
