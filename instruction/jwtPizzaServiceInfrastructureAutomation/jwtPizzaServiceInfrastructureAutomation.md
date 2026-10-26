@@ -38,25 +38,16 @@ Take the time to completely review the template and become familiar with what it
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "JWT Pizza Service infrastructure",
+
   "Parameters": {
-    "TaskVersion": {
+    "ServiceName": {
       "Type": "String",
-      "Description": "JWT Pizza Service Task Definition version to initialize the ECS service with",
-      "Default": ""
+      "Description": "Unique name for the JWT Pizza Service",
+      "Default": "jwt-pizza-service-next"
     },
     "CertificateArn": {
       "Type": "String",
       "Description": "Load balancer web certificate ARN use to support HTTPS on the ALB",
-      "Default": ""
-    },
-    "SecurityGroupIDs": {
-      "Type": "CommaDelimitedList",
-      "Description": "ECS service and ALB Security groups",
-      "Default": ""
-    },
-    "SubnetIDs": {
-      "Type": "CommaDelimitedList",
-      "Description": "A comma delimited list of VPC network subnets for the ECS service and ALB",
       "Default": ""
     },
     "VpcID": {
@@ -65,32 +56,44 @@ Take the time to completely review the template and become familiar with what it
       "Default": "",
       "AllowedPattern": "^(?:vpc-[0-9a-f]{8,17}|)$",
       "ConstraintDescription": "VPC ID must begin with 'vpc-' and have a valid uuid"
+    },
+    "SubnetIDs": {
+      "Type": "CommaDelimitedList",
+      "Description": "A comma delimited list of VPC network subnets for the ECS service and ALB",
+      "Default": ""
+    },
+    "SecurityGroupIDs": {
+      "Type": "CommaDelimitedList",
+      "Description": "ECS service and ALB Security groups",
+      "Default": ""
     }
   },
+
   "Resources": {
     "ECSCluster": {
       "Type": "AWS::ECS::Cluster",
       "Properties": {
-        "ClusterName": "jwt-pizza-service"
+        "ClusterName": { "Ref": "ServiceName" }
       }
     },
     "ECSService": {
       "Type": "AWS::ECS::Service",
       "Properties": {
         "Cluster": { "Ref": "ECSCluster" },
-        "CapacityProviderStrategy": [{ "CapacityProvider": "FARGATE", "Base": 0, "Weight": 1 }],
-        "TaskDefinition": {
-          "Fn::Join": [
-            ":",
-            ["arn:aws:ecs", { "Ref": "AWS::Region" }, { "Ref": "AWS::AccountId" }, "task-definition/jwt-pizza-service", { "Ref": "TaskVersion" }]
-          ]
-        },
-        "ServiceName": "jwt-pizza-service",
+        "CapacityProviderStrategy": [
+          {
+            "CapacityProvider": "FARGATE",
+            "Base": 0,
+            "Weight": 1
+          }
+        ],
+        "TaskDefinition": { "Ref": "ServiceName" },
+        "ServiceName": { "Ref": "ServiceName" },
         "SchedulingStrategy": "REPLICA",
         "DesiredCount": 1,
         "LoadBalancers": [
           {
-            "ContainerName": "jwt-pizza-service",
+            "ContainerName": { "Ref": "ServiceName" },
             "ContainerPort": 80,
             "LoadBalancerName": {
               "Ref": "AWS::NoValue"
@@ -135,7 +138,7 @@ Take the time to completely review the template and become familiar with what it
       "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
       "Properties": {
         "Type": "application",
-        "Name": "jwt-pizza-service",
+        "Name": { "Ref": "ServiceName" },
         "SecurityGroups": {
           "Ref": "SecurityGroupIDs"
         },
@@ -148,7 +151,7 @@ Take the time to completely review the template and become familiar with what it
       "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
       "Properties": {
         "HealthCheckPath": "/",
-        "Name": "jwt-pizza-service",
+        "Name": { "Ref": "ServiceName" },
         "Port": 80,
         "Protocol": "HTTP",
         "TargetType": "ip",
@@ -188,6 +191,7 @@ Take the time to completely review the template and become familiar with what it
       }
     }
   },
+
   "Outputs": {
     "ClusterName": {
       "Description": "Cluster",
