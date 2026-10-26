@@ -79,7 +79,7 @@ With the bucket in place you can now create your CloudFront distribution that wi
 
 1. Open the AWS browser console and navigate to the CloudFront service.
 1. Press the `Create distribution` button.
-1. Select the **Pay as you go** plan. The other plans restrict the available options and only give you full functionality for a few weeks. Your usage of CloudFront should not be enough for any noticeable cost.
+1. Select the **Pay as you go** plan. The other plans restrict the available options or only give you full functionality for a few weeks. Your usage of CloudFront should not be enough for any noticeable cost.
 
    ![cloudFrontPlan.png](cloudFrontPlan.png)
 
