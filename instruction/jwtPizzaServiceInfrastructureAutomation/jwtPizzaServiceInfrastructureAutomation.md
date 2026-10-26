@@ -87,7 +87,7 @@ Take the time to completely review the template and become familiar with what it
             "Weight": 1
           }
         ],
-        "TaskDefinition": { "Ref": "ServiceName" },
+        "TaskDefinition": "jwt-pizza-service,
         "ServiceName": { "Ref": "ServiceName" },
         "SchedulingStrategy": "REPLICA",
         "DesiredCount": 1,
