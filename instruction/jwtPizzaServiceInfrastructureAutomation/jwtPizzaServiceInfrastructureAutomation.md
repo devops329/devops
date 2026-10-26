@@ -285,7 +285,7 @@ Complete the following.
 1. Fix your JWT Pizza Service DNS entry to point to the new ALB URL.
 1. Trigger your `jwt-pizza-service` CI deployment pipeline and verify that the new service is deployed.
 
-Once this is all working, your GitHub URL to the CloudFormation template file should look something like this:
+Once this is all working, commit your CloudFormation template file to your JWT Pizza Service repository under the path `cloudFormation/jwt-pizza-service.josn`. Your GitHub URL to the CloudFormation template file should look something like this:
 
 ```
 https://github.com/youraccountnamehere/jwt-pizza-service/blob/main/cloudFormation/jwt-pizza-service.json
@@ -294,7 +294,7 @@ https://github.com/youraccountnamehere/jwt-pizza-service/blob/main/cloudFormatio
 
 ```masteryls
 {"id":"6370aa82-b543-43f2-9cd6-e6bd83285b79", "title":"CloudFormation deployment", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The file is a AWS CloudFormation script to deploy an applicaiton using ALB and ECS.", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the `cloudFormation/jwt-pizza-service.json` file." }
-Submit the url to your JWT Pizza Service.
+Submit the url to your JWT Pizza Service repository. This will look for the file `cloudFormation/jwt-pizza-service.json` in your repository.
 
 _Example: https://github.com/youraccountnamehere/jwt-pizza-service_
 ```
