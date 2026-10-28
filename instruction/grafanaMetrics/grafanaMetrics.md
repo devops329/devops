@@ -80,7 +80,7 @@ Types specify how a metric should be interpreted. This impacts the default rende
 | gauge     | Instantaneous     | Temperature, CPU usage, memory usage   | cpu_usage        |
 | histogram | Distribution      | Request latency, payload sizes         | request_duration |
 
-### Example of a `Sum` metric
+### OpenTelemetry Sum metric example
 
 If you are providing `sum` data then you must also provide information about how the data is aggregated. This includes both an aggregation temporality value (cumulative or delta) and a monotonic description (true or false). For example, with a metric that represents request latency, you would set the type to be `sum` and specify that the aggregation is cumulative and monotonically increasing.
 
@@ -106,6 +106,72 @@ If you are providing `sum` data then you must also provide information about how
   }
 }
 ```
+
+
+#### Key Components of the Sum Metric
+
+The OpenTelemetry Sum metric represents the total value of a specific measurement over a period of time. To properly interpret and visualize a Sum metric in Grafana, you must understand its three primary components:
+
+* **Value**: The `Value` is the numerical measurement itself. It can be represented as either an integer or a floating-point number. This value represents the total quantity accumulated or the change observed during a reporting interval.
+
+* **Monotonicity**: Monotonicity defines the behavior of the sum over time and determines which Prometheus or Grafana functions are appropriate for the data:
+    *   **Monotonic (True):** The sum can only increase or stay the same (e.g., `http_requests_total`). If the value decreases, it usually indicates a process restart (counter reset).
+    *   **Non-Monotonic (False):** The sum can increase or decrease (e.g., `current_active_sessions`). This allows the metric to track fluctuations in a total value.
+
+* **Aggregation Temporality**: Aggregation temporality defines the time window used to calculate the sum. This component is essential for determining how the metric should be aggregated across multiple points in time:
+    *   **Delta:** The value represents the change since the last reporting interval. Each data point is independent.
+    *   **Cumulative:** The value represents the total accumulated sum since the start of the process (the "start time"). Each new data point includes the values of all previous points until a reset occurs.
+
+* **Attributes**: Attributes are key-value pairs that provide metadata and dimensionality to the metric. They allow you to filter and group your Sum metrics in Grafana panels. For example, a `request_count` sum might include attributes for `http.status_code` or `service.name` to allow for more granular analysis.
+
+
+### OpenTelemetry Histogram Metric Example
+
+While a **Sum** metric tracks a single monotonic or non-monotonic value over time, a **Histogram** metric captures the statistical distribution of values (such as request latency or payload size) within a set of predefined buckets.
+
+In Grafana, this allows you to visualize heatmaps or calculate percentiles (e.g., p99) using the `histogram_quantile` function.
+
+```json
+{
+  "name": "http.server.request.duration",
+  "description": "Measures the duration of inbound HTTP requests.",
+  "unit": "s",
+  "histogram": {
+    "dataPoints": [
+      {
+        "attributes": [
+          { "key": "http.method", "value": { "stringValue": "GET" } },
+          { "key": "status", "value": { "intValue": 200 } }
+        ],
+        "startTimeUnixNano": "1672531200000000000",
+        "timeUnixNano": "1672531260000000000",
+        "count": "15",
+        "sum": 4.5,
+        "bucketCounts": ["2", "5", "5", "3"],
+        "explicitBounds": [0.1, 0.5, 1.0],
+        "min": 0.02,
+        "max": 0.95
+      }
+    ]
+  }
+}
+```
+
+#### Key Components of the Histogram Metric
+
+*   **Sum**: The total of all recorded values (e.g., the total time of all 15 requests was 4.5 seconds).
+*   **Count**: The total number of observations recorded.
+*   **Explicit Bounds**: The upper boundaries of the buckets used to categorize the data. In this example, the buckets are:
+    *   `(-infinity, 0.1]`
+    *   `(0.1, 0.5]`
+    *   `(0.5, 1.0]`
+    *   `(1.0, +infinity)`
+*   **Bucket Counts**: The number of values that fell into each bucket. There are `n+1` bucket counts for `n` bounds.
+    *   2 requests took `<=` 0.1s.
+    *   5 requests took between 0.1s and 0.5s.
+    *   5 requests took between 0.5s and 1.0s.
+    *   3 requests took `>` 1.0s.
+*   **Min/Max**: Optional fields representing the absolute smallest and largest values recorded during the current interval.
 
 ## Inserting metrics using HTTP
 
