@@ -40,6 +40,11 @@ Automation creates documentation and a historical trail. When humans alter a sys
 
 ![automationBenefits.jpg](automationBenefits.jpg)
 
+```masteryls
+{"id":"7de16112-5e71-4864-aa86-0104f12525fc", "title":"Automation Benefits", "type":"essay", "gradingCriteria":"- Must discuss speed and reproducibility" }
+In the context of software engineering, what are some of the major benefits of automation?
+```
+
 ## Viewing DevOps as a coding task
 
 The whole point of computers and software is to generalize tasks into repeatable instructions in order to quickly and reproducibly complete a task. We should not constrain our vision of what automation can do. If we are willing to reduce the toil of computing the digits of Pi or a Fibonacci sequence, then why not automate the deployment of where the software is used? Why not automate the recording of failures and the collection of performance metrics? These likewise are coding tasks, and the benefits of automating them are just as real as any other coding problem.
@@ -94,6 +99,39 @@ priority = impact/complexity
 ```
 
 You can give a composite priority score, as shown above, that combines both impact and complexity and use that to decide what to work on next, but sometimes it is beneficial to the morale of the team to mix your sprint's tasks, including both high impact and high complexity tasks with some tasks that have low complexity independent of the impact. That way your team feels like it is moving forward. Sometimes automating a low impact task that is just annoying because of how often it is done is a good one to include on your _most wanted_ list. In fact, the idea of a _most wanted_ list is a great way to gameify your work. Print up some posters for those difficult automation tasks. Supply a bounty of movie tickets, lunches, or plain old cash. The important thing is to have fun while you make some serious contributions to the company.
+
+```masteryls
+{"id":"904cd549-9614-4540-9000-0bde1ac2d211","title":"Automation Prioritization Criteria","type":"multiple-choice"}
+When determining which business processes to automate first, which combination of factors typically yields the highest Return on Investment (ROI) and success rate?
+
+- [x] High-volume, repetitive tasks that follow stable, rule-based logic
+  **Nice work!** You picked the tasks where automation pays off fastest.
+
+  Think about the lesson's formula. **Impact** grows with *monthly frequency × duration*, so high-volume work scores high. **Complexity** stays low when the logic is stable and rule-based, because the automation is easy to write and rarely needs rework. High impact divided by low complexity gives the highest priority.
+
+  When you look for your next automation target, look for that same combination.
+
+- [ ] Tasks that are performed once a year but involve a high degree of creative decision-making
+  You're right that some tasks feel important enough to deserve attention, and that's a fair instinct.
+
+  Automation pays off through repetition, though. A task done once a year adds very little to the *monthly frequency × duration* part of the impact score. Creative decision-making is also hard to express as code, which raises the complexity score.
+
+  Revisit *How to choose what to automate next* and work through the priority equation for this task.
+
+- [ ] Highly complex processes that undergo frequent structural changes and logic updates
+  It's reasonable to think the hardest processes would benefit most from automation, and complexity does make manual work painful.
+
+  The catch is the *frequent structural changes*. Every time the process changes, the automation must be rewritten, so its complexity score stays high and the payoff keeps getting pushed back.
+
+  Review how the lesson's **complexity** score affects priority. Then consider what kind of process stays automated once you've written the code.
+
+- [ ] Low-frequency tasks that require significant emotional intelligence and subjective judgment
+  You're thinking about which tasks need a human touch, and that's a useful question to ask.
+
+  The same features that make these tasks human make them poor first candidates. They happen rarely, so automating them saves little time. Subjective judgment is also very hard to encode as rules.
+
+  Try scoring this task with the lesson's **impact** and **complexity** formulas, and then compare it with a task that happens many times a day.
+```
 
 ## Examples of automation
 
@@ -198,46 +236,6 @@ With this script you don't have to log into the AWS Browser Console, navigate to
 
 ```
 aws cloudformation create-stack --stack-name load-balancer --template-body file://create-load-balancer.json
-```
-
-## ☑ Exercise
-
-```masteryls
-{"id":"7de16112-5e71-4864-aa86-0104f12525fc", "title":"Automation Benefits", "type":"essay", "gradingCriteria":"- Must discuss speed and reproducibility" }
-In the context of software engineering, what are some of the major benefits of automation?
-```
-
-```masteryls
-{"id":"904cd549-9614-4540-9000-0bde1ac2d211","title":"Automation Prioritization Criteria","type":"multiple-choice"}
-When determining which business processes to automate first, which combination of factors typically yields the highest Return on Investment (ROI) and success rate?
-
-- [x] High-volume, repetitive tasks that follow stable, rule-based logic
-  **Nice work!** You picked the tasks where automation pays off fastest.
-
-  Think about the lesson's formula. **Impact** grows with *monthly frequency × duration*, so high-volume work scores high. **Complexity** stays low when the logic is stable and rule-based, because the automation is easy to write and rarely needs rework. High impact divided by low complexity gives the highest priority.
-
-  When you look for your next automation target, look for that same combination.
-
-- [ ] Tasks that are performed once a year but involve a high degree of creative decision-making
-  You're right that some tasks feel important enough to deserve attention, and that's a fair instinct.
-
-  Automation pays off through repetition, though. A task done once a year adds very little to the *monthly frequency × duration* part of the impact score. Creative decision-making is also hard to express as code, which raises the complexity score.
-
-  Revisit *How to choose what to automate next* and work through the priority equation for this task.
-
-- [ ] Highly complex processes that undergo frequent structural changes and logic updates
-  It's reasonable to think the hardest processes would benefit most from automation, and complexity does make manual work painful.
-
-  The catch is the *frequent structural changes*. Every time the process changes, the automation must be rewritten, so its complexity score stays high and the payoff keeps getting pushed back.
-
-  Review how the lesson's **complexity** score affects priority. Then consider what kind of process stays automated once you've written the code.
-
-- [ ] Low-frequency tasks that require significant emotional intelligence and subjective judgment
-  You're thinking about which tasks need a human touch, and that's a useful question to ask.
-
-  The same features that make these tasks human make them poor first candidates. They happen rarely, so automating them saves little time. Subjective judgment is also very hard to encode as rules.
-
-  Try scoring this task with the lesson's **impact** and **complexity** formulas, and then compare it with a task that happens many times a day.
 ```
 
 ## A bit of fun

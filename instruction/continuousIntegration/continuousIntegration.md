@@ -16,6 +16,37 @@ Once a change passes all automated checks, it is bundled into a build artifact a
 
 A CI pipeline involves many moving parts. If these were all manual steps, they would require constant oversight and could take weeks to fully validate a single change. By automating the pipeline with safety checks at every step, teams can confidently move code from development to a production-ready state in a matter of minutes.
 
+```masteryls
+{"id":"d0d5489e-5640-49d2-8cfe-5f7c76b5be1e","title":"Defining the Integration in CI","type":"multiple-choice"}
+In the context of a Continuous Integration (CI) pipeline, what is the primary "integration" occurring?
+
+- [ ] The deployment of fully validated application builds into a live production environment
+  You're thinking about where a pipeline eventually leads, and deployment is an important stage.
+
+  Pushing builds to production is the job of continuous *delivery* or *deployment*, which comes later in the pipeline. The "integration" in CI happens much earlier, when code first comes together.
+
+  Reread the opening of the lesson and the **Trunk-Based Development** section. Ask yourself what is being *integrated*, and where.
+
+- [ ] The manual merging of major feature branches only at the conclusion of a development sprint
+  You've correctly spotted that integration involves merging code, which is the core idea.
+
+  The timing and the method are reversed, though. Waiting until the end of a sprint to manually merge large branches leads to the "integration hell" the lesson warns about. CI exists to prevent that.
+
+  Revisit **Trunk-Based Development** and the **Reduced Risk** benefit, and notice how the *size* and *frequency* of merges matter.
+
+- [x] The frequent merging of code changes from multiple developers into a shared central repository
+  **That's it!** In CI, the integration is the constant merging of every developer's changes into a shared mainline.
+
+  Each merge triggers an automated build and test run, so problems surface within minutes and are easy to trace to one small commit. This keeps a team from drifting apart into separate, incompatible versions of the code.
+
+- [ ] The synchronization of high-level project requirements with the current state of the source code
+  It's good to think about keeping code aligned with what the project needs. Teams spend real effort on that.
+
+  That alignment is part of planning and requirements management, though, not CI. CI is a technical practice focused on code changes and automated validation.
+
+  Look at the key point at the top of the lesson. Notice exactly what gets merged and where it goes.
+```
+
 ## Core Concepts
 
 To move beyond a basic definition of Continuous Integration, it is essential to understand the technical pillars that make the process functional.
@@ -23,6 +54,39 @@ To move beyond a basic definition of Continuous Integration, it is essential to 
 ### 1. Trunk-Based Development
 
 CI relies on developers merging small, frequent updates to a shared mainline (often called `main` or `master`) rather than working on long-lived feature branches. This minimizes the "integration hell" that occurs when massive blocks of code are merged simultaneously.
+
+```masteryls
+{"id":"3be2d962-6f38-4e35-a4fc-c99d51cd6c90","title":"CI Integration Frequency","type":"multiple-choice"}
+To effectively minimize integration friction and identify bugs early, which practice should a development team follow within a Continuous Integration (CI) workflow?
+
+- [ ] Postpone merging code to the main branch until the entire feature has been manually smoke-tested in a local environment to ensure stability.
+  Wanting to make sure your code is stable before sharing it shows real care for your teammates.
+
+  Holding changes back until a whole feature is done makes each merge large and risky, though. Manual testing is also slow and inconsistent compared with the automated suite that the CI server runs on every commit.
+
+  Revisit **Trunk-Based Development** and the **Immediate Feedback** benefit. Think about how small, automatically tested changes reduce risk.
+
+- [x] Integrate code changes into the shared repository frequently, ideally at least once a day, to keep the delta between versions small and manageable.
+  **Excellent!** Frequent integration is the heart of CI.
+
+  When you merge at least once a day, each change is small. Conflicts stay manageable, and when a test fails, you know which commit caused it. You also get feedback while the code is still fresh in your mind.
+
+  This is exactly what prevents the "integration hell" of merging large blocks of code all at once.
+
+- [ ] Trigger automated builds and test suites only during off-peak hours to prevent slowing down the development environment for other engineers.
+  You're considering the cost of running builds, which is a practical concern.
+
+  Delaying builds until off-peak hours removes CI's biggest benefit, though: **immediate feedback**. If a broken change isn't caught until overnight, other developers may already have built on top of it.
+
+  Reread the CI workflow example and the best practice to **keep the build fast**. Think about what you should do when builds start slowing developers down.
+
+- [ ] Allow the build to remain in a "failed" state if the errors are related to non-critical components, as long as the core functionality is still working.
+  It's understandable to want to keep moving when a failure seems minor, and prioritizing core functionality is a reasonable instinct.
+
+  In CI, though, a failing build is a stop sign. If the pipeline stays red, new failures hide behind the old ones, and the team stops trusting the results.
+
+  Look at what the lesson says happens when a pipeline step fails, and review the **Higher Code Quality** benefit.
+```
 
 ### 2. The Build Server (CI Runner)
 
@@ -100,69 +164,3 @@ jobs:
 - **Automate the build:** One command should be able to build the entire system.
 - **Keep the build fast:** If the CI process takes hours, developers will stop merging frequently.
 - **Test in a clone of the production environment:** Use containers (like Docker) to ensure the CI environment matches production as closely as possible.
-
-## ☑ Exercise
-
-```masteryls
-{"id":"d0d5489e-5640-49d2-8cfe-5f7c76b5be1e","title":"Defining the Integration in CI","type":"multiple-choice"}
-In the context of a Continuous Integration (CI) pipeline, what is the primary "integration" occurring?
-
-- [ ] The deployment of fully validated application builds into a live production environment
-  You're thinking about where a pipeline eventually leads, and deployment is an important stage.
-
-  Pushing builds to production is the job of continuous *delivery* or *deployment*, which comes later in the pipeline. The "integration" in CI happens much earlier, when code first comes together.
-
-  Reread the opening of the lesson and the **Trunk-Based Development** section. Ask yourself what is being *integrated*, and where.
-
-- [ ] The manual merging of major feature branches only at the conclusion of a development sprint
-  You've correctly spotted that integration involves merging code, which is the core idea.
-
-  The timing and the method are reversed, though. Waiting until the end of a sprint to manually merge large branches leads to the "integration hell" the lesson warns about. CI exists to prevent that.
-
-  Revisit **Trunk-Based Development** and the **Reduced Risk** benefit, and notice how the *size* and *frequency* of merges matter.
-
-- [x] The frequent merging of code changes from multiple developers into a shared central repository
-  **That's it!** In CI, the integration is the constant merging of every developer's changes into a shared mainline.
-
-  Each merge triggers an automated build and test run, so problems surface within minutes and are easy to trace to one small commit. This keeps a team from drifting apart into separate, incompatible versions of the code.
-
-- [ ] The synchronization of high-level project requirements with the current state of the source code
-  It's good to think about keeping code aligned with what the project needs. Teams spend real effort on that.
-
-  That alignment is part of planning and requirements management, though, not CI. CI is a technical practice focused on code changes and automated validation.
-
-  Look at the key point at the top of the lesson. Notice exactly what gets merged and where it goes.
-```
-
-```masteryls
-{"id":"3be2d962-6f38-4e35-a4fc-c99d51cd6c90","title":"CI Integration Frequency","type":"multiple-choice"}
-To effectively minimize integration friction and identify bugs early, which practice should a development team follow within a Continuous Integration (CI) workflow?
-
-- [ ] Postpone merging code to the main branch until the entire feature has been manually smoke-tested in a local environment to ensure stability.
-  Wanting to make sure your code is stable before sharing it shows real care for your teammates.
-
-  Holding changes back until a whole feature is done makes each merge large and risky, though. Manual testing is also slow and inconsistent compared with the automated suite that the CI server runs on every commit.
-
-  Revisit **Trunk-Based Development** and the **Immediate Feedback** benefit. Think about how small, automatically tested changes reduce risk.
-
-- [x] Integrate code changes into the shared repository frequently, ideally at least once a day, to keep the delta between versions small and manageable.
-  **Excellent!** Frequent integration is the heart of CI.
-
-  When you merge at least once a day, each change is small. Conflicts stay manageable, and when a test fails, you know which commit caused it. You also get feedback while the code is still fresh in your mind.
-
-  This is exactly what prevents the "integration hell" of merging large blocks of code all at once.
-
-- [ ] Trigger automated builds and test suites only during off-peak hours to prevent slowing down the development environment for other engineers.
-  You're considering the cost of running builds, which is a practical concern.
-
-  Delaying builds until off-peak hours removes CI's biggest benefit, though: **immediate feedback**. If a broken change isn't caught until overnight, other developers may already have built on top of it.
-
-  Reread the CI workflow example and the best practice to **keep the build fast**. Think about what you should do when builds start slowing developers down.
-
-- [ ] Allow the build to remain in a "failed" state if the errors are related to non-critical components, as long as the core functionality is still working.
-  It's understandable to want to keep moving when a failure seems minor, and prioritizing core functionality is a reasonable instinct.
-
-  In CI, though, a failing build is a stop sign. If the pipeline stays red, new failures hide behind the old ones, and the team stops trusting the results.
-
-  Look at what the lesson says happens when a pipeline step fails, and review the **Higher Code Quality** benefit.
-```

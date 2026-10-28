@@ -68,6 +68,11 @@ This scheme uses an identifier from another system, such as a Git SHA or a Jira 
 
 The downside of referential versioning is that the ID itself lacks human-readable information. Without looking it up in the external system, you cannot determine the release order or the scope of the changes.
 
+```masteryls
+{"id":"44106e2a-8351-4227-b6db-2e572380e89b", "title":"Versioning", "type":"essay" }
+Describe a software versioning method along with the pros and cons.
+```
+
 ## Examples
 
 #### Apple macOS
@@ -130,9 +135,3 @@ For example, adding a step to upload an artifact allows you to retrieve the exac
 Note that GitHub stores these artifacts according to your repository's retention policy (90 days by default). This setting is located in `Settings > Actions > General`.
 
 ![Artifact retention](artifactRetention.png)
-
-
-```masteryls
-{"id":"44106e2a-8351-4227-b6db-2e572380e89b", "title":"Versioning", "type":"essay" }
-Describe a software versioning method along with the pros and cons.
-```

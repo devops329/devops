@@ -30,36 +30,6 @@ Protecting the integrity of financial and information systems requires vigilant 
 - **Description**: A catalog of specific, known instances of security vulnerabilities in released software packages.
 - **Example**: [CVE-2024-28995](https://nvd.nist.gov/vuln/detail/CVE-2024-28995) SolarWinds Serv-U was susceptible to a directory traversal vulnerability that allowed unauthorized access to sensitive files on the host machine.
 
-## The OWASP Top Ten
-
-The Open Worldwide Application Security Project ([OWASP](https://owasp.org/)) compiles a list of the top ten security concerns for the software application industry. This list serves as an essential educational tool to help software engineers understand and prevent the most common security failures.
-
-| Position | Name                                       | Description                                                              | Examples                                                                                                                                                                     |
-| -------- | ------------------------------------------ | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1        | Broken Access Control                      | Missing or weak enforcement of authentication or authorization.          | Accessing a protected resource simply by knowing its URL; allowing an unauthorized user to execute administrative commands; CORS misconfiguration.                         |
-| 2        | Security Misconfiguration                  | Exposure of well-known or unnecessary system configurations.             | Using default account credentials; keeping unnecessary ports, services, or privileges active; unclear configuration ownership.                                               |
-| 3        | Software Supply Chain                      | Integrating or deploying insecure third-party software components.       | Using components with known security vulnerabilities; lack of visibility into the system's software bill of materials (SBOM).                                                |
-| 4        | Cryptographic Failures                     | Failure to protect sensitive data in transit or at rest.                 | Cleartext data transmission; using weak or obsolete cryptographic algorithms.                                                                                                |
-| 5        | Injection                                  | User-supplied data executed as code by an interpreter.                   | Database queries manipulated by user input to return unauthorized records, delete data, or bypass encryption.                                                                |
-| 6        | Insecure Design                            | Fundamental design flaws that enable financial loss or DoS attacks.      | Weak security credential recovery (e.g., security questions); unrestricted trial accounts; insecure CI/CD workflows or cloud architectures.                                  |
-| 7        | Identification and Authentication Failures | Weaknesses that allow credentials to be compromised.                     | Susceptibility to brute force attacks; weak password requirements; missing or ineffective MFA; improper session management.                                                  |
-| 8        | Software and Data Integrity Failures       | Risks from third-party services used for code or data management.        | CDN or CI/CD provider compromises; malicious third-party packages or binaries; compromised third-party data processors.                                                      |
-| 9        | Software Logging and Monitoring Failures   | Logs that are mutable, non-persistent, or inaccessible.                  | Logs that can be altered or deleted by attackers; lack of centralized log aggregation; metric data available only for a very limited time.                                   |
-| 10       | Mishandled Exceptions                      | Errors that leak sensitive information or fail to reset system state.    | Error messages revealing stack traces or database structures; failing to clean up temporary files or roll back database transactions after a crash.                          |
-
-Notice that most of the top ten concerns fall directly within the sphere of DevOps. This is because DevOps focuses on automation, which relies heavily on configured systems and scripting. Any parameterized configuration or programming language increases the attack surface. Additionally, production endpoints, deployment processes, and management consoles often have some level of public accessibility.
-
-If you are not security-minded in the design and deployment of your systems, your infrastructure will likely become a target for successful attacks. Take time to carefully review and familiarize yourself with each of the Top 10. Consider the following in the context of the JWT Pizza application and its deployment infrastructure:
-
-1. Could any of the OWASP Top Ten be used to exploit the application?
-2. How can I evaluate the application's exposure to these exploits?
-3. What would be the impact of a successful exploit?
-4. Can I reproduce the exploit in a safe environment?
-5. What specific steps can be taken to mitigate the exploit?
-
-## ☑ Exercise
-
-
 ```masteryls
 {"id":"ea642aff-079f-4706-a7af-1da545607613","title":"CWE vs. CVE: Understanding the Difference","type":"multiple-choice"}
 In the context of the security community and vulnerability management, which of the following best describes the fundamental difference between Common Weakness Enumeration (CWE) and Common Vulnerabilities and Exposures (CVE)?
@@ -91,6 +61,32 @@ In the context of the security community and vulnerability management, which of 
   Reread the **Managed by** and **Description** entries for each list.
 ```
 
+## The OWASP Top Ten
+
+The Open Worldwide Application Security Project ([OWASP](https://owasp.org/)) compiles a list of the top ten security concerns for the software application industry. This list serves as an essential educational tool to help software engineers understand and prevent the most common security failures.
+
+| Position | Name                                       | Description                                                              | Examples                                                                                                                                                                     |
+| -------- | ------------------------------------------ | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1        | Broken Access Control                      | Missing or weak enforcement of authentication or authorization.          | Accessing a protected resource simply by knowing its URL; allowing an unauthorized user to execute administrative commands; CORS misconfiguration.                         |
+| 2        | Security Misconfiguration                  | Exposure of well-known or unnecessary system configurations.             | Using default account credentials; keeping unnecessary ports, services, or privileges active; unclear configuration ownership.                                               |
+| 3        | Software Supply Chain                      | Integrating or deploying insecure third-party software components.       | Using components with known security vulnerabilities; lack of visibility into the system's software bill of materials (SBOM).                                                |
+| 4        | Cryptographic Failures                     | Failure to protect sensitive data in transit or at rest.                 | Cleartext data transmission; using weak or obsolete cryptographic algorithms.                                                                                                |
+| 5        | Injection                                  | User-supplied data executed as code by an interpreter.                   | Database queries manipulated by user input to return unauthorized records, delete data, or bypass encryption.                                                                |
+| 6        | Insecure Design                            | Fundamental design flaws that enable financial loss or DoS attacks.      | Weak security credential recovery (e.g., security questions); unrestricted trial accounts; insecure CI/CD workflows or cloud architectures.                                  |
+| 7        | Identification and Authentication Failures | Weaknesses that allow credentials to be compromised.                     | Susceptibility to brute force attacks; weak password requirements; missing or ineffective MFA; improper session management.                                                  |
+| 8        | Software and Data Integrity Failures       | Risks from third-party services used for code or data management.        | CDN or CI/CD provider compromises; malicious third-party packages or binaries; compromised third-party data processors.                                                      |
+| 9        | Software Logging and Monitoring Failures   | Logs that are mutable, non-persistent, or inaccessible.                  | Logs that can be altered or deleted by attackers; lack of centralized log aggregation; metric data available only for a very limited time.                                   |
+| 10       | Mishandled Exceptions                      | Errors that leak sensitive information or fail to reset system state.    | Error messages revealing stack traces or database structures; failing to clean up temporary files or roll back database transactions after a crash.                          |
+
+Notice that most of the top ten concerns fall directly within the sphere of DevOps. This is because DevOps focuses on automation, which relies heavily on configured systems and scripting. Any parameterized configuration or programming language increases the attack surface. Additionally, production endpoints, deployment processes, and management consoles often have some level of public accessibility.
+
+If you are not security-minded in the design and deployment of your systems, your infrastructure will likely become a target for successful attacks. Take time to carefully review and familiarize yourself with each of the Top 10. Consider the following in the context of the JWT Pizza application and its deployment infrastructure:
+
+1. Could any of the OWASP Top Ten be used to exploit the application?
+2. How can I evaluate the application's exposure to these exploits?
+3. What would be the impact of a successful exploit?
+4. Can I reproduce the exploit in a safe environment?
+5. What specific steps can be taken to mitigate the exploit?
 
 ## A bit of fun
 

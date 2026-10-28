@@ -68,6 +68,16 @@ test('catalog history', async () => {
 });
 ```
 
+```masteryls
+{"id":"7d6ec40a-e0f0-4841-82a6-61411fc573db","title":"Primary Benefits of Testing","type":"multiple-select"}
+What is/are the primary benefit(s) of incorporating a robust testing strategy early in the software development lifecycle?
+
+- [ ] It provides a formal guarantee that the software is entirely free of bugs and security vulnerabilities.
+- [x] It complements documentation and architectural planning.
+- [x] It identifies defects early, significantly reducing the cost and complexity of remediation compared to finding them in production.
+- [ ] It allows developers to skip code quality checks since all errors will be caught during the final test phase.
+```
+
 ## Characteristics of good tests
 
 - Test only one thing.
@@ -238,41 +248,6 @@ You are writing a program to test your program. This is more code that you will 
 
 Tests that assert against a class's internal implementation details, such as private fields or the order of internal calls, break whenever that code is refactored, even when its behavior hasn't changed. Write tests against the public interface and the results a consumer can observe.
 
-### Incomprehensible tests
-
-It is common to properly design production software while neglecting the design of the tests. Watch out for these red flags in test code:
-
-- Tests that run for hundreds of lines.
-- Overly terse or cryptic constructs.
-- Duplicated or complex setup code.
-- Tests that are hard to find.
-- Unclear testing objectives.
-- Testing multiple things in one block.
-- Poorly named tests.
-
-### Coverage fixation
-
-If you focus solely on test coverage metrics, you may create tests that hit every line but do not actually verify the results. For example, the following test makes an endpoint request but never inspects the response. The request may have failed completely, but the code coverage will still show 100%.
-
-```js
-test('get orders', async () => {
-  // Hits the line, but verifies nothing
-  await request(app).get('/api/order/').set('Authorization', `Bearer ${authToken}`);
-});
-```
-
-## ☑ Exercise
-
-```masteryls
-{"id":"7d6ec40a-e0f0-4841-82a6-61411fc573db","title":"Primary Benefits of Testing","type":"multiple-select"}
-What is/are the primary benefit(s) of incorporating a robust testing strategy early in the software development lifecycle?
-
-- [ ] It provides a formal guarantee that the software is entirely free of bugs and security vulnerabilities.
-- [x] It complements documentation and architectural planning.
-- [x] It identifies defects early, significantly reducing the cost and complexity of remediation compared to finding them in production.
-- [ ] It allows developers to skip code quality checks since all errors will be caught during the final test phase.
-```
-
 ```masteryls
 {"id":"41af55fd-ccbc-4dfb-bef1-9e4ec3547aa6","title":"Avoiding Brittle Tests","type":"multiple-choice"}
 When beginners start writing unit tests, they often create "brittle" tests that break frequently during refactoring. Which of the following actions is a primary cause of this problem?
@@ -302,4 +277,27 @@ When beginners start writing unit tests, they often create "brittle" tests that 
   Checking the final return value is actually the *healthier* approach, though, because it tests observable behavior. Inspecting every local variable would tie the test tightly to the implementation, which is what makes tests fragile.
 
   Reread *Brittle tests* in the *When testing goes wrong* section.
+```
+
+### Incomprehensible tests
+
+It is common to properly design production software while neglecting the design of the tests. Watch out for these red flags in test code:
+
+- Tests that run for hundreds of lines.
+- Overly terse or cryptic constructs.
+- Duplicated or complex setup code.
+- Tests that are hard to find.
+- Unclear testing objectives.
+- Testing multiple things in one block.
+- Poorly named tests.
+
+### Coverage fixation
+
+If you focus solely on test coverage metrics, you may create tests that hit every line but do not actually verify the results. For example, the following test makes an endpoint request but never inspects the response. The request may have failed completely, but the code coverage will still show 100%.
+
+```js
+test('get orders', async () => {
+  // Hits the line, but verifies nothing
+  await request(app).get('/api/order/').set('Authorization', `Bearer ${authToken}`);
+});
 ```

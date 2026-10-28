@@ -69,6 +69,11 @@ A Docker registry is a repository for Docker images. You "push" images to a regi
 - **Docker Hub**: The default public registry provided by Docker, Inc.
 - **Third-party Registries**: Major vendors provide private registries, such as AWS (ECR), Google (GCR), Microsoft (ACR), and GitHub Packages.
 
+```masteryls
+{"id":"ba7a0b83-a971-4ae6-980a-6a4fe138366b", "title":"Docker", "type":"teaching" }
+Help me understand what **Docker** is and why I should consider using it. Are there any downsides?
+```
+
 ## Installation
 
 To set up Docker in your development environment, install **Docker Desktop** using the instructions on the [Docker website](https://docs.docker.com/get-docker/). It is available for Mac, Windows, and Linux. This package includes the Docker Desktop application, the Docker runtime, and the Docker CLI.
@@ -105,11 +110,3 @@ This workflow allows you to containerize **any** application. Once you create an
 Your terminal should look similar to the following:
 
 ![Running a container](runningAContainer.png)
-
-## ☑ Exercise
-
-
-```masteryls
-{"id":"ba7a0b83-a971-4ae6-980a-6a4fe138366b", "title":"Docker", "type":"teaching" }
-Help me understand what **Docker** is and why I should consider using it. Are there any downsides?
-```

@@ -26,6 +26,37 @@ Be wary of **security theater**: measures that look reassuring but do little to 
 
 To make the concept of security more concrete, let's review some specific topics.
 
+```masteryls
+{"id":"0967ba86-5617-4230-beae-7d19a239f956","title":"Identifying Evidence-Based Security","type":"multiple-choice"}
+Security theater refers to measures that provide a false sense of safety without significantly reducing actual risk. Which approach is most effective for an organization looking to transition from security theater to evidence-based security?
+
+- [ ] Implementing highly visible security protocols primarily to reassure stakeholders and employees, even if the underlying technical vulnerabilities remain unaddressed.
+  You're right that confidence matters to stakeholders and employees.
+
+  This option *is* the definition of security theater, though. It reassures people while the real vulnerabilities stay open, and attackers don't care how visible your protocols are.
+
+  Reread the paragraph on security theater near the start of the lesson, and then think about how you would *prove* that a control works.
+
+- [ ] Mandating complex password requirements and frequent periodic rotations to demonstrate a public commitment to rigorous access control.
+  Good effort. Strong access control is important, and passwords are a common target.
+
+  The phrase *to demonstrate a public commitment* gives it away, though. Forced complexity and frequent rotations often push people toward predictable patterns or written-down passwords, so their benefit is questionable unless evidence shows that they reduce your actual risk.
+
+  Revisit how the lesson contrasts security theater with evidence-based security.
+
+- [ ] Deploying a wide array of specialized security tools to ensure that every category of the security software market is represented in the organization's tech stack.
+  Good effort. Using the right tools is part of a strong security program.
+
+  Buying a tool for every category is driven by coverage on paper, though, not by your actual threats. Unvalidated tools can create a false sense of safety and add complexity to manage.
+
+  Reread the lesson's description of evidence-based security, and think about what should decide where you invest.
+
+- [x] Prioritizing security investments based on a formal threat model and validating the effectiveness of controls through objective testing and metrics.
+  **Excellent!** Evidence-based security starts with a **threat model**: understanding who might attack you, what they want, and how they would get in.
+
+  You then invest in the controls that address those threats and **verify** that they work through penetration tests, audits, and metrics. This keeps your effort focused on real risk instead of on appearances.
+```
+
 ### Layers
 
 No system is completely immune to a persistent, dedicated, and well-funded team of attackers. The best you can do is stay ahead of them in a constant game of cat and mouse. A proven technique for staying ahead of your opponent is to create **layers** of security (often called "Defense in Depth"). For example, consider the credentials stored in your database:
@@ -298,37 +329,3 @@ A hardened architecture is useless if a team member gives an administrative pass
 Security is a massive topic that deserves your serious consideration. Gone are the days when a programmer could focus solely on an algorithm without considering how that code could be exploited. The more valuable your code, the more likely it is to attract attention from ill-intentioned individuals, gangs, terrorists, Gadianton robbers, and state-sponsored criminals. The more educated and engaged you are, the less likely it is that the trust your customers place in you will be violated.
 
 💡 Hopefully these topics have piqued your curiosity. There are many subjects here that you can explore as part of your curiosity report.
-
-## ☑ Exercise
-
-
-```masteryls
-{"id":"0967ba86-5617-4230-beae-7d19a239f956","title":"Identifying Evidence-Based Security","type":"multiple-choice"}
-Security theater refers to measures that provide a false sense of safety without significantly reducing actual risk. Which approach is most effective for an organization looking to transition from security theater to evidence-based security?
-
-- [ ] Implementing highly visible security protocols primarily to reassure stakeholders and employees, even if the underlying technical vulnerabilities remain unaddressed.
-  You're right that confidence matters to stakeholders and employees.
-
-  This option *is* the definition of security theater, though. It reassures people while the real vulnerabilities stay open, and attackers don't care how visible your protocols are.
-
-  Reread the paragraph on security theater near the start of the lesson, and then think about how you would *prove* that a control works.
-
-- [ ] Mandating complex password requirements and frequent periodic rotations to demonstrate a public commitment to rigorous access control.
-  Good effort. Strong access control is important, and passwords are a common target.
-
-  The phrase *to demonstrate a public commitment* gives it away, though. Forced complexity and frequent rotations often push people toward predictable patterns or written-down passwords, so their benefit is questionable unless evidence shows that they reduce your actual risk.
-
-  Revisit how the lesson contrasts security theater with evidence-based security.
-
-- [ ] Deploying a wide array of specialized security tools to ensure that every category of the security software market is represented in the organization's tech stack.
-  Good effort. Using the right tools is part of a strong security program.
-
-  Buying a tool for every category is driven by coverage on paper, though, not by your actual threats. Unvalidated tools can create a false sense of safety and add complexity to manage.
-
-  Reread the lesson's description of evidence-based security, and think about what should decide where you invest.
-
-- [x] Prioritizing security investments based on a formal threat model and validating the effectiveness of controls through objective testing and metrics.
-  **Excellent!** Evidence-based security starts with a **threat model**: understanding who might attack you, what they want, and how they would get in.
-
-  You then invest in the controls that address those threats and **verify** that they work through penetration tests, audits, and metrics. This keeps your effort focused on real risk instead of on appearances.
-```

@@ -14,6 +14,41 @@ GitHub supports the concept of **environments**, which allow you to isolate your
 >
 > You can use GitHub environments for your JWT Pizza deployment if you choose, but it is not required for the completion of the project.
 
+```masteryls
+{"id":"5babfac3-9271-4e18-9914-ddf8c71e06d0","title":"Purpose of GitHub Environments","type":"multiple-choice"}
+What is the primary reason for using GitHub Environments within a CI/CD workflow?
+
+- [x] To define deployment protection rules, such as required reviewers, and manage secrets specific to a deployment target
+  **Well done!** Environments let you attach safeguards to a specific deployment target:
+
+  - **Required reviewers** add a human approval gate.
+  - **Deployment branches** ensure that only `main` can deploy to production.
+  - **Environment secrets** keep production credentials separate from staging.
+
+  Together, these reduce the risk of an accidental or unauthorized production release.
+
+- [ ] To provide a cloud-hosted integrated development environment (IDE) for writing and debugging code directly in the browser
+  It's an easy mix-up, since GitHub does offer a cloud-hosted development environment called Codespaces.
+
+  GitHub *Environments* are a different feature, though. They represent deployment targets, such as `production`, in a CI/CD workflow, and they control *how* and *when* code can be deployed there.
+
+  Reread the opening paragraph and the list of safeguards you can configure.
+
+- [ ] To organize repository files into logical directories based on the runtime requirements of the application
+  You're thinking about how runtime requirements shape a project, and that's a useful perspective.
+
+  Environments don't affect your repository's file structure, though. They're configured in the repository settings and referenced by workflow jobs that deploy somewhere.
+
+  Review the *Creating an environment* section and notice what you actually configure there.
+
+- [ ] To isolate different git branches and prevent developers from pushing code directly to the main branch
+  You've spotted that environments can involve branch restrictions, which is a sharp observation.
+
+  Those restrictions control which branch may *deploy* to an environment, though, not who can push code to `main`. Preventing direct pushes is the job of branch protection rules, a separate feature.
+
+  Reread the **Deployment branches** safeguard, and then consider the other safeguards that make environments useful.
+```
+
 ## Creating an environment
 
 To create a GitHub environment, navigate to your `jwt-pizza` repository settings in GitHub and select **Environments** from the left-hand navigation menu. Then, click the **New environment** button.
@@ -99,42 +134,3 @@ deploy:
 ```
 
 The `url` property is optional but highly recommended; it creates a link on the GitHub Actions run page and the repository homepage, making it easy to jump directly to your deployed application. Update the URL to match your actual JWT Pizza hostname.
-
-
-## ☑ Exercise
-
-
-```masteryls
-{"id":"5babfac3-9271-4e18-9914-ddf8c71e06d0","title":"Purpose of GitHub Environments","type":"multiple-choice"}
-What is the primary reason for using GitHub Environments within a CI/CD workflow?
-
-- [x] To define deployment protection rules, such as required reviewers, and manage secrets specific to a deployment target
-  **Well done!** Environments let you attach safeguards to a specific deployment target:
-
-  - **Required reviewers** add a human approval gate.
-  - **Deployment branches** ensure that only `main` can deploy to production.
-  - **Environment secrets** keep production credentials separate from staging.
-
-  Together, these reduce the risk of an accidental or unauthorized production release.
-
-- [ ] To provide a cloud-hosted integrated development environment (IDE) for writing and debugging code directly in the browser
-  It's an easy mix-up, since GitHub does offer a cloud-hosted development environment called Codespaces.
-
-  GitHub *Environments* are a different feature, though. They represent deployment targets, such as `production`, in a CI/CD workflow, and they control *how* and *when* code can be deployed there.
-
-  Reread the opening paragraph and the list of safeguards you can configure.
-
-- [ ] To organize repository files into logical directories based on the runtime requirements of the application
-  You're thinking about how runtime requirements shape a project, and that's a useful perspective.
-
-  Environments don't affect your repository's file structure, though. They're configured in the repository settings and referenced by workflow jobs that deploy somewhere.
-
-  Review the *Creating an environment* section and notice what you actually configure there.
-
-- [ ] To isolate different git branches and prevent developers from pushing code directly to the main branch
-  You've spotted that environments can involve branch restrictions, which is a sharp observation.
-
-  Those restrictions control which branch may *deploy* to an environment, though, not who can push code to `main`. Preventing direct pushes is the job of branch protection rules, a separate feature.
-
-  Reread the **Deployment branches** safeguard, and then consider the other safeguards that make environments useful.
-```

@@ -28,11 +28,20 @@ AWS provides extensive documentation for all their services. You can find the do
 1. Press `Continue`.
 1. Review everything and press `Complete Order`
 
+```masteryls
+{"id":"e79da2b6-2e44-43d2-9011-47c1573d1435", "title":"Lease a hostname", "type":"essay" }
+Provide the hostname that you have leased.
+
+_For example: byucsstudent.gold_
+
+ Make sure you update your JWT Pizza Factory account settings if it different than the one you originally provided.
+```
+
 ## Hosted zone
 
 > [!NOTE]
 >
-> If you have already leased a domain name, but for some reason do not have a hosted zone in Route 53, you will need to create one. See the instruction below for the details.
+> If you have already leased a domain name from AWS Route 53, but for some reason do not have a hosted zone in Route 53, you will need to create one. See the instruction below for the details.
 
 It may take a while before your purchase is completed, but when it is, the Route 53 service dashboard will show that you have a `hosted zone` for your domain name. You will use the `hosted zone` to modify your DNS records in order to expose your JWT Pizza to the world.
 
@@ -82,15 +91,4 @@ Name Server: NS-701.AWSDNS-23.NET
 Name Server: NS-1507.AWSDNS-60.ORG
 Name Server: NS-1619.AWSDNS-10.CO.UK
 Name Server: NS-474.AWSDNS-59.COM
-```
-
-## ☑ Exercise
-
-```masteryls
-{"id":"e79da2b6-2e44-43d2-9011-47c1573d1435", "title":"Lease a hostname", "type":"essay" }
-Provide the hostname that you have leased.
-
-_For example: byucsstudent.gold_
-
- Make sure you update your JWT Pizza Factory account settings if it different than the one you originally provided.
 ```

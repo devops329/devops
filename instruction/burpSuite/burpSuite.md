@@ -88,6 +88,20 @@ Notice that two of the requests returned a 200 status code. The first empty requ
 
 The intruder tool provides for complex combinations of injections including multiple parameter permutations, concurrent executions, delays, and throttling based on response codes.
 
+```masteryls
+{"id":"2381964a-44eb-444e-857b-aab2f8b1ed6e","title":"","type":"multiple-choice"}
+Submit a screenshot of your intruder execution result.
+- [x] Done
+  **Well done!** Running an Intruder brute force attack shows you how quickly an automated tool can try thousands of passwords against a login endpoint.
+
+  Think about what your results revealed about JWT Pizza. Then consider which defenses, such as rate limiting, account lockout, or strong password requirements, would make the attack fail. And remember to use these tools only against applications you have permission to test.
+
+- [ ] I'm still thinking about it.
+  No worries. Burp Suite has a lot of moving parts, and it's normal for your first attack to take a few tries.
+
+  Go back through the lesson step by step. Make sure the login request appears in the Proxy history, send it to Intruder, and mark the password in the `Payload positions` input before adding your candidate passwords. Once you have a result, capture a screenshot and come back to finish this exercise.
+```
+
 ## Sequencer
 
 The Sequencer tool executes the same request multiple times and automatically analyzes the randomness of the results. For example, we can determine the randomness of the authorization token to see if there is a pattern that we can exploit to generate our own authentication tokens.
@@ -241,17 +255,3 @@ Install Burp Suite and execute a brute force attack against your JWT Pizza websi
 When you are done, it should look something like the following.
 
 ![Intruder results](intruderResults.png)
-
-```masteryls
-{"id":"2381964a-44eb-444e-857b-aab2f8b1ed6e","title":"","type":"multiple-choice"}
-Submit a screenshot of your intruder execution result.
-- [x] Done
-  **Well done!** Running an Intruder brute force attack shows you how quickly an automated tool can try thousands of passwords against a login endpoint.
-
-  Think about what your results revealed about JWT Pizza. Then consider which defenses, such as rate limiting, account lockout, or strong password requirements, would make the attack fail. And remember to use these tools only against applications you have permission to test.
-
-- [ ] I'm still thinking about it.
-  No worries. Burp Suite has a lot of moving parts, and it's normal for your first attack to take a few tries.
-
-  Go back through the lesson step by step. Make sure the login request appears in the Proxy history, send it to Intruder, and mark the password in the `Payload positions` input before adding your candidate passwords. Once you have a result, capture a screenshot and come back to finish this exercise.
-```

@@ -54,6 +54,11 @@ Integration testing shifts the focus to how different services or modules intera
 
 At this level, you typically remove many of the mocks used in unit or component testing. Verifying that a database actually persists data or that a dependent service responds to a real request is a vital part of integration testing.
 
+```masteryls
+{"id":"c022b6e5-09b9-4fc6-a05a-e036d4e7c14d", "title":"Testing categories", "type":"essay" }
+Compare and contrast **Unit** and **Integration** testing.
+```
+
 ### Regression
 
 Before automated testing became standard, developers often modified code and then performed manual "spot checks" to ensure they hadn't broken existing features. When a change inadvertently breaks existing functionality, it is called a **regression**.
@@ -158,10 +163,3 @@ In this course, you will apply these strategies to the JWT Pizza project:
 1.  **Unit and Integration testing:** For the `jwt-pizza-service` and the MySQL database.
 2.  **Unit and UI testing:** For the `jwt-pizza` frontend, mocking calls to the backend service.
 3.  **Synthetic, Load, Chaos, and Penetration testing:** Performed on the production application to ensure resilience and security.
-
-## ☑ Exercise
-
-```masteryls
-{"id":"c022b6e5-09b9-4fc6-a05a-e036d4e7c14d", "title":"Testing categories", "type":"essay" }
-Compare and contrast **Unit** and **Integration** testing.
-```

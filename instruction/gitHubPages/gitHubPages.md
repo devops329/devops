@@ -71,6 +71,11 @@ One easy way to do this is to use a service from `GitHub` called `GitHub Pages`.
 
 In future instruction you will use GitHub Pages to deploy the JWT Pizza frontend code.
 
+```masteryls
+{"id":"6d5b693b-70eb-4aa9-90ee-e32d512185cb", "title":"GitHub Pages", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The page contains the text 'Hello github pages'\n- The URL contains '.github.io'" }
+Once you have your page accessible through GitHub Pages, submit your URL.
+```
+
 ## Bonus: GitHub Pages at the account level
 
 In addition to hosting a static deployment for a **repository** you can also do this for your **entire GitHub account**. However, in this case, instead of using a special branch, you create a special repository that follows the pattern: `youraccountnamehere.github.io`. In the example below, we created an account level static deployment for the account named `byucsstudent` by creating the `byucsstudent.github.io` repository and populating it with a simple [index.html](gitHubPagesExample/index.html) file.
@@ -89,9 +94,3 @@ when you are done you should be able to view your simple Hello GitHub Pages webs
 ```
 https://YOURGITHUBACCOUNTNAME.github.io/jwt-pizza/
 ```
-
-```masteryls
-{"id":"6d5b693b-70eb-4aa9-90ee-e32d512185cb", "title":"GitHub Pages", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The page contains the text 'Hello github pages'\n- The URL contains '.github.io'" }
-Once you have your page accessible through GitHub Pages, submit your URL.
-```
-

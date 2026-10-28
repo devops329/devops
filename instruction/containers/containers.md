@@ -23,6 +23,39 @@ Unlike a virtual machine (VM), which uses a hypervisor to emulate hardware and r
 
 ![Container flow](containerFlow.png)
 
+```masteryls
+{"id":"fdad2e7b-8f59-4c38-9f36-4421c7e4e850","title":"Containers vs. Virtual Machines","type":"multiple-choice"}
+In the context of Docker, what is a primary architectural difference between a container and a traditional virtual machine (VM)?
+
+- [ ] Containers provide hardware-level abstraction, ensuring that each instance has its own dedicated BIOS and virtual hardware.
+  You're right that both containers and VMs provide isolation, and isolation is a good place to start comparing them.
+
+  This option describes a **virtual machine**, though. Hardware-level abstraction, including a virtual BIOS and virtual devices, is exactly what makes VMs heavier. Containers isolate at the operating system level instead.
+
+  Reread the comparison of containers and VMs near the start of the lesson and focus on what each one virtualizes.
+
+- [ ] Containers are essentially small virtual machines that require a Type-1 hypervisor like Xen or ESXi to operate.
+  It's a common mental model to think of containers as "lightweight VMs," so it makes sense to start there.
+
+  Containers don't need a hypervisor, though. Docker runs containers as isolated processes directly on the host's operating system. Hypervisors like Xen or ESXi are what *virtual machines* use to emulate hardware.
+
+  Revisit the comparison of containers and VMs in the lesson and notice what a container shares with its host.
+
+- [ ] Containers are strictly used for stateless code execution and lack the ability to interact with the host's file system or network.
+  You've noticed that containers are often used for stateless services, and that's a common pattern.
+
+  It isn't a limitation, though. In this lesson, you mapped a container's port to your host with `-p 3000:3000` and reached it with Curl. Containers can also mount host directories.
+
+  Look back at the `docker container run` example, and then think about what truly differs from a VM.
+
+- [x] Containers share the host's operating system kernel, whereas each virtual machine runs its own full guest operating system.
+  **Spot on!** This is the key architectural difference.
+
+  A container shares the host's operating system **kernel** and isolates only the application's processes, file system, and network. A virtual machine runs a complete guest operating system on top of virtualized hardware.
+
+  That's why containers start in seconds, take up megabytes instead of gigabytes, and can be packed densely onto a single host. It's what makes the build, push, pull, and run flow in this lesson practical.
+```
+
 ## Run a standard Linux container
 
 In order to give you experience with containers, let's start by pulling down a standard Linux container from Docker Hub and running it. You can do this all with one command.
@@ -228,43 +261,6 @@ You can also run a command on a running container with the `exec` command. Somet
 ```sh
 docker exec <container ID> ls -la
 ```
-
-## ☑ Exercise
-
-
-```masteryls
-{"id":"fdad2e7b-8f59-4c38-9f36-4421c7e4e850","title":"Containers vs. Virtual Machines","type":"multiple-choice"}
-In the context of Docker, what is a primary architectural difference between a container and a traditional virtual machine (VM)?
-
-- [ ] Containers provide hardware-level abstraction, ensuring that each instance has its own dedicated BIOS and virtual hardware.
-  You're right that both containers and VMs provide isolation, and isolation is a good place to start comparing them.
-
-  This option describes a **virtual machine**, though. Hardware-level abstraction, including a virtual BIOS and virtual devices, is exactly what makes VMs heavier. Containers isolate at the operating system level instead.
-
-  Reread the comparison of containers and VMs near the start of the lesson and focus on what each one virtualizes.
-
-- [ ] Containers are essentially small virtual machines that require a Type-1 hypervisor like Xen or ESXi to operate.
-  It's a common mental model to think of containers as "lightweight VMs," so it makes sense to start there.
-
-  Containers don't need a hypervisor, though. Docker runs containers as isolated processes directly on the host's operating system. Hypervisors like Xen or ESXi are what *virtual machines* use to emulate hardware.
-
-  Revisit the comparison of containers and VMs in the lesson and notice what a container shares with its host.
-
-- [ ] Containers are strictly used for stateless code execution and lack the ability to interact with the host's file system or network.
-  You've noticed that containers are often used for stateless services, and that's a common pattern.
-
-  It isn't a limitation, though. In this lesson, you mapped a container's port to your host with `-p 3000:3000` and reached it with Curl. Containers can also mount host directories.
-
-  Look back at the `docker container run` example, and then think about what truly differs from a VM.
-
-- [x] Containers share the host's operating system kernel, whereas each virtual machine runs its own full guest operating system.
-  **Spot on!** This is the key architectural difference.
-
-  A container shares the host's operating system **kernel** and isolates only the application's processes, file system, and network. A virtual machine runs a complete guest operating system on top of virtualized hardware.
-
-  That's why containers start in seconds, take up megabytes instead of gigabytes, and can be packed densely onto a single host. It's what makes the build, push, pull, and run flow in this lesson practical.
-```
-
 
 ## Container practice
 

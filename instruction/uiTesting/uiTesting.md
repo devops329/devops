@@ -13,6 +13,37 @@ UI testing involves emulating user interactions with an application and assertin
 
 UI tests are among the most valuable tests in a suite because the UI is the top layer of the application stack and the primary interface for users. However, for UI testing to provide full value, it must integrate with the underlying architecture during execution to represent realistic usage. It is not enough to simply verify that a home page loads; tests must validate that vital navigation elements are functional and that user data renders correctly.
 
+```masteryls
+{"id":"8de29cc1-603b-4f49-bc02-481a9939d02b","title":"Purpose of Browser-Driven UI Testing","type":"multiple-choice"}
+What is the primary reason for performing UI testing that directly drives a web browser rather than relying solely on unit or integration tests?
+
+- [ ] It significantly reduces the overall execution time of the test suite because browsers can process JavaScript faster than isolated runtime environments.
+  Good effort. Speed matters a lot in a test suite.
+
+  Browser-driven tests are actually the *slowest* kind, though. They have to launch a browser, render pages, and simulate user interactions. That's why the lesson mentions headless mode as a way to speed them up.
+
+  Reread the opening of the lesson and focus on *what* UI tests validate rather than how fast they run.
+
+- [ ] It is the most efficient method for achieving 100% code coverage across the backend's internal business logic and database schemas.
+  You're thinking about coverage, which is a useful measure of how much code your tests exercise.
+
+  UI tests are a poor tool for covering backend internals, though. Unit tests reach business logic far more directly and efficiently. UI tests aim at something unit tests can't reach on their own.
+
+  Revisit the lesson's opening paragraphs on why UI tests are so valuable.
+
+- [x] It validates the entire application stack from the user's perspective, ensuring that the frontend, backend, and environment integrate correctly.
+  **Exactly!** Browser-driven tests see your application the way a user does.
+
+  By clicking through real pages in a real browser, they confirm that the frontend, backend, network calls, and environment all work together. Unit and integration tests can pass individually while that end-to-end flow is still broken, which is why UI tests are worth their extra cost and flakiness.
+
+- [ ] It allows developers to bypass the user interface to test private server-side methods that are not exposed to the network.
+  Good effort. Testing server-side methods directly is a legitimate goal.
+
+  UI testing does the opposite, though. It goes *through* the user interface rather than around it, exercising only what a real user can reach. Testing private server methods is the job of unit tests.
+
+  Reread the definition of UI testing at the start of the lesson.
+```
+
 ## The difficulties of UI testing
 
 No one understands the difficulty of browser-based testing better than the companies that build the browsers themselves. They must test every possible combination of HTML, CSS, and JavaScript. Because manual testing cannot scale to this level of complexity, browser vendors implemented "hooks" that allow browsers to be controlled by automated external processes. 
@@ -115,37 +146,3 @@ To combat flakiness:
 - **Eliminate synchronization issues:** Ensure tests explicitly wait for elements to be visible or actionable before interacting with them.
 - **Use robust selectors:** Avoid fragile CSS paths; use data attributes or accessible roles that are less likely to change during UI refactors.
 - **Minimize external dependencies:** Use mocking or stubbing to prevent tests from failing due to network instability or third-party service outages.
-
-## ☑ Exercise
-
-
-```masteryls
-{"id":"8de29cc1-603b-4f49-bc02-481a9939d02b","title":"Purpose of Browser-Driven UI Testing","type":"multiple-choice"}
-What is the primary reason for performing UI testing that directly drives a web browser rather than relying solely on unit or integration tests?
-
-- [ ] It significantly reduces the overall execution time of the test suite because browsers can process JavaScript faster than isolated runtime environments.
-  Good effort. Speed matters a lot in a test suite.
-
-  Browser-driven tests are actually the *slowest* kind, though. They have to launch a browser, render pages, and simulate user interactions. That's why the lesson mentions headless mode as a way to speed them up.
-
-  Reread the opening of the lesson and focus on *what* UI tests validate rather than how fast they run.
-
-- [ ] It is the most efficient method for achieving 100% code coverage across the backend's internal business logic and database schemas.
-  You're thinking about coverage, which is a useful measure of how much code your tests exercise.
-
-  UI tests are a poor tool for covering backend internals, though. Unit tests reach business logic far more directly and efficiently. UI tests aim at something unit tests can't reach on their own.
-
-  Revisit the lesson's opening paragraphs on why UI tests are so valuable.
-
-- [x] It validates the entire application stack from the user's perspective, ensuring that the frontend, backend, and environment integrate correctly.
-  **Exactly!** Browser-driven tests see your application the way a user does.
-
-  By clicking through real pages in a real browser, they confirm that the frontend, backend, network calls, and environment all work together. Unit and integration tests can pass individually while that end-to-end flow is still broken, which is why UI tests are worth their extra cost and flakiness.
-
-- [ ] It allows developers to bypass the user interface to test private server-side methods that are not exposed to the network.
-  Good effort. Testing server-side methods directly is a legitimate goal.
-
-  UI testing does the opposite, though. It goes *through* the user interface rather than around it, exercising only what a real user can reach. Testing private server methods is the job of unit tests.
-
-  Reread the definition of UI testing at the start of the lesson.
-```

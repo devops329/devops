@@ -106,13 +106,6 @@ There are several varieties of load testing, each focusing on different performa
 | **Spike**  | Sudden increase in load                    | Evaluates how quickly the application scales up and down during rapid, extreme changes in traffic.                                                                                                        |
 | **Stress** | Higher than expected load                  | Determines the breaking point where the application fails to acquire necessary resources. Every application has a bottleneck; a stress test identifies exactly where it is.                               |
 
-## Executing a load test
-
-When testing JWT Pizza, we will focus on basic load testing using a normal expected load. Subsequent topics will discuss how to execute a load test using Grafana's open-source tool, k6.
-
-
-## ☑ Exercise
-
 ```masteryls
 {"id":"2fe84494-417b-41c0-8a1d-0ab3619af125","title":"Identifying Load Testing Goals","type":"multiple-choice"}
 What is the primary distinction between general load testing and stress testing?
@@ -141,3 +134,7 @@ What is the primary distinction between general load testing and stress testing?
 
   Reread *Why We Load Test*, and then compare load and stress testing in the *Types of load testing* table.
 ```
+
+## Executing a load test
+
+When testing JWT Pizza, we will focus on basic load testing using a normal expected load. Subsequent topics will discuss how to execute a load test using Grafana's open-source tool, k6.

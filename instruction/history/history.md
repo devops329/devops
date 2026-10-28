@@ -37,6 +37,11 @@ As the industry became adept at applying Agile principles to development, it bec
 
 ![DevOps and QA born](devOpsAndQaBorn.png)
 
+```masteryls
+{"id":"544e5344-9e3a-4375-b868-6475363aec74", "title":"Why DevOps", "type":"essay", "gradingCriteria":"- Must include a description of Googles SRE program" }
+What are the primary factors that lead to the creation of Development Operations?
+```
+
 ## Quality Assurance and development operations
 
 Initially, QA and DevOps tasks were extensions of the application engineer's role. Engineers no longer just wrote the application code; they also wrote the software used to automatically test and deploy it.
@@ -80,13 +85,6 @@ Application, DevOps, Site Reliability, and Platform engineers all share the same
 2. **Automate**: Treat testing, deployment, and management as programming problems to minimize manual intervention.
 
 The purpose of this course is to teach you the techniques and tools necessary to master these implementations. Understanding this history—and the recurring themes of innovation—provides a deeper appreciation for the modern ecosystem of software delivery.
-
-## ☑ Exercise
-
-```masteryls
-{"id":"544e5344-9e3a-4375-b868-6475363aec74", "title":"Why DevOps", "type":"essay", "gradingCriteria":"- Must include a description of Googles SRE program" }
-What are the primary factors that lead to the creation of Development Operations?
-```
 
 ## A bit of fun
 

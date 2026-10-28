@@ -321,6 +321,18 @@ test('regular expressions', () => {
 });
 ```
 
+````masteryls
+{"id":"4a033259-057d-494d-9c3a-380dc7c45ded", "title":"Jest regex matching", "type":"essay", "gradingCriteria":"- When providing feedback do not give an exact answer. Just guide the response." }
+Create a Jest test function that checks to make sure that the regular expression `^(?:The Beat(?:les)?|Black Beetles)$` matches the following strings:
+
+```
+"The Beatles",
+"Black Beetles",
+"The Beat"
+```
+
+````
+
 ### Arrays and objects
 
 You can also match on specific array contents or object properties.
@@ -348,17 +360,3 @@ test('exceptions', () => {
   expect(() => {}).not.toThrow();
 });
 ```
-
-## ☑ Exercise
-
-````masteryls
-{"id":"4a033259-057d-494d-9c3a-380dc7c45ded", "title":"Jest regex matching", "type":"essay", "gradingCriteria":"- When providing feedback do not give an exact answer. Just guide the response." }
-Create a Jest test function that checks to make sure that the regular expression `^(?:The Beat(?:les)?|Black Beetles)$` matches the following strings:
-
-```
-"The Beatles",
-"Black Beetles",
-"The Beat"
-```
-
-````

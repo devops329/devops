@@ -157,6 +157,39 @@ This generates the same result as before, but it moves the coupling to the initi
 
 
 
+```masteryls
+{"id":"65edaa97-7d70-4e3d-9e18-7aed4c6067c7","title":"DI vs. Dependency Inversion","type":"multiple-choice"}
+Which of the following best describes the relationship and difference between Dependency Injection (DI) and the Dependency Inversion Principle (DIP)?
+
+- [ ] Dependency Injection is the high-level architectural principle, while Dependency Inversion is the specific implementation of using a Service Locator to find dependencies.
+  You're right that one of these is a principle and the other is more concrete. Noticing that difference is the key to this question.
+
+  The roles are reversed here, though. A *Service Locator* is a separate pattern in which a class looks up its own dependencies, and it isn't what dependency inversion means.
+
+  Reread the first two paragraphs of the lesson. Notice which idea is called a **design principle** and which is called a **pattern**.
+
+- [x] Dependency Inversion is a design principle that suggests high-level modules should depend on abstractions, whereas Dependency Injection is a technique for providing those dependencies to a class.
+  **Well done!** You clearly separated the *why* from the *how*.
+
+  **Dependency inversion** is the design principle: high-level and low-level modules should both depend on abstractions. **Dependency injection** is a technique for applying that principle, in which dependencies such as the formatter and writer are handed to a class through its constructor or parameters.
+
+  That separation is what made the `Printer` easy to test with a mock writer.
+
+- [ ] Dependency Inversion is a technique used to instantiate objects via reflection, while Dependency Injection is a principle stating that low-level modules must always inherit from high-level modules.
+  It's good that you recognize one term as a principle and the other as a technique.
+
+  The definitions don't match the lesson, though. Some frameworks do use reflection to build objects, but that isn't what dependency inversion means. And no principle requires low-level modules to *inherit* from high-level ones; both should depend on **abstractions**.
+
+  Revisit the definition of dependency inversion near the start of the lesson.
+
+- [ ] There is no functional difference; Dependency Injection is simply the modern name for the original Dependency Inversion Principle.
+  You've noticed how closely these ideas are related. They're used together so often that many people mix them up.
+
+  They aren't the same thing, though. One is a guiding principle about which way dependencies should point. The other is a concrete way of supplying those dependencies to a class.
+
+  Compare how the lesson introduces each term, and then look at how the `PurePrinter` and `Context` examples demonstrate them.
+```
+
 ## Dependency injection frameworks
 
 Most modern languages have mature dependency injection frameworks that automate the process of creating and "injecting" these objects.
@@ -208,39 +241,3 @@ Be careful not to treat DI as a solution for every problem. Use it where flexibi
 We are not going to use a formal dependency injection framework in JWT Pizza, but we will use the underlying principles of dependency inversion to make our code easier to test.
 
 💡 Having a deep understanding of dependency injection is a valuable career skill. You might consider writing your curiosity report on how different frameworks handle "Lifetime Management" (Singleton vs. Transient objects).
-
-## ☑ Exercise
-
-
-```masteryls
-{"id":"65edaa97-7d70-4e3d-9e18-7aed4c6067c7","title":"DI vs. Dependency Inversion","type":"multiple-choice"}
-Which of the following best describes the relationship and difference between Dependency Injection (DI) and the Dependency Inversion Principle (DIP)?
-
-- [ ] Dependency Injection is the high-level architectural principle, while Dependency Inversion is the specific implementation of using a Service Locator to find dependencies.
-  You're right that one of these is a principle and the other is more concrete. Noticing that difference is the key to this question.
-
-  The roles are reversed here, though. A *Service Locator* is a separate pattern in which a class looks up its own dependencies, and it isn't what dependency inversion means.
-
-  Reread the first two paragraphs of the lesson. Notice which idea is called a **design principle** and which is called a **pattern**.
-
-- [x] Dependency Inversion is a design principle that suggests high-level modules should depend on abstractions, whereas Dependency Injection is a technique for providing those dependencies to a class.
-  **Well done!** You clearly separated the *why* from the *how*.
-
-  **Dependency inversion** is the design principle: high-level and low-level modules should both depend on abstractions. **Dependency injection** is a technique for applying that principle, in which dependencies such as the formatter and writer are handed to a class through its constructor or parameters.
-
-  That separation is what made the `Printer` easy to test with a mock writer.
-
-- [ ] Dependency Inversion is a technique used to instantiate objects via reflection, while Dependency Injection is a principle stating that low-level modules must always inherit from high-level modules.
-  It's good that you recognize one term as a principle and the other as a technique.
-
-  The definitions don't match the lesson, though. Some frameworks do use reflection to build objects, but that isn't what dependency inversion means. And no principle requires low-level modules to *inherit* from high-level ones; both should depend on **abstractions**.
-
-  Revisit the definition of dependency inversion near the start of the lesson.
-
-- [ ] There is no functional difference; Dependency Injection is simply the modern name for the original Dependency Inversion Principle.
-  You've noticed how closely these ideas are related. They're used together so often that many people mix them up.
-
-  They aren't the same thing, though. One is a guiding principle about which way dependencies should point. The other is a concrete way of supplying those dependencies to a class.
-
-  Compare how the lesson introduces each term, and then look at how the `PurePrinter` and `Context` examples demonstrate them.
-```

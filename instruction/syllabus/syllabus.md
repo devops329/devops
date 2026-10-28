@@ -163,21 +163,6 @@ You are graded purely on the following assignments:
 
 
 
-```masteryls
-{"id":"cae08349-d561-4c4b-9a84-208fab172b36", "title":"Acknowledgement", "type":"multiple-choice" }
-
-
-- [x] I have read this syllabus
-  **Thanks for reading!** The syllabus spells out how the course is graded, what each deliverable is worth, and how course policies work.
-
-  Bookmark it. When a question comes up about deadlines, grading, or expectations, the answer is often already here.
-
-- [ ] I'm going to skip this for now and then have a hard time later.
-  We appreciate your honesty, and the syllabus does have a lot to take in.
-
-  Take a few minutes to go through it now, though. Knowing how deliverables are weighted and how the course policies work can save you from losing points later. Start with the grading table, and then skim the rest.
-```
-
 
 
 ##  BYU Online Policies
@@ -253,3 +238,18 @@ The materials used in connection with this online course are only for the use of
 "Members of the BYU community who willfully disregard this Copyright Policy or the BYU Copyright Guidelines place themselves individually at risk of legal action and may incur personal liability for their conduct. The unauthorized use or distribution of copyrighted material, including unauthorized peer-to-peer file sharing, may subject individuals to civil and criminal liabilities, including actual and statutory damages, costs and fees of litigation, fines, and imprisonment. . . .
 
 Violations of the Copyright Policy may result in university disciplinary action including termination of university enrollment or employment" (Excerpt taken from the [BYU Copyright Policy](https://policy.byu.edu/view/index.php?p=36)).
+
+```masteryls
+{"id":"cae08349-d561-4c4b-9a84-208fab172b36", "title":"Acknowledgement", "type":"multiple-choice" }
+
+
+- [x] I have read this syllabus
+  **Thanks for reading!** The syllabus spells out how the course is graded, what each deliverable is worth, and how course policies work.
+
+  Bookmark it. When a question comes up about deadlines, grading, or expectations, the answer is often already here.
+
+- [ ] I'm going to skip this for now and then have a hard time later.
+  We appreciate your honesty, and the syllabus does have a lot to take in.
+
+  Take a few minutes to go through it now, though. Knowing how deliverables are weighted and how the course policies work can save you from losing points later. Start with the grading table, and then skim the rest.
+```

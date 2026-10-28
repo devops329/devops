@@ -101,28 +101,6 @@ You can open open a source file by using the file explorer icon on the far left,
 
 Then go ahead and login using the JWT Pizza application. You should be able to use `a@jwt.com` along with the password `admin`. This will trigger your breakpoint. Use the **step over** execution control to step over the call to the service. If you still have your breakpoint set in the backend code then it will trigger and the frontend will not continue until you let the backend code run.
 
-# Keeping things clear
-
-Debugging multiple programs that are talking over a network connection in two different debugging tools can get really complicated if you are not careful to organize things in a way that you can clearly see what is going on.
-
-If you put your frontend client browser, along with its debugger on the left side of your screen, and your backend VS Code debugger on the right side of the screen you will more easily be able to see the flow of things and keep track of what code is currently executing and what code is blocked waiting for a response. This approach is demonstrated in the image below.
-
-![Debug side by side](debugSideBySide.png)
-
-After you start up the two debuggers and set breakpoint on both the front and backend login functions, here are the different phases of the debugging session.
-
-1. A user presses on the login button.
-1. The `login` function break point is triggered and you step over the request to call the services login endpoint.
-1. The frontend is halted until the service call returns.
-1. Execution switches to the backend as the service's login breakpoint is hit.
-1. Execution only continues once the `Run` button is pressed on VS Code's execution controls. This returns execution back to the frontend where the execution point moves to the next function.
-
-Hopefully this gives you a good introduction to debugging a full stack application. In order to really get comfortable with this fundamental skill you will need to spend time doing it. Luckily this course will provide you lots of opportunities to do it.
-
-New software engineers attempt to avoid leaning this critical skill by simply guessing why their code is not working and instead just making random changes. Slightly more experienced engineers will add lots of console log statements to try and figure out what is going on. While that approach is better it is still inferior to taking the time to learn how to debug using the tools available to you. Save yourself the frustration and invest in debugging skills. It will pay off significantly over your career.
-
-## ☑ Exercise
-
 ```masteryls
 {"id":"c86eb274-bd44-472c-8d73-1e4dc9d348c2","title":"Isolating Errors in Full Stack Data Flow","type":"multiple-choice"}
 You are debugging a React application where a specific UI component fails to display data expected from a Node.js API. The frontend is running, but the screen remains blank without any visual errors. Which of the following actions is the most effective first step to determine if the issue resides in the frontend logic or the backend API?
@@ -155,3 +133,23 @@ You are debugging a React application where a specific UI component fails to dis
 
   Think about a tool that shows you the actual request and response, and reread how the lesson describes communication between the frontend and backend.
 ```
+
+# Keeping things clear
+
+Debugging multiple programs that are talking over a network connection in two different debugging tools can get really complicated if you are not careful to organize things in a way that you can clearly see what is going on.
+
+If you put your frontend client browser, along with its debugger on the left side of your screen, and your backend VS Code debugger on the right side of the screen you will more easily be able to see the flow of things and keep track of what code is currently executing and what code is blocked waiting for a response. This approach is demonstrated in the image below.
+
+![Debug side by side](debugSideBySide.png)
+
+After you start up the two debuggers and set breakpoint on both the front and backend login functions, here are the different phases of the debugging session.
+
+1. A user presses on the login button.
+1. The `login` function break point is triggered and you step over the request to call the services login endpoint.
+1. The frontend is halted until the service call returns.
+1. Execution switches to the backend as the service's login breakpoint is hit.
+1. Execution only continues once the `Run` button is pressed on VS Code's execution controls. This returns execution back to the frontend where the execution point moves to the next function.
+
+Hopefully this gives you a good introduction to debugging a full stack application. In order to really get comfortable with this fundamental skill you will need to spend time doing it. Luckily this course will provide you lots of opportunities to do it.
+
+New software engineers attempt to avoid leaning this critical skill by simply guessing why their code is not working and instead just making random changes. Slightly more experienced engineers will add lots of console log statements to try and figure out what is going on. While that approach is better it is still inferior to taking the time to learn how to debug using the tools available to you. Save yourself the frustration and invest in debugging skills. It will pay off significantly over your career.

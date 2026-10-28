@@ -80,33 +80,6 @@ In a blue/green deployment, you maintain two identical sets of resources. The "g
 
 ![Blue/green strategy](blueGreen.png)
 
-### A/B testing
-
-In A/B testing, two versions run simultaneously, but traffic is routed based on specific triggers such as cookies, URL parameters, geography, or IP ranges. This is primarily used to measure the success of a new feature. Once the test concludes, traffic is consolidated back to the primary version. Note that A/B testing does not always require different deployments; it can often be managed via "feature gates" or flags within a single version of the application.
-
-### Continuous
-
-**Continuous Deployment (CD)** automatically deploys a version as soon as it passes automated tests. This differs from **Continuous Delivery**, where new versions are staged but require a human trigger or schedule to go live. For CD to be successful, the architecture must include automated alerting for anomalies and the ability to roll back instantly. Otherwise, customers effectively become the quality assurance team, which can quickly damage a brand's reputation.
-
-### Serverless
-
-Serverless deployment takes elasticity to its logical extreme. The system automatically allocates resources as demand increases and releases them as it decreases. While resources can be allocated for every specific request, they are usually kept "warm" for a short period to improve performance. The serverless manager handles versioning by draining old requests from the previous version while directing new requests to the updated version.
-
-## Deployment strategies for JWT Pizza
-
-#### JWT Pizza Service
-
-The JWT Pizza backend uses an **Immutable** strategy managed by Amazon ECS and an EC2 Application Load Balancer. When a new version is created, ECS spins up the required number of containers and creates a new target group. Traffic is drained from the old cluster as it is moved to the new one. Once the new cluster is deemed healthy, the old cluster is destroyed. If the new cluster fails health checks during deployment, traffic is reverted to the old cluster.
-
-#### JWT Pizza Frontend
-
-The JWT Pizza frontend currently uses an **In Situ** strategy executed by a CI workflow. As soon as the S3 copy command runs, the new files are available. Because S3 copies are not atomic and the resource is never taken out of service, users might occasionally encounter a mix of old and new files. While CloudFront caching mitigates this, users experiencing a cache timeout during deployment may see a partially deployed or broken application.
-
-For a production system, this "In Situ" approach is not ideal. Rollbacks are difficult because they require a full rebuild and redeployment, which can take ten minutes or more. To improve this, the frontend deployment will be moved to a strategy where files are deployed atomically, allowing for near-instant rollbacks.
-
-## ☑ Exercise
-
-
 ```masteryls
 {"id":"b3ef9f02-00c5-47eb-a531-df38b6e651fa","title":"Blue-Green Traffic Switching","type":"multiple-choice"}
 In a blue-green deployment strategy, how is the transition from the current production version to the new version typically executed?
@@ -140,6 +113,29 @@ In a blue-green deployment strategy, how is the transition from the current prod
   Revisit the *Deployment resources* section and compare it with *Blue/Green*.
 ```
 
+### A/B testing
+
+In A/B testing, two versions run simultaneously, but traffic is routed based on specific triggers such as cookies, URL parameters, geography, or IP ranges. This is primarily used to measure the success of a new feature. Once the test concludes, traffic is consolidated back to the primary version. Note that A/B testing does not always require different deployments; it can often be managed via "feature gates" or flags within a single version of the application.
+
+### Continuous
+
+**Continuous Deployment (CD)** automatically deploys a version as soon as it passes automated tests. This differs from **Continuous Delivery**, where new versions are staged but require a human trigger or schedule to go live. For CD to be successful, the architecture must include automated alerting for anomalies and the ability to roll back instantly. Otherwise, customers effectively become the quality assurance team, which can quickly damage a brand's reputation.
+
+### Serverless
+
+Serverless deployment takes elasticity to its logical extreme. The system automatically allocates resources as demand increases and releases them as it decreases. While resources can be allocated for every specific request, they are usually kept "warm" for a short period to improve performance. The serverless manager handles versioning by draining old requests from the previous version while directing new requests to the updated version.
+
+## Deployment strategies for JWT Pizza
+
+#### JWT Pizza Service
+
+The JWT Pizza backend uses an **Immutable** strategy managed by Amazon ECS and an EC2 Application Load Balancer. When a new version is created, ECS spins up the required number of containers and creates a new target group. Traffic is drained from the old cluster as it is moved to the new one. Once the new cluster is deemed healthy, the old cluster is destroyed. If the new cluster fails health checks during deployment, traffic is reverted to the old cluster.
+
+#### JWT Pizza Frontend
+
+The JWT Pizza frontend currently uses an **In Situ** strategy executed by a CI workflow. As soon as the S3 copy command runs, the new files are available. Because S3 copies are not atomic and the resource is never taken out of service, users might occasionally encounter a mix of old and new files. While CloudFront caching mitigates this, users experiencing a cache timeout during deployment may see a partially deployed or broken application.
+
+For a production system, this "In Situ" approach is not ideal. Rollbacks are difficult because they require a full rebuild and redeployment, which can take ten minutes or more. To improve this, the frontend deployment will be moved to a strategy where files are deployed atomically, allowing for near-instant rollbacks.
 
 ## A bit of fun
 

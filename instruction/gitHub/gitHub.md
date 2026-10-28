@@ -41,6 +41,72 @@ Sharing a change takes three commands. `git add` moves your changes to the stagi
 
 Each commit should be atomic, covering one logical change. Give it a short, specific message written in the imperative mood, as if giving a command, such as `Add login validation` rather than `Fixed some stuff`.
 
+```masteryls
+{"id":"e9908551-09d4-4426-95a7-5b793891a852","title":"Effective Commit Messages","type":"multiple-choice"}
+When contributing to a repository on GitHub, which of the following commit messages follows the industry best practice of being concise, descriptive, and written in the imperative mood?
+
+- [ ] I fixed the bug in the navigation bar that was causing the links to overlap.
+  Good job including specific detail. Knowing that the bug was a navigation bar overlap is genuinely useful.
+
+  The message is written in the first person and the past tense, though, and it's longer than it needs to be. Commit messages conventionally use the **imperative mood**, as if giving a command to the codebase.
+
+  Reread the *Committing changes* section, and then try rewriting this message in five or six words.
+
+- [x] Fix navigation bar overlap on mobile viewports
+  **Nicely done!** This message reads as a command (*Fix ...*), says exactly what changed, and fits easily in a one-line log view.
+
+  A good test of the imperative mood is whether the message completes the sentence "If applied, this commit will ...". It does here, and messages like this make your history much easier to scan when you're hunting for a change later.
+
+- [ ] Fixed the issue with the header and updated the readme file
+  You've described what changed, which is better than a vague message.
+
+  There are two problems, though. *Fixed* is past tense rather than imperative, and the message bundles two unrelated changes. Each commit should be **atomic**, covering one logical change, so that it can be reviewed or reverted on its own.
+
+  Revisit the *Committing changes* section and the key point about committing atomically.
+
+- [ ] Minor changes and bug fixes
+  It's concise, and keeping messages short is part of good practice.
+
+  It doesn't tell anyone *what* changed, though. Months from now, you or a teammate won't be able to tell what this commit did without reading the whole diff.
+
+  Reread the *Committing changes* section and aim for a message that is both short and specific.
+```
+
+```masteryls
+{"id":"f2c953c8-eee7-4ceb-9be1-0e6249f453a0","title":"Git Workflow Command Sequence","type":"multiple-choice"}
+You have finished modifying a file in your local project and want to share these changes with your team on a remote GitHub repository. Which of the following correctly describes the sequence and purpose of the commands required?
+
+- [ ] Use `git commit` to move changes from the working directory to the staging area, then `git push` to update the remote repository.
+  You've got the right final step, since `git push` does update the remote repository.
+
+  The first step is mislabeled, though. `git commit` doesn't stage changes; it saves what's *already* staged as a snapshot. A separate command moves changes into the staging area first.
+
+  Review the three commands in the *Committing changes* section and the job each one does.
+
+- [ ] Use `git push` to stage your files and `git pull` to sync those staged files with the remote GitHub repository.
+  Good effort. You've recognized that `push` and `pull` are both involved in syncing with GitHub.
+
+  They work in opposite directions, though. `git push` sends your commits *to* the remote, and `git pull` brings changes *from* it. Neither one stages files.
+
+  Revisit the *Committing changes* section and trace your file's path from your working directory to GitHub.
+
+- [x] Use `git add` to move changes to the staging area, `git commit` to save a snapshot to the local repository, and `git push` to upload those changes to the remote repository.
+  **Perfect!** You described the full path a change takes:
+
+  1. `git add` stages the change.
+  2. `git commit` records a snapshot in your local repository.
+  3. `git push` uploads your local commits to GitHub.
+
+  Keeping these steps separate lets you choose exactly what goes into each commit and lets you commit several times locally before sharing your work.
+
+- [ ] Use `git add` to save changes directly to the local repository and `git commit` to upload the local history to the remote server.
+  You've got the order of the first two commands right, and that's a solid start.
+
+  Their jobs are shifted, though. `git add` only *stages* changes; it doesn't save them to the repository. `git commit` saves a snapshot *locally* and never contacts the server. A third command uploads your work.
+
+  Review the *Committing changes* section and match each command to its purpose.
+```
+
 ## Branches
 
 A Git branch allows a developer to take the work that is being done on the main path of code and create a parallel path. Branches are often used to explore possible features, correct bugs, refactor code, or conduct long term development projects without interfering with the stability of the main codebase.
@@ -112,90 +178,6 @@ If you have never forked a repository before you should go find an open source p
 
 It would be awesome if we can increase the fork count for `Dad Jokes API` into the hundreds. Also make sure you push the `Star` button to show that you like the repo. Let's blow KegenGuyll's mind!
 
-## Taking notes
-
-Keeping notes of what you have learned and things that you want to remember is an essential step for accelerating your web programming skills. GitHub supports the inclusion of a file with the special name `README.md` in the root of your repository. The `README.md` file is displayed in GitHub when you view your repository. This file uses `Markdown` syntax. If you have not used Markdown before, then take some time to [learn how to use it](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-Later in the course you will fork the application team's repositories. You should consider adding another Markdown file named `notes.md` to these repositories so that you can track what you have learned in the course.
-
-## Pull requests
-
-GitHub allows you to create a fork of any repository on GitHub. You just push the `Fork` button from the repository's GitHub page. You can then make modifications to the repository fork and push the changes as a _pull request_. This notifies the original repository's owner that a request is being made to enhance the original repository. The owner can review your changes and if appropriate commit the changes into the original. This is how open source communities manage development from a volunteer group of global developers.
-
-![Pull requests](pullRequests.png)
-
-## Contributing to the course instruction
-
-In this class, if you notice something in the instruction that needs to be enhanced, feel free to fork the [instruction repo](https://github.com/devops329/devops), and make a pull request. This will give you experience with forking and improve the instruction for others at the same time, plus your name will be included as a contributor. How cool is that!
-
-## ☑ Exercise
-
-```masteryls
-{"id":"e9908551-09d4-4426-95a7-5b793891a852","title":"Effective Commit Messages","type":"multiple-choice"}
-When contributing to a repository on GitHub, which of the following commit messages follows the industry best practice of being concise, descriptive, and written in the imperative mood?
-
-- [ ] I fixed the bug in the navigation bar that was causing the links to overlap.
-  Good job including specific detail. Knowing that the bug was a navigation bar overlap is genuinely useful.
-
-  The message is written in the first person and the past tense, though, and it's longer than it needs to be. Commit messages conventionally use the **imperative mood**, as if giving a command to the codebase.
-
-  Reread the *Committing changes* section, and then try rewriting this message in five or six words.
-
-- [x] Fix navigation bar overlap on mobile viewports
-  **Nicely done!** This message reads as a command (*Fix ...*), says exactly what changed, and fits easily in a one-line log view.
-
-  A good test of the imperative mood is whether the message completes the sentence "If applied, this commit will ...". It does here, and messages like this make your history much easier to scan when you're hunting for a change later.
-
-- [ ] Fixed the issue with the header and updated the readme file
-  You've described what changed, which is better than a vague message.
-
-  There are two problems, though. *Fixed* is past tense rather than imperative, and the message bundles two unrelated changes. Each commit should be **atomic**, covering one logical change, so that it can be reviewed or reverted on its own.
-
-  Revisit the *Committing changes* section and the key point about committing atomically.
-
-- [ ] Minor changes and bug fixes
-  It's concise, and keeping messages short is part of good practice.
-
-  It doesn't tell anyone *what* changed, though. Months from now, you or a teammate won't be able to tell what this commit did without reading the whole diff.
-
-  Reread the *Committing changes* section and aim for a message that is both short and specific.
-```
-
-```masteryls
-{"id":"f2c953c8-eee7-4ceb-9be1-0e6249f453a0","title":"Git Workflow Command Sequence","type":"multiple-choice"}
-You have finished modifying a file in your local project and want to share these changes with your team on a remote GitHub repository. Which of the following correctly describes the sequence and purpose of the commands required?
-
-- [ ] Use `git commit` to move changes from the working directory to the staging area, then `git push` to update the remote repository.
-  You've got the right final step, since `git push` does update the remote repository.
-
-  The first step is mislabeled, though. `git commit` doesn't stage changes; it saves what's *already* staged as a snapshot. A separate command moves changes into the staging area first.
-
-  Review the three commands in the *Committing changes* section and the job each one does.
-
-- [ ] Use `git push` to stage your files and `git pull` to sync those staged files with the remote GitHub repository.
-  Good effort. You've recognized that `push` and `pull` are both involved in syncing with GitHub.
-
-  They work in opposite directions, though. `git push` sends your commits *to* the remote, and `git pull` brings changes *from* it. Neither one stages files.
-
-  Revisit the *Committing changes* section and trace your file's path from your working directory to GitHub.
-
-- [x] Use `git add` to move changes to the staging area, `git commit` to save a snapshot to the local repository, and `git push` to upload those changes to the remote repository.
-  **Perfect!** You described the full path a change takes:
-
-  1. `git add` stages the change.
-  2. `git commit` records a snapshot in your local repository.
-  3. `git push` uploads your local commits to GitHub.
-
-  Keeping these steps separate lets you choose exactly what goes into each commit and lets you commit several times locally before sharing your work.
-
-- [ ] Use `git add` to save changes directly to the local repository and `git commit` to upload the local history to the remote server.
-  You've got the order of the first two commands right, and that's a solid start.
-
-  Their jobs are shifted, though. `git add` only *stages* changes; it doesn't save them to the repository. `git commit` saves a snapshot *locally* and never contacts the server. A third command uploads your work.
-
-  Review the *Committing changes* section and match each command to its purpose.
-```
-
 ```masteryls
 {"id":"11cc437f-a7bc-4f12-8b1b-477ea1745743","title":"Forking vs. Cloning","type":"multiple-choice"}
 When working with GitHub, what is the primary difference between **forking** a repository and **cloning** a repository?
@@ -224,6 +206,22 @@ When working with GitHub, what is the primary difference between **forking** a r
 
   Reread the *Forks* section and compare where each copy ends up.
 ```
+
+## Taking notes
+
+Keeping notes of what you have learned and things that you want to remember is an essential step for accelerating your web programming skills. GitHub supports the inclusion of a file with the special name `README.md` in the root of your repository. The `README.md` file is displayed in GitHub when you view your repository. This file uses `Markdown` syntax. If you have not used Markdown before, then take some time to [learn how to use it](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+
+Later in the course you will fork the application team's repositories. You should consider adding another Markdown file named `notes.md` to these repositories so that you can track what you have learned in the course.
+
+## Pull requests
+
+GitHub allows you to create a fork of any repository on GitHub. You just push the `Fork` button from the repository's GitHub page. You can then make modifications to the repository fork and push the changes as a _pull request_. This notifies the original repository's owner that a request is being made to enhance the original repository. The owner can review your changes and if appropriate commit the changes into the original. This is how open source communities manage development from a volunteer group of global developers.
+
+![Pull requests](pullRequests.png)
+
+## Contributing to the course instruction
+
+In this class, if you notice something in the instruction that needs to be enhanced, feel free to fork the [instruction repo](https://github.com/devops329/devops), and make a pull request. This will give you experience with forking and improve the instruction for others at the same time, plus your name will be included as a contributor. How cool is that!
 
 ## A bit of fun
 

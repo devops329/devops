@@ -53,6 +53,11 @@ AI-generated code is rarely perfect on the first attempt. Use an iterative appro
 2. **Observation:** The generated test fails because it doesn't mock the database connection.
 3. **Follow-up Prompt:** "The previous test failed with a connection error. Rewrite the test using `jest.mock` to simulate the database response."
 
+```masteryls
+{"id":"be4e744f-23b6-402d-9445-40e0087ec47d", "title":"Test generation prompting", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+Create a prompt that will generate a test suite for a grade book application. The feature of interest displays student submissions. Make sure the prompt provides enough information to cover things like, default grades, missing submissions, due dates, point values, and the like.
+```
+
 ## Generating Tests with AI
 
 Using AI for unit testing typically involves providing the source code, requirements, and a specific instruction (a prompt) to a language model.
@@ -168,10 +173,3 @@ describe('CatFact Class', () => {
 ## Conclusion
 
 AI-assisted unit testing is a powerful addition to the modern developer's toolkit, capable of dramatically increasing productivity and test coverage. However, it is not a replacement for human judgment. To ensure a robust and maintainable test suite, developers must review AI-generated code for accuracy, relevance, and alignment with business goals. The most effective testing strategies combine the speed of AI with the critical thinking of an experienced engineer.
-
-## ☑ Exercise
-
-```masteryls
-{"id":"be4e744f-23b6-402d-9445-40e0087ec47d", "title":"Test generation prompting", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
-Create a prompt that will generate a test suite for a grade book application. The feature of interest displays student submissions. Make sure the prompt provides enough information to cover things like, default grades, missing submissions, due dates, point values, and the like.
-```

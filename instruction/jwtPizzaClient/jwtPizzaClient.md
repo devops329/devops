@@ -48,6 +48,13 @@ Follow these steps:
    git clone https://github.com/youraccountnamehere/jwt-pizza.git
    ```
 
+```masteryls
+{"id":"d6ea467d-336b-4f3c-bd43-bbe38bb5efc6","title":"JWT Pizza Frontend Repository","type":"url-submission","syncGrade":false,"autoGrade":false,"validateUrl":true,"gradingCriteria":"- The heading '🍕 jwt-pizza' exists","urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file."}
+After you have forked the JWT Pizza repository to your account, submit the URL of your pizza repository for review.
+
+_Example: https://github.com/youraccountname/jwt-pizza_
+```
+
 ## Running the frontend in your development environment
 
 1. Change into the newly cloned repository directory and install the NPM package dependencies.
@@ -135,13 +142,6 @@ Spend time exploring the interface and the code. Understanding the application f
 Following the instructions above, you should have already forked and cloned the `jwt-pizza` repository to your development environment. Your fork's URL should look like this:
 
 `https://github.com/youraccountnamehere/jwt-pizza`
-
-```masteryls
-{"id":"d6ea467d-336b-4f3c-bd43-bbe38bb5efc6","title":"JWT Pizza Frontend Repository","type":"url-submission","syncGrade":false,"autoGrade":false,"validateUrl":true,"gradingCriteria":"- The heading '🍕 jwt-pizza' exists","urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file."}
-After you have forked the JWT Pizza repository to your account, submit the URL of your pizza repository for review.
-
-_Example: https://github.com/youraccountname/jwt-pizza_
-```
 
 Now you can build and start the JWT Pizza frontend in your development environment and explore the code.
 

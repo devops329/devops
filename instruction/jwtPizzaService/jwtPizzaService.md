@@ -90,6 +90,13 @@ Here are the steps to take:
    curl http://localhost:3000/api/docs
    ```
 
+```masteryls
+{"id":"58c26abd-ce8a-4f9c-b65a-55e4992f208f", "title":"JWT Pizza Service Repository", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The heading '🍕 jwt-pizza-service' exists", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
+After you have forked the JWT Pizza Service repository to your account, submit the URL of your pizza service repository for review.
+
+_Example: https://github.com/youraccountname/jwt-pizza-service_
+```
+
 ## Keeping in sync
 
 To sync your fork, navigate to your account's fork of the `jwt-pizza-service` repository. It will display if your fork is out of date. Press the `Sync fork` button and confirm the action.
@@ -146,13 +153,6 @@ Following the above instruction you should have already forked and cloned the jw
 
 ```
 https://github.com/youraccountnamehere/jwt-pizza-service
-```
-
-```masteryls
-{"id":"58c26abd-ce8a-4f9c-b65a-55e4992f208f", "title":"JWT Pizza Service Repository", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The heading '🍕 jwt-pizza-service' exists", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
-After you have forked the JWT Pizza Service repository to your account, submit the URL of your pizza service repository for review.
-
-_Example: https://github.com/youraccountname/jwt-pizza-service_
 ```
 
 Now you can build and start up the backend pizza service in your development environment and learn the code.

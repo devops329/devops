@@ -31,6 +31,39 @@ While simple alerts work for individuals, teams of DevOps engineers require adva
 
 ![OnCall alerts](onCallAlerts.png)
 
+```masteryls
+{"id":"17af209d-f2a3-469f-8cb6-86a98ac677e1","title":"OnCall vs. Standard Alerting","type":"multiple-choice"}
+While standard Grafana dashboard alerts can notify a team when a metric threshold is crossed, what primary advantage does Grafana OnCall offer for managing complex incident response?
+
+- [ ] It allows users to write more complex PromQL and LogQL queries that are not supported by the standard Grafana alerting engine.
+  You're right that queries are central to how Grafana detects problems.
+
+  OnCall doesn't change the query language, though. Queries and thresholds still live in Grafana's alert rules. OnCall takes over *after* an alert fires and decides who gets notified and how.
+
+  Reread the list of OnCall features at the top of the lesson.
+
+- [ ] It automatically executes infrastructure-as-code scripts to restart failing services before a human is notified.
+  Automated remediation is a great goal, and the self-healing topic explores it in depth.
+
+  That isn't OnCall's purpose, though. OnCall manages the *human* side of incident response: making sure the right person is notified, acknowledges the alert, and escalates it if needed.
+
+  Review the OnCall feature list and the escalation chain you built in this lesson.
+
+- [x] It provides sophisticated scheduling and escalation chains to ensure alerts are routed to the correct person based on a rotation.
+  **Exactly right!** OnCall adds the coordination a team needs.
+
+  Rotation **schedules** decide who is on call at any moment. **Escalation chains** keep notifying more people until someone acknowledges the alert. That way, an alert at 3:00 AM reaches the person on duty instead of an inbox that nobody is watching.
+
+  This is the acknowledgment-and-escalation flow described in the alerting topic, put into practice.
+
+- [ ] It increases the visual resolution of dashboard panels to provide more granular detail during a system outage.
+  You're thinking about how responders see what's happening during an outage, which matters a lot.
+
+  OnCall doesn't change how dashboards render, though. Its value is in **routing** alerts to people: deciding who is notified, through which channel, and what happens if nobody responds.
+
+  Reread the list of enterprise features that OnCall provides.
+```
+
 ## OnCall setup
 
 Setting up OnCall requires a few configuration steps to establish the incident management workflow.
@@ -134,40 +167,3 @@ When the alert triggers, it will now follow the OnCall escalation chain, notifyi
 When the alert is resolved it will move into the **Resolved** state.
 
 ![Resolved alert](resolvedAlert.png)
-
-
-## ☑ Exercise
-
-
-```masteryls
-{"id":"17af209d-f2a3-469f-8cb6-86a98ac677e1","title":"OnCall vs. Standard Alerting","type":"multiple-choice"}
-While standard Grafana dashboard alerts can notify a team when a metric threshold is crossed, what primary advantage does Grafana OnCall offer for managing complex incident response?
-
-- [ ] It allows users to write more complex PromQL and LogQL queries that are not supported by the standard Grafana alerting engine.
-  You're right that queries are central to how Grafana detects problems.
-
-  OnCall doesn't change the query language, though. Queries and thresholds still live in Grafana's alert rules. OnCall takes over *after* an alert fires and decides who gets notified and how.
-
-  Reread the list of OnCall features at the top of the lesson.
-
-- [ ] It automatically executes infrastructure-as-code scripts to restart failing services before a human is notified.
-  Automated remediation is a great goal, and the self-healing topic explores it in depth.
-
-  That isn't OnCall's purpose, though. OnCall manages the *human* side of incident response: making sure the right person is notified, acknowledges the alert, and escalates it if needed.
-
-  Review the OnCall feature list and the escalation chain you built in this lesson.
-
-- [x] It provides sophisticated scheduling and escalation chains to ensure alerts are routed to the correct person based on a rotation.
-  **Exactly right!** OnCall adds the coordination a team needs.
-
-  Rotation **schedules** decide who is on call at any moment. **Escalation chains** keep notifying more people until someone acknowledges the alert. That way, an alert at 3:00 AM reaches the person on duty instead of an inbox that nobody is watching.
-
-  This is the acknowledgment-and-escalation flow described in the alerting topic, put into practice.
-
-- [ ] It increases the visual resolution of dashboard panels to provide more granular detail during a system outage.
-  You're thinking about how responders see what's happening during an outage, which matters a lot.
-
-  OnCall doesn't change how dashboards render, though. Its value is in **routing** alerts to people: deciding who is notified, through which channel, and what happens if nobody responds.
-
-  Reread the list of enterprise features that OnCall provides.
-```

@@ -220,6 +220,11 @@ You should now be able to commit and push the modified workflow script to GitHub
 
 ![View uploaded image](viewUploadedDockerImage.png)
 
+```masteryls
+{"id":"5d8c6ed6-ec21-4ade-b51d-bcb37983a4c0", "title":"ECR upload", "type":"file-submission", "gradingCriteria":"AWS ECR showing an uploaded docker image"  }
+Submit a screenshot of your AWS ECR dashboard displaying your uploaded docker image.
+```
+
 ## Set up a lifecycle rule
 
 When you push a container image to ECR with a tag that already exists (like `latest`), ECR untags the previous image and leaves it in the repository as an "untagged" image. To clean these up and avoid exceeding the 500 MB free tier, you can create a **Lifecycle policy** that removes images without a tag after 1 day. You can also set up a rule that only keeps the last `N` images.
@@ -234,8 +239,3 @@ Deploy a container image of your JWT Pizza Service to ECR. This includes the fol
 1. Modify the `github-ci` IAM role and `jwt-pizza-ci-deployment` policy so that your CI pipeline can upload to ECR.
 1. Modify the CI pipeline workflow to build the container and push it to ECR.
 1. Execute the pipeline and verify the newly created image in the ECR console.
-
-```masteryls
-{"id":"5d8c6ed6-ec21-4ade-b51d-bcb37983a4c0", "title":"ECR upload", "type":"file-submission", "gradingCriteria":"AWS ECR showing an uploaded docker image"  }
-Submit a screenshot of your AWS ECR dashboard displaying your uploaded docker image.
-```

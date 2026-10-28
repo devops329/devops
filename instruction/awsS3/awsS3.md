@@ -37,6 +37,11 @@ By default, all S3 buckets are private. Only the owner or entities explicitly gr
 
 ![Public bucket access](publicBucketAccess.png)
 
+```masteryls
+{"id":"65725927-08ab-439d-92f4-68cbdd68d04f", "title":"S3 Bucket", "type":"file-submission", "gradingCriteria":"AWS S3 bucket showing at least one uploaded file"  }
+Attach a screenshot of your S3 bucket that displays your uploaded file.
+```
+
 ## S3 and JWT Pizza
 
 You will use S3 to host the JWT Pizza static frontend code, which is currently hosted on GitHub Pages. While S3 can host a static website directly, we will use AWS CloudFront to act as a Content Delivery Network (CDN). In this architecture, the S3 bucket remains private, and CloudFront is granted exclusive rights to access the bucket and serve the files to users over HTTPS.
@@ -58,10 +63,5 @@ Create an S3 bucket and upload a file.
 Your bucket should now display the uploaded file.
 
 ![Bucket with file](bucketWithFile.png)
-
-```masteryls
-{"id":"65725927-08ab-439d-92f4-68cbdd68d04f", "title":"S3 Bucket", "type":"file-submission", "gradingCriteria":"AWS S3 bucket showing at least one uploaded file"  }
-Attach a screenshot of your S3 bucket that displays your uploaded file.
-```
 
 Once you have confirmed the upload, you may delete the file and the bucket to avoid unnecessary storage.

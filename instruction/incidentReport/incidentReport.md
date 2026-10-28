@@ -53,21 +53,17 @@ Consider this example from [AWS's 2017 S3 outage report](https://aws.amazon.com/
 >
 > We are making several changes as a result of this operational event. This will prevent an incorrect input from triggering a similar event in the future. We are also auditing our other operational tools to ensure we have similar safety checks.
 
+```masteryls
+{"id":"331b33de-f844-429a-84f3-fd219f5376d8", "title":"Essay", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+Create a customer facing summary paragraph for an incident report.
+```
+
 ## Your incident report
 
 Later in this module, you will have the opportunity to create your own incident report. Consider what information is most valuable to include to decrease the possibility of a repeated failure.
 
 - [Template incident report](templateIncidentReport.md) for use with your chaos incident reporting.
 - [Example incident report](exampleIncidentReport.md) regarding the time Unix Time impacted internet services.
-
-## ☑ Exercise
-
-
-```masteryls
-{"id":"331b33de-f844-429a-84f3-fd219f5376d8", "title":"Essay", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
-Create a customer facing summary paragraph for an incident report.
-```
-
 
 ## A bit of fun
 

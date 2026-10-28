@@ -52,26 +52,6 @@ Lambda is especially useful for short tasks triggered by events, such as a file 
 
 You should to take some time to read about, and get familiar, with what each of these services offer and how they work. One of the great things about Cloud Computing is that you can experiment without any significant long term impact or expense. You can simply start something up, play with it for a while, and then tear it down.
 
-## AWS Dashboard
-
-Once you have created your AWS account you can access the AWS browser console. Of particular interest is the **Search** control that allows you to type the name of any service and navigate to it and the **region** control that allows you to specify where you want to deploy your services. Make sure the region is set to **N. Virginia** for all your work in this course.
-
-![alt text](awsConsoleHome.png)
-
-For example, if I wanted to use the S3 service to upload my frontend files to the storage service S3, I would first make sure I was in the N. Virginia region and then search for **S3**. That will open to the console display for that service and allow me to interact with the storage buckets defined there, or create new buckets.
-
-<video controls width="800px"> <source src="awsBrowserConsol.mp4" type="video/mp4"></video>
-
-## Billing
-
-When you created your account you provided your credit card. You will be charged for any services that you use. That means that you need to understand what the pricing is for each service. Many services offer free tier usage withing certain limits, or for the first 12 months of your AWS account. Beyond that you will be billed monthly for your usage.
-
-Make sure you monitor you billing by selecting the **Billing and cost management** interface from the user menu on the AWS browser console. This will give you detailed information about your current costs as well as a forecast for the future. An important role of a DevOps engineer is to understand the costs that result from the architectural choices that you make. This course is a good time to learn these skills before you start incurring bills in the thousands or millions of dollars.
-
-![Cost management](costManagement.png)
-
-## ☑ Exercise
-
 ```masteryls
 {"id":"1ebcaea8-9988-4cd6-9f46-b110b6c6bcc0","title":"Serverless Compute Services","type":"multiple-choice"}
 A developer needs to run a short-lived script that automatically processes images every time they are uploaded to an Amazon S3 bucket. The developer wants to avoid managing virtual servers and only pay for the exact duration the code executes. Which AWS service is the most appropriate for this use case?
@@ -106,3 +86,21 @@ A developer needs to run a short-lived script that automatically processes image
 
   Look back at the *Other popular AWS services* table and match each service to the kind of work it does.
 ```
+
+## AWS Dashboard
+
+Once you have created your AWS account you can access the AWS browser console. Of particular interest is the **Search** control that allows you to type the name of any service and navigate to it and the **region** control that allows you to specify where you want to deploy your services. Make sure the region is set to **N. Virginia** for all your work in this course.
+
+![alt text](awsConsoleHome.png)
+
+For example, if I wanted to use the S3 service to upload my frontend files to the storage service S3, I would first make sure I was in the N. Virginia region and then search for **S3**. That will open to the console display for that service and allow me to interact with the storage buckets defined there, or create new buckets.
+
+<video controls width="800px"> <source src="awsBrowserConsol.mp4" type="video/mp4"></video>
+
+## Billing
+
+When you created your account you provided your credit card. You will be charged for any services that you use. That means that you need to understand what the pricing is for each service. Many services offer free tier usage withing certain limits, or for the first 12 months of your AWS account. Beyond that you will be billed monthly for your usage.
+
+Make sure you monitor you billing by selecting the **Billing and cost management** interface from the user menu on the AWS browser console. This will give you detailed information about your current costs as well as a forecast for the future. An important role of a DevOps engineer is to understand the costs that result from the architectural choices that you make. This course is a good time to learn these skills before you start incurring bills in the thousands or millions of dollars.
+
+![Cost management](costManagement.png)

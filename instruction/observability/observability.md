@@ -41,6 +41,37 @@ As defined in the [Google SRE Handbook](https://sre.google/sre-book/monitoring-d
 
 Each signal indicates a different aspect of system health. For instance, a system might respond quickly (low latency) while generating a high volume of errors. Alternatively, error counts might seem high in isolation but represent a very low percentage of total traffic.
 
+```masteryls
+{"id":"04ffb66a-bd89-4e22-9737-ff27eba52837","title":"Defining Golden Signals","type":"multiple-choice"}
+According to the Google Site Reliability Engineering (SRE) handbook, which of the "Four Golden Signals" measures how "full" your service is, typically by tracking the utilization of the system's most constrained resources?
+
+- [ ] Latency
+  Good effort. Latency is one of the four golden signals and often the first one users notice.
+
+  Latency measures how long a request takes, though, not how full the system is. A system can respond quickly right up until a resource runs out.
+
+  Reread the definitions in the *Golden signals* section and find the one that focuses on constrained resources such as memory or I/O.
+
+- [ ] Traffic
+  You're close. Traffic and fullness are related, since more demand tends to fill a system up.
+
+  Traffic measures the **demand** placed on the system, such as requests per second, though. The same traffic might fill a small server but barely touch a large cluster.
+
+  Revisit the *Golden signals* list and look for the signal that describes how close resources are to their limits.
+
+- [x] Saturation
+  **Correct!** Saturation tells you how close your most constrained resources, such as memory, CPU, or I/O, are to their limits.
+
+  It's often a leading indicator. Latency and errors usually climb only *after* saturation gets high, so watching it gives you a chance to scale or shed load before customers notice.
+
+- [ ] Errors
+  Good effort. Errors are a crucial golden signal, and they often rise when a system gets overloaded.
+
+  Errors measure the rate of **failed requests**, though, not how full the service is. A system can be nearly out of resources while still returning successful responses.
+
+  Reread the *Golden signals* definitions and find the one about how "full" the service is.
+```
+
 ## Vital observability characteristics
 
 The value of an observability tool is defined by several vital characteristics. While simple systems with short retention periods are cheaper, they are less valuable than real-time dashboards that support complex queries and historical analysis. Your choice of tools should align with the critical nature of the system being observed.
@@ -102,38 +133,3 @@ The DevOps mindset shifts response from human intervention to automated correcti
 Incident response is increasingly driven by AI and Machine Learning (AIOps). AI systems can sift through massive volumes of logs to find subtle anomalies that humans might miss. Today, many low-to-mid-level failures are handled automatically by AI, which then generates a post-mortem report for human review. This cycle allows for long-term system improvements and greater overall stability.
 
 💡 **Activity**: Researching how AI can be used to detect "log anomalies" or "outlier detection" in metrics to trigger self-healing workflows is an excellent way to explore the future of DevOps.
-
-
-## ☑ Exercise
-
-
-```masteryls
-{"id":"04ffb66a-bd89-4e22-9737-ff27eba52837","title":"Defining Golden Signals","type":"multiple-choice"}
-According to the Google Site Reliability Engineering (SRE) handbook, which of the "Four Golden Signals" measures how "full" your service is, typically by tracking the utilization of the system's most constrained resources?
-
-- [ ] Latency
-  Good effort. Latency is one of the four golden signals and often the first one users notice.
-
-  Latency measures how long a request takes, though, not how full the system is. A system can respond quickly right up until a resource runs out.
-
-  Reread the definitions in the *Golden signals* section and find the one that focuses on constrained resources such as memory or I/O.
-
-- [ ] Traffic
-  You're close. Traffic and fullness are related, since more demand tends to fill a system up.
-
-  Traffic measures the **demand** placed on the system, such as requests per second, though. The same traffic might fill a small server but barely touch a large cluster.
-
-  Revisit the *Golden signals* list and look for the signal that describes how close resources are to their limits.
-
-- [x] Saturation
-  **Correct!** Saturation tells you how close your most constrained resources, such as memory, CPU, or I/O, are to their limits.
-
-  It's often a leading indicator. Latency and errors usually climb only *after* saturation gets high, so watching it gives you a chance to scale or shed load before customers notice.
-
-- [ ] Errors
-  Good effort. Errors are a crucial golden signal, and they often rise when a system gets overloaded.
-
-  Errors measure the rate of **failed requests**, though, not how full the service is. A system can be nearly out of resources while still returning successful responses.
-
-  Reread the *Golden signals* definitions and find the one about how "full" the service is.
-```

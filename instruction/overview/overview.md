@@ -25,6 +25,11 @@ We often think of computer science as coding functions and implementing algorith
 
 As the benefits of AI-assisted coding continue to increase, system-level architectural and management skills will grow in high demand. This course will teach you to think at the system level and provide experience creating toolchains that combine to produce significant value.
 
+```masteryls
+{"id":"b4f01e8a-d99f-4f51-a8e4-1dd8a77bfa09", "title":"Results", "type":"essay" }
+What do you want to accomplish from this course and what will you do to obtain it?
+```
+
 ## Your deliverables
 
 You will navigate multiple phases of development releases and DevOps pipeline iterations as you employ different technologies and strategies. As part of this process, you will create the following deliverables to demonstrate your mastery of the course concepts.
@@ -140,11 +145,6 @@ This class should have the energy of a startup. We are on the cutting edge of te
 
 ## ☑ Exercises
 
-
-```masteryls
-{"id":"b4f01e8a-d99f-4f51-a8e4-1dd8a77bfa09", "title":"Results", "type":"essay" }
-What do you want to accomplish from this course and what will you do to obtain it?
-```
 
 
 ```masteryls

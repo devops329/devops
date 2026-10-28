@@ -22,6 +22,39 @@ Being **reactive** is a viable solution if you can respond before the failure ca
 
 Effective DevOps engineers utilize a combination of both proactive and reactive approaches. Proactive strategies are essential when the cost of repair is high, such as the loss of vital customer data. Reactive strategies are effective when a failure can be easily isolated, allowing the system to automatically remove a faulty component and redeploy a replacement. Once isolated, the faulty component is analyzed to improve the system and prevent recurrence.
 
+```masteryls
+{"id":"99167dac-a89d-4169-a015-6d14a96436ea","title":"Proactive vs. Reactive Failure Management","type":"multiple-choice"}
+In the context of maintaining high-availability software systems, which of the following scenarios best illustrates a **proactive** approach to failure management?
+
+- [ ] Increasing server memory and CPU limits immediately after a service crashes due to an unexpected spike in user traffic.
+  Raising resource limits is a sensible fix, and responding quickly matters.
+
+  The key word is *after*, though. This change happens only once the crash has already affected customers, which makes it a **reactive** response. A proactive approach invests in finding weaknesses *before* they cause a failure.
+
+  Reread how the lesson defines proactive and reactive failure management. Then ask which option happens before anything has broken.
+
+- [ ] Conducting a detailed post-mortem meeting to identify the root cause of a database outage that occurred the previous night.
+  Post-mortems are valuable, and learning from failure is an important habit.
+
+  This one examines an outage that has *already happened*, though. It's part of a reactive cycle: something breaks, you analyze it, and then you improve the system.
+
+  Revisit the definitions of **proactive** and **reactive** at the top of the lesson, and look for an option that finds weaknesses before customers are affected.
+
+- [x] Implementing automated chaos engineering experiments to intentionally inject latency and observe how the system handles degraded dependencies.
+  **Excellent!** Chaos engineering is a textbook proactive strategy.
+
+  By deliberately injecting failures such as latency or crashed dependencies under controlled conditions, you find weak points before real customers do. That makes it an upfront investment in resilience rather than a response to an outage.
+
+  You'll put this into practice with the chaos testing deliverable for JWT Pizza.
+
+- [ ] Configuring an automated alerting system that pages the on-call engineer as soon as the service's error rate exceeds 5%.
+  Good thinking. Automated alerting is essential, and it takes planning to set up well.
+
+  An alert fires only once the error rate is already high, though. It helps you **react** faster, which the lesson notes depends on strong observability, but it doesn't discover weaknesses before they cause failures.
+
+  Reread the descriptions of proactive and reactive approaches. Then look for the option that tests the system before anything goes wrong.
+```
+
 ## Levels of failure
 
 Failure can occur at any level of the stack. Working for a software company does not mean you can ignore hardware or network-level risks. You must evaluate the possibility and impact of failure at every level.
@@ -73,42 +106,6 @@ Defend against security failures by implementing these best practices:
 4. **Observability**: Instrument your system to ensure security breaches are discovered quickly. This includes automated notifications and responses to unusual behavior. Ensure your logging data is immutable so that attackers cannot hide their tracks.
 5. **Testing**: Regular penetration testing is vital. You cannot be confident in your security posture until it has been tested against earnest attack simulations.
 6. **Audits**: Automate audits of network access controls, open ports, credential management, encryption, and configurations. While annual manual audits are common, automated checks prevent insecure practices from being deployed in the first place.
-
-## ☑ Exercise
-
-
-```masteryls
-{"id":"99167dac-a89d-4169-a015-6d14a96436ea","title":"Proactive vs. Reactive Failure Management","type":"multiple-choice"}
-In the context of maintaining high-availability software systems, which of the following scenarios best illustrates a **proactive** approach to failure management?
-
-- [ ] Increasing server memory and CPU limits immediately after a service crashes due to an unexpected spike in user traffic.
-  Raising resource limits is a sensible fix, and responding quickly matters.
-
-  The key word is *after*, though. This change happens only once the crash has already affected customers, which makes it a **reactive** response. A proactive approach invests in finding weaknesses *before* they cause a failure.
-
-  Reread how the lesson defines proactive and reactive failure management. Then ask which option happens before anything has broken.
-
-- [ ] Conducting a detailed post-mortem meeting to identify the root cause of a database outage that occurred the previous night.
-  Post-mortems are valuable, and learning from failure is an important habit.
-
-  This one examines an outage that has *already happened*, though. It's part of a reactive cycle: something breaks, you analyze it, and then you improve the system.
-
-  Revisit the definitions of **proactive** and **reactive** at the top of the lesson, and look for an option that finds weaknesses before customers are affected.
-
-- [x] Implementing automated chaos engineering experiments to intentionally inject latency and observe how the system handles degraded dependencies.
-  **Excellent!** Chaos engineering is a textbook proactive strategy.
-
-  By deliberately injecting failures such as latency or crashed dependencies under controlled conditions, you find weak points before real customers do. That makes it an upfront investment in resilience rather than a response to an outage.
-
-  You'll put this into practice with the chaos testing deliverable for JWT Pizza.
-
-- [ ] Configuring an automated alerting system that pages the on-call engineer as soon as the service's error rate exceeds 5%.
-  Good thinking. Automated alerting is essential, and it takes planning to set up well.
-
-  An alert fires only once the error rate is already high, though. It helps you **react** faster, which the lesson notes depends on strong observability, but it doesn't discover weaknesses before they cause failures.
-
-  Reread the descriptions of proactive and reactive approaches. Then look for the option that tests the system before anything goes wrong.
-```
 
 ## A bit of fun
 

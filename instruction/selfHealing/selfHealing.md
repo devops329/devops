@@ -40,39 +40,6 @@ Traditional healing often involves "patching" a running system. Modern self-heal
 *   **The Concept:** Instead of trying to fix a degraded node (which leads to "configuration drift"), the system treats the node as disposable.
 *   **Mechanism:** When a fault is detected, the orchestrator marks the node as "tainted," stops routing traffic to it, and simultaneously provisions a brand-new instance from a verified golden image. This ensures the "healed" state is identical to the "known good" state, eliminating residual corruption in local storage or memory.
 
-### Byzantine Fault Tolerance (BFT) in Healing
-In distributed systems, self-healing must account for **Byzantine failures**, where a component does not just stop working, but continues to operate while providing incorrect or misleading data.
-*   **The Concept:** A self-healing system using BFT logic does not trust a single health check.
-*   **Mechanism:** It uses a consensus-based approach. If five monitoring nodes check a service and three report it as "unhealthy" while two report it as "healthy," the system trusts the majority and initiates remediation. This prevents a "liar" node from destabilizing the cluster.
-
-### Predictive Remediation (AIOps)
-Predictive healing moves the trigger point from **Reactive** (after a failure) to **Proactive** (before a failure).
-*   **Pattern Matching:** Machine learning models analyze historical telemetry to identify "fingerprints" of impending failure, such as a specific slope in memory consumption indicating a slow memory leak.
-*   **Pre-emptive Action:** The system may trigger a graceful restart of a service during a period of low traffic *before* the memory limit is reached, avoiding a hard crash and data loss during peak hours.
-
-## AWS self-healing
-
-Many AWS services include automated self-healing features by default. For example, Amazon Relational Database Service (RDS) monitors database health and can automatically redirect traffic away from unhealthy replicas or perform a failover to a standby instance.
-
-![Database self-healing](databaseSelfHealing.png)
-
-Similarly, Amazon ECS manages the health of containerized applications. If an Application Load Balancer (ALB) detects that a container is unhealthy, it stops routing traffic to that specific instance. ECS then detects the failure, terminates the unhealthy container, and replaces it with a new one, automatically updating the ALB configuration in the process.
-
-ECS also monitors container load and can automatically scale the number of running tasks up or down based on demand.
-
-![EC2 self-healing](ec2SelfHealing.png)
-
-All of these operations occur without human involvement, ensuring high availability and performance.
-
-## The reality and future
-
-In practice, achieving 100% self-healing for every possible edge case is difficult. However, automating the recovery of common, predictable problems—or even just delaying their impact—allows DevOps teams to focus on high-level architecture rather than manual firefighting.
-
-The integration of AI and Machine Learning (ML) is further expanding these capabilities. AI excels at detecting subtle anomalies and executing complex playbook actions based on large volumes of historical training data. As these systems evolve, the scope of issues that can be resolved without human intervention will continue to grow.
-
-## ☑ Exercise
-
-
 ```masteryls
 {"id":"bc2eb95e-0cd1-4764-a59b-eb9b2f8ecb62","title":"The Roll-Forward Mechanism","type":"multiple-choice"}
 
@@ -106,3 +73,33 @@ In an infrastructure environment utilizing **Roll-Forward Immutable Healing**, w
 
   Reread the mechanism described in the roll-forward section. Notice what happens to the faulty node and where its replacement comes from.
 ```
+
+### Byzantine Fault Tolerance (BFT) in Healing
+In distributed systems, self-healing must account for **Byzantine failures**, where a component does not just stop working, but continues to operate while providing incorrect or misleading data.
+*   **The Concept:** A self-healing system using BFT logic does not trust a single health check.
+*   **Mechanism:** It uses a consensus-based approach. If five monitoring nodes check a service and three report it as "unhealthy" while two report it as "healthy," the system trusts the majority and initiates remediation. This prevents a "liar" node from destabilizing the cluster.
+
+### Predictive Remediation (AIOps)
+Predictive healing moves the trigger point from **Reactive** (after a failure) to **Proactive** (before a failure).
+*   **Pattern Matching:** Machine learning models analyze historical telemetry to identify "fingerprints" of impending failure, such as a specific slope in memory consumption indicating a slow memory leak.
+*   **Pre-emptive Action:** The system may trigger a graceful restart of a service during a period of low traffic *before* the memory limit is reached, avoiding a hard crash and data loss during peak hours.
+
+## AWS self-healing
+
+Many AWS services include automated self-healing features by default. For example, Amazon Relational Database Service (RDS) monitors database health and can automatically redirect traffic away from unhealthy replicas or perform a failover to a standby instance.
+
+![Database self-healing](databaseSelfHealing.png)
+
+Similarly, Amazon ECS manages the health of containerized applications. If an Application Load Balancer (ALB) detects that a container is unhealthy, it stops routing traffic to that specific instance. ECS then detects the failure, terminates the unhealthy container, and replaces it with a new one, automatically updating the ALB configuration in the process.
+
+ECS also monitors container load and can automatically scale the number of running tasks up or down based on demand.
+
+![EC2 self-healing](ec2SelfHealing.png)
+
+All of these operations occur without human involvement, ensuring high availability and performance.
+
+## The reality and future
+
+In practice, achieving 100% self-healing for every possible edge case is difficult. However, automating the recovery of common, predictable problems—or even just delaying their impact—allows DevOps teams to focus on high-level architecture rather than manual firefighting.
+
+The integration of AI and Machine Learning (ML) is further expanding these capabilities. AI excels at detecting subtle anomalies and executing complex playbook actions based on large volumes of historical training data. As these systems evolve, the scope of issues that can be resolved without human intervention will continue to grow.

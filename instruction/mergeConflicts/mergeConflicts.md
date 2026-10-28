@@ -19,33 +19,6 @@ git config --get remote.upstream.url
 
 As the application team makes changes to the frontend code you will need to sync your fork of the repository. As long as you are only adding tests and **not changing the core code**, you shouldn't have to merge any code.
 
-## Merging your fork
-
-In the case where you make a change to your fork that causes a conflict with the course repository, you will need to resolve the conflict from your development environment.
-
-Open a command console window in your development environment and navigate to the directory containing your fork. The first time you resolve a merge conflict you will need to associate your repository with the remote's upstream repository that the fork was created from. You can do that with this command:
-
-```sh
-git remote add upstream https://github.com/devops329/jwt-pizza.git
-```
-
-Now, when ever you need to resolve a merge conflict you can use the following commands.
-
-```sh
-cd jwt-pizza # Substitute the location of your clone
-git checkout main
-git fetch upstream
-git merge upstream/main
-
-# Open the files with conflicts and resolve the problems
-
-git add .
-git commit -m "merge() conflict due to ..."
-git push
-```
-
-## ☑ Exercise
-
 ```masteryls
 {"id":"5b2bcb09-4ed8-43dd-935b-ec6e8640d2d5","title":"Forking vs. Cloning","type":"multiple-choice"}
 When collaborating on projects that may eventually require resolving merge conflicts, it is essential to understand how you access the code. What is the primary difference between a **fork** and a **clone**?
@@ -75,4 +48,29 @@ When collaborating on projects that may eventually require resolving merge confl
   **Exactly!** Your fork lives on GitHub under your account, and your clone lives on your machine.
 
   That's why the lesson describes **three** copies: the upstream course repository, your fork (`origin`), and your local clone. You resolve merge conflicts in the clone after fetching from `upstream`, and then you push the result to `origin`. Knowing which copy you're working with makes those commands much easier to follow.
+```
+
+## Merging your fork
+
+In the case where you make a change to your fork that causes a conflict with the course repository, you will need to resolve the conflict from your development environment.
+
+Open a command console window in your development environment and navigate to the directory containing your fork. The first time you resolve a merge conflict you will need to associate your repository with the remote's upstream repository that the fork was created from. You can do that with this command:
+
+```sh
+git remote add upstream https://github.com/devops329/jwt-pizza.git
+```
+
+Now, when ever you need to resolve a merge conflict you can use the following commands.
+
+```sh
+cd jwt-pizza # Substitute the location of your clone
+git checkout main
+git fetch upstream
+git merge upstream/main
+
+# Open the files with conflicts and resolve the problems
+
+git add .
+git commit -m "merge() conflict due to ..."
+git push
 ```
