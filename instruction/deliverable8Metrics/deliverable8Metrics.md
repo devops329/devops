@@ -25,7 +25,29 @@ Failing to do this will likely slow you down as you will not have the required k
 
 ## Getting started
 
-It is time to add metrics observability to the `jwt-pizza-service` code. In your fork of the Pizza Service code use what you learned about [Grafana metrics](../grafanaMetrics/grafanaMetrics.md) to create visualizations that demonstrate all of the following required metrics.
+Metrics are the "vital signs" of your **JWT Pizza Service**. They allow you to move from guessing how your application is performing to having concrete data. Without metrics, you wouldn't know if a slow pizza checkout is caused by a bottleneck in your database or a delay in JWT authentication.
+
+Key reasons why metrics are essential for your service:
+
+*   **Visibility:** Real-time monitoring of system health (e.g., CPU usage, memory).
+*   **Performance Tracking:** Measuring _Latency_ (how long an order takes) and _Throughput_ (how many orders per second).
+*   **Error Detection:** Identifying spikes in 4xx or 5xx HTTP status codes immediately.
+*   **Business Value:** Tracking "pizzas sold" to understand user behavior and service growth.
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+sequenceDiagram
+    participant User
+    participant Service as Pizza Service
+    participant Metrics as Metrics Collector
+    User->>Service: Request /api/order
+    Service->>Service: Process Order
+    Service->>Metrics: Increment "order_count"
+    Service->>Metrics: Record "request_latency"
+    Service-->>User: 200 OK (Pizza Ordered!)
+```
+
+In your fork of the Pizza Service code use what you learned about [Grafana metrics](../grafanaMetrics/grafanaMetrics.md) to create visualizations that demonstrate all of the following required metrics.
 
 ## Required metrics
 
