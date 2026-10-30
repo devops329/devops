@@ -109,7 +109,7 @@ The service manages the deployment and scaling of your tasks. When you create th
 
    ![Create service](createService.png)
 
-1. Under **Servicer Details**: 
+1. Under **Service Details**: 
    1. Select the **jwt-pizza-service** task defintion
    1. Leave the **Task Definition version** blank so that it uses the latest version.
    1. Specify `jwt-pizza-service` as the service name.
