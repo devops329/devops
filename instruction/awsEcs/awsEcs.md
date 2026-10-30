@@ -105,21 +105,28 @@ Wait for the cluster status to change from **Provisioning** to **Active**.
 The service manages the deployment and scaling of your tasks. When you create the service, ECS will immediately attempt to launch the tasks.
 
 1. In the ECS console, select **Clusters** and click on the `jwt-pizza-service` cluster.
-2. Under the **Services** tab, click **Create**.
+1. Under the **Services** tab, click **Create**.
 
    ![Create service](createService.png)
 
-4. Under **Environment**:
+1. Under **Servicer Details**: 
+   1. Select the **jwt-pizza-service** task defintion
+   1. Leave the **Task Definition version** blank so that it uses the latest version.
+   1. Specify `jwt-pizza-service` as the service name.
+
+   ![completedServiceDetails.png](completedServiceDetails.png)
+
+1. Under **Environment**:
    1. Set the **Compute options** to be `Launch type`. This is where you could define exactly how much capacity you want available. We will keep it simple and let Fargate define this.
-3. Under **Deployment configuration**:
+1. Under **Deployment configuration**:
    1. Set **Desired tasks** to `1`. This will keep your costs at a minimum and scale up with customer usage.
    1. Note the deployment options where you can specify how you want to deploy when new versions are released.
-4. Under **Networking**:
+1. Under **Networking**:
    1. Select your **VPC**.
    2. Ensure at least two **Subnets** are selected (standard for high availability).
    3. Under **Security group**, click **Select existing security group** and choose the `jwt-pizza-service` security group you created previously. Ensure it allows port 80 and/or 443.
    4. Ensure **Public IP** is turned **ON**. We leave this open for now so that you can test the service without going through the load balancer. Eventually you will want to turn that off.
-5. Under **Load balancing**:
+1. Under **Load balancing**:
    1. Select **Application Load Balancer**.
    3. Set the **Container to load balance** to `jwt-pizza-service 80:80`.
    2. For the **Load balancer name**, enter `jwt-pizza-service`.
@@ -131,7 +138,7 @@ The service manages the deployment and scaling of your tasks. When you create th
 
       ![Load balancer config](loadBalancerConfig.png)
 
-6. Click **Create**.
+1. Click **Create**.
 
 Deployment will take several minutes. You can monitor progress in the **Service** events tab or via the **CloudFormation** console.
 
