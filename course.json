@@ -871,15 +871,6 @@
           ]
         },
         {
-          "title": "Versioning",
-          "path": "instruction/versioning/versioning.md",
-          "id": "b1bfe9d0-47d5-4239-8daf-e357ae56c054",
-          "state": "published",
-          "interactions": [
-            "44106e2a-8351-4227-b6db-2e572380e89b"
-          ]
-        },
-        {
           "title": "⭐ ⓼ Metrics: JWT Pizza Service",
           "type": "project",
           "points": 100,
@@ -893,6 +884,15 @@
           "externalRefs": {
             "canvasAssignmentId": 1440442
           }
+        },
+        {
+          "title": "Versioning",
+          "path": "instruction/versioning/versioning.md",
+          "id": "b1bfe9d0-47d5-4239-8daf-e357ae56c054",
+          "state": "published",
+          "interactions": [
+            "44106e2a-8351-4227-b6db-2e572380e89b"
+          ]
         },
         {
           "title": "Logging",
