@@ -1,7 +1,8 @@
-# Visualizing metrics
+# Example metrics website
 
 🔑 **Key points**
 
+- Create a simple website and simulate traffic to it
 - Experiment with creating visualizations based on generated data.
 
 ---
