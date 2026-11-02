@@ -787,15 +787,6 @@
           "description": ""
         },
         {
-          "title": "Deployment strategies",
-          "path": "instruction/deploymentStrategies/deploymentStrategies.md",
-          "id": "732cccf0-b0c9-4049-a3bd-a8497b9999fd",
-          "state": "published",
-          "interactions": [
-            "b3ef9f02-00c5-47eb-a531-df38b6e651fa"
-          ]
-        },
-        {
           "title": "GitHub releases",
           "type": "instruction",
           "path": "instruction/gitHubReleases/gitHubReleases.md",
@@ -884,6 +875,15 @@
           "externalRefs": {
             "canvasAssignmentId": 1440442
           }
+        },
+        {
+          "title": "Deployment strategies",
+          "path": "instruction/deploymentStrategies/deploymentStrategies.md",
+          "id": "732cccf0-b0c9-4049-a3bd-a8497b9999fd",
+          "state": "published",
+          "interactions": [
+            "b3ef9f02-00c5-47eb-a531-df38b6e651fa"
+          ]
         },
         {
           "title": "Versioning",
