@@ -1,4 +1,4 @@
-# Example metrics website
+# Example website metrics
 
 🔑 **Key points**
 
