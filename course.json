@@ -785,17 +785,6 @@
             "6370aa82-b543-43f2-9cd6-e6bd83285b79"
           ],
           "description": ""
-        },
-        {
-          "title": "GitHub releases",
-          "type": "instruction",
-          "path": "instruction/gitHubReleases/gitHubReleases.md",
-          "id": "912296be-c38a-46d7-ab7a-f84cd51fc5eb",
-          "state": "published",
-          "interactions": [
-            "f1f444dc-fdad-4ce1-98a1-68fae0fe06ed"
-          ],
-          "description": ""
         }
       ]
     },
@@ -884,6 +873,17 @@
           "interactions": [
             "b3ef9f02-00c5-47eb-a531-df38b6e651fa"
           ]
+        },
+        {
+          "title": "GitHub releases",
+          "type": "instruction",
+          "path": "instruction/gitHubReleases/gitHubReleases.md",
+          "id": "912296be-c38a-46d7-ab7a-f84cd51fc5eb",
+          "state": "published",
+          "interactions": [
+            "f1f444dc-fdad-4ce1-98a1-68fae0fe06ed"
+          ],
+          "description": ""
         },
         {
           "title": "Versioning",
