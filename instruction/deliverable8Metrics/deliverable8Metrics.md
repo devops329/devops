@@ -35,7 +35,7 @@ Key reasons why metrics are essential for your service:
 *   **Business Value:** Tracking "pizzas sold" to understand user behavior and service growth.
 
 ```mermaid
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' }, 'sequence': { 'mirrorActors': false } }}%%
 sequenceDiagram
     participant User
     participant Service as Pizza Service
