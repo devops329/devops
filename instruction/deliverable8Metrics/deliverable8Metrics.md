@@ -114,9 +114,16 @@ Modify your service's config.js file to contain the Grafana credentials. Note th
 
 ### Modify CI pipeline
 
-Because you added new configuration to the JWT Service, you will need to also enhance your GitHub Actions workflow to have the new metrics configuration fields. You must also add secrets for the METRICS_ENDPOINT_URL, METRICS_ACCOUNT_ID, and METRICS_API_KEY. Note that because this configuration is being deployed to your production environment you want to set the source to something different than your development environment. In this case **jwt-pizza-service** without the **-dev** suffix.
+Because you added new configuration to the JWT Service, you will need to also enhance your GitHub Actions workflow to have the new metrics configuration fields.
 
-Without this, your CI pipeline will fail due to missing references from your new metrics code when your tests run.
+
+| Secret      | Description                                         | Example   |
+| ----------- | --------------------------------------------------- | --------- |
+| METRICS_ENDPOINT_URL | Your Grafana endpoint URL | https://otlp-gateway-prod-us-east-0.grafana.net/otlp/v1/metrics |
+| METRICS_ACCOUNT_ID | Your Grafana account ID | 2089751 |
+| METRICS_API_KEY | Your Grafana API key | glc_123456789 |
+
+Note that because this configuration is being deployed to your production environment you want to set the source to something different than your development environment. In this case **jwt-pizza-service** without the **-dev** suffix.
 
 ```yml
 - name: Write config file
