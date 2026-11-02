@@ -199,8 +199,8 @@ Once the data is flowing, create a visualization to display the request count.
 You should now have a foundational understanding of how to generate metrics in JavaScript and visualize them in Grafana. To deepen your knowledge, complete the following:
 
 1.  **Modify the service code:**
-    -   Add a `PUT /greeting/:greeting` endpoint that updates the `greeting` variable. Apply the `metrics.requestTracker` middleware and call `metrics.greetingChanged()` within the route handler.
-    -   Add a `DELETE /greeting` endpoint that resets the greeting to its default value. Apply the `metrics.requestTracker` middleware.
+    1.   Add a `PUT /greeting/:greeting` endpoint that updates the `greeting` variable. Apply the `metrics.requestTracker` middleware and call `metrics.greetingChanged()` within the route handler.
+    1.   Add a `DELETE /greeting` endpoint that resets the greeting to its default value. Apply the `metrics.requestTracker` middleware.
 2.  **Generate traffic:** Use the [generateMetricTraffic.sh](exampleCode/generateMetricTraffic.sh) shell script to automate requests to all available endpoints.
 3.  **Update the dashboard:** Modify your visualization to show a series for **each endpoint** as well as a **total** request count. Add a separate visualization or series to track the rate at which the greeting is changed.
 
