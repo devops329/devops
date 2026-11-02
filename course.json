@@ -866,21 +866,21 @@
           }
         },
         {
-          "title": "Deployment strategies",
-          "path": "instruction/deploymentStrategies/deploymentStrategies.md",
-          "id": "732cccf0-b0c9-4049-a3bd-a8497b9999fd",
-          "state": "published",
-          "interactions": [
-            "b3ef9f02-00c5-47eb-a531-df38b6e651fa"
-          ]
-        },
-        {
           "title": "Versioning",
           "path": "instruction/versioning/versioning.md",
           "id": "b1bfe9d0-47d5-4239-8daf-e357ae56c054",
           "state": "published",
           "interactions": [
             "44106e2a-8351-4227-b6db-2e572380e89b"
+          ]
+        },
+        {
+          "title": "Deployment strategies",
+          "path": "instruction/deploymentStrategies/deploymentStrategies.md",
+          "id": "732cccf0-b0c9-4049-a3bd-a8497b9999fd",
+          "state": "published",
+          "interactions": [
+            "b3ef9f02-00c5-47eb-a531-df38b6e651fa"
           ]
         },
         {
