@@ -6,6 +6,9 @@
 
 ---
 
+> [!IMPORTANT]
+> THIS CAN BE FINICKY AND WILL REQUIRE YOU TO MANUALLY REDEPLOY THE BACKEND IF YOU MESS IT UP. THEREFORE THIS ASSIGNMENT IS **OPTIONAL**.
+
 For the last step in your backend DevOps automation, you will create a CloudFormation template that will allow you to quickly set up and tear down the ECS and ALB service configuration that hosts your JWT Pizza Service backend.
 
 ## Delete the manual deployment
