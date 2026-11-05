@@ -76,6 +76,12 @@ At a high level, Grafana Cloud consists of three major parts.
 1. **Data source**: A representation of logging or metrics data that is configured to either be read directly from the service providing the data (e.g. MySQL database or AWS CloudWatch) or from data stored in Grafana Cloud (e.g. Prometheus or Loki). The data source also defines a query and filter that controls how the data is presented to the visualization dashboard.
 1. **Dashboard**: The dashboard contains visualization panels that each display a data source with additional rendering properties such as the time range to display, colors, and visualization type. There are [dozens of panel types](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/) that you can use when building your dashboard. This includes line charts, bar charts, pie charts, gauges, big numbers, node networks, tables, flame graphs, and so on.
 
+Generally this architecture looks like the following:
+
+![grafanaModel.png](grafanaModel.png)
+
+For the observability we are adding to the JWT Pizza application it looks like this:
+
 ![Grafana architecture](grafanaArchitecture.png)
 
 ## Your first visualization
