@@ -235,9 +235,9 @@ Take the time to completely review the template and become familiar with what it
    ![Create CloudFormation stack](createCloudFormationStack.png)
 
 1. Supply the requested parameters based upon your AWS account. You can obtain these values from the following locations:
+   1. The name of your service. **Do not** use the name of an existing service or your stack will fail to deploy.
    1. The VPC ID and VPC subnets from the AWS VPC service dashboard.
       1. To copy the list of subnets, you can click the checkbox next to 'Name' to select all subnets, which will create a comma-separated list in the lower window.
-   1. The latest Task Definition version from the ECS service dashboard.
    1. The web certificate ARN from the Certificate Manager service dashboard.
    1. The security group from the EC2 service dashboard.
 1. Complete the creation process as you did with the previous simple S3 bucket example.
@@ -258,7 +258,7 @@ Once you have updated the DNS record you should be able to connect to your backe
 
 As part of this automation, we did not automate the deployment of the MySQL database. There are three things you can do to manage your DB.
 
-1. **Leave it running**: You can leave your database continually running. This will cost you about $15/month, but has the advantage of not having to worry about changing anything. The disadvantage is that you will not gain any experience from managing the database.
+1. **Leave it running**: You can leave your database continually running. If you are using Aurora serverless this costs you very little. If you created a DB instance than this will cost you about $15/month.
 1. **Manual management**: You can manually tear down and deploy the database as desired.
 1. **Automate**: You can create a CloudFormation template in order to automate the creation and destruction of the database. As part of the automation you can also create and restore a snapshot of the database's data.
 1. **Temporary stop**: RDS allows you to temporarily stop the database by selecting the database actions in the RDS service console and pressing `Stop temporarily`.
@@ -277,13 +277,13 @@ If you do choose an option that deletes and recreates your database, either manu
 
 Complete the following.
 
-1. Delete your previous ECS and ALB infrastructure.
 1. Create an S3 bucket to host your CloudFormation templates.
 1. Create the `jwt-pizza-service.json` template file.
+1. Populate the template parameters in the script as the defaults. This saves you from adding them everytime you run the script.
 1. Save the CloudFormation template to your fork of the `jwt-pizza-service` in a folder named `cloudFormation`.
 1. Deploy a CloudFormation stack using the `jwt-pizza-service.json` template.
-1. Fix your JWT Pizza Service DNS entry to point to the new ALB URL.
-1. Trigger your `jwt-pizza-service` CI deployment pipeline and verify that the new service is deployed.
+1. Verify that the stack successfully deployed.
+1. Tear down the stack.
 
 Once this is all working, commit your CloudFormation template file to your JWT Pizza Service repository under the path `cloudFormation/jwt-pizza-service.josn`. Your GitHub URL to the CloudFormation template file should look something like this:
 
@@ -300,4 +300,4 @@ _Example: https://github.com/youraccountnamehere/jwt-pizza-service_
 ```
 
 
-💡 A great creativity report would be to dig into CloudFormation and figure out how you could also automate the deployment of your RDS MySQL database or S3/CloudFront infrastructure.
+💡 A great creativity report would be to dig into CloudFormation and figure out how you could also automate the deployment of your RDS MySQL database, IAM settings, or S3/CloudFront infrastructure.
