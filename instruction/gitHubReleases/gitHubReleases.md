@@ -49,6 +49,8 @@ release:
     - build
     - deploy
   runs-on: ubuntu-latest
+  permissions:
+    contents: write
   steps:
     - name: Create Release
       uses: ncipollo/release-action@2c591bcc8ecdcd2db72b97d6147f871fcd833ba5
