@@ -34,6 +34,10 @@ The resources that are created include:
 
 Take the time to completely review the template and become familiar with what it does. It follows the pattern discussed in the [CloudFormation](../awsCloudFormation/awsCloudFormation.md) instruction of declaring parameters, specifying resources to create, and outputting the results.
 
+
+<details>
+<summary><b>JWT Pizza Service CloudFormation Template</b></summary>
+
 ```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
@@ -226,6 +230,8 @@ Take the time to completely review the template and become familiar with what it
   }
 }
 ```
+</details>
+
 
 ## Creating the CloudFormation stack
 
