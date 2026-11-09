@@ -43,14 +43,7 @@ Logs are discrete events. Unlike metrics, which summarize data, logs record the 
 
 The following chart illustrates how memory overhead in a metrics system grows exponentially as you add dimensions with higher cardinality, compared to the linear growth of log storage.
 
-```mermaid
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
-xychart-beta
-    title "Metric Time-Series Growth by Dimension Cardinality"
-    x-axis ["Status Code (5)", "Region (20)", "App Instance (100)", "User ID (10k+)"]
-    y-axis "Time-series Count" 0 11000
-    bar [5, 20, 100, 10000]
-```
+![cardinality.jpg](cardinality.jpg)
 
 ### Code Example: Metric vs. Log
 
@@ -74,7 +67,7 @@ logger.info({
 });
 ```
 ```masteryls
-{"id":"05fa38f9-9218-46d2-9b13-2535b20ae1e5","title":"Identifying High Cardinality","type":"multiple-choice"}
+{"id":"eed41e21-1a73-438b-9d8b-7e2fe24b0693","title":"Identifying High Cardinality","type":"multiple-choice"}
 You are designing an observability strategy for a new e-commerce API. Which of the following data points should be stored as a Log attribute rather than a Metric dimension?
 
 - [ ] The HTTP Status Code (e.g., 200, 404, 500)
