@@ -31,11 +31,14 @@ It is time to add logging observability to the `jwt-pizza-service` code. In your
 1. HTTP requests (calls to pizza-service.yourdomain)
    1. HTTP method, path, status code
    1. If the request has an authorization header
+   1. The user making the request if authenticated
    1. Request body
    1. Response body
 1. Database requests
    1. SQL queries
+   1. The user making the request if authenticated
 1. Factory service requests (calls to pizza-factory.cs329.click)
+   1. The user making the request if authenticated
    1. Factory request body
    2. Factory response body
 1. Any unhandled exceptions
