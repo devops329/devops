@@ -80,10 +80,12 @@ There are several ways to create a status page for your application. Generally, 
 
 Rather than building a custom solution from scratch, you can use one of many available cloud services. There are also numerous [open-source projects](https://github.com/ivbeg/awesome-status-pages) that make it easy to deploy a dedicated status page.
 
-### Upptime
+## Status page example: Upptime
 
 [Upptime](https://github.com/upptime/upptime) is a free, easy-to-configure option that leverages GitHub's infrastructure. It uses a scheduled GitHub Actions workflow to monitor your website and updates GitHub Pages to display the current status. GitHub Issues are used to track incidents, and the results are automatically integrated into the [status page](https://demo.upptime.js.org/).
 
 ![Upptime](upptime.png)
 
-💡 If you are looking for a practical "curiosity project," setting up an Upptime page is an excellent way to learn about automated monitoring.
+
+
+
