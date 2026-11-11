@@ -1,29 +1,10 @@
 # Upptime
 
-[Upptime](https://github.com/upptime/upptime) is a free, easy-to-configure option that leverages GitHub's infrastructure. It uses a scheduled GitHub Actions workflow to monitor your website and updates GitHub Pages to display the current status. GitHub Issues are used to track incidents, and the results are automatically integrated into the [status page](https://demo.upptime.js.org/).
+[Upptime](https://github.com/upptime/upptime) is a free, easy-to-configure status solution that leverages GitHub's infrastructure. It uses a scheduled GitHub Actions workflow to monitor your website and updates GitHub Pages to display the current status. GitHub Issues are used to track incidents, and the results are automatically integrated into the [status page](https://demo.upptime.js.org/).  This **serverless** approach makes it a highly cost-effective and resilient choice for developers and small teams.
 
 ![Upptime](upptime.png)
 
-Unlike traditional monitoring solutions that require a dedicated server or a paid subscription service, Upptime leverages GitHub Actions to perform periodic health checks, GitHub Issues to track incidents, and GitHub Pages to host a live status website. This **serverless** approach makes it a highly cost-effective and resilient choice for developers and small teams.
-
-## Introduction to Upptime
-
-By using GitHub as its backbone, Upptime automates the entire lifecycle of incident management. When a monitored endpoint goes down, a GitHub Action detects the failure and automatically opens a new issue in your repository. This issue acts as an incident report where you can provide updates. Once the service is restored, the Action closes the issue, and the statistics are updated on your public-facing status page.
-
-The following diagram illustrates the core workflow of how Upptime functions within the GitHub ecosystem:
-
-```mermaid
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
-flowchart TD
-    A[GitHub Actions] -->|Scheduled Trigger| B{Check Endpoints}
-    B -->|Response 200 OK| C[Commit Data to Repo]
-    B -->|Error / Timeout| D[Open GitHub Issue]
-    C --> E[Deploy to GitHub Pages]
-    D --> E
-    E --> F[Public Status Page]
-```
-
-### Key Features of Upptime
+## Key Features of Upptime
 
 - **GitHub Actions as Monitors:** Uses cron schedules to ping your APIs and websites every few minutes.
 - **Incident Reports via Issues:** Automatically documents downtime using the repository's issue tracker.
@@ -45,9 +26,12 @@ What is the primary reason Upptime is considered a "serverless" monitoring solut
   While it uses cloud logic, Upptime is designed to run for free on GitHub public repositories, making paid external cloud subscriptions unnecessary for basic operation.
 ```
 
-## The Upptime Architecture
 
-Upptime functions by using GitHub Actions as a "cron" service. Every few minutes, a workflow triggers a script that fetches your configured URLs. If a site is down, the workflow automatically opens a GitHub Issue to record the incident and uses Git to commit the response time data to your repository.
+## Upptime architecture
+
+Upptime functions by using GitHub Actions as a **cron** service. Every few minutes, a workflow triggers a script that fetches your configured URLs. If a site is down, the workflow automatically opens a GitHub Issue to record the incident and uses Git to commit the response time data to your repository. Once the service is restored, the Action closes the issue, and the statistics are updated on your public-facing status page.
+
+The following diagram illustrates the core workflow of how Upptime functions within the GitHub ecosystem:
 
 ```mermaid
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
