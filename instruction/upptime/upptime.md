@@ -12,21 +12,6 @@
 - **Notifications:** Supports integrated alerts through platforms like Slack, Discord, Telegram, and SMS.
 - **No Infrastructure Costs:** Since it runs on GitHub’s free tier for public repositories, you don't have to manage servers or databases.
 
-```masteryls
-{"id":"96943f75-c65d-47a0-8333-366e1129ac33","title":"Identifying Upptime's Core Infrastructure","type":"multiple-choice"}
-What is the primary reason Upptime is considered a "serverless" monitoring solution?
-
-- [ ] It uses a distributed network of global physical data centers that you must manage.
-  You might be thinking of traditional enterprise monitoring. Upptime is considered serverless because it utilizes GitHub's existing infrastructure (Actions and Pages) so you don't have to manage any physical or virtual servers yourself.
-- [x] It leverages GitHub Actions for execution and GitHub Pages for hosting, removing the need for a dedicated VPS.
-  Correct! By using GitHub Actions for the monitoring logic and GitHub Pages for the status site, Upptime eliminates the need for you to maintain your own server infrastructure.
-- [ ] It only works when your local computer is turned on and the script is running.
-  Actually, Upptime runs independently of your local hardware. It relies on GitHub Actions' cloud environment to execute scheduled checks 24/7.
-- [ ] It requires a paid subscription to a cloud provider like AWS or Azure to function.
-  While it uses cloud logic, Upptime is designed to run for free on GitHub public repositories, making paid external cloud subscriptions unnecessary for basic operation.
-```
-
-
 ## Upptime architecture
 
 Upptime functions by using GitHub Actions as a **cron** service. Every few minutes, a workflow triggers a script that fetches your configured URLs. If a site is down, the workflow automatically opens a GitHub Issue to record the incident and uses Git to commit the response time data to your repository. Once the service is restored, the Action closes the issue, and the statistics are updated on your public-facing status page.
@@ -167,10 +152,10 @@ How does Upptime record a service outage and notify users?
 
 - [ ] It uses a dedicated SQL database to store downtime logs and sends emails via SendGrid.
   You might be thinking of traditional monitoring tools. Upptime is "serverless" and does not use a SQL database; it stores all data directly in your GitHub repository using Git commits.
-- [x] It uses GitHub Actions to detect failures and automatically opens GitHub Issues to track the downtime.
-  Correct! By using GitHub Issues as the incident management system, Upptime provides a transparent, version-controlled history of all outages without needing external databases.
 - [ ] It requires a persistent background process running on a VPS to ping the configured URLs.
   Actually, Upptime avoids the need for a VPS entirely by using GitHub Actions workflows, which run on GitHub's hosted runners on a scheduled cron trigger.
 - [ ] It updates a local JSON file via a web-hook and requires manual approval to show an outage on the status page.
   While Upptime does store data in files, the process is fully automated. It does not require manual approval to report an outage, ensuring your status page reflects the real-time state of your services.
+- [x] It uses GitHub Actions to detect failures and automatically opens GitHub Issues to track the downtime.
+  Correct! By using GitHub Issues as the incident management system, Upptime provides a transparent, version-controlled history of all outages without needing external databases.
 ```
