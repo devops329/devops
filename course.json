@@ -953,8 +953,8 @@
           "type": "instruction",
           "path": "instruction/upptime/upptime.md",
           "id": "3d37d450-1769-42c9-931f-a0ea7c02c7cf",
+          "state": "published",
           "interactions": [
-            "96943f75-c65d-47a0-8333-366e1129ac33",
             "5af2ba18-c779-4172-89e3-e4b256fa5d03"
           ],
           "description": ""
