@@ -940,6 +940,17 @@
           ]
         },
         {
+          "title": "Upptime",
+          "type": "instruction",
+          "path": "instruction/upptime/upptime.md",
+          "id": "3d37d450-1769-42c9-931f-a0ea7c02c7cf",
+          "interactions": [
+            "96943f75-c65d-47a0-8333-366e1129ac33",
+            "5af2ba18-c779-4172-89e3-e4b256fa5d03"
+          ],
+          "description": ""
+        },
+        {
           "title": "Status",
           "path": "instruction/statusReporting/statusReporting.md",
           "id": "c12c055e-5494-4b22-8654-34ae9287ea9f",
@@ -1000,17 +1011,6 @@
           "externalRefs": {
             "canvasAssignmentId": 1440444
           }
-        },
-        {
-          "title": "Upptime",
-          "type": "instruction",
-          "path": "instruction/upptime/upptime.md",
-          "id": "3d37d450-1769-42c9-931f-a0ea7c02c7cf",
-          "interactions": [
-            "96943f75-c65d-47a0-8333-366e1129ac33",
-            "5af2ba18-c779-4172-89e3-e4b256fa5d03"
-          ],
-          "description": ""
         }
       ]
     },
