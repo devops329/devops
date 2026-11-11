@@ -1000,6 +1000,13 @@
           "externalRefs": {
             "canvasAssignmentId": 1440444
           }
+        },
+        {
+          "title": "Upptime",
+          "type": "instruction",
+          "path": "instruction/upptime/upptime.md",
+          "id": "3d37d450-1769-42c9-931f-a0ea7c02c7cf",
+          "description": ""
         }
       ]
     },
