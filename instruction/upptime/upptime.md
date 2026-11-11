@@ -18,27 +18,11 @@ Upptime functions by using GitHub Actions as a **cron** service. Every few minut
 
 The following diagram illustrates the core workflow of how Upptime functions within the GitHub ecosystem:
 
-```mermaid
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
-flowchart TD
-    A[GitHub Actions Cron] -->|Every 5 mins| B{Check URLs}
-    B -->|Site Up| C[Log Response Time to Git]
-    B -->|Site Down| D[Create/Update GitHub Issue]
-    C --> E[Rebuild GitHub Pages Dashboard]
-    D --> E
-    E --> F[Public Status Page]
-```
+![upptimeFlow.png](upptimeFlow.png)
 
-## Key Implementation Steps
+## Implementation Steps
 
-Implementing Upptime involves four primary steps to ensure the automation has the permissions it needs to manage your status data:
-
-1.  **Template Setup**: You begin by forking the official Upptime template repository. This repository contains the workflows and the frontend code for the status page.
-2.  **Repository Secrets**: Because GitHub Actions needs to commit data back to your repository and create issues, you must generate a **Personal Access Token (PAT)** with `repo` and `workflow` scopes and add it as a secret named `GH_PAT`.
-3.  **Configuration**: All monitoring logic is handled in a single file: `.upptimerc.yml`. Here you define the sites to monitor, the frequency of checks, and the branding for your status page.
-4.  **Deployment**: Once configured, the `Setup` workflow runs, initializing the data folder and deploying the static site to GitHub Pages.
-
-## Detailed Implementation Steps
+Implementing Upptime involves six primary steps to ensure the automation has the permissions it needs to manage your status data.
 
 ### 1. Create the Repository from the Template
 
