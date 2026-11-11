@@ -79,13 +79,3 @@ Why is maintaining a public-facing status page considered an essential practice 
 There are several ways to create a status page for your application. Generally, you should not host the status page as part of your primary application; if your application goes down, your status page will likely go down with it, which is self-defeating. Instead, build the status page on a completely separate stack, preferably hosted in a different environment or cloud region.
 
 Rather than building a custom solution from scratch, you can use one of many available cloud services. There are also numerous [open-source projects](https://github.com/ivbeg/awesome-status-pages) that make it easy to deploy a dedicated status page.
-
-## Status page example: Upptime
-
-[Upptime](https://github.com/upptime/upptime) is a free, easy-to-configure option that leverages GitHub's infrastructure. It uses a scheduled GitHub Actions workflow to monitor your website and updates GitHub Pages to display the current status. GitHub Issues are used to track incidents, and the results are automatically integrated into the [status page](https://demo.upptime.js.org/).
-
-![Upptime](upptime.png)
-
-
-
-

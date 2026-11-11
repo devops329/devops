@@ -1,7 +1,10 @@
-
 # Upptime
 
-Upptime is an open-source uptime monitor and status page generator that operates entirely on GitHub. Unlike traditional monitoring solutions that require a dedicated server or a paid subscription service, Upptime leverages GitHub Actions to perform periodic health checks, GitHub Issues to track incidents, and GitHub Pages to host a live status website. This **serverless** approach makes it a highly cost-effective and resilient choice for developers and small teams.
+[Upptime](https://github.com/upptime/upptime) is a free, easy-to-configure option that leverages GitHub's infrastructure. It uses a scheduled GitHub Actions workflow to monitor your website and updates GitHub Pages to display the current status. GitHub Issues are used to track incidents, and the results are automatically integrated into the [status page](https://demo.upptime.js.org/).
+
+![Upptime](upptime.png)
+
+Unlike traditional monitoring solutions that require a dedicated server or a paid subscription service, Upptime leverages GitHub Actions to perform periodic health checks, GitHub Issues to track incidents, and GitHub Pages to host a live status website. This **serverless** approach makes it a highly cost-effective and resilient choice for developers and small teams.
 
 ## Introduction to Upptime
 
@@ -21,11 +24,12 @@ flowchart TD
 ```
 
 ### Key Features of Upptime
-*   **GitHub Actions as Monitors:** Uses cron schedules to ping your APIs and websites every few minutes.
-*   **Incident Reports via Issues:** Automatically documents downtime using the repository's issue tracker.
-*   **Dynamic Status Page:** Generates a beautiful, accessible website using React that displays response times and uptime graphs.
-*   **Notifications:** Supports integrated alerts through platforms like Slack, Discord, Telegram, and SMS.
-*   **No Infrastructure Costs:** Since it runs on GitHub’s free tier for public repositories, you don't have to manage servers or databases.
+
+- **GitHub Actions as Monitors:** Uses cron schedules to ping your APIs and websites every few minutes.
+- **Incident Reports via Issues:** Automatically documents downtime using the repository's issue tracker.
+- **Dynamic Status Page:** Generates a beautiful, accessible website using React that displays response times and uptime graphs.
+- **Notifications:** Supports integrated alerts through platforms like Slack, Discord, Telegram, and SMS.
+- **No Infrastructure Costs:** Since it runs on GitHub’s free tier for public repositories, you don't have to manage servers or databases.
 
 ```masteryls
 {"id":"96943f75-c65d-47a0-8333-366e1129ac33","title":"Identifying Upptime's Core Infrastructure","type":"multiple-choice"}
@@ -40,7 +44,6 @@ What is the primary reason Upptime is considered a "serverless" monitoring solut
 - [ ] It requires a paid subscription to a cloud provider like AWS or Azure to function.
   While it uses cloud logic, Upptime is designed to run for free on GitHub public repositories, making paid external cloud subscriptions unnecessary for basic operation.
 ```
-
 
 ## The Upptime Architecture
 
@@ -69,6 +72,7 @@ Implementing Upptime involves four primary steps to ensure the automation has th
 ## Detailed Implementation Steps
 
 ### 1. Create the Repository from the Template
+
 Upptime is designed to be used as a GitHub template. This ensures you have the necessary workflow files and directory structure.
 
 1.  Navigate to the [Upptime template repository](https://github.com/upptime/upptime).
@@ -78,17 +82,19 @@ Upptime is designed to be used as a GitHub template. This ensures you have the n
 5.  Click **Create repository from template**.
 
 ### 2. Generate a Personal Access Token (PAT)
+
 Because GitHub Actions needs to commit status updates and manage issues within your repository, you must provide a Personal Access Token with elevated permissions.
 
 1.  Go to your GitHub **Settings** > **Developer settings** > **Personal access tokens** > **Tokens (classic)**.
 2.  Click **Generate new token (classic)**.
 3.  Set the Note to `Upptime PAT`.
 4.  Select the following scopes:
-    *   `repo` (Full control of private and public repositories)
-    *   `workflow` (Update GitHub Action workflows)
+    - `repo` (Full control of private and public repositories)
+    - `workflow` (Update GitHub Action workflows)
 5.  Click **Generate token** and copy the value immediately.
 
 ### 3. Configure Repository Secrets
+
 To keep your PAT secure, you must store it as an encrypted secret in your repository.
 
 1.  In your new Upptime repository, navigate to **Settings** > **Secrets and variables** > **Actions**.
@@ -98,6 +104,7 @@ To keep your PAT secure, you must store it as an encrypted secret in your reposi
 5.  Click **Add secret**.
 
 ### 4. Customize the Configuration File
+
 The `.upptimerc.yml` file is the central configuration hub for your status page. This is where you define which endpoints to monitor.
 
 1.  Open `.upptimerc.yml` in the root of your repository.
@@ -113,6 +120,7 @@ The `.upptimerc.yml` file is the central configuration hub for your status page.
 4.  Commit these changes directly to the `master` or `main` branch.
 
 ### 5. Enable GitHub Pages
+
 Upptime automatically generates a static website to serve as your status page. You must configure GitHub to host this site.
 
 1.  Wait for the first GitHub Action workflow to complete (this happens automatically after your first commit).
@@ -122,13 +130,13 @@ Upptime automatically generates a static website to serve as your status page. Y
 5.  Your status page will soon be live at `https://<username>.github.io/<repository-name>/`.
 
 ### 6. Understanding the Monitoring Workflow
+
 Once configured, Upptime operates using the following automated logic:
 
-*   **Uptime Monitoring:** A GitHub Action runs every 5 minutes (configurable) to check the status of your sites using `curl`.
-*   **Incident Reporting:** If a site is down, Upptime automatically opens a GitHub Issue to log the downtime. When the site returns to an "up" state, the issue is automatically closed.
-*   **Data Persistence:** Response times and status history are committed to the `data` branch, which serves as a lightweight database.
-*   **Static Site Generation:** The status page UI is rebuilt periodically to reflect the latest data from the monitoring checks.
-
+- **Uptime Monitoring:** A GitHub Action runs every 5 minutes (configurable) to check the status of your sites using `curl`.
+- **Incident Reporting:** If a site is down, Upptime automatically opens a GitHub Issue to log the downtime. When the site returns to an "up" state, the issue is automatically closed.
+- **Data Persistence:** Response times and status history are committed to the `data` branch, which serves as a lightweight database.
+- **Static Site Generation:** The status page UI is rebuilt periodically to reflect the latest data from the monitoring checks.
 
 ## Configuration Example
 
@@ -152,7 +160,7 @@ status-website:
   # The configuration for your public-facing dashboard
   title: My Service Status
   logoUrl: https://raw.githubusercontent.com/upptime/logo/master/logo.png
-  name: "Service Status"
+  name: 'Service Status'
   introMessage: This page monitors our core infrastructure.
   navbar:
     - title: Status
@@ -164,9 +172,10 @@ status-website:
 ## Monitoring Strategy
 
 When implementing Upptime, consider the following best practices:
-*   **Check Intervals**: While GitHub Actions allows frequent runs, setting the interval too low (e.g., every 1 minute) may lead to rate limiting or high usage of Action minutes. A 5-minute interval is usually sufficient for most status pages.
-*   **Response Time Analysis**: Upptime creates graphs of response times. Ensure your endpoints are lightweight so the monitoring itself doesn't skew your performance data.
-*   **Issue Labels**: Upptime uses labels like `status` and `down` to categorize incidents. You can subscribe to these labels on GitHub to receive notifications on your phone or via email whenever a service goes down.
+
+- **Check Intervals**: While GitHub Actions allows frequent runs, setting the interval too low (e.g., every 1 minute) may lead to rate limiting or high usage of Action minutes. A 5-minute interval is usually sufficient for most status pages.
+- **Response Time Analysis**: Upptime creates graphs of response times. Ensure your endpoints are lightweight so the monitoring itself doesn't skew your performance data.
+- **Issue Labels**: Upptime uses labels like `status` and `down` to categorize incidents. You can subscribe to these labels on GitHub to receive notifications on your phone or via email whenever a service goes down.
 
 ```masteryls
 {"id":"5af2ba18-c779-4172-89e3-e4b256fa5d03","title":"Understanding Upptime Infrastructure","type":"multiple-choice"}
