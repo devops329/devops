@@ -112,6 +112,8 @@ This dashboard includes graphs showing request latency, the locations from which
 > [!NOTE]
 >
 > This requires your application to be currently running. If it is not, please deploy it before proceeding.
+>
+> Grafana frequently updates the interface for this functionality. It might appear slightly different for you, but the functionality is all there. You just might have to poke around to find it.
 
 To create a Grafana synthetic test, follow these steps:
 
