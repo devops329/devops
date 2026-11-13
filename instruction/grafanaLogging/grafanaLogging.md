@@ -25,9 +25,9 @@ To send logs over HTTP, you need an Access Policy token (API key).
 
 1. Open your Grafana Cloud dashboard.
 2. Select **Connections** from the left-hand menu and click **Add new connection**.
-3. Search for **Loki** or **Logs** and select it.
-4. This page provides the details and templates necessary to send logs to your Loki instance.
-5. Under the section for creating a token, provide the name `jwt-pizza-logs` for the **Access Policy token name**.
+3. Search for **Logs HTTP** and select it.
+4. Select **via HTTP** format.
+5. Under the section for creating a token, provide the name `jwt-pizza-logs` for the **Access Policy token name** with no expiry.
 6. Click **Create token**.
 7. Review the section titled **Anatomy of your Loki log**. This defines the JSON structure required to upload data to Loki.
 8. Review the section titled **Send logs from your application code**. This provides examples for Curl, Node.js, or Go. The example contains your specific API key, Account ID, and Endpoint URL.
