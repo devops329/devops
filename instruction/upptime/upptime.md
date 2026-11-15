@@ -1,5 +1,5 @@
 # Upptime
- 
+
 [Upptime](https://github.com/upptime/upptime) is a free, easy-to-configure status solution that leverages GitHub's infrastructure. It uses a scheduled GitHub Actions workflow to monitor your website and updates GitHub Pages to display the current status. GitHub Issues are used to track incidents, and the results are automatically integrated into the [status page](https://demo.upptime.js.org/).  This **serverless** approach makes it a highly cost-effective and resilient choice for developers and small teams.
 
 ![Upptime](upptime.png)
@@ -28,23 +28,58 @@ Implementing Upptime involves six primary steps to ensure the automation has the
 
 Upptime is designed to be used as a GitHub template. This ensures you have the necessary workflow files and directory structure.
 
-1.  Navigate to the [Upptime template repository](https://github.com/upptime/upptime).
-2.  Click the **Use this template** button and select **Create a new repository**.
-3.  Choose a name for your repository (e.g., `status-page`).
-4.  Ensure the repository visibility is set to **Public**. GitHub Actions and GitHub Pages are free for public repositories.
-5.  Click **Create repository from template**.
+1.  Initiate the creation of your Upptime repository using the [Upptime template](https://github.com/new?template_name=upptime&template_owner=upptime).
+1.  Choose a name for your repository (e.g., `status-page`).
+1. Select the option to include all branches. This is necessary in order to include all of the starting code.
+  ![createRepo.png](createRepo.png)
+1.  Ensure the repository visibility is set to **Public**. GitHub Actions and GitHub Pages are free for public repositories.
+1.  Click **Create repository**.
 
-### 2. Generate a Personal Access Token (PAT)
+### 2. Enable GitHub Pages
+
+Upptime automatically generates a static website to serve as your status page. You must configure GitHub Pages to host this site.
+
+1. Add a DNS record to your DNS hostname records.
+    ```txt
+    status.yourdomainname
+    CNAME
+    yourgithubaccount.github.io
+    ```
+1.  Navigate to **Settings** > **Pages**.
+1.  Under **Build and deployment** > **Branch**, verify, or select, `gh-pages` and the `/ (root)` folder.
+    ![gitHubPages.png](gitHubPages.png)
+1. Click **Save** if not already set.
+1. Set your status custom domain such as `status.yourdomainhere`. Once GitHub validates the name against your DNS server it should say **DNS check successful**.
+
+### 3. Generate a Personal Access Token (PAT)
 
 Because GitHub Actions needs to commit status updates and manage issues within your repository, you must provide a Personal Access Token with elevated permissions.
 
-1.  Go to your GitHub **Settings** > **Developer settings** > **Personal access tokens** > **Tokens (classic)**.
-2.  Click **Generate new token (classic)**.
-3.  Set the Note to `Upptime PAT`.
-4.  Select the following scopes:
-    - `repo` (Full control of private and public repositories)
-    - `workflow` (Update GitHub Action workflows)
-5.  Click **Generate token** and copy the value immediately.
+
+Click on your profile picture on the top-right corner and select "Settings"
+In the left sidebar, select "Developer settings"
+In the left sidebar, click "Personal access tokens" > "Fine-grained tokens"
+Click "Generate new token"
+Give your token a specific distinct name
+In the "Expiration" dropdown, select "90 days" or a custom, longer expiry
+In the "Resource Owner" section select the user or organization your Upptime repository belongs to
+In the "Repository Access" section select "Only select repositories" and select your Upptime repository
+In the "Permissions" > "Repository permissions" section enable read-write access to Actions, Contents, Issues and Workflows
+Skip the "Organization permissions" section
+Click "Generate token" or "Generate token and request access" (if it is in an org you are not an admin of)
+
+1. Go to GitHub **Settings** > **Developer settings** > **Personal access tokens** > **Fine-gramed tokens**.
+1. Click **Generate new token**.
+1. Give your token a specific distinct name such as _Upptime_.
+1. In the "Resource Owner" section select the user or organization your Upptime repository belongs to
+1. In the "Expiration" dropdown, select "90 days" or a custom, longer expiry
+1. In the "Repository Access" section select "Only select repositories" and select your Upptime repository
+1. In the **Permissions**, select the following **read/write** scopes for the following:
+   - Actions
+   - Contents
+   - Issues
+   - Workflows
+1.  Click **Generate token** and copy the value immediately.
 
 ### 3. Configure Repository Secrets
 
@@ -61,28 +96,43 @@ To keep your PAT secure, you must store it as an encrypted secret in your reposi
 The `.upptimerc.yml` file is the central configuration hub for your status page. This is where you define which endpoints to monitor.
 
 1.  Open `.upptimerc.yml` in the root of your repository.
-2.  Update the `owner` and `repo` fields to match your GitHub username and repository name.
-3.  Define the sites you want to monitor under the `sites` key:
+2.  Update the **owner** and **repo** fields to match your GitHub username and repository name.
+3.  Replace the sites with your JWT pizza site.
+1. Update the **status-website** fields with the appropriate values.
+1. Review your changes. (Replace `yourdomainname` with your domain name.)
+
     ```yaml
+    owner: leesjensen # Your GitHub organization or username, where this repository lives
+    repo: masteryls-status # The name of this repository
+
     sites:
-      - name: Google
-        url: https://www.google.com
-      - name: My Website
-        url: https://example.com
+      - name: JWT Pizza
+        url: https://pizza.yourdomainname
+
+    assignees: # Users to assign downtime issues (optional)
+      - leesjensen
+
+    status-website:
+      cname: status.yourdomainname
+      logoUrl: https://pizza.yourdomainname/jwt-pizza-icon.png
+      name: JWT Pizza Status
+      introTitle: '**JWT Pizza** The ultimate online pizza service'
+      introMessage: "Providing you up to date status for your favorite Pizza website."
+      navbar:
+        - title: Status
+          href: /
+        - title: GitHub
+          href: https://github.com/$OWNER/$REPO
     ```
-4.  Commit these changes directly to the `master` or `main` branch.
+4.  Commit these changes directly to the `master` branch. This will trigger the actions that build, monitory, and update your status website. You can validate that it is working by viewing the `Actions` workflows.
 
-### 5. Enable GitHub Pages
+  ![actionsWorkflows.png](actionsWorkflows.png)
 
-Upptime automatically generates a static website to serve as your status page. You must configure GitHub to host this site.
+After the successful completion of all the steps you should be able to view your status website at the domain that you provided.
 
-1.  Wait for the first GitHub Action workflow to complete (this happens automatically after your first commit).
-2.  Navigate to **Settings** > **Pages**.
-3.  Under **Build and deployment** > **Branch**, select `gh-pages` and the `/ (root)` folder.
-4.  Click **Save**.
-5.  Your status page will soon be live at `https://<username>.github.io/<repository-name>/`.
+![Upptime](upptime.png)
 
-### 6. Understanding the Monitoring Workflow
+## Understanding the Monitoring Workflow
 
 Once configured, Upptime operates using the following automated logic:
 
@@ -90,37 +140,6 @@ Once configured, Upptime operates using the following automated logic:
 - **Incident Reporting:** If a site is down, Upptime automatically opens a GitHub Issue to log the downtime. When the site returns to an "up" state, the issue is automatically closed.
 - **Data Persistence:** Response times and status history are committed to the `data` branch, which serves as a lightweight database.
 - **Static Site Generation:** The status page UI is rebuilt periodically to reflect the latest data from the monitoring checks.
-
-## Configuration Example
-
-The `.upptimerc.yml` file is the heart of your implementation. Below is an example of a basic configuration monitoring two different endpoints:
-
-```yaml
-# .upptimerc.yml
-owner: your-username
-repo: your-status-repo
-
-sites:
-  - name: Main Website
-    url: https://example.com
-  - name: API Gateway
-    url: https://api.example.com/v1/health
-    method: GET
-    # You can even check for specific status codes
-    expectedStatusCode: 200
-
-status-website:
-  # The configuration for your public-facing dashboard
-  title: My Service Status
-  logoUrl: https://raw.githubusercontent.com/upptime/logo/master/logo.png
-  name: 'Service Status'
-  introMessage: This page monitors our core infrastructure.
-  navbar:
-    - title: Status
-      href: /
-    - title: GitHub
-      href: https://github.com/your-username/your-status-repo
-```
 
 ## Monitoring Strategy
 
