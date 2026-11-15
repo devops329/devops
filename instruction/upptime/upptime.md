@@ -1,5 +1,5 @@
 # Upptime
-
+ 
 [Upptime](https://github.com/upptime/upptime) is a free, easy-to-configure status solution that leverages GitHub's infrastructure. It uses a scheduled GitHub Actions workflow to monitor your website and updates GitHub Pages to display the current status. GitHub Issues are used to track incidents, and the results are automatically integrated into the [status page](https://demo.upptime.js.org/).  This **serverless** approach makes it a highly cost-effective and resilient choice for developers and small teams.
 
 ![Upptime](upptime.png)
