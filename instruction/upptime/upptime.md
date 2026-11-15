@@ -126,7 +126,7 @@ The `.upptimerc.yml` file is the central configuration hub for your status page.
     ```
 4.  Commit these changes directly to the `master` branch. This will trigger the actions that build, monitory, and update your status website. You can validate that it is working by viewing the `Actions` workflows.
 
-  ![actionsWorkflows.png](actionsWorkflows.png)
+  <img src="actionsWorkflows.png" width="500" />
 
 After the successful completion of all the steps you should be able to view your status website at the domain that you provided.
 
