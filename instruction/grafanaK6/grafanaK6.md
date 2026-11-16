@@ -48,20 +48,16 @@ You will create your first K6 load test against your JWT Pizza production deploy
 ### Creating the project and test
 
 1.  Open your Grafana Cloud dashboard.
-1.  Navigate to the Home menu and click **Testing & synthetics > Performance > Projects**.
-1.  Click the **Create new project** button and give it the name **JWT Pizza**.
-1. Click the **Create test** button.
-1. Click the **HTTP API** option and the **Write a script** option.
+1.  Navigate to the Home menu and click **Testing & synthetics > Performance**.
+1. For your first test, click the **HTTP API** option and the then the **Can't find what you need? Try the Test Builder** link near the bottom.
 
-    ![createATest.png](createATest.png)
-
-   This will display a template script that hits the Grafana website.
+    ![startTestBuilder.png](startTestBuilder.png)
 
 1.  Rename the test from the default to `Login and order pizza`.
 
-![defaultTestScript.png](defaultTestScript.png)
+    ![testDefault.png](testDefault.png)
 
-1. Leave the project here for now as we record a HAR file using Chrome.
+1. We want to use the option to **IMPORT A HAR FILE**, but first we have to create one. Leave the project here for now so that we can use Google Chrome to record the HAR file.
 
 ### Recording a HAR file
 
@@ -107,7 +103,9 @@ Review each step and provide descriptive names for the requests. You should have
 
 Next, define the execution scenario. In the left-hand menu, click **SCENARIO_1 -> Options**. By default, K6 ramps up from 0 to 20 VUs over 1 minute, stays at 20 VUs for 3.5 minutes, and then ramps down.
 
-**Note:** High-volume tests generate real traffic and can impact AWS costs. For this exercise, adjust the target VUs and duration to match the following:
+> [!NOTE]
+> 
+> High-volume tests generate real traffic and can impact AWS costs. For this exercise, adjust the target VUs and duration to match the following:
 
 ![Altered scenario](alertedScenario.png)
 
@@ -115,7 +113,7 @@ When finished, click **Create**.
 
 ## Running a test
 
-Open your test and click **Run**. You can also **Set up a schedule** if you prefer to run tests during off-peak hours.
+Open your test and click **Run Test**.
 
 It takes a few minutes for K6 to provision the load-generation servers and begin the script. Results will begin to populate in real time.
 
@@ -170,7 +168,7 @@ check(response, { 'status equals 200': (response) => response.status.toString() 
 To stop the iteration immediately upon failure, we must move from the visual Builder to the **Script Editor**.
 
 1.  Copy the current script from the Builder.
-1.  Return to the project root, click **Create new test**, and select **Script Editor**.
+1.  Return to the project root, click **Create new test**, select **HTTP API**, and then **Write a script**.
 1.  Paste your script.
 1.  Modify the `k6` import to include the `fail` function:
 
