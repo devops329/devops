@@ -86,7 +86,7 @@ Is it constant during usage but prone to spikes as new resources come online?
 
 Or does it grow exponentially and cause the system to collapse at a certain level of usage?
 
-![Exponential scaling](exponentialScaling.png)
+![exponentialCrash.png](exponentialCrash.png)
 
 The primary value of load testing is the ability to predict application performance before your company's reputation is at stake.
 
