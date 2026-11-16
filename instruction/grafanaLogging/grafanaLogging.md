@@ -160,7 +160,7 @@ Once your query in Explore is refined:
 2. Choose **Existing dashboard**, select your **Pizza Dashboard**, and click **Open in new tab**.
    ![Specify dashboard](specifyDashboard.png)
 3. You will need to make several changes to your visualization in order for it to display nicely. This includes:
-    1. Enabling the Table view found at the top left.
+    1. Enabling the `Table view` found at the top left.
     2. Adding the `Extract fields` transformation to convert the **line** field into JSON.
     3. Adding the `Organize fields by name` tranformation to display or hide the desired fields.
   
