@@ -159,7 +159,14 @@ Once your query in Explore is refined:
    ![Add to dashboard](addToDashboard.png)
 2. Choose **Existing dashboard**, select your **Pizza Dashboard**, and click **Open in new tab**.
    ![Specify dashboard](specifyDashboard.png)
-3. Arrange and save the new panel on your dashboard.
+3. You will need to make several changes to your visualization in order for it to display nicely. This includes:
+    1. Enabling the Table view found at the top left.
+    2. Adding the `Extract fields` transformation to convert the **line** field into JSON.
+    3. Adding the `Organize fields by name` tranformation to display or hide the desired fields.
+  
+    ![logVisualization.png](logVisualization.png)
+  
+4. Arrange and save the new panel on your dashboard.
 
 You can now stop the Curl loop in your terminal. Next, you will generate logs directly from application code.
 
