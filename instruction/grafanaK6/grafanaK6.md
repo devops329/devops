@@ -49,36 +49,30 @@ You will create your first K6 load test against your JWT Pizza production deploy
 
 1.  Open your Grafana Cloud dashboard.
 1.  Navigate to the Home menu and click **Testing & synthetics > Performance > Projects**.
-1.  Click the **Start testing** button.
+1.  Click the **Create new project** button and give it the name **JWT Pizza**.
+1. Click the **Create test** button.
+1. Click the **HTTP API** option and the **Write a script** option.
 
-    ![Start testing](startTesting.png)
+    ![createATest.png](createATest.png)
 
-    This displays the default project created with your account. You can create a new project or use the default.
-
-    ![Default K6 project](defaultProject.png)
-
-1.  Click the **Default project** name, then click **Create new test**.
-1.  You will see several options for creating a test:
-    1.  **K6 CLI**: Build tests locally in your development environment.
-    2.  **Script Editor**: Write a JavaScript testing script directly in Grafana Cloud.
-    3.  **Test Builder**: Use a GUI to construct tests (the fastest way to start).
-    4.  **Record user flow**: Record actions directly in the browser.
-
-1.  Click **Start Building** to use the **Test Builder**.
-
-    ![Test builder](testBuilder.png)
-
-    While you can record a scenario using a Chrome extension, we will instead record and upload an HTTP Archive (HAR) file, which requires no additional installations.
+   This will display a template script that hits the Grafana website.
 
 1.  Rename the test from the default to `Login and order pizza`.
+
+![defaultTestScript.png](defaultTestScript.png)
+
+1. Leave the project here for now as we record a HAR file using Chrome.
 
 ### Recording a HAR file
 
 A HAR file contains all HTTP requests and responses captured by the browser.
 
-**Note:** Before recording, you must enable the export of sensitive data so the HAR file includes authorization tokens. In Chrome DevTools, click the **Settings (gear icon)** > **Preferences** > **Network** and check **Allow to generate HAR with sensitive data**.
+> [!NOTE]
+>
+> Before recording, you must enable the export of sensitive data so the HAR file includes authorization tokens. In Chrome DevTools, click the **Settings (gear icon)** > **Preferences** > **Network** and check **Allow to generate HAR with sensitive data**.
+>
+> ![Enable Sensitive HAR Export](enableSensitiveHarExport.png)
 
-![Enable Sensitive HAR Export](enableSensitiveHarExport.png)
 
 1.  Open Chrome and navigate to your JWT Pizza website. Ensure you are logged out and clear your browser cache to avoid sending cached headers.
 1.  Open DevTools and go to the **Network** tab.
@@ -100,6 +94,8 @@ A HAR file contains all HTTP requests and responses captured by the browser.
 1.  Disable filtering on necessary domains (e.g., `pizza-factory.cs239.click`) to ensure all relevant requests are included.
 
 ![Import HAR options](importHarOptions.png)
+
+1. Press the **Create test** button to save your newly created script. There may be some warnings about the script containing secrets. This is a reference to the JWT the factory created for your pizza order. You will fix this later.
 
 The builder will generate a list of test steps. Review the requests (path, headers, and query parameters). You may see several `HTTP OPTIONS` requests; you can delete these using the trash icon to simplify the script.
 
