@@ -176,9 +176,17 @@ This will do an initial check of your submission and then pass it on for final g
 
 ### Rubric
 
-| Percent | Item                                                             |
-| ------- | ---------------------------------------------------------------- |
-| 70%     | Storing all required log events in Grafana Cloud Loki data store |
-| 30%     | Visualizing all required log events in Grafana Cloud dashboard   |
+| Percent | Item                                                                                         |
+| ------- | -------------------------------------------------------------------------------------------- |
+| 15%     | HTTP requests to your backend (5 points for each: HTTP method, path, status code)            |
+| 5%      | Logging the presence or absence of an authorization headers in HTTP requests to your backend |
+| 5%      | The user making the request if the request is authenticated                                  |
+| 10%     | HTTP request bodies sent to your backend                                                     |
+| 10%     | HTTP response bodies sent from your backend                                                  |
+| 20%     | SQL queries                                                                                  |
+| 10%     | Factory request bodies                                                                       |
+| 10%     | Factory response bodies                                                                      |
+| 10%     | Any unhandled exceptions                                                                     |
+| 5%      | Sanitize all log entries so that they do not contain any confidential information            |
 
 **Congratulations!** You have provided significant observability for your JWT Pizza Service. Time to go celebrate. I'm thinking bananas sound nice 🍌.
