@@ -240,9 +240,9 @@ function sendMetricsPeriodically(period) {
 
 You will need some traffic to your website in order to demonstrate that the visualizations are working. The easiest way to do this, is to follow the [Simulating traffic](../simulatingTraffic/simulatingTraffic.md) instruction.
 
-## Make your dashboard public
+## ⭐ Deliverable
 
-In order to complete the deliverable you need to make your dashboard public so that all of your adoring fans (i.e. your reviewers) can admire it.
+In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
 
 1. Navigate to your Grafana dashboard. If it says `Exit edit` in the top right corner then make sure you exit edit mode.
 
@@ -263,32 +263,13 @@ In order to complete the deliverable you need to make your dashboard public so t
 1. Copy the external link.
 1. Open an **incognito window** and test the link to make sure it renders the dashboard with the correct time range.
 
+Once this is all working you should have something like this:
 ![alt text](fullDashboard.png)
 
 > [!IMPORTANT]
 >
 > The time-range makes it possible for the reviewer to grade your work. Without the time range, your submission may be rejected.
-
-## ⭐ Deliverable
-
-In order to demonstrate your mastery of the concepts for this deliverable, complete the following.
-
-1. Modify your fork of the `jwt-pizza-service` to generate the [required metrics](#required-metrics) and store them in your Grafana Cloud account.
-1. Create visualizations on your Grafana Cloud `Pizza Dashboard` to display all the required metrics.
-1. Export a copy of your dashboard and save it to your fork of the `jwt-pizza-service` repository in a directory named `grafana`.
-   1. On the Grafana Cloud console, navigate to your dashboard.
-   1. Press the `Share` button.
-   1. Press the `Export` tab and `Save to file`.
-   1. Name the file `grafana/deliverable8dashboard.json`
-1. Commit and push your changes so that they are running in your production environment.
-1. Simulate traffic to ensure all metrics and submetrics display nonzero data, demonstrating proper metric recording.
-
-Once this is all working you should have something like this:
-
-![Metric dashboard](metricDashboard.png)
-
-Get the [public URL](../deliverable8Metrics/deliverable8Metrics.md#make-your-dashboard-public) as described above. The URL must generate a dashboard, in an incognito window, that shows a time range when your metrics were correctly recording the required pizza data.
-
+> The URL must generate a dashboard, in an incognito window, that shows a time range when your metrics were correctly recording the required pizza data.
 
 ```masteryls
 {"id":"ed3699cd-7a05-47e6-8383-8c31ba6b18a5", "title":"⓼ Metrics deployment", "type":"url-submission", "syncGrade":true, "autoGrade":false, "validateUrl":true, "gradingCriteria":"The resulting HTML page contains the title 'Grafana'\n- The URL contains the path 'public-dashboards'.\n- Ignore any 'Error loading Grafana' messages contained in the page's javascript" }
@@ -301,9 +282,18 @@ This will do an initial check of your submission and then pass it on for final g
 ```
 
 
-| Percent | Item                                                                          |
-| ------- | ----------------------------------------------------------------------------- |
-| 30%     | Storing all required metrics in Grafana Cloud Prometheus data store           |
-| 70%     | Visualizing all required metrics with nonzero data in Grafana Cloud dashboard |
+| Percent             | Item                                                                                    |
+| ------------------- | --------------------------------------------------------------------------------------- |
+| **Prerequisite** 0% | Grafana Dashboard is public and users can edit time range                               |
+| 10%                 | HTTP requests by method/minute (2 points for each of GET, PUT, POST, DELETE, and total) |
+| 10%                 | Active users                                                                            |
+| 10%                 | Authentication attempts/minute (5 points for successful and 5 for failed)               |
+| 10%                 | CPU Usage percentage                                                                    |
+| 10%                 | Memory usage percentage                                                                 |
+| 10%                 | Pizzas Sold/minute                                                                      |
+| 10%                 | Pizza Creation failures                                                                 |
+| 10%                 | Revenue/minute                                                                          |
+| 10%                 | Service endpoint latency                                                                |
+| 10%                 | Pizza creation latency                                                                  |
 
 **Congratulations!** You have provided significant observability for your JWT Pizza Service. Time to go celebrate. I'm thinking tacos 🌮.
