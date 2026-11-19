@@ -282,9 +282,18 @@ This will do an initial check of your submission and then pass it on for final g
 ```
 
 
-| Percent | Item                                                                          |
-| ------- | ----------------------------------------------------------------------------- |
-| 30%     | Storing all required metrics in Grafana Cloud Prometheus data store           |
-| 70%     | Visualizing all required metrics with nonzero data in Grafana Cloud dashboard |
+| Percent             | Item                                                                                    |
+| ------------------- | --------------------------------------------------------------------------------------- |
+| **Prerequisite** 0% | Grafana Dashboard is public and users can edit time range                               |
+| 10%                 | HTTP requests by method/minute (2 points for each of GET, PUT, POST, DELETE, and total) |
+| 10%                 | Active users                                                                            |
+| 10%                 | Authentication attempts/minute (5 points for successful and 5 for failed)               |
+| 10%                 | CPU Usage percentage                                                                    |
+| 10%                 | Memory usage percentage                                                                 |
+| 10%                 | Pizzas Sold/minute                                                                      |
+| 10%                 | Pizza Creation failures                                                                 |
+| 10%                 | Revenue/minute                                                                          |
+| 10%                 | Service endpoint latency                                                                |
+| 10%                 | Pizza creation latency                                                                  |
 
 **Congratulations!** You have provided significant observability for your JWT Pizza Service. Time to go celebrate. I'm thinking tacos 🌮.
