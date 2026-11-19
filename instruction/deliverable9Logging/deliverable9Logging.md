@@ -179,7 +179,7 @@ This will do an initial check of your submission and then pass it on for final g
 | Percent | Item                                                                                         |
 | ------- | -------------------------------------------------------------------------------------------- |
 | 15%     | HTTP requests to your backend (5 points for each: HTTP method, path, status code)            |
-| 5%      | Logging the presence or absence of an authorization headers in HTTP requests to your backend |
+| 5%      | Logging the presence or absence of an authorization header in HTTP requests to your backend |
 | 5%      | The user making the request if the request is authenticated                                  |
 | 10%     | HTTP request bodies sent to your backend                                                     |
 | 10%     | HTTP response bodies sent from your backend                                                  |
