@@ -72,7 +72,7 @@ A HAR file contains all HTTP requests and responses captured by the browser.
 
 1.  Open Chrome and navigate to your JWT Pizza website. Ensure you are logged out and clear your browser cache to avoid sending cached headers.
 1.  Open DevTools and go to the **Network** tab.
-1.  Select **Preserve log** and clear any existing recorded requests.
+1.  Select **Keep log** and clear any existing recorded requests.
 
 <video controls width="800px"><source src="recordHar.mp4" type="video/mp4"></video>
 
