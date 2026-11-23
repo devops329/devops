@@ -30,15 +30,13 @@ It is time to add logging observability to the `jwt-pizza-service` code. In your
 
 1. HTTP requests (calls to pizza-service.yourdomain)
    1. HTTP method, path, status code
-   1. If the request has an authorization header
-   1. The user making the request if authenticated
+   1. The presence/absence of an authorization header
+      1. The user making the request if the request has an authorization header
    1. Request body
    1. Response body
 1. Database requests
    1. SQL queries
-   1. The user making the request if authenticated
 1. Factory service requests (calls to pizza-factory.cs329.click)
-   1. The user making the request if authenticated
    1. Factory request body
    2. Factory response body
 1. Any unhandled exceptions
@@ -155,11 +153,6 @@ In order to demonstrate your mastery of the concepts for this deliverable, compl
 
 1. Modify your fork of the `jwt-pizza-service` to generate the required logs and store them in your Grafana Cloud account.
 1. Create a log visualization on your Grafana Cloud `Pizza Dashboard` to display all the [required log events](#required-log-events).
-1. Export a copy of your dashboard and save it to your fork of the `jwt-pizza-service` repository in a directory named `grafana`.
-   1. On the Grafana Cloud console, navigate to your dashboard.
-   1. Press the `Export` tab and `Export as code`.
-   1. Press `Download file`, or press `Copy to clipboard` and paste the code into a new file.
-   1. Name the file `grafana/deliverable9dashboard.json`
 1. Commit and push your changes so that they are running in your production environment.
 
 Once this is all working you should have something like this:
@@ -181,9 +174,17 @@ This will do an initial check of your submission and then pass it on for final g
 
 ### Rubric
 
-| Percent | Item                                                             |
-| ------- | ---------------------------------------------------------------- |
-| 70%     | Storing all required log events in Grafana Cloud Loki data store |
-| 30%     | Visualizing all required log events in Grafana Cloud dashboard   |
+| Percent | Item                                                                                         |
+| ------- | -------------------------------------------------------------------------------------------- |
+| 15%     | HTTP requests to your backend (5 points for each: HTTP method, path, status code)            |
+| 5%      | Logging the presence or absence of an authorization headers in HTTP requests to your backend |
+| 5%      | The user making the request if the request is authenticated                                  |
+| 10%     | HTTP request bodies sent to your backend                                                     |
+| 10%     | HTTP response bodies sent from your backend                                                  |
+| 20%     | SQL queries                                                                                  |
+| 10%     | Factory request bodies                                                                       |
+| 10%     | Factory response bodies                                                                      |
+| 10%     | Any unhandled exceptions                                                                     |
+| 5%      | Sanitize all log entries so that they do not contain any confidential information            |
 
 **Congratulations!** You have provided significant observability for your JWT Pizza Service. Time to go celebrate. I'm thinking bananas sound nice 🍌.
