@@ -103,7 +103,11 @@ Experiment with chaos testing by performing the following steps:
    curl -X PUT $host/api/order/chaos/true -H "Authorization: Bearer $token"
 
    # Attempt to place an order (repeat to see random 500 errors)
-   curl -s -X POST $host/api/order -H 'Content-Type: application/json' -d '{"franchiseId": 1, "storeId":1, "items":[{ "menuId": 1, "description": "Veggie", "price": 0.05 }]}' -H "Authorization: Bearer $token"
+   curl -s -o /dev/null -w '%{http_code}\n' \
+     -X POST "$host/api/order" \
+     -H 'Content-Type: application/json' \
+     -d '{"franchiseId": 1, "storeId":1, "items":[{ "menuId": 1, "description": "Veggie", "price": 0.05 }]}' \
+     -H "Authorization: Bearer $token"
    ```
 
 1. Ensure you have a dashboard or metrics view that clearly displays the increase in error rates during chaos.
